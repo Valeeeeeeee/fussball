@@ -1,0 +1,23 @@
+1;Thibaut Courtois;(TW)
+2;Toby Alderweireld;
+3;Thomas Vermaelen;
+4;Vincent Kompany;(C)
+5;Jan Vertonghen;
+6;Axel Witsel;
+7;Kevin De Bruyne;
+8;Marouane Fellaini;
+9;Romelu Lukaku;
+10;Eden Hazard;
+11;Kevin Mirallas;
+12;Simon Mignolet;(TW)
+13;Sammy Bossut;(TW)
+14;Dries Mertens;
+15;Daniel Van Buyten;
+16;Steven Defour;
+17;Divock Origi;
+18;Nicolas Lombaerts;
+19;Moussa Dembélé;
+20;Adnan Januzaj;
+21;Anthony Vanden Borre;
+22;Nacer Chadli;
+23;Laurent Ciman;

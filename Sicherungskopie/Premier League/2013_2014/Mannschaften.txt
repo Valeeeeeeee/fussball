@@ -1,0 +1,21 @@
+20
+Manchester United;09.09.1893;
+Manchester City;09.09.1893;
+FC Chelsea;09.09.1893;
+FC Arsenal;09.09.1893;
+Tottenham Hotspurs;09.09.1893;
+FC Everton;09.09.1893;
+FC Liverpool;09.09.1893;
+West Bromwich Albion;09.09.1893;
+Swansea City;09.09.1893;
+West Ham United;09.09.1893;
+Norwich City;09.09.1893;
+FC Fulham;09.09.1893;
+Stoke City;09.09.1893;
+FC Southampton;09.09.1893;
+Aston Villa;09.09.1893;
+Newcastle United;09.09.1893;
+AFC Sunderland;09.09.1893;
+Cardiff City;09.09.1893;
+Hull City Tigers;09.09.1893;
+Crystal Palace;09.09.1893;

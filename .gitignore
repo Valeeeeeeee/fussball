@@ -1,6 +1,5 @@
 .classpath
 *.class
-Sicherungskopie/*
 *uefacoefficient*
 *5-Jahres-Wertung*
 src/util/TestKlasse.java

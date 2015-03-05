@@ -1,0 +1,574 @@
+package model;
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+@SuppressWarnings({ "rawtypes", "unchecked" })
+public class Spieltag extends JPanel {
+	private static final long serialVersionUID = 533273470193095401L;
+
+	JComboBox jCBSpieltage;
+	JLabel[] mannschaften;
+	JTextField[] tore;
+	JButton bearbeiten;
+	JButton fertig;
+	JLabel[] spieltagsdaten;
+
+	int[][] array;
+	int edited_date;
+	int edited_team = -1;
+	int edited_matchday = -1;
+	int current_matchday = -1;
+
+	final int STARTX = 0;
+	final int STARTY = 1;
+	final int GAPX = 2;
+	final int GAPY = 3;
+	final int WIDTH = 4;
+	final int HEIGHT = 5;
+
+	private int[] labels = { 160, 140, 120, 10, 120, 30 };
+
+	private int[] textfields = { labels[STARTX] + labels[WIDTH] + 15, labels[STARTY], 
+			labels[GAPX] - 30 - 2 * 40, labels[GAPY], 40, labels[HEIGHT] };
+
+	Rectangle posbearbfertig = new Rectangle(440, 10, 160, 30);
+	Rectangle poscombobox = new Rectangle(220, 10, 200, 30);
+
+	public JPanel mannschaftenauswahl;
+	public JButton[] mannschaftenbtns;
+	int[] buttonsauswahl = new int[6];
+
+	int countTeams;
+	int numberOfMatches;
+	int countMatchdays;
+	int halfCountTeamsRoundUp;
+
+	private boolean belongsToALeague = false;
+	private boolean belongsToKORound = false;
+	private Liga liga;
+	private Gruppe gruppe;
+	private Turnier turnier;
+	private int KORound = -1;
+
+	public Spieltag(Liga liga) {
+		super();
+
+		this.liga = liga;
+		this.belongsToALeague = true;
+		this.belongsToKORound = false;
+
+		this.numberOfMatches = liga.getAnzahlSpiele();
+		this.countTeams = liga.getAnzahlTeams();
+		this.countMatchdays = liga.getAnzahlSpieltage();
+		this.halfCountTeamsRoundUp = liga.getHalbeAnzMSAuf();
+
+		buttonsauswahl[STARTX] = 10;
+		buttonsauswahl[STARTY] = 10;
+		buttonsauswahl[GAPX] = 10;
+		buttonsauswahl[GAPY] = 10;
+		buttonsauswahl[WIDTH] = 200;
+		buttonsauswahl[HEIGHT] = 60;
+
+		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > 800) {
+			buttonsauswahl[HEIGHT] = (800 - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
+			JOptionPane.showMessageDialog(null, "Der berechnete Wert für height liegt bei " + buttonsauswahl[HEIGHT] + " mit hAnzAuf = "
+							+ halfCountTeamsRoundUp, "\"height\" wurde berechnet", JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		initGUI();
+	}
+
+	public Spieltag(Gruppe gruppe) {
+		super();
+
+		this.gruppe = gruppe;
+		this.belongsToALeague = false;
+		this.belongsToKORound = false;
+
+		this.numberOfMatches = gruppe.getNumberOfMatchesPerMatchday();
+		this.countTeams = gruppe.getNumberOfTeams();
+		this.countMatchdays = gruppe.getNumberOfMatchdays();
+		this.halfCountTeamsRoundUp = (this.countTeams % 2 == 0 ? this.countTeams / 2 : this.countTeams / 2 + 1);
+
+		buttonsauswahl[STARTX] = 10;
+		buttonsauswahl[STARTY] = 10;
+		buttonsauswahl[GAPX] = 10;
+		buttonsauswahl[GAPY] = 10;
+		buttonsauswahl[WIDTH] = 200;
+		buttonsauswahl[HEIGHT] = 60;
+		
+		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > 800) {
+			buttonsauswahl[HEIGHT] = (800 - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
+			JOptionPane.showMessageDialog(null, "Der berechnete Wert für height liegt bei " + buttonsauswahl[HEIGHT] + " mit hAnzAuf = "
+							+ halfCountTeamsRoundUp, "\"height\" wurde berechnet", JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		initGUI();
+	}
+	
+	public Spieltag(Turnier turnier, int KOround, int numberOfMatches, boolean secondLeg) {
+		super();
+		
+		this.turnier = turnier;
+		belongsToALeague = false;
+		belongsToKORound = true;
+		this.KORound = KOround;
+		
+		this.numberOfMatches = numberOfMatches;
+		this.countTeams = 2 * numberOfMatches;
+		this.countMatchdays = secondLeg ? 2 : 1;
+		this.halfCountTeamsRoundUp = this.countTeams / 2;
+
+		buttonsauswahl[STARTX] = 10;
+		buttonsauswahl[STARTY] = 10;
+		buttonsauswahl[GAPX] = 10;
+		buttonsauswahl[GAPY] = 10;
+		buttonsauswahl[WIDTH] = 200;
+		buttonsauswahl[HEIGHT] = 60;
+		
+		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > 800) {
+			buttonsauswahl[HEIGHT] = (800 - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
+			JOptionPane.showMessageDialog(null, "Der berechnete Wert für height liegt bei " + buttonsauswahl[HEIGHT] + " mit hAnzAuf = "
+							+ halfCountTeamsRoundUp, "\"height\" wurde berechnet", JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+		System.out.println("Neuer Spieltag für KO-Runde " + this.KORound + " im Turnier " + turnier.getName() + ".");
+		System.out.println("Es gibt " + numberOfMatches + (numberOfMatches > 1 ? " Spiele" : " Spiel") + " und " + (secondLeg ? "ein" : "kein") + " Rückspiel.\n");
+		
+		initGUI();
+		
+	}
+
+	public void initGUI() {
+		try {
+			this.setLayout(null);
+
+			// TODO min und maxheight sinnvoll setzen
+			int minimumheight = 400;
+			int maximumheight = 800;
+
+			Dimension dim = new Dimension();
+			dim.width = 1200;
+
+			int heightOfTeamLabels = labels[STARTY] + numberOfMatches * (labels[HEIGHT] + labels[GAPY]) + 20;
+			int heightOfTeamSelection = 2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY])
+					- buttonsauswahl[GAPY];
+
+			dim.height = (heightOfTeamLabels > heightOfTeamSelection ? heightOfTeamLabels : heightOfTeamSelection);
+//			JOptionPane.showMessageDialog(null, "labelsHeight = " + heightOfTeamLabels + " oder buttonsHeight = " + heightOfTeamSelection
+//					+ " macht: " + dim.height);
+
+			// correction to minimumheight or maximumheight if out of these bounds
+			if (dim.height < minimumheight) {
+				dim.height = minimumheight;
+			} else if (dim.height > maximumheight) {
+				dim.height = maximumheight;
+			}
+
+			this.setSize(dim);
+//			JOptionPane.showMessageDialog(null, "This is dim: " + dim);
+
+			
+			mannschaftenbtns = new JButton[countTeams];
+			mannschaften = new JLabel[2 * numberOfMatches];
+			tore = new JTextField[2 * numberOfMatches];
+			array = new int[numberOfMatches][2];
+			spieltagsdaten = new JLabel[numberOfMatches];
+			
+			{
+				String[] hilfsarray = new String[countMatchdays];
+				for (int i = 0; i < countMatchdays; i++) {
+					hilfsarray[i] = (i + 1) + ". Spieltag";
+				}
+				ComboBoxModel jCB1Model = new DefaultComboBoxModel(hilfsarray);
+				jCBSpieltage = new JComboBox();
+				this.add(jCBSpieltage);
+				jCBSpieltage.setModel(jCB1Model);
+				jCBSpieltage.setBounds(poscombobox);
+				jCBSpieltage.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent evt) {
+						jCBSpieltageItemStateChanged(evt);
+					}
+				});
+			}
+			
+			for (int i = 0; i < spieltagsdaten.length; i++) {
+				final int x = i;
+				spieltagsdaten[i] = new JLabel();
+				this.add(spieltagsdaten[i]);
+				spieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[HEIGHT] + labels[GAPY]), 120, labels[HEIGHT]);
+				spieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+//				spieltagsdaten[i].setOpaque(true);
+//				spieltagsdaten[i].setBackground(null);
+				spieltagsdaten[i].addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e) {
+						datumsLabelClicked(x);
+					}
+				});
+			}
+			
+			for (int i = 0; i < mannschaften.length; i++) {
+				final int x = i;
+				int zeile = i % numberOfMatches;
+				int spalte = i / numberOfMatches;
+
+				mannschaften[i] = new JLabel();
+				this.add(mannschaften[i]);
+				mannschaften[i].setBounds(labels[STARTX] + spalte * (labels[WIDTH] + labels[GAPX]), 
+						labels[STARTY] + zeile * (labels[HEIGHT] + labels[GAPY]), labels[WIDTH], labels[HEIGHT]);
+				if (spalte == 0)	mannschaften[i].setHorizontalAlignment(SwingConstants.RIGHT);
+				else				mannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
+				mannschaften[i].setEnabled(false);
+				mannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+//				mannschaften[i].setOpaque(true);
+//				mannschaften[i].setBackground(null);
+				mannschaften[i].addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						if (mannschaften[x].isEnabled()) {
+							mannschaftClicked(x);
+						}
+					}
+				});
+			}
+			
+			for (int i = 0; i < tore.length; i++) {
+				final int x = i;
+				tore[i] = new JTextField();
+				this.add(tore[i]);
+				tore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[WIDTH] + textfields[GAPX]), textfields[STARTY] + (i % numberOfMatches) * (textfields[HEIGHT] + textfields[GAPY]), textfields[WIDTH], textfields[HEIGHT]);
+				tore[i].setHorizontalAlignment(SwingConstants.CENTER);
+				tore[i].addKeyListener(new KeyAdapter() {
+					public void keyTyped(KeyEvent arg0) {
+						if ((tore[x].getText().length() >= 2 && !tore[x].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
+							arg0.consume();
+						}
+					}
+				});
+				tore[i].addFocusListener(new FocusAdapter() {
+					public void focusGained(FocusEvent arg0) {
+						tore[x].selectAll();
+					}
+				});
+			}
+			
+			{
+				bearbeiten = new JButton();
+				this.add(bearbeiten);
+				bearbeiten.setBounds(posbearbfertig);
+				bearbeiten.setText("Spielplan bearbeiten");
+				bearbeiten.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						bearbeitenActionPerformed();
+					}
+				});
+			}
+			{
+				fertig = new JButton();
+				this.add(fertig);
+				fertig.setBounds(posbearbfertig);
+				fertig.setText("Speichern");
+				fertig.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						fertigActionPerformed();
+					}
+				});
+				fertig.setVisible(false);
+			}
+			
+			{
+				mannschaftenauswahl = new JPanel();
+				this.add(mannschaftenauswahl);
+				mannschaftenauswahl.setLayout(null);
+				mannschaftenauswahl.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[WIDTH]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
+						+ halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]);
+				mannschaftenauswahl.setLocation(680, (this.getSize().height - mannschaftenauswahl.getSize().height) / 2);
+				mannschaftenauswahl.setVisible(false);
+				mannschaftenauswahl.setOpaque(true);
+				mannschaftenauswahl.setBackground(Color.red);
+			}
+
+			for (int i = 0; i < countTeams; i++) {
+				final int x = i; // für den ActionListener
+				int xfactor = i / halfCountTeamsRoundUp, yfactor = i % halfCountTeamsRoundUp;
+				mannschaftenbtns[i] = new JButton();
+				mannschaftenauswahl.add(mannschaftenbtns[i]);
+				if (belongsToALeague)		mannschaftenbtns[i].setText(liga.getMannschaften()[i].getName());
+				else if (!belongsToKORound)	mannschaftenbtns[i].setText(gruppe.getMannschaften()[i].getName());
+				else						mannschaftenbtns[i].setText(turnier.getMannschaftenIn(KORound)[i].getName());
+				mannschaftenbtns[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[WIDTH] + buttonsauswahl[GAPX]),
+								buttonsauswahl[STARTY] + yfactor * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]), buttonsauswahl[WIDTH], buttonsauswahl[HEIGHT]);
+				mannschaftenbtns[i].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						mannschaftenButtonClicked(x);
+						mannschaftenauswahl.setVisible(false);
+					}
+				});
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.red);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		g.clearRect(2, 2, getWidth() - 4, getHeight() - 4);
+
+		// Hintergrund
+		for (int i = 2; i < this.getHeight() - 2; i++) {
+			g.setColor(new Color(0, 128 + (128 * i / (this.getHeight() - 2)), 0));
+			g.drawLine(2, i, this.getWidth() - 3, i);
+		}
+	}
+
+	public void jCBSpieltageItemStateChanged(ItemEvent evt) {
+		if (evt.getStateChange() == ItemEvent.SELECTED) {
+			if (belongsToALeague) {
+				liga.ergebnisse_sichern();
+				spieltagAnzeigen();
+			} else if (!belongsToKORound) {
+				gruppe.ergebnisseSichern();
+				spieltagAnzeigen();
+			} else {
+				turnier.ergebnisseSichern(KORound);
+				spieltagAnzeigen();
+			}
+		}
+	}
+	
+	private void setLabelsEnabled(boolean bool) {
+		for (JLabel lbl : mannschaften) {
+			lbl.setEnabled(bool);
+			lbl.setOpaque(false);
+		}
+	}
+
+	private void setTFsEditable(boolean bool) {
+		for (JTextField tf : tore) {
+			tf.setEditable(bool);
+		}
+	}
+
+	private void spieltagsdatenBefuellen() {
+		String[] dateandtimeofmatches = new String[numberOfMatches];
+		for (int i = 0; i < numberOfMatches; i++) {
+			if (belongsToALeague)		dateandtimeofmatches[i] = liga.getDateOf(current_matchday, i);
+			else if (!belongsToKORound)	dateandtimeofmatches[i] = gruppe.getDateOf(current_matchday, i);
+			else						dateandtimeofmatches[i] = turnier.getDateOf(KORound, current_matchday, i);
+			if (i < 1 || !dateandtimeofmatches[i].equals(dateandtimeofmatches[i - 1]))		spieltagsdaten[i].setText(dateandtimeofmatches[i]);
+			else																			spieltagsdaten[i].setText("");
+		}
+	}
+
+	private void bearbeitenActionPerformed() {
+		if (belongsToALeague) {
+			edited_matchday = jCBSpieltage.getSelectedIndex();
+			for (int i = 0; i < array.length; i++) {
+				array[i][0] = liga.spieltage[edited_matchday][i][0];
+				array[i][1] = liga.spieltage[edited_matchday][i][1];
+			}
+			setLabelsEnabled(true);
+			setTFsEditable(false);
+			bearbeiten.setVisible(false);
+			fertig.setVisible(true);
+			jCBSpieltage.setEnabled(false);
+		} else if (!belongsToKORound) {
+			// TODO bearbeiten in Gruppe
+		} else {
+			// TODO bearbeiten in KO Runde
+		}
+		
+	}
+
+	public int fertigActionPerformed() {
+		if (!belongsToALeague) {
+			// TODO die Unterschiede beseitigen für Gruppe und KO Runde
+			return 0;
+		}
+		
+		
+		int fehlerart = -1;
+		// 1. Fehlerfall: es gibt doppelte Vorkommnisse im Array
+		for (int i = 0; i < 2 * array.length; i++) {
+			int r = array[i % array.length][i / array.length];
+			for (int j = 0; j < 2 * array.length; j++) {
+				if (i != j) {
+					int s = array[j % array.length][j / array.length];
+					if (r == s) {
+						fehlerart = 2;
+						break;
+					}
+				}
+			}
+			if (fehlerart == 2)		break;
+		}
+		// 2. Fehlerfall: es befinden sich noch ungesetzte Felder im Array
+		for (int i = 0; i < array.length; i++) {
+			if (array[i][0] == -1) {
+				fehlerart = 1;
+				break;
+			} else if (array[i][1] == -1) {
+				fehlerart = 1;
+				break;
+			}
+		}
+
+		int saveanyway = 0;
+		if (fehlerart == 2) {
+			JOptionPane.showMessageDialog(null, "Es gibt doppelte Vorkommnisse im Array. Beheben Sie diese bevor sie speichern können.", "Fehler", JOptionPane.ERROR_MESSAGE);
+			saveanyway = 1;
+		} else if (fehlerart == 1) {
+			saveanyway = JOptionPane.showConfirmDialog(null, "Es befinden sich noch ungesetzte Felder im Array. \n"
+									+ "Nicht vollständige Spieltage werden mit Beenden des Programms gelöscht und nicht gespeichert!\n"
+									+ "Trotzdem fortfahren?", "Fehler", JOptionPane.YES_NO_OPTION);
+		}
+
+		if (saveanyway == 0) {
+			setLabelsEnabled(false);
+			if (fehlerart == -1)		setTFsEditable(true);
+			else						setTFsEditable(false);
+			bearbeiten.setVisible(true);
+			fertig.setVisible(false);
+			for (int i = 0; i < array.length; i++) {
+				liga.spieltage[edited_matchday][i][0] = array[i][0];
+				liga.spieltage[edited_matchday][i][1] = array[i][1];
+
+				if (array[i][0] != -1 && array[i][1] != -1) {
+					liga.getMannschaften()[array[i][0] - 1].setGegner(edited_matchday, Mannschaft.HOME, array[i][1], i);
+					liga.getMannschaften()[array[i][1] - 1].setGegner(edited_matchday, Mannschaft.AWAY, array[i][0], i);
+				}
+			}
+
+			if (fehlerart == -1)		liga.spieltageEingetragen[edited_matchday] = true;
+			else						liga.spieltageEingetragen[edited_matchday] = false;
+			edited_matchday = -1;
+			jCBSpieltage.setEnabled(true);
+			mannschaftenauswahl.setVisible(false);
+		}
+		return saveanyway;
+	}
+
+	public void spieltagAnzeigen() {
+		if (current_matchday == -1) {
+			if (belongsToALeague)		current_matchday = liga.getCurrentMatchday();
+			else if (!belongsToKORound)	current_matchday = gruppe.getCurrentMatchday();
+			else						current_matchday = turnier.getCurrentMatchday();
+
+			// damit nicht bei setSelectedIndex die default-Inhalte von tore in das ergebnis-Array kopiert werden muss das Befüllen davor erfolgen
+			for (int i = 0; i < this.tore.length; i++) {
+				if (belongsToALeague)		this.tore[i].setText("" + liga.getErgebnis(current_matchday, i % numberOfMatches, i / numberOfMatches));
+				else if (!belongsToKORound)	this.tore[i].setText("" + gruppe.getErgebnis(current_matchday, i % numberOfMatches, i / numberOfMatches));
+				else						this.tore[i].setText("" + turnier.getErgebnis(KORound, current_matchday, i % numberOfMatches, i / numberOfMatches));
+			}
+			
+			if (current_matchday == jCBSpieltage.getSelectedIndex()) {
+				// dann gibt es keinen ItemStateChange und die Methode wird nicht aufgerufen
+				spieltagAnzeigen();
+			}
+			
+			jCBSpieltage.setSelectedIndex(current_matchday);
+		} else {
+			current_matchday = jCBSpieltage.getSelectedIndex();
+
+			spieltagsdatenBefuellen();
+			
+			// TODO Umsortierung der Spiele bei Datumsveränderung -> chronologisch
+			
+			for (int i = 0; i < this.mannschaften.length; i++) {
+				this.mannschaften[i].setText("n. a.");
+				this.tore[i].setText("" + -1);
+			}
+
+			this.setTFsEditable(false);
+			
+			if (belongsToALeague) {
+				if (liga.spieltageEingetragen[current_matchday]) {
+					for (int i = 0; i < this.mannschaften.length; i++) {
+						this.mannschaften[i].setText(liga.getMannschaften()[liga.spieltage[current_matchday][i % numberOfMatches][i / numberOfMatches] - 1].getName());
+						this.tore[i].setText("" + liga.getErgebnis(current_matchday, i % numberOfMatches, i / numberOfMatches));
+					}
+					this.setTFsEditable(true);
+				}
+			} else if (!belongsToKORound) {
+				if (gruppe.spieleEingetragen[current_matchday]) {
+					for (int i = 0; i < this.mannschaften.length; i++) {
+						this.mannschaften[i].setText(gruppe.getMannschaften()[gruppe.spiele[current_matchday][i % numberOfMatches][i / numberOfMatches] - 1].getName());
+						this.tore[i].setText("" + gruppe.getErgebnis(current_matchday, i % numberOfMatches, i / numberOfMatches));
+					}
+					this.setTFsEditable(true);
+				}
+			} else {
+				if (turnier.spielplanEingetragen[KORound]) {
+					for (int i = 0; i < this.mannschaften.length; i++) {
+						this.mannschaften[i].setText(turnier.getMannschaftsNameAt(KORound, current_matchday, i % numberOfMatches, i / numberOfMatches));
+						this.tore[i].setText("" + turnier.getErgebnis(KORound, current_matchday, i % numberOfMatches, i / numberOfMatches));
+					}
+					this.setTFsEditable(true);
+				}
+			}
+		}	
+	}
+
+	public void datumsLabelClicked(int index) {
+		edited_date = index;
+		
+		if (belongsToALeague) {
+			MyDateChooser mdc = new MyDateChooser(liga, this);
+			mdc.setLocationRelativeTo(null);
+			mdc.setVisible(true);
+
+			mdc.setDate(liga.daten_uhrzeiten[current_matchday][0], liga.daten_uhrzeiten[current_matchday][edited_date + 1]);
+		} else if (!belongsToKORound) {
+			MyDateChooser mdc = new MyDateChooser(gruppe, this);
+			mdc.setLocationRelativeTo(null);
+			mdc.setVisible(true);
+
+			mdc.setDate(gruppe.datesAndTimes[current_matchday][0], gruppe.datesAndTimes[current_matchday][edited_date + 1]);
+		} else {
+			// TODO
+		}
+	}
+
+	public void datumEingegeben(int startdate, int aszindex) {
+		if (belongsToKORound) {
+			// TODO
+			return;
+		}
+		
+		System.out.println("Folgendes Datum wurde übergeben: " + startdate + " mit Anstoss-Zeit-Index: " + aszindex);
+		// spieltagsdaten[edited_date].setText(lg.datum(startdate) + " " + lg.anstosszeiten[aszindex]);
+		if (belongsToALeague)		liga.daten_uhrzeiten[current_matchday][0] = startdate;
+		else						gruppe.datesAndTimes[current_matchday][0] = startdate;
+		if (belongsToALeague)		liga.daten_uhrzeiten[current_matchday][edited_date + 1] = aszindex;
+		else						gruppe.datesAndTimes[current_matchday][edited_date + 1] = aszindex;
+		edited_date = -1;
+
+		spieltagsdatenBefuellen();
+	}
+
+	public void mannschaftClicked(int index) {
+		mannschaften[index].setOpaque(true);
+		mannschaften[index].setBackground(new Color(255, 255, 0));
+		mannschaften[index].paintImmediately(0, 0, mannschaften[index].getWidth(), mannschaften[index].getHeight());
+		for (int i = 0; i < mannschaften.length; i++) {
+			if (i != index) {
+				mannschaften[i].setBackground(null);
+				mannschaften[i].paintImmediately(0, 0, mannschaften[i].getWidth(), mannschaften[i].getHeight());
+			}
+		}
+		mannschaftenauswahl.setVisible(true);
+		edited_team = index;
+	}
+
+	public void mannschaftenButtonClicked(int index) {
+		array[edited_team % numberOfMatches][edited_team / numberOfMatches] = index + 1;
+		if (belongsToALeague)		mannschaften[edited_team].setText(liga.getMannschaften()[index].getName());
+		else if (!belongsToKORound)	mannschaften[edited_team].setText(gruppe.getMannschaften()[index].getName());
+		else						mannschaften[edited_team].setText(turnier.getMannschaftenIn(KORound)[index].getName());
+		mannschaften[edited_team].setBackground(null);
+	}
+}
