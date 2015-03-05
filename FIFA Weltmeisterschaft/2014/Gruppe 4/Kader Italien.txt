@@ -1,0 +1,23 @@
+1;Gianluigi Buffon;(TW),(C)
+2;Mattia de Sciglio;
+3;Giorgio Chiellini;
+4;Mattia Darmian;
+5;Thiago Motta;
+6;Antonio Candreva;
+7;Ignazio Abate;
+8;Claudio Marchisio;
+9;Mario Balotelli;
+10;Antonio Cassano;
+11;Alessio Cerci;
+12;Salvatore Sirigu;(TW)
+13;Mattia Perin;(TW)
+14;Alberto Aquilani;
+15;Andrea Barzagli;
+16;Daniele de Rossi;
+17;Ciro Immobile;
+18;Marco Parolo;
+19;Leonardo Bonucci;
+20;Gabriel Paletta;
+21;Andrea Pirlo;
+22;Lorenzo Insigne;
+23;Marco Verratti;

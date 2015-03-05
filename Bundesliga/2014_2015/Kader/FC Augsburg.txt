@@ -1,0 +1,31 @@
+Ioannis;Gelios;19920424;Deutschland, Griechenland;Tor;FC Augsburg;37
+Marwin;Hitz;19870918;Schweiz;Tor;FC Augsburg;35
+Alexander;Manninger;19770604;Österreich;Tor;FC Augsburg;1
+Abdul Rahman;Baba;19940702;Ghana;Abwehr;FC Augsburg;12
+Jan-Ingwer;Callsen-Bracker;19840923;Deutschland;Abwehr;FC Augsburg;18
+Marcel;de Jong;19861015;Niederlande, Kanada;Abwehr;FC Augsburg;17
+Raphael;Framberger;19950906;Deutschland;Abwehr;FC Augsburg;32
+Jeong-Ho;Hong;19890812;Südkorea;Abwehr;FC Augsburg;20
+Ragnar;Klavan;19851030;Estland;Abwehr;FC Augsburg;5
+Ronny;Philp;19890128;Deutschland;Abwehr;FC Augsburg;3
+Dominik;Reinhardt;19841219;Deutschland;Abwehr;FC Augsburg;4
+Tim;Rieder;19930903;Deutschland;Abwehr;FC Augsburg;40
+Maik;Uhde;19940523;Deutschland;Abwehr;FC Augsburg;39
+Paul;Verhaegh;19830901;Niederlande;Abwehr;FC Augsburg;2
+Halil;Altintop;19821208;Türkei;Mittelfeld;FC Augsburg;7
+Daniel;Baier;19840518;Deutschland;Mittelfeld;FC Augsburg;10
+Caiuby Francisco;da Silva;19880714;Brasilien;Mittelfeld;FC Augsburg;30
+Arif;Ekin;19950914;Deutschland, Türkei;Mittelfeld;FC Augsburg;31
+Alexander;Esswein;19900325;Deutschland;Mittelfeld;FC Augsburg;11
+Markus;Feulner;19820212;Deutschland;Mittelfeld;FC Augsburg;8
+Dominik;Kohr;19940131;Deutschland;Mittelfeld;FC Augsburg;21
+Jan;Moravek;19891101;Tschechien;Mittelfeld;FC Augsburg;14
+Shawn;Parker;19930307;Deutschland;Mittelfeld;FC Augsburg;9
+Max;Reinthaler;19950322;Italien;Mittelfeld;FC Augsburg;36
+Marco;Schuster;19951010;Deutschland;Mittelfeld;FC Augsburg;29
+Erik;Thommy;19940820;Deutschland;Mittelfeld;FC Augsburg;26
+Tobias;Werner;19850719;Deutschland;Mittelfeld;FC Augsburg;13
+Raul;Bobadilla;19870618;Argentinien;Sturm;FC Augsburg;25
+Nikola;Djurdjic;19860401;Serbien;Sturm;FC Augsburg;34
+Tim;Matavz;19890113;Slowenien;Sturm;FC Augsburg;23
+Sascha;Mölders;19850320;Deutschland;Sturm;FC Augsburg;33

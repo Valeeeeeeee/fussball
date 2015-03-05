@@ -1,0 +1,26 @@
+Thorsten;Kirschbaum;19870420;Deutschland;Tor;VfB Stuttgart;22
+Sven;Ulreich;19880803;Deutschland;Tor;VfB Stuttgart;1
+Odisseas;Vlachodimos;19940426;Deutschland;Tor;VfB Stuttgart;17
+Karim;Haggui;19840120;Deutschland, Tunesien;Abwehr;VfB Stuttgart;5
+Tim;Leibold;19931130;Deutschland;Abwehr;VfB Stuttgart;27
+Georg;Niedermeier;19860226;Deutschland;Abwehr;VfB Stuttgart;6
+Konstantin;Rausch;19900315;Deutschland;Abwehr;VfB Stuttgart;34
+Antonio;Rüdiger;19930303;Deutschland;Abwehr;VfB Stuttgart;24
+Gotoku;Sakai;19910314;Japan;Abwehr;VfB Stuttgart;2
+Daniel;Schwaab;19880823;Deutschland;Abwehr;VfB Stuttgart;3
+Daniel;Didavi;19900221;Deutschland;Mittelfeld;VfB Stuttgart;10
+Christian;Gentner;19850814;Deutschland;Mittelfeld;VfB Stuttgart;20
+Carlos;Gruezo;19950419;Ecuador;Mittelfeld;VfB Stuttgart;11
+Adam;Hlousek;19881220;Tschechien;Mittelfeld;VfB Stuttgart;21
+Florian;Klein;19861117;Österreich;Mittelfeld;VfB Stuttgart;16
+Filip;Kostic;19921101;Serbien;Mittelfeld;VfB Stuttgart;18
+Moritz;Leitner;19921208;Deutschland;Mittelfeld;VfB Stuttgart;8
+Alexandru;Maxim;19900708;Rumänien;Mittelfeld;VfB Stuttgart;44
+Oriol;Romeu Vidal;19910924;Spanien;Mittelfeld;VfB Stuttgart;13
+Sercan;Sararer;19891127;Spanien, Türkei;Mittelfeld;VfB Stuttgart;23
+Robin;Yalcin;19940125;Deutschland;Mittelfeld;VfB Stuttgart;39
+Mohammed;Abdellaoue;19851023;Norwegen;Sturm;VfB Stuttgart;25
+Daniel;Ginczek;19910413;Deutschland;Sturm;VfB Stuttgart;33
+Martin;Harnik;19870610;Deutschland, Österreich;Sturm;VfB Stuttgart;7
+Vedad;Ibisevic;19840806;USA, Bosnien-Herzegowina;Sturm;VfB Stuttgart;9
+Timo;Werner;19960306;Deutschland;Sturm;VfB Stuttgart;19

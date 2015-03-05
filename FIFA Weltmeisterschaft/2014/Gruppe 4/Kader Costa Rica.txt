@@ -1,0 +1,27 @@
+1;Keylor Navas;(TW)
+2;Johnny Acosta;
+3;Giancarlo González;
+4;Michael Umaña;
+5;Celso Borges;
+6;Óscar Duarte;
+7;Christian Bolaños;
+8;Dave Myrie;
+9;Joel Campbell;
+10;Bryan Ruiz;(C)
+11;Michael Barrantes;
+12;Waylon Francis;
+13;Esteban Granados;
+14;Randall Brenes;
+15;Júnior Díaz;
+16;Cristian Gamboa;
+17;Yeltsin Tejeda;
+18;Patrick Pemberton;(TW)
+19;Roy Miller;
+20;Diego Calvo;
+21;Marcos Ureña;
+22;José Cubero;
+23;Daniel Cambronero;(TW)
+
+
+
+

@@ -1,0 +1,23 @@
+1;Jefferson;(TW)
+2;Dani Alves;
+3;Thiago Silva;(C)
+4;David Luiz;
+5;Fernandinho;
+6;Marcelo;
+7;Hulk;
+8;Paulinho;
+9;Fred;
+10;Neymar;
+11;Oscar;
+12;Júlio César;(TW)
+13;Dante;
+14;Maxwell;
+15;Henrique;
+16;Ramires;
+17;Luiz Gustavo;
+18;Hernanes;
+19;Willian;
+20;Bernard;
+21;Jô;
+22;Victor;(TW)
+23;Maicon;

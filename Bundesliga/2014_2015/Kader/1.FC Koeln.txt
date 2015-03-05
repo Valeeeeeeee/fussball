@@ -1,0 +1,28 @@
+Timo;Horn;19930512;Deutschland;Tor;1.FC Köln;1
+Thomas;Kessler;19860120;Deutschland;Tor;1.FC Köln;18
+Daniel;Mesenhöler;19950724;Deutschland;Tor;1.FC Köln;37
+Marcel;Schuhen;19930113;Deutschland;Tor;1.FC Köln;34
+Miso;Brecko;19840501;Slowenien;Abwehr;1.FC Köln;2
+Roman;Golobart;19920321;Spanien;Abwehr;1.FC Köln;4
+Jonas;Hector;19900527;Deutschland;Abwehr;1.FC Köln;14
+Tomas;Kalas;19930515;Tschechien;Abwehr;1.FC Köln;3
+Dominic;Maroh;19870304;Deutschland, Slowenien;Abwehr;1.FC Köln;5
+Mergim;Mavraj;19860609;Deutschland, Albanien;Abwehr;1.FC Köln;19
+Pawel;Olkowski;19900213;Polen;Abwehr;1.FC Köln;16
+André;Wallenborn;19950325;Deutschland;Abwehr;1.FC Köln;39
+Kevin;Wimmer;19921115;Österreich;Abwehr;1.FC Köln;28
+Yannick;Gerhardt;19940313;Deutschland;Mittelfeld;1.FC Köln;31
+Daniel;Halfar;19880107;Deutschland;Mittelfeld;1.FC Köln;22
+Matthias;Lehmann;19830528;Deutschland;Mittelfeld;1.FC Köln;33
+Adam;Matuschyk;19890214;Deutschland, Polen;Mittelfeld;1.FC Köln;8
+Kazuki;Nagasawa;19911216;Japan;Mittelfeld;1.FC Köln;25
+Slawomir;Peszko;19850219;Polen;Mittelfeld;1.FC Köln;17
+Marcel;Risse;19891217;Deutschland;Mittelfeld;1.FC Köln;7
+Dusan;Svento;19850801;Slowakei;Mittelfeld;1.FC Köln;29
+Kevin;Vogt;19910923;Deutschland;Mittelfeld;1.FC Köln;6
+Thomas;Bröker;19850122;Deutschland;Sturm;1.FC Köln;11
+Bard;Finne;19950213;Norwegen;Sturm;1.FC Köln;26
+Patrick;Helmes;19840301;Deutschland;Sturm;1.FC Köln;10
+Yuya;Osako;19900518;Japan;Sturm;1.FC Köln;13
+Anthony;Ujah;19901014;Nigeria;Sturm;1.FC Köln;9
+Simon;Zoller;19910626;Deutschland;Sturm;1.FC Köln;23

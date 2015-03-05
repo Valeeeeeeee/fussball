@@ -1,0 +1,27 @@
+Manuel;Neuer;19860327;Deutschland;Tor;Bayern München;1
+José Manuel;Reina;19820831;Spanien;Tor;Bayern München;23
+Tom;Starke;19810318;Deutschland;Tor;Bayern München;22
+David;Alaba;19920624;Österreich;Abwehr;Bayern München;27
+Holger;Badstuber;19890313;Deutschland;Abwehr;Bayern München;28
+Medhi;Benatia;19870417;Marokko;Abwehr;Bayern München;5
+Jerome;Boateng;19880903;Deutschland;Abwehr;Bayern München;17
+Dante Bonfim;Costa Santos;19831018;Brasilien;Abwehr;Bayern München;4
+Javier;Martinez Aginaga;19880902;Spanien;Abwehr;Bayern München;8
+Juan;Bernat Velasco;19930301;Spanien;Abwehr;Bayern München;18
+Philipp;Lahm;19831111;Deutschland;Abwehr;Bayern München;21
+Marcio Rafael;Ferreira de Souza;19850907;Brasilien;Abwehr;Bayern München;13
+Gianluca;Gaudino;19961111;Deutschland;Mittelfeld;Bayern München;16
+Mario;Götze;19920603;Deutschland;Mittelfeld;Bayern München;19
+Pierre-Emile;Höjbjerg;19950805;Dänemark;Mittelfeld;Bayern München;34
+Thomas;Müller;19890913;Deutschland;Mittelfeld;Bayern München;25
+Franck;Ribery;19830407;Frankreich;Mittelfeld;Bayern München;7
+Arjen;Robben;19840123;Niederlande;Mittelfeld;Bayern München;10
+Sebastian;Rode;19901011;Deutschland;Mittelfeld;Bayern München;20
+Bastian;Schweinsteiger;19840801;Deutschland;Mittelfeld;Bayern München;31
+Xherdan;Shaqiri;19911010;Schweiz;Mittelfeld;Bayern München;11
+Thiago;Alcantara do Nascimento;19910411;Spanien;Mittelfeld;Bayern München;6
+Mitchell;Weiser;19940421;Deutschland;Mittelfeld;Bayern München;30
+Xabier;Alonso Olano;19811125;Spanien;Mittelfeld;Bayern München;3
+Sinan;Kurt;19960723;Deutschland;Sturm;Bayern München;24
+Robert;Lewandowski;19880821;Polen;Sturm;Bayern München;9
+Claudio;Pizarro;19781003;Italien, Peru;Sturm;Bayern München;14
