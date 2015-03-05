@@ -17,4 +17,3 @@ VfL Bochum;01.01.1970;
 1. FC Heidenheim;01.01.1970;
 RasenBallsport Leipzig;01.01.1970;
 SV Darmstadt 98;01.01.1970;
-

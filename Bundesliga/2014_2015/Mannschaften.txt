@@ -17,4 +17,3 @@ VfB Stuttgart;09.09.1893;
 Hamburger SV;29.09.1887;
 1.FC Köln;13.02.1948;
 SC Paderborn 07;14.08.1907;
-
