@@ -1,0 +1,19 @@
+18
+1. FC Nürnberg;01.01.1970;
+Eintracht Braunschweig;01.01.1970;
+SpVgg Greuther Fürth;01.01.1970;
+1. FC Kaiserlautern;01.01.1970;
+Karlsruher SC;01.01.1970;
+Fortuna Düsseldorf;01.01.1970;
+1860 München;01.01.1970;
+FC St. Pauli;01.01.1970;
+1. FC Union Berlin;01.01.1970;
+FC Ingolstadt 04;01.01.1970;
+VfR Aalen;01.01.1970;
+SV Sandhausen;01.01.1970;
+FSV Frankfurt;01.01.1970;
+Erzgebirge Aue;01.01.1970;
+VfL Bochum;01.01.1970;
+1. FC Heidenheim;01.01.1970;
+RasenBallsport Leipzig;01.01.1970;
+SV Darmstadt 98;01.01.1970;

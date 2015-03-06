@@ -1,0 +1,21 @@
+20
+Arminia Bielefeld;27.02.1900;
+Dynamo Dresden;19.12.1909;
+FC Energie Cottbus;04.05.1904;
+SV Wehen Wiesbaden;01.07.1904;
+VfL Osnabrück;12.09.1945;
+Preußen Münster;01.08.1900;
+MSV Duisburg;16.03.1905;
+Stuttgarter Kickers;08.08.1907;
+Hallescher FC;01.07.1899;
+Rot-Weiß Erfurt;12.04.1896;
+Jahn Regensburg;25.07.1892;
+Chemnitzer FC;04.02.1899;
+Hansa Rostock;08.03.1899;
+Borussia Dortmund II;30.05.1904;
+VfB Stuttgart II;09.09.1893;
+Holstein Kiel;29.09.1887;
+SpVgg Unterhaching;13.02.1948;
+Fortuna Köln;14.08.1907;
+1. FSV Mainz 05 II;13.02.1948;
+SG Sonnenhof Großaspach;14.08.1907;

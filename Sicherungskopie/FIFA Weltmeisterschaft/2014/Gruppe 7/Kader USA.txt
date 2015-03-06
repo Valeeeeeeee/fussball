@@ -1,0 +1,23 @@
+1;Tim Howard;(TW)
+2;DeAndre Yedlin;
+3;Omar González;
+4;Michael Bradley;
+5;Matt Besler;
+6;John Anthony Brooks;
+7;DaMarcus Beasley;
+8;Clint Dempsey;(C)
+9;Aron Jóhannsson;
+10;Mix Diskerud;
+11;Alejandro Bedoya;
+12;Brad Guzan;(TW)
+13;Jermaine Jones;
+14;Brad Davis;
+15;Kyle Beckerman;
+16;Julian Green;
+17;Jozy Altidore;
+18;Chris Wondolowski;
+19;Graham Zusi;
+20;Geoff Cameron;
+21;Timothy Chandler;
+22;Nick Rimando;(TW)
+23;Fabian Johnson;

@@ -1,0 +1,23 @@
+1;Sergio Romero;(TW)
+2;Ezequiel Garay;
+3;Hugo Campagnaro;
+4;Pablo Zabaleta;
+5;Fernando Gago;
+6;Lucas Biglia;
+7;Ángel Di María;
+8;Enzo Pérez;
+9;Gonzalo Higuaí­n;
+10;Lionel Messi;(C)
+11;Maxi Rodriguez;
+12;Agustín Orión;(TW)
+13;Augusto Fernández;
+14;Javier Mascherano;
+15;Martín Demichelis;
+16;Marcos Rojo;
+17;Federico Fernández;
+18;Rodrigo Palacio;
+19;Ricardo Àlvarez;
+20;Kun Agüero;
+21;Mariano Andújar;(TW)
+22;Ezequiel Lavezzi;
+23;José Basanta;

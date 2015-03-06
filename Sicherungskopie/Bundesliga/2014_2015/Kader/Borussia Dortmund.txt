@@ -1,0 +1,25 @@
+Zlatan;Alomerovic;19910615;Deutschland;Tor;Borussia Dortmund;33
+Mitchell;Langerak;19880822;Australien;Tor;Borussia Dortmund;22
+Roman;Weidenfeller;19800806;Deutschland;Tor;Borussia Dortmund;1
+Erik;Durm;19920512;Deutschland;Abwehr;Borussia Dortmund;37
+Matthias;Ginter;19940119;Deutschland;Abwehr;Borussia Dortmund;28
+Kevin;Großkreutz;19880719;Deutschland;Abwehr;Borussia Dortmund;19
+Mats;Hummels;19881216;Deutschland;Abwehr;Borussia Dortmund;15
+Lukasz;Piszczek;19850603;Polen;Abwehr;Borussia Dortmund;26
+Marcel;Schmelzer;19880122;Deutschland;Abwehr;Borussia Dortmund;29
+Sokratis;Papastathopoulos;19880609;Griechenland;Abwehr;Borussia Dortmund;25
+Neven;Subotic;19881210;USA, Serbien;Abwehr;Borussia Dortmund;4
+Sven;Bender;19890427;Deutschland;Mittelfeld;Borussia Dortmund;6
+Jakub;Blaszczykowski;19851214;Polen;Mittelfeld;Borussia Dortmund;16
+Ilkay;Gündogan;19901024;Deutschland;Mittelfeld;Borussia Dortmund;8
+Milos;Jojic;19920319;Serbien;Mittelfeld;Borussia Dortmund;14
+Shinji;Kagawa;19890317;Japan;Mittelfeld;Borussia Dortmund;7
+Sebastian;Kehl;19800213;Deutschland;Mittelfeld;Borussia Dortmund;5
+Oliver;Kirch;19820821;Deutschland;Mittelfeld;Borussia Dortmund;21
+Henrikh;Mkhitaryan;19890121;Armenien;Mittelfeld;Borussia Dortmund;10
+Marco;Reus;19890531;Deutschland;Mittelfeld;Borussia Dortmund;11
+Nuri;Sahin;19880905;Deutschland, Türkei;Mittelfeld;Borussia Dortmund;18
+Pierre-Emerick;Aubameyang;19890618;Frankreich, Gabun;Sturm;Borussia Dortmund;17
+Ciro;Immobile;19900220;Italien;Sturm;Borussia Dortmund;9
+Dong-Won;Ji;19910528;Südkorea;Sturm;Borussia Dortmund;23
+Adrian;Ramos;19860122;Kolumbien;Sturm;Borussia Dortmund;20

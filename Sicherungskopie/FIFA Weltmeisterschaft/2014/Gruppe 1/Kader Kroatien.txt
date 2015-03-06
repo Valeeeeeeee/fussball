@@ -1,0 +1,23 @@
+1;Stipe Pletikosa;(TW)
+2;Sime Vrsaljko;
+3;Danijel Pranjic;
+4;Ivan Perisic;
+5;Vedran Corluka;
+6;Dejan Lovren;
+7;Ivan Rakitic;
+8;Ognjen Vukojevic;
+9;Nikica Jelavic;
+10;Luka Modric;
+11;Darijo Srna;(C)
+12;Oliver Zelenika;(TW)
+13;Gordon Schildenfeld;
+14;Marcelo Brozovic;
+15;Milan Badelj;
+16;Ante Rebic;
+17;Mario Mandzukic;
+18;Ivica Olic;
+19;Sammir;
+20;Mateo Kovacic;
+21;Domagoj Vida;
+22;Eduardo;
+23;Danijel Subasic;(TW)

@@ -1,0 +1,23 @@
+1;José Corona;(TW)
+2;Maza/Francisco Rodríguez;
+3;Carlos Salcido;
+4;Rafael Márquez;(C)
+5;Diego Reyes;
+6;Héctor Herrera;
+7;Miguel Layún;
+8;Marco Fabián;
+9;Raúl Jiménez;
+10;Giovani dos Santos;
+11;Alan Pulido;
+12;Alfredo Talavera;(TW)
+13;Guillermo Ochoa;(TW)
+14;Javier Hernández;
+15;Héctor Moreno;
+16;Miguel Ponce;
+17;Isaác Brizuela;
+18;Andrés Guardado;
+19;Oribe Peralta;
+20;Javier Aquino;
+21;Carlos Peña;
+22;Paul Aguilar;
+23;José Juan Vázquez;

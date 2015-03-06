@@ -1,0 +1,33 @@
+Robert;Almer;19840320;Österreich;Tor;Hannover 96;39
+Timo;Königsmann;19970405;Deutschland;Tor;Hannover 96;40
+Markus;Miller;19820408;Deutschland;Tor;Hannover 96;14
+Ron-Robert;Zieler;19890212;Deutschland;Tor;Hannover 96;1
+Miiko;Albornoz;19901130;Schweden, Chile;Abwehr;Hannover 96;3
+Florian;Ballas;19930108;Deutschland;Abwehr;Hannover 96;30
+Felipe;Trevizan Martins;19870515;Brasilien;Abwehr;Hannover 96;20
+Andre;Hoffmann;19930228;Deutschland;Abwehr;Hannover 96;15
+Marcelo Antonio;Guedes Filho;19870520;Brasilien;Abwehr;Hannover 96;25
+Christian;Pander;19830828;Deutschland;Abwehr;Hannover 96;24
+Hiroki;Sakai;19900412;Japan;Abwehr;Hannover 96;4
+Salif;Sané;19900825;Frankreich, Senegal;Abwehr;Hannover 96;5
+Christian;Schulz;19830401;Deutschland;Abwehr;Hannover 96;19
+Marius;Stankevicius;19810715;Litauen;Abwehr;Hannover 96;18
+Niklas;Teichgräber;19960207;Deutschland;Abwehr;Hannover 96;37
+Stefan;Thesker;19910411;Deutschland;Abwehr;Hannover 96;17
+Leon;Andreasen;19830423;Dänemark;Mittelfeld;Hannover 96;2
+Leonardo;Bittencourt;19931219;Deutschland;Mittelfeld;Hannover 96;32
+Tim;Dierßen;19960115;Deutschland;Mittelfeld;Hannover 96;34
+Sebastian;Ernst;19950304;Deutschland;Mittelfeld;Hannover 96;36
+Ceyhun;Gülselam;19871225;Türkei;Mittelfeld;Hannover 96;6
+Hiroshi;Kiyotake;19891112;Japan;Mittelfeld;Hannover 96;28
+Edgar;Prib;19891215;Deutschland;Mittelfeld;Hannover 96;7
+Vladimir;Rankovic;19930627;Deutschland;Mittelfeld;Hannover 96;27
+Jan;Schlaudraff;19830718;Deutschland;Mittelfeld;Hannover 96;13
+Manuel;Schmiedebach;19881205;Deutschland;Mittelfeld;Hannover 96;8
+Yannik;Schulze;19950205;Deutschland;Mittelfeld;Hannover 96;33
+Lars;Stindl;19880826;Deutschland;Mittelfeld;Hannover 96;10
+Valmir;Sulejmani;19960201;Deutschland;Mittelfeld;Hannover 96;38
+Jimmy;Briand;19850802;Frankreich;Sturm;Hannover 96;21
+José Luis;Sanmartin Mato;19900327;Spanien;Sturm;Hannover 96;11
+Kenan;Karaman;19940305;Deutschland, Türkei;Sturm;Hannover 96;26
+Artur;Sobiech;19900612;Polen;Sturm;Hannover 96;9

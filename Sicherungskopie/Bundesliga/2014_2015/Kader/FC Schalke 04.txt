@@ -1,0 +1,31 @@
+Ralf;Fährmann;19880927;Deutschland;Tor;FC Schalke 04;1
+Fabian;Giefer;19900517;Deutschland;Tor;FC Schalke 04;34
+Timon;Wellenreuther;19951203;Deutschland;Tor;FC Schalke 04;40
+Christian;Wetklo;19800111;Deutschland;Tor;FC Schalke 04;28
+Dennis;Aogo;19870114;Deutschland;Abwehr;FC Schalke 04;15
+Kaan;Ayhan;19941110;Deutschland, Türkei;Abwehr;FC Schalke 04;24
+Felipe Augusto;Santana;19860317;Brasilien;Abwehr;FC Schalke 04;5
+Marvin;Friedrich;19951213;Deutschland;Abwehr;FC Schalke 04;2
+Christian;Fuchs;19860407;Österreich;Abwehr;FC Schalke 04;23
+Benedikt;Höwedes;19880229;Deutschland;Abwehr;FC Schalke 04;4
+Jan;Kirchhoff;19901001;Deutschland;Abwehr;FC Schalke 04;3
+Sead;Kolasinac;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;FC Schalke 04;6
+Joel;Matip;19910808;Deutschland, Kamerun;Abwehr;FC Schalke 04;32
+Atsuto;Uchida;19880327;Japan;Abwehr;FC Schalke 04;22
+Tranquillo;Barnetta;19850522;Schweiz;Mittelfeld;FC Schalke 04;27
+Kevin-Prince;Boateng;19870306;Deutschland, Ghana;Mittelfeld;FC Schalke 04;9
+Christian;Clemens;19910804;Deutschland;Mittelfeld;FC Schalke 04;11
+Julian;Draxler;19930920;Deutschland;Mittelfeld;FC Schalke 04;10
+Leon;Goretzka;19950206;Deutschland;Mittelfeld;FC Schalke 04;8
+Marco;Höger;19890916;Deutschland;Mittelfeld;FC Schalke 04;12
+Pascal;Itter;19950403;Deutschland;Mittelfeld;FC Schalke 04;37
+Max;Meyer;19950918;Deutschland;Mittelfeld;FC Schalke 04;7
+Roman;Neustädter;19880218;Deutschland;Mittelfeld;FC Schalke 04;33
+Marcel;Sobottka;19940425;Deutschland;Mittelfeld;FC Schalke 04;35
+Donis;Avdijaj;19960825;Deutschland;Sturm;FC Schalke 04;29
+Eric Maxim;Choupo-Moting;19890323;Deutschland, Kamerun;Sturm;FC Schalke 04;13
+Jefferson;Farfan;19841026;Peru;Sturm;FC Schalke 04;17
+Klaas Jan;Huntelaar;19830812;Niederlande;Sturm;FC Schalke 04;25
+Chinedu;Obasi;19860601;Nigeria;Sturm;FC Schalke 04;20
+Sidney;Sam;19880131;Deutschland;Sturm;FC Schalke 04;18
+Leroy;Sané;19960111;Deutschland;Sturm;FC Schalke 04;19

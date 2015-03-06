@@ -1,0 +1,23 @@
+1;Jasper Cillessen;(TW)
+2;Ron Vlaar;
+3;Stefan de Vrij;
+4;Bruno Martins Indi;
+5;Daley Blind;
+6;Nigel de Jong;
+7;Daryl Janmaat;
+8;Jonathan de Guzmán;
+9;Robin van Persie;(C)
+10;Wesley Sneijder;
+11;Arjen Robben;
+12;Paul Verhaegh;
+13;Joël Veltman;
+14;Terence Kongolo;
+15;Dirk Kuyt;
+16;Jordy Clasie;
+17;Jeremain Lens;
+18;Leroy Fer;
+19;Klaas Jan Huntelaar;
+20;Georginio Wijnaldum;
+21;Memphis Depay;
+22;Michel Vorm;(TW)
+23;Tim Krul;(TW)
