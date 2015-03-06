@@ -271,7 +271,3 @@ public class Tabelle extends JPanel {
     }
     
 }
-
-
-
-
