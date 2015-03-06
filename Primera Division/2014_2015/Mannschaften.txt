@@ -19,4 +19,3 @@ UD Almeria;01.01.1970;
 SD Eibar;01.01.1970;
 Deportivo La Coruña;01.01.1970;
 FC Cordoba;01.01.1970;
-
