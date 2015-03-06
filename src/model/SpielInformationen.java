@@ -181,13 +181,13 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsLineupHome[i]);
 			jLblsLineupHome[i].setBounds(130, 130 + i * (20 + 5), 100, 20);
 			jLblsLineupHome[i].setOpaque(true);
-			jLblsLineupHome[i].setVisible(true);
+			jLblsLineupHome[i].setVisible(false);
 			
 			jLblsLineupAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsLineupAway[i]);
 			jLblsLineupAway[i].setBounds(470, 130 + i * (20 + 5), 100, 20);
 			jLblsLineupAway[i].setOpaque(true);
-			jLblsLineupAway[i].setVisible(true);
+			jLblsLineupAway[i].setVisible(false);
 		}
 		
 		{
@@ -376,12 +376,20 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < playerSelected.length; i++) {
 			if (playerSelected[i]) {
 				if (enteringHomeTeamLineup) {
-					lineupHome[counter++] = kaderHome[i].getSquadNumber();
+					lineupHome[counter] = kaderHome[i].getSquadNumber();
+					jLblsLineupHome[counter].setText(kaderHome[i].getLastName());
+					jLblsLineupHome[counter++].setVisible(true);
 				} else {
-					lineupAway[counter++] = kaderAway[i].getSquadNumber();
+					lineupAway[counter] = kaderAway[i].getSquadNumber();
+					jLblsLineupAway[counter].setText(kaderAway[i].getLastName());
+					jLblsLineupAway[counter++].setVisible(true);
 				}
 			}
 		}
+		
+		spiel.setLineupHome(lineupHome);
+		spiel.setLineupAway(lineupAway);
+		spiel.toString();
 		
 		if (jLblsLineupSelectionPlayers != null) {
 			for (JLabel label : jLblsLineupSelectionPlayers) {
