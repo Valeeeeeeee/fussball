@@ -27,15 +27,21 @@ public class SpielInformationen extends JFrame {
 	private JPanel jPnlLineupSelection;
 	private JLabel[] jLblsLineupSelectionPlayers;
 	private JButton jBtnLineupSelectionCompleted;
+	private JLabel[] jLblsLineupHome;
+	private JLabel[] jLblsLineupAway;
 	
+	private JPanel jPnlTorEingabe;
+	private JTextField jTFMinute;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
 	
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(110, 80, 230, 30);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(60, 80, 230, 30);
 	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(410, 80, 230, 30);
+	
+	private Rectangle REC_PNLTOREINGABE = new Rectangle(110, 80, 230, 300);
 	
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 120);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 120);
@@ -48,7 +54,9 @@ public class SpielInformationen extends JFrame {
 	private Color playerSelectedColor = new Color(255, 255, 0);
 	private Font fontTeamNames = new Font("Verdana", Font.PLAIN, 24);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
-	
+
+	private int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
+	private int playersPerColumn = 15;
 	
 	private Spieltag spieltag;
 	private Ergebnis ergebnis;
@@ -69,12 +77,12 @@ public class SpielInformationen extends JFrame {
 	private JLabel[] descrLbls;
 	private JTextField[][] goalsTFs;
 	
-	private Rectangle RECGO = new Rectangle(430, 360, 60, 30);
-	private Rectangle RECAET = new Rectangle(430, 400, 50, 30);
-	private Rectangle RECAPS = new Rectangle(430, 440, 50, 30);
+	private Rectangle RECGO = new Rectangle(395, 330, 60, 30);
+	private Rectangle RECAET = new Rectangle(395, 370, 50, 30);
+	private Rectangle RECAPS = new Rectangle(395, 410, 50, 30);
 	
-	private int[] descr = new int[] {270, 363, 0, 16, 55, 24};
-	private int[] goals = new int[] {335, 360, 10, 10, 30, 30};
+	private int[] descr = new int[] {250, 333, 0, 16, 55, 24};
+	private int[] goals = new int[] {315, 330, 10, 10, 30, 30};
 	
 	private static final int STARTX = 0;
 	private static final int STARTY = 1;
@@ -105,6 +113,9 @@ public class SpielInformationen extends JFrame {
 	
 	public void initGUI() {
 		this.setLayout(null);
+		
+		jLblsLineupHome = new JLabel[11];
+		jLblsLineupAway = new JLabel[11];
 		
 		{
 			jPnlSpielInformationen = new JPanel();
@@ -165,6 +176,20 @@ public class SpielInformationen extends JFrame {
 			});
 		}
 		
+		for (int i = 0; i < 11; i++) {
+			jLblsLineupHome[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsLineupHome[i]);
+			jLblsLineupHome[i].setBounds(130, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupHome[i].setOpaque(true);
+			jLblsLineupHome[i].setVisible(true);
+			
+			jLblsLineupAway[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsLineupAway[i]);
+			jLblsLineupAway[i].setBounds(470, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupAway[i].setOpaque(true);
+			jLblsLineupAway[i].setVisible(true);
+		}
+		
 		{
 			jPnlLineupSelection = new JPanel();
 			jPnlSpielInformationen.add(jPnlLineupSelection);
@@ -183,6 +208,15 @@ public class SpielInformationen extends JFrame {
 					jBtnLineupSelectionCompletedActionPerformed();
 				}
 			});
+		}
+		
+		{
+			jPnlTorEingabe = new JPanel();
+			jPnlSpielInformationen.add(jPnlTorEingabe);
+			jPnlTorEingabe.setBounds(REC_PNLTOREINGABE);
+			jPnlTorEingabe.setLayout(null);
+			jPnlTorEingabe.setBackground(lineupSelColor);
+			jPnlTorEingabe.setVisible(false);
 		}
 		
 		
@@ -262,8 +296,6 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
-		int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
-		int playersPerColumn = 15;
 		Spieler[] kader;
 		this.enteringHomeTeamLineup = isHomeTeam;
 		if (enteringHomeTeamLineup)	kader = kaderHome = spiel.getHomeTeam().getKader();
@@ -451,6 +483,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 }
+
 
 
 

@@ -15,6 +15,8 @@ public class Spiel {
 	private KORunde koRunde;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
+	private int[] lineupHome;
+	private int[] lineupAway;
 	
 	private String schiedsrichter;
 	private Ergebnis ergebnis;
@@ -97,9 +99,6 @@ public class Spiel {
 	}
 	
 	public String toString() {
-		return this.homeTeamIndex + ":" + this.awayTeamIndex;
+		return this.homeTeamIndex + ":" + this.awayTeamIndex + "";
 	}
 }
-
-
-

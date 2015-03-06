@@ -1237,5 +1237,5 @@ public class Start extends JFrame {
 			workspace = null;
 		}
 	}
-    
 }
+
