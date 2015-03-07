@@ -40,10 +40,10 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
 	
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 80, 230, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(430, 80, 230, 30);
-	private Rectangle REC_BTNGOALHOME = new Rectangle(210, 80, 70, 30);
-	private Rectangle REC_BTNGOALAWAY = new Rectangle(350, 80, 70, 30);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 80, 190, 30);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(470, 80, 190, 30);
+	private Rectangle REC_BTNGOALHOME = new Rectangle(230, 80, 70, 30);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 70, 30);
 	
 	private Rectangle REC_PNLTOREINGABE = new Rectangle(110, 80, 230, 300);
 	
