@@ -9,5 +9,3 @@ FC St. Gallen;01.01.1970;
 FC Sion;01.01.1970;
 FC Aarau;01.01.1970;
 FC Vaduz;01.01.1970;
-
-

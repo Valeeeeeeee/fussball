@@ -10,9 +10,9 @@ public class Spiel {
 	private int awayTeamIndex;
 	
 	private Wettbewerb wettbewerb;
-	private Liga liga;
-	private Gruppe gruppe;
-	private KORunde koRunde;
+//	private Liga liga;
+//	private Gruppe gruppe;
+//	private KORunde koRunde;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
 	private int[] lineupHome;
@@ -24,9 +24,9 @@ public class Spiel {
 	
 	public Spiel(Wettbewerb wettbewerb, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
-		if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-		else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
+//		if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
+//		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+//		else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
 		
 		this.homeTeamIndex = homeTeamIndex;
 		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
@@ -50,9 +50,9 @@ public class Spiel {
 			}
 			
 			this.wettbewerb = wettbewerb;
-			if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-			else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-			else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
+//			if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
+//			else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+//			else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
 
 			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
