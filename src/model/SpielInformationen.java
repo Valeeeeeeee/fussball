@@ -33,7 +33,10 @@ public class SpielInformationen extends JFrame {
 	private JLabel[] jLblsLineupAway;
 	
 	private JPanel jPnlTorEingabe;
+	private JLabel jLblMinute;
 	private JTextField jTFMinute;
+	private JLabel jLblScorer;
+	private JLabel jLblAssistgeber;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
@@ -45,7 +48,11 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNGOALHOME = new Rectangle(230, 80, 70, 30);
 	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 70, 30);
 	
-	private Rectangle REC_PNLTOREINGABE = new Rectangle(110, 80, 230, 300);
+	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 120, 200, 100);
+	private Rectangle REC_LBLMINUTE = new Rectangle(70, 10, 70, 20);
+	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
+	private Rectangle REC_LBLSCORER = new Rectangle(10, 40, 100, 20);
+	private Rectangle REC_LBLASSIST = new Rectangle(10, 70, 100, 20);
 	
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 120);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 120);
@@ -245,6 +252,30 @@ public class SpielInformationen extends JFrame {
 			jPnlTorEingabe.setBackground(lineupSelColor);
 			jPnlTorEingabe.setVisible(false);
 		}
+		{
+			jLblMinute = new JLabel();
+			jPnlTorEingabe.add(jLblMinute);
+			jLblMinute.setBounds(REC_LBLMINUTE);
+			jLblMinute.setText(". Minute");
+		}
+		{
+			jTFMinute = new JTextField();
+			jPnlTorEingabe.add(jTFMinute);
+			jTFMinute.setBounds(REC_TFMINUTE);
+			jTFMinute.setText("");
+		}
+		{
+			jLblScorer = new JLabel();
+			jPnlTorEingabe.add(jLblScorer);
+			jLblScorer.setBounds(REC_LBLSCORER);
+			jLblScorer.setText("Torschuetze");
+		}
+		{
+			jLblAssistgeber = new JLabel();
+			jPnlTorEingabe.add(jLblAssistgeber);
+			jLblAssistgeber.setBounds(REC_LBLASSIST);
+			jLblAssistgeber.setText("Vorbereiter");
+		}
 		
 		
 		
@@ -323,10 +354,18 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void enterNewGoal(boolean isHomeTeam) {
-		Spieler[] kader;
+		boolean hasLineup = false;
+		if ((isHomeTeam && lineupHome == null) || (!isHomeTeam && lineupAway == null))	hasLineup = true;
+		String[] lineup = new String[11];
 		this.enteringHomeTeamGoal = isHomeTeam;
-		if (enteringHomeTeamGoal)	kader = kaderHome = spiel.getHomeTeam().getKader();
-		else						kader = kaderAway = spiel.getAwayTeam().getKader();
+		if (!hasLineup) {
+			for (int i = 0; i < lineup.length; i++) {
+				if (enteringHomeTeamGoal)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getLastName();
+				else						lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getLastName();
+			}
+		}
+		
+		jPnlTorEingabe.setVisible(true);
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {

@@ -138,7 +138,7 @@ public class Spiel {
 	public String toString() {
 		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
 		
-		log("toString(): " + toString + "+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}");
+		log("toString(): " + toString + "+{" + ergebnis + "}+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}");
 		
 		return toString;
 	}
