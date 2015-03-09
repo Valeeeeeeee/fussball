@@ -119,14 +119,14 @@ public class Start extends JFrame {
 //        message("Fuer die Bounds ein Rectangle[win/mac][alle lbls, cbs, ...] mit den Bounds-Werten. \n"
 //        			+ "Zum Aendern int macorwin", "Bounds", JOptionPane.INFORMATION_MESSAGE);
         
-//        jBtnLigenPressed(7);
+//        jBtnTurnierePressed(1);
 //        jBtnAlleGruppenPressed();
 //        jBtnZurueckActionPerformed();
 //        jBtnBeendenActionPerformed();
         
-        jBtnLigenPressed(0);
+//        jBtnLigenPressed(0);
 //        jCBSaisonauswahl.setSelectedIndex(1);
-        jBtnSpieltageActionPerformed();
+//        jBtnSpieltageActionPerformed();
         
 //        jBtnTabelleActionPerformed();
 //        uebersichtAnzeigen("VfB Stuttgart");

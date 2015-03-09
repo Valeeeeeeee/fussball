@@ -354,7 +354,7 @@ public class KORunde implements Wettbewerb {
 		if (ergebnis != null)	setErgebnisplanEntered(matchday, match, true);
 		else					setErgebnisplanEntered(matchday, match, false);
 		ergebnisplan[matchday][match] = ergebnis;
-		getSpiel(matchday, match).setErgebnis(ergebnis);
+		if (isSpielplanEntered(matchday, match))	getSpiel(matchday, match).setErgebnis(ergebnis);
 	}
 	
 	// Spielplan
