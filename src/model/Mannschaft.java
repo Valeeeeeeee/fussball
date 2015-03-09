@@ -237,6 +237,14 @@ public class Mannschaft {
 		return this.kader;
 	}
 	
+	public Spieler getSpieler(int squadNumber) {
+		for (Spieler spieler : kader) {
+			if (spieler.getSquadNumber() == squadNumber)	return spieler;
+		}
+		
+		return null;
+	}
+	
 	public String getDateAndTime(int matchday) {
 		if (playsInLeague)		return liga.getDateOfTeam(matchday, id);
 		else if (playsInGroup)	return gruppe.getDateOfTeam(matchday, id);
@@ -412,6 +420,7 @@ public class Mannschaft {
 	}
 
 }
+
 
 
 

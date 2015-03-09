@@ -28,23 +28,23 @@ public class Liga implements Wettbewerb {
 	
 	private Mannschaft[] mannschaften;
 	
-    String workspace;
-    String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-    String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
+	private String workspace;
+    private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
+    private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
     
-    String dateiTeams;
-	String[] teamsFromFile;
+    private String dateiTeams;
+    private String[] teamsFromFile;
     
-	String dateiSpielplan;
-	String[] spielplanFromFile;
+	private String dateiSpielplan;
+	private String[] spielplanFromFile;
     private boolean[][] spielplanEingetragen;
     /**
      * [spieltag][spiel]
      */
     private Spiel[][] spielplan;
     
-    String dateiErgebnisse;
-    String[] ergebnisseFromFile;
+    private String dateiErgebnisse;
+    private String[] ergebnisseFromFile;
     private boolean[][] ergebnisplanEingetragen;
     /**
      * [spieltag][spiel]
@@ -454,6 +454,7 @@ public class Liga implements Wettbewerb {
 		if (ergebnis != null)	setErgebnisplanEntered(matchday, match, true);
 		else					setErgebnisplanEntered(matchday, match, false);
 		ergebnisplan[matchday][match] = ergebnis;
+		if (isSpielplanEntered(matchday, match))	getSpiel(matchday, match).setErgebnis(ergebnis);
 	}
 	
 	// Spielplan
@@ -845,6 +846,7 @@ public class Liga implements Wettbewerb {
 		}
 	}
 }
+
 
 
 

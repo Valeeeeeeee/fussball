@@ -1,6 +1,7 @@
 Thorsten;Kirschbaum;19870420;Deutschland;Tor;VfB Stuttgart;22
 Sven;Ulreich;19880803;Deutschland;Tor;VfB Stuttgart;1
 Odisseas;Vlachodimos;19940426;Deutschland;Tor;VfB Stuttgart;17
+Timo;Baumgartl;19960304;Deutschland;Abwehr;VfB Stuttgart;32
 Karim;Haggui;19840120;Deutschland, Tunesien;Abwehr;VfB Stuttgart;5
 Tim;Leibold;19931130;Deutschland;Abwehr;VfB Stuttgart;27
 Georg;Niedermeier;19860226;Deutschland;Abwehr;VfB Stuttgart;6
@@ -18,6 +19,7 @@ Moritz;Leitner;19921208;Deutschland;Mittelfeld;VfB Stuttgart;8
 Alexandru;Maxim;19900708;Rumänien;Mittelfeld;VfB Stuttgart;44
 Oriol;Romeu Vidal;19910924;Spanien;Mittelfeld;VfB Stuttgart;13
 Sercan;Sararer;19891127;Spanien, Türkei;Mittelfeld;VfB Stuttgart;23
+Geoffroy;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;VfB Stuttgart;26
 Robin;Yalcin;19940125;Deutschland;Mittelfeld;VfB Stuttgart;39
 Mohammed;Abdellaoue;19851023;Norwegen;Sturm;VfB Stuttgart;25
 Daniel;Ginczek;19910413;Deutschland;Sturm;VfB Stuttgart;33

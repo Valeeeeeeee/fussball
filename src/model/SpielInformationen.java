@@ -23,19 +23,36 @@ public class SpielInformationen extends JFrame {
 	
 	private JButton jBtnLineupHome;
 	private JButton jBtnLineupAway;
+	private JButton jBtnGoalHome;
+	private JButton jBtnGoalAway;
 	
 	private JPanel jPnlLineupSelection;
 	private JLabel[] jLblsLineupSelectionPlayers;
 	private JButton jBtnLineupSelectionCompleted;
+	private JLabel[] jLblsLineupHome;
+	private JLabel[] jLblsLineupAway;
 	
+	private JPanel jPnlTorEingabe;
+	private JLabel jLblMinute;
+	private JTextField jTFMinute;
+	private JLabel jLblScorer;
+	private JLabel jLblAssistgeber;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
 	
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(110, 80, 230, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(410, 80, 230, 30);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 80, 190, 30);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(470, 80, 190, 30);
+	private Rectangle REC_BTNGOALHOME = new Rectangle(230, 80, 70, 30);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 70, 30);
+	
+	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 120, 200, 100);
+	private Rectangle REC_LBLMINUTE = new Rectangle(70, 10, 70, 20);
+	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
+	private Rectangle REC_LBLSCORER = new Rectangle(10, 40, 100, 20);
+	private Rectangle REC_LBLASSIST = new Rectangle(10, 70, 100, 20);
 	
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 120);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 120);
@@ -48,7 +65,9 @@ public class SpielInformationen extends JFrame {
 	private Color playerSelectedColor = new Color(255, 255, 0);
 	private Font fontTeamNames = new Font("Verdana", Font.PLAIN, 24);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
-	
+
+	private int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
+	private int playersPerColumn = 15;
 	
 	private Spieltag spieltag;
 	private Ergebnis ergebnis;
@@ -56,6 +75,7 @@ public class SpielInformationen extends JFrame {
 	private Spieler[] kaderAway;
 	private boolean[] playerSelected;
 	private boolean enteringHomeTeamLineup;
+	private boolean enteringHomeTeamGoal;
 	private int[] lineupHome;
 	private int[] lineupAway;
 	
@@ -69,12 +89,12 @@ public class SpielInformationen extends JFrame {
 	private JLabel[] descrLbls;
 	private JTextField[][] goalsTFs;
 	
-	private Rectangle RECGO = new Rectangle(430, 360, 60, 30);
-	private Rectangle RECAET = new Rectangle(430, 400, 50, 30);
-	private Rectangle RECAPS = new Rectangle(430, 440, 50, 30);
+	private Rectangle RECGO = new Rectangle(395, 330, 60, 30);
+	private Rectangle RECAET = new Rectangle(395, 370, 50, 30);
+	private Rectangle RECAPS = new Rectangle(395, 410, 50, 30);
 	
-	private int[] descr = new int[] {270, 363, 0, 16, 55, 24};
-	private int[] goals = new int[] {335, 360, 10, 10, 30, 30};
+	private int[] descr = new int[] {250, 333, 0, 16, 55, 24};
+	private int[] goals = new int[] {315, 330, 10, 10, 30, 30};
 	
 	private static final int STARTX = 0;
 	private static final int STARTY = 1;
@@ -105,6 +125,9 @@ public class SpielInformationen extends JFrame {
 	
 	public void initGUI() {
 		this.setLayout(null);
+		
+		jLblsLineupHome = new JLabel[11];
+		jLblsLineupAway = new JLabel[11];
 		
 		{
 			jPnlSpielInformationen = new JPanel();
@@ -164,6 +187,42 @@ public class SpielInformationen extends JFrame {
 				}
 			});
 		}
+		{
+			jBtnGoalHome = new JButton();
+			jPnlSpielInformationen.add(jBtnGoalHome);
+			jBtnGoalHome.setBounds(REC_BTNGOALHOME);
+			jBtnGoalHome.setText("Tor");
+			jBtnGoalHome.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					enterNewGoal(true);
+				}
+			});
+		}
+		{
+			jBtnGoalAway = new JButton();
+			jPnlSpielInformationen.add(jBtnGoalAway);
+			jBtnGoalAway.setBounds(REC_BTNGOALAWAY);
+			jBtnGoalAway.setText("Tor");
+			jBtnGoalAway.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					enterNewGoal(false);
+				}
+			});
+		}
+		
+		for (int i = 0; i < 11; i++) {
+			jLblsLineupHome[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsLineupHome[i]);
+			jLblsLineupHome[i].setBounds(130, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupHome[i].setOpaque(true);
+			jLblsLineupHome[i].setVisible(false);
+			
+			jLblsLineupAway[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsLineupAway[i]);
+			jLblsLineupAway[i].setBounds(470, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupAway[i].setOpaque(true);
+			jLblsLineupAway[i].setVisible(false);
+		}
 		
 		{
 			jPnlLineupSelection = new JPanel();
@@ -183,6 +242,39 @@ public class SpielInformationen extends JFrame {
 					jBtnLineupSelectionCompletedActionPerformed();
 				}
 			});
+		}
+		
+		{
+			jPnlTorEingabe = new JPanel();
+			jPnlSpielInformationen.add(jPnlTorEingabe);
+			jPnlTorEingabe.setBounds(REC_PNLTOREINGABE);
+			jPnlTorEingabe.setLayout(null);
+			jPnlTorEingabe.setBackground(lineupSelColor);
+			jPnlTorEingabe.setVisible(false);
+		}
+		{
+			jLblMinute = new JLabel();
+			jPnlTorEingabe.add(jLblMinute);
+			jLblMinute.setBounds(REC_LBLMINUTE);
+			jLblMinute.setText(". Minute");
+		}
+		{
+			jTFMinute = new JTextField();
+			jPnlTorEingabe.add(jTFMinute);
+			jTFMinute.setBounds(REC_TFMINUTE);
+			jTFMinute.setText("");
+		}
+		{
+			jLblScorer = new JLabel();
+			jPnlTorEingabe.add(jLblScorer);
+			jLblScorer.setBounds(REC_LBLSCORER);
+			jLblScorer.setText("Torschuetze");
+		}
+		{
+			jLblAssistgeber = new JLabel();
+			jPnlTorEingabe.add(jLblAssistgeber);
+			jLblAssistgeber.setBounds(REC_LBLASSIST);
+			jLblAssistgeber.setText("Vorbereiter");
 		}
 		
 		
@@ -261,13 +353,26 @@ public class SpielInformationen extends JFrame {
 		setResizable(false);
 	}
 	
+	private void enterNewGoal(boolean isHomeTeam) {
+		boolean hasLineup = false;
+		if ((isHomeTeam && lineupHome == null) || (!isHomeTeam && lineupAway == null))	hasLineup = true;
+		String[] lineup = new String[11];
+		this.enteringHomeTeamGoal = isHomeTeam;
+		if (!hasLineup) {
+			for (int i = 0; i < lineup.length; i++) {
+				if (enteringHomeTeamGoal)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getLastName();
+				else						lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getLastName();
+			}
+		}
+		
+		jPnlTorEingabe.setVisible(true);
+	}
+	
 	private void enterNewLineup(boolean isHomeTeam) {
-		int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
-		int playersPerColumn = 15;
 		Spieler[] kader;
 		this.enteringHomeTeamLineup = isHomeTeam;
 		if (enteringHomeTeamLineup)	kader = kaderHome = spiel.getHomeTeam().getKader();
-		else			kader = kaderAway = spiel.getAwayTeam().getKader();
+		else						kader = kaderAway = spiel.getAwayTeam().getKader();
 		
 		playerSelected = new boolean[kader.length];
 		
@@ -344,12 +449,20 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < playerSelected.length; i++) {
 			if (playerSelected[i]) {
 				if (enteringHomeTeamLineup) {
-					lineupHome[counter++] = kaderHome[i].getSquadNumber();
+					lineupHome[counter] = kaderHome[i].getSquadNumber();
+					jLblsLineupHome[counter].setText(kaderHome[i].getLastName());
+					jLblsLineupHome[counter++].setVisible(true);
 				} else {
-					lineupAway[counter++] = kaderAway[i].getSquadNumber();
+					lineupAway[counter] = kaderAway[i].getSquadNumber();
+					jLblsLineupAway[counter].setText(kaderAway[i].getLastName());
+					jLblsLineupAway[counter++].setVisible(true);
 				}
 			}
 		}
+		
+		spiel.setLineupHome(lineupHome);
+		spiel.setLineupAway(lineupAway);
+		spiel.toString();
 		
 		if (jLblsLineupSelectionPlayers != null) {
 			for (JLabel label : jLblsLineupSelectionPlayers) {
@@ -451,6 +564,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 }
+
 
 
 

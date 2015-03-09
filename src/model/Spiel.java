@@ -10,11 +10,13 @@ public class Spiel {
 	private int awayTeamIndex;
 	
 	private Wettbewerb wettbewerb;
-	private Liga liga;
-	private Gruppe gruppe;
-	private KORunde koRunde;
+//	private Liga liga;
+//	private Gruppe gruppe;
+//	private KORunde koRunde;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
+	private int[] lineupHome;
+	private int[] lineupAway;
 	
 	private String schiedsrichter;
 	private Ergebnis ergebnis;
@@ -22,9 +24,9 @@ public class Spiel {
 	
 	public Spiel(Wettbewerb wettbewerb, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
-		if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-		else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
+//		if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
+//		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+//		else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
 		
 		this.homeTeamIndex = homeTeamIndex;
 		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
@@ -34,6 +36,12 @@ public class Spiel {
 	
 	public Spiel(Wettbewerb wettbewerb, String daten) {
 		try {
+			if (daten.indexOf("+") != -1) {
+				String data = daten.substring(daten.indexOf("+"));
+				daten = daten.substring(0, daten.indexOf("+"));
+				log("besteht aus >" + daten + "< und >" + data + "<");
+			}
+			
 			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
 			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
 			
@@ -42,9 +50,9 @@ public class Spiel {
 			}
 			
 			this.wettbewerb = wettbewerb;
-			if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-			else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-			else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
+//			if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
+//			else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+//			else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
 
 			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
@@ -84,6 +92,22 @@ public class Spiel {
 		this.ergebnis = ergebnis;
 	}
 	
+	public int[] getLineupHome() {
+		return this.lineupHome;
+	}
+	
+	public void setLineupHome(int[] lineupHome) {
+		this.lineupHome = lineupHome;
+	}
+	
+	public int[] getLineupAway() {
+		return this.lineupAway;
+	}
+	
+	public void setLineupAway(int[] lineupAway) {
+		this.lineupAway = lineupAway;
+	}
+	
 	public ArrayList<Tor> getTore() {
 		return this.tore;
 	}
@@ -96,10 +120,26 @@ public class Spiel {
 		this.schiedsrichter = schiedsrichter;
 	}
 	
+	public String lineupToString(int[] lineup) {
+		String lineupString = "";
+		
+		if (lineup != null) {
+			for (int i = 0; i < lineup.length; i++) {
+				lineupString += lineup[i];
+				if (i < lineup.length - 1)	lineupString += ",";
+			}
+		} else {
+			lineupString = "null";
+		}
+		
+		return lineupString;
+	}
+	
 	public String toString() {
-		return this.homeTeamIndex + ":" + this.awayTeamIndex;
+		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
+		
+		log("toString(): " + toString + "+{" + ergebnis + "}+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}");
+		
+		return toString;
 	}
 }
-
-
-
