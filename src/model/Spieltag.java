@@ -798,6 +798,7 @@ public class Spieltag extends JPanel {
 		}
 		
 		if (saveanyway == 0) {
+			if (belongsToKORound)	koRunde.setCheckTeamsFromPreviousRound(false);
 			int groupID = 0, matchID = 0, offset = 0;
 			for (int match = 0; match < array.length; match++) {
 				Spiel spiel = null;
@@ -819,6 +820,7 @@ public class Spieltag extends JPanel {
 					groupID++;
 				}
 			}
+			if (belongsToKORound)	koRunde.setCheckTeamsFromPreviousRound(true);
 			
 			editedMatchday = -1;
 			

@@ -19,6 +19,7 @@ public class KORunde implements Wettbewerb {
 	private int numberOfTeamsPrequalified;
 	private int numberOfTeamsFromPreviousRound;
 	private int numberOfTeamsFromOtherCompetition;
+	private boolean checkTeamsFromPreviousRound = true;
 	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
@@ -107,8 +108,12 @@ public class KORunde implements Wettbewerb {
 		return this.isETPossible;
 	}
 	
+	public void setCheckTeamsFromPreviousRound(boolean checkTeamsFromPreviousRound) {
+		this.checkTeamsFromPreviousRound = checkTeamsFromPreviousRound;
+	}
+
 	public Mannschaft[] getMannschaften() {
-		mannschaftenAktualisieren();
+		if (checkTeamsFromPreviousRound)	mannschaftenAktualisieren();
 		return mannschaften;
 	}
 	
@@ -130,6 +135,7 @@ public class KORunde implements Wettbewerb {
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
+			log((i + numberOfTeamsPrequalified) + ": " + mannschaften[i + numberOfTeamsPrequalified]);
 		}
 		
 		
@@ -461,7 +467,10 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public int getIndexOfWinnerOf(int match) {
-		if (!(isErgebnisplanFullyEntered(numberOfMatchdays - 1) && isErgebnisplanFullyEntered(0))) {
+//		if (!(isErgebnisplanFullyEntered(numberOfMatchdays - 1) && isErgebnisplanFullyEntered(0))) {
+//			return 0;
+//		}
+		if (!isErgebnisplanEntered(0, match - 1)) {
 			return 0;
 		}
 		
@@ -475,21 +484,22 @@ public class KORunde implements Wettbewerb {
 			// get index of second leg match
 			int index = -1;
 			for (int i = 0; i < numberOfMatchesPerMatchday && index == -1; i++) {
-				if (getSpiel(1, i).home() == teamHomeFirstLeg || getSpiel(1, i).home() == teamAwayFirstLeg) {
+				if (getSpiel(1, i) != null && (getSpiel(1, i).home() == teamHomeFirstLeg || getSpiel(1, i).home() == teamAwayFirstLeg)) {
 					index = i + 1;
 				}
 			}
 			
-			if (index != -1) {
-				if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() > getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
+			if (index != -1 && isErgebnisplanEntered(numberOfMatchdays - 1, index - 1)) {
+				Ergebnis firstLeg = getErgebnis(0, match - 1), secondLeg = getErgebnis(1, index - 1);
+				if (firstLeg.home() + secondLeg.away() > firstLeg.away() + secondLeg.home()) {
 					return teamHomeFirstLeg;
-				} else if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() < getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
+				} else if (firstLeg.home() + secondLeg.away() < firstLeg.away() + secondLeg.home()) {
 					return teamAwayFirstLeg;
 				} else {
 					// looking for a winner through the away-goal rule (e.g. 1:2 and 2:3)
-					if (getErgebnis(0, match - 1).home() > getErgebnis(0, index - 1).home()) {
+					if (firstLeg.home() > secondLeg.home()) {
 						return teamHomeFirstLeg;
-					} else if (getErgebnis(0, match - 1).home() < getErgebnis(0, index - 1).home()) {
+					} else if (firstLeg.home() < secondLeg.home()) {
 						return teamAwayFirstLeg;
 					}
 				}
@@ -579,7 +589,9 @@ public class KORunde implements Wettbewerb {
     	
     	initializeArrays();
     	
+    	setCheckTeamsFromPreviousRound(false);
     	spielplanLaden();
+    	setCheckTeamsFromPreviousRound(true);
 		ergebnisseLaden();
 		
 		{
@@ -633,6 +645,8 @@ public class KORunde implements Wettbewerb {
 			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this);
 			mannschaften[i].setName(getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
+		
+		mannschaftenAktualisieren();
 	}
 	
 	public void mannschaftenSpeichern() {

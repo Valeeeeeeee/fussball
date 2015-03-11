@@ -214,7 +214,9 @@ public class Turnier {
 		log("\n\n");
 		for (int i = 0; i < koRunden.length; i++) {
 			log(koRunden[i].getName() + "\n-------------");
+			koRunden[i].setCheckTeamsFromPreviousRound(false);
 			Mannschaft[] teams = koRunden[i].getMannschaften();
+			koRunden[i].setCheckTeamsFromPreviousRound(true);
 			for (int j = 0; j < teams.length; j++) {
 				Mannschaft team = teams[j];
 				logWONL("Team " + (j + 1) + ": ");
