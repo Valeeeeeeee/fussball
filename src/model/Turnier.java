@@ -193,8 +193,8 @@ public class Turnier {
 			
 			if (foundKO) {
 				int teamIndex = 0;
-				if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOfWinnerOf(matchIndex);
-				else					teamIndex = koRunden[koIndex - 1].getIndexOfLoserOf(matchIndex);
+				if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, true);
+				else					teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, false);
 				
 				deepestOrigin = koRunden[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
 				if (deepestOrigin != null) {
@@ -214,7 +214,9 @@ public class Turnier {
 		log("\n\n");
 		for (int i = 0; i < koRunden.length; i++) {
 			log(koRunden[i].getName() + "\n-------------");
+			koRunden[i].setCheckTeamsFromPreviousRound(false);
 			Mannschaft[] teams = koRunden[i].getMannschaften();
+			koRunden[i].setCheckTeamsFromPreviousRound(true);
 			for (int j = 0; j < teams.length; j++) {
 				Mannschaft team = teams[j];
 				logWONL("Team " + (j + 1) + ": ");

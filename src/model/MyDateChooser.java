@@ -214,6 +214,7 @@ public class MyDateChooser extends JFrame {
 			if (belongsToLeague)	go.setBounds(RECGO);
 			else					go.setBounds(RECGOTOUR);
 			go.setText("fertig");
+			go.setFocusable(false);
 			go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 			        if (belongsToLeague)	returnLeagueStyle();
