@@ -35,8 +35,11 @@ public class SpielInformationen extends JFrame {
 	private JPanel jPnlTorEingabe;
 	private JLabel jLblMinute;
 	private JTextField jTFMinute;
+	private JButton jBtnToreingabeCompleted;
 	private JLabel jLblScorer;
+	private JComboBox<String> jCBScorer;
 	private JLabel jLblAssistgeber;
+	private JComboBox<String> jCBAssistgeber;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
@@ -48,12 +51,17 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNGOALHOME = new Rectangle(230, 80, 70, 30);
 	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 70, 30);
 	
+	// Toreingabe
 	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 120, 200, 100);
-	private Rectangle REC_LBLMINUTE = new Rectangle(70, 10, 70, 20);
+	private Rectangle REC_LBLMINUTE = new Rectangle(60, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
-	private Rectangle REC_LBLSCORER = new Rectangle(10, 40, 100, 20);
-	private Rectangle REC_LBLASSIST = new Rectangle(10, 70, 100, 20);
+	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(130, 5, 60, 30);
+	private Rectangle REC_LBLSCORER = new Rectangle(10, 40, 80, 20);
+	private Rectangle REC_CBSCORER = new Rectangle(100, 37, 100, 26);
+	private Rectangle REC_LBLASSIST = new Rectangle(10, 70, 80, 20);
+	private Rectangle REC_CBASSIST = new Rectangle(100, 67, 100, 26);
 	
+	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 120);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 120);
 	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 350);
@@ -265,16 +273,37 @@ public class SpielInformationen extends JFrame {
 			jTFMinute.setText("");
 		}
 		{
+			jBtnToreingabeCompleted = new JButton();
+			jPnlTorEingabe.add(jBtnToreingabeCompleted);
+			jBtnToreingabeCompleted.setBounds(REC_BTNTOREINGCOMPL);
+			jBtnToreingabeCompleted.setText("fertig");
+			jBtnToreingabeCompleted.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnToreingabeCompletedActionPerformed();
+				}
+			});
+		}
+		{
 			jLblScorer = new JLabel();
 			jPnlTorEingabe.add(jLblScorer);
 			jLblScorer.setBounds(REC_LBLSCORER);
 			jLblScorer.setText("Torschuetze");
 		}
 		{
+			jCBScorer = new JComboBox<>();
+			jPnlTorEingabe.add(jCBScorer);
+	        jCBScorer.setBounds(REC_CBSCORER);
+		}
+		{
 			jLblAssistgeber = new JLabel();
 			jPnlTorEingabe.add(jLblAssistgeber);
 			jLblAssistgeber.setBounds(REC_LBLASSIST);
 			jLblAssistgeber.setText("Vorbereiter");
+		}
+		{
+			jCBAssistgeber = new JComboBox<>();
+			jPnlTorEingabe.add(jCBAssistgeber);
+			jCBAssistgeber.setBounds(REC_CBASSIST);
 		}
 		
 		
@@ -366,6 +395,10 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		jPnlTorEingabe.setVisible(true);
+	}
+	
+	private void jBtnToreingabeCompletedActionPerformed() {
+		jPnlTorEingabe.setVisible(false);
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
@@ -536,9 +569,12 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void goActionPerformed() {
-		String resRT = goalsTFs[1][0].getText() + ":" + goalsTFs[1][1].getText();
-		String resET = goalsTFs[2][0].getText() + ":" + goalsTFs[2][1].getText();
-		String resPS = goalsTFs[3][0].getText() + ":" + goalsTFs[3][1].getText();
+		String resRT = (goalsTFs[1][0].getText().length() > 0 ? goalsTFs[1][0].getText() : "-1") + ":"
+						+ (goalsTFs[1][1].getText().length() > 0 ? goalsTFs[1][1].getText() : "-1");
+		String resET = (goalsTFs[2][0].getText().length() > 0 ? goalsTFs[2][0].getText() : "-1") + ":"
+						+ (goalsTFs[2][1].getText().length() > 0 ? goalsTFs[2][1].getText() : "-1");
+		String resPS = (goalsTFs[3][0].getText().length() > 0 ? goalsTFs[3][0].getText() : "-1") + ":"
+						+ (goalsTFs[3][1].getText().length() > 0 ? goalsTFs[3][1].getText() : "-1");
 		
 		Ergebnis ergebnis = null;
 		

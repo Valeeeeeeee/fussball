@@ -72,6 +72,7 @@ public class Spieltag extends JPanel {
 	private boolean belongsToGroup = false;
 	private boolean belongsToKORound = false;
 	private boolean isOverview = false;
+	private boolean changeTFs = true;
 	private boolean isETPossible;
 	private Wettbewerb wettbewerb;
 	private Liga liga;
@@ -532,11 +533,22 @@ public class Spieltag extends JPanel {
 	
 	private void setErgebnis(int match, Ergebnis result) {
 		ergebnisse[match] = result;
-		if (result != null && result.toString().indexOf("n") != -1) {
-			if (result.toString().indexOf("nE") != -1)			zusatzInfos[match].setText("n. E.");
-			else if (result.toString().indexOf("nV") != -1)		zusatzInfos[match].setText("n. V.");
-		} else {
-			zusatzInfos[match].setText("");
+		
+		if (changeTFs) {
+			int index = isOverview ? newOrder[match] : match;
+			zusatzInfos[index].setText("");
+			
+			if (result != null) {
+				tore[index].setText("" + result.home());
+				tore[index + numberOfMatches].setText("" + result.away());
+				if (result.toString().indexOf("n") != -1) {
+					if (result.toString().indexOf("nE") != -1)			zusatzInfos[index].setText("n. E.");
+					else if (result.toString().indexOf("nV") != -1)		zusatzInfos[index].setText("n. V.");
+				}
+			} else {
+				tore[index].setText("-1");
+				tore[index + numberOfMatches].setText("-1");
+			}
 		}
 	}
 
@@ -582,8 +594,10 @@ public class Spieltag extends JPanel {
 		Ergebnis result;
 		if (goals[0] == -1 || goals[1] == -1)	result = null;
 		else									result = new Ergebnis(goals[0], goals[1]);
+		changeTFs = false;
 		if (isOverview)	setErgebnis(oldOrder[indexOfTF % numberOfMatches], result);
 		else			setErgebnis(indexOfTF % numberOfMatches, result);
+		changeTFs = true;
 	}
 	
 	private void setLabelsEnabled(boolean bool) {
@@ -848,12 +862,6 @@ public class Spieltag extends JPanel {
 		jCBSpieltage.setSelectedIndex(currentMatchday + 1);
 	}
 	
-	private void resetResultActionPerformed(int index) {
-		tore[index].setText("-1");
-		tore[index + numberOfMatches].setText("-1");
-		setErgebnis(index, null);
-	}
-
 	private void resetMatchdayActionPerformed() {
 		if (yesNoDialog("Do you really want to reset this matchday? This is irrevocable.") == JOptionPane.NO_OPTION) return;
 		
@@ -960,11 +968,8 @@ public class Spieltag extends JPanel {
 						}
 						setErgebnis(match, new Ergebnis(turnier.getGruppen()[groupID].getErgebnis(currentMatchday, matchID).toString()));
 					}
-					this.tore[match].setText("" + ergebnisse[match].home());
-					this.tore[match + numberOfMatches].setText("" + ergebnisse[match].away());
 				} catch (NullPointerException e) {
-					this.tore[match].setText("-1");
-					this.tore[match + numberOfMatches].setText("-1");
+					setErgebnis(match, null);
 				}
 			}
 			
@@ -988,12 +993,12 @@ public class Spieltag extends JPanel {
 			
 			ergebnisse = new Ergebnis[numberOfMatches];
 			
-			fillTeamsLabelsAndGoalsTFs(currentMatchday, newOrder);
+			fillTeamsLabelsAndGoalsTFs(currentMatchday);
 			setTFsEditableFromRepresentation();
 		}	
 	}
 	
-	private void fillTeamsLabelsAndGoalsTFs(int matchday, int[] newOrder) {
+	private void fillTeamsLabelsAndGoalsTFs(int matchday) {
 		// fill with dummy text
 		for (int i = 0; i < this.mannschaften.length; i++) {
 			this.mannschaften[i].setText("n. a.");
@@ -1008,8 +1013,6 @@ public class Spieltag extends JPanel {
 				}
 				if (liga.isErgebnisplanEntered(matchday, match)) {
 					setErgebnis(match, new Ergebnis(liga.getErgebnis(matchday, match).toString()));
-					this.tore[match].setText("" + ergebnisse[match].home());
-					this.tore[match + numberOfMatches].setText("" + ergebnisse[match].away());
 				}
 			}
 		} else if (belongsToGroup) {
@@ -1021,8 +1024,6 @@ public class Spieltag extends JPanel {
 				}
 				if (gruppe.isErgebnisplanEntered(matchday, match)) {
 					setErgebnis(match, new Ergebnis(gruppe.getErgebnis(matchday, match).toString()));
-					this.tore[match].setText("" + ergebnisse[match].home());
-					this.tore[match + numberOfMatches].setText("" + ergebnisse[match].away());
 				}
 			}
 		} else if (belongsToKORound) {
@@ -1041,8 +1042,6 @@ public class Spieltag extends JPanel {
 				}
 				if (koRunde.isErgebnisplanEntered(matchday, match)) {
 					setErgebnis(match, new Ergebnis(koRunde.getErgebnis(matchday, match).toString()));
-					this.tore[match].setText("" + ergebnisse[match].home());
-					this.tore[match + numberOfMatches].setText("" + ergebnisse[match].away());
 				}
 			}
 		} else {
@@ -1077,7 +1076,7 @@ public class Spieltag extends JPanel {
 			newOrder[i] = i;
 		}
 		
-		fillTeamsLabelsAndGoalsTFs(currentMatchday, newOrder);
+		fillTeamsLabelsAndGoalsTFs(currentMatchday);
 	}
 	
 	public void gruppeClicked(int index) {
@@ -1205,12 +1204,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void moreOptions(Ergebnis ergebnis) {
-		if (ergebnis != null) {
-			setErgebnis(editedResult, ergebnis);
-		} else {
-			resetResultActionPerformed(editedResult);
-		}
-		
+		setErgebnis(editedResult, ergebnis);
 		editedResult = -1;
 	}
 	
