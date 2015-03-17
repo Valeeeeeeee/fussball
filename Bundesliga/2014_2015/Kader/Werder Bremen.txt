@@ -1,27 +1,27 @@
-Raif;Husic;19960205;Deutschland;Tor;Werder Bremen;40
-Richard;Strebinger;19930214;Österreich;Tor;Werder Bremen;30
-Raphael;Wolf;19880606;Deutschland;Tor;Werder Bremen;1
-Marnon;Busch;19941208;Deutschland;Abwehr;Werder Bremen;38
-Luca;Caldirola;19910201;Italien;Abwehr;Werder Bremen;3
-Clemens;Fritz;19801207;Deutschland;Abwehr;Werder Bremen;8
-Alejandro;Galvez;19890606;Spanien;Abwehr;Werder Bremen;4
-Santiago;Garcia;19880708;Italien, Argentinien;Abwehr;Werder Bremen;2
-Oliver;Hüsing;19930217;Deutschland;Abwehr;Werder Bremen;25
-Assani;Lukimya;19860125;Deutschland, DR Kongo;Abwehr;Werder Bremen;5
-Sebastian;Prödl;19870621;Österreich;Abwehr;Werder Bremen;15
-Luca-Milan;Zander;19950809;Deutschland;Abwehr;Werder Bremen;19
-Levent;Aycicek;19940212;Deutschland;Mittelfeld;Werder Bremen;21
-Philipp;Bargfrede;19890303;Deutschland;Mittelfeld;Werder Bremen;44
-Fin;Bartels;19870207;Deutschland;Mittelfeld;Werder Bremen;22
-Eljero;Elia;19870213;Niederlande;Mittelfeld;Werder Bremen;11
-Theodor;Gebre Selassie;19861224;Tschechien;Mittelfeld;Werder Bremen;23
-Izet;Hajrovic;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;Werder Bremen;14
-Zlatko;Junuzovic;19870926;Österreich;Mittelfeld;Werder Bremen;16
-Felix;Kroos;19910312;Deutschland;Mittelfeld;Werder Bremen;18
-Cedrick;Makiadi;19840223;Deutschland, DR Kongo;Mittelfeld;Werder Bremen;6
-Ludovic;Obraniak;19841110;Frankreich, Polen;Mittelfeld;Werder Bremen;7
-Julian;von Haacke;19940214;Deutschland;Mittelfeld;Werder Bremen;26
-Özkan;Yildirim;19930410;Deutschland;Mittelfeld;Werder Bremen;17
-Franco;di Santo;19890407;Argentinien;Sturm;Werder Bremen;9
-Nils;Petersen;19881206;Deutschland;Sturm;Werder Bremen;24
-Davie;Selke;19950120;Deutschland;Sturm;Werder Bremen;27
+Raif;Husic;null;19960205;Deutschland;Tor;40
+Richard;Strebinger;null;19930214;Österreich;Tor;30
+Raphael;Wolf;null;19880606;Deutschland;Tor;1
+Marnon;Busch;null;19941208;Deutschland;Abwehr;38
+Luca;Caldirola;null;19910201;Italien;Abwehr;3
+Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
+Alejandro;Galvez;null;19890606;Spanien;Abwehr;4
+Santiago;Garcia;null;19880708;Italien, Argentinien;Abwehr;2
+Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25
+Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
+Sebastian;Prödl;null;19870621;Österreich;Abwehr;15
+Luca-Milan;Zander;null;19950809;Deutschland;Abwehr;19
+Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;21
+Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
+Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Eljero;Elia;null;19870213;Niederlande;Mittelfeld;11
+Theodor;Gebre Selassie;null;19861224;Tschechien;Mittelfeld;23
+Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
+Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
+Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
+Cedrick;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6
+Ludovic;Obraniak;null;19841110;Frankreich, Polen;Mittelfeld;7
+Julian;von Haacke;null;19940214;Deutschland;Mittelfeld;26
+Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17
+Franco;di Santo;null;19890407;Argentinien;Sturm;9
+Nils;Petersen;null;19881206;Deutschland;Sturm;24
+Davie;Selke;null;19950120;Deutschland;Sturm;27

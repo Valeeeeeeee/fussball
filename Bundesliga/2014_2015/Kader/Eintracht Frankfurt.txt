@@ -1,28 +1,28 @@
-Timo;Hildebrand;19790405;Deutschland;Tor;Eintracht Frankfurt;26
-Kevin;Trapp;19900708;Deutschland;Tor;Eintracht Frankfurt;1
-Felix;Wiedwald;19900315;Deutschland;Tor;Eintracht Frankfurt;30
-Anderson;Soares de Oliveira;19880110;Brasilien;Abwehr;Eintracht Frankfurt;23
-Timothy;Chandler;19900329;Deutschland, USA;Abwehr;Eintracht Frankfurt;22
-Constant;Djakpa;19861017;Elfenbeinküste;Abwehr;Eintracht Frankfurt;15
-Joel;Gerezgiher;19951009;Deutschland;Abwehr;Eintracht Frankfurt;32
-Aleksandar;Ignjovski;19910127;Serbien;Abwehr;Eintracht Frankfurt;27
-David;Kinsombi;19951212;Deutschland;Abwehr;Eintracht Frankfurt;31
-Alexander;Madlung;19820711;Deutschland;Abwehr;Eintracht Frankfurt;17
-Bastian;Oczipka;19890112;Deutschland;Abwehr;Eintracht Frankfurt;6
-Carlos;Zambrano;19890710;Peru;Abwehr;Eintracht Frankfurt;5
-Stefan;Aigner;19870820;Deutschland;Mittelfeld;Eintracht Frankfurt;16
-Johannes;Flum;19871214;Deutschland;Mittelfeld;Eintracht Frankfurt;18
-Makoto;Hasebe;19840118;Japan;Mittelfeld;Eintracht Frankfurt;20
-Takashi;Inui;19880602;Japan;Mittelfeld;Eintracht Frankfurt;8
-Sonny;Kittel;19930106;Deutschland;Mittelfeld;Eintracht Frankfurt;28
-Martin;Lanig;19840711;Deutschland;Mittelfeld;Eintracht Frankfurt;13
-Slobodan;Medojevic;19901120;Serbien;Mittelfeld;Eintracht Frankfurt;25
-Alexander;Meier;19830117;Deutschland;Mittelfeld;Eintracht Frankfurt;14
-Lucas;Piazon;19940120;Brasilien;Mittelfeld;Eintracht Frankfurt;19
-Jan;Rosenthal;19860407;Deutschland;Mittelfeld;Eintracht Frankfurt;7
-Marco;Russ;19850804;Deutschland;Mittelfeld;Eintracht Frankfurt;4
-Marc;Stendera;19951210;Deutschland;Mittelfeld;Eintracht Frankfurt;21
-Vaclav;Kadlec;19920520;Tschechien;Sturm;Eintracht Frankfurt;10
-Haris;Seferovic;19920222;Schweiz;Sturm;Eintracht Frankfurt;9
-Nelson;Valdez;19831128;Paraguay;Sturm;Eintracht Frankfurt;11
-Luca;Waldschmidt;19960519;Deutschland;Sturm;Eintracht Frankfurt;24
+Timo;Hildebrand;null;19790405;Deutschland;Tor;26
+Kevin;Trapp;null;19900708;Deutschland;Tor;1
+Felix;Wiedwald;null;19900315;Deutschland;Tor;30
+Anderson;Soares de Oliveira;null;19880110;Brasilien;Abwehr;23
+Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
+Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15
+Joel;Gerezgiher;null;19951009;Deutschland;Abwehr;32
+Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
+David;Kinsombi;null;19951212;Deutschland;Abwehr;31
+Alexander;Madlung;null;19820711;Deutschland;Abwehr;17
+Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
+Carlos;Zambrano;null;19890710;Peru;Abwehr;5
+Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;16
+Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
+Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
+Takashi;Inui;null;19880602;Japan;Mittelfeld;8
+Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
+Martin;Lanig;null;19840711;Deutschland;Mittelfeld;13
+Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
+Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
+Lucas;Piazon;null;19940120;Brasilien;Mittelfeld;19
+Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;7
+Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
+Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
+Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10
+Haris;Seferovic;null;19920222;Schweiz;Sturm;9
+Nelson;Valdez;null;19831128;Paraguay;Sturm;11
+Luca;Waldschmidt;null;19960519;Deutschland;Sturm;24

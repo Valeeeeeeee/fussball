@@ -308,6 +308,10 @@ public class Liga implements Wettbewerb {
 		return this.name;
 	}
 	
+	public String getMatchdayDescription(int matchday) {
+		return name + ", " + (matchday + 1) + ". Spieltag";
+	}
+	
 	public int getAnzahlCL() {
 		return this.ANZAHL_CL;
 	}
@@ -566,7 +570,7 @@ public class Liga implements Wettbewerb {
 			}
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldSpiel = getSpiel(matchdayOld, j);
-				spieleInNewOrder[j] = new Spiel(this, oldSpiel.away(), oldSpiel.home());
+				spieleInNewOrder[j] = new Spiel(this, matchdayNew, oldSpiel.away(), oldSpiel.home());
 			}
 			for (int j = 0; j < spieleInNewOrder.length; j++) {
 				for (int k = j + 1; k < spieleInNewOrder.length; k++) {
@@ -694,7 +698,7 @@ public class Liga implements Wettbewerb {
 	            		Spiel spiel = null;
 	            		
 	            		if (isSpielplanEntered(matchday, match)) {
-	            			spiel = new Spiel(this, inhalte[match + 2]);
+	            			spiel = new Spiel(this, matchday, inhalte[match + 2]);
 	            		}
 	            		
 	                    setSpiel(matchday, match, spiel);
@@ -846,7 +850,3 @@ public class Liga implements Wettbewerb {
 		}
 	}
 }
-
-
-
-
