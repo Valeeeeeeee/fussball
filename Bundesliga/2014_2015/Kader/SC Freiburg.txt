@@ -1,28 +1,28 @@
-Daniel;Batz;19910112;Deutschland;Tor;SC Freiburg;19
-Roman;Bürki;19901114;Schweiz;Tor;SC Freiburg;1
-Sebastian;Mielitz;19890718;Deutschland;Tor;SC Freiburg;21
-Christian;Günter;19930228;Deutschland;Abwehr;SC Freiburg;30
-Immanuel;Höhn;19911223;Deutschland;Abwehr;SC Freiburg;41
-Christopher;Jullien;19930322;Frankreich;Abwehr;SC Freiburg;5
-Marc-Oliver;Kempf;19950128;Deutschland;Abwehr;SC Freiburg;20
-Pavel;Krmas;19800303;Tschechien;Abwehr;SC Freiburg;2
-Stefan;Mitrovic;19900522;Serbien;Abwehr;SC Freiburg;15
-Mensur;Mujdza;19840328;Kroatien, Bosnien-Herzegowina;Abwehr;SC Freiburg;24
-Denis;Perger;19930610;Slowenien;Abwehr;SC Freiburg;32
-Sascha;Riether;19830323;Deutschland;Abwehr;SC Freiburg;22
-Oliver;Sorg;19900529;Deutschland;Abwehr;SC Freiburg;25
-Marc;Torrejon;19860218;Spanien;Abwehr;SC Freiburg;3
-Vladimir;Darida;19900808;Tschechien;Mittelfeld;SC Freiburg;7
-Mike;Frantz;19861014;Deutschland;Mittelfeld;SC Freiburg;8
-Nicolas;Höfler;19900309;Deutschland;Mittelfeld;SC Freiburg;27
-Sebastian;Kerk;19940417;Deutschland;Mittelfeld;SC Freiburg;37
-Felix;Klaus;19920913;Deutschland;Mittelfeld;SC Freiburg;36
-Maximilian;Philipp;19940301;Deutschland;Mittelfeld;SC Freiburg;26
-Jonathan;Schmid;19900622;Frankreich;Mittelfeld;SC Freiburg;17
-Julian;Schuster;19850415;Deutschland;Mittelfeld;SC Freiburg;23
-Caleb;Stanko;19930726;USA;Mittelfeld;SC Freiburg;33
-Sebastian;Freis;19850423;Deutschland;Sturm;SC Freiburg;35
-Karim;Guedé;19850107;Togo, Slowakei;Sturm;SC Freiburg;31
-Admir;Mehmedi;19910316;Schweiz;Sturm;SC Freiburg;14
-Dani;Schahin;19890709;Deutschland;Sturm;SC Freiburg;11
-Philipp;Zulechner;19900412;Österreich;Sturm;SC Freiburg;9
+Daniel;Batz;null;19910112;Deutschland;Tor;19
+Roman;Bürki;null;19901114;Schweiz;Tor;1
+Sebastian;Mielitz;null;19890718;Deutschland;Tor;21
+Christian;Günter;null;19930228;Deutschland;Abwehr;30
+Immanuel;Höhn;null;19911223;Deutschland;Abwehr;41
+Christopher;Jullien;null;19930322;Frankreich;Abwehr;5
+Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;20
+Pavel;Krmas;null;19800303;Tschechien;Abwehr;2
+Stefan;Mitrovic;null;19900522;Serbien;Abwehr;15
+Mensur;Mujdza;null;19840328;Kroatien, Bosnien-Herzegowina;Abwehr;24
+Denis;Perger;null;19930610;Slowenien;Abwehr;32
+Sascha;Riether;null;19830323;Deutschland;Abwehr;22
+Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
+Marc;Torrejon;null;19860218;Spanien;Abwehr;3
+Vladimir;Darida;null;19900808;Tschechien;Mittelfeld;7
+Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
+Nicolas;Höfler;null;19900309;Deutschland;Mittelfeld;27
+Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;37
+Felix;Klaus;null;19920913;Deutschland;Mittelfeld;36
+Maximilian;Philipp;null;19940301;Deutschland;Mittelfeld;26
+Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;17
+Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
+Caleb;Stanko;null;19930726;USA;Mittelfeld;33
+Sebastian;Freis;null;19850423;Deutschland;Sturm;35
+Karim;Guedé;null;19850107;Togo, Slowakei;Sturm;31
+Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
+Dani;Schahin;null;19890709;Deutschland;Sturm;11
+Philipp;Zulechner;null;19900412;Österreich;Sturm;9

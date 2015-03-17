@@ -88,6 +88,10 @@ public class KORunde implements Wettbewerb {
 		return this.name;
 	}
 	
+	public String getMatchdayDescription(int matchday) {
+		return turnier.getName() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
+	}
+	
 	public String getShortName() {
 		return this.shortName;
 	}
@@ -629,7 +633,7 @@ public class KORunde implements Wettbewerb {
 	        		// Herkunften der Mannschaften
 	        		for (match = 0; (match + 2) < inhalte.length; match++) {
 	        			Spiel spiel = null;
-	        			if (isSpielplanEntered(spieltag, match))	spiel = new Spiel(this, inhalte[match + 2]);
+	        			if (isSpielplanEntered(spieltag, match))	spiel = new Spiel(this, spieltag, inhalte[match + 2]);
 	        			
 	        			setSpiel(spieltag, match, spiel);
 	        		}
@@ -753,8 +757,3 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 }
-
-
-
-
-

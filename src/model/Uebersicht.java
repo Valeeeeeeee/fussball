@@ -293,7 +293,7 @@ public class Uebersicht extends JPanel {
 			Spieler spieler = mannschaft.getKader()[i];
 			kaderLbls[i][SQUADNUMBER].setText("" + spieler.getSquadNumber());
 			kaderLbls[i][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
-			kaderLbls[i][NAMES].setText(spieler.getFirstName() + " " + spieler.getLastName());
+			kaderLbls[i][NAMES].setText(spieler.getFullNameShort());
 			kaderLbls[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
 			
 			countSinceLastER++;

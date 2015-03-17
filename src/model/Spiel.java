@@ -6,13 +6,11 @@ import java.util.ArrayList;
 
 public class Spiel {
 	
+	private int matchday;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
 	private Wettbewerb wettbewerb;
-//	private Liga liga;
-//	private Gruppe gruppe;
-//	private KORunde koRunde;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
 	private int[] lineupHome;
@@ -22,50 +20,31 @@ public class Spiel {
 	private Ergebnis ergebnis;
 	private ArrayList<Tor> tore = new ArrayList<>();
 	
-	public Spiel(Wettbewerb wettbewerb, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb wettbewerb, int matchday, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
-//		if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-//		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-//		else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
 		
+		this.matchday = matchday;
 		this.homeTeamIndex = homeTeamIndex;
 		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 		this.awayTeamIndex = awayTeamIndex;
 		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb wettbewerb, String daten) {
-		try {
-			if (daten.indexOf("+") != -1) {
-				String data = daten.substring(daten.indexOf("+"));
-				daten = daten.substring(0, daten.indexOf("+"));
-				log("besteht aus >" + daten + "< und >" + data + "<");
-			}
-			
-			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
-			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
-			
-			if (this.homeTeamIndex == this.awayTeamIndex || this.homeTeamIndex == -1 || this.awayTeamIndex == -1) {
-				throw new IllegalArgumentException();
-			}
-			
-			this.wettbewerb = wettbewerb;
-//			if (wettbewerb instanceof Liga)			this.liga = (Liga) wettbewerb;
-//			else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
-//			else if (wettbewerb instanceof KORunde)	this.koRunde = (KORunde) wettbewerb;
-
-			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
-			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
-			
-		} catch (IllegalArgumentException iae) {
-			log("The given match was formally correct, but impossible.");
-		} catch (Exception e) {
-			log("The given match was formally incorrect.");
-		}
+	public Spiel(Wettbewerb wettbewerb, int matchday, String daten) {
+		parseString(daten);
+		this.wettbewerb = wettbewerb;
+		
+		this.matchday = matchday;
+		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
+		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
 	}
 	
 	public Wettbewerb getWettbewerb() {
 		return this.wettbewerb;
+	}
+	
+	public String getDescription() {
+		return wettbewerb.getMatchdayDescription(matchday);
 	}
 	
 	public int home() {
@@ -112,6 +91,10 @@ public class Spiel {
 		return this.tore;
 	}
 	
+	public void addGoal(Tor tor) {
+		if (tor != null)	this.tore.add(tor);
+	}
+	
 	public String getSchiedsrichter() {
 		return this.schiedsrichter;
 	}
@@ -133,6 +116,40 @@ public class Spiel {
 		}
 		
 		return lineupString;
+	}
+	
+	private void parseMatchData(String matchData) {
+		matchData.replace("{", "").replace("}", "");
+		this.ergebnis = new Ergebnis(matchData);
+	}
+	
+	private void parseString(String daten) {
+		try {
+			String[] datenSplit = daten.split("\\+");
+			if (datenSplit.length != 1) {
+				parseMatchData(datenSplit[1]);
+			}
+			
+			if (daten.indexOf("+") != -1) {
+				String data = daten.substring(daten.indexOf("+"));
+				daten = daten.substring(0, daten.indexOf("+"));
+				log("besteht aus >" + daten + "< und >" + data + "<");
+			}
+			
+			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
+			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
+			
+			if (this.homeTeamIndex == this.awayTeamIndex || this.homeTeamIndex == -1 || this.awayTeamIndex == -1) {
+				throw new IllegalArgumentException();
+			}
+			
+		} catch (IllegalArgumentException iae) {
+			log("The given match was formally correct, but impossible.");
+			log(iae.getMessage());
+		} catch (Exception e) {
+			log("The given match was formally incorrect.");
+			e.printStackTrace();
+		}
 	}
 	
 	public String toString() {

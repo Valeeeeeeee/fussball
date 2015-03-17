@@ -817,9 +817,9 @@ public class Spieltag extends JPanel {
 			for (int match = 0; match < array.length; match++) {
 				Spiel spiel = null;
 				if (array[match][0] != -1 && array[match][1] != -1) {
-					if (belongsToALeague)		spiel = new Spiel(liga, array[match][0] - offset, array[match][1] - offset);
-					else if (belongsToGroup)	spiel = new Spiel(gruppe, array[match][0] - offset, array[match][1] - offset);
-					else if (belongsToKORound)	spiel = new Spiel(koRunde, array[match][0] - offset, array[match][1] - offset);
+					if (belongsToALeague)		spiel = new Spiel(liga, editedMatchday, array[match][0] - offset, array[match][1] - offset);
+					else if (belongsToGroup)	spiel = new Spiel(gruppe, editedMatchday, array[match][0] - offset, array[match][1] - offset);
+					else if (belongsToKORound)	spiel = new Spiel(koRunde, editedMatchday, array[match][0] - offset, array[match][1] - offset);
 				}
 				
 				if (belongsToALeague)		liga.setSpiel(editedMatchday, match, spiel);
@@ -1180,6 +1180,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void moreOptionsClicked(int index) {
+		
 		editedResult = index;
 		int offset = 0;
 		int matchID = editedResult;
@@ -1193,6 +1194,11 @@ public class Spieltag extends JPanel {
 					break;
 				}
 			}
+		}
+		
+		if (!wettbewerb.isSpielplanEntered(currentMatchday, matchID)) {
+			
+			return;
 		}
 		
 		spielInformationen = new SpielInformationen(this, wettbewerb.getSpiel(currentMatchday, matchID), ergebnisse[editedResult]);
@@ -1266,8 +1272,3 @@ public class Spieltag extends JPanel {
 		teamsSelection.setVisible(false);
 	}
 }
-
-
-
-
-

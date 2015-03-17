@@ -17,6 +17,8 @@ public class SpielInformationen extends JFrame {
 	
 	private JPanel jPnlSpielInformationen;
 	
+	private JLabel jLblWettbewerb;
+	
 	private JLabel jLblHomeTeamName;
 	private JLabel jLblResult;
 	private JLabel jLblAwayTeamName;
@@ -42,6 +44,7 @@ public class SpielInformationen extends JFrame {
 	private JComboBox<String> jCBAssistgeber;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
+	private Rectangle REC_LBLWETTBW = new Rectangle(200, 5, 300, 20);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
@@ -143,6 +146,14 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.setBounds(REC_PNLSPINFO);
 			jPnlSpielInformationen.setLayout(null);
 			jPnlSpielInformationen.setBackground(color);
+		}
+		{
+			jLblWettbewerb = new JLabel();
+			jPnlSpielInformationen.add(jLblWettbewerb);
+			jLblWettbewerb.setBounds(REC_LBLWETTBW);
+			jLblWettbewerb.setText(spiel.getDescription());
+			jLblWettbewerb.setHorizontalAlignment(SwingConstants.CENTER);
+			jLblWettbewerb.setOpaque(true);
 		}
 		{
 			jLblHomeTeamName = new JLabel();
@@ -389,9 +400,11 @@ public class SpielInformationen extends JFrame {
 		this.enteringHomeTeamGoal = isHomeTeam;
 		if (!hasLineup) {
 			for (int i = 0; i < lineup.length; i++) {
-				if (enteringHomeTeamGoal)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getLastName();
-				else						lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getLastName();
+				if (enteringHomeTeamGoal)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getPseudonym();
+				else						lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getPseudonym();
 			}
+			jCBScorer.setModel(new DefaultComboBoxModel<>(lineup));
+			jCBAssistgeber.setModel(new DefaultComboBoxModel<>(lineup));
 		}
 		
 		jPnlTorEingabe.setVisible(true);
@@ -399,6 +412,23 @@ public class SpielInformationen extends JFrame {
 	
 	private void jBtnToreingabeCompletedActionPerformed() {
 		jPnlTorEingabe.setVisible(false);
+		
+		int minute = Integer.parseInt(jTFMinute.getText());
+		Spieler scorer = null, assistgeber = null;
+		if (enteringHomeTeamGoal) {
+			if (lineupHome != null) {
+				scorer = kaderHome[lineupHome[jCBScorer.getSelectedIndex()]];
+				assistgeber = kaderHome[lineupHome[jCBAssistgeber.getSelectedIndex()]];
+			}
+		} else {
+			if (lineupAway != null) {
+				scorer = kaderAway[lineupAway[jCBScorer.getSelectedIndex()]];
+				assistgeber = kaderAway[lineupAway[jCBAssistgeber.getSelectedIndex()]];
+			}
+		}
+		
+		Tor tor = new Tor(spiel, minute, scorer, assistgeber);
+		spiel.addGoal(tor);
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
@@ -418,7 +448,7 @@ public class SpielInformationen extends JFrame {
 			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[WIDTH], boundsLSP[HEIGHT]);
 			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[WIDTH] + boundsLSP[GAPX]), 
 														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[HEIGHT] + boundsLSP[GAPY]));
-			jLblsLineupSelectionPlayers[i].setText(kader[i].getSquadNumber() + " " + kader[i].getLastName());
+			jLblsLineupSelectionPlayers[i].setText(kader[i].getSquadNumber() + " " + kader[i].getPseudonym());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);
 			jLblsLineupSelectionPlayers[i].addMouseListener(new MouseAdapter() {
@@ -483,11 +513,11 @@ public class SpielInformationen extends JFrame {
 			if (playerSelected[i]) {
 				if (enteringHomeTeamLineup) {
 					lineupHome[counter] = kaderHome[i].getSquadNumber();
-					jLblsLineupHome[counter].setText(kaderHome[i].getLastName());
+					jLblsLineupHome[counter].setText(kaderHome[i].getPseudonym());
 					jLblsLineupHome[counter++].setVisible(true);
 				} else {
 					lineupAway[counter] = kaderAway[i].getSquadNumber();
-					jLblsLineupAway[counter].setText(kaderAway[i].getLastName());
+					jLblsLineupAway[counter].setText(kaderAway[i].getPseudonym());
 					jLblsLineupAway[counter++].setVisible(true);
 				}
 			}
@@ -600,7 +630,3 @@ public class SpielInformationen extends JFrame {
 	}
 	
 }
-
-
-
-

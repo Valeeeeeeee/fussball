@@ -79,6 +79,10 @@ public class Gruppe implements Wettbewerb {
 		return this.id;
 	}
 	
+	public String getMatchdayDescription(int matchday) {
+		return turnier.getName() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
+	}
+	
 	public String getTournamentName() {
 		return turnier.getName();
 	}
@@ -524,9 +528,7 @@ public class Gruppe implements Wettbewerb {
 	            	for (match = 0; (match + 2) < inhalte.length; match++) {
 	            		Spiel spiel = null;
 	            		
-	            		if (isSpielplanEntered(matchday, match)) {
-	            			spiel = new Spiel(this, inhalte[match + 2]);
-	            		}
+	            		if (isSpielplanEntered(matchday, match))	spiel = new Spiel(this, matchday, inhalte[match + 2]);
 	            		
 	                    setSpiel(matchday, match, spiel);
 					}
@@ -631,8 +633,3 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 }
-
-
-
-
-
