@@ -5,7 +5,6 @@ Christian;Wetklo;null;19800111;Deutschland;Tor;28
 Dennis;Aogo;null;19870114;Deutschland;Abwehr;15
 Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24
 Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;5
-Marvin;Friedrich;null;19951213;Deutschland;Abwehr;2
 Christian;Fuchs;null;19860407;Österreich;Abwehr;23
 Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4
 Jan;Kirchhoff;null;19901001;Deutschland;Abwehr;3
@@ -18,11 +17,8 @@ Christian;Clemens;null;19910804;Deutschland;Mittelfeld;11
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
-Pascal;Itter;null;19950403;Deutschland;Mittelfeld;37
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
-Marcel;Sobottka;null;19940425;Deutschland;Mittelfeld;35
-Donis;Avdijaj;null;19960825;Deutschland;Sturm;29
 Eric Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Jefferson;Farfan;null;19841026;Peru;Sturm;17
 Klaas Jan;Huntelaar;null;19830812;Niederlande;Sturm;25

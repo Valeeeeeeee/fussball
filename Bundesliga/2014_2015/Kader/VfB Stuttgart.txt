@@ -3,7 +3,6 @@ Sven;Ulreich;null;19880803;Deutschland;Tor;1
 Odisseas;Vlachodimos;null;19940426;Deutschland;Tor;17
 Timo;Baumgartl;null;19960304;Deutschland;Abwehr;32
 Karim;Haggui;null;19840120;Deutschland, Tunesien;Abwehr;5
-Tim;Leibold;null;19931130;Deutschland;Abwehr;27
 Georg;Niedermeier;null;19860226;Deutschland;Abwehr;6
 Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
 Antonio;Rüdiger;null;19930303;Deutschland;Abwehr;24
@@ -19,8 +18,7 @@ Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;8
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Oriol;Romeu Vidal;null;19910924;Spanien;Mittelfeld;13
 Sercan;Sararer;null;19891127;Spanien, Türkei;Mittelfeld;23
-Geoffroy;Serey Dié;null;19841107;Elfenbeinküste;Mittelfeld;26
-Robin;Yalcin;null;19940125;Deutschland;Mittelfeld;39
+Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26
 Mohammed;Abdellaoue;null;19851023;Norwegen;Sturm;25
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7

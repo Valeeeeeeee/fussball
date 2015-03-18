@@ -120,7 +120,7 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData.replace("{", "").replace("}", "");
-		this.ergebnis = new Ergebnis(matchData);
+		this.ergebnis = new Ergebnis(matchData.split("#")[0]);
 	}
 	
 	private void parseString(String daten) {

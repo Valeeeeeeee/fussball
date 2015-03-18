@@ -427,7 +427,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		Tor tor = new Tor(spiel, minute, scorer, assistgeber);
+		Tor tor = new Tor(spiel, enteringHomeTeamGoal, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
 	}
 	

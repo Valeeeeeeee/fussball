@@ -8,7 +8,6 @@ Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;20
 Pavel;Krmas;null;19800303;Tschechien;Abwehr;2
 Stefan;Mitrovic;null;19900522;Serbien;Abwehr;15
 Mensur;Mujdza;null;19840328;Kroatien, Bosnien-Herzegowina;Abwehr;24
-Denis;Perger;null;19930610;Slowenien;Abwehr;32
 Sascha;Riether;null;19830323;Deutschland;Abwehr;22
 Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
 Marc;Torrejon;null;19860218;Spanien;Abwehr;3
@@ -20,7 +19,6 @@ Felix;Klaus;null;19920913;Deutschland;Mittelfeld;36
 Maximilian;Philipp;null;19940301;Deutschland;Mittelfeld;26
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;17
 Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
-Caleb;Stanko;null;19930726;USA;Mittelfeld;33
 Sebastian;Freis;null;19850423;Deutschland;Sturm;35
 Karim;Guedé;null;19850107;Togo, Slowakei;Sturm;31
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
