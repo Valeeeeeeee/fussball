@@ -495,6 +495,21 @@ public class Gruppe implements Wettbewerb {
 		inDatei(this.dateiMannschaft, this.teamsFromFile);
 	}
 	
+	public String[] getRanks() {
+		String[] ranks = new String[this.numberOfTeams];
+		
+		for (int i = 0; i < ranks.length; i++) {
+			String id = "G" + start.getAlphabet()[this.id] + (i + 1);
+			try {
+				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
+			} catch (NullPointerException npe) {
+				ranks[i] = id + ": " + turnier.getShortName() + turnier.getAktuelleSaison() + id;
+			}
+		}
+		
+		return ranks;
+	}
+	
 	private void initializeArrays() {
     	// Alle Array werden initialisiert
 		

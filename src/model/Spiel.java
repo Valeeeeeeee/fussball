@@ -119,7 +119,7 @@ public class Spiel {
 	}
 	
 	private void parseMatchData(String matchData) {
-		matchData.replace("{", "").replace("}", "");
+		matchData = matchData.replace("{", "").replace("}", "");
 		this.ergebnis = new Ergebnis(matchData.split("#")[0]);
 	}
 	
@@ -155,7 +155,8 @@ public class Spiel {
 	public String toString() {
 		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
 		
-		log("toString(): " + toString + "+{" + ergebnis + "}+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}");
+		String newToString = "toString(): " + toString + "+{" + ergebnis + "}+{" + lineupToString(lineupHome)
+							+ "}+{" + lineupToString(lineupAway) + "}";
 		
 		return toString;
 	}

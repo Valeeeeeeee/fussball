@@ -16,7 +16,7 @@ public class Uebersicht extends JPanel {
 	
 	// Informationen
 	private Rectangle RECINFPNL;
-    private Rectangle RECLBLNAME = new Rectangle(60, 10, 320, 30);
+    private Rectangle RECLBLNAME = new Rectangle(50, 10, 320, 30);
     private Rectangle RECLBLGRDATUM = new Rectangle(160, 40, 100, 30);
     
     // Kader

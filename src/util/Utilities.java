@@ -171,4 +171,35 @@ public class Utilities {
 //			ioe.printStackTrace();
 		}
 	}
+	
+	public static void inDatei(String dateiname, ArrayList<String> strings) {
+		try {
+			File file = new File(dateiname);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			
+			BufferedWriter out = null;
+			try {
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				for (int i = 0; i < strings.size(); i++) {
+					out.write(strings.get(i));
+					out.newLine();
+				}
+			} catch (Exception e) {
+				log(e.getClass().getName() + " while writing in file " + dateiname);
+			} finally {
+				if (out != null) {
+					try {
+						out.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		} catch (IOException ioe) {
+			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
+//			ioe.printStackTrace();
+		}
+	}
 }
