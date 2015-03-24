@@ -146,6 +146,7 @@ public class Start extends JFrame {
     	
     	jBtnLigenPressed(0);
     	Spiel spiel = new Spiel(ligen[0], 23, "2:3+{2:0nV (0:0)}+{1,3,2,14,18,6,13,7,10,8,11}+{1,2,3,4,5,6,8,7,10,11,9}");
+    	jBtnZurueckActionPerformed();
     	
         log("\n\n");
     }
@@ -438,6 +439,10 @@ public class Start extends JFrame {
 	            }
 	        });
         }
+    }
+    
+    public char[] getAlphabet() {
+    	return alphabet;
     }
     
     public void jBtnLigenPressed(int index) {

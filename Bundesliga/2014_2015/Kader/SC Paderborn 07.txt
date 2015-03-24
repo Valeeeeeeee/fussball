@@ -1,7 +1,6 @@
 Nico;Burchert;null;19870624;Deutschland;Tor;19
 Lukas;Kruse;null;19830709;Deutschland;Tor;1
 Daniel;Lück;null;19910518;Deutschland;Tor;33
-Alexander;Nübel;null;19960930;Deutschland;Tor;12
 Martin;Amedick;null;19820906;Deutschland;Abwehr;25
 Thomas;Bertels;null;19861105;Deutschland;Abwehr;14
 Florian;Hartherz;null;19930529;Deutschland;Abwehr;26
@@ -9,7 +8,6 @@ Michael;Heinloth;null;19920209;Deutschland;Abwehr;22
 Uwe;Hünemeier;null;19860109;Deutschland;Abwehr;2
 Rafael;Lopez Gomez;null;19850409;Spanien;Abwehr;3
 Christian;Strohdiek;null;19880122;Deutschland;Abwehr;13
-Tim;Welker;null;19930908;Deutschland;Abwehr;28
 Jens;Wemmer;null;19851031;Deutschland;Abwehr;7
 Patrick;Ziegler;null;19900209;Deutschland;Abwehr;5
 Marvin;Bakalorz;null;19890913;Deutschland;Mittelfeld;6
@@ -25,5 +23,4 @@ Marc;Vucinovic;null;19880919;Deutschland;Mittelfeld;20
 Marvin;Ducksch;null;19940307;Deutschland;Sturm;34
 Elias;Kachunga;null;19920422;Deutschland;Sturm;15
 Stefan;Kutschke;null;19881103;Deutschland;Sturm;9
-Viktor;Maier;null;19890826;Deutschland;Sturm;24
 Mahir;Saglik;null;19830118;Deutschland, Türkei;Sturm;10

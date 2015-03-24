@@ -7,7 +7,7 @@ Kevin;Großkreutz;null;19880719;Deutschland;Abwehr;19
 Mats;Hummels;null;19881216;Deutschland;Abwehr;15
 Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
 Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
-Sokratis;Papastathopoulos;null;19880609;Griechenland;Abwehr;25
+Sokratis;Papastathopoulos;Sokratis;19880609;Griechenland;Abwehr;25
 Neven;Subotic;null;19881210;USA, Serbien;Abwehr;4
 Sven;Bender;null;19890427;Deutschland;Mittelfeld;6
 Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;16

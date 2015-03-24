@@ -1,5 +1,4 @@
 Sascha;Burchert;null;19891030;Deutschland;Tor;30
-Marius;Gersbeck;null;19950620;Deutschland;Tor;35
 Rune;Jarstein;null;19840929;Norwegen;Tor;22
 Thomas;Kraft;null;19880722;Deutschland;Tor;1
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
@@ -20,7 +19,7 @@ Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Hany;Mukhtar;null;19950321;Deutschland;Mittelfeld;34
 Marcel;Ndjeng;null;19820506;Deutschland, Kamerun;Mittelfeld;8
 Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
-Ronny Heberson Furtado;de Araujo;null;19860511;Brasilien;Mittelfeld;12
+Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12
 Nico;Schulz;null;19930401;Deutschland;Mittelfeld;26
 Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
 Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14

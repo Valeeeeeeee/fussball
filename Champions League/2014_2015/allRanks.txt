@@ -1,0 +1,32 @@
+GA1: Atletico Madrid
+GA2: Juventus Turin
+GA3: Olympiakos Piräus
+GA4: Malmö FF
+GB1: Real Madrid
+GB2: FC Basel
+GB3: FC Liverpool
+GB4: Ludogorez Rasgrad
+GC1: AS Monaco
+GC2: Bayer 04 Leverkusen
+GC3: Zenit St. Petersburg
+GC4: Benfica Lissabon
+GD1: Borussia Dortmund
+GD2: FC Arsenal
+GD3: RSC Anderlecht
+GD4: Galatasaray Istanbul
+GE1: Bayern München
+GE2: Manchester City
+GE3: AS Rom
+GE4: ZSKA Moskau
+GF1: FC Barcelona
+GF2: Paris Saint-Germain
+GF3: Ajax Amsterdam
+GF4: APOEL Nikosia
+GG1: FC Chelsea
+GG2: FC Schalke 04
+GG3: Sporting Lissabon
+GG4: NK Maribor
+GH1: FC Porto
+GH2: Schachtar Donezk
+GH3: Athletic Bilbao
+GH4: BATE Baryssau

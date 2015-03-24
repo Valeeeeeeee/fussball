@@ -1,6 +1,7 @@
 package model;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static util.Utilities.*;
 
@@ -413,6 +414,18 @@ public class Turnier {
 		}
 	}
 	
+	private void saveRanks() {
+		ArrayList<String> allRanks = new ArrayList<>();
+		for(Gruppe gruppe : gruppen) {
+			String[] ranks = gruppe.getRanks();
+			for (int i = 0; i < ranks.length; i++) {
+				allRanks.add(ranks[i]);
+				log(ranks[i]);
+			}
+		}
+		inDatei(workspace + File.separator + name + File.separator + getSeason(aktuelleSaison) + File.separator + "allRanks.txt", allRanks);
+	}
+	
 	public void laden(int index) {
 		aktuelleSaison = index;
 		
@@ -428,6 +441,7 @@ public class Turnier {
 	public void speichern() {
 		if (hasGroupStage) {
 			for (Gruppe gruppe : gruppen)		gruppe.speichern();
+			saveRanks();
 		}
 		if (hasKOStage) {
 			for (KORunde koRunde : koRunden)	koRunde.speichern();
