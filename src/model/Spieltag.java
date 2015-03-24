@@ -535,7 +535,7 @@ public class Spieltag extends JPanel {
 		ergebnisse[match] = result;
 		
 		if (changeTFs) {
-			int index = isOverview ? newOrder[match] : match;
+			int index = newOrder != null ? newOrder[match] : match;
 			zusatzInfos[index].setText("");
 			
 			if (result != null) {
@@ -820,6 +820,7 @@ public class Spieltag extends JPanel {
 					if (belongsToALeague)		spiel = new Spiel(liga, editedMatchday, array[match][0] - offset, array[match][1] - offset);
 					else if (belongsToGroup)	spiel = new Spiel(gruppe, editedMatchday, array[match][0] - offset, array[match][1] - offset);
 					else if (belongsToKORound)	spiel = new Spiel(koRunde, editedMatchday, array[match][0] - offset, array[match][1] - offset);
+					else						spiel = new Spiel(turnier.getGruppen()[groupID], editedMatchday, array[match][0] - offset, array[match][1] - offset);
 				}
 				
 				if (belongsToALeague)		liga.setSpiel(editedMatchday, match, spiel);
@@ -1071,7 +1072,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void setMatchesInGroupOrder() {
-		int[] newOrder = new int[numberOfMatches];
+		newOrder = new int[numberOfMatches];
 		for (int i = 0; i < newOrder.length; i++) {
 			newOrder[i] = i;
 		}
