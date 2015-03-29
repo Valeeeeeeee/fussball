@@ -482,15 +482,14 @@ public class Gruppe implements Wettbewerb {
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this); // ((String) jListConfigModel.getElementAt(i)).split(";"));
-			mannschaften[i].setName(teamsFromFile[i]);
+			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile[i]);
 		}
 	}
 	
 	public void mannschaftenSpeichern() {
 		this.teamsFromFile = new String[this.numberOfTeams];
 		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile[i] = this.mannschaften[i].getName(); //.toString());
+			this.teamsFromFile[i] = this.mannschaften[i].toString();
 		}
 		inDatei(this.dateiMannschaft, this.teamsFromFile);
 	}
@@ -588,7 +587,6 @@ public class Gruppe implements Wettbewerb {
 	        
 	        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
 	            String[] inhalte = this.ergebnisseFromFile[matchday].split(";");
-	            
 	            this.setErgebnisplanEnteredFromRepresentation(matchday, inhalte[0]);
 	            
 	            int match = 0;

@@ -44,7 +44,7 @@ public class SpielInformationen extends JFrame {
 	private JComboBox<String> jCBAssistgeber;
 	
 	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
-	private Rectangle REC_LBLWETTBW = new Rectangle(200, 5, 300, 20);
+	private Rectangle REC_LBLWETTBW = new Rectangle(150, 5, 400, 20);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
