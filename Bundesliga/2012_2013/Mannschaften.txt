@@ -1,22 +1,19 @@
 18
-Bayern München;01.01.1970;
-Borussia Dortmund;01.01.1970;
-Bayer 04 Leverkusen;01.01.1970;
-FC Schalke 04;01.01.1970;
-VfL Wolfsburg;01.01.1970;
-VfB Stuttgart;09.09.1893;
-1.FSV Mainz 05;01.01.1970;
-SC Freiburg;01.01.1970;
-Eintracht Frankfurt;01.01.1970;
-Hamburger SV;01.01.1970;
-Borussia Mönchengladbach;01.01.1970;
-Hannover 96;01.01.1970;
-1.FC Nürnberg;01.01.1970;
-Werder Bremen;01.01.1970;
-FC Augsburg;01.01.1970;
-TSG 1899 Hoffenheim;01.01.1970;
-Fortuna Düsseldorf;01.01.1970;
-SpVgg Greuther Fürth;01.01.1970;
-
-
-
+Bayern München;01.01.1970
+Borussia Dortmund;01.01.1970
+Bayer 04 Leverkusen;01.01.1970
+FC Schalke 04;01.01.1970
+VfL Wolfsburg;01.01.1970
+VfB Stuttgart;09.09.1893
+1.FSV Mainz 05;01.01.1970
+SC Freiburg;01.01.1970
+Eintracht Frankfurt;01.01.1970
+Hamburger SV;01.01.1970
+Borussia Mönchengladbach;01.01.1970
+Hannover 96;01.01.1970
+1.FC Nürnberg;01.01.1970
+Werder Bremen;01.01.1970
+FC Augsburg;01.01.1970
+TSG 1899 Hoffenheim;01.01.1970
+Fortuna Düsseldorf;01.01.1970
+SpVgg Greuther Fürth;01.01.1970
