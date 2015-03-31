@@ -27,6 +27,8 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnLineupAway;
 	private JButton jBtnGoalHome;
 	private JButton jBtnGoalAway;
+	private JButton jBtnAGTHome;
+	private JButton jBtnAGTAway;
 	
 	private JPanel jPnlLineupSelection;
 	private JLabel[] jLblsLineupSelectionPlayers;
@@ -53,6 +55,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(470, 80, 190, 30);
 	private Rectangle REC_BTNGOALHOME = new Rectangle(230, 80, 70, 30);
 	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 70, 30);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(300, 80, 50, 30);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(350, 80, 50, 30);
 	
 	// Toreingabe
 	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 120, 200, 100);
@@ -91,6 +95,7 @@ public class SpielInformationen extends JFrame {
 	private int[] lineupAway;
 	
 	private boolean isETpossible = false;
+	private boolean amGruenenTisch = false;
 	private boolean isFinishedAfterRT = false;
 	private boolean isFinishedAfterET = false;
 	
@@ -225,6 +230,30 @@ public class SpielInformationen extends JFrame {
 			jBtnGoalAway.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					enterNewGoal(false);
+				}
+			});
+		}
+		{
+			jBtnAGTHome = new JButton();
+			jPnlSpielInformationen.add(jBtnAGTHome);
+			jBtnAGTHome.setBounds(REC_BTNAGTHOME);
+			jBtnAGTHome.setText("+");
+			jBtnAGTHome.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTHome.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					setAmGruenenTisch(true);
+				}
+			});
+		}
+		{
+			jBtnAGTAway = new JButton();
+			jPnlSpielInformationen.add(jBtnAGTAway);
+			jBtnAGTAway.setBounds(REC_BTNAGTAWAY);
+			jBtnAGTAway.setText("+");
+			jBtnAGTAway.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTAway.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					setAmGruenenTisch(false);
 				}
 			});
 		}
@@ -391,6 +420,12 @@ public class SpielInformationen extends JFrame {
 		
 		setSize(this.dim);
 		setResizable(false);
+	}
+	
+	private void setAmGruenenTisch(boolean isHomeTeam) {
+		this.amGruenenTisch = true;
+		goalsTFs[1][0].setText(isHomeTeam ? "3" : "0");
+		goalsTFs[1][1].setText(isHomeTeam ? "0" : "3");
 	}
 	
 	private void enterNewGoal(boolean isHomeTeam) {
@@ -608,7 +643,11 @@ public class SpielInformationen extends JFrame {
 		
 		Ergebnis ergebnis = null;
 		
-		if (isFinishedAfterRT) {
+		if (amGruenenTisch) {
+			if(resRT.equals("3:0") || resRT.equals("0:3")) {
+				ergebnis = new Ergebnis(resRT + " agT");
+			}
+		} else if (isFinishedAfterRT) {
 			if (resRT.indexOf("-1") == -1) {
 				ergebnis = new Ergebnis(resRT);
 			}

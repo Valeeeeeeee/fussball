@@ -3,7 +3,6 @@ package model;
 import static util.Utilities.*;
 
 import java.io.File;
-import java.io.IOException;
 
 public class Mannschaft {
 	private int id;
@@ -139,6 +138,36 @@ public class Mannschaft {
 		return this.numberOfPlayersByPosition[ATTACKERS];
 	}
 	
+	public int get(int index, int firstMatchday, int lastMatchday) {
+		if (index == 9 || (index >= 2 && index <= 5)) {
+			int anzG = 0, anzU = 0, anzV = 0;
+			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (daten[matchday][3] == 3)		anzG++;
+				else if (daten[matchday][3] == 1)	anzU++;
+				else if (daten[matchday][1] < daten[matchday][2])	anzV++;
+			}
+			
+			if (index == 2)	return anzG + anzU + anzV;
+			if (index == 3)	return anzG;
+			if (index == 4)	return anzU;
+			if (index == 5)	return anzV;
+			if (index == 9)	return 3 * anzG + anzU - deductedPoints;
+		}
+		if (index >= 6 && index <= 8) {
+			int anzT = 0, anzGT = 0;
+			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				anzT += daten[matchday][1];
+				anzGT += daten[matchday][2];
+			}
+			
+			if (index == 6)	return anzT;
+			if (index == 7)	return anzGT;
+			if (index == 8)	return anzT - anzGT;
+		}
+		
+		return -1;
+	}
+	
 	public String getString(int index) {
 		if (index == 0)	return "" + (this.platz + 1);
 		if (index == 1)	return this.name;
@@ -150,7 +179,7 @@ public class Mannschaft {
 		if (index == 7)	return "" + this.anzahl_tminus;
 		if (index == 8)	return "" + this.tdiff;
 		if (index == 9)	return "" + this.punkte;
-		else			return null;
+		return null;
 	}
 
 	public int get(int index) {
@@ -163,7 +192,7 @@ public class Mannschaft {
 		if (index == 7)	return this.anzahl_tminus;
 		if (index == 8)	return this.tdiff;
 		if (index == 9)	return this.punkte;
-		else			return -1;
+		return -1;
 	}
 
 	public void set(int index, int value) {
