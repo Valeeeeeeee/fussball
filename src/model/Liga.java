@@ -646,7 +646,7 @@ public class Liga implements Wettbewerb {
 		
 		this.mannschaften = new Mannschaft[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
-			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile[i + 1].split(";"));
+			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile[i + 1]);
 		}
     }
     

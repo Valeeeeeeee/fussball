@@ -31,12 +31,9 @@ public class Spiel {
 	}
 	
 	public Spiel(Wettbewerb wettbewerb, int matchday, String daten) {
-		parseString(daten);
 		this.wettbewerb = wettbewerb;
-		
 		this.matchday = matchday;
-		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
-		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
+		parseString(daten);
 	}
 	
 	public Wettbewerb getWettbewerb() {
@@ -103,7 +100,28 @@ public class Spiel {
 		this.schiedsrichter = schiedsrichter;
 	}
 	
-	public String lineupToString(int[] lineup) {
+	private String getRemainder() {
+		String remainder = "";
+		
+		if (ergebnis != null || lineupHome != null || lineupAway != null) {
+			String newRemainder = "+{" + matchDataToString() + "}+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}";
+			log(newRemainder);
+		}
+		
+		return remainder;
+	}
+	
+	private String matchDataToString() {
+		String matchData = "" + ergebnis;
+		
+		for (Tor tor : tore) {
+			matchData += "#" + tor;
+		}
+		
+		return matchData;
+	}
+	
+	private String lineupToString(int[] lineup) {
 		String lineupString = "";
 		
 		if (lineup != null) {
@@ -120,27 +138,54 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
-		this.ergebnis = new Ergebnis(matchData.split("#")[0]);
+		String[] matchDataSplit = matchData.split("#");
+		this.ergebnis = new Ergebnis(matchDataSplit[0]);
+		if (matchDataSplit.length > 1) {
+			for (int i = 1; i < matchDataSplit.length; i++) {
+				tore.add(new Tor(this, matchDataSplit[i]));
+			}
+		}
+	}
+	
+	private int[] parseLineup(String lineupString) {
+		int[] lineup = null;
+		
+		if (!lineupString.equals("null")) {
+			String[] lineupSplit = lineupString.replace("{", "").replace("}", "").split(",");
+			lineup = new int[lineupSplit.length];
+			for (int i = 0; i < lineupSplit.length; i++) {
+				lineup[i] = Integer.parseInt(lineupSplit[i]);
+			}
+		}
+		
+		return checkLineup(lineup);
+	}
+	
+	private int[] checkLineup(int[] lineup) {
+		boolean isValid = true;
+		
+		return isValid ? lineup : null;
 	}
 	
 	private void parseString(String daten) {
 		try {
 			String[] datenSplit = daten.split("\\+");
-			if (datenSplit.length != 1) {
-				parseMatchData(datenSplit[1]);
-			}
+			String spieldaten = datenSplit[0];
 			
-			if (daten.indexOf("+") != -1) {
-				String data = daten.substring(daten.indexOf("+"));
-				daten = daten.substring(0, daten.indexOf("+"));
-				log("besteht aus >" + daten + "< und >" + data + "<");
-			}
-			
-			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
-			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
+			this.homeTeamIndex = Integer.parseInt(spieldaten.split(":")[0]);
+			this.awayTeamIndex = Integer.parseInt(spieldaten.split(":")[1]);
 			
 			if (this.homeTeamIndex == this.awayTeamIndex || this.homeTeamIndex == -1 || this.awayTeamIndex == -1) {
 				throw new IllegalArgumentException();
+			}
+			
+			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
+			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
+			
+			if (datenSplit.length != 1) {
+				parseMatchData(datenSplit[1]);
+				lineupHome = parseLineup(datenSplit[2]);
+				lineupAway = parseLineup(datenSplit[3]);
 			}
 			
 		} catch (IllegalArgumentException iae) {
@@ -153,10 +198,7 @@ public class Spiel {
 	}
 	
 	public String toString() {
-		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
-		
-		String newToString = "toString(): " + toString + "+{" + ergebnis + "}+{" + lineupToString(lineupHome)
-							+ "}+{" + lineupToString(lineupAway) + "}";
+		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
 		
 		return toString;
 	}

@@ -1,24 +1,21 @@
 20
-Manchester United;01.01.1970;
-Manchester City;01.01.1970;
-FC Chelsea;01.01.1970;
-FC Arsenal;01.01.1970;
-Tottenham Hotspurs;01.01.1970;
-FC Everton;01.01.1970;
-FC Liverpool;01.01.1970;
-West Bromwich Albion;01.01.1970;
-Swansea City;01.01.1970;
-West Ham United;01.01.1970;
-Norwich City;01.01.1970;
-FC Fulham;01.01.1970;
-Stoke City;01.01.1970;
-FC Southampton;01.01.1970;
-Aston Villa;01.01.1970;
-Newcastle United;01.01.1970;
-AFC Sunderland;01.01.1970;
-Cardiff City;01.01.1970;
-Hull City Tigers;01.01.1970;
-Crystal Palace;01.01.1970;
-
-
-
+Manchester United;01.01.1970
+Manchester City;01.01.1970
+FC Chelsea;01.01.1970
+FC Arsenal;01.01.1970
+Tottenham Hotspurs;01.01.1970
+FC Everton;01.01.1970
+FC Liverpool;01.01.1970
+West Bromwich Albion;01.01.1970
+Swansea City;01.01.1970
+West Ham United;01.01.1970
+Norwich City;01.01.1970
+FC Fulham;01.01.1970
+Stoke City;01.01.1970
+FC Southampton;01.01.1970
+Aston Villa;01.01.1970
+Newcastle United;01.01.1970
+AFC Sunderland;01.01.1970
+Cardiff City;01.01.1970
+Hull City Tigers;01.01.1970
+Crystal Palace;01.01.1970

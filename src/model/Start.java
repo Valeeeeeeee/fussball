@@ -145,8 +145,35 @@ public class Start extends JFrame {
     	// TODO do some testing
     	
     	jBtnLigenPressed(0);
-    	Spiel spiel = new Spiel(ligen[0], 23, "2:3+{2:0nV (0:0)}+{1,3,2,14,18,6,13,7,10,8,11}+{1,2,3,4,5,6,8,7,10,11,9}");
+    	
+    	// Spiel mit Ergebnis und Lineup
+    	Spiel spiel = new Spiel(ligen[0], 25, "15:13+{2:0nV (0:0)#false-m51-s9-a6#true-m63-s33-a7}+{1,21,6,32,16,20,26,19,44,7,33}+{1,6,17,5,22,20,8,21,16,14,9}");
+    	Tor tor2 = new Tor(spiel, "true-m66-s33-a44");
+    	spiel.addGoal(tor2);  
+    	Tor tor3 = new Tor(spiel, "true-m80-s44-a18");
+    	spiel.addGoal(tor3);
+    	log(spiel.toString());
+    	log("\n");
+    	
+    	// Punkte / Tore von Spieltag bis Spieltag
+    	int first = 0, last = 25;
+    	log("Bilanz vom " + (first + 1) + ". Spieltag bis zum " + (last + 1) + ". Spieltag");
+    	log(ligen[0].getMannschaften()[14].get(2, first, last) + " Spiele");
+    	log(ligen[0].getMannschaften()[14].get(3, first, last) + " Siege");
+    	log(ligen[0].getMannschaften()[14].get(4, first, last) + " Unentschieden");
+    	log(ligen[0].getMannschaften()[14].get(5, first, last) + " Niederlagen");
+    	log(ligen[0].getMannschaften()[14].get(6, first, last) + " Tore");
+    	log(ligen[0].getMannschaften()[14].get(7, first, last) + " Gegentore");
+    	log("Tordifferenz: " + ligen[0].getMannschaften()[14].get(8, first, last));
+    	log(ligen[0].getMannschaften()[14].get(9, first, last) + " Punkte");
+    	
     	jBtnZurueckActionPerformed();
+    	
+    	
+    	Ergebnis ergAGTHome = new Ergebnis("3:0 agT");
+    	Ergebnis ergAGTAway = new Ergebnis("0:3 agT");
+    	log("\n" + ergAGTHome.toString());
+    	log(ergAGTAway.toString());
     	
         log("\n\n");
     }

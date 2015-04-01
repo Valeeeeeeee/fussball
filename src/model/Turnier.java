@@ -420,7 +420,6 @@ public class Turnier {
 			String[] ranks = gruppe.getRanks();
 			for (int i = 0; i < ranks.length; i++) {
 				allRanks.add(ranks[i]);
-				log(ranks[i]);
 			}
 		}
 		inDatei(workspace + File.separator + name + File.separator + getSeason(aktuelleSaison) + File.separator + "allRanks.txt", allRanks);

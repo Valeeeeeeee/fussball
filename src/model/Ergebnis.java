@@ -6,6 +6,7 @@ public class Ergebnis {
 
 	private boolean finishedInRegularTime = false;
 	private boolean finishedInOvertime = false;
+	private boolean amGruenenTisch = false;
 	
 	private int[] home = new int[4];
 	private int[] away = new int[4];
@@ -31,7 +32,15 @@ public class Ergebnis {
 	
 	public Ergebnis(String daten) {
 		try {
-			if (daten.indexOf("nE") != -1) {
+			if (daten.indexOf("agT") != -1) {
+				// >3:0 agT<
+				amGruenenTisch = true;
+				
+				String[] teile = daten.split(":|\\ ");
+				home[REGULAR] = Integer.parseInt(teile[0]);
+				away[REGULAR] = Integer.parseInt(teile[1]);
+				
+			} else if (daten.indexOf("nE") != -1) {
 				// Beispiel: >2:1nE (1:1,0:0)<
 				
 				String[] teile = daten.split("nE ");
@@ -93,6 +102,9 @@ public class Ergebnis {
 	
 
 	public int home() {
+		if (amGruenenTisch) {
+			return home(REGULAR);
+		}
 		if (finishedInRegularTime) {
 			return home(REGULAR);
 		}
@@ -107,6 +119,9 @@ public class Ergebnis {
 	}
 	
 	public int away() {
+		if (amGruenenTisch) {
+			return away(REGULAR);
+		}
 		if (finishedInRegularTime) {
 			return away(REGULAR);
 		}
@@ -157,6 +172,12 @@ public class Ergebnis {
 			return false;
 		}
 		
+		// if the match was decided agT and the result is 3:0 or 0:3
+		if (amGruenenTisch) {
+			if (home[REGULAR] + away[REGULAR] != 3 || home[REGULAR] * away[REGULAR] != 0)	return false;
+			return true;
+		}
+		
 		if (finishedInRegularTime) {
 			return true;
 		}
@@ -182,6 +203,8 @@ public class Ergebnis {
 	
 	public String toString() {
 		String data = home(REGULAR) + ":" + away(REGULAR);
+		
+		if (amGruenenTisch)	return data + " agT";
 		
 		if (finishedInRegularTime)	return data;
 		

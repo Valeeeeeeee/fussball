@@ -3,7 +3,6 @@ package model;
 import static util.Utilities.*;
 
 import java.io.File;
-import java.io.IOException;
 
 public class Mannschaft {
 	private int id;
@@ -20,6 +19,7 @@ public class Mannschaft {
 	private int anzahl_tminus;
 	private int tdiff;
 	private int punkte;
+	private int deductedPoints = 0;
 	
 	private int[][] daten;
 	private Spiel[] spiele;
@@ -50,30 +50,19 @@ public class Mannschaft {
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
 
-	public Mannschaft(Start start, int id, Liga liga) {
-		message("Don't call this constructor!");
+	public Mannschaft(Start start, int id, Liga liga, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
 		this.liga = liga;
 		this.playsInLeague = true;
 		this.playsInGroup = false;
-		initializeArrays();
-	}
-
-	public Mannschaft(Start start, int id, Liga liga, String[] mannschaftsDaten) {
-		this.id = id;
-		this.start = start;
-		this.liga = liga;
-		this.playsInLeague = true;
-		this.playsInGroup = false;
-		this.name = mannschaftsDaten[0];
-		this.gruendungsdatum = mannschaftsDaten[1];
 		
 		initializeArrays();
+		parseString(mannschaftsDaten);
 		loadKader();
 	}
 
-	public Mannschaft(Start start, int id, Turnier turnier, Gruppe gruppe) {
+	public Mannschaft(Start start, int id, Turnier turnier, Gruppe gruppe, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
 		this.turnier = turnier;
@@ -81,22 +70,10 @@ public class Mannschaft {
 		this.playsInLeague = false;
 		this.playsInGroup = true;
 		initializeArrays();
-	}
-
-	public Mannschaft(Start start, int id, Turnier turnier, Gruppe gruppe, String[] mannschaftsDaten) {
-		this.id = id;
-		this.start = start;
-		this.turnier = turnier;
-		this.gruppe = gruppe;
-		this.playsInLeague = false;
-		this.playsInGroup = true;
-		initializeArrays();
-
-		this.name = mannschaftsDaten[0];
-		this.gruendungsdatum = mannschaftsDaten[1];
+		parseString(mannschaftsDaten);
 	}
 	
-	public Mannschaft(Start start, int id, Turnier turnier, KORunde koRunde) {
+	public Mannschaft(Start start, int id, Turnier turnier, KORunde koRunde, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
 		this.turnier = turnier;
@@ -104,6 +81,7 @@ public class Mannschaft {
 		this.playsInLeague = false;
 		this.playsInGroup = false;
 		initializeArrays();
+		parseString(mannschaftsDaten);
 	}
 
 	private void initializeArrays() {
@@ -160,6 +138,36 @@ public class Mannschaft {
 		return this.numberOfPlayersByPosition[ATTACKERS];
 	}
 	
+	public int get(int index, int firstMatchday, int lastMatchday) {
+		if (index == 9 || (index >= 2 && index <= 5)) {
+			int anzG = 0, anzU = 0, anzV = 0;
+			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (daten[matchday][3] == 3)		anzG++;
+				else if (daten[matchday][3] == 1)	anzU++;
+				else if (daten[matchday][1] < daten[matchday][2])	anzV++;
+			}
+			
+			if (index == 2)	return anzG + anzU + anzV;
+			if (index == 3)	return anzG;
+			if (index == 4)	return anzU;
+			if (index == 5)	return anzV;
+			if (index == 9)	return 3 * anzG + anzU - deductedPoints;
+		}
+		if (index >= 6 && index <= 8) {
+			int anzT = 0, anzGT = 0;
+			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				anzT += daten[matchday][1];
+				anzGT += daten[matchday][2];
+			}
+			
+			if (index == 6)	return anzT;
+			if (index == 7)	return anzGT;
+			if (index == 8)	return anzT - anzGT;
+		}
+		
+		return -1;
+	}
+	
 	public String getString(int index) {
 		if (index == 0)	return "" + (this.platz + 1);
 		if (index == 1)	return this.name;
@@ -171,7 +179,7 @@ public class Mannschaft {
 		if (index == 7)	return "" + this.anzahl_tminus;
 		if (index == 8)	return "" + this.tdiff;
 		if (index == 9)	return "" + this.punkte;
-		else			return null;
+		return null;
 	}
 
 	public int get(int index) {
@@ -184,7 +192,7 @@ public class Mannschaft {
 		if (index == 7)	return this.anzahl_tminus;
 		if (index == 8)	return this.tdiff;
 		if (index == 9)	return this.punkte;
-		else			return -1;
+		return -1;
 	}
 
 	public void set(int index, int value) {
@@ -357,7 +365,7 @@ public class Mannschaft {
 		}
 		
 		this.anzahl_sp = this.anzahl_g + this.anzahl_u + this.anzahl_v;
-		this.punkte = 3 * this.anzahl_g + this.anzahl_u;
+		this.punkte = 3 * this.anzahl_g + this.anzahl_u + this.deductedPoints;
 		this.tdiff = this.anzahl_tplus - this.anzahl_tminus;
 	}
 	
@@ -402,19 +410,31 @@ public class Mannschaft {
 		return -1;
 	}
 
-	private void fromString(String data) {
+	private void parseString(String data) {
 		String[] daten = data.split(";");
 		
-		this.name = data.substring(0, data.indexOf(";"));
-		this.gruendungsdatum = data.substring(data.indexOf(";") + 1, data.length() - 1);
-		
 		this.name = daten[0];
-		this.gruendungsdatum = daten[1];
+		if (daten.length > 1) {
+			this.gruendungsdatum = !daten[1].equals("null") ? daten[1] : null;
+			if (daten.length > 2) {
+				this.deductedPoints = Integer.parseInt(daten[2]);
+				log(this.name + ": This team has been deducted " + this.deductedPoints + " points.");
+			}
+		}
 	}
 
 	public String toString() {
-		String data = this.name + ";";
-		data += this.gruendungsdatum + ";";
+		String data = this.name;
+		if (playsInLeague) {
+			data += ";" + this.gruendungsdatum;
+			if (deductedPoints != 0) {
+				data += ";" + this.deductedPoints;
+			}
+		} else if (playsInGroup) {
+			if (deductedPoints != 0) {
+				data += ";null;" + this.deductedPoints;
+			}
+		}
 
 		return data;
 	}
