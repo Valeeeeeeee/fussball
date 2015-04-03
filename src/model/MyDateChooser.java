@@ -38,7 +38,7 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20150414;
+	private int defaultMyDate = 20150908;
 	private int defaultMyTime = 2045;
 	private int defaultStarttag = -1;
 	private int date;
