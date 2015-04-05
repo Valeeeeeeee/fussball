@@ -14,7 +14,7 @@ Milan;Badelj;null;19890225;Kroatien;Mittelfeld;14
 Valon;Behrami;null;19850419;Schweiz;Mittelfeld;21
 Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;9
 Tolcay;Cigerci;null;19950124;Türkei;Mittelfeld;35
-Marcelo;Diaz;19861230;Chile;Abwehr;20
+Marcelo;Diaz;null;19861230;Chile;Abwehr;20
 Ashton-Phillip;Götz;null;19930716;Deutschland;Mittelfeld;39
 Mohamed;Gouaida;null;19930515;Frankreich, Tunesien;Mittelfeld;25
 Julian;Green;null;19950606;Deutschland, USA;Mittelfeld;37
