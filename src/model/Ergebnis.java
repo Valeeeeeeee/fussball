@@ -15,8 +15,16 @@ public class Ergebnis {
 	public static final int EXTRATIME = 2;
 	public static final int PENALTIES = 3;
 
-	public Ergebnis() {
+	public Ergebnis(Ergebnis ergebnis, Tor tor) {
+		finishedInRegularTime = ergebnis.finishedInRegularTime;
+		finishedInOvertime = ergebnis.finishedInOvertime;
+		amGruenenTisch = ergebnis.amGruenenTisch;
+		home = ergebnis.home;
+		away = ergebnis.away;
 		
+		// TODO not unconditionally
+		if (tor.isScoredByFirstTeam())	home[REGULAR]++;
+		else							away[REGULAR]++;
 	}
 	
 	/**
@@ -218,8 +226,3 @@ public class Ergebnis {
 	}
 	
 }
-
-
-
-
-

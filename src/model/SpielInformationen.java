@@ -89,8 +89,10 @@ public class SpielInformationen extends JFrame {
 	private Spieler[] kaderHome;
 	private Spieler[] kaderAway;
 	private boolean[] playerSelected;
-	private boolean enteringHomeTeamLineup;
-	private boolean enteringHomeTeamGoal;
+	private boolean editingHomeTeam;
+	private boolean enteringLineup;
+	private boolean enteringGoal;
+	private boolean enteringSubstitution;
 	private int[] lineupHome;
 	private int[] lineupAway;
 	
@@ -365,6 +367,11 @@ public class SpielInformationen extends JFrame {
 						}
 					}
 				});
+				goalsTFs[i][j].addFocusListener(new FocusAdapter() {
+					public void focusGained(FocusEvent e) {
+						goalsTFs[x][y].selectAll();
+					}
+				});
 			}
 		}
 		goalsTFs[0][0].setEnabled(false);
@@ -432,10 +439,11 @@ public class SpielInformationen extends JFrame {
 		boolean hasLineup = false;
 		if ((isHomeTeam && lineupHome == null) || (!isHomeTeam && lineupAway == null))	hasLineup = true;
 		String[] lineup = new String[11];
-		this.enteringHomeTeamGoal = isHomeTeam;
+		this.enteringGoal = true;
+		this.editingHomeTeam = isHomeTeam;
 		if (!hasLineup) {
 			for (int i = 0; i < lineup.length; i++) {
-				if (enteringHomeTeamGoal)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getPseudonym();
+				if (editingHomeTeam)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getPseudonym();
 				else						lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getPseudonym();
 			}
 			jCBScorer.setModel(new DefaultComboBoxModel<>(lineup));
@@ -446,11 +454,13 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void jBtnToreingabeCompletedActionPerformed() {
+		if (!enteringGoal)	return;
+		
 		jPnlTorEingabe.setVisible(false);
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
 		Spieler scorer = null, assistgeber = null;
-		if (enteringHomeTeamGoal) {
+		if (editingHomeTeam) {
 			if (lineupHome != null) {
 				scorer = kaderHome[lineupHome[jCBScorer.getSelectedIndex()]];
 				assistgeber = kaderHome[lineupHome[jCBAssistgeber.getSelectedIndex()]];
@@ -462,14 +472,16 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		Tor tor = new Tor(spiel, enteringHomeTeamGoal, minute, scorer, assistgeber);
+		Tor tor = new Tor(spiel, editingHomeTeam, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
+		enteringGoal = false;
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
 		Spieler[] kader;
-		this.enteringHomeTeamLineup = isHomeTeam;
-		if (enteringHomeTeamLineup)	kader = kaderHome = spiel.getHomeTeam().getKader();
+		this.enteringLineup = true;
+		this.editingHomeTeam = isHomeTeam;
+		if (editingHomeTeam)	kader = kaderHome = spiel.getHomeTeam().getKader();
 		else						kader = kaderAway = spiel.getAwayTeam().getKader();
 		
 		playerSelected = new boolean[kader.length];
@@ -493,7 +505,7 @@ public class SpielInformationen extends JFrame {
 			});
 		}
 		
-		if (enteringHomeTeamLineup) {
+		if (editingHomeTeam) {
 			jPnlLineupSelection.setLocation(LOC_PNLLINEUPHOMESEL);
 			if (lineupHome == null) {
 				lineupHome = new int[11];
@@ -533,6 +545,8 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void jBtnLineupSelectionCompletedActionPerformed() {
+		if (!enteringLineup)	return;
+		
 		int numberOfPlayers = 0, counter = 0;
 		// count number of players
 		for (int i = 0; i < playerSelected.length; i++) {
@@ -546,7 +560,7 @@ public class SpielInformationen extends JFrame {
 		
 		for (int i = 0; i < playerSelected.length; i++) {
 			if (playerSelected[i]) {
-				if (enteringHomeTeamLineup) {
+				if (editingHomeTeam) {
 					lineupHome[counter] = kaderHome[i].getSquadNumber();
 					jLblsLineupHome[counter].setText(kaderHome[i].getPseudonym());
 					jLblsLineupHome[counter++].setVisible(true);
@@ -568,6 +582,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		jPnlLineupSelection.setVisible(false);
+		enteringLineup = false;
 	}
 	
 	private void afterETActionPerformed() {
