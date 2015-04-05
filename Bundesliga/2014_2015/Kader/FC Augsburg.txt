@@ -5,6 +5,7 @@ Abdul Rahman;Baba;null;19940702;Ghana;Abwehr;12
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
 Marcel;de Jong;null;19861015;Niederlande, Kanada;Abwehr;17
 Jeong-Ho;Hong;null;19890812;Südkorea;Abwehr;20
+Christoph;Janker;null;19850214;Deutschland;Abwehr;16
 Ragnar;Klavan;null;19851030;Estland;Abwehr;5
 Ronny;Philp;null;19890128;Deutschland;Abwehr;3
 Dominik;Reinhardt;null;19841219;Deutschland;Abwehr;4
@@ -14,6 +15,7 @@ Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
 Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
 Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;11
 Markus;Feulner;null;19820212;Deutschland;Mittelfeld;8
+Pierre-Emile;Höjbjerg;null;19950805;Dänemark;Mittelfeld;19
 Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
 Jan;Moravek;null;19891101;Tschechien;Mittelfeld;14
 Shawn;Parker;null;19930307;Deutschland;Mittelfeld;9
@@ -21,5 +23,6 @@ Erik;Thommy;null;19940820;Deutschland;Mittelfeld;26
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;13
 Raul;Bobadilla;null;19870618;Argentinien;Sturm;25
 Nikola;Djurdjic;null;19860401;Serbien;Sturm;34
+Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
 Tim;Matavz;null;19890113;Slowenien;Sturm;23
 Sascha;Mölders;null;19850320;Deutschland;Sturm;33

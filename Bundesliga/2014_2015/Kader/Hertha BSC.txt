@@ -3,7 +3,6 @@ Rune;Jarstein;null;19840929;Norwegen;Tor;22
 Thomas;Kraft;null;19880722;Deutschland;Tor;1
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 John;Heitinga;null;19831115;Niederlande;Abwehr;5
-Christoph;Janker;null;19850214;Deutschland;Abwehr;6
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
 Peter;Pekarik;null;19861030;Slowakei;Abwehr;2
@@ -16,7 +15,6 @@ Tolga;Cigerci;null;19920323;Deutschland;Mittelfeld;17
 Genki;Haraguchi;null;19910509;Japan;Mittelfeld;24
 Jens;Hegeler;null;19880122;Deutschland;Mittelfeld;13
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
-Hany;Mukhtar;null;19950321;Deutschland;Mittelfeld;34
 Marcel;Ndjeng;null;19820506;Deutschland, Kamerun;Mittelfeld;8
 Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
 Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12
@@ -26,3 +24,4 @@ Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14
 Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;11
 Julian;Schieber;null;19890213;Deutschland;Sturm;16
 Sandro;Wagner;null;19871129;Deutschland;Sturm;33
+Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;11

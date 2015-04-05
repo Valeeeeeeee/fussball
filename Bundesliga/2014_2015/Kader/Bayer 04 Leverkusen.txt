@@ -15,6 +15,7 @@ Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15
 Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;3
 Simon;Rolfes;null;19820121;Deutschland;Mittelfeld;6
+Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
 Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
 Julian;Brandt;null;19960502;Deutschland;Sturm;19
 Josip;Drmic;null;19920808;Schweiz;Sturm;9
