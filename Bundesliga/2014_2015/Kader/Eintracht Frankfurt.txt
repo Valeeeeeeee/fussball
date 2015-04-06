@@ -5,6 +5,7 @@ Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
 Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
 Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15
 Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
+David;Kinsombi;null;19951212;Deutschland;Abwehr;31
 Alexander;Madlung;null;19820711;Deutschland;Abwehr;17
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
 Carlos;Zambrano;null;19890710;Peru;Abwehr;5
@@ -17,7 +18,6 @@ Martin;Lanig;null;19840711;Deutschland;Mittelfeld;13
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
 Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
 Lucas;Piazon;null;19940120;Brasilien;Mittelfeld;19
-Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;7
 Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10

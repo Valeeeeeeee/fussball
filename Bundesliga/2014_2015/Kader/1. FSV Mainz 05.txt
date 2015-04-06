@@ -1,7 +1,7 @@
 Stefanos;Kapino;null;19940318;Griechenland;Tor;1
 Loris;Karius;null;19930622;Deutschland;Tor;21
-Robin;Zentner;null;19941028;Deutschland;Tor;38
 Stefan;Bell;null;19910824;Deutschland;Abwehr;16
+Pierre;Bengtsson;null;19880412;Schweden;Abwehr;7
 Daniel;Brosinski;null;19880717;Deutschland;Abwehr;18
 Niko;Bungert;null;19861024;Deutschland;Abwehr;26
 Gonzalo;Jara;null;19850829;Chile;Abwehr;2
@@ -11,6 +11,7 @@ Nikolce;Noveski;null;19790428;Mazedonien;Abwehr;4
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;24
 Philipp;Wollscheid;null;19890306;Deutschland;Abwehr;3
 Julian;Baumgartlinger;null;19880102;Österreich;Mittelfeld;14
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;15
 Filip;Djuricic;null;19920130;Serbien;Mittelfeld;10
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;6
@@ -23,6 +24,7 @@ Todor;Nedelev;null;19930207;Bulgarien;Mittelfeld;28
 Patrick;Pflücke;null;19961130;Deutschland;Mittelfeld;30
 Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
 Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;9
+Nicolás;Castillo;null;19930214;Chile;Sturm;22
 Shinji;Okazaki;null;19860416;Japan;Sturm;23
 Devante;Parker;null;19960316;Deutschland;Sturm;29
 Petar;Sliskovic;null;19910221;Kroatien;Sturm;35

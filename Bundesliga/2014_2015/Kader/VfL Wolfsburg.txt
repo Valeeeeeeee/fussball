@@ -1,0 +1,26 @@
+Diego;Benaglio;null;19830908;Schweiz;Tor;1
+Patrick;Drewes;null;19930204;Deutschland;Tor;21
+Max;Grün;null;19870405;Deutschland;Tor;20
+Felipe;Aliste Lopes;Felipe;19870807;Brasilien;Abwehr;26
+Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
+Timm;Klose;null;19880509;Deutschland, Schweiz;Abwehr;5
+Robin;Knoche;null;19920522;Deutschland;Abwehr;31
+Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;25
+Patrick;Ochs;null;19840514;Deutschland;Abwehr;2
+Ricardo;Rodriguez;null;19920825;Schweiz;Abwehr;34
+Marcel;Schäfer;null;19840607;Deutschland;Abwehr;4
+Christian;Träsch;null;19870901;Deutschland;Abwehr;15
+Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
+Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7
+Kevin;de Bruyne;null;19910628;Belgien;Mittelfeld;14
+Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
+Aaron;Hunt;null;19860904;Deutschland;Mittelfeld;10
+Bernard;Malanda Adje;Junior Malanda;19940828;Belgien;Mittelfeld;19
+Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
+Ivan;Perisic;null;19890202;Kroatien;Mittelfeld;9
+André;Schürrle;null;19901106;Deutschland;Mittelfeld;17
+Adelino Andre;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
+Xizhe;Zhang;null;19910123;China;Mittelfeld;29
+Nicklas;Bendtner;null;19880116;Dänemark;Sturm;3
+Bas;Dost;null;19890531;Niederlande;Sturm;12
+Ivica;Olic;null;19790914;Kroatien;Sturm;11

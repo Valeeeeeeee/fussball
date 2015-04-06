@@ -84,7 +84,7 @@ public class Start extends JFrame {
     private JButton[] KORoundsButtons;
     
     
-    private static JButton jBtnZurueck;
+    private JButton jBtnZurueck;
     
     private Spieltag aktuellerSpieltag;
     private Tabelle aktuelleTabelle;

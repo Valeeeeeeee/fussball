@@ -1,8 +1,6 @@
 Timo;Horn;null;19930512;Deutschland;Tor;1
 Thomas;Kessler;null;19860120;Deutschland;Tor;18
-Daniel;Mesenhöler;null;19950724;Deutschland;Tor;37
 Miso;Brecko;null;19840501;Slowenien;Abwehr;2
-Roman;Golobart;null;19920321;Spanien;Abwehr;4
 Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Tomas;Kalas;null;19930515;Tschechien;Abwehr;3
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
@@ -19,6 +17,7 @@ Marcel;Risse;null;19891217;Deutschland;Mittelfeld;7
 Dusan;Svento;null;19850801;Slowakei;Mittelfeld;29
 Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;6
 Thomas;Bröker;null;19850122;Deutschland;Sturm;11
+Deyverson;Brum Silva;Deyverson;19910508;Brasilien;Sturm;20
 Bard;Finne;null;19950213;Norwegen;Sturm;26
 Patrick;Helmes;null;19840301;Deutschland;Sturm;10
 Yuya;Osako;null;19900518;Japan;Sturm;13

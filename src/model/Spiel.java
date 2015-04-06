@@ -89,7 +89,10 @@ public class Spiel {
 	}
 	
 	public void addGoal(Tor tor) {
-		if (tor != null)	this.tore.add(tor);
+		if (tor != null) {
+			this.tore.add(tor);
+			ergebnis = new Ergebnis(ergebnis != null ? ergebnis : new Ergebnis("0:0"), tor);
+		}
 	}
 	
 	public String getSchiedsrichter() {
@@ -103,9 +106,12 @@ public class Spiel {
 	private String getRemainder() {
 		String remainder = "";
 		
-		if (ergebnis != null || lineupHome != null || lineupAway != null) {
-			String newRemainder = "+{" + matchDataToString() + "}+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}";
-			log(newRemainder);
+		if (ergebnis != null) {
+			remainder = "+{" + matchDataToString() + "}";
+		}
+		
+		if (lineupHome != null || lineupAway != null) {
+			remainder += "+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}";
 		}
 		
 		return remainder;
@@ -182,10 +188,12 @@ public class Spiel {
 			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
 			
-			if (datenSplit.length != 1) {
+			if (datenSplit.length > 1) {
 				parseMatchData(datenSplit[1]);
-				lineupHome = parseLineup(datenSplit[2]);
-				lineupAway = parseLineup(datenSplit[3]);
+				if (datenSplit.length == 4) {
+					lineupHome = parseLineup(datenSplit[2]);
+					lineupAway = parseLineup(datenSplit[3]);
+				}
 			}
 			
 		} catch (IllegalArgumentException iae) {

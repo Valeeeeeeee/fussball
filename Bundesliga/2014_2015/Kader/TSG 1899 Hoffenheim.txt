@@ -1,0 +1,25 @@
+Oliver;Baumann;null;19900602;Deutschland;Tor;1
+Jens;Grahl;null;19880922;Deutschland;Tor;13
+Alexander;Stolz;null;19831013;Deutschland;Tor;33
+David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
+Andreas;Beck;null;19870313;Deutschland;Abwehr;2
+Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
+Jin-Su;Kim;null;19920613;Südkorea;Abwehr;20
+Niklas;Süle;null;19950903;Deutschland;Abwehr;25
+Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
+Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;29
+Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;34
+Tarik;Elyounoussi;null;19880223;Norwegen;Mittelfeld;14
+Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11
+Kai;Herdling;null;19840627;Deutschland;Mittelfeld;38
+Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
+Roberto Firmino;Barbosa de Oliveira;Roberto Firmino;19911002;Brasilien;Mittelfeld;10
+Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;6
+Sejad;Salihovic;null;19841008;Bosnien-Herzegowina;Mittelfeld;23
+Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;16
+Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;12
+Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
+Anthony;Modeste;null;19880414;Frankreich;Sturm;27
+Sven;Schipplock;null;19881108;Deutschland;Sturm;9
+Adam;Szalai;null;19871209;Ungarn;Sturm;28
+Kevin;Volland;null;19920730;Deutschland;Sturm;31

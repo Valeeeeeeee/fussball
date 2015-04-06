@@ -7,8 +7,4 @@ src/util/Spieldaten.java
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.eclipse.core.resources.prefs
 Bundesliga/2014_2015/andereSpieler.txt
-Bundesliga/2014_2015/TSG 1899 Hoffenheim.txt
-Bundesliga/2014_2015/VfL Wolfsburg.txt
-Champions League Qualifikation/2014_2015/Q1/config.txt
-Champions League Qualifikation/2014_2015/Q1/Ergebnisse.txt
-Champions League Qualifikation/2014_2015/Q1/Spielplan.txt
+Champions League Qualifikation/2014_2015/Q1/*.txt
