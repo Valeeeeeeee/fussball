@@ -15,15 +15,15 @@ Vladimir;Darida;null;19900808;Tschechien;Mittelfeld;7
 Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
 Nicolas;Höfler;null;19900309;Deutschland;Mittelfeld;27
 Florian;Kath;null;19941021;Deutschland;Mittelfeld;51
-Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;37
+Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;37;-20141231
 Felix;Klaus;null;19920913;Deutschland;Mittelfeld;36
-Mats;Möller Daehli;null;19950302;Dänemark;Mittelfeld;16
+Mats;Möller Daehli;null;19950302;Dänemark;Mittelfeld;16;20150101-
 Maximilian;Philipp;null;19940301;Deutschland;Mittelfeld;26
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;17
 Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
-Sebastian;Freis;null;19850423;Deutschland;Sturm;35
+Sebastian;Freis;null;19850423;Deutschland;Sturm;35;-20141231
 Karim;Guedé;null;19850107;Togo, Slowakei;Sturm;31
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
-Nils;Petersen;null;19881206;Deutschland;Sturm;18
+Nils;Petersen;null;19881206;Deutschland;Sturm;18;20150101-
 Dani;Schahin;null;19890709;Deutschland;Sturm;11
-Philipp;Zulechner;null;19900412;Österreich;Sturm;9
+Philipp;Zulechner;null;19900412;Österreich;Sturm;9;-20141231

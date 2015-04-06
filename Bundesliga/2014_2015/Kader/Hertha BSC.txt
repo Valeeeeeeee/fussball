@@ -21,7 +21,7 @@ Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12
 Nico;Schulz;null;19930401;Deutschland;Mittelfeld;26
 Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
 Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14
-Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;11
+Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;11;-20140831
+Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;11;20140901-
 Julian;Schieber;null;19890213;Deutschland;Sturm;16
 Sandro;Wagner;null;19871129;Deutschland;Sturm;33
-Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;11

@@ -23,5 +23,5 @@ Marc;Vucinovic;null;19880919;Deutschland;Mittelfeld;20
 Marvin;Ducksch;null;19940307;Deutschland;Sturm;34
 Elias;Kachunga;null;19920422;Deutschland;Sturm;15
 Stefan;Kutschke;null;19881103;Deutschland;Sturm;9
-Srdjan;Lakic;null;19831002;Kroatien;Sturm;29
+Srdjan;Lakic;null;19831002;Kroatien;Sturm;29;20150101-
 Mahir;Saglik;null;19830118;Deutschland, Türkei;Sturm;10

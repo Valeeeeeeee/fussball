@@ -18,9 +18,9 @@ Aaron;Hunt;null;19860904;Deutschland;Mittelfeld;10
 Bernard;Malanda Adje;Junior Malanda;19940828;Belgien;Mittelfeld;19
 Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
 Ivan;Perisic;null;19890202;Kroatien;Mittelfeld;9
-André;Schürrle;null;19901106;Deutschland;Mittelfeld;17
+André;Schürrle;null;19901106;Deutschland;Mittelfeld;17;20150101-
 Adelino Andre;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
-Xizhe;Zhang;null;19910123;China;Mittelfeld;29
+Xizhe;Zhang;null;19910123;China;Mittelfeld;29;20150101-
 Nicklas;Bendtner;null;19880116;Dänemark;Sturm;3
 Bas;Dost;null;19890531;Niederlande;Sturm;12
-Ivica;Olic;null;19790914;Kroatien;Sturm;11
+Ivica;Olic;null;19790914;Kroatien;Sturm;11;-20141231

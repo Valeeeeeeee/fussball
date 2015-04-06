@@ -12,7 +12,7 @@ Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
 Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
 Hakan;Calhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
 Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
-Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15
+Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15;-20141231
 Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;3
 Simon;Rolfes;null;19820121;Deutschland;Mittelfeld;6
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
