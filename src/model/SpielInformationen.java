@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -11,13 +12,14 @@ public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
 //	private final Dimension dim = new Dimension(250, 190);
-	private final Dimension dim = new Dimension(700, 500);
+	private final Dimension dim = new Dimension(700, 550);
 	
 	private Spiel spiel;
 	
 	private JPanel jPnlSpielInformationen;
 	
 	private JLabel jLblWettbewerb;
+	private JLabel jLblDatum;
 	
 	private JLabel jLblHomeTeamName;
 	private JLabel jLblResult;
@@ -48,24 +50,25 @@ public class SpielInformationen extends JFrame {
 	private JLabel jLblUnten;
 	private JComboBox<String> jCBUnten;
 	
-	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 500);
-	private Rectangle REC_LBLWETTBW = new Rectangle(150, 5, 400, 20);
-	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 30, 265, 40);
-	private Rectangle REC_LBLRESULT = new Rectangle(310, 30, 80, 40);
-	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 30, 265, 40);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(50, 0, 50, 30); //300, 80, 50, 30);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(600, 0, 50, 30); //350, 80, 50, 30);
+	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 550);
+	private Rectangle REC_LBLWETTBW = new Rectangle(150, 10, 400, 20);
+	private Rectangle REC_LBLDATUM = new Rectangle(290, 35, 120, 20);
+	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
+	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
+	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(50, 30, 50, 30); //300, 80, 50, 30);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(600, 30, 50, 30); //350, 80, 50, 30);
 	
-	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 80, 100, 30);
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 80, 110, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(550, 80, 110, 30);
-	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(150, 80, 90, 30);
-	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(460, 80, 90, 30);
-	private Rectangle REC_BTNGOALHOME = new Rectangle(240, 80, 60, 30);
-	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 80, 60, 30);
+	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 110, 100, 30);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 110, 110, 30);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(550, 110, 110, 30);
+	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(150, 110, 90, 30);
+	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(460, 110, 90, 30);
+	private Rectangle REC_BTNGOALHOME = new Rectangle(240, 110, 60, 30);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 110, 60, 30);
 	
 	// Toreingabe
-	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 120, 200, 100);
+	private Rectangle REC_PNLTOREINGABE = new Rectangle(150, 150, 200, 100);
 	private Rectangle REC_LBLMINUTE = new Rectangle(60, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(130, 5, 60, 30);
@@ -75,8 +78,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_CBUNTEN = new Rectangle(100, 67, 100, 26);
 	
 	// Lineup selection
-	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 120);
-	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 120);
+	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
+	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 150);
 	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 350);
 	private Rectangle REC_BTNLUSCOMPL = new Rectangle(200, 310, 70, 30);
 	
@@ -92,8 +95,8 @@ public class SpielInformationen extends JFrame {
 	
 	private Spieltag spieltag;
 	private Ergebnis ergebnis;
-	private Spieler[] kaderHome;
-	private Spieler[] kaderAway;
+	private ArrayList<Spieler> kaderHome;
+	private ArrayList<Spieler> kaderAway;
 	private boolean[] playerSelected;
 	private boolean editingHomeTeam;
 	private boolean enteringLineup;
@@ -113,12 +116,12 @@ public class SpielInformationen extends JFrame {
 	private JLabel[] descrLbls;
 	private JTextField[][] goalsTFs;
 	
-	private Rectangle RECGO = new Rectangle(395, 330, 60, 30);
-	private Rectangle RECAET = new Rectangle(395, 370, 50, 30);
-	private Rectangle RECAPS = new Rectangle(395, 410, 50, 30);
+	private Rectangle RECGO = new Rectangle(395, 380, 60, 30);
+	private Rectangle RECAET = new Rectangle(395, 420, 50, 30);
+	private Rectangle RECAPS = new Rectangle(395, 460, 50, 30);
 	
-	private int[] descr = new int[] {250, 333, 0, 16, 55, 24};
-	private int[] goals = new int[] {315, 330, 10, 10, 30, 30};
+	private int[] descr = new int[] {250, 383, 0, 16, 55, 24};
+	private int[] goals = new int[] {315, 380, 10, 10, 30, 30};
 	
 	private static final int STARTX = 0;
 	private static final int STARTY = 1;
@@ -168,6 +171,14 @@ public class SpielInformationen extends JFrame {
 			jLblWettbewerb.setText(spiel.getDescription());
 			jLblWettbewerb.setHorizontalAlignment(SwingConstants.CENTER);
 			jLblWettbewerb.setOpaque(true);
+		}
+		{
+			jLblDatum = new JLabel();
+			jPnlSpielInformationen.add(jLblDatum);
+			jLblDatum.setBounds(REC_LBLDATUM);
+			jLblDatum.setText(spiel.getDateAndTime());
+			jLblDatum.setHorizontalAlignment(SwingConstants.CENTER);
+			jLblDatum.setOpaque(true);
 		}
 		{
 			jLblHomeTeamName = new JLabel();
@@ -309,13 +320,13 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < 11; i++) {
 			jLblsLineupHome[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsLineupHome[i]);
-			jLblsLineupHome[i].setBounds(130, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupHome[i].setBounds(130, 160 + i * (20 + 5), 100, 20);
 			jLblsLineupHome[i].setOpaque(true);
 			jLblsLineupHome[i].setVisible(false);
 			
 			jLblsLineupAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsLineupAway[i]);
-			jLblsLineupAway[i].setBounds(470, 130 + i * (20 + 5), 100, 20);
+			jLblsLineupAway[i].setBounds(470, 160 + i * (20 + 5), 100, 20);
 			jLblsLineupAway[i].setOpaque(true);
 			jLblsLineupAway[i].setVisible(false);
 		}
@@ -480,11 +491,11 @@ public class SpielInformationen extends JFrame {
 		
 		for (int i = 0; i < 11; i++) {
 			if (lineupHome != null) {
-				jLblsLineupHome[i].setText(spiel.getHomeTeam().getSpieler(lineupHome[i]).getPseudonym());
+				jLblsLineupHome[i].setText(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()).getPseudonym());
 				jLblsLineupHome[i].setVisible(true);
 			}
 			if (lineupAway != null) {
-				jLblsLineupAway[i].setText(spiel.getAwayTeam().getSpieler(lineupAway[i]).getPseudonym());
+				jLblsLineupAway[i].setText(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()).getPseudonym());
 				jLblsLineupAway[i].setVisible(true);
 			}
 		}
@@ -535,7 +546,7 @@ public class SpielInformationen extends JFrame {
 		int[] lineup = editingHomeTeam ? lineupHome : lineupAway;
 		String[] lineupString = new String[11];
 		for (int i = 0; i < lineup.length; i++) {
-			lineupString[i] = team.getSpieler(lineup[i]).getPseudonym();
+			lineupString[i] = team.getSpieler(lineup[i], spiel.getDate()).getPseudonym();
 		}
 		jLblOben.setText("ausgewechselt");
 		jCBOben.setModel(new DefaultComboBoxModel<>(lineupString));
@@ -580,8 +591,8 @@ public class SpielInformationen extends JFrame {
 		if (hasLineup) {
 			String[] lineup = new String[11];
 			for (int i = 0; i < lineup.length; i++) {
-				if (editingHomeTeam)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i]).getPseudonym();
-				else					lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i]).getPseudonym();
+				if (editingHomeTeam)	lineup[i] = spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()).getPseudonym();
+				else					lineup[i] = spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()).getPseudonym();
 			}
 			jLblOben.setText("Torschuetze");
 			jCBOben.setModel(new DefaultComboBoxModel<>(lineup));
@@ -601,13 +612,13 @@ public class SpielInformationen extends JFrame {
 		Spieler scorer = null, assistgeber = null;
 		if (editingHomeTeam) {
 			if (lineupHome != null) {
-				scorer = spiel.getHomeTeam().getSpieler(lineupHome[jCBOben.getSelectedIndex()]);
-				assistgeber = spiel.getHomeTeam().getSpieler(lineupHome[jCBUnten.getSelectedIndex()]);
+				scorer = spiel.getHomeTeam().getSpieler(lineupHome[jCBOben.getSelectedIndex()], spiel.getDate());
+				assistgeber = spiel.getHomeTeam().getSpieler(lineupHome[jCBUnten.getSelectedIndex()], spiel.getDate());
 			}
 		} else {
 			if (lineupAway != null) {
-				scorer = spiel.getAwayTeam().getSpieler(lineupAway[jCBOben.getSelectedIndex()]);
-				assistgeber = spiel.getAwayTeam().getSpieler(lineupAway[jCBUnten.getSelectedIndex()]);
+				scorer = spiel.getAwayTeam().getSpieler(lineupAway[jCBOben.getSelectedIndex()], spiel.getDate());
+				assistgeber = spiel.getAwayTeam().getSpieler(lineupAway[jCBUnten.getSelectedIndex()], spiel.getDate());
 			}
 		}
 		
@@ -630,11 +641,11 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
-		Spieler[] kader;
+		ArrayList<Spieler> kader;
 		this.enteringLineup = true;
 		this.editingHomeTeam = isHomeTeam;
-		if (editingHomeTeam)	kader = kaderHome = spiel.getHomeTeam().getKader();
-		else					kader = kaderAway = spiel.getAwayTeam().getKader();
+		if (editingHomeTeam)	kader = kaderHome = spiel.getHomeTeam().getEligiblePlayers(spiel.getDate());
+		else					kader = kaderAway = spiel.getAwayTeam().getEligiblePlayers(spiel.getDate());
 		
 		// hide lineup labels
 		if (editingHomeTeam) {
@@ -647,10 +658,10 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		playerSelected = new boolean[kader.length];
+		playerSelected = new boolean[kader.size()];
 		
 		// create lineup selection labels
-		jLblsLineupSelectionPlayers = new JLabel[kader.length];
+		jLblsLineupSelectionPlayers = new JLabel[kader.size()];
 		for (int i = 0; i < jLblsLineupSelectionPlayers.length; i++) {
 			final int x = i;
 			jLblsLineupSelectionPlayers[i] = new JLabel();
@@ -658,7 +669,7 @@ public class SpielInformationen extends JFrame {
 			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[WIDTH], boundsLSP[HEIGHT]);
 			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[WIDTH] + boundsLSP[GAPX]), 
 														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[HEIGHT] + boundsLSP[GAPY]));
-			jLblsLineupSelectionPlayers[i].setText(kader[i].getSquadNumber() + " " + kader[i].getPseudonym());
+			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPseudonym());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);
 			jLblsLineupSelectionPlayers[i].addMouseListener(new MouseAdapter() {
@@ -675,8 +686,8 @@ public class SpielInformationen extends JFrame {
 			} else {
 				// colorise previously selected players
 				for (int i = 0; i < lineupHome.length; i++) {
-					for (int j = 0; j < kader.length; j++) {
-						if (lineupHome[i] == kader[j].getSquadNumber()) {
+					for (int j = 0; j < kader.size(); j++) {
+						if (lineupHome[i] == kader.get(j).getSquadNumber()) {
 							playerSelected(j);
 							break;
 						}
@@ -690,8 +701,8 @@ public class SpielInformationen extends JFrame {
 			} else {
 				// colorise previously selected players
 				for (int i = 0; i < lineupAway.length; i++) {
-					for (int j = 0; j < kader.length; j++) {
-						if (lineupAway[i] == kader[j].getSquadNumber()) {
+					for (int j = 0; j < kader.size(); j++) {
+						if (lineupAway[i] == kader.get(j).getSquadNumber()) {
 							playerSelected(j);
 							break;
 						}
@@ -724,12 +735,12 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < playerSelected.length; i++) {
 			if (playerSelected[i]) {
 				if (editingHomeTeam) {
-					lineupHome[counter] = kaderHome[i].getSquadNumber();
-					jLblsLineupHome[counter].setText(kaderHome[i].getPseudonym());
+					lineupHome[counter] = kaderHome.get(i).getSquadNumber();
+					jLblsLineupHome[counter].setText(kaderHome.get(i).getPseudonym());
 					jLblsLineupHome[counter++].setVisible(true);
 				} else {
-					lineupAway[counter] = kaderAway[i].getSquadNumber();
-					jLblsLineupAway[counter].setText(kaderAway[i].getPseudonym());
+					lineupAway[counter] = kaderAway.get(i).getSquadNumber();
+					jLblsLineupAway[counter].setText(kaderAway.get(i).getPseudonym());
 					jLblsLineupAway[counter++].setVisible(true);
 				}
 			}
@@ -825,7 +836,7 @@ public class SpielInformationen extends JFrame {
 	private void goActionPerformed() {
 		Ergebnis ergebnis = this.ergebnis;
 		
-		if (this.ergebnis != null) {
+		if (this.ergebnis == null) {
 			String resRT = (goalsTFs[1][0].getText().length() > 0 ? goalsTFs[1][0].getText() : "-1") + ":"
 					+ (goalsTFs[1][1].getText().length() > 0 ? goalsTFs[1][1].getText() : "-1");
 			String resET = (goalsTFs[2][0].getText().length() > 0 ? goalsTFs[2][0].getText() : "-1") + ":"

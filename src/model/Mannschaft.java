@@ -3,6 +3,7 @@ package model;
 import static util.Utilities.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Mannschaft {
 	private int id;
@@ -42,6 +43,9 @@ public class Mannschaft {
 	private int numberOfPlayers;
 	private Spieler[] kader;
 	private int[] numberOfPlayersByPosition;
+	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
+	private int lastUpdatedForDate = -1;
+	private int[] currentNumberOfPlayersByPosition;
 	private final static int GOALKEEPERS = 0;
 	private final static int DEFENDERS = 1;
 	private final static int MIDFIELDERS = 2;
@@ -122,20 +126,24 @@ public class Mannschaft {
 		inDatei(kaderFileName, players);
 	}
 	
-	public int getNumberOfGoalkeepers() {
+	private int getNumberOfGoalkeepers() {
 		return this.numberOfPlayersByPosition[GOALKEEPERS];
 	}
 	
-	public int getNumberOfDefenders() {
+	private int getNumberOfDefenders() {
 		return this.numberOfPlayersByPosition[DEFENDERS];
 	}
 	
-	public int getNumberOfMidfielders() {
+	private int getNumberOfMidfielders() {
 		return this.numberOfPlayersByPosition[MIDFIELDERS];
 	}
 	
-	public int getNumberOfAttackers() {
+	private int getNumberOfAttackers() {
 		return this.numberOfPlayersByPosition[ATTACKERS];
+	}
+	
+	public int getCurrentNumberOf(Position position) {
+		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday) {
@@ -237,17 +245,51 @@ public class Mannschaft {
 		return this.id;
 	}
 	
-	public int getNumberOfPlayers() {
+	private int getNumberOfPlayers() {
 		return this.numberOfPlayers;
 	}
 	
-	public Spieler[] getKader() {
+	private Spieler[] getKader() {
 		return this.kader;
 	}
 	
-	public Spieler getSpieler(int squadNumber) {
+	private Spieler getSpieler(int squadNumber) {
 		for (Spieler spieler : kader) {
 			if (spieler.getSquadNumber() == squadNumber)	return spieler;
+		}
+		
+		return null;
+	}
+	
+	private void updateEligiblePlayers(int date) {
+		if (lastUpdatedForDate == date)	return;
+		
+		currentNumberOfPlayersByPosition = new int[4];
+		eligiblePlayers.clear();
+		
+		for (Spieler spieler : kader) {
+			if (spieler.isEligible(date)) {
+				eligiblePlayers.add(spieler);
+				currentNumberOfPlayersByPosition[spieler.getPosition().getID()]++;
+			}
+		}
+		
+		lastUpdatedForDate = date;
+	}
+	
+	public int getCurrentNumberOfPlayers(int date) {
+		updateEligiblePlayers(date);
+		return eligiblePlayers.size();
+	}
+	
+	public ArrayList<Spieler> getEligiblePlayers(int date) {
+		updateEligiblePlayers(date);
+		return eligiblePlayers;
+	}
+	
+	public Spieler getSpieler(int squadNumber, int date) {
+		for (Spieler spieler : kader) {
+			if (spieler.getSquadNumber() == squadNumber && spieler.isEligible(date))	return spieler;
 		}
 		
 		return null;
@@ -273,9 +315,9 @@ public class Mannschaft {
 		spiele[matchday] = spiel;
 		if (spiel != null) {
 			if (this.id == spiel.home()) {
-				setGegner(matchday, HOME, spiel.away());
+				setGegner(matchday, true, spiel.away());
 			} else if (this.id == spiel.away()) {
-				setGegner(matchday, AWAY, spiel.home());
+				setGegner(matchday, false, spiel.home());
 			} else {
 				message("This match came to the wrong team.");
 				spiele[matchday] = null;
@@ -283,21 +325,8 @@ public class Mannschaft {
 		}
 	}
 	
-	// TODO make private: people shall use setMatch
-	/**
-	 * This method is deprecated. Use setMatch instead.
-	 * @param matchday
-	 * @param homeoraway
-	 * @param opponent
-	 */
-	@Deprecated
-	public void setGegner(int matchday, int homeoraway, int opponent) {
-//		JOptionPane.showMessageDialog(null, this.name + " empfaengt Infos zum Spiel am " + (matchday + 1) + ". Spieltag, Gegner ist " + opponent
-//				+ ", daheim ist " + homeoraway + ", spielnummer ist " + spielnummer);
-
-		if (homeoraway == HOME)	homeaway[matchday] = true;
-		else					homeaway[matchday] = false;
-
+	private void setGegner(int matchday, boolean homeoraway, int opponent) {
+		this.homeaway[matchday] = homeoraway;
 		this.daten[matchday][OPPONENT] = opponent;
 	}
 
@@ -440,8 +469,3 @@ public class Mannschaft {
 	}
 
 }
-
-
-
-
-

@@ -21,6 +21,8 @@ public class Start extends JFrame {
      */
     public final int HEIGHT = 874;
     
+    private static int today;
+    
     public String workspace;
     private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
     private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
@@ -51,6 +53,12 @@ public class Start extends JFrame {
     private int start_btnswidth = 400;
     private int start_btnsheight = 70;
     
+
+    private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
+    private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
+    private Rectangle REC_BTNSTATISTIK = new Rectangle(520, 390, 400, 100);
+    private Rectangle REC_BTNOPTIONEN = new Rectangle(520, 510, 400, 100);
+    
     private Rectangle REC_BEENDEN = new Rectangle(20, 20, 100, 40);
     private Rectangle REC_ADDLEAG = new Rectangle(520, 60, 180, 40);
     private Rectangle REC_ADDTOUR = new Rectangle(740, 60, 180, 40);
@@ -69,6 +77,7 @@ public class Start extends JFrame {
     private JComboBox jCBSaisonauswahl;
     private JButton jBtnSpieltage;
     private JButton jBtnTabelle;
+    private JButton jBtnStatistik;
     private JButton jBtnOptionen;
     
     
@@ -88,6 +97,7 @@ public class Start extends JFrame {
     
     private Spieltag aktuellerSpieltag;
     private Tabelle aktuelleTabelle;
+    private LigaStatistik aktuelleStatistik;
     private Uebersicht uebersicht;
 //    public Uebersicht aktuelleUebersicht;
     
@@ -112,6 +122,7 @@ public class Start extends JFrame {
     	super();
         
 		checkOS();
+		today = MyDate.newMyDate();
 		
         loadConfiguration();
         initGUI();
@@ -136,7 +147,7 @@ public class Start extends JFrame {
 //        jBtnBeendenActionPerformed();
         
         
-        testSomethingBeforeIntroducingItIntoTheRealCode();
+//        testSomethingBeforeIntroducingItIntoTheRealCode();
         
         log("\nProgramm erfolgreich gestartet ...\n\n");
     }
@@ -147,33 +158,17 @@ public class Start extends JFrame {
     	jBtnLigenPressed(0);
     	
     	// Spiel mit Ergebnis und Lineup
-    	Spiel spiel = new Spiel(ligen[0], 25, "15:13+{2:0nV (0:0)#false-m51-s9-a6#true-m63-s33-a7}+{1,21,6,32,16,20,26,19,44,7,33}+{1,6,17,5,22,20,8,21,16,14,9}");
+    	Spiel spiel = new Spiel(ligen[0], 25, 20150321, 1530, "15:13+{1:1#false-m51-s9-a6#true-m63-s33-a7}+{1,21,6,32,16,20,26,19,44,7,33}+{1,6,17,5,22,20,8,21,16,14,9}");
     	Tor tor2 = new Tor(spiel, "true-m66-s33-a44");
     	spiel.addGoal(tor2);  
     	Tor tor3 = new Tor(spiel, "true-m80-s44-a18");
     	spiel.addGoal(tor3);
     	log(spiel.toString());
+    	ligen[0].setSpiel(25, 3, spiel);
     	log("\n");
-    	
-    	// Punkte / Tore von Spieltag bis Spieltag
-    	int first = 0, last = 25;
-    	log("Bilanz vom " + (first + 1) + ". Spieltag bis zum " + (last + 1) + ". Spieltag");
-    	log(ligen[0].getMannschaften()[14].get(2, first, last) + " Spiele");
-    	log(ligen[0].getMannschaften()[14].get(3, first, last) + " Siege");
-    	log(ligen[0].getMannschaften()[14].get(4, first, last) + " Unentschieden");
-    	log(ligen[0].getMannschaften()[14].get(5, first, last) + " Niederlagen");
-    	log(ligen[0].getMannschaften()[14].get(6, first, last) + " Tore");
-    	log(ligen[0].getMannschaften()[14].get(7, first, last) + " Gegentore");
-    	log("Tordifferenz: " + ligen[0].getMannschaften()[14].get(8, first, last));
-    	log(ligen[0].getMannschaften()[14].get(9, first, last) + " Punkte");
     	
     	jBtnZurueckActionPerformed();
     	
-    	
-    	Ergebnis ergAGTHome = new Ergebnis("3:0 agT");
-    	Ergebnis ergAGTAway = new Ergebnis("0:3 agT");
-    	log("\n" + ergAGTHome.toString());
-    	log(ergAGTAway.toString());
     	
         log("\n\n");
     }
@@ -326,7 +321,7 @@ public class Start extends JFrame {
         {
             jBtnSpieltage = new JButton();
             LigaHomescreen.add(jBtnSpieltage);
-            jBtnSpieltage.setBounds(520, 150, start_btnswidth, start_btnsheight);
+            jBtnSpieltage.setBounds(REC_BTNSPIELTAGE);
             jBtnSpieltage.setText("Spieltage");
             jBtnSpieltage.setFocusable(false);
             jBtnSpieltage.addActionListener(new ActionListener() {
@@ -338,7 +333,7 @@ public class Start extends JFrame {
         { 
             jBtnTabelle = new JButton();
             LigaHomescreen.add(jBtnTabelle);
-            jBtnTabelle.setBounds(520, 300, start_btnswidth, start_btnsheight);
+            jBtnTabelle.setBounds(REC_BTNTABELLE);
             jBtnTabelle.setText("Tabelle");
             jBtnTabelle.setFocusable(false);
             jBtnTabelle.addActionListener(new ActionListener() {
@@ -347,10 +342,22 @@ public class Start extends JFrame {
                 }
             });
         }
+        { 
+        	jBtnStatistik = new JButton();
+            LigaHomescreen.add(jBtnStatistik);
+            jBtnStatistik.setBounds(REC_BTNSTATISTIK);
+            jBtnStatistik.setText("Statistik");
+            jBtnStatistik.setFocusable(false);
+            jBtnStatistik.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                	jBtnStatistikActionPerformed();
+                }
+            });
+        }
         {
             jBtnOptionen = new JButton();
             LigaHomescreen.add(jBtnOptionen);
-            jBtnOptionen.setBounds(520, 450, start_btnswidth, start_btnsheight);
+            jBtnOptionen.setBounds(REC_BTNOPTIONEN);
             jBtnOptionen.setText("Optionen");
             jBtnOptionen.setFocusable(false);
             jBtnOptionen.addActionListener(new ActionListener() {
@@ -497,7 +504,8 @@ public class Start extends JFrame {
     		}
     		
 			aktuellerSpieltag = aktuelleLiga.getSpieltag();
-    		aktuelleTabelle = aktuelleLiga.getTable();
+    		aktuelleTabelle = aktuelleLiga.getTabelle();
+    		aktuelleStatistik = aktuelleLiga.getLigaStatistik();
 		}
     }
     
@@ -749,6 +757,14 @@ public class Start extends JFrame {
 		LigaHomescreen.setVisible(false);
 		aktuelleTabelle.add(jBtnZurueck);
 		aktuelleTabelle.setVisible(true);
+    }
+    
+    public void jBtnStatistikActionPerformed() {
+		getContentPane().add(aktuelleStatistik);
+		aktuelleStatistik.updateGUI();
+    	LigaHomescreen.setVisible(false);
+    	aktuelleStatistik.add(jBtnZurueck);
+    	aktuelleStatistik.setVisible(true);
     }
     
     public void jBtnOptionenActionPerformed() {
@@ -1128,6 +1144,7 @@ public class Start extends JFrame {
             	LigaHomescreen.add(jBtnZurueck);
                 aktuellerSpieltag.setVisible(false);
                 aktuelleTabelle.setVisible(false);
+                aktuelleStatistik.setVisible(false);
             	optionen.setVisible(false);
                 LigaHomescreen.setVisible(true);
             }
@@ -1258,6 +1275,10 @@ public class Start extends JFrame {
     	}
     	
     	inDatei(config, configurationFromFile);
+    }
+    
+    public static int today() {
+    	return today;
     }
 	
 	public void checkOS() {

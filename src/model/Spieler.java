@@ -10,15 +10,15 @@ public class Spieler {
 	private String lastName;
 	private String lastNameShort;
 	private String pseudonym;
-	
 	private int birthDate;
-	
 	private String nationality;
 	
 	private Position position;
-	
 	private Mannschaft team;
 	private int squadNumber;
+	
+	private int firstDate = -1;
+	private int lastDate = -1;
 	
 	public Spieler(String data, Mannschaft team) {
 		fromString(data, team);
@@ -97,6 +97,13 @@ public class Spieler {
 	public int getSquadNumber() {
 		return this.squadNumber;
 	}
+	
+	public boolean isEligible(int date) {
+		if (date < firstDate)					return false;
+		if (lastDate != -1 && date > lastDate)	return false;
+		
+		return true;
+	}
 
 	public String toString() {
 		String stringRep = this.firstName + trennZeichen;
@@ -106,6 +113,9 @@ public class Spieler {
 		stringRep += this.nationality + trennZeichen;
 		stringRep += this.position.getName() + trennZeichen;
 		stringRep += this.squadNumber;
+		if (this.firstDate + this.lastDate != -2) {
+			stringRep += trennZeichen + (this.firstDate != -1 ? this.firstDate : "") + "-" + (this.lastDate != -1 ? this.lastDate : "");
+		}
 		return stringRep;
 	}
 	
@@ -119,7 +129,12 @@ public class Spieler {
 		this.nationality = dataSplit[4];
 		this.position = Position.getPositionFromString(dataSplit[5]);
 		this.team = team;
-		this.squadNumber = Integer.parseInt(dataSplit[dataSplit.length - 1]);
+		this.squadNumber = Integer.parseInt(dataSplit[6]);
+		if (dataSplit.length >= 8) {
+			String[] dates = dataSplit[7].split("\\-");
+			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
+			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
+		}
 	}
 }
 

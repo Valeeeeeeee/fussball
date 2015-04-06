@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Spiel {
 	
 	private int matchday;
+	private int date;
+	private int time;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
@@ -20,19 +22,23 @@ public class Spiel {
 	private Ergebnis ergebnis;
 	private ArrayList<Tor> tore = new ArrayList<>();
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
-		
 		this.matchday = matchday;
+		this.date = date;
+		this.time = time;
+		
 		this.homeTeamIndex = homeTeamIndex;
 		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 		this.awayTeamIndex = awayTeamIndex;
 		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, String daten) {
+	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, String daten) {
 		this.wettbewerb = wettbewerb;
 		this.matchday = matchday;
+		this.date = date;
+		this.time = time;
 		parseString(daten);
 	}
 	
@@ -42,6 +48,18 @@ public class Spiel {
 	
 	public String getDescription() {
 		return wettbewerb.getMatchdayDescription(matchday);
+	}
+	
+	public String getDateAndTime() {
+		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+	}
+	
+	public int getDate() {
+		return this.date;
+	}
+	
+	public int getTime() {
+		return this.time;
 	}
 	
 	public int home() {
@@ -209,5 +227,11 @@ public class Spiel {
 		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
 		
 		return toString;
+	}
+	
+	public boolean sameAs(Spiel other) {
+		if (this.homeTeamIndex != other.homeTeamIndex)	return false;
+		if (this.awayTeamIndex != other.awayTeamIndex)	return false;
+		return true;
 	}
 }
