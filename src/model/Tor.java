@@ -35,7 +35,7 @@ public class Tor {
 		return spiel;
 	}
 
-	public boolean isScoredByFirstTeam() {
+	public boolean isFirstTeam() {
 		return firstTeam;
 	}
 	
