@@ -41,15 +41,11 @@ public class Mannschaft {
 	
 	private String kaderFileName;
 	private int numberOfPlayers;
-	private Spieler[] kader;
+	private ArrayList<Spieler> kader = new ArrayList<>();
 	private int[] numberOfPlayersByPosition;
 	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
 	private int lastUpdatedForDate = -1;
 	private int[] currentNumberOfPlayersByPosition;
-	private final static int GOALKEEPERS = 0;
-	private final static int DEFENDERS = 1;
-	private final static int MIDFIELDERS = 2;
-	private final static int ATTACKERS = 3;
 
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
@@ -110,10 +106,10 @@ public class Mannschaft {
 		String[] spieler = ausDatei(kaderFileName);
 		numberOfPlayers = spieler.length;
 		numberOfPlayersByPosition = new int[4];
-		kader = new Spieler[numberOfPlayers];
-		for (int i = 0; i < kader.length; i++) {
-			kader[i] = new Spieler(spieler[i], this);
-			numberOfPlayersByPosition[kader[i].getPosition().getID()]++;
+		kader.clear();
+		for (int i = 0; i < numberOfPlayers; i++) {
+			kader.add(new Spieler(spieler[i], this));
+			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
 	}
 	
@@ -121,25 +117,9 @@ public class Mannschaft {
 		if (playsInGroup || !playsInLeague)	return;
 		String[] players = new String[numberOfPlayers];
 		for (int i = 0; i < numberOfPlayers; i++) {
-			players[i] = this.kader[i].toString();
+			players[i] = this.kader.get(i).toString();
 		}
 		inDatei(kaderFileName, players);
-	}
-	
-	private int getNumberOfGoalkeepers() {
-		return this.numberOfPlayersByPosition[GOALKEEPERS];
-	}
-	
-	private int getNumberOfDefenders() {
-		return this.numberOfPlayersByPosition[DEFENDERS];
-	}
-	
-	private int getNumberOfMidfielders() {
-		return this.numberOfPlayersByPosition[MIDFIELDERS];
-	}
-	
-	private int getNumberOfAttackers() {
-		return this.numberOfPlayersByPosition[ATTACKERS];
 	}
 	
 	public int getCurrentNumberOf(Position position) {
@@ -243,22 +223,6 @@ public class Mannschaft {
 
 	public int getId() {
 		return this.id;
-	}
-	
-	private int getNumberOfPlayers() {
-		return this.numberOfPlayers;
-	}
-	
-	private Spieler[] getKader() {
-		return this.kader;
-	}
-	
-	private Spieler getSpieler(int squadNumber) {
-		for (Spieler spieler : kader) {
-			if (spieler.getSquadNumber() == squadNumber)	return spieler;
-		}
-		
-		return null;
 	}
 	
 	private void updateEligiblePlayers(int date) {

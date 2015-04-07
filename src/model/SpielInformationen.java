@@ -438,6 +438,7 @@ public class SpielInformationen extends JFrame {
 	
 	// TODO delete
 	private void oldGUIElements() {
+		boolean show = spiel.getWettbewerb().isETPossible();
 		String[] descriptions = new String[] {"45 min", "90 min", "120 min", "n.E."};
 		goalsTFs = new JTextField[4][2];
 		descrLbls = new JLabel[4];
@@ -448,7 +449,8 @@ public class SpielInformationen extends JFrame {
 				goalsTFs[i][j] = new JTextField();
 				jPnlSpielInformationen.add(goalsTFs[i][j]);
 				goalsTFs[i][j].setBounds(goals[STARTX] + j * (goals[WIDTH] + goals[GAPX]), goals[STARTY] + i * (goals[HEIGHT] + goals[GAPY]), goals[WIDTH], goals[HEIGHT]);
-				goalsTFs[i][j].setVisible(false);
+				goalsTFs[i][j].setVisible(show);
+				goalsTFs[i][j].setHorizontalAlignment(SwingConstants.CENTER);
 				goalsTFs[i][j].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
 						if ((goalsTFs[x][y].getText().length() >= 2 && !goalsTFs[x][y].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
@@ -473,7 +475,7 @@ public class SpielInformationen extends JFrame {
 			descrLbls[i].setBounds(descr[STARTX], descr[STARTY] + i * (descr[HEIGHT] + descr[GAPY]), descr[WIDTH], descr[HEIGHT]);
 			descrLbls[i].setText(descriptions[i]);
 			descrLbls[i].setHorizontalAlignment(SwingConstants.RIGHT);
-			descrLbls[i].setVisible(false);
+			descrLbls[i].setVisible(show);
 		}
 		
 		{
@@ -482,7 +484,7 @@ public class SpielInformationen extends JFrame {
 			afterET.setBounds(RECAET);
 			afterET.setText("n.V.");
 			afterET.setFocusable(false);
-			afterET.setVisible(false);
+			afterET.setVisible(show);
 			if (!isETpossible)	afterET.setEnabled(false);
 			afterET.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -496,7 +498,7 @@ public class SpielInformationen extends JFrame {
 			afterPS.setBounds(RECAPS);
 			afterPS.setText("n.E.");
 			afterPS.setFocusable(false);
-			afterPS.setVisible(false);
+			afterPS.setVisible(show);
 			if (!isETpossible)	afterPS.setEnabled(false);
 			afterPS.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -508,9 +510,9 @@ public class SpielInformationen extends JFrame {
 	
 	private void displayGivenValues() {
 		lineupHome = spiel.getLineupHome();
-		lineupHome = new int[] {1, 32, 24, 20, 21, 16, 18, 44, 26, 33, 7};
+//		lineupHome = new int[] {1, 32, 24, 20, 21, 16, 18, 44, 26, 33, 7};
 		lineupAway = spiel.getLineupAway();
-		lineupAway = new int[] {1, 8, 2, 5, 7, 44, 22, 16, 11, 9, 27};
+//		lineupAway = new int[] {1, 8, 2, 5, 7, 44, 22, 16, 11, 9, 27};
 		
 		for (int i = 0; i < 11; i++) {
 			if (lineupHome != null) {
