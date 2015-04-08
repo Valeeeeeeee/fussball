@@ -22,8 +22,8 @@ public class Tor {
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber();
 		this.id = spiel.home() + "v" + spiel.away() + "h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getLastNameShort() + 
-			" and assisted by " + assistgeber.getLastNameShort());
+			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
+			" and assisted by " + assistgeber.getPseudonym());
 	}
 	
 	public Tor(Spiel spiel, String daten) {

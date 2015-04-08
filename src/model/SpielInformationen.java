@@ -60,8 +60,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(50, 30, 50, 30); //300, 80, 50, 30);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(600, 30, 50, 30); //350, 80, 50, 30);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30); //300, 80, 50, 30);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30); //350, 80, 50, 30);
 	
 	// Untere Button-Reihe
 	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 110, 100, 30);
@@ -134,8 +134,9 @@ public class SpielInformationen extends JFrame {
 	private JButton afterPS;
 	private JLabel[] descrLbls;
 	private JTextField[][] goalsTFs;
-	
-	private Rectangle RECGO = new Rectangle(395, 380, 60, 30);
+
+	private Rectangle RECGONEW = new Rectangle(600, 10, 90, 40);
+	private Rectangle RECGOOLD = new Rectangle(395, 380, 60, 30);
 	private Rectangle RECAET = new Rectangle(395, 420, 50, 30);
 	private Rectangle RECAPS = new Rectangle(395, 460, 50, 30);
 	
@@ -417,12 +418,10 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		
-		
-		oldGUIElements();
 		{
 			go = new JButton();
 			jPnlSpielInformationen.add(go);
-			go.setBounds(RECGO);
+			go.setBounds(RECGONEW);
 			go.setText("fertig");
 			go.setFocusable(false);
 			go.addActionListener(new ActionListener() {
@@ -431,6 +430,8 @@ public class SpielInformationen extends JFrame {
 				}
 			});
 		}
+		oldGUIElements();
+		
 		
 		setSize(this.dim);
 		setResizable(false);
@@ -506,6 +507,7 @@ public class SpielInformationen extends JFrame {
 				}
 			});
 		}
+		if (show)	go.setBounds(RECGOOLD);
 	}
 	
 	private void displayGivenValues() {
@@ -624,7 +626,8 @@ public class SpielInformationen extends JFrame {
 		// hide lineup labels
 		setLabelsVisible(false);
 		
-		// TODO check if minute is set: else return with error message
+		// TODO check, at goal/subst completed, if minute is set: else return with error message
+		// TODO check, at goal completed, if player is still on pitch in given minute
 		
 		Mannschaft team = editingHomeTeam ? spiel.getHomeTeam() : spiel.getAwayTeam();
 		ArrayList<Wechsel> substitutions = spiel.getSubstitutions(editingHomeTeam);
@@ -692,17 +695,22 @@ public class SpielInformationen extends JFrame {
 		if ((isHomeTeam && lineupHome != null) || (!isHomeTeam && lineupAway != null))	hasLineup = true;
 		if (hasLineup) {
 			eligiblePlayersListUpper.clear();
-			String[] lineup = new String[11];
-			for (int i = 0; i < lineup.length; i++) {
+			ArrayList<Wechsel> substitutions = spiel.getSubstitutions(editingHomeTeam);
+			String[] eligiblePlayers = new String[11 + substitutions.size()];
+			for (int i = 0; i < 11; i++) {
 				if (editingHomeTeam)	eligiblePlayersListUpper.add(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()));
 				else					eligiblePlayersListUpper.add(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()));
-				lineup[i] = eligiblePlayersListUpper.get(i).getPseudonym();
+				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPseudonym();
+			}
+			for (int i = 0; i < substitutions.size(); i++) {
+				eligiblePlayersListUpper.add(substitutions.get(i).getEingewechselterSpieler());
+				eligiblePlayers[11 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
 			}
 			eligiblePlayersListLower = cloneList(eligiblePlayersListUpper);
 			jLblOben.setText("Torschuetze");
-			jCBOben.setModel(new DefaultComboBoxModel<>(lineup));
+			jCBOben.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
 			jLblUnten.setText("Vorbereiter");
-			jCBUnten.setModel(new DefaultComboBoxModel<>(lineup));
+			jCBUnten.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
 		}
 		
 		if (editingHomeTeam)	jPnlEingabe.setLocation(LOC_PNLEINGABEHOME);
@@ -801,6 +809,9 @@ public class SpielInformationen extends JFrame {
 			message("You must choose eleven players.");
 			return;
 		}
+		
+		if (editingHomeTeam && lineupHome == null)	lineupHome = new int[11];
+		else if (lineupAway == null)				lineupAway = new int[11];
 		
 		for (int i = 0; i < playerSelected.length; i++) {
 			if (playerSelected[i]) {

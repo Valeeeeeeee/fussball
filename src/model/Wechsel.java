@@ -21,8 +21,8 @@ public class Wechsel {
 		
 		toString = minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
 		log("New substitution for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-				" in the " + minute + ". minute " + ausgewechselterSpieler.getLastNameShort() + 
-				" leaves the pitch and is replaced by " + eingewechselterSpieler.getLastNameShort());
+				" in the " + minute + ". minute " + ausgewechselterSpieler.getPseudonym() + 
+				" leaves the pitch and is replaced by " + eingewechselterSpieler.getPseudonym());
 	}
 	
 	public Wechsel(Spiel spiel, boolean firstTeam, String daten) {
