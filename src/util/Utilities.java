@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Ergebnis;
+import model.Spieler;
 
 public class Utilities {
 	
@@ -97,6 +98,16 @@ public class Utilities {
 		}
 		
 		return name;
+	}
+	
+	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
+		ArrayList<Spieler> clone = new ArrayList<>();
+		
+		for (Spieler spieler : list) {
+			clone.add(spieler);
+		}
+		
+		return clone;
 	}
 	
 	public static String[] ausDatei(String dateiname) {

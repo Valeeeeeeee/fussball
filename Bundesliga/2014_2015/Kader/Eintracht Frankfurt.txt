@@ -1,4 +1,4 @@
-Timo;Hildebrand;null;19790405;Deutschland;Tor;26
+Timo;Hildebrand;null;19790405;Deutschland;Tor;26;-20141231
 Kevin;Trapp;null;19900708;Deutschland;Tor;1
 Felix;Wiedwald;null;19900315;Deutschland;Tor;30
 Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
@@ -14,12 +14,12 @@ Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
 Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
 Takashi;Inui;null;19880602;Japan;Mittelfeld;8
 Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
-Martin;Lanig;null;19840711;Deutschland;Mittelfeld;13
+Martin;Lanig;null;19840711;Deutschland;Mittelfeld;13;-20141231
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
 Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
 Lucas;Piazon;null;19940120;Brasilien;Mittelfeld;19
 Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
-Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10
+Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10;-20150217
 Haris;Seferovic;null;19920222;Schweiz;Sturm;9
 Nelson;Valdez;null;19831128;Paraguay;Sturm;11

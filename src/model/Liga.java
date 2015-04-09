@@ -61,7 +61,7 @@ public class Liga implements Wettbewerb {
     
     private Spieltag spieltag;
     private Tabelle tabelle;
-    
+    private LigaStatistik statistik;
     
 	public Liga(int id, Start start, String daten) {
 		checkOS();
@@ -92,8 +92,12 @@ public class Liga implements Wettbewerb {
 		return this.spieltag;
 	}
 	
-	public Tabelle getTable() {
+	public Tabelle getTabelle() {
 		return this.tabelle;
+	}
+	
+	public LigaStatistik getLigaStatistik() {
+		return this.statistik;
 	}
 	
 	public int getCurrentMatchday() {
@@ -182,7 +186,7 @@ public class Liga implements Wettbewerb {
         ergebnisplanLaden();
         
         if (spieltag == null) {
-            spieltag = new Spieltag(this.start, this);
+            spieltag = new Spieltag(start, this);
             spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         } else {
@@ -190,8 +194,13 @@ public class Liga implements Wettbewerb {
         }
         if (tabelle == null) {
             tabelle = new Tabelle(start, this);
-            tabelle.setLocation((1440 - tabelle.getSize().width) / 2, 50);
+            tabelle.setLocation((start.WIDTH - tabelle.getSize().width) / 2, 50);
             tabelle.setVisible(false);
+        }
+        if (statistik == null) {
+        	statistik = new LigaStatistik(this);
+        	statistik.setLocation((start.WIDTH - statistik.getSize().width) / 2, 50);
+        	statistik.setVisible(false);
         }
         
 //        testIsSpielplanEntered();
@@ -330,24 +339,6 @@ public class Liga implements Wettbewerb {
 	
 	public int getAnzahlABS() {
 		return this.ANZAHL_ABS;
-	}
-	
-	public String getDateOfTeam(int matchday, int id) {
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
-			if (isSpielplanEntered(matchday, match)) {
-				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)	return getDateOf(matchday, match);
-			}
-		}
-		
-		return "n.a.";
-	}
-	
-	public String getDateOf(int matchday, int spiel) {
-		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday && getDate(matchday) != 0)
-			return MyDate.datum(this.getDate(matchday), this.daysSinceDST[this.getKOTIndex(matchday, spiel)])
-				+ " " + MyDate.uhrzeit(this.kickoffTimes[this.getKOTIndex(matchday, spiel)]);
-		else
-			return "nicht terminiert";
 	}
 	
 	@SuppressWarnings("unused")
@@ -570,7 +561,7 @@ public class Liga implements Wettbewerb {
 			}
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldSpiel = getSpiel(matchdayOld, j);
-				spieleInNewOrder[j] = new Spiel(this, matchdayNew, oldSpiel.away(), oldSpiel.home());
+				spieleInNewOrder[j] = new Spiel(this, matchdayNew, this.datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
 			}
 			for (int j = 0; j < spieleInNewOrder.length; j++) {
 				for (int k = j + 1; k < spieleInNewOrder.length; k++) {
@@ -589,6 +580,24 @@ public class Liga implements Wettbewerb {
 		
 	}
 	
+	public String getDateOfTeam(int matchday, int id) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			if (isSpielplanEntered(matchday, match)) {
+				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)
+					return getDateAndTime(matchday, match);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
+	public String getDateAndTime(int matchday, int match) {
+		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday && getDate(matchday) != 0)
+			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
+		else
+			return "nicht terminiert";
+	}
+	
 	public int getDate(int matchday) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays)	return datesAndTimes[matchday][0];
 		else													return this.datesAndTimes[0][0];
@@ -604,6 +613,14 @@ public class Liga implements Wettbewerb {
 	
 	public void setKOTIndex(int matchday, int match, int index) {
 		datesAndTimes[matchday][match + 1] = index;
+	}
+	
+	public int getDate(int matchday, int match) {
+		return MyDate.verschoben(datesAndTimes[matchday][0], daysSinceDST[datesAndTimes[matchday][match + 1]]);
+	}
+	
+	public int getTime(int matchday, int match) {
+		return this.kickoffTimes[this.getKOTIndex(matchday, match)];
 	}
 	
 	private void initDefaultKickoffTimes(String DKTAsString) {
@@ -698,7 +715,7 @@ public class Liga implements Wettbewerb {
 	            		Spiel spiel = null;
 	            		
 	            		if (isSpielplanEntered(matchday, match)) {
-	            			spiel = new Spiel(this, matchday, inhalte[match + 2]);
+	            			spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
 	            		}
 	            		
 	                    setSpiel(matchday, match, spiel);

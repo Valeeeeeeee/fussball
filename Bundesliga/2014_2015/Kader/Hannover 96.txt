@@ -4,14 +4,14 @@ Ron-Robert;Zieler;null;19890212;Deutschland;Tor;1
 Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
 Andre;Hoffmann;null;19930228;Deutschland;Abwehr;15
-Joao Pedro;da Silva Pereira;Joao Pereira;19840225;Portugal;Abwehr;17
+Joao Pedro;da Silva Pereira;Joao Pereira;19840225;Portugal;Abwehr;17;20150101-
 Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25
 Christian;Pander;null;19830828;Deutschland;Abwehr;24
 Hiroki;Sakai;null;19900412;Japan;Abwehr;4
 Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;5
 Christian;Schulz;null;19830401;Deutschland;Abwehr;19
 Marius;Stankevicius;null;19810715;Litauen;Abwehr;18
-Stefan;Thesker;null;19910411;Deutschland;Abwehr;17
+Stefan;Thesker;null;19910411;Deutschland;Abwehr;17;-20141231
 Leon;Andreasen;null;19830423;Dänemark;Mittelfeld;2
 Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;32
 Ceyhun;Gülselam;null;19871225;Türkei;Mittelfeld;6
@@ -25,4 +25,4 @@ Jimmy;Briand;null;19850802;Frankreich;Sturm;21
 José Luis;Sanmartin Mato;Joselu;19900327;Spanien;Sturm;11
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Artur;Sobiech;null;19900612;Polen;Sturm;9
-Didier;Ya Konan;Didier Ya Konan;19840522;Elfenbeinküste;Sturm;30
+Didier;Ya Konan;Didier Ya Konan;19840522;Elfenbeinküste;Sturm;30;20150101-

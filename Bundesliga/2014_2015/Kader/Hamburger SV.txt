@@ -9,12 +9,12 @@ Ronny;Marcos;null;19931001;Deutschland;Abwehr;31
 Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
 Slobodan;Rajkovic;null;19890203;Serbien;Abwehr;32
 Heiko;Westermann;null;19830814;Deutschland;Abwehr;4
-Tolgay;Arslan;null;19900816;Deutschland;Mittelfeld;8
-Milan;Badelj;null;19890225;Kroatien;Mittelfeld;14
+Tolgay;Arslan;null;19900816;Deutschland;Mittelfeld;8;-20141231
+Milan;Badelj;null;19890225;Kroatien;Mittelfeld;14;-20140831
 Valon;Behrami;null;19850419;Schweiz;Mittelfeld;21
 Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;9
 Tolcay;Cigerci;null;19950124;Türkei;Mittelfeld;35
-Marcelo;Diaz;null;19861230;Chile;Abwehr;20
+Marcelo;Diaz;null;19861230;Chile;Abwehr;20;20150201-
 Ashton-Phillip;Götz;null;19930716;Deutschland;Mittelfeld;39
 Mohamed;Gouaida;null;19930515;Frankreich, Tunesien;Mittelfeld;25
 Julian;Green;null;19950606;Deutschland, USA;Mittelfeld;37
@@ -23,10 +23,10 @@ Ivo;Ilicevic;null;19861114;Deutschland, Kroatien;Mittelfeld;11
 Petr;Jiracek;null;19860302;Tschechien;Mittelfeld;19
 Gojko;Kacar;null;19870126;Serbien;Mittelfeld;40
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
-Valmir;Nafiu;null;19940423;Mazedonien;Mittelfeld;34
+Valmir;Nafiu;null;19940423;Mazedonien;Mittelfeld;34;-20141231
 Ville Matti;Steinmann;null;19950108;Deutschland;Mittelfeld;24
 Zoltan;Stieber;null;19881016;Ungarn;Mittelfeld;17
 Rafael;van der Vaart;null;19830211;Niederlande;Mittelfeld;23
 Pierre-Michel;Lasogga;null;19911215;Deutschland;Sturm;10
-Ivica;Olic;null;19790914;Kroatien;Sturm;8
+Ivica;Olic;null;19790914;Kroatien;Sturm;8;20150101-
 Artjoms;Rudnevs;null;19880113;Lettland;Sturm;16

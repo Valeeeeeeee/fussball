@@ -123,7 +123,18 @@ public class Gruppe implements Wettbewerb {
 		return this.isETPossible;
 	}
 	
-	public String getDateOf(int matchday, int spiel) {
+	public String getDateOfTeam(int matchday, int id) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			if (isSpielplanEntered(matchday, match)) {
+				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)
+					return getDateAndTime(matchday, match);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
+	public String getDateAndTime(int matchday, int spiel) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday)
 			return MyDate.datum(getDate(matchday, spiel)) + " " + MyDate.uhrzeit(getTime(matchday, spiel));
 		else 
@@ -132,16 +143,6 @@ public class Gruppe implements Wettbewerb {
 	
 	public int getDate(int matchday, int match) {
 		return MyDate.verschoben(startDate, daysSinceFirstDay[matchday][match]);
-	}
-	
-	public String getDateOfTeam(int matchday, int id) {
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
-			if (isSpielplanEntered(matchday, match)) {
-				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)	return getDateOf(matchday, match);
-			}
-		}
-		
-		return "n.a.";
 	}
 	
 	public int getTime(int matchday, int match) {
@@ -542,7 +543,9 @@ public class Gruppe implements Wettbewerb {
 	            	for (match = 0; (match + 2) < inhalte.length; match++) {
 	            		Spiel spiel = null;
 	            		
-	            		if (isSpielplanEntered(matchday, match))	spiel = new Spiel(this, matchday, inhalte[match + 2]);
+	            		if (isSpielplanEntered(matchday, match)) {
+	            			spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
+	            		}
 	            		
 	                    setSpiel(matchday, match, spiel);
 					}

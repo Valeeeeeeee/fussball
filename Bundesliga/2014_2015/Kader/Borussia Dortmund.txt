@@ -13,16 +13,16 @@ Sven;Bender;null;19890427;Deutschland;Mittelfeld;6
 Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;16
 Ilkay;Gündogan;null;19901024;Deutschland;Mittelfeld;8
 Joseph-Claude;Gyau;null;19920916;USA;Mittelfeld;38
+Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;7;-20140831
 Milos;Jojic;null;19920319;Serbien;Mittelfeld;14
-Shinji;Kagawa;null;19890317;Japan;Mittelfeld;7
-Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;23
+Shinji;Kagawa;null;19890317;Japan;Mittelfeld;7;20140901-
+Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;23;20150101-
 Sebastian;Kehl;null;19800213;Deutschland;Mittelfeld;5
 Oliver;Kirch;null;19820821;Deutschland;Mittelfeld;21
 Mitsuru;Maruoka;null;19960106;Japan;Mittelfeld;31
 Henrikh;Mkhitaryan;null;19890121;Armenien;Mittelfeld;10
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;18
-Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;7
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
 Ciro;Immobile;null;19900220;Italien;Sturm;9
 Adrian;Ramos;null;19860122;Kolumbien;Sturm;20

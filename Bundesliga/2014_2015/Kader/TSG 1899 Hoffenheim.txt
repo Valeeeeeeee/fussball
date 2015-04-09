@@ -7,10 +7,10 @@ Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
 Jin-Su;Kim;null;19920613;Südkorea;Abwehr;20
 Niklas;Süle;null;19950903;Deutschland;Abwehr;25
 Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
-Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;29
+Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;29;-20141231
 Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;34
 Tarik;Elyounoussi;null;19880223;Norwegen;Mittelfeld;14
-Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11
+Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11;-20150131
 Kai;Herdling;null;19840627;Deutschland;Mittelfeld;38
 Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
 Roberto Firmino;Barbosa de Oliveira;Roberto Firmino;19911002;Brasilien;Mittelfeld;10

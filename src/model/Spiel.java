@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Spiel {
 	
 	private int matchday;
+	private int date;
+	private int time;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
@@ -19,20 +21,26 @@ public class Spiel {
 	private String schiedsrichter;
 	private Ergebnis ergebnis;
 	private ArrayList<Tor> tore = new ArrayList<>();
+	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
+	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
-		
 		this.matchday = matchday;
+		this.date = date;
+		this.time = time;
+		
 		this.homeTeamIndex = homeTeamIndex;
 		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 		this.awayTeamIndex = awayTeamIndex;
 		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, String daten) {
+	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, String daten) {
 		this.wettbewerb = wettbewerb;
 		this.matchday = matchday;
+		this.date = date;
+		this.time = time;
 		parseString(daten);
 	}
 	
@@ -42,6 +50,18 @@ public class Spiel {
 	
 	public String getDescription() {
 		return wettbewerb.getMatchdayDescription(matchday);
+	}
+	
+	public String getDateAndTime() {
+		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+	}
+	
+	public int getDate() {
+		return this.date;
+	}
+	
+	public int getTime() {
+		return this.time;
 	}
 	
 	public int home() {
@@ -90,8 +110,19 @@ public class Spiel {
 	
 	public void addGoal(Tor tor) {
 		if (tor != null) {
-			this.tore.add(tor);
+			tore.add(tor);
 			ergebnis = new Ergebnis(ergebnis != null ? ergebnis : new Ergebnis("0:0"), tor);
+		}
+	}
+	
+	public ArrayList<Wechsel> getSubstitutions(boolean firstTeam) {
+		return firstTeam ? substitutionsHome : substitutionsAway;
+	}
+	
+	public void addSubstitution(Wechsel substitution) {
+		if (substitution != null) {
+			if (substitution.isFirstTeam())	substitutionsHome.add(substitution);
+			else							substitutionsAway.add(substitution);
 		}
 	}
 	
@@ -111,7 +142,7 @@ public class Spiel {
 		}
 		
 		if (lineupHome != null || lineupAway != null) {
-			remainder += "+{" + lineupToString(lineupHome) + "}+{" + lineupToString(lineupAway) + "}";
+			remainder += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
 		}
 		
 		return remainder;
@@ -127,13 +158,16 @@ public class Spiel {
 		return matchData;
 	}
 	
-	private String lineupToString(int[] lineup) {
+	private String lineupToString(int[] lineup, ArrayList<Wechsel> substitutions) {
 		String lineupString = "";
 		
 		if (lineup != null) {
 			for (int i = 0; i < lineup.length; i++) {
 				lineupString += lineup[i];
 				if (i < lineup.length - 1)	lineupString += ",";
+			}
+			for (Wechsel wechsel : substitutions) {
+				lineupString += "#" + wechsel.toString();
 			}
 		} else {
 			lineupString = "null";
@@ -153,14 +187,19 @@ public class Spiel {
 		}
 	}
 	
-	private int[] parseLineup(String lineupString) {
+	private int[] parseLineup(String lineupString, boolean firstTeam) {
 		int[] lineup = null;
 		
 		if (!lineupString.equals("null")) {
-			String[] lineupSplit = lineupString.replace("{", "").replace("}", "").split(",");
+			String[] hashSplit = lineupString.replace("{", "").replace("}", "").split("#");
+			String[] lineupSplit = hashSplit[0].split(",");
 			lineup = new int[lineupSplit.length];
 			for (int i = 0; i < lineupSplit.length; i++) {
 				lineup[i] = Integer.parseInt(lineupSplit[i]);
+			}
+			for (int i = 1; i < hashSplit.length; i++) {
+				Wechsel wechsel = new Wechsel(this, firstTeam, hashSplit[i]);
+				addSubstitution(wechsel);
 			}
 		}
 		
@@ -169,7 +208,7 @@ public class Spiel {
 	
 	private int[] checkLineup(int[] lineup) {
 		boolean isValid = true;
-		
+		// TODO check validity
 		return isValid ? lineup : null;
 	}
 	
@@ -191,8 +230,8 @@ public class Spiel {
 			if (datenSplit.length > 1) {
 				parseMatchData(datenSplit[1]);
 				if (datenSplit.length == 4) {
-					lineupHome = parseLineup(datenSplit[2]);
-					lineupAway = parseLineup(datenSplit[3]);
+					lineupHome = parseLineup(datenSplit[2], true);
+					lineupAway = parseLineup(datenSplit[3], false);
 				}
 			}
 			
@@ -209,5 +248,11 @@ public class Spiel {
 		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
 		
 		return toString;
+	}
+	
+	public boolean sameAs(Spiel other) {
+		if (this.homeTeamIndex != other.homeTeamIndex)	return false;
+		if (this.awayTeamIndex != other.awayTeamIndex)	return false;
+		return true;
 	}
 }

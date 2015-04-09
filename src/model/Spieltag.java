@@ -638,7 +638,7 @@ public class Spieltag extends JPanel {
 		String[] dateandtimeofmatches = new String[numberOfMatches];
 		int groupID = 0, matchID = 0;
 		for (int i = 0; i < numberOfMatches; i++) {
-			dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateOf(currentMatchday, matchID);
+			dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateAndTime(currentMatchday, matchID);
 			spieltagsdaten[i].setText(dateandtimeofmatches[i]);
 			
 			matchID++;
@@ -658,11 +658,11 @@ public class Spieltag extends JPanel {
 		String[] dateandtimeofmatches = new String[numberOfMatches];
 		int groupID = 0, matchID = 0;
 		for (int i = 0; i < numberOfMatches; i++) {
-			if (belongsToALeague)		dateandtimeofmatches[i] = liga.getDateOf(currentMatchday, i);
-			else if (belongsToGroup)	dateandtimeofmatches[i] = gruppe.getDateOf(currentMatchday, i);
-			else if (belongsToKORound)	dateandtimeofmatches[i] = koRunde.getDateOf(currentMatchday, i);
+			if (belongsToALeague)		dateandtimeofmatches[i] = liga.getDateAndTime(currentMatchday, i);
+			else if (belongsToGroup)	dateandtimeofmatches[i] = gruppe.getDateAndTime(currentMatchday, i);
+			else if (belongsToKORound)	dateandtimeofmatches[i] = koRunde.getDateAndTime(currentMatchday, i);
 			else {
-				dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateOf(currentMatchday, matchID);
+				dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateAndTime(currentMatchday, matchID);
 				
 				matchID++;
 				if (matchID == numbersOfMatches[groupID]) {
@@ -813,20 +813,21 @@ public class Spieltag extends JPanel {
 		
 		if (saveanyway == 0) {
 			if (belongsToKORound)	koRunde.setCheckTeamsFromPreviousRound(false);
-			int groupID = 0, matchID = 0, offset = 0;
+			int groupID = 0, matchID = 0, offset = 0, home, away;
 			for (int match = 0; match < array.length; match++) {
-				Spiel spiel = null;
-				if (array[match][0] != -1 && array[match][1] != -1) {
-					if (belongsToALeague)		spiel = new Spiel(liga, editedMatchday, array[match][0] - offset, array[match][1] - offset);
-					else if (belongsToGroup)	spiel = new Spiel(gruppe, editedMatchday, array[match][0] - offset, array[match][1] - offset);
-					else if (belongsToKORound)	spiel = new Spiel(koRunde, editedMatchday, array[match][0] - offset, array[match][1] - offset);
-					else						spiel = new Spiel(turnier.getGruppen()[groupID], editedMatchday, array[match][0] - offset, array[match][1] - offset);
+				if (isOverview)	wettbewerb = turnier.getGruppen()[groupID];
+				Spiel spiel = null, vergleich;
+				
+				vergleich = wettbewerb.getSpiel(editedMatchday, matchID);
+				
+				if ((home = array[matchID][0]) != -1 && (away = array[matchID][1]) != -1) {
+					spiel = new Spiel(wettbewerb, editedMatchday, wettbewerb.getDate(editedMatchday, matchID), 
+								wettbewerb.getTime(editedMatchday, matchID), home - offset, away - offset);
 				}
 				
-				if (belongsToALeague)		liga.setSpiel(editedMatchday, match, spiel);
-				else if (belongsToGroup)	gruppe.setSpiel(editedMatchday, match, spiel);
-				else if (belongsToKORound)	koRunde.setSpiel(editedMatchday, match, spiel);
-				else						turnier.getGruppen()[groupID].setSpiel(editedMatchday, matchID, spiel);
+				if (spiel != null && vergleich != null && spiel.sameAs(vergleich))	spiel = vergleich;
+				
+				wettbewerb.setSpiel(editedMatchday, matchID, spiel);
 				
 				matchID++;
 				if (isOverview && matchID == numbersOfMatches[groupID]) {

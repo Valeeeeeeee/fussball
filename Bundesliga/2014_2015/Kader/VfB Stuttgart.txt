@@ -12,13 +12,14 @@ Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11
 Adam;Hlousek;null;19881220;Tschechien;Mittelfeld;21
+Jerome;Kiesewetter;null;19930209;Deutschland, USA;Mittelfeld;42
 Florian;Klein;null;19861117;Österreich;Mittelfeld;16
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;8
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Oriol;Romeu Vidal;null;19910924;Spanien;Mittelfeld;13
 Sercan;Sararer;null;19891127;Spanien, Türkei;Mittelfeld;23
-Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26
+Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26;20150201-
 Mohammed;Abdellaoue;null;19851023;Norwegen;Sturm;25
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7

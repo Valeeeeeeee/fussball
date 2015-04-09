@@ -22,8 +22,8 @@ public class Tor {
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber();
 		this.id = spiel.home() + "v" + spiel.away() + "h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getLastNameShort() + 
-			" and assisted by " + assistgeber.getLastNameShort());
+			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
+			" and assisted by " + assistgeber.getPseudonym());
 	}
 	
 	public Tor(Spiel spiel, String daten) {
@@ -35,7 +35,7 @@ public class Tor {
 		return spiel;
 	}
 
-	public boolean isScoredByFirstTeam() {
+	public boolean isFirstTeam() {
 		return firstTeam;
 	}
 	
@@ -55,13 +55,10 @@ public class Tor {
 		firstTeam = Boolean.parseBoolean(daten.substring(0, daten.indexOf("-m")));
 		minute = Integer.parseInt(daten.substring(daten.indexOf("-m") + 2, daten.indexOf("-s")));
 		int sqScorer = Integer.parseInt(daten.substring(daten.indexOf("-s") + 2, daten.indexOf("-a")));
-		scorer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer);
+		scorer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer, spiel.getDate());
 		int sqAssist = Integer.parseInt(daten.substring(daten.indexOf("-a") + 2));
-		assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist);
+		assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist, spiel.getDate());
 		
-		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getLastNameShort() + 
-			" and assisted by " + assistgeber.getLastNameShort());
 		toString = daten;
 	}
 	

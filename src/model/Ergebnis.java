@@ -23,8 +23,8 @@ public class Ergebnis {
 		away = ergebnis.away;
 		
 		// TODO not unconditionally
-		if (tor.isScoredByFirstTeam())	home[REGULAR]++;
-		else							away[REGULAR]++;
+		if (tor.isFirstTeam())	home[REGULAR]++;
+		else					away[REGULAR]++;
 	}
 	
 	/**

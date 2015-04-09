@@ -204,7 +204,7 @@ public class KORunde implements Wettbewerb {
 		return matchday;
 	}
 	
-	public String getDateOf(int matchday, int spiel) {
+	public String getDateAndTime(int matchday, int spiel) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday)
 			return MyDate.datum(getDate(matchday, spiel)) + " " + MyDate.uhrzeit(getTime(matchday, spiel));
 		else 
@@ -613,32 +613,34 @@ public class KORunde implements Wettbewerb {
 		try {
 			spielplanFromFile = ausDatei(dateiSpielplan);
 			
-	    	for (int spieltag = 0; spieltag < spielplanFromFile.length; spieltag++) {
-	        	String[] inhalte = spielplanFromFile[spieltag].split(";");
+	    	for (int matchday = 0; matchday < spielplanFromFile.length; matchday++) {
+	        	String[] inhalte = spielplanFromFile[matchday].split(";");
 	        	
-	        	this.setSpielplanEnteredFromRepresentation(spieltag, inhalte[0]);
+	        	this.setSpielplanEnteredFromRepresentation(matchday, inhalte[0]);
 	        	
 	        	int match = 0;
-	        	if (!this.isSpielplanFullyEmpty(spieltag)) {
+	        	if (!this.isSpielplanFullyEmpty(matchday)) {
 	        		// Spieltagsdaten
 	        		String[] uhrzeiten = inhalte[1].split(":");
 	        		for (match = 0; match < uhrzeiten.length; match++) {
 	        			String spieldaten[] = uhrzeiten[match].split(",");
-	        			daysSinceFirstDay[spieltag][match] = Integer.parseInt(spieldaten[0]);
-	        			startTime[spieltag][match] = Integer.parseInt(spieldaten[1]);
+	        			daysSinceFirstDay[matchday][match] = Integer.parseInt(spieldaten[0]);
+	        			startTime[matchday][match] = Integer.parseInt(spieldaten[1]);
 	        		}
 	        		
 	        		// Herkunften der Mannschaften
 	        		for (match = 0; (match + 2) < inhalte.length; match++) {
 	        			Spiel spiel = null;
-	        			if (isSpielplanEntered(spieltag, match))	spiel = new Spiel(this, spieltag, inhalte[match + 2]);
+	        			if (isSpielplanEntered(matchday, match)) {
+	        				spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
+	        			}
 	        			
-	        			setSpiel(spieltag, match, spiel);
+	        			setSpiel(matchday, match, spiel);
 	        		}
 	        	}
 	            
 	            while(match < this.numberOfMatchesPerMatchday) {
-	                setSpiel(spieltag, match, null);
+	                setSpiel(matchday, match, null);
 	                match++;
 	            }
 	    	}
