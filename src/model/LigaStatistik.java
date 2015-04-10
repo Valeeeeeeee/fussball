@@ -10,6 +10,8 @@ public class LigaStatistik extends JPanel {
 	
 	private Dimension preferredSize = new Dimension(900, 600);
 	private Liga liga;
+	private Mannschaft[] mannschaften;
+	private int currentMatchday;
 	
 	private Font fontWettbewerbLbl = new Font("Verdana", Font.PLAIN, 24);
 	
@@ -40,6 +42,8 @@ public class LigaStatistik extends JPanel {
 		super();
 		
 		this.liga = liga;
+		this.mannschaften = liga.getMannschaften();
+		this.currentMatchday = liga.getCurrentMatchday();
 		
 		initGUI();
 	}
@@ -59,14 +63,12 @@ public class LigaStatistik extends JPanel {
 			jLblMostGoals = new JLabel();
 			this.add(jLblMostGoals);
 			jLblMostGoals.setBounds(REC_LBLMOSTGOALS);
-			jLblMostGoals.setFont(fontWettbewerbLbl);
 			jLblMostGoals.setText("Meiste Tore:");
 		}
 		{
 			jLblLeastGoals = new JLabel();
 			this.add(jLblLeastGoals);
 			jLblLeastGoals.setBounds(REC_LBLLEASTGOALS);
-			jLblLeastGoals.setFont(fontWettbewerbLbl);
 			jLblLeastGoals.setText("Wenigste Tore:");
 		}
 		
@@ -86,6 +88,20 @@ public class LigaStatistik extends JPanel {
     }
 	
 	public void updateGUI() {
+		int maximum = 0, minimum = 1000, maxIndex = 0, minIndex = 0;
 		
+		
+		for (Mannschaft team : mannschaften) {
+			if (team.get(6, 0, currentMatchday) > maximum) {
+				maximum = team.get(6, 0, currentMatchday);
+				maxIndex = team.getId() - 1;
+			}
+			if (team.get(6, 0, currentMatchday) < minimum) {
+				minimum = team.get(6, 0, currentMatchday);
+				minIndex = team.getId() - 1;
+			}
+		}
+		log("Meiste Tore: " + mannschaften[maxIndex].getName() + "(" + maximum + ")");
+		log("Wenigste Tore: " + mannschaften[minIndex].getName() + "(" + minimum + ")");
 	}
 }
