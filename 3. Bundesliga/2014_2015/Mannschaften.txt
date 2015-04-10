@@ -15,7 +15,7 @@ Hansa Rostock;01.01.1970
 Borussia Dortmund II;01.01.1970
 VfB Stuttgart II;09.09.1893
 Holstein Kiel;01.01.1970
-SpVgg Unterhaching;01.01.1970
+SpVgg Unterhaching;01.01.1970;-2
 Fortuna Köln;01.01.1970
 1. FSV Mainz 05 II;01.01.1970
 SG Sonnenhof Großaspach;01.01.1970
