@@ -17,6 +17,17 @@ public class MyDate {
 		return datum;
 	}
 	
+	public static int newMyTime() {
+		int datum = 0;
+		Calendar gc = new GregorianCalendar();
+		int hh = gc.get(Calendar.HOUR_OF_DAY);
+		int mm = gc.get(Calendar.MINUTE);
+		
+		datum = 100 * hh + mm;
+		
+		return datum;
+	}
+	
 	public static int getDate(String dateString) {
 		try {
 			String[] daten = dateString.split("\\.");

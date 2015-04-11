@@ -88,7 +88,7 @@ public class LigaStatistik extends JPanel {
     }
 	
 	public void updateGUI() {
-		int maximum = 0, minimum = 1000, maxIndex = 0, minIndex = 0;
+		int maximum = 0, minimum = 1000, maxIndex = -1, minIndex = -1;
 		
 		
 		for (Mannschaft team : mannschaften) {
@@ -103,5 +103,22 @@ public class LigaStatistik extends JPanel {
 		}
 		log("Meiste Tore: " + mannschaften[maxIndex].getName() + "(" + maximum + ")");
 		log("Wenigste Tore: " + mannschaften[minIndex].getName() + "(" + minimum + ")");
+		
+		maximum = 0;
+		minimum = 1000;
+		maxIndex = minIndex = -1;
+		
+		for (Mannschaft team : mannschaften) {
+			if (team.get(3, 0, currentMatchday) > maximum) {
+				maximum = team.get(3, 0, currentMatchday);
+				maxIndex = team.getId() - 1;
+			}
+			if (team.get(3, 0, currentMatchday) < minimum) {
+				minimum = team.get(3, 0, currentMatchday);
+				minIndex = team.getId() - 1;
+			}
+		}
+		log("Meiste Siege: " + mannschaften[maxIndex].getName() + "(" + maximum + ")");
+		log("Wenigste Siege: " + mannschaften[minIndex].getName() + "(" + minimum + ")");
 	}
 }

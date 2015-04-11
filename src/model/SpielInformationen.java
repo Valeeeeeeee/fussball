@@ -85,9 +85,9 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(130, 5, 60, 30);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 40, 95, 20);
-	private Rectangle REC_CBOBEN = new Rectangle(110, 37, 130, 26);
+	private Rectangle REC_CBOBEN = new Rectangle(105, 37, 135, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 70, 95, 20);
-	private Rectangle REC_CBUNTEN = new Rectangle(110, 67, 130, 26);
+	private Rectangle REC_CBUNTEN = new Rectangle(105, 67, 135, 26);
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
@@ -235,7 +235,6 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jBtnLineupHome);
 			jBtnLineupHome.setBounds(REC_BTNLINEUPHOME);
 			jBtnLineupHome.setText("Aufstellung");
-			jBtnLineupHome.setVisible(false);
 			jBtnLineupHome.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					enterNewLineup(true);
@@ -247,7 +246,6 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jBtnLineupAway);
 			jBtnLineupAway.setBounds(REC_BTNLINEUPAWAY);
 			jBtnLineupAway.setText("Aufstellung");
-			jBtnLineupAway.setVisible(false);
 			jBtnLineupAway.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					enterNewLineup(false);
@@ -546,7 +544,8 @@ public class SpielInformationen extends JFrame {
 			displaySubstitution(wechsel);
 		}
 		
-		if (tore.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0)	startGame();
+		if (tore.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0 || 
+				inThePast(spiel.getDate(), spiel.getTime()))	startGame();
 	}
 	
 	private void displayGoal(Tor tor) {
@@ -597,10 +596,8 @@ public class SpielInformationen extends JFrame {
 		jBtnStartGame.setVisible(false);
 		jBtnAGTHome.setVisible(false);
 		jBtnAGTAway.setVisible(false);
-		jBtnLineupHome.setVisible(true);
 		jBtnSubstitutionHome.setVisible(true);
 		jBtnGoalHome.setVisible(true);
-		jBtnLineupAway.setVisible(true);
 		jBtnSubstitutionAway.setVisible(true);
 		jBtnGoalAway.setVisible(true);
 	}

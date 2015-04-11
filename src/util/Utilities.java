@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Ergebnis;
+import model.MyDate;
 import model.Spieler;
+import model.Start;
 
 public class Utilities {
 	
@@ -98,6 +100,12 @@ public class Utilities {
 		}
 		
 		return name;
+	}
+	
+	public static boolean inThePast(int date, int time) {
+		if (date < Start.today())	return true;
+		if (date > Start.today())	return false;
+		return time < MyDate.newMyTime();
 	}
 	
 	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
