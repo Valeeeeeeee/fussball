@@ -381,6 +381,13 @@ public class SpielInformationen extends JFrame {
 			jPnlEingabe.add(jTFMinute);
 			jTFMinute.setBounds(REC_TFMINUTE);
 			jTFMinute.setText("");
+			jTFMinute.addKeyListener(new KeyAdapter() {
+				public void keyTyped(KeyEvent ke) {
+					if (ke.getKeyChar() <= 47 || ke.getKeyChar() >= 58) {
+						ke.consume();
+					}
+				}
+			});
 		}
 		{
 			jBtnEingabeCompleted = new JButton();
@@ -539,6 +546,7 @@ public class SpielInformationen extends JFrame {
 			displaySubstitution(wechsel);
 		}
 		
+		if (tore.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0)	startGame();
 	}
 	
 	private void displayGoal(Tor tor) {
@@ -548,7 +556,7 @@ public class SpielInformationen extends JFrame {
 		jLblNewGoal.setLocation(gLbls[STARTX] + (tor.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + i * (gLbls[HEIGHT] + gLbls[GAPY]));
 		jLblNewGoal.setSize(gLbls[WIDTH], gLbls[HEIGHT]);
 		jLblNewGoal.setHorizontalAlignment(tor.isFirstTeam() ? SwingConstants.LEFT : SwingConstants.RIGHT);
-		jLblNewGoal.setText(tor.getScorer().getPseudonym() + " (" + tor.getMinute() + "')");
+		jLblNewGoal.setText((tor.getScorer() != null ? tor.getScorer().getPseudonym() : "n/a") + " (" + tor.getMinute() + "')");
 		jLblNewGoal.setOpaque(true);
 		jLblsGoals.add(jLblNewGoal);
 	}
@@ -582,7 +590,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void startGame() {
-		ergebnis = new Ergebnis("0:0");
+		if (ergebnis == null)	ergebnis = new Ergebnis("0:0");
 		spiel.setErgebnis(ergebnis);
 		jLblResult.setText(ergebnis.toString());
 		
@@ -620,14 +628,17 @@ public class SpielInformationen extends JFrame {
 	
 	private void enterNewSubstitution(boolean isHomeTeam) {
 		if ((isHomeTeam && lineupHome == null) || (!isHomeTeam && lineupAway == null))	return;
+		
+		if (spiel.getSubstitutions(isHomeTeam).size() == 3) {
+			message("You have already submitted all three possible substitutions for this team.");
+			return;
+		}
+		
 		this.enteringSubstitution = true;
 		this.editingHomeTeam = isHomeTeam;
 		
 		// hide lineup labels
 		setLabelsVisible(false);
-		
-		// TODO check, at goal/subst completed, if minute is set: else return with error message
-		// TODO check, at goal completed, if player is still on pitch in given minute
 		
 		Mannschaft team = editingHomeTeam ? spiel.getHomeTeam() : spiel.getAwayTeam();
 		ArrayList<Wechsel> substitutions = spiel.getSubstitutions(editingHomeTeam);
@@ -668,7 +679,20 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void jBtnWechseleingabeCompletedActionPerformed() {
+		if (!enteringSubstitution)	return;
+		
+		if (jTFMinute.getText().length() == 0) {
+			message("You have to enter a minute before you can save.");
+			return;
+		}
+		
 		int minute = Integer.parseInt(jTFMinute.getText());
+		for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
+			if (wechsel.getMinute() > minute) {
+				message("The substitution is earlier than a substitution you have already submitted.");
+				return;
+			}
+		}
 		Spieler ausgSpieler = eligiblePlayersListUpper.get(jCBOben.getSelectedIndex());
 		Spieler eingSpieler = eligiblePlayersListLower.get(jCBUnten.getSelectedIndex());
 		
@@ -693,25 +717,29 @@ public class SpielInformationen extends JFrame {
 		
 		boolean hasLineup = false;
 		if ((isHomeTeam && lineupHome != null) || (!isHomeTeam && lineupAway != null))	hasLineup = true;
+		String[] eligiblePlayers;
 		if (hasLineup) {
 			eligiblePlayersListUpper.clear();
 			ArrayList<Wechsel> substitutions = spiel.getSubstitutions(editingHomeTeam);
-			String[] eligiblePlayers = new String[11 + substitutions.size()];
+			eligiblePlayers = new String[1 + 11 + substitutions.size()];
 			for (int i = 0; i < 11; i++) {
 				if (editingHomeTeam)	eligiblePlayersListUpper.add(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()));
 				else					eligiblePlayersListUpper.add(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()));
-				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPseudonym();
+				eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPseudonym();
 			}
 			for (int i = 0; i < substitutions.size(); i++) {
 				eligiblePlayersListUpper.add(substitutions.get(i).getEingewechselterSpieler());
-				eligiblePlayers[11 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
+				eligiblePlayers[12 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
 			}
 			eligiblePlayersListLower = cloneList(eligiblePlayersListUpper);
-			jLblOben.setText("Torschuetze");
-			jCBOben.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
-			jLblUnten.setText("Vorbereiter");
-			jCBUnten.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
+		} else {
+			eligiblePlayers = new String[1];
 		}
+		eligiblePlayers[0] = "Bitte waehlen";
+		jLblOben.setText("Torschuetze");
+		jCBOben.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
+		jLblUnten.setText("Vorbereiter");
+		jCBUnten.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
 		
 		if (editingHomeTeam)	jPnlEingabe.setLocation(LOC_PNLEINGABEHOME);
 		else					jPnlEingabe.setLocation(LOC_PNLEINGABEAWAY);
@@ -722,11 +750,47 @@ public class SpielInformationen extends JFrame {
 	private void jBtnToreingabeCompletedActionPerformed() {
 		if (!enteringGoal)	return;
 		
-		int minute = Integer.parseInt(jTFMinute.getText());
-		Spieler scorer = eligiblePlayersListUpper.get(jCBOben.getSelectedIndex());
-		Spieler assistgeber = eligiblePlayersListLower.get(jCBUnten.getSelectedIndex());
+		if (jTFMinute.getText().length() == 0) {
+			message("You have to enter a minute before you can save.");
+			return;
+		}
 		
-		Tor tor = new Tor(spiel, editingHomeTeam, minute, scorer, assistgeber);
+		int minute = Integer.parseInt(jTFMinute.getText());
+		for (Tor tor : tore) {
+			if (tor.getMinute() > minute) {
+				message("The goal is earlier than a goal you have already submitted.");
+				return;
+			}
+		}
+		
+		int index;
+		Spieler scorer = null;
+		if ((index = jCBOben.getSelectedIndex()) != 0) {
+			scorer = eligiblePlayersListUpper.get(index - 1);
+			for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
+				if (wechsel.getAusgewechselterSpieler() == scorer && minute > wechsel.getMinute() || 
+						wechsel.getEingewechselterSpieler() == scorer && minute < wechsel.getMinute()) {
+					message("The player " + scorer.getPseudonym() + " was not on the pitch in the given minute.");
+					return;
+				}
+			}
+		}
+		Spieler assistgeber = null;
+		if ((index = jCBUnten.getSelectedIndex()) != 0) {
+			assistgeber = eligiblePlayersListLower.get(index - 1);
+			for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
+				if (wechsel.getAusgewechselterSpieler() == assistgeber && minute > wechsel.getMinute() || 
+						wechsel.getEingewechselterSpieler() == assistgeber && minute < wechsel.getMinute()) {
+					message("The player " + assistgeber.getPseudonym() + " was not on the pitch in the given minute.");
+					return;
+				}
+			}
+		}
+		
+		Tor tor = null;
+		if (scorer == null)				tor = new Tor(spiel, editingHomeTeam, minute);
+		else if (assistgeber == null)	tor = new Tor(spiel, editingHomeTeam, minute, scorer);
+		else							tor = new Tor(spiel, editingHomeTeam, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
 		ergebnis = spiel.getErgebnis();
 		jLblResult.setText(ergebnis.toString());

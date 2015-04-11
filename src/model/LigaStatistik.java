@@ -1,8 +1,6 @@
 package model;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 
 import javax.swing.*;
 
@@ -12,15 +10,28 @@ public class LigaStatistik extends JPanel {
 	
 	private Dimension preferredSize = new Dimension(900, 600);
 	private Liga liga;
+	private Mannschaft[] mannschaften;
+	private int currentMatchday;
 	
+	private Font fontWettbewerbLbl = new Font("Verdana", Font.PLAIN, 24);
+	
+	private JLabel jLblWettbewerb;
+	
+	private JLabel jLblMostGoals;
+	private JLabel jLblLeastGoals;
+	
+	private Rectangle REC_LBLWETTBW = new Rectangle(250, 10, 170, 40);
+	
+	private Rectangle REC_LBLMOSTGOALS = new Rectangle(20, 60, 140, 30);
+	private Rectangle REC_LBLLEASTGOALS = new Rectangle(20, 90, 140, 30);
 	
 	/* TODO
 	 * 
 	 * haeufigstes Ergebnis
 	 * Heim-/Auswaertssiege/Unentschieden
 	 * 
-	 * meiste Gegen-/Tore
-	 * meiste Siege/Niederlagen
+	 * meiste/wenigste Gegen-/Tore/Punkte
+	 * meiste/wenigste Siege/Niederlagen
 	 * 
 	 * meiste Tore in einem Spiel
 	 * laengste Sieges-/Niederlagenserie
@@ -30,11 +41,36 @@ public class LigaStatistik extends JPanel {
 	public LigaStatistik(Liga liga) {
 		super();
 		
+		this.liga = liga;
+		this.mannschaften = liga.getMannschaften();
+		this.currentMatchday = liga.getCurrentMatchday();
+		
 		initGUI();
 	}
 	
 	private void initGUI() {
 		this.setLayout(null);
+		
+		{
+			jLblWettbewerb = new JLabel();
+			this.add(jLblWettbewerb);
+			jLblWettbewerb.setBounds(REC_LBLWETTBW);
+			jLblWettbewerb.setFont(fontWettbewerbLbl);
+			jLblWettbewerb.setText(liga.getName());
+		}
+		
+		{
+			jLblMostGoals = new JLabel();
+			this.add(jLblMostGoals);
+			jLblMostGoals.setBounds(REC_LBLMOSTGOALS);
+			jLblMostGoals.setText("Meiste Tore:");
+		}
+		{
+			jLblLeastGoals = new JLabel();
+			this.add(jLblLeastGoals);
+			jLblLeastGoals.setBounds(REC_LBLLEASTGOALS);
+			jLblLeastGoals.setText("Wenigste Tore:");
+		}
 		
         this.setSize(preferredSize);
 	}
@@ -52,6 +88,20 @@ public class LigaStatistik extends JPanel {
     }
 	
 	public void updateGUI() {
+		int maximum = 0, minimum = 1000, maxIndex = 0, minIndex = 0;
 		
+		
+		for (Mannschaft team : mannschaften) {
+			if (team.get(6, 0, currentMatchday) > maximum) {
+				maximum = team.get(6, 0, currentMatchday);
+				maxIndex = team.getId() - 1;
+			}
+			if (team.get(6, 0, currentMatchday) < minimum) {
+				minimum = team.get(6, 0, currentMatchday);
+				minIndex = team.getId() - 1;
+			}
+		}
+		log("Meiste Tore: " + mannschaften[maxIndex].getName() + "(" + maximum + ")");
+		log("Wenigste Tore: " + mannschaften[minIndex].getName() + "(" + minimum + ")");
 	}
 }
