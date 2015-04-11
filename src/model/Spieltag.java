@@ -583,7 +583,7 @@ public class Spieltag extends JPanel {
 			newContent = tore[indexOfTF].getText();
 		} else {
 			if (selText != null) 	newContent = tore[indexOfTF].getText().replaceAll(selText, "");
-			else				newContent = tore[indexOfTF].getText();
+			else					newContent = tore[indexOfTF].getText();
 			newContent += arg0.getKeyChar();
 		}
 		

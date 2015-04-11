@@ -12,6 +12,29 @@ public class Tor {
 	private Spieler scorer;
 	private Spieler assistgeber;
 	
+	public Tor(Spiel spiel, boolean firstTeam, int minute) {
+		this.spiel = spiel;
+		this.firstTeam = firstTeam;
+		this.minute = minute;
+		
+		this.toString = firstTeam + "-m" + minute + "-s-a";
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+			" in the " + minute + ". minute");
+	}
+	
+	public Tor(Spiel spiel, boolean firstTeam, int minute, Spieler scorer) {
+		this.spiel = spiel;
+		this.firstTeam = firstTeam;
+		this.minute = minute;
+		this.scorer = scorer;
+		
+		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a";
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+			" in the " + minute + ". minute scored by " + scorer.getPseudonym());
+	}
+	
 	public Tor(Spiel spiel, boolean firstTeam, int minute, Spieler scorer, Spieler assistgeber) {
 		this.spiel = spiel;
 		this.firstTeam = firstTeam;
@@ -20,7 +43,7 @@ public class Tor {
 		this.assistgeber = assistgeber;
 		
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber();
-		this.id = spiel.home() + "v" + spiel.away() + "h" + toString;
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
 			" and assisted by " + assistgeber.getPseudonym());
@@ -54,10 +77,15 @@ public class Tor {
 	private void parseString(String daten) {
 		firstTeam = Boolean.parseBoolean(daten.substring(0, daten.indexOf("-m")));
 		minute = Integer.parseInt(daten.substring(daten.indexOf("-m") + 2, daten.indexOf("-s")));
-		int sqScorer = Integer.parseInt(daten.substring(daten.indexOf("-s") + 2, daten.indexOf("-a")));
-		scorer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer, spiel.getDate());
-		int sqAssist = Integer.parseInt(daten.substring(daten.indexOf("-a") + 2));
-		assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist, spiel.getDate());
+		String substring;
+		if ((substring = daten.substring(daten.indexOf("-s") + 2, daten.indexOf("-a"))).length() > 0) {
+			int sqScorer = Integer.parseInt(substring);
+			scorer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer, spiel.getDate());
+		}
+		if ((substring = daten.substring(daten.indexOf("-a") + 2)).length() > 0) {
+			int sqAssist = Integer.parseInt(substring);
+			assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist, spiel.getDate());
+		}
 		
 		toString = daten;
 	}
