@@ -20,7 +20,7 @@ public class LigaStatistik extends JPanel {
 	private JLabel jLblMostGoals;
 	private JLabel jLblLeastGoals;
 	
-	private Rectangle REC_LBLWETTBW = new Rectangle(250, 10, 170, 40);
+	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 210, 30);
 	
 	private Rectangle REC_LBLMOSTGOALS = new Rectangle(20, 60, 140, 30);
 	private Rectangle REC_LBLLEASTGOALS = new Rectangle(20, 90, 140, 30);
@@ -90,6 +90,20 @@ public class LigaStatistik extends JPanel {
 	public void updateGUI() {
 		int maximum = 0, minimum = 1000, maxIndex = -1, minIndex = -1;
 		
+		int heimsiege = 0, unentschieden = 0, auswaertssiege = 0;
+		for (int i = 0; i < liga.getNumberOfMatchdays(); i++) {
+			for (int j = 0; j < liga.getNumberOfMatchesPerMatchday(); j++) {
+				if (liga.isErgebnisplanEntered(i, j)) {
+					if (liga.getErgebnis(i, j).home() > liga.getErgebnis(i, j).away())		heimsiege++;
+					else if (liga.getErgebnis(i, j).home() < liga.getErgebnis(i, j).away())	auswaertssiege++;
+					else																	unentschieden++;
+				}
+			}
+		}
+		log("Von " + (heimsiege + unentschieden + auswaertssiege) + " Spielen waren:");
+		log(heimsiege + " Heimsiege");
+		log(unentschieden + " Unentschieden");
+		log(auswaertssiege + " Auswaertsiege");
 		
 		for (Mannschaft team : mannschaften) {
 			if (team.get(6, 0, currentMatchday) > maximum) {

@@ -137,12 +137,11 @@ public class Spiel {
 	private String getRemainder() {
 		String remainder = "";
 		
-		if (ergebnis != null) {
-			remainder = "+{" + matchDataToString() + "}";
-		}
-		
 		if (lineupHome != null || lineupAway != null) {
+			remainder = "+{" + matchDataToString() + "}";
 			remainder += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
+		} else if (ergebnis != null) {
+			remainder = "+{" + matchDataToString() + "}";
 		}
 		
 		return remainder;
@@ -179,7 +178,7 @@ public class Spiel {
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
 		String[] matchDataSplit = matchData.split("#");
-		this.ergebnis = new Ergebnis(matchDataSplit[0]);
+		if(!matchDataSplit[0].equals("null"))	this.ergebnis = new Ergebnis(matchDataSplit[0]);
 		if (matchDataSplit.length > 1) {
 			for (int i = 1; i < matchDataSplit.length; i++) {
 				tore.add(new Tor(this, matchDataSplit[i]));
