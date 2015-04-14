@@ -134,6 +134,18 @@ public class Spiel {
 		this.schiedsrichter = schiedsrichter;
 	}
 	
+	public void setRemainder(String matchData) {
+		String[] matchDataSplit = matchData.split("\\+");
+		if (!matchDataSplit[0].equals(homeTeamIndex + ":" + awayTeamIndex))	return;
+		if (matchDataSplit.length > 1) {
+			parseMatchData(matchDataSplit[1]);
+			if (matchDataSplit.length == 4) {
+				lineupHome = parseLineup(matchDataSplit[2], true);
+				lineupAway = parseLineup(matchDataSplit[3], false);
+			}
+		}
+	}
+	
 	private String getRemainder() {
 		String remainder = "";
 		
@@ -213,11 +225,8 @@ public class Spiel {
 	
 	private void parseString(String daten) {
 		try {
-			String[] datenSplit = daten.split("\\+");
-			String spieldaten = datenSplit[0];
-			
-			this.homeTeamIndex = Integer.parseInt(spieldaten.split(":")[0]);
-			this.awayTeamIndex = Integer.parseInt(spieldaten.split(":")[1]);
+			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
+			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
 			
 			if (this.homeTeamIndex == this.awayTeamIndex || this.homeTeamIndex == -1 || this.awayTeamIndex == -1) {
 				throw new IllegalArgumentException();
@@ -225,14 +234,6 @@ public class Spiel {
 			
 			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
-			
-			if (datenSplit.length > 1) {
-				parseMatchData(datenSplit[1]);
-				if (datenSplit.length == 4) {
-					lineupHome = parseLineup(datenSplit[2], true);
-					lineupAway = parseLineup(datenSplit[3], false);
-				}
-			}
 			
 		} catch (IllegalArgumentException iae) {
 			log("The given match was formally correct, but impossible.");
@@ -243,8 +244,14 @@ public class Spiel {
 		}
 	}
 	
+	public String fullString() {
+		String fullString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
+		
+		return fullString;
+	}
+	
 	public String toString() {
-		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
+		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
 		
 		return toString;
 	}
