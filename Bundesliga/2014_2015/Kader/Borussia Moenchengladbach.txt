@@ -9,6 +9,7 @@ Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;27
 Martin;Stranzl;null;19800616;Österreich;Abwehr;39
 Oscar;Wendt;null;19851024;Schweden;Abwehr;17
+Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;6
 André;Hahn;null;19900813;Deutschland;Mittelfeld;28
 Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;26
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7

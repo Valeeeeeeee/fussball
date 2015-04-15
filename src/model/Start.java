@@ -158,8 +158,9 @@ public class Start extends JFrame {
     	jBtnLigenPressed(0);
     	
     	// Spiel mit Ergebnis und Lineup
-    	Spiel spiel = new Spiel(ligen[0], 25, 20150321, 1530, "15:13+{1:1#false-m51-s9-a6#true-m63-s33-a7}"
-    			+ "+{1,21,6,32,16,20,26,19,44,7,33#53:26>>13#58:19>>18#89:33>>3}+{1,6,17,5,22,20,8,21,16,14,9}");
+    	Spiel spiel = new Spiel(ligen[0], 25, 20150321, 1530, "15:13");
+    	spiel.setRemainder("+{1:1#false-m51-s9-a6#true-m63-s33-a7}+{1,21,6,32,16,20,26,19,44,7,33#53:26>>13#58:19>>18#89:33>>3}"
+    			+ "+{1,6,17,5,22,20,8,21,16,14,9}");
     	Tor tor2 = new Tor(spiel, "true-m66-s33-a44");
     	spiel.addGoal(tor2);  
     	Tor tor3 = new Tor(spiel, "true-m80-s44-a18");

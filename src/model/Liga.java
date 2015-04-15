@@ -51,6 +51,9 @@ public class Liga implements Wettbewerb {
      */
 	private Ergebnis[][] ergebnisplan;
     
+	private String dateiSpieldaten;
+	private String[] spieldatenFromFile;
+	
     private int[][] datesAndTimes;
     
     private int numberOfKickoffTimes;
@@ -167,6 +170,7 @@ public class Liga implements Wettbewerb {
 		else								saison = "" + saisons[aktuelleSaison];
 		
         dateiErgebnisse = workspace + File.separator + name + File.separator + saison + File.separator + "Ergebnisse.txt";
+        dateiSpieldaten = workspace + File.separator + name + File.separator + saison + File.separator + "Spieldaten.txt";
         dateiSpielplan = workspace + File.separator + name + File.separator + saison + File.separator + "Spielplan.txt";
     	dateiTeams = workspace + File.separator + name + File.separator + saison + File.separator + "Mannschaften.txt";
     	
@@ -184,6 +188,7 @@ public class Liga implements Wettbewerb {
         
         spielplanLaden();
         ergebnisplanLaden();
+        spieldatenLaden();
         
         if (spieltag == null) {
             spieltag = new Spieltag(start, this);
@@ -210,6 +215,7 @@ public class Liga implements Wettbewerb {
 	public void speichern() throws Exception {
 		this.spielplanSchreiben();
 		this.ergebnisplanSchreiben();
+		this.spieldatenSchreiben();
 		this.mannschaftenSchreiben();
 	}
 	
@@ -819,6 +825,44 @@ public class Liga implements Wettbewerb {
         
         inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
     }
+	
+	private void spieldatenLaden() {
+		try {
+			this.spieldatenFromFile = ausDatei(this.dateiSpieldaten);
+			int matchday;
+			
+			for (matchday = 0; matchday < this.numberOfMatchdays && matchday < spieldatenFromFile.length; matchday++) {
+				String inhalte[] = this.spieldatenFromFile[matchday].split(";");
+				int match = 0;
+				for (match = 0; match < inhalte.length; match++) {
+					if (isSpielplanEntered(matchday, match)) {
+						getSpiel(matchday, match).setRemainder(inhalte[match]);
+					}
+				}
+			}
+		} catch (Exception e) {
+			errorMessage("Keine Spieldaten");
+			e.printStackTrace();
+		}
+	}
+	
+	private void spieldatenSchreiben() throws NullPointerException {
+		if (this.dateiSpieldaten == null) {
+			throw new NullPointerException();
+		}
+		
+		this.spieldatenFromFile = new String[this.numberOfMatchdays];
+		for (int i = 0; i < this.numberOfMatchdays; i++) {
+			String string = "";
+			for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
+				if (getSpiel(i, j) != null)	string += getSpiel(i, j).fullString() + ";";
+				else						string += "null;";
+			}
+			this.spieldatenFromFile[i] = string;
+		}
+		
+		inDatei(this.dateiSpieldaten, this.spieldatenFromFile);
+	}
 	
 	public String toString() {
 		String rueckgabe = "NAME*" + this.name + ";";

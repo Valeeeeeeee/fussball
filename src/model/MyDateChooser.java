@@ -298,7 +298,10 @@ public class MyDateChooser extends JFrame {
 			userCanMakeChanges = true;
 		} catch (IllegalArgumentException iae) {
 //			message("The given parameter was incorrect!");
-			int today = MyDate.verschoben(liga.getDate(spieltag.getCurrentMatchday() - 1), 7);
+			
+			int today = 0;
+			if (spieltag.getCurrentMatchday() > 0)	today = MyDate.verschoben(liga.getDate(spieltag.getCurrentMatchday() - 1), 7);
+			else									today = startjahr * 10000 + 824;
 			jCBStYear.setSelectedIndex(today / 10000 - startjahr);
 			jCBStMonth.setSelectedIndex(today % 10000 / 100 - 1);
 			jCBStDay.setSelectedIndex(today % 100 - 1);
