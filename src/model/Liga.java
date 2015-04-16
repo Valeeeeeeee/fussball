@@ -29,8 +29,6 @@ public class Liga implements Wettbewerb {
 	private Mannschaft[] mannschaften;
 	
 	private String workspace;
-    private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-    private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
     
     private String dateiTeams;
     private String[] teamsFromFile;
@@ -67,19 +65,19 @@ public class Liga implements Wettbewerb {
     private LigaStatistik statistik;
     
 	public Liga(int id, Start start, String daten) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		this.start = start;
 		fromString(daten);
 		this.mannschaften = new Mannschaft[0];
 	}
 	
 	public Liga(int id, Start start, String name, int anz_MS, int nOMASO, int anzCL, int anzCLQ, int anzEL, int anzREL, int anzABS) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		this.start = start;
 		this.name = name;
 		this.mannschaften = new Mannschaft[0];
 		
@@ -899,15 +897,6 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			message("You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			message("You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			message("You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }

@@ -546,7 +546,3 @@ public class NewLeagueDialog extends JFrame {
 		start.toFront();
 	}
 }
-
-
-
-

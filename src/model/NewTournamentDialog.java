@@ -652,7 +652,3 @@ public class NewTournamentDialog extends JFrame {
 				grp2leg, ko2leg, has3pl, nOTeam, nOGrp, nOKO, teamsGrp, teamsKO);
 	}
 }
-
-
-
-

@@ -431,5 +431,4 @@ public class Mannschaft {
 
 		return data;
 	}
-
 }

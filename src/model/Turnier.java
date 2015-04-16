@@ -35,8 +35,6 @@ public class Turnier {
 	private int numberOfKORounds;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiKORundenDaten;
 	private String[] koRundenDatenFromFile;
@@ -44,8 +42,8 @@ public class Turnier {
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
 	public Turnier(int id, Start start, String daten) {
-		checkOS();
 		this.start = start;
+		checkOS();
 		this.id = id;
 		fromString(daten);
 	}
@@ -508,19 +506,6 @@ public class Turnier {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			message("You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			message("You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			message("You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }
-
-
-
-

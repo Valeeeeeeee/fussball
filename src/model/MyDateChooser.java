@@ -591,7 +591,3 @@ public class MyDateChooser extends JFrame {
 		return compared;
 	}
 }
-
-
-
-
