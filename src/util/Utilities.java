@@ -60,6 +60,10 @@ public class Utilities {
 		return JOptionPane.showInputDialog(message);
 	}
 	
+	public static String inputDialog(String message, String initialValue) {
+		return JOptionPane.showInputDialog(message, initialValue);
+	}
+	
 	public static int yesNoDialog(String message) {
 		return JOptionPane.showConfirmDialog(null, message, "", JOptionPane.YES_NO_OPTION);
 	}

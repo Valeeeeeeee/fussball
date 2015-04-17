@@ -23,7 +23,8 @@ public class Spieltag extends JPanel {
 	private JButton previous;
 	private JButton next;
 	private JButton[] moreOptions;
-	private JButton resetMatchday;
+	private JButton jBtnResetMatchday;
+	private JButton jBtnEnterRueckrunde;
 	private JButton defaultKickoff;
 	private JLabel[] spieltagsdaten;
 	private JLabel[] gruppenLbls;
@@ -59,6 +60,7 @@ public class Spieltag extends JPanel {
 	
 	private Rectangle REC_RESETMD = new Rectangle(250, 45, 80, 30);
 	private Rectangle REC_DEFKOT = new Rectangle(30, 45, 170, 30);
+	private Rectangle REC_BTNRRUNDE = new Rectangle(340, 45, 120, 30);
 
 	private JPanel teamsSelection;
 	private JButton[] mannschaftenbtns;
@@ -400,14 +402,27 @@ public class Spieltag extends JPanel {
 				});
 			}
 			{
-				resetMatchday = new JButton();
-				this.add(resetMatchday);
-				resetMatchday.setBounds(REC_RESETMD);
-				resetMatchday.setText("Reset");
-				resetMatchday.setFocusable(false);
-				resetMatchday.addActionListener(new ActionListener() {
+				jBtnResetMatchday = new JButton();
+				this.add(jBtnResetMatchday);
+				jBtnResetMatchday.setBounds(REC_RESETMD);
+				jBtnResetMatchday.setText("Reset");
+				jBtnResetMatchday.setFocusable(false);
+				jBtnResetMatchday.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						resetMatchdayActionPerformed();
+					}
+				});
+			}
+			{
+				jBtnEnterRueckrunde = new JButton();
+				this.add(jBtnEnterRueckrunde);
+				jBtnEnterRueckrunde.setBounds(REC_BTNRRUNDE);
+				jBtnEnterRueckrunde.setText("Rueckrunde");
+				jBtnEnterRueckrunde.setFocusable(false);
+				jBtnEnterRueckrunde.setVisible(false);
+				jBtnEnterRueckrunde.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						jBtnEnterRueckrundeActionPerformed();
 					}
 				});
 			}
@@ -632,6 +647,12 @@ public class Spieltag extends JPanel {
 				tore[match + numberOfMatches].setEditable(false);
 			}
 		}
+		for (int match = 0; match < this.numberOfMatches; match++) {
+			if (tore[match].isEditable()) {
+				tore[match].selectAll();
+				break;
+			}
+		}
 	}
 	
 	private void spieltagsdatenBefuellenGroupOrder() {
@@ -768,7 +789,7 @@ public class Spieltag extends JPanel {
 		jCBSpieltage.setEnabled(false);
 		previous.setEnabled(false);
 		next.setEnabled(false);
-		resetMatchday.setVisible(false);
+		jBtnResetMatchday.setVisible(false);
 		if (defaultKickoff != null)	defaultKickoff.setVisible(false);
 	}
 
@@ -849,7 +870,7 @@ public class Spieltag extends JPanel {
 			jCBSpieltage.setEnabled(true);
 			previous.setEnabled(true);
 			next.setEnabled(true);
-			resetMatchday.setVisible(true);
+			jBtnResetMatchday.setVisible(true);
 			if (defaultKickoff != null)	defaultKickoff.setVisible(true);
 			spieltagAnzeigen();
 		}
@@ -911,6 +932,46 @@ public class Spieltag extends JPanel {
 			turnier.ergebnisseSichern();
 			spieltagAnzeigen();
 		}
+	}
+	
+	private void jBtnEnterRueckrundeActionPerformed() {
+		String standard = "1";
+		for (int i = 2; i <= (numberOfMatchdays / 2); i++) {
+			standard += "," + i;
+		}
+		String eingabe = inputDialog("Please enter the order of the hinrunde matchdays matching the rueckrunde order.", standard);
+		String[] eingabeSplit = eingabe.split(",");
+		if (eingabeSplit.length * 2 != numberOfMatchdays) {
+			message("You have to submit " + (numberOfMatchdays / 2) + " values separated by comma.");
+			return;
+		}
+		
+		int[] rueckrundeOrder = new int[eingabeSplit.length];
+		try {
+			for (int i = 0; i < rueckrundeOrder.length; i++) {
+				rueckrundeOrder[i] = Integer.parseInt(eingabeSplit[i]);
+			}
+		} catch (NumberFormatException nfe) {
+			message("You have to enter numbers!");
+			return;
+		}
+		
+		boolean[] checks = new boolean[rueckrundeOrder.length];
+		try {
+			for (int i = 0; i < rueckrundeOrder.length; i++) {
+				if (!checks[rueckrundeOrder[i] - 1])	checks[rueckrundeOrder[i] - 1] = true;
+				else {
+					message("You have to submit distinct values.");
+					return;
+				}
+			}
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			message("You have to submit values between 0 and " + (numberOfMatchdays / 2) + ".");
+			return;
+		}
+		
+		liga.setRueckrundeToOrder(rueckrundeOrder);
+		spieltagAnzeigen();
 	}
 
 	private void defaultKickoffActionPerformed() {
@@ -997,6 +1058,9 @@ public class Spieltag extends JPanel {
 			
 			fillTeamsLabelsAndGoalsTFs(currentMatchday);
 			setTFsEditableFromRepresentation();
+			
+			jBtnEnterRueckrunde.setVisible(false);
+			if (belongsToALeague && currentMatchday * 2 == numberOfMatchdays)	jBtnEnterRueckrunde.setVisible(true);
 		}	
 	}
 	
@@ -1261,7 +1325,8 @@ public class Spieltag extends JPanel {
 				teamID += numbersOfTeams[groupID];
 			}
 			if (editedGroupID != groupID) {
-				message("You can't put a team from group " + (alphabet[groupID] + "").toUpperCase() + " in the label of group " + (alphabet[editedGroupID] + "").toUpperCase());
+				message("You can't put a team from group " + (alphabet[groupID] + "").toUpperCase()
+						+ " in the label of group " + (alphabet[editedGroupID] + "").toUpperCase());
 				return;
 			}
 			
