@@ -8,41 +8,45 @@ public class Tor {
 	private String toString;
 	private Spiel spiel;
 	private boolean firstTeam;
+	private boolean ownGoal;
 	private int minute;
 	private Spieler scorer;
 	private Spieler assistgeber;
 	
-	public Tor(Spiel spiel, boolean firstTeam, int minute) {
+	public Tor(Spiel spiel, boolean firstTeam, boolean ownGoal, int minute) {
 		this.spiel = spiel;
 		this.firstTeam = firstTeam;
+		this.ownGoal = ownGoal;
 		this.minute = minute;
 		
-		this.toString = firstTeam + "-m" + minute + "-s-a";
+		this.toString = firstTeam + "-m" + minute + "-s-a" + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute");
 	}
 	
-	public Tor(Spiel spiel, boolean firstTeam, int minute, Spieler scorer) {
+	public Tor(Spiel spiel, boolean firstTeam, boolean ownGoal, int minute, Spieler scorer) {
 		this.spiel = spiel;
 		this.firstTeam = firstTeam;
+		this.ownGoal = ownGoal;
 		this.minute = minute;
 		this.scorer = scorer;
 		
-		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a";
+		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonym());
 	}
 	
-	public Tor(Spiel spiel, boolean firstTeam, int minute, Spieler scorer, Spieler assistgeber) {
+	public Tor(Spiel spiel, boolean firstTeam, boolean ownGoal, int minute, Spieler scorer, Spieler assistgeber) {
 		this.spiel = spiel;
 		this.firstTeam = firstTeam;
+		this.ownGoal = ownGoal;
 		this.minute = minute;
 		this.scorer = scorer;
 		this.assistgeber = assistgeber;
 		
-		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber();
+		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber() + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
@@ -76,18 +80,20 @@ public class Tor {
 	
 	private void parseString(String daten) {
 		firstTeam = Boolean.parseBoolean(daten.substring(0, daten.indexOf("-m")));
+		ownGoal = daten.indexOf("-og") != -1;
+		if (ownGoal)	daten = daten.substring(0, daten.indexOf("-og"));
 		minute = Integer.parseInt(daten.substring(daten.indexOf("-m") + 2, daten.indexOf("-s")));
 		String substring;
 		if ((substring = daten.substring(daten.indexOf("-s") + 2, daten.indexOf("-a"))).length() > 0) {
 			int sqScorer = Integer.parseInt(substring);
-			scorer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer, spiel.getDate());
+			scorer = (firstTeam ^ ownGoal ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqScorer, spiel.getDate());
 		}
 		if ((substring = daten.substring(daten.indexOf("-a") + 2)).length() > 0) {
 			int sqAssist = Integer.parseInt(substring);
 			assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist, spiel.getDate());
 		}
 		
-		toString = daten;
+		toString = daten + (ownGoal ? "-og" : "");
 	}
 	
 	public String toString() {

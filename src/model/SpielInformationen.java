@@ -45,9 +45,10 @@ public class SpielInformationen extends JFrame {
 	private ArrayList<JLabel> jLblsGoals = new ArrayList<>();
 	
 	private JPanel jPnlEingabe;
+	private JButton jBtnEingabeCompleted;
 	private JLabel jLblMinute;
 	private JTextField jTFMinute;
-	private JButton jBtnEingabeCompleted;
+	private JRadioButton jRBOwnGoal;
 	private JLabel jLblOben;
 	private JComboBox<String> jCBOben;
 	private JLabel jLblUnten;
@@ -80,14 +81,15 @@ public class SpielInformationen extends JFrame {
 	// Toreingabe
 	private Point LOC_PNLEINGABEHOME = new Point(150, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(310, 150);
-	private Dimension DIM_PNLEINGABE = new Dimension(240, 100);
-	private Rectangle REC_LBLMINUTE = new Rectangle(60, 10, 70, 20);
-	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 50, 20);
+	private Dimension DIM_PNLEINGABE = new Dimension(240, 130);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(130, 5, 60, 30);
-	private Rectangle REC_LBLOBEN = new Rectangle(10, 40, 95, 20);
-	private Rectangle REC_CBOBEN = new Rectangle(105, 37, 135, 26);
-	private Rectangle REC_LBLUNTEN = new Rectangle(10, 70, 95, 20);
-	private Rectangle REC_CBUNTEN = new Rectangle(105, 67, 135, 26);
+	private Rectangle REC_LBLMINUTE = new Rectangle(60, 40, 70, 20);
+	private Rectangle REC_TFMINUTE = new Rectangle(10, 40, 50, 20);
+	private Rectangle REC_RBOWNGOAL = new Rectangle(140, 40, 90, 20);
+	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
+	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 135, 26);
+	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
+	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 135, 26);
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
@@ -369,6 +371,18 @@ public class SpielInformationen extends JFrame {
 			jPnlEingabe.setVisible(false);
 		}
 		{
+			jBtnEingabeCompleted = new JButton();
+			jPnlEingabe.add(jBtnEingabeCompleted);
+			jBtnEingabeCompleted.setBounds(REC_BTNTOREINGCOMPL);
+			jBtnEingabeCompleted.setText("fertig");
+			jBtnEingabeCompleted.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (enteringSubstitution)	jBtnWechseleingabeCompletedActionPerformed();	
+					else if (enteringGoal)		jBtnToreingabeCompletedActionPerformed();
+				}
+			});
+		}
+		{
 			jLblMinute = new JLabel();
 			jPnlEingabe.add(jLblMinute);
 			jLblMinute.setBounds(REC_LBLMINUTE);
@@ -388,14 +402,13 @@ public class SpielInformationen extends JFrame {
 			});
 		}
 		{
-			jBtnEingabeCompleted = new JButton();
-			jPnlEingabe.add(jBtnEingabeCompleted);
-			jBtnEingabeCompleted.setBounds(REC_BTNTOREINGCOMPL);
-			jBtnEingabeCompleted.setText("fertig");
-			jBtnEingabeCompleted.addActionListener(new ActionListener() {
+			jRBOwnGoal = new JRadioButton();
+			jPnlEingabe.add(jRBOwnGoal);
+			jRBOwnGoal.setBounds(REC_RBOWNGOAL);
+			jRBOwnGoal.setText("Eigentor");
+			jRBOwnGoal.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if (enteringSubstitution)	jBtnWechseleingabeCompletedActionPerformed();	
-					else if (enteringGoal)		jBtnToreingabeCompletedActionPerformed();
+					jRBOwnGoalSelectionChanged();
 				}
 			});
 		}
@@ -661,7 +674,8 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < eligibleLower.length; i++) {
 			eligibleLower[i] = eligiblePlayersListLower.get(i).getPseudonym();
 		}
-		
+
+		jRBOwnGoal.setVisible(false);
 		jLblOben.setText("ausgewechselt");
 		jCBOben.setModel(new DefaultComboBoxModel<>(eligibleUpper));
 		jCBOben.setSelectedIndex(eligibleUpper.length / 2);
@@ -712,36 +726,74 @@ public class SpielInformationen extends JFrame {
 		// hide lineup labels
 		setLabelsVisible(false);
 		
-		boolean hasLineup = false;
-		if ((isHomeTeam && lineupHome != null) || (!isHomeTeam && lineupAway != null))	hasLineup = true;
-		String[] eligiblePlayers;
-		if (hasLineup) {
-			eligiblePlayersListUpper.clear();
-			ArrayList<Wechsel> substitutions = spiel.getSubstitutions(editingHomeTeam);
-			eligiblePlayers = new String[1 + 11 + substitutions.size()];
-			for (int i = 0; i < 11; i++) {
-				if (editingHomeTeam)	eligiblePlayersListUpper.add(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()));
-				else					eligiblePlayersListUpper.add(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()));
-				eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPseudonym();
-			}
-			for (int i = 0; i < substitutions.size(); i++) {
-				eligiblePlayersListUpper.add(substitutions.get(i).getEingewechselterSpieler());
-				eligiblePlayers[12 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
-			}
-			eligiblePlayersListLower = cloneList(eligiblePlayersListUpper);
-		} else {
-			eligiblePlayers = new String[1];
-		}
-		eligiblePlayers[0] = "Bitte waehlen";
+		jRBOwnGoal.setVisible(true);
 		jLblOben.setText("Torschuetze");
-		jCBOben.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
+		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 		jLblUnten.setText("Vorbereiter");
-		jCBUnten.setModel(new DefaultComboBoxModel<>(eligiblePlayers));
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
 		
 		if (editingHomeTeam)	jPnlEingabe.setLocation(LOC_PNLEINGABEHOME);
 		else					jPnlEingabe.setLocation(LOC_PNLEINGABEAWAY);
 		jPnlEingabe.setVisible(true);
 		jTFMinute.requestFocus();
+	}
+	
+	private void jRBOwnGoalSelectionChanged() {
+		log("Selection changed: is " + (jRBOwnGoal.isSelected() ? "" : "not ") + "selected");
+		
+		// TODO change eligible players upper arraylist
+		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
+	}
+	
+	private String[] getEligiblePlayers(boolean scoring) {
+		boolean ownGoal = jRBOwnGoal.isSelected();
+		String[] eligiblePlayers;
+		if (scoring) {
+			boolean firstTeam = editingHomeTeam ^ ownGoal;
+			if ((firstTeam && lineupHome != null) || (!firstTeam && lineupAway != null)) {
+				Mannschaft scoringTeam = firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam();
+				int[] scoringLineup = firstTeam ? lineupHome : lineupAway;
+				
+				eligiblePlayersListUpper.clear();
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(firstTeam);
+				eligiblePlayers = new String[1 + 11 + substitutions.size()];
+				for (int i = 0; i < 11; i++) {
+					eligiblePlayersListUpper.add(scoringTeam.getSpieler(scoringLineup[i], spiel.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPseudonym();
+				}
+				for (int i = 0; i < substitutions.size(); i++) {
+					eligiblePlayersListUpper.add(substitutions.get(i).getEingewechselterSpieler());
+					eligiblePlayers[12 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
+				}
+			} else {
+				eligiblePlayers = new String[1];
+			}
+		} else {
+			boolean firstTeam = editingHomeTeam;
+			if ((firstTeam && lineupHome != null) || (!firstTeam && lineupAway != null)) {
+				Mannschaft assistingTeam = firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam();
+				int[] assistingLineup = firstTeam ? lineupHome : lineupAway;
+				
+				eligiblePlayersListLower.clear();
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(firstTeam);
+				eligiblePlayers = new String[1 + 11 + substitutions.size()];
+				for (int i = 0; i < 11; i++) {
+					eligiblePlayersListLower.add(assistingTeam.getSpieler(assistingLineup[i], spiel.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPseudonym();
+				}
+				for (int i = 0; i < substitutions.size(); i++) {
+					eligiblePlayersListLower.add(substitutions.get(i).getEingewechselterSpieler());
+					eligiblePlayers[12 + i] = eligiblePlayersListLower.get(11 + i).getPseudonym();
+				}
+			} else {
+				eligiblePlayers = new String[1];
+			}
+		}
+		
+		eligiblePlayers[0] = "Bitte waehlen";
+		
+		return eligiblePlayers;
 	}
 	
 	private void jBtnToreingabeCompletedActionPerformed() {
@@ -760,6 +812,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
+		boolean ownGoal = jRBOwnGoal.isSelected();
 		int index;
 		Spieler scorer = null;
 		if ((index = jCBOben.getSelectedIndex()) != 0) {
@@ -785,9 +838,9 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		Tor tor = null;
-		if (scorer == null)				tor = new Tor(spiel, editingHomeTeam, minute);
-		else if (assistgeber == null)	tor = new Tor(spiel, editingHomeTeam, minute, scorer);
-		else							tor = new Tor(spiel, editingHomeTeam, minute, scorer, assistgeber);
+		if (scorer == null)				tor = new Tor(spiel, editingHomeTeam, ownGoal, minute);
+		else if (assistgeber == null)	tor = new Tor(spiel, editingHomeTeam, ownGoal, minute, scorer);
+		else							tor = new Tor(spiel, editingHomeTeam, ownGoal, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
 		ergebnis = spiel.getErgebnis();
 		jLblResult.setText(ergebnis.toString());
