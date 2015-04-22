@@ -19,28 +19,30 @@ public class NewLeagueDialog extends JFrame {
 	private Color bg = new Color(128, 255, 128);
 	
 	// Bounds
-	private Dimension dim = new Dimension(390, 555);
-	private Rectangle RECGO = new Rectangle(300, 495, 70,30);
-	private Rectangle RECCANCEL = new Rectangle(200, 495, 90,30);
+	private Dimension dim = new Dimension(390, 585);
+	private Rectangle RECGO = new Rectangle(300, 525, 70, 30);
+	private Rectangle RECCANCEL = new Rectangle(200, 525, 90, 30);
 	
 	
 	// Allgemeine Informationen
-	private Rectangle RECINFOPNL = new Rectangle(20, 20, 350, 90);
+	private Rectangle RECINFOPNL = new Rectangle(20, 20, 350, 120);
 	
 	private Rectangle RECNAMELBL = new Rectangle(5, 0, 100, 30);
 	private Rectangle RECSEASLBL = new Rectangle(5, 30, 100, 30);
 	private Rectangle RECDEFSTLBL = new Rectangle(190, 30, 60, 30);
 	private Rectangle RECSTSSLBL = new Rectangle(5, 60, 100, 30);
+	private Rectangle RECSGDGLBL = new Rectangle(5, 90, 260, 30);
 	
 	private Rectangle RECNAMETF = new Rectangle(110, 0, 240, 30);
 	private Rectangle RECSEASTF = new Rectangle(110, 30, 60, 30);
 	private Rectangle RECDEFSTCB = new Rectangle(250, 30, 100, 30);
 	private Rectangle REC1YRB = new Rectangle(110, 60, 80, 30);
 	private Rectangle REC2YRB = new Rectangle(200, 60, 95, 30);
+	private Rectangle RECSGDGTF = new Rectangle(270, 90, 60, 30);
 	
 	
 	// Mannschaften
-	private Rectangle RECTEAMPNL = new Rectangle(20, 120, 170, 370);
+	private Rectangle RECTEAMPNL = new Rectangle(20, 150, 170, 370);
 	private Rectangle RECNOTEAMCB = new Rectangle(0, 0, 70, 30);
 	private Rectangle RECTEAMLBL = new Rectangle(70, 0, 90, 30);
 	private Rectangle RECTEAMSP = new Rectangle(5, 30, 160, 310);
@@ -48,7 +50,7 @@ public class NewLeagueDialog extends JFrame {
 	
 	
 	// Kick off times
-	private Rectangle RECKOTPNL = new Rectangle(200, 280, 170, 210);
+	private Rectangle RECKOTPNL = new Rectangle(200, 310, 170, 210);
 	private Rectangle RECKOTLBL = new Rectangle(5, 0, 90, 30);
 	private Rectangle RECKOTSP = new Rectangle(5, 30, 160, 110);
 	private Rectangle RECAKOTBTN = new Rectangle(5, 140, 40, 30);
@@ -58,7 +60,7 @@ public class NewLeagueDialog extends JFrame {
 	
 	
 	// Anzahlen
-	private Rectangle RECANZPNL = new Rectangle(200, 120, 170, 150);
+	private Rectangle RECANZPNL = new Rectangle(200, 150, 170, 150);
 	private int[] anzLbls = new int[] {5, 0, 0, 0, 100, 30};
 	private int[] anzTFs = new int[] {140, 0, 0, 0, 30, 30};
 	
@@ -86,6 +88,8 @@ public class NewLeagueDialog extends JFrame {
 	private JRadioButton oneYearRB;
 	private JRadioButton twoYearsRB;
 	private ButtonGroup yearsRBGrp;
+	private JLabel sameOpponentLbl;
+	private JTextField sameOpponentTF;
 	
 	
 	// Mannschaften
@@ -241,6 +245,17 @@ public class NewLeagueDialog extends JFrame {
 			yearsRBGrp = new ButtonGroup();
 			yearsRBGrp.add(oneYearRB);
 			yearsRBGrp.add(twoYearsRB);
+		}
+		{
+			sameOpponentLbl = new JLabel();
+			infoPnl.add(sameOpponentLbl);
+			sameOpponentLbl.setBounds(RECSGDGLBL);
+			sameOpponentLbl.setText("Anzahl Spiele gegen denselben Gegner:");
+		}
+		{
+			sameOpponentTF = new JTextField();
+			infoPnl.add(sameOpponentTF);
+			sameOpponentTF.setBounds(RECSGDGTF);
 		}
 	}
 	
@@ -533,7 +548,7 @@ public class NewLeagueDialog extends JFrame {
     	name = nameTF.getText();
     	season = Integer.parseInt(seasonTF.getText());
     	numberOfTeams = numOfTeamsCB.getSelectedIndex() + minNumOfTeams;
-    	spGgSGegner = Integer.parseInt("2");
+    	spGgSGegner = Integer.parseInt(sameOpponentTF.getText());
     	teamsNames = getTeamsNames();
     	anzahlen = getAnzahlen();
     	isSTSS = Boolean.parseBoolean(yearsRBGrp.getSelection().getActionCommand());

@@ -888,7 +888,7 @@ public class Start extends JFrame {
     	}
     	
     	// Erstellen und Abspeichern des Spiel- und Ergebnisplans
-    	int numberOfMatchdays = 4 * (int) Math.round((double) numberOfTeams / 2) - 2;
+    	int numberOfMatchdays = spGgSG * (2 * (int) Math.round((double) numberOfTeams / 2) - 1);
     	int numberOfMatches = numberOfTeams / 2;
     	
     	String[] spielplan = new String[numberOfMatchdays + 1];
