@@ -120,6 +120,7 @@ public class NewLeagueDialog extends JFrame {
 	private String name;
 	private int season;
 	private int numberOfTeams;
+	private int spGgSGegner;
 	private String[] teamsNames;
 	private int[] anzahlen;
 	private boolean isSTSS;
@@ -526,13 +527,13 @@ public class NewLeagueDialog extends JFrame {
 	
 	private void goActionPerformed() {
 		// TODO kopieren aus der Methode in Start
-		
 
     	log("REQUIREMENT --- This should be done correctly. ");
 		
     	name = nameTF.getText();
     	season = Integer.parseInt(seasonTF.getText());
     	numberOfTeams = numOfTeamsCB.getSelectedIndex() + minNumOfTeams;
+    	spGgSGegner = Integer.parseInt("2");
     	teamsNames = getTeamsNames();
     	anzahlen = getAnzahlen();
     	isSTSS = Boolean.parseBoolean(yearsRBGrp.getSelection().getActionCommand());
@@ -540,7 +541,7 @@ public class NewLeagueDialog extends JFrame {
     	KOTs = getKOTs();
     	defKOTs = getDefaultKOTs();
     	
-		start.addNewLeague(name, season, numberOfTeams, teamsNames, anzahlen, isSTSS, defaultST, KOTs, defKOTs);
+		start.addNewLeague(name, season, numberOfTeams, spGgSGegner, teamsNames, anzahlen, isSTSS, defaultST, KOTs, defKOTs);
 		
 		this.setVisible(false);
 		start.toFront();

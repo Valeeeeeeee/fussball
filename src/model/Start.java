@@ -839,7 +839,7 @@ public class Start extends JFrame {
 		ntd.toFront();
     }
     
-    public void addNewLeague(String name, int season, int numberOfTeams, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
+    public void addNewLeague(String name, int season, int numberOfTeams, int spGgSG, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
     	for (Liga liga : ligen) {
 			if (liga.getName().equals(name)) {
 				message("A league with this name already exists.");
@@ -863,6 +863,7 @@ public class Start extends JFrame {
 		daten = daten + "DKT*" + defaultKOTs + ";";
 		daten = daten + "ISSTSS*" + isSTSS + ";";
 		daten = daten + "A_MS*" + numberOfTeams + ";";
+		daten = daten + "A_SGDG*" + spGgSG + ";";
 		daten = daten + "A_CL*" + anzahlen[0] + ";";
 		daten = daten + "A_CLQ*" + anzahlen[1] + ";";
 		daten = daten + "A_EL*" + anzahlen[2] + ";";

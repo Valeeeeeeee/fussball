@@ -137,10 +137,7 @@ public class KORunde implements Wettbewerb {
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
-			log((i + numberOfTeamsPrequalified) + ": " + mannschaften[i + numberOfTeamsPrequalified]);
 		}
-		
-		
 	}
 	
 	private void testGNOTFOC() {
