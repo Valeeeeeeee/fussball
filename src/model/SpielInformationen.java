@@ -145,13 +145,6 @@ public class SpielInformationen extends JFrame {
 	private int[] descr = new int[] {250, 383, 0, 16, 55, 24};
 	private int[] goals = new int[] {315, 380, 10, 10, 30, 30};
 	
-	private static final int STARTX = 0;
-	private static final int STARTY = 1;
-	private static final int GAPX = 2;
-	private static final int GAPY = 3;
-	private static final int WIDTH = 4;
-	private static final int HEIGHT = 5;
-	
 	public SpielInformationen(Spieltag spieltag, Spiel spiel, Ergebnis previous) {
 		super();
 		

@@ -17,21 +17,21 @@ public class Tabelle extends JPanel {
     
     private boolean belongsToALeague = false;
     
-    int ANZAHL_TEAMS;
+    private int ANZAHL_TEAMS;
     
     // for Liga
-    int ANZAHL_CL;
-    int ANZAHL_CLQ;
-    int ANZAHL_EL;
-    int ANZAHL_REL;
-    int ANZAHL_ABS;
+    private int ANZAHL_CL;
+    private int ANZAHL_CLQ;
+    private int ANZAHL_EL;
+    private int ANZAHL_REL;
+    private int ANZAHL_ABS;
     
     // for Turnier
-    int ANZAHL_KORUNDE;
-    int ANZAHL_ZWISCHENRUNDE;
-    int ANZAHL_AUSGESCHIEDEN;
+    private int ANZAHL_KORUNDE;
+    private int ANZAHL_ZWISCHENRUNDE;
+    private int ANZAHL_AUSGESCHIEDEN;
     
-    String[] titelleist = {"Pl.", "Name", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
+    private String[] titelleist = {"Pl.", "Name", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
     
     private JLabel[] titelleiste;
     private JLabel[][] tabelle;

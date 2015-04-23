@@ -38,13 +38,6 @@ public class Spieltag extends JPanel {
 	private int editedGroupID = -1;
 	private int editedMatchday = -1;
 	private int currentMatchday = -1;
-
-	private final int STARTX = 0;
-	private final int STARTY = 1;
-	private final int GAPX = 2;
-	private final int GAPY = 3;
-	private final int WIDTH = 4;
-	private final int HEIGHT = 5;
 	
 	private int[] buttonsauswahl;
 	private int[] labels;

@@ -1,7 +1,5 @@
 package util;
 
-import static util.Utilities.log;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -14,10 +12,20 @@ import model.Start;
 
 public class Utilities {
 	
+	public static final int STARTX = 0;
+	public static final int STARTY = 1;
+	public static final int GAPX = 2;
+	public static final int GAPY = 3;
+	public static final int WIDTH = 4;
+	public static final int HEIGHT = 5;
+	
 	public static void main(String[] args) {
-//		testAusDatei();
 		
-		testErgebnisse();
+		boolean testing = false;
+		if (testing) {
+			testAusDatei();
+			testErgebnisse();
+		}
 	}
 	
 	private static void testErgebnisse() {

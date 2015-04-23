@@ -16,7 +16,7 @@ public class NewLeagueDialog extends JFrame {
 	private String[] wochentage = new String[] {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	private final int minNumOfTeams = 2;
 	private final int maxNumOfTeams = 24;
-	private Color bg = new Color(128, 255, 128);
+	private Color background = new Color(78, 235, 78);
 	
 	// Bounds
 	private Dimension dim = new Dimension(390, 585);
@@ -63,13 +63,6 @@ public class NewLeagueDialog extends JFrame {
 	private Rectangle RECANZPNL = new Rectangle(200, 150, 170, 150);
 	private int[] anzLbls = new int[] {5, 0, 0, 0, 100, 30};
 	private int[] anzTFs = new int[] {140, 0, 0, 0, 30, 30};
-	
-	private final int STARTX = 0;
-	private final int STARTY = 1;
-	private final int GAPX = 2;
-	private final int GAPY = 3;
-	private final int WIDTH = 4;
-	private final int HEIGHT = 5;
 	
 	// View
 	private JButton go;
@@ -187,7 +180,7 @@ public class NewLeagueDialog extends JFrame {
 			infoPnl.setLayout(null);
 			infoPnl.setBounds(RECINFOPNL);
 			infoPnl.setOpaque(true);
-			infoPnl.setBackground(bg);
+			infoPnl.setBackground(background);
 		}
 		{
 			nameLbl = new JLabel();
@@ -270,7 +263,7 @@ public class NewLeagueDialog extends JFrame {
 			teamsPnl.setLayout(null);
 			teamsPnl.setBounds(RECTEAMPNL);
 			teamsPnl.setOpaque(true);
-			teamsPnl.setBackground(bg);
+			teamsPnl.setBackground(background);
 		}
 		{
 			numOfTeamsCB = new JComboBox();
@@ -324,7 +317,7 @@ public class NewLeagueDialog extends JFrame {
 			anzahlenPnl.setLayout(null);
 			anzahlenPnl.setBounds(RECANZPNL);
 			anzahlenPnl.setOpaque(true);
-			anzahlenPnl.setBackground(bg);
+			anzahlenPnl.setBackground(background);
 		}
 		for (int i = 0; i < anzahlenLbls.length; i++) {
 			anzahlenLbls[i] = new JLabel();
@@ -346,7 +339,7 @@ public class NewLeagueDialog extends JFrame {
 			kotPnl.setLayout(null);
 			kotPnl.setBounds(RECKOTPNL);
 			kotPnl.setOpaque(true);
-			kotPnl.setBackground(bg);
+			kotPnl.setBackground(background);
 		}
 		{
 			kotLbl = new JLabel();
@@ -400,6 +393,7 @@ public class NewLeagueDialog extends JFrame {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private void enterPresetValues() {
 		// TODO remove these preentered values
     	int[] preDefAnzahlen = new int[] {2, 1, 0, 1, 2};
