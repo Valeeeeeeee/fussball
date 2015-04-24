@@ -322,13 +322,13 @@ public class NewLeagueDialog extends JFrame {
 		for (int i = 0; i < anzahlenLbls.length; i++) {
 			anzahlenLbls[i] = new JLabel();
 			anzahlenPnl.add(anzahlenLbls[i]);
-			anzahlenLbls[i].setBounds(anzLbls[STARTX], anzLbls[STARTY] + i * (anzLbls[HEIGHT] + anzLbls[GAPY]), anzLbls[WIDTH], anzLbls[HEIGHT]);
+			anzahlenLbls[i].setBounds(anzLbls[STARTX], anzLbls[STARTY] + i * (anzLbls[SIZEY] + anzLbls[GAPY]), anzLbls[SIZEX], anzLbls[SIZEY]);
 			anzahlenLbls[i].setText(anzLblsContent[i]);
 		}
 		for (int i = 0; i < anzahlenTFs.length; i++) {
 			anzahlenTFs[i] = new JTextField();
 			anzahlenPnl.add(anzahlenTFs[i]);
-			anzahlenTFs[i].setBounds(anzTFs[STARTX], anzTFs[STARTY] + i * (anzTFs[HEIGHT] + anzTFs[GAPY]), anzTFs[WIDTH], anzTFs[HEIGHT]);
+			anzahlenTFs[i].setBounds(anzTFs[STARTX], anzTFs[STARTY] + i * (anzTFs[SIZEY] + anzTFs[GAPY]), anzTFs[SIZEX], anzTFs[SIZEY]);
 		}
 	}
 	

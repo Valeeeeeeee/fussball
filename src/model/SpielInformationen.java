@@ -322,15 +322,15 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < 11; i++) {
 			jLblsLineupHome[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsLineupHome[i]);
-			jLblsLineupHome[i].setLocation(luLbls[STARTX], luLbls[STARTY] + i * (luLbls[HEIGHT] + luLbls[GAPY]));
-			jLblsLineupHome[i].setSize(luLbls[WIDTH], luLbls[HEIGHT]);
+			jLblsLineupHome[i].setLocation(luLbls[STARTX], luLbls[STARTY] + i * (luLbls[SIZEY] + luLbls[GAPY]));
+			jLblsLineupHome[i].setSize(luLbls[SIZEX], luLbls[SIZEY]);
 			jLblsLineupHome[i].setHorizontalAlignment(SwingConstants.RIGHT);
 			jLblsLineupHome[i].setVisible(false);
 			
 			jLblsLineupAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsLineupAway[i]);
-			jLblsLineupAway[i].setLocation(luLbls[STARTX] + luLbls[GAPX], luLbls[STARTY] + i * (luLbls[HEIGHT] + luLbls[GAPY]));
-			jLblsLineupAway[i].setSize(luLbls[WIDTH], luLbls[HEIGHT]);
+			jLblsLineupAway[i].setLocation(luLbls[STARTX] + luLbls[GAPX], luLbls[STARTY] + i * (luLbls[SIZEY] + luLbls[GAPY]));
+			jLblsLineupAway[i].setSize(luLbls[SIZEX], luLbls[SIZEY]);
 			jLblsLineupAway[i].setHorizontalAlignment(SwingConstants.LEFT);
 			jLblsLineupAway[i].setVisible(false);
 		}
@@ -460,7 +460,7 @@ public class SpielInformationen extends JFrame {
 				final int x = i, y = j;
 				goalsTFs[i][j] = new JTextField();
 				jPnlSpielInformationen.add(goalsTFs[i][j]);
-				goalsTFs[i][j].setBounds(goals[STARTX] + j * (goals[WIDTH] + goals[GAPX]), goals[STARTY] + i * (goals[HEIGHT] + goals[GAPY]), goals[WIDTH], goals[HEIGHT]);
+				goalsTFs[i][j].setBounds(goals[STARTX] + j * (goals[SIZEX] + goals[GAPX]), goals[STARTY] + i * (goals[SIZEY] + goals[GAPY]), goals[SIZEX], goals[SIZEY]);
 				goalsTFs[i][j].setVisible(show);
 				goalsTFs[i][j].setHorizontalAlignment(SwingConstants.CENTER);
 				goalsTFs[i][j].addKeyListener(new KeyAdapter() {
@@ -484,7 +484,7 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < descrLbls.length; i++) {
 			descrLbls[i] = new JLabel();
 			jPnlSpielInformationen.add(descrLbls[i]);
-			descrLbls[i].setBounds(descr[STARTX], descr[STARTY] + i * (descr[HEIGHT] + descr[GAPY]), descr[WIDTH], descr[HEIGHT]);
+			descrLbls[i].setBounds(descr[STARTX], descr[STARTY] + i * (descr[SIZEY] + descr[GAPY]), descr[SIZEX], descr[SIZEY]);
 			descrLbls[i].setText(descriptions[i]);
 			descrLbls[i].setHorizontalAlignment(SwingConstants.RIGHT);
 			descrLbls[i].setVisible(show);
@@ -558,8 +558,8 @@ public class SpielInformationen extends JFrame {
 		int i = jLblsGoals.size();
 		JLabel jLblNewGoal = new JLabel();
 		jPnlSpielInformationen.add(jLblNewGoal);
-		jLblNewGoal.setLocation(gLbls[STARTX] + (tor.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + i * (gLbls[HEIGHT] + gLbls[GAPY]));
-		jLblNewGoal.setSize(gLbls[WIDTH], gLbls[HEIGHT]);
+		jLblNewGoal.setLocation(gLbls[STARTX] + (tor.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + i * (gLbls[SIZEY] + gLbls[GAPY]));
+		jLblNewGoal.setSize(gLbls[SIZEX], gLbls[SIZEY]);
 		jLblNewGoal.setHorizontalAlignment(tor.isFirstTeam() ? SwingConstants.LEFT : SwingConstants.RIGHT);
 		jLblNewGoal.setText((tor.getScorer() != null ? tor.getScorer().getPseudonym() : "n/a") + " (" + tor.getMinute() + "')");
 		jLblNewGoal.setOpaque(true);
@@ -571,8 +571,8 @@ public class SpielInformationen extends JFrame {
 		int i = (firstTeam ? jLblsSubstitutionsHome : jLblsSubstitutionsAway).size();
 		JLabel jLblNewSubOn = new JLabel();
 		jPnlSpielInformationen.add(jLblNewSubOn);
-		jLblNewSubOn.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + i * (subLbls[HEIGHT] + subLbls[GAPY]));
-		jLblNewSubOn.setSize(subLbls[WIDTH], subLbls[HEIGHT]);
+		jLblNewSubOn.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + i * (subLbls[SIZEY] + subLbls[GAPY]));
+		jLblNewSubOn.setSize(subLbls[SIZEX], subLbls[SIZEY]);
 		jLblNewSubOn.setText(wechsel.getEingewechselterSpieler().getPseudonym() + " (" + wechsel.getMinute() + "')");
 		jLblNewSubOn.setOpaque(true);
 		jLblNewSubOn.setBackground(eingSpielerColor);
@@ -580,8 +580,8 @@ public class SpielInformationen extends JFrame {
 		
 		JLabel jLblNewSubOff = new JLabel();
 		jPnlSpielInformationen.add(jLblNewSubOff);
-		jLblNewSubOff.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + (i + 1) * (subLbls[HEIGHT] + subLbls[GAPY]));
-		jLblNewSubOff.setSize(subLbls[WIDTH], subLbls[HEIGHT]);
+		jLblNewSubOff.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + (i + 1) * (subLbls[SIZEY] + subLbls[GAPY]));
+		jLblNewSubOff.setSize(subLbls[SIZEX], subLbls[SIZEY]);
 		jLblNewSubOff.setText(wechsel.getAusgewechselterSpieler().getPseudonym() + " (" + wechsel.getMinute() + "')");
 		jLblNewSubOff.setOpaque(true);
 		jLblNewSubOff.setBackground(ausgSpielerColor);
@@ -866,9 +866,9 @@ public class SpielInformationen extends JFrame {
 			final int x = i;
 			jLblsLineupSelectionPlayers[i] = new JLabel();
 			jPnlLineupSelection.add(jLblsLineupSelectionPlayers[i]);
-			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[WIDTH], boundsLSP[HEIGHT]);
-			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[WIDTH] + boundsLSP[GAPX]), 
-														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[HEIGHT] + boundsLSP[GAPY]));
+			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[SIZEX], boundsLSP[SIZEY]);
+			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[SIZEX] + boundsLSP[GAPX]), 
+														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[SIZEY] + boundsLSP[GAPY]));
 			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPseudonym());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);

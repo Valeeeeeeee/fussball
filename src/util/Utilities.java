@@ -16,8 +16,8 @@ public class Utilities {
 	public static final int STARTY = 1;
 	public static final int GAPX = 2;
 	public static final int GAPY = 3;
-	public static final int WIDTH = 4;
-	public static final int HEIGHT = 5;
+	public static final int SIZEX = 4;
+	public static final int SIZEY = 5;
 	
 	public static void main(String[] args) {
 		
