@@ -26,6 +26,9 @@ public class Tabelle extends JPanel {
     private int ANZAHL_REL;
     private int ANZAHL_ABS;
     
+    // TODO ComboBox for tables until matchday XX (from matchday YY)
+    // TODO GUI for point deduction
+    
     // for Turnier
     private int ANZAHL_KORUNDE;
     private int ANZAHL_ZWISCHENRUNDE;
