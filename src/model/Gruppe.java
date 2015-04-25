@@ -169,7 +169,7 @@ public class Gruppe implements Wettbewerb {
 		
 		tabelle.aktualisieren();
 		for (Mannschaft ms : mannschaften) {
-			if (ms.get(0) == place - 1)		return ms;
+			if (ms.get(0, numberOfMatchdays - 1) == place - 1)		return ms;
 		}
 		
 		return null;

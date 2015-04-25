@@ -53,7 +53,8 @@ public class Start extends JFrame {
     private int start_btnswidth = 400;
     private int start_btnsheight = 70;
     
-
+    private Rectangle REC_BTNZURUECK = new Rectangle(20, 10, 100, 30);
+    
     private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
     private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
     private Rectangle REC_BTNSTATISTIK = new Rectangle(520, 390, 400, 100);
@@ -176,7 +177,7 @@ public class Start extends JFrame {
             {
                 jBtnZurueck = new JButton();
                 getContentPane().add(jBtnZurueck);
-                jBtnZurueck.setBounds(20, 10, 150, 30);
+                jBtnZurueck.setBounds(REC_BTNZURUECK);
                 jBtnZurueck.setText("zurueck");
                 jBtnZurueck.setVisible(false);
                 jBtnZurueck.setFocusable(false);

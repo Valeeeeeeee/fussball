@@ -176,6 +176,10 @@ public class KORunde implements Wettbewerb {
 		return this.teamsAreWinners;
 	}
 	
+	public int getNumberOfMatchdays() {
+		return numberOfMatchdays;
+	}
+	
 	public int getCurrentMatchday() {
 		int matchday = -1;
 		if (this.numberOfMatchdays == 2) {

@@ -22,5 +22,6 @@ Bastian;Schweinsteiger;null;19840801;Deutschland;Mittelfeld;31
 Xherdan;Shaqiri;null;19911010;Schweiz;Mittelfeld;11;-20141231
 Thiago;Alcantara do Nascimento;null;19910411;Spanien;Mittelfeld;6
 Mitchell;Weiser;null;19940421;Deutschland;Mittelfeld;30
+Sinan;Kurt;null;19960723;Deutschland;Sturm;24
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
 Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14
