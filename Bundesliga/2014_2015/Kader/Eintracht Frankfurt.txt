@@ -23,3 +23,4 @@ Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10;-20150217
 Haris;Seferovic;null;19920222;Schweiz;Sturm;9
 Nelson;Valdez;null;19831128;Paraguay;Sturm;11
+Luca;Waldschmidt;null;19960519;Deutschland;Sturm;24
