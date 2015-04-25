@@ -29,7 +29,6 @@ public class Tabelle extends JPanel {
     private int ANZAHL_REL;
     private int ANZAHL_ABS;
     
-    // TODO ComboBox for tables until matchday XX (from matchday YY)
     // TODO GUI for point deduction
     
     // for Turnier
@@ -230,9 +229,10 @@ public class Tabelle extends JPanel {
     	
     	for (int i = 0; i < tabelle.length; i++) {
     		for (Mannschaft ms : mannschaften) {
-    			if (ms.get(0, wettbewerb.getCurrentMatchday()) == i) {
+    			if (ms.getPlace() == i) {
     				for (int j = 0; j < tabelle[i].length; j++) {
     	                tabelle[nextPlace][j].setText(ms.getString(j));
+    	                tabelle[nextPlace][j].repaint();
     	            }
     				if (nextPlace >= 1) {
     					if (tabelle[nextPlace][0].getText().equals(tabelle[lastIndexedPlace][0].getText())) {
@@ -248,8 +248,7 @@ public class Tabelle extends JPanel {
     }
     
     public void aktualisieren() {
-    	log("currentMatchday: "+ currentMatchday);
-    	if (currentMatchday == -1)	currentMatchday = wettbewerb.getCurrentMatchday();
+    	if (currentMatchday == -1)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
 		for (Mannschaft ms : wettbewerb.getMannschaften()) {
 			ms.setPlace(0);
         	for (Mannschaft ms2 : wettbewerb.getMannschaften()) {
@@ -266,6 +265,7 @@ public class Tabelle extends JPanel {
 	private void jCBSpieltageItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			currentMatchday = jCBSpieltage.getSelectedIndex();
+			log("\n\n\nShowing table for matchday " + currentMatchday + ":");
 			aktualisieren();
 		}
 	}

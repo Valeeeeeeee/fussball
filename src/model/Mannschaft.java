@@ -128,7 +128,6 @@ public class Mannschaft {
 	}
 	
 	private void setValuesForMatchday(int untilMatchday) {
-		log(name + ":   valuesCorrectAsOfMatchday:" + valuesCorrectAsOfMatchday + " untilMatchday:" + untilMatchday);
 		if (valuesCorrectAsOfMatchday == untilMatchday)	return;
 		
 		anzahl_g = anzahl_u = anzahl_v = anzahl_tplus = anzahl_tminus = 0;
