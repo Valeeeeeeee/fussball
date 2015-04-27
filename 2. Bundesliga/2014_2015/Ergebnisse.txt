@@ -27,7 +27,7 @@ ttttttttt;1:1;1:0;1:1;0:0;2:0;0:0;0:0;1:0;1:2;
 ttttttttt;1:2;4:0;0:1;2:0;2:2;1:1;2:1;2:0;4:0;
 ttttttttt;1:1;3:0;0:1;2:0;1:1;1:1;0:1;1:2;1:1;
 ttttttttt;1:0;3:2;0:0;2:1;2:1;2:2;1:0;1:1;1:1;
-tttttffff;2:0;0:2;2:1;2:1;1:1;null;null;null;null;
+ttttttttf;2:0;0:2;2:1;2:1;1:1;2:2;1:1;2:1;null;
 fffffffff;
 fffffffff;
 fffffffff;
