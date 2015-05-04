@@ -10,6 +10,7 @@ Javier;Martinez Aginaga;null;19880902;Spanien;Abwehr;8
 Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
+Thiago;Alcantara do Nascimento;null;19910411;Spanien;Mittelfeld;6
 Xabier;Alonso Olano;Xabi Alonso;19811125;Spanien;Mittelfeld;3
 Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16
 Mario;Götze;null;19920603;Deutschland;Mittelfeld;19
@@ -20,8 +21,9 @@ Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
 Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;20
 Bastian;Schweinsteiger;null;19840801;Deutschland;Mittelfeld;31
 Xherdan;Shaqiri;null;19911010;Schweiz;Mittelfeld;11;-20141231
-Thiago;Alcantara do Nascimento;null;19910411;Spanien;Mittelfeld;6
+Rico;Strieder;null;19920706;Deutschland;Mittelfeld;39
 Mitchell;Weiser;null;19940421;Deutschland;Mittelfeld;30
+Lukas;Görtler;null;19940615;Deutschland;Sturm;40
 Sinan;Kurt;null;19960723;Deutschland;Sturm;24
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
 Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14

@@ -840,6 +840,7 @@ public class SpielInformationen extends JFrame {
 		displayGoal(tor);
 		enteringGoal = false;
 		
+		jRBOwnGoal.setSelected(false);
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
 		

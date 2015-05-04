@@ -16,6 +16,7 @@ Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
 Eljero;Elia;null;19870213;Niederlande;Mittelfeld;11;-20141231
+Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;39
 Theodor;Gebre Selassie;null;19861224;Tschechien;Mittelfeld;23
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
