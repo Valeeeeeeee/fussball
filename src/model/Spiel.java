@@ -108,7 +108,7 @@ public class Spiel {
 		return this.tore;
 	}
 	
-	public void addGoal(Tor tor) {
+	public void addGoal(int index, Tor tor) {
 		if (tor != null) {
 			tore.add(tor);
 			ergebnis = new Ergebnis(ergebnis != null ? ergebnis : new Ergebnis("0:0"), tor);
@@ -119,7 +119,7 @@ public class Spiel {
 		return firstTeam ? substitutionsHome : substitutionsAway;
 	}
 	
-	public void addSubstitution(Wechsel substitution) {
+	public void addSubstitution(int index, Wechsel substitution) {
 		if (substitution != null) {
 			if (substitution.isFirstTeam())	substitutionsHome.add(substitution);
 			else							substitutionsAway.add(substitution);
@@ -210,7 +210,7 @@ public class Spiel {
 			}
 			for (int i = 1; i < hashSplit.length; i++) {
 				Wechsel wechsel = new Wechsel(this, firstTeam, hashSplit[i]);
-				addSubstitution(wechsel);
+				addSubstitution(i - 1, wechsel);
 			}
 		}
 		
