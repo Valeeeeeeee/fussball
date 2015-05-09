@@ -141,7 +141,7 @@ public class Mannschaft {
 		}
 		
 		anzahl_sp = anzahl_g + anzahl_u + anzahl_v;
-		punkte = 3 * anzahl_g + anzahl_u - deductedPoints;
+		punkte = 3 * anzahl_g + anzahl_u + deductedPoints;
 		tdiff = anzahl_tplus - anzahl_tminus;
 		
 		valuesCorrectAsOfMatchday = untilMatchday;
@@ -160,7 +160,7 @@ public class Mannschaft {
 			if (index == 3)	return anzG;
 			if (index == 4)	return anzU;
 			if (index == 5)	return anzV;
-			if (index == 9)	return 3 * anzG + anzU - deductedPoints;
+			if (index == 9)	return 3 * anzG + anzU + deductedPoints;
 		}
 		if (index >= 6 && index <= 8) {
 			int anzT = 0, anzGT = 0;
