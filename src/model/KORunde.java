@@ -40,8 +40,6 @@ public class KORunde implements Wettbewerb {
 	private boolean[][] ergebnisplanEingetragen;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiErgebnisse;
 	private String dateiSpielplan;
@@ -66,9 +64,9 @@ public class KORunde implements Wettbewerb {
     private Spieltag spieltag;
 	
 	public KORunde(Start start, Turnier turnier, int id, String daten) {
+		this.start = start;
 		checkOS();
 		
-		this.start = start;
 		this.turnier = turnier;
 		this.id = id;
 		
@@ -139,10 +137,7 @@ public class KORunde implements Wettbewerb {
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
-			log((i + numberOfTeamsPrequalified) + ": " + mannschaften[i + numberOfTeamsPrequalified]);
 		}
-		
-		
 	}
 	
 	private void testGNOTFOC() {
@@ -179,6 +174,10 @@ public class KORunde implements Wettbewerb {
 	
 	public boolean teamsAreWinners() {
 		return this.teamsAreWinners;
+	}
+	
+	public int getNumberOfMatchdays() {
+		return numberOfMatchdays;
 	}
 	
 	public int getCurrentMatchday() {
@@ -745,15 +744,6 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			JOptionPane.showMessageDialog(null, "You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }

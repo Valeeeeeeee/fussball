@@ -13,7 +13,7 @@ public class NewTournamentDialog extends JFrame {
 
 	private Start start;
 
-	private Color bg = new Color(128, 255, 128);
+	private Color background = new Color(78, 235, 78);
 	
 	private final int minNumberOfGroups = 1;
 	private final int maxNumberOfGroups = 12;
@@ -68,13 +68,6 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle RECKO2LEGLBL = new Rectangle(175, 30, 70, 30); // checked
 	private Rectangle RECKO2LEGYES = new Rectangle(250, 30, 45, 30); // checked
 	private Rectangle RECKO2LEGNO = new Rectangle(290, 30, 60, 30); // checked
-
-//	private final int STARTX = 0;
-//	private final int STARTY = 1;
-//	private final int GAPX = 2;
-//	private final int GAPY = 3;
-//	private final int WIDTH = 4;
-//	private final int HEIGHT = 5;
 
 	// View
 	private JButton go;
@@ -187,8 +180,9 @@ public class NewTournamentDialog extends JFrame {
 		buildGeneralInfo();
 		buildGroupStage();
 		buildKOStage();
-
-//		enterPresetValues();
+		
+		boolean enterPresetValues = false;
+		if (enterPresetValues)	enterPresetValues();
 
 		setTitle("Neues Turnier erstellen");
 		setSize(this.dim);
@@ -202,7 +196,7 @@ public class NewTournamentDialog extends JFrame {
 			infoPnl.setLayout(null);
 			infoPnl.setBounds(RECINFOPNL);
 			infoPnl.setOpaque(true);
-			infoPnl.setBackground(bg);
+			infoPnl.setBackground(background);
 		}
 		// Name
 		{
@@ -300,7 +294,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStagePnl.setLayout(null);
 			groupStagePnl.setBounds(RECGRPPNL);
 			groupStagePnl.setOpaque(true);
-			groupStagePnl.setBackground(bg);
+			groupStagePnl.setBackground(background);
 		}
 		// gibt es eine Gruppenphase
 		{
@@ -403,7 +397,7 @@ public class NewTournamentDialog extends JFrame {
 			koStagePnl.setLayout(null);
 			koStagePnl.setBounds(RECKOPNL);
 			koStagePnl.setOpaque(true);
-			koStagePnl.setBackground(bg);
+			koStagePnl.setBackground(background);
 		}
 		// gibt es eine KO Phase
 		{
@@ -513,6 +507,7 @@ public class NewTournamentDialog extends JFrame {
 		teamsNamesGrpCB.setModel(new DefaultComboBoxModel(gruppenNamen));
 	}
 
+	
 	private void enterPresetValues() {
 		// TODO remove these preentered values
 		
@@ -652,7 +647,3 @@ public class NewTournamentDialog extends JFrame {
 				grp2leg, ko2leg, has3pl, nOTeam, nOGrp, nOKO, teamsGrp, teamsKO);
 	}
 }
-
-
-
-

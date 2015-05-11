@@ -27,8 +27,6 @@ public class Gruppe implements Wettbewerb {
 	private boolean[][] ergebnisplanEingetragen;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiMannschaft;
 	private String dateiSpielplan;
@@ -46,11 +44,10 @@ public class Gruppe implements Wettbewerb {
 	private Tabelle tabelle;
 	
 	public Gruppe(Start start, int id, Turnier turnier) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		
-		this.start = start;
 		
 		this.turnier = turnier;
 		this.startDate = turnier.getStartDate();
@@ -172,7 +169,7 @@ public class Gruppe implements Wettbewerb {
 		
 		tabelle.aktualisieren();
 		for (Mannschaft ms : mannschaften) {
-			if (ms.get(0) == place - 1)		return ms;
+			if (ms.get(0, numberOfMatchdays - 1) == place - 1)		return ms;
 		}
 		
 		return null;
@@ -636,16 +633,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			JOptionPane.showMessageDialog(null, "You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 	
 }

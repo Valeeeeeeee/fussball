@@ -23,7 +23,8 @@ public class Spieltag extends JPanel {
 	private JButton previous;
 	private JButton next;
 	private JButton[] moreOptions;
-	private JButton resetMatchday;
+	private JButton jBtnResetMatchday;
+	private JButton jBtnEnterRueckrunde;
 	private JButton defaultKickoff;
 	private JLabel[] spieltagsdaten;
 	private JLabel[] gruppenLbls;
@@ -37,13 +38,6 @@ public class Spieltag extends JPanel {
 	private int editedGroupID = -1;
 	private int editedMatchday = -1;
 	private int currentMatchday = -1;
-
-	private final int STARTX = 0;
-	private final int STARTY = 1;
-	private final int GAPX = 2;
-	private final int GAPY = 3;
-	private final int WIDTH = 4;
-	private final int HEIGHT = 5;
 	
 	private int[] buttonsauswahl;
 	private int[] labels;
@@ -59,6 +53,7 @@ public class Spieltag extends JPanel {
 	
 	private Rectangle REC_RESETMD = new Rectangle(250, 45, 80, 30);
 	private Rectangle REC_DEFKOT = new Rectangle(30, 45, 170, 30);
+	private Rectangle REC_BTNRRUNDE = new Rectangle(340, 45, 120, 30);
 
 	private JPanel teamsSelection;
 	private JButton[] mannschaftenbtns;
@@ -182,12 +177,12 @@ public class Spieltag extends JPanel {
 		buttonsauswahl[STARTY] = 10;
 		buttonsauswahl[GAPX] = 10;
 		buttonsauswahl[GAPY] = 0;
-		buttonsauswahl[WIDTH] = 200;
-		buttonsauswahl[HEIGHT] = 50;
+		buttonsauswahl[SIZEX] = 200;
+		buttonsauswahl[SIZEY] = 50;
 		
-		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
-			buttonsauswahl[HEIGHT] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
-//			message("The calculated value of height is " + buttonsauswahl[HEIGHT] + " with hAnzAuf = "
+		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
+			buttonsauswahl[SIZEY] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
+//			message("The calculated value of height is " + buttonsauswahl[SIZEY] + " with hAnzAuf = "
 //					+ halfCountTeamsRoundUp, "\"height\" was calculated");
 		}
 	}
@@ -200,14 +195,14 @@ public class Spieltag extends JPanel {
 		}
 		groupLabels = new int[] {160, 80, 0, gapy, 10, height};
 		
-		labels = new int[] { groupLabels[STARTX] + groupLabels[WIDTH] + 5, 80, (isETPossible ? 175 : 135), gapy, 180, height };
+		labels = new int[] { groupLabels[STARTX] + groupLabels[SIZEX] + 5, 80, (isETPossible ? 175 : 135), gapy, 180, height };
 
-		textfields = new int[] { labels[STARTX] + labels[WIDTH] + 10, labels[STARTY], 
-				labels[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? 45 : 5), labels[GAPY], 40, labels[HEIGHT] };
+		textfields = new int[] { labels[STARTX] + labels[SIZEX] + 10, labels[STARTY], 
+				labels[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? 45 : 5), labels[GAPY], 40, labels[SIZEY] };
 		
-		zusInfLabels = new int[] { labels[STARTX] + labels[WIDTH] + 95, labels[STARTY], 0, labels[GAPY], (isETPossible ? 30 : 0), labels[HEIGHT] };
+		zusInfLabels = new int[] { labels[STARTX] + labels[SIZEX] + 95, labels[STARTY], 0, labels[GAPY], (isETPossible ? 30 : 0), labels[SIZEY] };
 		
-		moreOptButtons = new int[] { labels[STARTX] + labels[WIDTH] + labels[GAPX] - 45, labels[STARTY], 0, labels[GAPY], 40, labels[HEIGHT] };
+		moreOptButtons = new int[] { labels[STARTX] + labels[SIZEX] + labels[GAPX] - 45, labels[STARTY], 0, labels[GAPY], 40, labels[SIZEY] };
 	}
 	
 	public void initGUI() {
@@ -223,8 +218,8 @@ public class Spieltag extends JPanel {
 			Dimension dim = new Dimension();
 			dim.width = 1200;
 
-			int heightOfTeamLabels = labels[STARTY] + numberOfMatches * (labels[HEIGHT] + labels[GAPY]) + 20;
-			int heightOfTeamSelection = 2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY])
+			int heightOfTeamLabels = labels[STARTY] + numberOfMatches * (labels[SIZEY] + labels[GAPY]) + 20;
+			int heightOfTeamSelection = 2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY])
 					- buttonsauswahl[GAPY];
 
 			dim.height = (heightOfTeamLabels > heightOfTeamSelection ? heightOfTeamLabels : heightOfTeamSelection);
@@ -272,7 +267,7 @@ public class Spieltag extends JPanel {
 				final int x = i;
 				spieltagsdaten[i] = new JLabel();
 				this.add(spieltagsdaten[i]);
-				spieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[HEIGHT] + labels[GAPY]), 120, labels[HEIGHT]);
+				spieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
 				spieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
 				spieltagsdaten[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
@@ -285,7 +280,7 @@ public class Spieltag extends JPanel {
 					final int x = i;
 					gruppenLbls[i] = new JLabel();
 					this.add(gruppenLbls[i]);
-					gruppenLbls[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[HEIGHT] + labels[GAPY]), groupLabels[WIDTH], groupLabels[HEIGHT]);
+					gruppenLbls[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
 					gruppenLbls[i].setHorizontalAlignment(SwingConstants.RIGHT);
 					gruppenLbls[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
 //					gruppenLbls[i].setOpaque(true);
@@ -304,8 +299,8 @@ public class Spieltag extends JPanel {
 
 				mannschaften[i] = new JLabel();
 				this.add(mannschaften[i]);
-				mannschaften[i].setBounds(labels[STARTX] + spalte * (labels[WIDTH] + labels[GAPX]), 
-						labels[STARTY] + zeile * (labels[HEIGHT] + labels[GAPY]), labels[WIDTH], labels[HEIGHT]);
+				mannschaften[i].setBounds(labels[STARTX] + spalte * (labels[SIZEX] + labels[GAPX]), 
+						labels[STARTY] + zeile * (labels[SIZEY] + labels[GAPY]), labels[SIZEX], labels[SIZEY]);
 				if (spalte == 0)	mannschaften[i].setHorizontalAlignment(SwingConstants.RIGHT);
 				else				mannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
 				mannschaften[i].setEnabled(false);
@@ -324,8 +319,8 @@ public class Spieltag extends JPanel {
 				final int x = i;
 				tore[i] = new JTextField();
 				this.add(tore[i]);
-				tore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[WIDTH] + textfields[GAPX]), 
-						textfields[STARTY] + (i % numberOfMatches) * (textfields[HEIGHT] + textfields[GAPY]), textfields[WIDTH], textfields[HEIGHT]);
+				tore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[SIZEX] + textfields[GAPX]), 
+						textfields[STARTY] + (i % numberOfMatches) * (textfields[SIZEY] + textfields[GAPY]), textfields[SIZEX], textfields[SIZEY]);
 				tore[i].setHorizontalAlignment(SwingConstants.CENTER);
 				tore[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
@@ -348,7 +343,7 @@ public class Spieltag extends JPanel {
 				zusatzInfos[i] = new JLabel();
 				this.add(zusatzInfos[i]);
 				zusatzInfos[i].setText("");
-				zusatzInfos[i].setBounds(zusInfLabels[STARTX], zusInfLabels[STARTY] + i * (zusInfLabels[HEIGHT] + zusInfLabels[GAPY]), zusInfLabels[WIDTH], zusInfLabels[HEIGHT]);
+				zusatzInfos[i].setBounds(zusInfLabels[STARTX], zusInfLabels[STARTY] + i * (zusInfLabels[SIZEY] + zusInfLabels[GAPY]), zusInfLabels[SIZEX], zusInfLabels[SIZEY]);
 			}
 			{
 				bearbeiten = new JButton();
@@ -400,14 +395,27 @@ public class Spieltag extends JPanel {
 				});
 			}
 			{
-				resetMatchday = new JButton();
-				this.add(resetMatchday);
-				resetMatchday.setBounds(REC_RESETMD);
-				resetMatchday.setText("Reset");
-				resetMatchday.setFocusable(false);
-				resetMatchday.addActionListener(new ActionListener() {
+				jBtnResetMatchday = new JButton();
+				this.add(jBtnResetMatchday);
+				jBtnResetMatchday.setBounds(REC_RESETMD);
+				jBtnResetMatchday.setText("Reset");
+				jBtnResetMatchday.setFocusable(false);
+				jBtnResetMatchday.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						resetMatchdayActionPerformed();
+					}
+				});
+			}
+			{
+				jBtnEnterRueckrunde = new JButton();
+				this.add(jBtnEnterRueckrunde);
+				jBtnEnterRueckrunde.setBounds(REC_BTNRRUNDE);
+				jBtnEnterRueckrunde.setText("Rueckrunde");
+				jBtnEnterRueckrunde.setFocusable(false);
+				jBtnEnterRueckrunde.setVisible(false);
+				jBtnEnterRueckrunde.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						jBtnEnterRueckrundeActionPerformed();
 					}
 				});
 			}
@@ -415,8 +423,8 @@ public class Spieltag extends JPanel {
 				final int x = i;
 				moreOptions[i] = new JButton();
 				this.add(moreOptions[i]);
-				moreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[HEIGHT] + moreOptButtons[GAPY]), 
-						moreOptButtons[WIDTH], moreOptButtons[HEIGHT]);
+				moreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
+						moreOptButtons[SIZEX], moreOptButtons[SIZEY]);
 				moreOptions[i].setText("+");
 				moreOptions[i].setToolTipText("Reset this result.");
 				moreOptions[i].setFocusable(false);
@@ -443,8 +451,8 @@ public class Spieltag extends JPanel {
 				teamsSelection = new JPanel();
 				this.add(teamsSelection);
 				teamsSelection.setLayout(null);
-				teamsSelection.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[WIDTH]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
-						+ halfCountTeamsRoundUp * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]);
+				teamsSelection.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[SIZEX]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
+						+ halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]);
 				teamsSelection.setLocation(730, (this.getSize().height - teamsSelection.getSize().height) / 2);
 				teamsSelection.setVisible(false);
 				teamsSelection.setOpaque(true);
@@ -457,8 +465,8 @@ public class Spieltag extends JPanel {
 //				int xfactor = i / halfCountTeamsRoundUp, yfactor = i % halfCountTeamsRoundUp;
 				mannschaftenbtns[i] = new JButton();
 				teamsSelection.add(mannschaftenbtns[i]);
-				mannschaftenbtns[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[WIDTH] + buttonsauswahl[GAPX]),
-								buttonsauswahl[STARTY] + yfactor * (buttonsauswahl[HEIGHT] + buttonsauswahl[GAPY]), buttonsauswahl[WIDTH], buttonsauswahl[HEIGHT]);
+				mannschaftenbtns[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[SIZEX] + buttonsauswahl[GAPX]),
+								buttonsauswahl[STARTY] + yfactor * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]), buttonsauswahl[SIZEX], buttonsauswahl[SIZEY]);
 				mannschaftenbtns[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						mannschaftenButtonClicked(x);
@@ -632,6 +640,12 @@ public class Spieltag extends JPanel {
 				tore[match + numberOfMatches].setEditable(false);
 			}
 		}
+		for (int match = 0; match < this.numberOfMatches; match++) {
+			if (tore[match].isEditable()) {
+				tore[match].selectAll();
+				break;
+			}
+		}
 	}
 	
 	private void spieltagsdatenBefuellenGroupOrder() {
@@ -768,7 +782,7 @@ public class Spieltag extends JPanel {
 		jCBSpieltage.setEnabled(false);
 		previous.setEnabled(false);
 		next.setEnabled(false);
-		resetMatchday.setVisible(false);
+		jBtnResetMatchday.setVisible(false);
 		if (defaultKickoff != null)	defaultKickoff.setVisible(false);
 	}
 
@@ -849,7 +863,7 @@ public class Spieltag extends JPanel {
 			jCBSpieltage.setEnabled(true);
 			previous.setEnabled(true);
 			next.setEnabled(true);
-			resetMatchday.setVisible(true);
+			jBtnResetMatchday.setVisible(true);
 			if (defaultKickoff != null)	defaultKickoff.setVisible(true);
 			spieltagAnzeigen();
 		}
@@ -911,6 +925,46 @@ public class Spieltag extends JPanel {
 			turnier.ergebnisseSichern();
 			spieltagAnzeigen();
 		}
+	}
+	
+	private void jBtnEnterRueckrundeActionPerformed() {
+		String standard = "1";
+		for (int i = 2; i <= (numberOfMatchdays / 2); i++) {
+			standard += "," + i;
+		}
+		String eingabe = inputDialog("Please enter the order of the hinrunde matchdays matching the rueckrunde order.", standard);
+		String[] eingabeSplit = eingabe.split(",");
+		if (eingabeSplit.length * 2 != numberOfMatchdays) {
+			message("You have to submit " + (numberOfMatchdays / 2) + " values separated by comma.");
+			return;
+		}
+		
+		int[] rueckrundeOrder = new int[eingabeSplit.length];
+		try {
+			for (int i = 0; i < rueckrundeOrder.length; i++) {
+				rueckrundeOrder[i] = Integer.parseInt(eingabeSplit[i]);
+			}
+		} catch (NumberFormatException nfe) {
+			message("You have to enter numbers!");
+			return;
+		}
+		
+		boolean[] checks = new boolean[rueckrundeOrder.length];
+		try {
+			for (int i = 0; i < rueckrundeOrder.length; i++) {
+				if (!checks[rueckrundeOrder[i] - 1])	checks[rueckrundeOrder[i] - 1] = true;
+				else {
+					message("You have to submit distinct values.");
+					return;
+				}
+			}
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			message("You have to submit values between 0 and " + (numberOfMatchdays / 2) + ".");
+			return;
+		}
+		
+		liga.setRueckrundeToOrder(rueckrundeOrder);
+		spieltagAnzeigen();
 	}
 
 	private void defaultKickoffActionPerformed() {
@@ -997,6 +1051,9 @@ public class Spieltag extends JPanel {
 			
 			fillTeamsLabelsAndGoalsTFs(currentMatchday);
 			setTFsEditableFromRepresentation();
+			
+			jBtnEnterRueckrunde.setVisible(false);
+			if (belongsToALeague && currentMatchday * 2 == numberOfMatchdays)	jBtnEnterRueckrunde.setVisible(true);
 		}	
 	}
 	
@@ -1261,7 +1318,8 @@ public class Spieltag extends JPanel {
 				teamID += numbersOfTeams[groupID];
 			}
 			if (editedGroupID != groupID) {
-				message("You can't put a team from group " + (alphabet[groupID] + "").toUpperCase() + " in the label of group " + (alphabet[editedGroupID] + "").toUpperCase());
+				message("You can't put a team from group " + (alphabet[groupID] + "").toUpperCase()
+						+ " in the label of group " + (alphabet[editedGroupID] + "").toUpperCase());
 				return;
 			}
 			

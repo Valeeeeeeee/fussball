@@ -53,7 +53,8 @@ public class Start extends JFrame {
     private int start_btnswidth = 400;
     private int start_btnsheight = 70;
     
-
+    private Rectangle REC_BTNZURUECK = new Rectangle(20, 10, 100, 30);
+    
     private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
     private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
     private Rectangle REC_BTNSTATISTIK = new Rectangle(520, 390, 400, 100);
@@ -156,20 +157,7 @@ public class Start extends JFrame {
     	// TODO do some testing
     	
     	jBtnLigenPressed(0);
-    	
-    	// Spiel mit Ergebnis und Lineup
-    	Spiel spiel = new Spiel(ligen[0], 25, 20150321, 1530, "15:13");
-    	spiel.setRemainder("+{1:1#false-m51-s9-a6#true-m63-s33-a7}+{1,21,6,32,16,20,26,19,44,7,33#53:26>>13#58:19>>18#89:33>>3}"
-    			+ "+{1,6,17,5,22,20,8,21,16,14,9}");
-    	Tor tor2 = new Tor(spiel, "true-m66-s33-a44");
-    	spiel.addGoal(tor2);  
-    	Tor tor3 = new Tor(spiel, "true-m80-s44-a18");
-    	spiel.addGoal(tor3);
-//    	ligen[0].setSpiel(25, 3, spiel);
-    	log("\n");
-    	
     	jBtnZurueckActionPerformed();
-    	
     	
         log("\n\n");
     }
@@ -189,7 +177,7 @@ public class Start extends JFrame {
             {
                 jBtnZurueck = new JButton();
                 getContentPane().add(jBtnZurueck);
-                jBtnZurueck.setBounds(20, 10, 150, 30);
+                jBtnZurueck.setBounds(REC_BTNZURUECK);
                 jBtnZurueck.setText("zurueck");
                 jBtnZurueck.setVisible(false);
                 jBtnZurueck.setFocusable(false);
@@ -299,8 +287,6 @@ public class Start extends JFrame {
         	LigaHomescreen.setLayout(null);
         	LigaHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	LigaHomescreen.setVisible(false);
-        	LigaHomescreen.setOpaque(true);
-        	LigaHomescreen.setBackground(Color.green);
         }
     	{
     		jLblWettbewerb = new JLabel();
@@ -407,8 +393,6 @@ public class Start extends JFrame {
         	GruppenphaseHomescreen.setLayout(null);
         	GruppenphaseHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	GruppenphaseHomescreen.setVisible(false);
-        	GruppenphaseHomescreen.setOpaque(true);
-        	GruppenphaseHomescreen.setBackground(Color.blue);
         }
     	{
     		KORundeHomescreen = new JPanel();
@@ -416,8 +400,6 @@ public class Start extends JFrame {
         	KORundeHomescreen.setLayout(null);
         	KORundeHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	KORundeHomescreen.setVisible(false);
-        	KORundeHomescreen.setOpaque(true);
-        	KORundeHomescreen.setBackground(Color.yellow);
         }
     }
 
@@ -478,6 +460,10 @@ public class Start extends JFrame {
     
     public char[] getAlphabet() {
     	return alphabet;
+    }
+    
+    public String getWorkspace() {
+    	return workspace;
     }
     
     public void jBtnLigenPressed(int index) {
@@ -854,7 +840,7 @@ public class Start extends JFrame {
 		ntd.toFront();
     }
     
-    public void addNewLeague(String name, int season, int numberOfTeams, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
+    public void addNewLeague(String name, int season, int numberOfTeams, int spGgSG, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
     	for (Liga liga : ligen) {
 			if (liga.getName().equals(name)) {
 				message("A league with this name already exists.");
@@ -878,6 +864,7 @@ public class Start extends JFrame {
 		daten = daten + "DKT*" + defaultKOTs + ";";
 		daten = daten + "ISSTSS*" + isSTSS + ";";
 		daten = daten + "A_MS*" + numberOfTeams + ";";
+		daten = daten + "A_SGDG*" + spGgSG + ";";
 		daten = daten + "A_CL*" + anzahlen[0] + ";";
 		daten = daten + "A_CLQ*" + anzahlen[1] + ";";
 		daten = daten + "A_EL*" + anzahlen[2] + ";";
@@ -902,7 +889,7 @@ public class Start extends JFrame {
     	}
     	
     	// Erstellen und Abspeichern des Spiel- und Ergebnisplans
-    	int numberOfMatchdays = 4 * (int) Math.round((double) numberOfTeams / 2) - 2;
+    	int numberOfMatchdays = spGgSG * (2 * (int) Math.round((double) numberOfTeams / 2) - 1);
     	int numberOfMatches = numberOfTeams / 2;
     	
     	String[] spielplan = new String[numberOfMatchdays + 1];
@@ -1295,4 +1282,3 @@ public class Start extends JFrame {
 		}
 	}
 }
-

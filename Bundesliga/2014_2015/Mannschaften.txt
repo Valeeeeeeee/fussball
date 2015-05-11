@@ -15,5 +15,5 @@ Eintracht Frankfurt;08.03.1899
 SC Freiburg;30.05.1904
 VfB Stuttgart;09.09.1893
 Hamburger SV;29.09.1887
-1.FC Köln;13.02.1948
+1. FC Köln;13.02.1948
 SC Paderborn 07;14.08.1907

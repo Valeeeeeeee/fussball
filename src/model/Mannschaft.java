@@ -20,6 +20,7 @@ public class Mannschaft {
 	private int anzahl_tminus;
 	private int tdiff;
 	private int punkte;
+	private int valuesCorrectAsOfMatchday = -1;
 	private int deductedPoints = 0;
 	
 	private int[][] daten;
@@ -126,6 +127,26 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
+	private void setValuesForMatchday(int untilMatchday) {
+		if (valuesCorrectAsOfMatchday == untilMatchday)	return;
+		
+		anzahl_g = anzahl_u = anzahl_v = anzahl_tplus = anzahl_tminus = 0;
+		for (int matchday = 0; matchday <= untilMatchday; matchday++) {
+			if (daten[matchday][3] == 3)		anzahl_g++;
+			else if (daten[matchday][3] == 1)	anzahl_u++;
+			else if (daten[matchday][1] < daten[matchday][2])	anzahl_v++;
+			
+			anzahl_tplus += daten[matchday][1];
+			anzahl_tminus += daten[matchday][2];
+		}
+		
+		anzahl_sp = anzahl_g + anzahl_u + anzahl_v;
+		punkte = 3 * anzahl_g + anzahl_u + deductedPoints;
+		tdiff = anzahl_tplus - anzahl_tminus;
+		
+		valuesCorrectAsOfMatchday = untilMatchday;
+	}
+	
 	public int get(int index, int firstMatchday, int lastMatchday) {
 		if (index == 9 || (index >= 2 && index <= 5)) {
 			int anzG = 0, anzU = 0, anzV = 0;
@@ -139,7 +160,7 @@ public class Mannschaft {
 			if (index == 3)	return anzG;
 			if (index == 4)	return anzU;
 			if (index == 5)	return anzV;
-			if (index == 9)	return 3 * anzG + anzU - deductedPoints;
+			if (index == 9)	return 3 * anzG + anzU + deductedPoints;
 		}
 		if (index >= 6 && index <= 8) {
 			int anzT = 0, anzGT = 0;
@@ -170,7 +191,8 @@ public class Mannschaft {
 		return null;
 	}
 
-	public int get(int index) {
+	public int get(int index, int untilMatchday) {
+		setValuesForMatchday(untilMatchday);
 		if (index == 0)	return this.platz;
 		if (index == 2)	return this.anzahl_sp;
 		if (index == 3)	return this.anzahl_g;
@@ -183,16 +205,12 @@ public class Mannschaft {
 		return -1;
 	}
 
-	public void set(int index, int value) {
-		if (index == 0)	this.platz = value;
-		if (index == 2)	this.anzahl_sp = value;
-		if (index == 3)	this.anzahl_g = value;
-		if (index == 4)	this.anzahl_u = value;
-		if (index == 5)	this.anzahl_v = value;
-		if (index == 6)	this.anzahl_tplus = value;
-		if (index == 7)	this.anzahl_tminus = value;
-		if (index == 8)	this.tdiff = value;
-		if (index == 9)	this.punkte = value;
+	public int getPlace() {
+		return this.platz;
+	}
+
+	public void setPlace(int value) {
+		this.platz = value;
 	}
 	
 	public boolean isSpielEntered(int matchday) {
@@ -385,7 +403,10 @@ public class Mannschaft {
 		return match;
 	}
 
-	public int compareWith(Mannschaft vergleich) {
+	public int compareWith(Mannschaft vergleich, int untilMatchday) {
+		this.setValuesForMatchday(untilMatchday);
+		vergleich.setValuesForMatchday(untilMatchday);
+		
 		if (this.punkte == vergleich.punkte) {
 			if (this.tdiff == vergleich.tdiff) {
 				if (this.anzahl_tplus == vergleich.anzahl_tplus) {
@@ -431,5 +452,4 @@ public class Mannschaft {
 
 		return data;
 	}
-
 }

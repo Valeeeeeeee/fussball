@@ -78,22 +78,9 @@ public class MyDateChooser extends JFrame {
 	private Rectangle RECMINUTETOUR =	new Rectangle(90, 40, 70, 30);
 	private Rectangle RECGOTOUR =		new Rectangle(260, 10, 70, 30);
 	
-//	original
-//	private Rectangle RECSTDAY =	new Rectangle(20, 40, 70, 30);
-//	private Rectangle RECSTMONTH =	new Rectangle(90, 40, 70, 30);
-//	private Rectangle RECSTYEAR =	new Rectangle(160, 40, 85, 30);
-//	private Rectangle RECDAY =		new Rectangle(20, 130, 70, 30);
-//	private Rectangle RECMONTH =	new Rectangle(100, 130, 70, 30);
-//	private Rectangle RECYEAR =		new Rectangle(180, 130, 85, 30);
-//	private Rectangle RECANSTOSS =	new Rectangle(20, 90, 110, 30);
-//	private Rectangle RECHOUR =		new Rectangle(20, 160, 70, 30);
-//	private Rectangle RECMINUTE =	new Rectangle(90, 160, 70, 30);
-//	private Rectangle RECGO =		new Rectangle(170, 90, 70, 30);
-	
 	
 	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
-	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};	// TODO Combobox mit Standardmoeglichkeiten (lg.tageseitfr && anst.zeitn) 
-																			// und eine Moeglichkeit zum eingeben eines speziellen datums (neue ausnahmeanstosszeit)
+	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
 	public MyDateChooser(Liga liga, Spieltag spieltag) {
 		super();
@@ -591,7 +578,3 @@ public class MyDateChooser extends JFrame {
 		return compared;
 	}
 }
-
-
-
-
