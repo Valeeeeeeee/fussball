@@ -21,7 +21,7 @@ public class Tor {
 		
 		this.toString = firstTeam + "-m" + minute + "-s-a" + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
-		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute");
 	}
 	
@@ -34,7 +34,7 @@ public class Tor {
 		
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
-		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonym());
 	}
 	
@@ -48,7 +48,7 @@ public class Tor {
 		
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber() + (ownGoal ? "-og" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
-		log("New goal for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
 			" and assisted by " + assistgeber.getPseudonym());
 	}

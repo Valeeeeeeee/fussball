@@ -775,7 +775,6 @@ public class SpielInformationen extends JFrame {
 	private void jRBOwnGoalSelectionChanged() {
 		log("Selection changed: is " + (jRBOwnGoal.isSelected() ? "" : "not ") + "selected");
 		
-		// TODO change eligible players upper arraylist
 		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
 	}

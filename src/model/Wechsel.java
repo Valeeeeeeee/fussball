@@ -20,8 +20,8 @@ public class Wechsel {
 		this.eingewechselterSpieler = eingSpieler;
 		
 		toString = minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
-		log("New substitution for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-				" in the " + minute + ". minute " + ausgewechselterSpieler.getPseudonym() + 
+		log("Substitution by " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+				", in the " + minute + ". minute " + ausgewechselterSpieler.getPseudonym() + 
 				" leaves the pitch and is replaced by " + eingewechselterSpieler.getPseudonym());
 	}
 	
