@@ -61,6 +61,10 @@ public class Tor {
 	public Spiel getSpiel() {
 		return spiel;
 	}
+	
+	public boolean isOwnGoal() {
+		return ownGoal;
+	}
 
 	public boolean isFirstTeam() {
 		return firstTeam;
