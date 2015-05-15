@@ -662,8 +662,6 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlEingabe.setVisible(true);
 		jTFMinute.requestFocus();
-		
-//		tore.add(editedGoal, tor);
 	}
 	
 	private void changeSubstitution(boolean firstTeam, int index) {
@@ -692,8 +690,6 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlEingabe.setVisible(true);
 		jTFMinute.requestFocus();
-		
-//		(firstTeam ? substitutionsHome : substitutionsAway).add(editedSubstitution, wechsel);
 	}
 	
 	private void setAmGruenenTisch(boolean isHomeTeam) {
