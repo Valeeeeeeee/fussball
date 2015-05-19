@@ -559,6 +559,10 @@ public class Spieltag extends JPanel {
 			}
 		}
 	}
+	
+	public void showMatchday(int matchday) {
+		jCBSpieltage.setSelectedIndex(matchday);
+	}
 
 	private void jCBSpieltageItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {

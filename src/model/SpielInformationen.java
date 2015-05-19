@@ -955,6 +955,7 @@ public class SpielInformationen extends JFrame {
 		enteringGoal = false;
 		
 		jRBOwnGoal.setSelected(false);
+		jRBOwnGoal.setVisible(false);
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
 		

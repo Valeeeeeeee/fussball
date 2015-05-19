@@ -20,6 +20,8 @@ public class Tabelle extends JPanel {
     
     private boolean belongsToALeague = false;
     
+    private int[] teamIndices;
+    
     private int ANZAHL_TEAMS;
     
     // for Liga
@@ -92,6 +94,7 @@ public class Tabelle extends JPanel {
             tabelle = new JLabel[ANZAHL_TEAMS][titelleist.length];
             titelleiste = new JLabel[titelleist.length];
             
+            teamIndices = new int[ANZAHL_TEAMS];
             
         	int sumofwidthes = 0;
             
@@ -120,14 +123,13 @@ public class Tabelle extends JPanel {
                     	tabelle[i][j].setCursor(new Cursor(Cursor.HAND_CURSOR));
                         tabelle[i][j].addMouseListener(new MouseAdapter() {
                         	public void mouseClicked(MouseEvent evt) {
-                                start.uebersichtAnzeigen(tabelle[x][1].getText());
+								start.uebersichtAnzeigen(teamIndices[x]);
                             }
 						});
                     } else {
                     	tabelle[i][j].setHorizontalAlignment(SwingConstants.CENTER);
                     }
                     tabelle[i][j].setBounds(startx + sumofwidthes, starty + i * (height + gapy), widthes[j], height);
-//                    tabelle[i][j].setOpaque(true);
                     sumofwidthes += widthes[j] + gapx[j];
                 }
             }
@@ -241,6 +243,7 @@ public class Tabelle extends JPanel {
     						lastIndexedPlace = nextPlace;
     					}
     				}
+    				teamIndices[nextPlace] = ms.getId();
     				nextPlace++;
     			}
     		}
@@ -265,7 +268,6 @@ public class Tabelle extends JPanel {
 	private void jCBSpieltageItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			currentMatchday = jCBSpieltage.getSelectedIndex();
-			log("\n\n\nShowing table for matchday " + currentMatchday + ":");
 			aktualisieren();
 		}
 	}
@@ -280,9 +282,9 @@ public class Tabelle extends JPanel {
 			log((i + 1) + ". " + order[i]);
 		}
     	if (belongsToALeague) {
-			dateiname += File.separator + liga.getName() + File.separator + "NeueReihenfolge.txt";
+			dateiname += File.separator + liga.getName() + File.separator + "Tabelle.txt";
     	} else {
-    		dateiname += File.separator + gruppe.getTournamentName() + File.separator + "Gruppe " + (gruppe.getID() + 1) + File.separator + "NeueReihenfolge.txt";
+    		dateiname += File.separator + gruppe.getTournamentName() + File.separator + "Gruppe " + (gruppe.getID() + 1) + File.separator + "Tabelle.txt";
     	}
     	log(dateiname);
     	inDatei(dateiname, order);
