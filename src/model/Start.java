@@ -53,7 +53,7 @@ public class Start extends JFrame {
     private int start_btnswidth = 400;
     private int start_btnsheight = 70;
     
-    private Rectangle REC_BTNZURUECK = new Rectangle(20, 10, 100, 30);
+    private Rectangle REC_BTNZURUECK = new Rectangle(10, 10, 100, 30);
     
     private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
     private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
