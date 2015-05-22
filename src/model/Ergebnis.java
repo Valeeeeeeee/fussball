@@ -122,7 +122,6 @@ public class Ergebnis {
 		}
 	}
 	
-
 	public int home() {
 		if (amGruenenTisch) {
 			return home(REGULAR);
@@ -238,5 +237,4 @@ public class Ergebnis {
 		data = home(PENALTIES) + ":" + away(PENALTIES) + "nE (" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + data + ")";
 		return data;
 	}
-	
 }

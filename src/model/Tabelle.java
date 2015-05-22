@@ -31,8 +31,6 @@ public class Tabelle extends JPanel {
     private int ANZAHL_REL;
     private int ANZAHL_ABS;
     
-    // TODO GUI for point deduction
-    
     // for Turnier
     private int ANZAHL_KORUNDE;
     private int ANZAHL_ZWISCHENRUNDE;
@@ -352,7 +350,6 @@ public class Tabelle extends JPanel {
     					jTFPunktabzuege[x].selectAll();
     				}
     			});
-    			
     		}
     	}
     	jLblPunktabzuege.setVisible(true);
