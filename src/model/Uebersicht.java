@@ -252,16 +252,18 @@ public class Uebersicht extends JPanel {
     }
     
     private void newKader() {
-    	// TODO estoy trabajando aquí
 		String[] positionen = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 		
-    	if (kaderLbls != null) {
+    	if (kaderLbls == null) {
+        	RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
+    		kaderPanel = new JPanel();
+        	this.add(kaderPanel);
+        	kaderPanel.setLayout(null);
+        	kaderPanel.setBounds(RECKADPNL);
+        	kaderPanel.setOpaque(true);
+        	kaderPanel.setBackground(cbackground);
+    	} else {
     		kaderPanel.removeAll();
-//    		for (int i = 0; i < numberOfPlayers; i++) {
-//    			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
-//    				kaderLbls[i][j].setVisible(false);
-//    			}
-//    		}
     	}
     	
     	ArrayList<Spieler> eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
@@ -269,16 +271,7 @@ public class Uebersicht extends JPanel {
     	
         kaderLbls = new JLabel[numberOfPlayers][NUMBEROFFIELDSKAD];
         kaderDescrLbls = new JLabel[numberOfPlayers];
-        RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
         
-        {
-        	kaderPanel = new JPanel();
-        	this.add(kaderPanel);
-        	kaderPanel.setLayout(null);
-        	kaderPanel.setBounds(RECKADPNL);
-        	kaderPanel.setOpaque(true);
-        	kaderPanel.setBackground(cbackground);
-        }
         int countSinceLastER = 0;
         int descrIndex = 0;
         for (int i = 0; i < numberOfPlayers; i++) {
