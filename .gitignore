@@ -2,6 +2,7 @@
 *.class
 *uefacoefficient*
 *5-Jahres-Wertung*
+Sicherungskopie*
 src/util/TestKlasse.java
 src/util/Spieldaten.java
 .settings/org.eclipse.jdt.core.prefs
