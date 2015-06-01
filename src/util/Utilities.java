@@ -102,13 +102,23 @@ public class Utilities {
 	
 	public static String removeUmlaute(String name) {
 		for (int i = 0; i < name.length(); i++) {
-			if (name.charAt(i) == 196)			name = name.substring(0, i) + "Ae" + name.substring(i + 1);
+			if (name.charAt(i) == 196)				name = name.substring(0, i) + "Ae" + name.substring(i + 1);
 			else if (name.charAt(i) == 214)			name = name.substring(0, i) + "Oe" + name.substring(i + 1);
 			else if (name.charAt(i) == 220)			name = name.substring(0, i) + "Ue" + name.substring(i + 1);
 			else if (name.charAt(i) == 228)			name = name.substring(0, i) + "ae" + name.substring(i + 1);
 			else if (name.charAt(i) == 246)			name = name.substring(0, i) + "oe" + name.substring(i + 1);
 			else if (name.charAt(i) == 252)			name = name.substring(0, i) + "ue" + name.substring(i + 1);
-			else if (name.charAt(i) == 223)			name = name.substring(0, i) + "ss" + name.substring(i + 1); // 196, 214, 220, 228, 246, 252 // 223
+			else if (name.charAt(i) == 223)			name = name.substring(0, i) + "ss" + name.substring(i + 1);
+			else if (name.charAt(i) == 193)			name = name.substring(0, i) + "A" + name.substring(i + 1);
+			else if (name.charAt(i) == 201)			name = name.substring(0, i) + "E" + name.substring(i + 1);
+			else if (name.charAt(i) == 205)			name = name.substring(0, i) + "I" + name.substring(i + 1);
+			else if (name.charAt(i) == 209)			name = name.substring(0, i) + "N" + name.substring(i + 1);
+			else if (name.charAt(i) == 211)			name = name.substring(0, i) + "O" + name.substring(i + 1);
+			else if (name.charAt(i) == 225)			name = name.substring(0, i) + "a" + name.substring(i + 1);
+			else if (name.charAt(i) == 233)			name = name.substring(0, i) + "e" + name.substring(i + 1);
+			else if (name.charAt(i) == 237)			name = name.substring(0, i) + "i" + name.substring(i + 1);
+			else if (name.charAt(i) == 241)			name = name.substring(0, i) + "n" + name.substring(i + 1);
+			else if (name.charAt(i) == 243)			name = name.substring(0, i) + "o" + name.substring(i + 1);
 		}
 		
 		return name;

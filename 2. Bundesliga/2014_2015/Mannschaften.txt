@@ -10,7 +10,7 @@ FC St. Pauli;01.01.1970
 1. FC Union Berlin;01.01.1970
 FC Ingolstadt 04;01.01.1970
 VfR Aalen;01.01.1970;-2
-SV Sandhausen;01.01.1970
+SV Sandhausen;01.01.1970;-3
 FSV Frankfurt;01.01.1970
 Erzgebirge Aue;01.01.1970
 VfL Bochum;01.01.1970

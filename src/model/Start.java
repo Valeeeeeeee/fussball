@@ -53,7 +53,7 @@ public class Start extends JFrame {
     private int start_btnswidth = 400;
     private int start_btnsheight = 70;
     
-    private Rectangle REC_BTNZURUECK = new Rectangle(20, 10, 100, 30);
+    private Rectangle REC_BTNZURUECK = new Rectangle(10, 10, 100, 30);
     
     private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
     private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
@@ -491,8 +491,11 @@ public class Start extends JFrame {
     		}
     		
 			aktuellerSpieltag = aktuelleLiga.getSpieltag();
+			getContentPane().add(aktuellerSpieltag);
     		aktuelleTabelle = aktuelleLiga.getTabelle();
+    		getContentPane().add(aktuelleTabelle);
     		aktuelleStatistik = aktuelleLiga.getLigaStatistik();
+    		getContentPane().add(aktuelleStatistik);
 		}
     }
     
@@ -566,7 +569,9 @@ public class Start extends JFrame {
     	LigaHomescreen.add(jBtnZurueck);
     	
     	aktuellerSpieltag = aktuelleGruppe.getSpieltag();
+		getContentPane().add(aktuellerSpieltag);
     	aktuelleTabelle = aktuelleGruppe.getTabelle();
+		getContentPane().add(aktuelleTabelle);
     	{
         	uebersicht = new Uebersicht(this, aktuelleGruppe);
             getContentPane().add(uebersicht);
@@ -704,7 +709,6 @@ public class Start extends JFrame {
     		if (aktuelleLiga.getNumberOfTeams() > 1) {
     			isCurrentlyInMatchdayView = true;
         		LigaHomescreen.setVisible(false);
-        		getContentPane().add(aktuellerSpieltag);
         		aktuellerSpieltag.add(jBtnZurueck);
         		aktuellerSpieltag.setVisible(true);
         		aktuellerSpieltag.spieltagAnzeigen();
@@ -715,7 +719,6 @@ public class Start extends JFrame {
     		if(aktuelleGruppe.getNumberOfTeams() > 1) {
     			isCurrentlyInMatchdayView = true;
     			LigaHomescreen.setVisible(false);
-    			getContentPane().add(aktuellerSpieltag);
     			aktuellerSpieltag.add(jBtnZurueck);
     			aktuellerSpieltag.setVisible(true);
     			aktuellerSpieltag.spieltagAnzeigen();
@@ -738,7 +741,6 @@ public class Start extends JFrame {
         		return;
     		}
     	}
-		getContentPane().add(aktuelleTabelle);
 		aktuelleTabelle.aktualisieren();
 		isCurrentlyInMatchdayView = false;
 		LigaHomescreen.setVisible(false);
@@ -747,7 +749,6 @@ public class Start extends JFrame {
     }
     
     public void jBtnStatistikActionPerformed() {
-		getContentPane().add(aktuelleStatistik);
 		aktuelleStatistik.updateGUI();
     	LigaHomescreen.setVisible(false);
     	aktuelleStatistik.add(jBtnZurueck);
@@ -762,30 +763,22 @@ public class Start extends JFrame {
         optionen.setVisible(true);
     }
     
-    public void uebersichtAnzeigen(String name) {
+    public void uebersichtAnzeigen(int index) {
         aktuelleTabelle.setVisible(false);
-        if (isCurrentlyALeague) {
-        	int index = aktuelleLiga.getIndexOfMannschaft(name);
-        	uebersicht.add(jBtnZurueck);
-        	uebersicht.setMannschaft(index);
-        	uebersicht.labelsBefuellen();
-        	uebersicht.setVisible(true);
-        } else {
-        	int index = -1, groupindex = -1;
-        	for (Gruppe gruppe : aktuellesTurnier.getGruppen()) {
-        		index = gruppe.getIndexOfMannschaft(name);
-        		if (index != -1) {
-        			groupindex = gruppe.getID();
-        			break;
-        		}
-        	}
-        	
-        	uebersicht.add(jBtnZurueck);
-        	uebersicht.setMannschaft(index);
-        	uebersicht.labelsBefuellen();
-        	uebersicht.setVisible(true);
-        }
-    	
+        
+        uebersicht.add(jBtnZurueck);
+    	uebersicht.setMannschaft(index);
+    	uebersicht.labelsBefuellen();
+    	uebersicht.setVisible(true);
+    }
+    
+    public void spieltagAnzeigen(int matchday) {
+    	uebersicht.setVisible(false);
+		aktuellerSpieltag.add(jBtnZurueck);
+		aktuellerSpieltag.setVisible(true);
+		aktuellerSpieltag.spieltagAnzeigen();
+    	aktuellerSpieltag.showMatchday(matchday);
+		isCurrentlyInMatchdayView = true;
     }
     
     public void teamsVerbessern() {

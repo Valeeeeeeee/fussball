@@ -108,10 +108,14 @@ public class Spiel {
 		return this.tore;
 	}
 	
-	public void addGoal(int index, Tor tor) {
+	public void addGoal(Tor tor) {
 		if (tor != null) {
-			tore.add(tor);
-			ergebnis = new Ergebnis(ergebnis != null ? ergebnis : new Ergebnis("0:0"), tor);
+			int index = 0;
+			for (int i = 0; i < tore.size(); i++) {
+				if (tore.get(i).getMinute() <= tor.getMinute())	index++;
+			}
+			tore.add(index, tor);
+			ergebnis = new Ergebnis(tore);
 		}
 	}
 	
@@ -119,10 +123,20 @@ public class Spiel {
 		return firstTeam ? substitutionsHome : substitutionsAway;
 	}
 	
-	public void addSubstitution(int index, Wechsel substitution) {
+	public void addSubstitution(Wechsel substitution) {
 		if (substitution != null) {
-			if (substitution.isFirstTeam())	substitutionsHome.add(substitution);
-			else							substitutionsAway.add(substitution);
+			int index = 0;
+			if (substitution.isFirstTeam()) {
+				for (int i = 0; i < substitutionsHome.size(); i++) {
+					if (substitutionsHome.get(i).getMinute() <= substitution.getMinute())	index++;
+				}
+				substitutionsHome.add(index, substitution);
+			} else {
+				for (int i = 0; i < substitutionsAway.size(); i++) {
+					if (substitutionsAway.get(i).getMinute() <= substitution.getMinute())	index++;
+				}
+				substitutionsAway.add(index, substitution);
+			}
 		}
 	}
 	
@@ -210,7 +224,7 @@ public class Spiel {
 			}
 			for (int i = 1; i < hashSplit.length; i++) {
 				Wechsel wechsel = new Wechsel(this, firstTeam, hashSplit[i]);
-				addSubstitution(i - 1, wechsel);
+				addSubstitution(wechsel);
 			}
 		}
 		
