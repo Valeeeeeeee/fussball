@@ -1,29 +1,27 @@
-Sascha;Burchert;19891030;Deutschland;Tor;Hertha BSC;30
-Marius;Gersbeck;19950620;Deutschland;Tor;Hertha BSC;35
-Rune;Jarstein;19840929;Norwegen;Tor;Hertha BSC;22
-Thomas;Kraft;19880722;Deutschland;Tor;Hertha BSC;1
-John Anthony;Brooks;19930128;Deutschland, USA;Abwehr;Hertha BSC;25
-John;Heitinga;19831115;Niederlande;Abwehr;Hertha BSC;5
-Christoph;Janker;19850214;Deutschland;Abwehr;Hertha BSC;6
-Sebastian;Langkamp;19880115;Deutschland;Abwehr;Hertha BSC;15
-Fabian;Lustenberger;19880502;Schweiz;Abwehr;Hertha BSC;28
-Peter;Pekarik;19861030;Slowakei;Abwehr;Hertha BSC;2
-Marvin;Plattenhardt;19920126;Deutschland;Abwehr;Hertha BSC;21
-Johannes;van den Bergh;19861121;Deutschland;Abwehr;Hertha BSC;23
-Alexander;Baumjohann;19870123;Deutschland;Mittelfeld;Hertha BSC;9
-Roy;Beerens;19871222;Niederlande;Mittelfeld;Hertha BSC;27
-Änis;Ben-Hatira;19880718;Deutschland, Tunesien;Mittelfeld;Hertha BSC;10
-Tolga;Cigerci;19920323;Deutschland;Mittelfeld;Hertha BSC;17
-Genki;Haraguchi;19910509;Japan;Mittelfeld;Hertha BSC;24
-Jens;Hegeler;19880122;Deutschland;Mittelfeld;Hertha BSC;13
-Hajime;Hosogai;19860610;Japan;Mittelfeld;Hertha BSC;7
-Hany;Mukhtar;19950321;Deutschland;Mittelfeld;Hertha BSC;34
-Marcel;Ndjeng;19820506;Deutschland, Kamerun;Mittelfeld;Hertha BSC;8
-Peter;Niemeyer;19831122;Deutschland;Mittelfeld;Hertha BSC;18
-Ronny Heberson Furtado;de Araujo;19860511;Brasilien;Mittelfeld;Hertha BSC;12
-Nico;Schulz;19930401;Deutschland;Mittelfeld;Hertha BSC;26
-Per Ciljan;Skjelbred;19870616;Norwegen;Mittelfeld;Hertha BSC;3
-Valentin;Stocker;19890412;Schweiz;Mittelfeld;Hertha BSC;14
-Salomon;Kalou;19850805;Elfenbeinküste;Sturm;Hertha BSC;11
-Julian;Schieber;19890213;Deutschland;Sturm;Hertha BSC;16
-Sandro;Wagner;19871129;Deutschland;Sturm;Hertha BSC;33
+Sascha;Burchert;null;19891030;Deutschland;Tor;30
+Rune;Jarstein;null;19840929;Norwegen;Tor;22
+Thomas;Kraft;null;19880722;Deutschland;Tor;1
+John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
+John;Heitinga;null;19831115;Niederlande;Abwehr;5
+Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
+Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
+Peter;Pekarik;null;19861030;Slowakei;Abwehr;2
+Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
+Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;23
+Alexander;Baumjohann;null;19870123;Deutschland;Mittelfeld;9
+Roy;Beerens;null;19871222;Niederlande;Mittelfeld;27
+Änis;Ben-Hatira;null;19880718;Deutschland, Tunesien;Mittelfeld;10
+Tolga;Cigerci;null;19920323;Deutschland;Mittelfeld;17
+Genki;Haraguchi;null;19910509;Japan;Mittelfeld;24
+Jens;Hegeler;null;19880122;Deutschland;Mittelfeld;13
+Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
+Marcel;Ndjeng;null;19820506;Deutschland, Kamerun;Mittelfeld;8
+Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
+Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;26
+Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
+Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14
+Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;11;-20140831
+Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;11;20140901-
+Julian;Schieber;null;19890213;Deutschland;Sturm;16
+Sandro;Wagner;null;19871129;Deutschland;Sturm;33

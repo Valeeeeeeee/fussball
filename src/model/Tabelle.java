@@ -12,26 +12,31 @@ public class Tabelle extends JPanel {
     private static final long serialVersionUID = 2308780445852600421L;
     
     private Start start;
-    private Gruppe gruppe;
+    private Wettbewerb wettbewerb;
     private Liga liga;
+    private Gruppe gruppe;
+    
+    private int currentMatchday = -1;
     
     private boolean belongsToALeague = false;
     
-    int ANZAHL_TEAMS;
+    private int ANZAHL_TEAMS;
     
     // for Liga
-    int ANZAHL_CL;
-    int ANZAHL_CLQ;
-    int ANZAHL_EL;
-    int ANZAHL_REL;
-    int ANZAHL_ABS;
+    private int ANZAHL_CL;
+    private int ANZAHL_CLQ;
+    private int ANZAHL_EL;
+    private int ANZAHL_REL;
+    private int ANZAHL_ABS;
+    
+    // TODO GUI for point deduction
     
     // for Turnier
-    int ANZAHL_KORUNDE;
-    int ANZAHL_ZWISCHENRUNDE;
-    int ANZAHL_AUSGESCHIEDEN;
+    private int ANZAHL_KORUNDE;
+    private int ANZAHL_ZWISCHENRUNDE;
+    private int ANZAHL_AUSGESCHIEDEN;
     
-    String[] titelleist = {"Pl.", "Name", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
+    private String[] titelleist = {"Pl.", "Name", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
     
     private JLabel[] titelleiste;
     private JLabel[][] tabelle;
@@ -42,14 +47,17 @@ public class Tabelle extends JPanel {
     private int[] gapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
     private int gapy = 15;
     
-    private Rectangle REC_SAVETABLE = new Rectangle(250, 10, 150, 30);
+	private Rectangle REC_COMBO = new Rectangle(125, 10, 130, 30);
+    private Rectangle REC_SAVETABLE = new Rectangle(260, 10, 150, 30);
     
+    private JComboBox<String> jCBSpieltage;
     private JButton tabelleSichern;
     
     public Tabelle(Start start, Gruppe gruppe) {
     	super();
     	this.start = start;
     	this.gruppe = gruppe;
+    	this.wettbewerb = gruppe;
     	this.belongsToALeague = false;
     	
     	this.ANZAHL_TEAMS = gruppe.getNumberOfTeams();
@@ -64,6 +72,7 @@ public class Tabelle extends JPanel {
     	super();
     	this.start = start;
     	this.liga = liga;
+    	this.wettbewerb = liga;
     	this.belongsToALeague = true;
     	
     	this.ANZAHL_TEAMS = liga.getNumberOfTeams();
@@ -122,7 +131,22 @@ public class Tabelle extends JPanel {
                     sumofwidthes += widthes[j] + gapx[j];
                 }
             }
-            
+            {
+				String[] hilfsarray = new String[wettbewerb.getNumberOfMatchdays()];
+				for (int i = 0; i < wettbewerb.getNumberOfMatchdays(); i++) {
+					hilfsarray[i] = (i + 1) + ". Spieltag";
+				}
+				jCBSpieltage = new JComboBox<String>();
+				this.add(jCBSpieltage);
+				jCBSpieltage.setModel(new DefaultComboBoxModel<String>(hilfsarray));
+				jCBSpieltage.setBounds(REC_COMBO);
+				jCBSpieltage.setFocusable(false);
+				jCBSpieltage.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent evt) {
+						jCBSpieltageItemStateChanged(evt);
+					}
+				});
+			}
             {
             	tabelleSichern = new JButton();
             	this.add(tabelleSichern);
@@ -201,15 +225,14 @@ public class Tabelle extends JPanel {
     	int nextPlace = 0; // index in der Tabelle
     	int lastIndexedPlace = 0;
     	
-    	Mannschaft[] mannschaften;
-    	if (belongsToALeague)	mannschaften = liga.getMannschaften();
-    	else					mannschaften = gruppe.getMannschaften();
+    	Mannschaft[] mannschaften = wettbewerb.getMannschaften();
     	
     	for (int i = 0; i < tabelle.length; i++) {
     		for (Mannschaft ms : mannschaften) {
-    			if (ms.get(0) == i) {
+    			if (ms.getPlace() == i) {
     				for (int j = 0; j < tabelle[i].length; j++) {
     	                tabelle[nextPlace][j].setText(ms.getString(j));
+    	                tabelle[nextPlace][j].repaint();
     	            }
     				if (nextPlace >= 1) {
     					if (tabelle[nextPlace][0].getText().equals(tabelle[lastIndexedPlace][0].getText())) {
@@ -225,32 +248,27 @@ public class Tabelle extends JPanel {
     }
     
     public void aktualisieren() {
-    	if (belongsToALeague) {
-    		// is a league
-    		for (Mannschaft ms : liga.getMannschaften()) {
-            	ms.set(0, 0);
-            	for (Mannschaft ms2 : liga.getMannschaften()) {
-            		int besser = ms.compareWith(ms2);
-            		if (besser == 2) {
-            			ms.set(0, ms.get(0) + 1);
-            		}
-            	}
-            }
-    	} else {
-    		// is a tournament
-    		for (Mannschaft ms : gruppe.getMannschaften()) {
-            	ms.set(0, 0);
-            	for (Mannschaft ms2 : gruppe.getMannschaften()) {
-            		int besser = ms.compareWith(ms2);
-            		if (besser == 2) {
-            			ms.set(0, ms.get(0) + 1);
-            		}
-            	}
-            }
-    	}
+    	if (currentMatchday == -1)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
+		for (Mannschaft ms : wettbewerb.getMannschaften()) {
+			ms.setPlace(0);
+        	for (Mannschaft ms2 : wettbewerb.getMannschaften()) {
+        		int besser = ms.compareWith(ms2, currentMatchday);
+        		if (besser == 2) {
+        			ms.setPlace(ms.getPlace() + 1);
+        		}
+        	}
+        }
         
         this.labelsbefuellen();
     }
+
+	private void jCBSpieltageItemStateChanged(ItemEvent evt) {
+		if (evt.getStateChange() == ItemEvent.SELECTED) {
+			currentMatchday = jCBSpieltage.getSelectedIndex();
+			log("\n\n\nShowing table for matchday " + currentMatchday + ":");
+			aktualisieren();
+		}
+	}
     
     public void tabelleSichern() {
     	String[] order = new String[tabelle.length];
@@ -269,9 +287,4 @@ public class Tabelle extends JPanel {
     	log(dateiname);
     	inDatei(dateiname, order);
     }
-    
 }
-
-
-
-

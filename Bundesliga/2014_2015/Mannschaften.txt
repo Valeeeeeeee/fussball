@@ -1,19 +1,19 @@
 18
-Bayern München;27.02.1900;
-Borussia Dortmund;19.12.1909;
-FC Schalke 04;04.05.1904;
-Bayer 04 Leverkusen;01.07.1904;
-VfL Wolfsburg;12.09.1945;
-Borussia Mönchengladbach;01.08.1900;
-1. FSV Mainz 05;16.03.1905;
-FC Augsburg;08.08.1907;
-TSG 1899 Hoffenheim;01.07.1899;
-Hannover 96;12.04.1896;
-Hertha BSC;25.07.1892;
-Werder Bremen;04.02.1899;
-Eintracht Frankfurt;08.03.1899;
-SC Freiburg;30.05.1904;
-VfB Stuttgart;09.09.1893;
-Hamburger SV;29.09.1887;
-1.FC Köln;13.02.1948;
-SC Paderborn 07;14.08.1907;
+Bayern München;27.02.1900
+Borussia Dortmund;19.12.1909
+FC Schalke 04;04.05.1904
+Bayer 04 Leverkusen;01.07.1904
+VfL Wolfsburg;12.09.1945
+Borussia Mönchengladbach;01.08.1900
+1. FSV Mainz 05;16.03.1905
+FC Augsburg;08.08.1907
+TSG 1899 Hoffenheim;01.07.1899
+Hannover 96;12.04.1896
+Hertha BSC;25.07.1892
+Werder Bremen;04.02.1899
+Eintracht Frankfurt;08.03.1899
+SC Freiburg;30.05.1904
+VfB Stuttgart;09.09.1893
+Hamburger SV;29.09.1887
+1. FC Köln;13.02.1948
+SC Paderborn 07;14.08.1907

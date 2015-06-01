@@ -1,25 +1,24 @@
-Dario;Kresic;19840111;Kroatien;Tor;Bayer 04 Leverkusen;25
-Bernd;Leno;19920304;Deutschland;Tor;Bayer 04 Leverkusen;1
-Niklas;Lomb;19930728;Deutschland;Tor;Bayer 04 Leverkusen;36
-David;Yelldell;19811001;Deutschland, USA;Tor;Bayer 04 Leverkusen;22
-Sebastian;Boenisch;19870201;Deutschland, Polen;Abwehr;Bayer 04 Leverkusen;17
-Giulio;Donati;19900205;Italien;Abwehr;Bayer 04 Leverkusen;26
-Roberto;Hilbert;19841016;Deutschland;Abwehr;Bayer 04 Leverkusen;13
-Tin;Jedvaj;19951128;Kroatien;Abwehr;Bayer 04 Leverkusen;16
-Kyriakos;Papadopoulos;19920223;Griechenland;Abwehr;Bayer 04 Leverkusen;14
-Emir;Spahic;19800818;Bosnien-Herzegowina;Abwehr;Bayer 04 Leverkusen;5
-Ömer;Toprak;19890721;Deutschland, Türkei;Abwehr;Bayer 04 Leverkusen;21
-Wendell;Nascimento Borges;19930720;Brasilien;Abwehr;Bayer 04 Leverkusen;18
-Lars;Bender;19890427;Deutschland;Mittelfeld;Bayer 04 Leverkusen;8
-Hakan;Calhanoglu;19940208;Deutschland, Türkei;Mittelfeld;Bayer 04 Leverkusen;10
-Gonzalo;Castro;19870611;Deutschland;Mittelfeld;Bayer 04 Leverkusen;27
-Levin;Öztunali;19960315;Deutschland;Mittelfeld;Bayer 04 Leverkusen;15
-Stefan;Reinartz;19890101;Deutschland;Mittelfeld;Bayer 04 Leverkusen;3
-Simon;Rolfes;19820121;Deutschland;Mittelfeld;Bayer 04 Leverkusen;6
-Vladlen;Yurchenko;19940122;Ukraine;Mittelfeld;Bayer 04 Leverkusen;35
-Karim;Bellarabi;19900408;Deutschland;Sturm;Bayer 04 Leverkusen;38
-Julian;Brandt;19960502;Deutschland;Sturm;Bayer 04 Leverkusen;19
-Josip;Drmic;19920808;Schweiz;Sturm;Bayer 04 Leverkusen;9
-Stefan;Kießling;19840125;Deutschland;Sturm;Bayer 04 Leverkusen;11
-Robbie;Kruse;19881005;Australien;Sturm;Bayer 04 Leverkusen;23
-Heung-Min;Son;19920708;Südkorea;Sturm;Bayer 04 Leverkusen;7
+Dario;Kresic;null;19840111;Kroatien;Tor;25
+Bernd;Leno;null;19920304;Deutschland;Tor;1
+David;Yelldell;null;19811001;Deutschland, USA;Tor;22
+Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;17
+Giulio;Donati;null;19900205;Italien;Abwehr;26
+Roberto;Hilbert;null;19841016;Deutschland;Abwehr;13
+Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
+Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;14
+Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;5
+Ömer;Toprak;null;19890721;Deutschland, Türkei;Abwehr;21
+Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
+Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
+Hakan;Calhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
+Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
+Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15;-20141231
+Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;3
+Simon;Rolfes;null;19820121;Deutschland;Mittelfeld;6
+Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
+Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
+Julian;Brandt;null;19960502;Deutschland;Sturm;19
+Josip;Drmic;null;19920808;Schweiz;Sturm;9
+Stefan;Kießling;null;19840125;Deutschland;Sturm;11
+Robbie;Kruse;null;19881005;Australien;Sturm;23
+Heung-Min;Son;null;19920708;Südkorea;Sturm;7

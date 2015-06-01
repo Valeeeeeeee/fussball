@@ -1,20 +1,31 @@
 package util;
 
-import static util.Utilities.log;
-
 import java.io.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
 import model.Ergebnis;
+import model.MyDate;
+import model.Spieler;
+import model.Start;
 
 public class Utilities {
 	
+	public static final int STARTX = 0;
+	public static final int STARTY = 1;
+	public static final int GAPX = 2;
+	public static final int GAPY = 3;
+	public static final int SIZEX = 4;
+	public static final int SIZEY = 5;
+	
 	public static void main(String[] args) {
-//		testAusDatei();
 		
-		testErgebnisse();
+		boolean testing = false;
+		if (testing) {
+			testAusDatei();
+			testErgebnisse();
+		}
 	}
 	
 	private static void testErgebnisse() {
@@ -57,6 +68,10 @@ public class Utilities {
 		return JOptionPane.showInputDialog(message);
 	}
 	
+	public static String inputDialog(String message, String initialValue) {
+		return JOptionPane.showInputDialog(message, initialValue);
+	}
+	
 	public static int yesNoDialog(String message) {
 		return JOptionPane.showConfirmDialog(null, message, "", JOptionPane.YES_NO_OPTION);
 	}
@@ -97,6 +112,22 @@ public class Utilities {
 		}
 		
 		return name;
+	}
+	
+	public static boolean inThePast(int date, int time) {
+		if (date < Start.today())	return true;
+		if (date > Start.today())	return false;
+		return time < MyDate.newMyTime();
+	}
+	
+	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
+		ArrayList<Spieler> clone = new ArrayList<>();
+		
+		for (Spieler spieler : list) {
+			clone.add(spieler);
+		}
+		
+		return clone;
 	}
 	
 	public static String[] ausDatei(String dateiname) {
@@ -171,8 +202,35 @@ public class Utilities {
 //			ioe.printStackTrace();
 		}
 	}
+	
+	public static void inDatei(String dateiname, ArrayList<String> strings) {
+		try {
+			File file = new File(dateiname);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			
+			BufferedWriter out = null;
+			try {
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				for (int i = 0; i < strings.size(); i++) {
+					out.write(strings.get(i));
+					out.newLine();
+				}
+			} catch (Exception e) {
+				log(e.getClass().getName() + " while writing in file " + dateiname);
+			} finally {
+				if (out != null) {
+					try {
+						out.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		} catch (IOException ioe) {
+			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
+//			ioe.printStackTrace();
+		}
+	}
 }
-
-
-
-

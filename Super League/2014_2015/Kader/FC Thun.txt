@@ -1,25 +1,25 @@
-Guillaume;Faivre;19870220;Schweiz;Tor;FC Thun;1
-Christian;Leite;19851109;Brasilien, Schweiz;Tor;FC Thun;22
-Francesco;Ruberto;19930319;Schweiz;Tor;FC Thun;18
-Kevin;Bigler;19921005;Schweiz;Abwehr;FC Thun;25
-Stefan;Glarner;19871121;Schweiz;Abwehr;FC Thun;31
-Thomas;Reinmann;19830409;Schweiz;Abwehr;FC Thun;26
-Lukas;Schenkel;19840401;Schweiz, Südafrika;Abwehr;FC Thun;3
-Nicolas;Schindelholz;19880212;Schweiz;Abwehr;FC Thun;14
-Enrico;Schirinzi;19841114;Italien;Abwehr;FC Thun;27
-Fulvio;Sulmoni;19860104;Schweiz;Abwehr;FC Thun;5
-Andreas;Wittwer;19901005;Schweiz;Abwehr;FC Thun;28
-Nelson;Ferreira;19820526;Portugal;Mittelfeld;FC Thun;21
-Gianluca;Frontino;19891129;Schweiz;Mittelfeld;FC Thun;7
-Alexander;González;19920913;Venezuela;Mittelfeld;FC Thun;30
-Dennis;Hediger;19860922;Schweiz;Mittelfeld;FC Thun;17
-Marco;Mangold;19870407;Schweiz;Mittelfeld;FC Thun;23
-Adrien;Rawyler;19930613;Schweiz;Mittelfeld;FC Thun;40
-Marco;Rojas;19911105;Neuseeland, Chile;Mittelfeld;FC Thun;10
-Michael;Siegfried;19880218;Schweiz;Mittelfeld;FC Thun;8
-Nicola;Sutter;19950508;Schweiz;Mittelfeld;FC Thun;34
-Lotem;Zino;19920316;Israel;Mittelfeld;FC Thun;15
-Elvedin;Causi;19920602;Schweiz;Sturm;FC Thun;11
-Gaëtan;Karlen;19930607;Schweiz;Sturm;FC Thun;19
-Ridge;Munsy;19890709;DR Kongo;Sturm;FC Thun;20
-Berat;Sadik;19860914;Finnland, Türkei;Sturm;FC Thun;9
+Guillaume;Faivre;null;19870220;Schweiz;Tor;1
+Christian;Leite;null;19851109;Brasilien, Schweiz;Tor;22
+Francesco;Ruberto;null;19930319;Schweiz;Tor;18
+Kevin;Bigler;null;19921005;Schweiz;Abwehr;25
+Stefan;Glarner;null;19871121;Schweiz;Abwehr;31
+Thomas;Reinmann;null;19830409;Schweiz;Abwehr;26
+Lukas;Schenkel;null;19840401;Schweiz, Südafrika;Abwehr;3
+Nicolas;Schindelholz;null;19880212;Schweiz;Abwehr;14
+Enrico;Schirinzi;null;19841114;Italien;Abwehr;27
+Fulvio;Sulmoni;null;19860104;Schweiz;Abwehr;5
+Andreas;Wittwer;null;19901005;Schweiz;Abwehr;28
+Nelson;Ferreira;null;19820526;Portugal;Mittelfeld;21
+Gianluca;Frontino;null;19891129;Schweiz;Mittelfeld;7
+Alexander;González;null;19920913;Venezuela;Mittelfeld;30
+Dennis;Hediger;null;19860922;Schweiz;Mittelfeld;17
+Marco;Mangold;null;19870407;Schweiz;Mittelfeld;23
+Adrien;Rawyler;null;19930613;Schweiz;Mittelfeld;40
+Marco;Rojas;null;19911105;Neuseeland, Chile;Mittelfeld;10
+Michael;Siegfried;null;19880218;Schweiz;Mittelfeld;8
+Nicola;Sutter;null;19950508;Schweiz;Mittelfeld;34
+Lotem;Zino;null;19920316;Israel;Mittelfeld;15
+Elvedin;Causi;null;19920602;Schweiz;Sturm;11
+Gaëtan;Karlen;null;19930607;Schweiz;Sturm;19
+Ridge;Munsy;null;19890709;DR Kongo;Sturm;20
+Berat;Sadik;null;19860914;Finnland, Türkei;Sturm;9

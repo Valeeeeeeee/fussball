@@ -28,29 +28,30 @@ public class Liga implements Wettbewerb {
 	
 	private Mannschaft[] mannschaften;
 	
-    String workspace;
-    String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-    String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
+	private String workspace;
     
-    String dateiTeams;
-	String[] teamsFromFile;
+    private String dateiTeams;
+    private String[] teamsFromFile;
     
-	String dateiSpielplan;
-	String[] spielplanFromFile;
+	private String dateiSpielplan;
+	private String[] spielplanFromFile;
     private boolean[][] spielplanEingetragen;
     /**
      * [spieltag][spiel]
      */
     private Spiel[][] spielplan;
     
-    String dateiErgebnisse;
-    String[] ergebnisseFromFile;
+    private String dateiErgebnisse;
+    private String[] ergebnisseFromFile;
     private boolean[][] ergebnisplanEingetragen;
     /**
      * [spieltag][spiel]
      */
 	private Ergebnis[][] ergebnisplan;
     
+	private String dateiSpieldaten;
+	private String[] spieldatenFromFile;
+	
     private int[][] datesAndTimes;
     
     private int numberOfKickoffTimes;
@@ -61,22 +62,22 @@ public class Liga implements Wettbewerb {
     
     private Spieltag spieltag;
     private Tabelle tabelle;
-    
+    private LigaStatistik statistik;
     
 	public Liga(int id, Start start, String daten) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		this.start = start;
 		fromString(daten);
 		this.mannschaften = new Mannschaft[0];
 	}
 	
 	public Liga(int id, Start start, String name, int anz_MS, int nOMASO, int anzCL, int anzCLQ, int anzEL, int anzREL, int anzABS) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		this.start = start;
 		this.name = name;
 		this.mannschaften = new Mannschaft[0];
 		
@@ -92,8 +93,12 @@ public class Liga implements Wettbewerb {
 		return this.spieltag;
 	}
 	
-	public Tabelle getTable() {
+	public Tabelle getTabelle() {
 		return this.tabelle;
+	}
+	
+	public LigaStatistik getLigaStatistik() {
+		return this.statistik;
 	}
 	
 	public int getCurrentMatchday() {
@@ -163,6 +168,7 @@ public class Liga implements Wettbewerb {
 		else								saison = "" + saisons[aktuelleSaison];
 		
         dateiErgebnisse = workspace + File.separator + name + File.separator + saison + File.separator + "Ergebnisse.txt";
+        dateiSpieldaten = workspace + File.separator + name + File.separator + saison + File.separator + "Spieldaten.txt";
         dateiSpielplan = workspace + File.separator + name + File.separator + saison + File.separator + "Spielplan.txt";
     	dateiTeams = workspace + File.separator + name + File.separator + saison + File.separator + "Mannschaften.txt";
     	
@@ -180,9 +186,10 @@ public class Liga implements Wettbewerb {
         
         spielplanLaden();
         ergebnisplanLaden();
+        spieldatenLaden();
         
         if (spieltag == null) {
-            spieltag = new Spieltag(this.start, this);
+            spieltag = new Spieltag(start, this);
             spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         } else {
@@ -190,8 +197,13 @@ public class Liga implements Wettbewerb {
         }
         if (tabelle == null) {
             tabelle = new Tabelle(start, this);
-            tabelle.setLocation((1440 - tabelle.getSize().width) / 2, 50);
+            tabelle.setLocation((start.WIDTH - tabelle.getSize().width) / 2, 50);
             tabelle.setVisible(false);
+        }
+        if (statistik == null) {
+        	statistik = new LigaStatistik(this);
+        	statistik.setLocation((start.WIDTH - statistik.getSize().width) / 2, 50);
+        	statistik.setVisible(false);
         }
         
 //        testIsSpielplanEntered();
@@ -201,6 +213,7 @@ public class Liga implements Wettbewerb {
 	public void speichern() throws Exception {
 		this.spielplanSchreiben();
 		this.ergebnisplanSchreiben();
+		this.spieldatenSchreiben();
 		this.mannschaftenSchreiben();
 	}
 	
@@ -308,6 +321,10 @@ public class Liga implements Wettbewerb {
 		return this.name;
 	}
 	
+	public String getMatchdayDescription(int matchday) {
+		return name + ", " + (matchday + 1) + ". Spieltag";
+	}
+	
 	public int getAnzahlCL() {
 		return this.ANZAHL_CL;
 	}
@@ -326,24 +343,6 @@ public class Liga implements Wettbewerb {
 	
 	public int getAnzahlABS() {
 		return this.ANZAHL_ABS;
-	}
-	
-	public String getDateOfTeam(int matchday, int id) {
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
-			if (isSpielplanEntered(matchday, match)) {
-				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)	return getDateOf(matchday, match);
-			}
-		}
-		
-		return "n.a.";
-	}
-	
-	public String getDateOf(int matchday, int spiel) {
-		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday && getDate(matchday) != 0)
-			return MyDate.datum(this.getDate(matchday), this.daysSinceDST[this.getKOTIndex(matchday, spiel)])
-				+ " " + MyDate.uhrzeit(this.kickoffTimes[this.getKOTIndex(matchday, spiel)]);
-		else
-			return "nicht terminiert";
 	}
 	
 	@SuppressWarnings("unused")
@@ -454,6 +453,7 @@ public class Liga implements Wettbewerb {
 		if (ergebnis != null)	setErgebnisplanEntered(matchday, match, true);
 		else					setErgebnisplanEntered(matchday, match, false);
 		ergebnisplan[matchday][match] = ergebnis;
+		if (isSpielplanEntered(matchday, match))	getSpiel(matchday, match).setErgebnis(ergebnis);
 	}
 	
 	// Spielplan
@@ -565,7 +565,7 @@ public class Liga implements Wettbewerb {
 			}
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldSpiel = getSpiel(matchdayOld, j);
-				spieleInNewOrder[j] = new Spiel(this, oldSpiel.away(), oldSpiel.home());
+				spieleInNewOrder[j] = new Spiel(this, matchdayNew, this.datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
 			}
 			for (int j = 0; j < spieleInNewOrder.length; j++) {
 				for (int k = j + 1; k < spieleInNewOrder.length; k++) {
@@ -584,6 +584,24 @@ public class Liga implements Wettbewerb {
 		
 	}
 	
+	public String getDateOfTeam(int matchday, int id) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			if (isSpielplanEntered(matchday, match)) {
+				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)
+					return getDateAndTime(matchday, match);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
+	public String getDateAndTime(int matchday, int match) {
+		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday && getDate(matchday) != 0)
+			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
+		else
+			return "nicht terminiert";
+	}
+	
 	public int getDate(int matchday) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays)	return datesAndTimes[matchday][0];
 		else													return this.datesAndTimes[0][0];
@@ -599,6 +617,14 @@ public class Liga implements Wettbewerb {
 	
 	public void setKOTIndex(int matchday, int match, int index) {
 		datesAndTimes[matchday][match + 1] = index;
+	}
+	
+	public int getDate(int matchday, int match) {
+		return MyDate.verschoben(datesAndTimes[matchday][0], daysSinceDST[datesAndTimes[matchday][match + 1]]);
+	}
+	
+	public int getTime(int matchday, int match) {
+		return this.kickoffTimes[this.getKOTIndex(matchday, match)];
 	}
 	
 	private void initDefaultKickoffTimes(String DKTAsString) {
@@ -641,7 +667,7 @@ public class Liga implements Wettbewerb {
 		
 		this.mannschaften = new Mannschaft[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
-			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile[i + 1].split(";"));
+			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile[i + 1]);
 		}
     }
     
@@ -693,7 +719,7 @@ public class Liga implements Wettbewerb {
 	            		Spiel spiel = null;
 	            		
 	            		if (isSpielplanEntered(matchday, match)) {
-	            			spiel = new Spiel(this, inhalte[match + 2]);
+	            			spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
 	            		}
 	            		
 	                    setSpiel(matchday, match, spiel);
@@ -798,6 +824,44 @@ public class Liga implements Wettbewerb {
         inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
     }
 	
+	private void spieldatenLaden() {
+		try {
+			this.spieldatenFromFile = ausDatei(this.dateiSpieldaten);
+			int matchday;
+			
+			for (matchday = 0; matchday < this.numberOfMatchdays && matchday < spieldatenFromFile.length; matchday++) {
+				String inhalte[] = this.spieldatenFromFile[matchday].split(";");
+				int match = 0;
+				for (match = 0; match < inhalte.length; match++) {
+					if (isSpielplanEntered(matchday, match)) {
+						getSpiel(matchday, match).setRemainder(inhalte[match]);
+					}
+				}
+			}
+		} catch (Exception e) {
+			errorMessage("Keine Spieldaten");
+			e.printStackTrace();
+		}
+	}
+	
+	private void spieldatenSchreiben() throws NullPointerException {
+		if (this.dateiSpieldaten == null) {
+			throw new NullPointerException();
+		}
+		
+		this.spieldatenFromFile = new String[this.numberOfMatchdays];
+		for (int i = 0; i < this.numberOfMatchdays; i++) {
+			String string = "";
+			for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
+				if (getSpiel(i, j) != null)	string += getSpiel(i, j).fullString() + ";";
+				else						string += "null;";
+			}
+			this.spieldatenFromFile[i] = string;
+		}
+		
+		inDatei(this.dateiSpieldaten, this.spieldatenFromFile);
+	}
+	
 	public String toString() {
 		String rueckgabe = "NAME*" + this.name + ";";
 		rueckgabe = rueckgabe + "D_ST*" + this.defaultStarttag +";";
@@ -833,18 +897,6 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			message("You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			message("You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			message("You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }
-
-
-

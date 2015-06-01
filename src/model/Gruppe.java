@@ -27,8 +27,6 @@ public class Gruppe implements Wettbewerb {
 	private boolean[][] ergebnisplanEingetragen;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiMannschaft;
 	private String dateiSpielplan;
@@ -46,11 +44,10 @@ public class Gruppe implements Wettbewerb {
 	private Tabelle tabelle;
 	
 	public Gruppe(Start start, int id, Turnier turnier) {
+		this.start = start;
 		checkOS();
 		
 		this.id = id;
-		
-		this.start = start;
 		
 		this.turnier = turnier;
 		this.startDate = turnier.getStartDate();
@@ -77,6 +74,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public int getID() {
 		return this.id;
+	}
+	
+	public String getMatchdayDescription(int matchday) {
+		return turnier.getName() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
 	public String getTournamentName() {
@@ -119,7 +120,18 @@ public class Gruppe implements Wettbewerb {
 		return this.isETPossible;
 	}
 	
-	public String getDateOf(int matchday, int spiel) {
+	public String getDateOfTeam(int matchday, int id) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			if (isSpielplanEntered(matchday, match)) {
+				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)
+					return getDateAndTime(matchday, match);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
+	public String getDateAndTime(int matchday, int spiel) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday)
 			return MyDate.datum(getDate(matchday, spiel)) + " " + MyDate.uhrzeit(getTime(matchday, spiel));
 		else 
@@ -128,16 +140,6 @@ public class Gruppe implements Wettbewerb {
 	
 	public int getDate(int matchday, int match) {
 		return MyDate.verschoben(startDate, daysSinceFirstDay[matchday][match]);
-	}
-	
-	public String getDateOfTeam(int matchday, int id) {
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
-			if (isSpielplanEntered(matchday, match)) {
-				if (getSpiel(matchday, match).home() == id || getSpiel(matchday, match).away() == id)	return getDateOf(matchday, match);
-			}
-		}
-		
-		return "n.a.";
 	}
 	
 	public int getTime(int matchday, int match) {
@@ -167,7 +169,7 @@ public class Gruppe implements Wettbewerb {
 		
 		tabelle.aktualisieren();
 		for (Mannschaft ms : mannschaften) {
-			if (ms.get(0) == place - 1)		return ms;
+			if (ms.get(0, numberOfMatchdays - 1) == place - 1)		return ms;
 		}
 		
 		return null;
@@ -331,6 +333,7 @@ public class Gruppe implements Wettbewerb {
 		if (ergebnis != null)	setErgebnisplanEntered(matchday, match, true);
 		else					setErgebnisplanEntered(matchday, match, false);
 		ergebnisplan[matchday][match] = ergebnis;
+		if (isSpielplanEntered(matchday, match))	getSpiel(matchday, match).setErgebnis(ergebnis);
 	}
 	
 	// Spielplan
@@ -477,17 +480,31 @@ public class Gruppe implements Wettbewerb {
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this); // ((String) jListConfigModel.getElementAt(i)).split(";"));
-			mannschaften[i].setName(teamsFromFile[i]);
+			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile[i]);
 		}
 	}
 	
 	public void mannschaftenSpeichern() {
 		this.teamsFromFile = new String[this.numberOfTeams];
 		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile[i] = this.mannschaften[i].getName(); //.toString());
+			this.teamsFromFile[i] = this.mannschaften[i].toString();
 		}
 		inDatei(this.dateiMannschaft, this.teamsFromFile);
+	}
+	
+	public String[] getRanks() {
+		String[] ranks = new String[this.numberOfTeams];
+		
+		for (int i = 0; i < ranks.length; i++) {
+			String id = "G" + start.getAlphabet()[this.id] + (i + 1);
+			try {
+				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
+			} catch (NullPointerException npe) {
+				ranks[i] = id + ": " + turnier.getShortName() + turnier.getAktuelleSaison() + id;
+			}
+		}
+		
+		return ranks;
 	}
 	
 	private void initializeArrays() {
@@ -524,7 +541,7 @@ public class Gruppe implements Wettbewerb {
 	            		Spiel spiel = null;
 	            		
 	            		if (isSpielplanEntered(matchday, match)) {
-	            			spiel = new Spiel(this, inhalte[match + 2]);
+	            			spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
 	            		}
 	            		
 	                    setSpiel(matchday, match, spiel);
@@ -570,7 +587,6 @@ public class Gruppe implements Wettbewerb {
 	        
 	        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
 	            String[] inhalte = this.ergebnisseFromFile[matchday].split(";");
-	            
 	            this.setErgebnisplanEnteredFromRepresentation(matchday, inhalte[0]);
 	            
 	            int match = 0;
@@ -617,20 +633,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			JOptionPane.showMessageDialog(null, "You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 	
 }
-
-
-
-

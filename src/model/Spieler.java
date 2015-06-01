@@ -8,23 +8,26 @@ public class Spieler {
 	
 	private String firstName;
 	private String lastName;
-	
+	private String lastNameShort;
+	private String pseudonym;
 	private int birthDate;
-	
 	private String nationality;
 	
 	private Position position;
-	
 	private Mannschaft team;
 	private int squadNumber;
+	
+	private int firstDate = -1;
+	private int lastDate = -1;
 	
 	public Spieler(String data, Mannschaft team) {
 		fromString(data, team);
 	}
 	
-	public Spieler(String firstName, String lastName, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
+	public Spieler(String firstName, String lastName, String pseudonym, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
 		this.firstName = firstName;
-		this.lastName = lastName;
+		setLastName(lastName);
+		this.pseudonym = pseudonym;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
 		this.position = position;
@@ -38,6 +41,41 @@ public class Spieler {
 
 	public String getLastName() {
 		return this.lastName;
+	}
+	
+	public String getLastNameShort() {
+		return this.lastNameShort;
+	}
+	
+	private void setLastName(String lastName) {
+		this.lastName = lastName;
+		
+		String[] lastNameSplit = lastName.split(" ");
+		if (lastNameSplit.length > 1) {
+			int countUpperCaseLastNames = 0;
+			for (int i = 0; i < lastNameSplit.length; i++) {
+				if (lastNameSplit[i].charAt(0) != lastNameSplit[i].toLowerCase().charAt(0))	countUpperCaseLastNames++;
+			}
+			if (countUpperCaseLastNames > 1) {
+				lastNameShort = lastNameSplit[0];
+			} else {
+				lastNameShort = lastName;
+			}
+		} else {
+			lastNameShort = lastName;
+		}
+	}
+	
+	public String getPseudonym() {
+		return this.pseudonym != null ? this.pseudonym : this.lastNameShort;
+	}
+	
+	public String getFullName() {
+		return this.firstName + " " + lastName;
+	}
+	
+	public String getFullNameShort() {
+		return this.firstName + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
@@ -59,15 +97,25 @@ public class Spieler {
 	public int getSquadNumber() {
 		return this.squadNumber;
 	}
+	
+	public boolean isEligible(int date) {
+		if (date < firstDate)					return false;
+		if (lastDate != -1 && date > lastDate)	return false;
+		
+		return true;
+	}
 
 	public String toString() {
 		String stringRep = this.firstName + trennZeichen;
 		stringRep += this.lastName + trennZeichen;
+		stringRep += this.pseudonym + trennZeichen;
 		stringRep += this.birthDate + trennZeichen;
 		stringRep += this.nationality + trennZeichen;
 		stringRep += this.position.getName() + trennZeichen;
-		stringRep += this.team.getName() + trennZeichen;
 		stringRep += this.squadNumber;
+		if (this.firstDate + this.lastDate != -2) {
+			stringRep += trennZeichen + (this.firstDate != -1 ? this.firstDate : "") + "-" + (this.lastDate != -1 ? this.lastDate : "");
+		}
 		return stringRep;
 	}
 	
@@ -75,12 +123,18 @@ public class Spieler {
 		String[] dataSplit = data.split(trennZeichen);
 		
 		this.firstName = dataSplit[0];
-		this.lastName = dataSplit[1];
-		this.birthDate = Integer.parseInt(dataSplit[2]);
-		this.nationality = dataSplit[3];
-		this.position = Position.getPositionFromString(dataSplit[4]);
+		setLastName(dataSplit[1]);
+		this.pseudonym = (dataSplit[2].equals("null") ? null : dataSplit[2]);
+		this.birthDate = Integer.parseInt(dataSplit[3]);
+		this.nationality = dataSplit[4];
+		this.position = Position.getPositionFromString(dataSplit[5]);
 		this.team = team;
 		this.squadNumber = Integer.parseInt(dataSplit[6]);
+		if (dataSplit.length >= 8) {
+			String[] dates = dataSplit[7].split("\\-");
+			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
+			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
+		}
 	}
 }
 
@@ -110,5 +164,3 @@ enum Position {
 		return null;
 	}
 }
-
-

@@ -19,6 +19,7 @@ public class KORunde implements Wettbewerb {
 	private int numberOfTeamsPrequalified;
 	private int numberOfTeamsFromPreviousRound;
 	private int numberOfTeamsFromOtherCompetition;
+	private boolean checkTeamsFromPreviousRound = true;
 	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
@@ -39,8 +40,6 @@ public class KORunde implements Wettbewerb {
 	private boolean[][] ergebnisplanEingetragen;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiErgebnisse;
 	private String dateiSpielplan;
@@ -65,9 +64,9 @@ public class KORunde implements Wettbewerb {
     private Spieltag spieltag;
 	
 	public KORunde(Start start, Turnier turnier, int id, String daten) {
+		this.start = start;
 		checkOS();
 		
-		this.start = start;
 		this.turnier = turnier;
 		this.id = id;
 		
@@ -85,6 +84,10 @@ public class KORunde implements Wettbewerb {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public String getMatchdayDescription(int matchday) {
+		return turnier.getName() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
 	}
 	
 	public String getShortName() {
@@ -107,8 +110,12 @@ public class KORunde implements Wettbewerb {
 		return this.isETPossible;
 	}
 	
+	public void setCheckTeamsFromPreviousRound(boolean checkTeamsFromPreviousRound) {
+		this.checkTeamsFromPreviousRound = checkTeamsFromPreviousRound;
+	}
+
 	public Mannschaft[] getMannschaften() {
-		mannschaftenAktualisieren();
+		if (checkTeamsFromPreviousRound)	mannschaftenAktualisieren();
 		return mannschaften;
 	}
 	
@@ -131,8 +138,6 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
 		}
-		
-		
 	}
 	
 	private void testGNOTFOC() {
@@ -171,10 +176,14 @@ public class KORunde implements Wettbewerb {
 		return this.teamsAreWinners;
 	}
 	
+	public int getNumberOfMatchdays() {
+		return numberOfMatchdays;
+	}
+	
 	public int getCurrentMatchday() {
 		int matchday = -1;
 		if (this.numberOfMatchdays == 2) {
-			int today = MyDate.newMyDate() - turnier.getStartDate();
+			int today = MyDate.newMyDate();
 			
 			if (today < getDate(0, 0)) {
 				matchday = 0;
@@ -194,7 +203,7 @@ public class KORunde implements Wettbewerb {
 		return matchday;
 	}
 	
-	public String getDateOf(int matchday, int spiel) {
+	public String getDateAndTime(int matchday, int spiel) {
 		if (matchday >= 0 && matchday < this.numberOfMatchdays && spiel >= 0 && spiel < this.numberOfMatchesPerMatchday)
 			return MyDate.datum(getDate(matchday, spiel)) + " " + MyDate.uhrzeit(getTime(matchday, spiel));
 		else 
@@ -354,6 +363,7 @@ public class KORunde implements Wettbewerb {
 		if (ergebnis != null)	setErgebnisplanEntered(matchday, match, true);
 		else					setErgebnisplanEntered(matchday, match, false);
 		ergebnisplan[matchday][match] = ergebnis;
+		if (isSpielplanEntered(matchday, match))	getSpiel(matchday, match).setErgebnis(ergebnis);
 	}
 	
 	// Spielplan
@@ -456,54 +466,7 @@ public class KORunde implements Wettbewerb {
 	 */
 	public String getOriginOfWinnerOf(int match) {
 		int index;
-		return ((index = getIndexOfWinnerOf(match)) == 0 ? null : teamsOrigins[index - 1]);
-	}
-	
-	public int getIndexOfWinnerOf(int match) {
-		if (!(isErgebnisplanFullyEntered(numberOfMatchdays - 1) && isErgebnisplanFullyEntered(0))) {
-			return 0;
-		}
-		
-		// find out involved teams
-		int teamHomeFirstLeg = getSpiel(0, match - 1).home();
-		int teamAwayFirstLeg = getSpiel(0, match - 1).away();
-		
-		if (hasSecondLeg) {
-			// first and second leg don't have to be in the same position on the plan and most likely they aren't!!
-			
-			// get index of second leg match
-			int index = -1;
-			for (int i = 0; i < numberOfMatchesPerMatchday && index == -1; i++) {
-				if (getSpiel(1, i).home() == teamHomeFirstLeg || getSpiel(1, i).home() == teamAwayFirstLeg) {
-					index = i + 1;
-				}
-			}
-			
-			if (index != -1) {
-				if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() > getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
-					return teamHomeFirstLeg;
-				} else if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() < getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
-					return teamAwayFirstLeg;
-				} else {
-					// looking for a winner through the away-goal rule (e.g. 1:2 and 2:3)
-					if (getErgebnis(0, match - 1).home() > getErgebnis(0, index - 1).home()) {
-						return teamHomeFirstLeg;
-					} else if (getErgebnis(0, match - 1).home() < getErgebnis(0, index - 1).home()) {
-						return teamAwayFirstLeg;
-					}
-				}
-			}
-		} else {
-			if (getErgebnis(0, match - 1).home() > getErgebnis(0, match - 1).away()) {
-				return teamHomeFirstLeg;
-			} else if (getErgebnis(0, match - 1).home() < getErgebnis(0, match - 1).away()) {
-				return teamAwayFirstLeg;
-			}
-		}
-		
-		// if there is no second leg / result is tied / other problem
-		
-		return 0;
+		return ((index = getIndexOf(match, true)) == 0 ? null : teamsOrigins[index - 1]);
 	}
 	
 	/**
@@ -513,17 +476,18 @@ public class KORunde implements Wettbewerb {
 	 */
 	public String getOriginOfLoserOf(int match) {
 		int index;
-		return ((index = getIndexOfLoserOf(match)) == 0 ? null : teamsOrigins[index - 1]);
+		return ((index = getIndexOf(match, false)) == 0 ? null : teamsOrigins[index - 1]);
 	}
 	
-	public int getIndexOfLoserOf(int match) {
-		if (!(isErgebnisplanFullyEntered(numberOfMatchdays - 1) && isErgebnisplanFullyEntered(0))) {
+	public int getIndexOf(int match, boolean isWinnerRequested) {
+		if (!isErgebnisplanEntered(0, match - 1)) {
 			return 0;
 		}
 		
 		// find out involved teams
 		int teamHomeFirstLeg = getSpiel(0, match - 1).home();
 		int teamAwayFirstLeg = getSpiel(0, match - 1).away();
+		Ergebnis firstLeg = getErgebnis(0, match - 1);
 		
 		if (hasSecondLeg) {
 			// first and second leg don't have to be in the same position on the plan and most likely they aren't!!
@@ -531,35 +495,35 @@ public class KORunde implements Wettbewerb {
 			// get index of second leg match
 			int index = -1;
 			for (int i = 0; i < numberOfMatchesPerMatchday && index == -1; i++) {
-				if (getSpiel(1, i).home() == teamHomeFirstLeg || getSpiel(1, i).home() == teamAwayFirstLeg) {
+				if (getSpiel(1, i) != null && (getSpiel(1, i).home() == teamHomeFirstLeg || getSpiel(1, i).home() == teamAwayFirstLeg)) {
 					index = i + 1;
 				}
 			}
 			
-			if (index != -1) {
-				if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() < getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
-					return teamHomeFirstLeg;
-				} else if (getErgebnis(0, match - 1).home() + getErgebnis(0, index - 1).away() > getErgebnis(0, match - 1).away() + getErgebnis(0, index - 1).home()) {
-					return teamAwayFirstLeg;
+			if (index != -1 && isErgebnisplanEntered(numberOfMatchdays - 1, index - 1)) {
+				Ergebnis secondLeg = getErgebnis(1, index - 1);
+				if (firstLeg.home() + secondLeg.away() > firstLeg.away() + secondLeg.home()) {
+					return isWinnerRequested ? teamHomeFirstLeg : teamAwayFirstLeg;
+				} else if (firstLeg.home() + secondLeg.away() < firstLeg.away() + secondLeg.home()) {
+					return isWinnerRequested ? teamAwayFirstLeg : teamHomeFirstLeg;
 				} else {
 					// looking for a winner through the away-goal rule (e.g. 1:2 and 2:3)
-					if (getErgebnis(0, match - 1).home() < getErgebnis(0, index - 1).home()) {
-						return teamHomeFirstLeg;
-					} else if (getErgebnis(0, match - 1).home() > getErgebnis(0, index - 1).home()) {
-						return teamAwayFirstLeg;
+					if (firstLeg.away() > secondLeg.away()) {
+						return isWinnerRequested ? teamAwayFirstLeg : teamHomeFirstLeg;
+					} else if (firstLeg.away() < secondLeg.away()) {
+						return isWinnerRequested ? teamHomeFirstLeg : teamAwayFirstLeg;
 					}
 				}
 			}
 		} else {
-			if (getErgebnis(0, match - 1).home() < getErgebnis(0, match - 1).away()) {
-				return teamHomeFirstLeg;
-			} else if (getErgebnis(0, match - 1).home() > getErgebnis(0, match - 1).away()) {
-				return teamAwayFirstLeg;
+			if (firstLeg.home() > firstLeg.away()) {
+				return isWinnerRequested ? teamHomeFirstLeg : teamAwayFirstLeg;
+			} else if (firstLeg.home() < firstLeg.away()) {
+				return isWinnerRequested ? teamAwayFirstLeg : teamHomeFirstLeg;
 			}
 		}
 		
 		// if there is no second leg / result is tied / other problem
-		
 		return 0;
 	}
 	
@@ -578,7 +542,9 @@ public class KORunde implements Wettbewerb {
     	
     	initializeArrays();
     	
+    	setCheckTeamsFromPreviousRound(false);
     	spielplanLaden();
+    	setCheckTeamsFromPreviousRound(true);
 		ergebnisseLaden();
 		
 		{
@@ -622,16 +588,16 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this);
-			mannschaften[i].setName(teamsOrigins[i]);
+			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, teamsOrigins[i]);
 		}
 		
 		testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeamsFromOtherCompetition; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this);
-			mannschaften[i].setName(getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
+			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
+		
+		mannschaftenAktualisieren();
 	}
 	
 	public void mannschaftenSpeichern() {
@@ -646,32 +612,34 @@ public class KORunde implements Wettbewerb {
 		try {
 			spielplanFromFile = ausDatei(dateiSpielplan);
 			
-	    	for (int spieltag = 0; spieltag < spielplanFromFile.length; spieltag++) {
-	        	String[] inhalte = spielplanFromFile[spieltag].split(";");
+	    	for (int matchday = 0; matchday < spielplanFromFile.length; matchday++) {
+	        	String[] inhalte = spielplanFromFile[matchday].split(";");
 	        	
-	        	this.setSpielplanEnteredFromRepresentation(spieltag, inhalte[0]);
+	        	this.setSpielplanEnteredFromRepresentation(matchday, inhalte[0]);
 	        	
 	        	int match = 0;
-	        	if (!this.isSpielplanFullyEmpty(spieltag)) {
+	        	if (!this.isSpielplanFullyEmpty(matchday)) {
 	        		// Spieltagsdaten
 	        		String[] uhrzeiten = inhalte[1].split(":");
 	        		for (match = 0; match < uhrzeiten.length; match++) {
 	        			String spieldaten[] = uhrzeiten[match].split(",");
-	        			daysSinceFirstDay[spieltag][match] = Integer.parseInt(spieldaten[0]);
-	        			startTime[spieltag][match] = Integer.parseInt(spieldaten[1]);
+	        			daysSinceFirstDay[matchday][match] = Integer.parseInt(spieldaten[0]);
+	        			startTime[matchday][match] = Integer.parseInt(spieldaten[1]);
 	        		}
 	        		
 	        		// Herkunften der Mannschaften
 	        		for (match = 0; (match + 2) < inhalte.length; match++) {
 	        			Spiel spiel = null;
-	        			if (isSpielplanEntered(spieltag, match))	spiel = new Spiel(this, inhalte[match + 2]);
+	        			if (isSpielplanEntered(matchday, match)) {
+	        				spiel = new Spiel(this, matchday, getDate(matchday, match), getTime(matchday, match), inhalte[match + 2]);
+	        			}
 	        			
-	        			setSpiel(spieltag, match, spiel);
+	        			setSpiel(matchday, match, spiel);
 	        		}
 	        	}
 	            
 	            while(match < this.numberOfMatchesPerMatchday) {
-	                setSpiel(spieltag, match, null);
+	                setSpiel(matchday, match, null);
 	                match++;
 	            }
 	    	}
@@ -776,19 +744,6 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			JOptionPane.showMessageDialog(null, "You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }
-
-
-
-

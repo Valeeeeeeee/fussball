@@ -21,17 +21,19 @@ public class Start extends JFrame {
      */
     public final int HEIGHT = 874;
     
-    String workspace;
-    String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-    String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
+    private static int today;
     
-    String config;
-    String[] configurationFromFile;
+    public String workspace;
+    private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
+    private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
+    
+    private String config;
+    private String[] configurationFromFile;
     
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
-    int anzahlLigen;
-    int anzahlTurniere;
+	private int anzahlLigen;
+	private int anzahlTurniere;
     
 	private Liga[] ligen;
 	private Liga aktuelleLiga;
@@ -46,18 +48,26 @@ public class Start extends JFrame {
     private boolean isCurrentlyInMatchdayView = false;
     private boolean isCurrentlyInOverviewMode = false;
     
-	int start_btnsstartx = 520;
-	int start_btnsstarty = 120;
-    int start_btnswidth = 400;
-    int start_btnsheight = 70;
+    private int start_btnsstartx = 315;
+    private int start_btnsstarty = 120;
+    private int start_btnswidth = 400;
+    private int start_btnsheight = 70;
     
-    Rectangle REC_BEENDEN = new Rectangle(20, 20, 100, 40);
-    Rectangle REC_ADDLEAG = new Rectangle(520, 60, 180, 40);
-    Rectangle REC_ADDTOUR = new Rectangle(740, 60, 180, 40);
+    private Rectangle REC_BTNZURUECK = new Rectangle(20, 10, 100, 30);
+    
+    private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
+    private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
+    private Rectangle REC_BTNSTATISTIK = new Rectangle(520, 390, 400, 100);
+    private Rectangle REC_BTNOPTIONEN = new Rectangle(520, 510, 400, 100);
+    
+    private Rectangle REC_BEENDEN = new Rectangle(20, 20, 100, 40);
+    private Rectangle REC_ADDLEAG = new Rectangle(520, 60, 180, 40);
+    private Rectangle REC_ADDTOUR = new Rectangle(740, 60, 180, 40);
     
     // Homescreen
-    public JPanel Homescreen;
-    public JButton[] jBtnsLigen;
+    private JPanel Homescreen;
+    private JButton[] jBtnsLigen;
+    private JButton[] jBtnsTurniere;
     private JButton addLeague;
     private JButton addTournament;
     private JButton jBtnBeenden;
@@ -68,34 +78,36 @@ public class Start extends JFrame {
     private JComboBox jCBSaisonauswahl;
     private JButton jBtnSpieltage;
     private JButton jBtnTabelle;
+    private JButton jBtnStatistik;
     private JButton jBtnOptionen;
     
     
     // Turnier - Homescreen
-    public JPanel TurnierHomescreen;
-    public JButton jBtnGruppenphase;
-    public JButton jBtnKORunde;
+    private JPanel TurnierHomescreen;
+    private JButton jBtnGruppenphase;
+    private JButton jBtnKORunde;
     
-    public JPanel GruppenphaseHomescreen;
-    public JButton[] groupStageButtons;
+    private JPanel GruppenphaseHomescreen;
+    private JButton[] groupStageButtons;
     
-    public JPanel KORundeHomescreen;
-    public JButton[] KORoundsButtons;
+    private JPanel KORundeHomescreen;
+    private JButton[] KORoundsButtons;
     
     
-    public static JButton jBtnZurueck;
+    private JButton jBtnZurueck;
     
     private Spieltag aktuellerSpieltag;
     private Tabelle aktuelleTabelle;
-    public Uebersicht uebersicht;
+    private LigaStatistik aktuelleStatistik;
+    private Uebersicht uebersicht;
 //    public Uebersicht aktuelleUebersicht;
     
     // Optionen-Panel
     public JPanel optionen;
-    JButton correctNames;
-    JButton addTeam;
-    JLabel defaultStarttag;
-    JComboBox jCBDefStarttag;
+    private JButton correctNames;
+    private JButton addTeam;
+    private JLabel defaultStarttag;
+    private JComboBox jCBDefStarttag;
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -111,6 +123,7 @@ public class Start extends JFrame {
     	super();
         
 		checkOS();
+		today = MyDate.newMyDate();
 		
         loadConfiguration();
         initGUI();
@@ -118,14 +131,14 @@ public class Start extends JFrame {
 //        message("Fuer die Bounds ein Rectangle[win/mac][alle lbls, cbs, ...] mit den Bounds-Werten. \n"
 //        			+ "Zum Aendern int macorwin", "Bounds", JOptionPane.INFORMATION_MESSAGE);
         
-//        jBtnLigenPressed(7);
+//        jBtnTurnierePressed(1);
 //        jBtnAlleGruppenPressed();
 //        jBtnZurueckActionPerformed();
 //        jBtnBeendenActionPerformed();
         
-        jBtnLigenPressed(0);
+//        jBtnLigenPressed(0);
 //        jCBSaisonauswahl.setSelectedIndex(1);
-        jBtnSpieltageActionPerformed();
+//        jBtnSpieltageActionPerformed();
         
 //        jBtnTabelleActionPerformed();
 //        uebersichtAnzeigen("VfB Stuttgart");
@@ -142,6 +155,9 @@ public class Start extends JFrame {
     
     private void testSomethingBeforeIntroducingItIntoTheRealCode() {
     	// TODO do some testing
+    	
+    	jBtnLigenPressed(0);
+    	jBtnZurueckActionPerformed();
     	
         log("\n\n");
     }
@@ -161,7 +177,7 @@ public class Start extends JFrame {
             {
                 jBtnZurueck = new JButton();
                 getContentPane().add(jBtnZurueck);
-                jBtnZurueck.setBounds(20, 10, 150, 30);
+                jBtnZurueck.setBounds(REC_BTNZURUECK);
                 jBtnZurueck.setText("zurueck");
                 jBtnZurueck.setVisible(false);
                 jBtnZurueck.setFocusable(false);
@@ -233,7 +249,8 @@ public class Start extends JFrame {
     		for (int i = 0; i < jBtnsLigen.length; i++)	jBtnsLigen[i].setVisible(false);
     	}
     	
-    	jBtnsLigen = new JButton[anzahlLigen + anzahlTurniere];
+    	jBtnsLigen = new JButton[anzahlLigen];
+    	jBtnsTurniere = new JButton[anzahlTurniere];
     	
     	for (int i = 0; i < anzahlLigen; i++) {
         	final int x = i;
@@ -250,14 +267,14 @@ public class Start extends JFrame {
         }
         for (int i = 0; i < anzahlTurniere; i++) {
         	final int x = i + anzahlLigen;
-        	jBtnsLigen[i + anzahlLigen] = new JButton();
-        	Homescreen.add(jBtnsLigen[i + anzahlLigen]);
-        	jBtnsLigen[i + anzahlLigen].setBounds(start_btnsstartx, start_btnsstarty + (i + anzahlLigen) * (start_btnsheight + 10), start_btnswidth, start_btnsheight);
-        	jBtnsLigen[i + anzahlLigen].setText(turniere[i].getName());
-        	jBtnsLigen[i + anzahlLigen].setFocusable(false);
-        	jBtnsLigen[i + anzahlLigen].addActionListener(new ActionListener() {
+        	jBtnsTurniere[i] = new JButton();
+        	Homescreen.add(jBtnsTurniere[i]);
+        	jBtnsTurniere[i].setBounds(start_btnsstartx + start_btnswidth + 10, start_btnsstarty + i * (start_btnsheight + 10), start_btnswidth, start_btnsheight);
+        	jBtnsTurniere[i].setText(turniere[i].getName());
+        	jBtnsTurniere[i].setFocusable(false);
+        	jBtnsTurniere[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					jBtnLigenPressed(x);
+					jBtnTurnierePressed(x);
 				}
 			});
         }
@@ -270,8 +287,6 @@ public class Start extends JFrame {
         	LigaHomescreen.setLayout(null);
         	LigaHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	LigaHomescreen.setVisible(false);
-        	LigaHomescreen.setOpaque(true);
-        	LigaHomescreen.setBackground(Color.green);
         }
     	{
     		jLblWettbewerb = new JLabel();
@@ -293,7 +308,7 @@ public class Start extends JFrame {
         {
             jBtnSpieltage = new JButton();
             LigaHomescreen.add(jBtnSpieltage);
-            jBtnSpieltage.setBounds(520, 150, start_btnswidth, start_btnsheight);
+            jBtnSpieltage.setBounds(REC_BTNSPIELTAGE);
             jBtnSpieltage.setText("Spieltage");
             jBtnSpieltage.setFocusable(false);
             jBtnSpieltage.addActionListener(new ActionListener() {
@@ -305,7 +320,7 @@ public class Start extends JFrame {
         { 
             jBtnTabelle = new JButton();
             LigaHomescreen.add(jBtnTabelle);
-            jBtnTabelle.setBounds(520, 300, start_btnswidth, start_btnsheight);
+            jBtnTabelle.setBounds(REC_BTNTABELLE);
             jBtnTabelle.setText("Tabelle");
             jBtnTabelle.setFocusable(false);
             jBtnTabelle.addActionListener(new ActionListener() {
@@ -314,10 +329,22 @@ public class Start extends JFrame {
                 }
             });
         }
+        { 
+        	jBtnStatistik = new JButton();
+            LigaHomescreen.add(jBtnStatistik);
+            jBtnStatistik.setBounds(REC_BTNSTATISTIK);
+            jBtnStatistik.setText("Statistik");
+            jBtnStatistik.setFocusable(false);
+            jBtnStatistik.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                	jBtnStatistikActionPerformed();
+                }
+            });
+        }
         {
             jBtnOptionen = new JButton();
             LigaHomescreen.add(jBtnOptionen);
-            jBtnOptionen.setBounds(520, 450, start_btnswidth, start_btnsheight);
+            jBtnOptionen.setBounds(REC_BTNOPTIONEN);
             jBtnOptionen.setText("Optionen");
             jBtnOptionen.setFocusable(false);
             jBtnOptionen.addActionListener(new ActionListener() {
@@ -366,8 +393,6 @@ public class Start extends JFrame {
         	GruppenphaseHomescreen.setLayout(null);
         	GruppenphaseHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	GruppenphaseHomescreen.setVisible(false);
-        	GruppenphaseHomescreen.setOpaque(true);
-        	GruppenphaseHomescreen.setBackground(Color.blue);
         }
     	{
     		KORundeHomescreen = new JPanel();
@@ -375,8 +400,6 @@ public class Start extends JFrame {
         	KORundeHomescreen.setLayout(null);
         	KORundeHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
         	KORundeHomescreen.setVisible(false);
-        	KORundeHomescreen.setOpaque(true);
-        	KORundeHomescreen.setBackground(Color.yellow);
         }
     }
 
@@ -435,11 +458,17 @@ public class Start extends JFrame {
         }
     }
     
+    public char[] getAlphabet() {
+    	return alphabet;
+    }
+    
+    public String getWorkspace() {
+    	return workspace;
+    }
+    
     public void jBtnLigenPressed(int index) {
-    	
 		Homescreen.setVisible(false);
 		jBtnZurueck.setVisible(true);
-		
 		
     	if (index < anzahlLigen) {
     		// The pressed button leads to a league
@@ -462,8 +491,16 @@ public class Start extends JFrame {
     		}
     		
 			aktuellerSpieltag = aktuelleLiga.getSpieltag();
-    		aktuelleTabelle = aktuelleLiga.getTable();
-		} else {
+    		aktuelleTabelle = aktuelleLiga.getTabelle();
+    		aktuelleStatistik = aktuelleLiga.getLigaStatistik();
+		}
+    }
+    
+    public void jBtnTurnierePressed(int index) {
+		Homescreen.setVisible(false);
+		jBtnZurueck.setVisible(true);
+		
+    	if (index >= anzahlLigen) {
 			// The pressed button leads to a tournament
     		isCurrentlyALeague = false;
 			TurnierHomescreen.setVisible(true);
@@ -488,7 +525,6 @@ public class Start extends JFrame {
     			jBtnGruppenphaseActionPerformed();
     		}
 		}
-		
     }
     
     public void jBtnGruppenphaseActionPerformed() {
@@ -710,6 +746,14 @@ public class Start extends JFrame {
 		aktuelleTabelle.setVisible(true);
     }
     
+    public void jBtnStatistikActionPerformed() {
+		getContentPane().add(aktuelleStatistik);
+		aktuelleStatistik.updateGUI();
+    	LigaHomescreen.setVisible(false);
+    	aktuelleStatistik.add(jBtnZurueck);
+    	aktuelleStatistik.setVisible(true);
+    }
+    
     public void jBtnOptionenActionPerformed() {
     	isCurrentlyInMatchdayView = false;
     	
@@ -796,7 +840,7 @@ public class Start extends JFrame {
 		ntd.toFront();
     }
     
-    public void addNewLeague(String name, int season, int numberOfTeams, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
+    public void addNewLeague(String name, int season, int numberOfTeams, int spGgSG, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
     	for (Liga liga : ligen) {
 			if (liga.getName().equals(name)) {
 				message("A league with this name already exists.");
@@ -820,6 +864,7 @@ public class Start extends JFrame {
 		daten = daten + "DKT*" + defaultKOTs + ";";
 		daten = daten + "ISSTSS*" + isSTSS + ";";
 		daten = daten + "A_MS*" + numberOfTeams + ";";
+		daten = daten + "A_SGDG*" + spGgSG + ";";
 		daten = daten + "A_CL*" + anzahlen[0] + ";";
 		daten = daten + "A_CLQ*" + anzahlen[1] + ";";
 		daten = daten + "A_EL*" + anzahlen[2] + ";";
@@ -844,7 +889,7 @@ public class Start extends JFrame {
     	}
     	
     	// Erstellen und Abspeichern des Spiel- und Ergebnisplans
-    	int numberOfMatchdays = 4 * (int) Math.round((double) numberOfTeams / 2) - 2;
+    	int numberOfMatchdays = spGgSG * (2 * (int) Math.round((double) numberOfTeams / 2) - 1);
     	int numberOfMatches = numberOfTeams / 2;
     	
     	String[] spielplan = new String[numberOfMatchdays + 1];
@@ -1087,6 +1132,7 @@ public class Start extends JFrame {
             	LigaHomescreen.add(jBtnZurueck);
                 aktuellerSpieltag.setVisible(false);
                 aktuelleTabelle.setVisible(false);
+                aktuelleStatistik.setVisible(false);
             	optionen.setVisible(false);
                 LigaHomescreen.setVisible(true);
             }
@@ -1218,6 +1264,10 @@ public class Start extends JFrame {
     	
     	inDatei(config, configurationFromFile);
     }
+    
+    public static int today() {
+    	return today;
+    }
 	
 	public void checkOS() {
 		if (new File(workspaceWIN).isDirectory()) {
@@ -1231,9 +1281,4 @@ public class Start extends JFrame {
 			workspace = null;
 		}
 	}
-    
 }
-
-
-
-

@@ -1,0 +1,25 @@
+Timo;Horn;null;19930512;Deutschland;Tor;1
+Thomas;Kessler;null;19860120;Deutschland;Tor;18
+Miso;Brecko;null;19840501;Slowenien;Abwehr;2
+Jonas;Hector;null;19900527;Deutschland;Abwehr;14
+Tomas;Kalas;null;19930515;Tschechien;Abwehr;3
+Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
+Mergim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
+Pawel;Olkowski;null;19900213;Polen;Abwehr;16
+Kevin;Wimmer;null;19921115;Österreich;Abwehr;28
+Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;31
+Daniel;Halfar;null;19880107;Deutschland;Mittelfeld;22
+Matthias;Lehmann;null;19830528;Deutschland;Mittelfeld;33
+Adam;Matuschyk;null;19890214;Deutschland, Polen;Mittelfeld;8
+Kazuki;Nagasawa;null;19911216;Japan;Mittelfeld;25
+Slawomir;Peszko;null;19850219;Polen;Mittelfeld;17
+Marcel;Risse;null;19891217;Deutschland;Mittelfeld;7
+Dusan;Svento;null;19850801;Slowakei;Mittelfeld;29
+Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;6
+Thomas;Bröker;null;19850122;Deutschland;Sturm;11
+Deyverson;Brum Silva;Deyverson;19910508;Brasilien;Sturm;20;20150201-
+Bard;Finne;null;19950213;Norwegen;Sturm;26
+Patrick;Helmes;null;19840301;Deutschland;Sturm;10
+Yuya;Osako;null;19900518;Japan;Sturm;13
+Anthony;Ujah;null;19901014;Nigeria;Sturm;9
+Simon;Zoller;null;19910626;Deutschland;Sturm;23;-20141231

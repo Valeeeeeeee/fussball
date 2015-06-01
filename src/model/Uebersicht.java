@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -16,7 +17,7 @@ public class Uebersicht extends JPanel {
 	
 	// Informationen
 	private Rectangle RECINFPNL;
-    private Rectangle RECLBLNAME = new Rectangle(60, 10, 320, 30);
+    private Rectangle RECLBLNAME = new Rectangle(50, 10, 320, 30);
     private Rectangle RECLBLGRDATUM = new Rectangle(160, 40, 100, 30);
     
     // Kader
@@ -256,7 +257,9 @@ public class Uebersicht extends JPanel {
 //    		}
     	}
     	
-    	numberOfPlayers = mannschaft.getNumberOfPlayers();
+    	ArrayList<Spieler> eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
+    	numberOfPlayers = eligiblePlayers.size();
+    	
         kaderLbls = new JLabel[numberOfPlayers][NUMBEROFFIELDSKAD];
         kaderDescrLbls = new JLabel[numberOfPlayers];
         RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
@@ -290,16 +293,16 @@ public class Uebersicht extends JPanel {
 //				kaderLbls[i][j].setOpaque(true);
 				kaderLbls[i][j].setVisible(true);
 			}
-			Spieler spieler = mannschaft.getKader()[i];
+			Spieler spieler = eligiblePlayers.get(i);
 			kaderLbls[i][SQUADNUMBER].setText("" + spieler.getSquadNumber());
 			kaderLbls[i][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
-			kaderLbls[i][NAMES].setText(spieler.getFirstName() + " " + spieler.getLastName());
+			kaderLbls[i][NAMES].setText(spieler.getFullNameShort());
 			kaderLbls[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
 			
 			countSinceLastER++;
-			if (descrIndex == 1 && countSinceLastER == mannschaft.getNumberOfGoalkeepers() || 
-					descrIndex == 2 && countSinceLastER == mannschaft.getNumberOfDefenders() || 
-					descrIndex == 3 && countSinceLastER == mannschaft.getNumberOfMidfielders()) {
+			if (descrIndex == 1 && countSinceLastER == mannschaft.getCurrentNumberOf(Position.TOR) || 
+					descrIndex == 2 && countSinceLastER == mannschaft.getCurrentNumberOf(Position.ABWEHR) || 
+					descrIndex == 3 && countSinceLastER == mannschaft.getCurrentNumberOf(Position.MITTELFELD)) {
 				countSinceLastER = 0;
 			}
 		}
@@ -375,7 +378,3 @@ public class Uebersicht extends JPanel {
     	}
     }
 }
-
-
-
-

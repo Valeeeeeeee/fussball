@@ -1,6 +1,7 @@
 package model;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static util.Utilities.*;
 
@@ -34,8 +35,6 @@ public class Turnier {
 	private int numberOfKORounds;
 	
 	private String workspace;
-	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
-	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
 	private String dateiKORundenDaten;
 	private String[] koRundenDatenFromFile;
@@ -43,8 +42,8 @@ public class Turnier {
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
 	public Turnier(int id, Start start, String daten) {
-		checkOS();
 		this.start = start;
+		checkOS();
 		this.id = id;
 		fromString(daten);
 	}
@@ -193,8 +192,8 @@ public class Turnier {
 			
 			if (foundKO) {
 				int teamIndex = 0;
-				if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOfWinnerOf(matchIndex);
-				else					teamIndex = koRunden[koIndex - 1].getIndexOfLoserOf(matchIndex);
+				if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, true);
+				else					teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, false);
 				
 				deepestOrigin = koRunden[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
 				if (deepestOrigin != null) {
@@ -214,7 +213,9 @@ public class Turnier {
 		log("\n\n");
 		for (int i = 0; i < koRunden.length; i++) {
 			log(koRunden[i].getName() + "\n-------------");
+			koRunden[i].setCheckTeamsFromPreviousRound(false);
 			Mannschaft[] teams = koRunden[i].getMannschaften();
+			koRunden[i].setCheckTeamsFromPreviousRound(true);
 			for (int j = 0; j < teams.length; j++) {
 				Mannschaft team = teams[j];
 				logWONL("Team " + (j + 1) + ": ");
@@ -411,6 +412,17 @@ public class Turnier {
 		}
 	}
 	
+	private void saveRanks() {
+		ArrayList<String> allRanks = new ArrayList<>();
+		for(Gruppe gruppe : gruppen) {
+			String[] ranks = gruppe.getRanks();
+			for (int i = 0; i < ranks.length; i++) {
+				allRanks.add(ranks[i]);
+			}
+		}
+		inDatei(workspace + File.separator + name + File.separator + getSeason(aktuelleSaison) + File.separator + "allRanks.txt", allRanks);
+	}
+	
 	public void laden(int index) {
 		aktuelleSaison = index;
 		
@@ -426,6 +438,7 @@ public class Turnier {
 	public void speichern() {
 		if (hasGroupStage) {
 			for (Gruppe gruppe : gruppen)		gruppe.speichern();
+			saveRanks();
 		}
 		if (hasKOStage) {
 			for (KORunde koRunde : koRunden)	koRunde.speichern();
@@ -493,18 +506,6 @@ public class Turnier {
 	}
 	
 	public void checkOS() {
-		if (new File(workspaceWIN).isDirectory()) {
-//			message("You are running Windows.");
-			workspace = workspaceWIN;
-		} else if (new File(workspaceMAC).isDirectory()) {
-//			message("You have a Mac.");
-			workspace = workspaceMAC;
-		} else {
-//			message("You are running neither OS X nor Windows, probably Linux!");
-			workspace = null;
-		}
+		workspace = start.getWorkspace();
 	}
 }
-
-
-

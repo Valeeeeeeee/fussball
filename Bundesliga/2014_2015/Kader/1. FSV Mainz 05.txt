@@ -1,31 +1,30 @@
-Stefanos;Kapino;19940318;Griechenland;Tor;1. FSV Mainz 05;1
-Loris;Karius;19930622;Deutschland;Tor;1. FSV Mainz 05;21
-Robin;Zentner;19941028;Deutschland;Tor;1. FSV Mainz 05;38
-Stefan;Bell;19910824;Deutschland;Abwehr;1. FSV Mainz 05;16
-Daniel;Brosinski;19880717;Deutschland;Abwehr;1. FSV Mainz 05;18
-Niko;Bungert;19861024;Deutschland;Abwehr;1. FSV Mainz 05;26
-Gonzalo;Jara;19850829;Chile;Abwehr;1. FSV Mainz 05;2
-Junior Enrique;Diaz Campbell;19830912;Costa Rica;Abwehr;1. FSV Mainz 05;20
-Julian;Koch;19901111;Deutschland;Abwehr;1. FSV Mainz 05;22
-Nikolce;Noveski;19790428;Mazedonien;Abwehr;1. FSV Mainz 05;4
-Joo-Ho;Park;19870116;Südkorea;Abwehr;1. FSV Mainz 05;24
-Damian;Roßbach;19930227;Deutschland;Abwehr;1. FSV Mainz 05;32
-Tobias;Schilk;19920324;Deutschland;Abwehr;1. FSV Mainz 05;34
-Philipp;Wollscheid;19890306;Deutschland;Abwehr;1. FSV Mainz 05;3
-Julian;Baumgartlinger;19880102;Österreich;Mittelfeld;1. FSV Mainz 05;14
-Pablo;de Blasis;19880204;Argentinien;Mittelfeld;1. FSV Mainz 05;15
-Filip;Djuricic;19920130;Serbien;Mittelfeld;1. FSV Mainz 05;10
-Johannes;Geis;19930817;Deutschland;Mittelfeld;1. FSV Mainz 05;6
-Jonas;Hofmann;19920714;Deutschland;Mittelfeld;1. FSV Mainz 05;31
-Jairo;Samperio Bustara;19930711;Spanien;Mittelfeld;1. FSV Mainz 05;17
-Ja-Cheol;Koo;19890227;Südkorea;Mittelfeld;1. FSV Mainz 05;13
-Yunus;Malli;19920224;Deutschland;Mittelfeld;1. FSV Mainz 05;11
-Christoph;Moritz;19900127;Deutschland;Mittelfeld;1. FSV Mainz 05;8
-Todor;Nedelev;19930207;Bulgarien;Mittelfeld;1. FSV Mainz 05;28
-Patrick;Pflücke;19961130;Deutschland;Mittelfeld;1. FSV Mainz 05;30
-Benedikt;Saller;19920922;Deutschland;Mittelfeld;1. FSV Mainz 05;5
-Elkin;Soto;19800804;Kolumbien;Mittelfeld;1. FSV Mainz 05;19
-Sami;Allagui;19860528;Deutschland, Tunesien;Sturm;1. FSV Mainz 05;9
-Shinji;Okazaki;19860416;Japan;Sturm;1. FSV Mainz 05;23
-Devante;Parker;19960316;Deutschland;Sturm;1. FSV Mainz 05;29
-Petar;Sliskovic;19910221;Kroatien;Sturm;1. FSV Mainz 05;35
+Stefanos;Kapino;null;19940318;Griechenland;Tor;1
+Loris;Karius;null;19930622;Deutschland;Tor;21
+Stefan;Bell;null;19910824;Deutschland;Abwehr;16
+Pierre;Bengtsson;null;19880412;Schweden;Abwehr;7;20150101-
+Daniel;Brosinski;null;19880717;Deutschland;Abwehr;18
+Niko;Bungert;null;19861024;Deutschland;Abwehr;26
+Gonzalo;Jara;null;19850829;Chile;Abwehr;2
+Junior Enrique;Diaz Campbell;Junior Diaz;19830912;Costa Rica;Abwehr;20
+Julian;Koch;null;19901111;Deutschland;Abwehr;22;-20141231
+Nikolce;Noveski;null;19790428;Mazedonien;Abwehr;4
+Joo-Ho;Park;null;19870116;Südkorea;Abwehr;24
+Philipp;Wollscheid;null;19890306;Deutschland;Abwehr;3;-20141231
+Julian;Baumgartlinger;null;19880102;Österreich;Mittelfeld;14
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27;20150101-
+Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;15
+Filip;Djuricic;null;19920130;Serbien;Mittelfeld;10;-20150131
+Johannes;Geis;null;19930817;Deutschland;Mittelfeld;6
+Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;31;20140901-
+Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;13
+Yunus;Malli;null;19920224;Deutschland;Mittelfeld;11
+Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;8
+Todor;Nedelev;null;19930207;Bulgarien;Mittelfeld;28
+Patrick;Pflücke;null;19961130;Deutschland;Mittelfeld;30
+Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
+Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
+Sami;Allagui;null;19860528;Deutschland, Tunesien;Sturm;9
+Nicolás;Castillo;null;19930214;Chile;Sturm;22;20150101-
+Shinji;Okazaki;null;19860416;Japan;Sturm;23
+Devante;Parker;null;19960316;Deutschland;Sturm;29
+Petar;Sliskovic;null;19910221;Kroatien;Sturm;35;-20150131
