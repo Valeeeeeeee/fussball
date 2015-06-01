@@ -176,7 +176,7 @@ public class NewTournamentDialog extends JFrame {
 				}
 			});
 		}
-//
+
 		buildGeneralInfo();
 		buildGroupStage();
 		buildKOStage();

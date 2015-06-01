@@ -243,6 +243,19 @@ public class Mannschaft {
 		return this.id;
 	}
 	
+	public int getDeductedPoints() {
+		return this.deductedPoints;
+	}
+	
+	public void setDeductedPoints(int deductedPoints) {
+		this.deductedPoints = deductedPoints;
+		
+		// force update of values
+		int untilMatchday = valuesCorrectAsOfMatchday;
+		valuesCorrectAsOfMatchday = -1;
+		setValuesForMatchday(untilMatchday);
+	}
+	
 	private void updateEligiblePlayers(int date) {
 		if (lastUpdatedForDate == date)	return;
 		

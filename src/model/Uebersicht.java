@@ -67,6 +67,7 @@ public class Uebersicht extends JPanel {
     private int kaderGAPY = 5;
     
 	private Start start;
+	private Wettbewerb wettbewerb;
 	private Liga liga;
 	private Gruppe gruppe;
 	private Turnier turnier;
@@ -78,6 +79,7 @@ public class Uebersicht extends JPanel {
 	private int mannschaftID;
 	private Mannschaft mannschaft;
 	private Mannschaft[] mannschaften;
+	private int[] opponents;
 	
 	private int numberOfMatchdays;
 	private int numberOfPlayers;
@@ -85,11 +87,11 @@ public class Uebersicht extends JPanel {
     public Uebersicht(Start start, Liga liga/*, Mannschaft mannschaft*/) {
         super();
         this.start = start;
+        this.wettbewerb = liga;
         this.liga = liga;
         this.belongsToLeague = true;
         this.belongsToGroup = false;
         this.belongsToKORound = false;
-    	mannschaften = liga.getMannschaften();
 //        this.mannschaft = mannschaft;
         initGUI();
     }
@@ -97,11 +99,11 @@ public class Uebersicht extends JPanel {
     public Uebersicht(Start start, Gruppe gruppe/*, Mannschaft mannschaft*/) {
     	super();
         this.start = start;
+        this.wettbewerb = gruppe;
     	this.gruppe = gruppe;
         this.belongsToLeague = false;
         this.belongsToGroup = true;
         this.belongsToKORound = false;
-        mannschaften = gruppe.getMannschaften();
 //        this.mannschaft = mannschaft;
     	initGUI();
     }
@@ -115,17 +117,17 @@ public class Uebersicht extends JPanel {
         this.belongsToKORound = true;
 //        this.mannschaft = mannschaft;
 //    	initGUI();
-    }
-    
-    
-    public void initGUI() {
-        try {
-            this.setLayout(null);
-            
-            if (belongsToLeague)	numberOfMatchdays = liga.getNumberOfMatchdays();
-            else if (belongsToGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
-            
+	}
+	
+	public void initGUI() {
+		try {
+			this.setLayout(null);
+			
+			mannschaften = wettbewerb.getMannschaften();
+			numberOfMatchdays = wettbewerb.getNumberOfMatchdays();
+			
             spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
+            opponents = new int[numberOfMatchdays];
             
             // TODO: Infos zur angezeigten Mannschaft
             // TODO: (Ausschnitt aus der Tabelle, z.B. mit weiteren 4 drumherum, dazu Klasse TabellenAusschnitt)
@@ -160,12 +162,12 @@ public class Uebersicht extends JPanel {
                     spieltage[i][j] = new JLabel();
                     spiele.add(spieltage[i][j]);
                     spieltage[i][j].setBounds(nstartx + diff, 5 + i * (height + gapy) + 3 * (i / (spieltage.length / 2)) * gapy, widthes[j], height);
-//                    spieltage[i][j].setOpaque(true);
                     
                     diff += widthes[j] + gapx[j];
                 }
             	spieltage[i][TEAMHOME].setCursor(new Cursor(Cursor.HAND_CURSOR));
             	spieltage[i][TEAMAWAY].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            	spieltage[i][MATCHDAY].setCursor(new Cursor(Cursor.HAND_CURSOR));
             	
             	spieltage[i][MATCHDAY].setHorizontalAlignment(SwingConstants.CENTER);
             	spieltage[i][DATE].setHorizontalAlignment(SwingConstants.CENTER);
@@ -180,12 +182,17 @@ public class Uebersicht extends JPanel {
             	
             	spieltage[i][TEAMHOME].addMouseListener(new MouseAdapter() {
             		public void mouseClicked(MouseEvent evt) {
-                        start.uebersichtAnzeigen(spieltage[x][TEAMHOME].getText());
+            			showTeam(x);
                     }
 				});
             	spieltage[i][TEAMAWAY].addMouseListener(new MouseAdapter() {
             		public void mouseClicked(MouseEvent evt) {
-                        start.uebersichtAnzeigen(spieltage[x][TEAMAWAY].getText());
+            			showTeam(x);
+                    }
+				});
+            	spieltage[i][MATCHDAY].addMouseListener(new MouseAdapter() {
+            		public void mouseClicked(MouseEvent evt) {
+            			spieltagAnzeigen(x);
                     }
 				});
             }
@@ -245,16 +252,18 @@ public class Uebersicht extends JPanel {
     }
     
     private void newKader() {
-    	// TODO estoy trabajando aquí
 		String[] positionen = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 		
-    	if (kaderLbls != null) {
+    	if (kaderLbls == null) {
+        	RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
+    		kaderPanel = new JPanel();
+        	this.add(kaderPanel);
+        	kaderPanel.setLayout(null);
+        	kaderPanel.setBounds(RECKADPNL);
+        	kaderPanel.setOpaque(true);
+        	kaderPanel.setBackground(cbackground);
+    	} else {
     		kaderPanel.removeAll();
-//    		for (int i = 0; i < numberOfPlayers; i++) {
-//    			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
-//    				kaderLbls[i][j].setVisible(false);
-//    			}
-//    		}
     	}
     	
     	ArrayList<Spieler> eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
@@ -262,16 +271,7 @@ public class Uebersicht extends JPanel {
     	
         kaderLbls = new JLabel[numberOfPlayers][NUMBEROFFIELDSKAD];
         kaderDescrLbls = new JLabel[numberOfPlayers];
-        RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
         
-        {
-        	kaderPanel = new JPanel();
-        	this.add(kaderPanel);
-        	kaderPanel.setLayout(null);
-        	kaderPanel.setBounds(RECKADPNL);
-        	kaderPanel.setOpaque(true);
-        	kaderPanel.setBackground(cbackground);
-        }
         int countSinceLastER = 0;
         int descrIndex = 0;
         for (int i = 0; i < numberOfPlayers; i++) {
@@ -315,6 +315,14 @@ public class Uebersicht extends JPanel {
         if (belongsToLeague)	gruendungsdatum.setText(mannschaft.getGruendungsdatum());
         newKader();
     }
+	
+	private void showTeam(int tableIndex) {
+		start.uebersichtAnzeigen(opponents[tableIndex]);
+	}
+    
+    private void spieltagAnzeigen(int matchday) {
+    	start.spieltagAnzeigen(matchday);
+    }
     
     public void labelsBefuellen() {
     	for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -327,6 +335,7 @@ public class Uebersicht extends JPanel {
     		
     		if (mannschaft.isSpielEntered(matchday)) {
     			if (match[1] != 0) {
+    				opponents[matchday] = match[1];
     				if (match[0] == Mannschaft.HOME) {
                 		spieltage[matchday][TEAMHOME].setText(mannschaft.getName());
                 		spieltage[matchday][TEAMAWAY].setText(mannschaften[match[1] - 1].getName());

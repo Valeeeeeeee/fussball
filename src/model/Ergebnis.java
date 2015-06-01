@@ -2,10 +2,12 @@ package model;
 
 import static util.Utilities.*;
 
+import java.util.ArrayList;
+
 public class Ergebnis {
 
 	private boolean finishedInRegularTime = false;
-	private boolean finishedInOvertime = false;
+	private boolean finishedInExtraTime = false;
 	private boolean amGruenenTisch = false;
 	
 	private int[] home = new int[4];
@@ -15,16 +17,28 @@ public class Ergebnis {
 	public static final int EXTRATIME = 2;
 	public static final int PENALTIES = 3;
 
-	public Ergebnis(Ergebnis ergebnis, Tor tor) {
-		finishedInRegularTime = ergebnis.finishedInRegularTime;
-		finishedInOvertime = ergebnis.finishedInOvertime;
-		amGruenenTisch = ergebnis.amGruenenTisch;
-		home = ergebnis.home;
-		away = ergebnis.away;
-		
-		// TODO not unconditionally
-		if (tor.isFirstTeam())	home[REGULAR]++;
-		else					away[REGULAR]++;
+	public Ergebnis(ArrayList<Tor> tore) {
+		for (Tor tor : tore) {
+			int time = 0;
+			if (tor.getMinute() > 120) {
+				time = PENALTIES;
+				finishedInRegularTime = false;
+				finishedInExtraTime = false;
+			} else if (tor.getMinute() > 90) {
+				time = EXTRATIME;
+				finishedInRegularTime = false;
+				finishedInExtraTime = true;
+			} else {
+				if (tor.getMinute() > 45) 	time = REGULAR;
+				finishedInRegularTime = true;
+			}
+			
+			while (time <= 3) {
+				if (tor.isFirstTeam())	home[time]++;
+				else					away[time]++;
+				time++;
+			}
+		}
 	}
 	
 	/**
@@ -70,7 +84,7 @@ public class Ergebnis {
 				
 			} else if (daten.indexOf("nV") != -1) {
 				// Beispiel: >3:2nV (2:2)<
-				finishedInOvertime = true;
+				finishedInExtraTime = true;
 				
 				String[] teile = daten.split("nV ");
 				teile[1] = teile[1].substring(1, teile[1].length() - 1);
@@ -108,7 +122,6 @@ public class Ergebnis {
 		}
 	}
 	
-
 	public int home() {
 		if (amGruenenTisch) {
 			return home(REGULAR);
@@ -116,7 +129,7 @@ public class Ergebnis {
 		if (finishedInRegularTime) {
 			return home(REGULAR);
 		}
-		if (finishedInOvertime) {
+		if (finishedInExtraTime) {
 			return home(EXTRATIME);
 		}
 		return home(PENALTIES);
@@ -133,7 +146,7 @@ public class Ergebnis {
 		if (finishedInRegularTime) {
 			return away(REGULAR);
 		}
-		if (finishedInOvertime) {
+		if (finishedInExtraTime) {
 			return away(EXTRATIME);
 		}
 		return away(PENALTIES);
@@ -196,7 +209,7 @@ public class Ergebnis {
 			return false;
 		}
 		
-		if (finishedInOvertime) {
+		if (finishedInExtraTime) {
 			return true;
 		}
 		
@@ -216,7 +229,7 @@ public class Ergebnis {
 		
 		if (finishedInRegularTime)	return data;
 		
-		if (finishedInOvertime) {
+		if (finishedInExtraTime) {
 			data = home(EXTRATIME) + ":" + away(EXTRATIME) + "nV (" + data + ")";
 			return data;
 		}
@@ -224,5 +237,4 @@ public class Ergebnis {
 		data = home(PENALTIES) + ":" + away(PENALTIES) + "nE (" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + data + ")";
 		return data;
 	}
-	
 }
