@@ -35,6 +35,7 @@ public class Mannschaft {
 	public final static int HOME = 4;
 	public final static int AWAY = 5;
 	
+	private Wettbewerb wettbewerb;
 	private Liga liga;
 	private Turnier turnier;
 	private Gruppe gruppe;
@@ -55,12 +56,13 @@ public class Mannschaft {
 		this.id = id;
 		this.start = start;
 		this.liga = liga;
+		this.wettbewerb = liga;
 		this.playsInLeague = true;
 		this.playsInGroup = false;
 		
 		initializeArrays();
 		parseString(mannschaftsDaten);
-		loadKader();
+		if (!start.addingNewSeason())	loadKader();
 	}
 
 	public Mannschaft(Start start, int id, Turnier turnier, Gruppe gruppe, String mannschaftsDaten) {
@@ -68,6 +70,7 @@ public class Mannschaft {
 		this.start = start;
 		this.turnier = turnier;
 		this.gruppe = gruppe;
+		this.wettbewerb = gruppe;
 		this.playsInLeague = false;
 		this.playsInGroup = true;
 		initializeArrays();
@@ -79,6 +82,7 @@ public class Mannschaft {
 		this.start = start;
 		this.turnier = turnier;
 		this.startKORunde = koRunde;
+		this.wettbewerb = koRunde;
 		this.playsInLeague = false;
 		this.playsInGroup = false;
 		initializeArrays();
@@ -416,25 +420,57 @@ public class Mannschaft {
 		return match;
 	}
 
-	public int compareWith(Mannschaft vergleich, int untilMatchday) {
+	public void compareWithOtherTeams(Mannschaft[] otherTeams, int untilMatchday) {
 		this.setValuesForMatchday(untilMatchday);
-		vergleich.setValuesForMatchday(untilMatchday);
+		ArrayList<Integer> teamsSamePoints = new ArrayList<>();
+		this.platz = 0;
 		
-		if (this.punkte == vergleich.punkte) {
-			if (this.tdiff == vergleich.tdiff) {
-				if (this.anzahl_tplus == vergleich.anzahl_tplus) {
-					return 0;
+		for (Mannschaft vergleich : otherTeams) {
+			if (this.id == vergleich.id)	continue;
+			vergleich.setValuesForMatchday(untilMatchday);
+			
+			if (this.punkte == vergleich.punkte)	teamsSamePoints.add(vergleich.id);
+			else if (this.punkte < vergleich.punkte)	this.platz++;
+		}
+		
+		if (wettbewerb.useGoalDifference()) {
+			for (Integer id : teamsSamePoints) {
+				if (this.tdiff == otherTeams[id - 1].tdiff) {
+					if (this.anzahl_tplus < otherTeams[id - 1].anzahl_tplus)	this.platz++;
 				}
-				else if (this.anzahl_tplus > vergleich.anzahl_tplus)	return 1;
-				else if (this.anzahl_tplus < vergleich.anzahl_tplus)	return 2;
+				else if (this.tdiff < otherTeams[id - 1].tdiff)	this.platz++;
 			}
-			else if (this.tdiff > vergleich.tdiff)	return 1;
-			else if (this.tdiff < vergleich.tdiff)	return 2;
-		} 
-		else if (this.punkte > vergleich.punkte)	return 1;
-		else if (this.punkte < vergleich.punkte)	return 2;
-		
-		return -1;
+		} else {
+			teamsSamePoints.add(0, this.id);
+			int[] points = new int[teamsSamePoints.size() + 1];
+			int[] pointsOpp = new int[teamsSamePoints.size() + 1];
+			int[] goals = new int[teamsSamePoints.size() + 1];
+			int[] goalsOpp = new int[teamsSamePoints.size() + 1];
+			
+			for (int i = 0; i < teamsSamePoints.size(); i++) {
+				Mannschaft team1 = otherTeams[teamsSamePoints.get(i) - 1];
+				for (int j = 0; j < teamsSamePoints.size(); j++) {
+					if (i == j)	continue;
+					Mannschaft team2 = otherTeams[teamsSamePoints.get(j) - 1];
+					for (int k = 0; k < daten.length; k++) {
+						if (team1.daten[k][OPPONENT] == team2.id) {
+							goals[i] += team1.daten[k][GOALS];
+							goalsOpp[i] += team1.daten[k][CGOALS];
+							points[i] += team1.daten[k][POINTS];
+							pointsOpp[i] += (team1.daten[k][POINTS] == 1 ? 1 : 3 - team1.daten[k][POINTS]);
+						}
+					}
+				}
+			}
+			for (int i = 1; i < teamsSamePoints.size(); i++) {
+				if (points[0] == points[i]) {
+					if (goals[0] - goalsOpp[0] == goals[i] - goalsOpp[i]) {
+						if (goals[0] < goals[i])	this.platz++;
+					} else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.platz++;
+				}
+				else if (points[0] < points[i])	this.platz++;
+			}
+		}
 	}
 
 	private void parseString(String data) {
@@ -466,3 +502,4 @@ public class Mannschaft {
 		return data;
 	}
 }
+

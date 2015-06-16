@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import static util.Utilities.*;
 
@@ -11,7 +12,7 @@ public class Liga implements Wettbewerb {
 	
 	private boolean isETPossible = false;
 	private boolean isSummerToSpringSeason;
-	private int[] saisons;
+	private ArrayList<Integer> saisons;
 	private int aktuelleSaison;
 	
 	private int numberOfTeams;
@@ -25,6 +26,7 @@ public class Liga implements Wettbewerb {
 	private int ANZAHL_EL;
 	private int ANZAHL_REL;
 	private int ANZAHL_ABS;
+	private boolean goalDifference = true; // TODO in toString
 	
 	private Mannschaft[] mannschaften;
 	
@@ -122,6 +124,68 @@ public class Liga implements Wettbewerb {
 		return matchday;
 	}
 	
+	public boolean addSeason(int season, ArrayList<Mannschaft> teams) {
+		try {
+			speichern();
+		} catch (Exception e) {}
+		
+		int index = 0;
+		for (int i = 0; i < saisons.size(); i++) {
+			if (season == saisons.get(i)) {
+				message("A season for that year already exists.");
+				return false;
+			} else if (season > saisons.get(i))	index++;
+		}
+		saisons.add(index, season);
+		aktuelleSaison = index;
+		
+		String saison = "" + saisons.get(aktuelleSaison);
+		if (this.isSummerToSpringSeason)	saison += "_" + (saisons.get(aktuelleSaison) + 1);
+		
+        String folder = workspace + File.separator + name + File.separator + saison + File.separator;
+        (new File(folder)).mkdirs();
+        
+        String dateiErgebnisse = folder + "Ergebnisse.txt";
+        String dateiSpieldaten = folder + "Spieldaten.txt";
+        String dateiSpielplan = folder + "Spielplan.txt";
+        String dateiTeams = folder + "Mannschaften.txt";
+        ArrayList<String> ergebnisplan = new ArrayList<>();
+        ArrayList<String> spieldaten = new ArrayList<>();
+        ArrayList<String> spielplan = new ArrayList<>();
+        ArrayList<String> teamsNames = new ArrayList<>();
+        
+        String allF = "", allNull = "";
+        for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+			allF += "f";
+			allNull += "null;";
+		}
+        
+        int numberOfDKOT = defaultKickoffTimes[numberOfMatchesPerMatchday - 1] + 1;
+        String defaultKickOffTimes = numberOfDKOT + ";";
+        for (int i = 0; i < numberOfDKOT; i++) {
+        	defaultKickOffTimes += daysSinceDST[i] + "," + kickoffTimes[i] + ";";
+		}
+        
+        spielplan.add(defaultKickOffTimes);
+        for (int i = 0; i < numberOfMatchdays; i++) {
+        	ergebnisplan.add(allF);
+        	spielplan.add(allF);
+        	spieldaten.add(allNull);
+		}
+        
+        teamsNames.add("" + teams.size());
+        for (int i = 0; i < teams.size(); i++) {
+        	teamsNames.add(teams.get(i).toString());
+		}
+        
+        inDatei(dateiErgebnisse, ergebnisplan);
+        inDatei(dateiSpieldaten, spieldaten);
+        inDatei(dateiSpielplan, spielplan);
+        inDatei(dateiTeams, teamsNames);
+        
+        return true;
+	}
+	
 	public void addNewKickoffTime(int tageseitfreitag, int kickofftime) {
 		int[] oldtageseitfr = daysSinceDST;
 		int[] oldKickoffTimes = kickoffTimes;
@@ -164,8 +228,8 @@ public class Liga implements Wettbewerb {
 	public void laden(int index) {
 		String saison;
 		aktuelleSaison = index;
-		if (this.isSummerToSpringSeason)	saison = saisons[aktuelleSaison] + "_" + (saisons[aktuelleSaison] + 1);
-		else								saison = "" + saisons[aktuelleSaison];
+		if (this.isSummerToSpringSeason)	saison = saisons.get(aktuelleSaison) + "_" + (saisons.get(aktuelleSaison) + 1);
+		else								saison = "" + saisons.get(aktuelleSaison);
 		
         dateiErgebnisse = workspace + File.separator + name + File.separator + saison + File.separator + "Ergebnisse.txt";
         dateiSpieldaten = workspace + File.separator + name + File.separator + saison + File.separator + "Spieldaten.txt";
@@ -252,6 +316,10 @@ public class Liga implements Wettbewerb {
 		return this.isSummerToSpringSeason;
 	}
 	
+	public boolean useGoalDifference() {
+		return this.goalDifference;
+	}
+	
 	public String getWorkspace() {
 		return this.workspace + File.separator + name + File.separator + getAktuelleSaison() + (isSTSS() ? "_" + (getAktuelleSaison() + 1) : "") + File.separator;
 	}
@@ -261,36 +329,37 @@ public class Liga implements Wettbewerb {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.saisons.length];
-        for (int i = 0; i < this.saisons.length; i++) {
-            hilfsarray[i] = this.saisons[i] + (this.isSummerToSpringSeason ? "/" + (this.saisons[i] + 1) : "");
+		String[] hilfsarray = new String[this.saisons.size()];
+        for (int i = 0; i < this.saisons.size(); i++) {
+            hilfsarray[i] = this.saisons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.saisons.get(i) + 1) : "");
         }
         return hilfsarray;
 	}
 	
 	public String getSeasonsRepresentation() {
 		String representation = "";
-		for (int i = 0; i < this.saisons.length; i++) {
+		for (int i = 0; i < this.saisons.size(); i++) {
 			String trenn = "S" + i;
-			representation += trenn + "*" + this.saisons[i] + "*" + trenn + ",";
+			representation += trenn + "*" + this.saisons.get(i) + "*" + trenn + ",";
 		}
 		return representation.substring(0, representation.length() - 1);
 	}
 	
-	public int[] getSeasonsFromRepresentation(String representation) {
+	public ArrayList<Integer> getSeasonsFromRepresentation(String representation) {
 		String[] seasonsReps = representation.split(",");
-		int[] seasons = new int[seasonsReps.length];
 		
-		for (int i = 0; i < seasons.length; i++) {
+		ArrayList<Integer> seasons = new ArrayList<>();
+		
+		for (int i = 0; i < seasonsReps.length; i++) {
 			String rep = seasonsReps[i];
-			seasons[i] = Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*")));
+			seasons.add(Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*"))));
 		}
 		
 		return seasons;
 	}
 	
 	public int getAktuelleSaison() {
-		return this.saisons[this.aktuelleSaison];
+		return this.saisons.get(this.aktuelleSaison);
 	}
 	
 	public int getDefaultStarttag() {
@@ -732,7 +801,7 @@ public class Liga implements Wettbewerb {
 	            }
 	        }
 		} catch (Exception e) {
-			errorMessage("Kein Spielplan");
+			errorMessage("Kein Spielplan: " + e.getMessage());
 			e.printStackTrace();
 		}
     }
@@ -799,7 +868,7 @@ public class Liga implements Wettbewerb {
 	            }
 	        }
 		} catch (Exception e) {
-			errorMessage("Kein Ergebnisseplan");
+			errorMessage("Kein Ergebnisseplan: " + e.getMessage());
 			e.printStackTrace();
 		}
     }
@@ -839,7 +908,7 @@ public class Liga implements Wettbewerb {
 				}
 			}
 		} catch (Exception e) {
-			errorMessage("Keine Spieldaten");
+			errorMessage("Keine Spieldaten: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -874,7 +943,7 @@ public class Liga implements Wettbewerb {
 		rueckgabe = rueckgabe + "A_EL*" + this.ANZAHL_EL + ";";
 		rueckgabe = rueckgabe + "A_REL*" + this.ANZAHL_REL + ";";
 		rueckgabe = rueckgabe + "A_ABS*" + this.ANZAHL_ABS + ";";
-		rueckgabe = rueckgabe + "A_SAI*" + this.saisons.length + ";";
+		rueckgabe = rueckgabe + "A_SAI*" + this.saisons.size() + ";";
 		rueckgabe += getSeasonsRepresentation() + ";";
 		
 		return rueckgabe;
@@ -900,3 +969,4 @@ public class Liga implements Wettbewerb {
 		workspace = start.getWorkspace();
 	}
 }
+
