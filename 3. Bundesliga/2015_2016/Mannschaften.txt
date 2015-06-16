@@ -1,0 +1,21 @@
+20
+Erzgebirge Aue;01.01.1970
+VfR Aalen;01.01.1970
+Holstein Kiel;01.01.1970
+Stuttgarter Kickers;01.01.1970
+Chemnitzer FC;01.01.1970
+Dynamo Dresden;01.01.1970
+FC Energie Cottbus;01.01.1970
+Preußen Münster;01.01.1970
+SV Wehen Wiesbaden;01.01.1970
+Hallescher FC;01.01.1970
+VfL Osnabrück;01.01.1970
+Rot-Weiß Erfurt;01.01.1970
+VfB Stuttgart II;09.09.1893
+Fortuna Köln;01.01.1970
+SG Sonnenhof Großaspach;01.01.1970
+1. FSV Mainz 05 II;01.01.1970
+Hansa Rostock;01.01.1970
+1. FC Magdeburg;01.01.1970
+Werder Bremen II;01.01.1970
+Würzburger Kickers;01.01.1970

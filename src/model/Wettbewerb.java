@@ -21,4 +21,12 @@ public interface Wettbewerb {
 	
 	public boolean isETPossible();
 	
+	/** 
+	 * When two teams have the same amount of points:<br />
+	 * If true, the goal difference comes next.<br />
+	 * If false, all matches between these two teams are compared.
+	 * */
+	public boolean useGoalDifference();
+	
 }
+
