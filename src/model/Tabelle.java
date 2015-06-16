@@ -286,15 +286,12 @@ public class Tabelle extends JPanel {
     }
     
     public void aktualisieren() {
-    	if (currentMatchday == -1)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
+    	if (currentMatchday == -1) {
+    		jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
+    		if (wettbewerb.getCurrentMatchday() == 0)	currentMatchday = 0;
+    	}
 		for (Mannschaft ms : wettbewerb.getMannschaften()) {
-			ms.setPlace(0);
-        	for (Mannschaft ms2 : wettbewerb.getMannschaften()) {
-        		int besser = ms.compareWith(ms2, currentMatchday);
-        		if (besser == 2) {
-        			ms.setPlace(ms.getPlace() + 1);
-        		}
-        	}
+			ms.compareWithOtherTeams(wettbewerb.getMannschaften(), currentMatchday);
         }
         
         this.labelsbefuellen();
@@ -402,3 +399,4 @@ public class Tabelle extends JPanel {
     	aktualisieren();
 	}
 }
+

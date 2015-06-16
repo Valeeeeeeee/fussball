@@ -23,6 +23,7 @@ public class KORunde implements Wettbewerb {
 	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
+	private boolean goalDifference = true;
 	
 	private boolean teamsAreWinners;
 	private String[] teamsOrigins;
@@ -108,6 +109,10 @@ public class KORunde implements Wettbewerb {
 	
 	public boolean isETPossible() {
 		return this.isETPossible;
+	}
+	
+	public boolean useGoalDifference() {
+		return this.goalDifference;
 	}
 	
 	public void setCheckTeamsFromPreviousRound(boolean checkTeamsFromPreviousRound) {
@@ -747,3 +752,4 @@ public class KORunde implements Wettbewerb {
 		workspace = start.getWorkspace();
 	}
 }
+

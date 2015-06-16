@@ -13,6 +13,7 @@ public class Gruppe implements Wettbewerb {
 	private Mannschaft[] mannschaften;
 	private Turnier turnier;
 	private boolean isETPossible = false;
+	private boolean goalDifference = true;
 	
 	/**
 	 * [Spieltag][Spiel]
@@ -118,6 +119,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public boolean isETPossible() {
 		return this.isETPossible;
+	}
+	
+	public boolean useGoalDifference() {
+		return this.goalDifference;
 	}
 	
 	public String getDateOfTeam(int matchday, int id) {
@@ -637,3 +642,4 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 }
+

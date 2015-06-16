@@ -64,7 +64,7 @@ public class Uebersicht extends JPanel {
     private int[] kaderWIDTHES = {20, 170, 75};
     private int kaderHEIGHT = 15;
     private int[] kaderGAPX = {5, 5, 0};
-    private int kaderGAPY = 5;
+    private int kaderGAPY = 3;
     
 	private Start start;
 	private Wettbewerb wettbewerb;
@@ -83,6 +83,7 @@ public class Uebersicht extends JPanel {
 	
 	private int numberOfMatchdays;
 	private int numberOfPlayers;
+	private int numberOfPositions;
 
     public Uebersicht(Start start, Liga liga/*, Mannschaft mannschaft*/) {
         super();
@@ -125,6 +126,7 @@ public class Uebersicht extends JPanel {
 			
 			mannschaften = wettbewerb.getMannschaften();
 			numberOfMatchdays = wettbewerb.getNumberOfMatchdays();
+			numberOfPositions = 4;
 			
             spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
             opponents = new int[numberOfMatchdays];
@@ -264,13 +266,22 @@ public class Uebersicht extends JPanel {
         	kaderPanel.setBackground(cbackground);
     	} else {
     		kaderPanel.removeAll();
+    		for (int i = 0; i < kaderLbls.length; i++) {
+    			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
+    				kaderLbls[i][j].setVisible(false);
+    			}
+			}
+    		for (int i = 0; i < kaderDescrLbls.length; i++) {
+    			kaderDescrLbls[i].setVisible(false);
+			}
+    		repaintImmediately(kaderPanel);
     	}
     	
     	ArrayList<Spieler> eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
     	numberOfPlayers = eligiblePlayers.size();
     	
         kaderLbls = new JLabel[numberOfPlayers][NUMBEROFFIELDSKAD];
-        kaderDescrLbls = new JLabel[numberOfPlayers];
+        kaderDescrLbls = new JLabel[numberOfPlayers == 0 ? 0 : numberOfPositions];
         
         int countSinceLastER = 0;
         int descrIndex = 0;
@@ -387,3 +398,4 @@ public class Uebersicht extends JPanel {
     	}
     }
 }
+
