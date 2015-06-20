@@ -29,8 +29,10 @@ public class Start extends JFrame {
     private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
     
     private String config;
-    private String[] configurationFromFile;
+    private ArrayList<String> configurationFromFile;
     
+    private String[] koRFull = new String[] {"1. Runde", "2. Runde", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
+    private String[] koRShort = new String[] {"1R", "2R", "AF", "VF", "HF", "P3", "FI"};
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -41,7 +43,7 @@ public class Start extends JFrame {
 	private Liga[] ligen;
 	private Liga aktuelleLiga;
 	
-	private Turnier[] turniere;
+	private ArrayList<Turnier> turniere;
 	private Turnier aktuellesTurnier;
 	private Gruppe aktuelleGruppe;
 	private KORunde aktuelleKORunde;
@@ -185,13 +187,7 @@ public class Start extends JFrame {
     private void testSomethingBeforeIntroducingItIntoTheRealCode() {
     	// TODO do some testing
     	
-    	jBtnLigenPressed(0);
-    	jBtnZurueckActionPerformed();
-    	
-    	// wm 2014, gruppe -> tabelle -> uebersicht: leerzeile??
-    	
-    	
-    	
+    	// Heim-/Auswaertstabelle
     	
         log("\n\n");
     }
@@ -300,11 +296,11 @@ public class Start extends JFrame {
 			});
         }
         for (int i = 0; i < anzahlTurniere; i++) {
-        	final int x = i + anzahlLigen;
+        	final int x = i;
         	jBtnsTurniere[i] = new JButton();
         	Homescreen.add(jBtnsTurniere[i]);
         	jBtnsTurniere[i].setBounds(start_btnsstartx + start_btnswidth + 10, start_btnsstarty + i * (start_btnsheight + 10), start_btnswidth, start_btnsheight);
-        	jBtnsTurniere[i].setText(turniere[i].getName());
+        	jBtnsTurniere[i].setText(turniere.get(i).getName());
         	jBtnsTurniere[i].setFocusable(false);
         	jBtnsTurniere[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -497,7 +493,15 @@ public class Start extends JFrame {
     	return alphabet;
     }
     
-    public String getWorkspace() {
+    public String[] getKoRFull() {
+		return koRFull;
+	}
+
+	public String[] getKoRShort() {
+		return koRShort;
+	}
+
+	public String getWorkspace() {
     	return workspace;
     }
     
@@ -542,13 +546,13 @@ public class Start extends JFrame {
 		Homescreen.setVisible(false);
 		jBtnZurueck.setVisible(true);
 		
-    	if (index >= anzahlLigen) {
+    	if (index < anzahlTurniere) {
 			// The pressed button leads to a tournament
     		isCurrentlyALeague = false;
 			TurnierHomescreen.setVisible(true);
 			TurnierHomescreen.add(jBtnZurueck);
 			
-			aktuellesTurnier = turniere[index - anzahlLigen];
+			aktuellesTurnier = turniere.get(index);
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
             ComboBoxModel jCBSaisonauswahlModel = new DefaultComboBoxModel(aktuellesTurnier.getAllSeasons());
@@ -1059,7 +1063,7 @@ public class Start extends JFrame {
     }
     
     public void jBtnStatistikActionPerformed() {
-		aktuelleStatistik.updateGUI();
+		aktuelleStatistik.aktualisieren();
     	LigaHomescreen.setVisible(false);
     	aktuelleStatistik.add(jBtnZurueck);
     	aktuelleStatistik.setVisible(true);
@@ -1111,11 +1115,11 @@ public class Start extends JFrame {
     
     public String getTournamentWorkspaceFromShortName(String shortName, int season) {
     	int index = 0;
-    	for (index = 0; index < turniere.length; index++) {
-			if (turniere[index].getShortName().equals(shortName))		break;
+    	for (index = 0; index < turniere.size(); index++) {
+			if (turniere.get(index).getShortName().equals(shortName))		break;
 		}
-    	if (index != turniere.length) {
-        	return this.turniere[index].getWorkspace(season);
+    	if (index != turniere.size()) {
+        	return this.turniere.get(index).getWorkspace(season);
     	}
 		return null;
     }
@@ -1224,7 +1228,7 @@ public class Start extends JFrame {
 		message("Successfully created new league.");
     }
     
-    public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
+    public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
     								int nOTeam, int nOGrp, int nOKO, String[][] teamsGrp, String[][] teamsKO) {
     	for (Turnier turnier : turniere) {
 			if (turnier.getName().equals(name)) {
@@ -1235,11 +1239,6 @@ public class Start extends JFrame {
     	
     	String daten = "";
     	
-    	String[] koRFull = new String[] {"1. Runde", "2. Runde", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
-    	String[] koRShort = new String[] {"1R", "2R", "AF", "VF", "HF", "P3", "FI"};
-    	char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    						'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    	
     	// Erstellung des config-strings
     	
     	daten = "NAME*" + name + ";";
@@ -1248,6 +1247,7 @@ public class Start extends JFrame {
 		daten += "STDATE*" + stDate + ";";
 		daten += "FIDATE*" + fiDate + ";";
 		daten += "NOFTEAMS*" + nOTeam + ";";
+		daten += "QUALI*" + hasQ + ";";
 		daten += "GRPSTG*" + hasGrp + ";";
 		daten += "KOSTG*" + hasKO + ";";
 		daten += "NOFGRPS*" + nOGrp + ";";
@@ -1264,7 +1264,9 @@ public class Start extends JFrame {
     	} catch (Exception e) {
     		error("Error while creating season root directory!");
     	}
-		
+		if (hasQ) {
+			
+		}
     	if (hasGrp) {
     		try {
     			for (int index = 0; index < nOGrp; index++) {
@@ -1319,7 +1321,6 @@ public class Start extends JFrame {
     				koConfig[i] = koRFull[i + diff - skip3pl] + ";" + koRShort[i + diff - skip3pl] + ";" + (!has3pl || i != nOKO - 2) + ";" + ko2leg + ";";
 				}
     			koConfig[koConfig.length - 1] = koRFull[koRFull.length - 1] + ";" + koRShort[koRShort.length - 1] + ";" + true + ";" + false + ";";
-    			inDatei(seasonFile.getAbsolutePath() + File.separator + "KOconfig.txt", koConfig);
     			
         		for (int index = 0; index < nOKO; index++) {
         			// Berechnung der Anzahlen
@@ -1331,27 +1332,44 @@ public class Start extends JFrame {
     				
     				int numberOfMatchdays = (ko2leg && index != nOKO - 1) ? 2 : 1;
     				
+    				// Vervollstaendigung der KO-Konfiguration
+    				int numberOfTeamsPrequalified = 0;
+    				int numberOfTeamsFromPreviousRound = 0;
+    				int numberOfTeamsFromOtherCompetition = 0;
+    				
     				// Erstellung der Mannschaftsnamen sowie des Spielplans und des Ergebnisplans
     				String[] teams = new String[numberOfTeamsPerKO];
     				String[] spielplan = new String[numberOfMatchdays];
     				String[] ergebnisplan = new String[numberOfMatchdays];
     				for (int team = 0; team < numberOfTeamsPerKO; team++) {
     					try {
-    						teams[team] = teamsGrp[index][team].substring(0);
+    						String[] split = teamsKO[index][team].split("#");
+    						teams[team] = split[0];
+    						if (split[1].equals("PQ"))		numberOfTeamsPrequalified++;
+    						else if (split[1].equals("PR"))	numberOfTeamsFromPreviousRound++;
+    						else if (split[1].equals("OC"))	numberOfTeamsFromOtherCompetition++;
     					} catch (NullPointerException npe) {
     						if (index == 0) {
+    							// TODO Gruppendritte
+    							// TODO Fehler finden: war ueberall eine Runde zu spaet(im Finale: VF1:VF2)
     							if (hasGrp) {
     								teams[team] = "G" + alphabet[team / 2] + (team % 2 + 1);
+        							numberOfTeamsFromPreviousRound++;
     							} else {
     								teams[team] = "Mannschaft " + (team + 1);
+        							numberOfTeamsPrequalified++;
     							}
     						} else if (index == nOKO - 1) {
     							teams[team] = koRShort[index + diff - (has3pl ? 3 : 2)] + (team + 1);
+    							numberOfTeamsFromPreviousRound++;
     						} else {
     							teams[team] = koRShort[index + diff - 2] + (team + 1);
+    							numberOfTeamsFromPreviousRound++;
     						}
     					}
     				}
+    				
+    				koConfig[index] += numberOfTeamsPrequalified + ";" + numberOfTeamsFromPreviousRound + ";" + numberOfTeamsFromOtherCompetition + ";";
         			
         			String falseStr = "";
     				for (int i = 0; i < numberOfTeamsPerKO / 2; i++) {
@@ -1372,6 +1390,7 @@ public class Start extends JFrame {
     		    	inDatei(koFile.getAbsolutePath() + File.separator + "Spielplan.txt", spielplan);
     		    	inDatei(koFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", ergebnisplan);
             	}
+    			inDatei(seasonFile.getAbsolutePath() + File.separator + "KOconfig.txt", koConfig);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -1380,13 +1399,7 @@ public class Start extends JFrame {
     	
     	// Speicherung in config / turniere-Array
     	anzahlTurniere++;
-		Turnier[] oldTurniere = turniere;
-		
-		turniere = new Turnier[anzahlTurniere];
-		for (int i = 0; i < oldTurniere.length; i++) {
-			turniere[i] = oldTurniere[i];
-		}
-		turniere[turniere.length - 1]  = new Turnier(turniere.length - 1, this, daten);
+		turniere.add(new Turnier(turniere.size(), this, daten));
 		
     	saveConfiguration();
 		loadConfiguration();
@@ -1520,44 +1533,39 @@ public class Start extends JFrame {
         
         int counter = 0;
         
-        anzahlLigen = Integer.parseInt(configurationFromFile[counter]);
+        anzahlLigen = Integer.parseInt(configurationFromFile.get(counter));
         ligen = new Liga[anzahlLigen];
         counter++;
         
         for (int i = 0; i < anzahlLigen; i++) {
-        	ligen[i] = new Liga(i, this, (String) configurationFromFile[counter]);
+        	ligen[i] = new Liga(i, this, (String) configurationFromFile.get(counter));
             counter++;
         }
         
-        anzahlTurniere = Integer.parseInt((String) configurationFromFile[counter]);
-        turniere = new Turnier[anzahlTurniere];
+        anzahlTurniere = Integer.parseInt((String) configurationFromFile.get(counter));
+        turniere = new ArrayList<>();
         counter++;
         
         for (int i = 0; i < anzahlTurniere; i++) {
-        	turniere[i] = new Turnier(i, this, (String) configurationFromFile[counter]);
+        	turniere.add(new Turnier(i, this, (String) configurationFromFile.get(counter)));
             counter++;
         }
     }
     
     private void saveConfiguration() {
-    	this.configurationFromFile = new String[anzahlLigen + anzahlTurniere + 2];
+    	this.configurationFromFile = new ArrayList<>();
     	
-    	int counter = 0;
     	
-		configurationFromFile[counter] = "" + anzahlLigen;
-		counter++;
+		configurationFromFile.add("" + anzahlLigen);
 		
     	for (int i = 0; i < ligen.length; i++) {
-    		configurationFromFile[counter] = ligen[i].toString();
-    		counter++;
+    		configurationFromFile.add(ligen[i].toString());
     	}
     	
-		configurationFromFile[counter] = "" + anzahlTurniere;
-		counter++;
+		configurationFromFile.add("" + anzahlTurniere);
 		
-    	for (int i = 0; i < turniere.length; i++) {
-    		configurationFromFile[counter] = turniere[i].toString();
-    		counter++;
+    	for (int i = 0; i < turniere.size(); i++) {
+    		configurationFromFile.add(turniere.get(i).toString());
     	}
     	
     	inDatei(config, configurationFromFile);
@@ -1580,4 +1588,3 @@ public class Start extends JFrame {
 		}
 	}
 }
-

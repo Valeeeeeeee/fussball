@@ -1,14 +1,17 @@
 package model;
 import java.io.File;
+import java.util.ArrayList;
 
 import static util.Utilities.*;
 
 public class Gruppe implements Wettbewerb {
+	private boolean debug = false;
 	private int id;
 	private Start start;
 	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
+	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
 	private Mannschaft[] mannschaften;
 	private Turnier turnier;
@@ -32,9 +35,9 @@ public class Gruppe implements Wettbewerb {
 	private String dateiMannschaft;
 	private String dateiSpielplan;
 	private String dateiErgebnisse;
-	private String[] teamsFromFile;
-	private String[] spielplanFromFile;
-	private String[] ergebnisseFromFile;
+	private ArrayList<String> teamsFromFile;
+	private ArrayList<String> spielplanFromFile;
+	private ArrayList<String> ergebnisseFromFile;
 	
 	private int startDate;
 	private int finalDate;
@@ -54,18 +57,9 @@ public class Gruppe implements Wettbewerb {
 		this.startDate = turnier.getStartDate();
 		this.finalDate = turnier.getFinalDate();
 		
-		System.out.println("\nGruppe " + (this.id + 1) + ":");
-		
 		this.laden();
 		
-		for (int i = 1; i <= mannschaften.length; i++) {
-			try {
-				System.out.println(i + ". " + getTeamOnPlace(i).getName());
-			} catch (NullPointerException npe) {
-				System.out.println("  Mannschaft: " + mannschaften[i - 1].getName());
-			}
-		}
-		
+		if (debug)	testAusgabePlatzierungen();
 	}
 	
 	public String getWorkspace() {
@@ -95,6 +89,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public int getNumberOfMatchdays() {
 		return this.numberOfMatchdays;
+	}
+	
+	public int getNumberOfMatchesAgainstSameOpponent() {
+		return numberOfMatchesAgainstSameOpponent;
 	}
 	
 	public int getStartDate() {
@@ -212,6 +210,18 @@ public class Gruppe implements Wettbewerb {
 		}
 		
 		return matchday;
+	}
+	
+	private void testAusgabePlatzierungen() {
+		log("\nGruppe " + (this.id + 1) + ":");
+		
+		for (int i = 1; i <= mannschaften.length; i++) {
+			try {
+				log(i + ". " + getTeamOnPlace(i).getName());
+			} catch (NullPointerException npe) {
+				log("  Mannschaft: " + mannschaften[i - 1].getName());
+			}
+		}
 	}
 	
 	@SuppressWarnings("unused")
@@ -478,21 +488,22 @@ public class Gruppe implements Wettbewerb {
 	public void mannschaftenLaden() {
 		this.teamsFromFile = ausDatei(this.dateiMannschaft);
 		
-		numberOfTeams = this.teamsFromFile.length;
+		numberOfTeams = this.teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
+		numberOfMatchesAgainstSameOpponent = turnier.groupHasSecondLeg() ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
-		numberOfMatchdays *= turnier.groupHasSecondLeg() ? 2 : 1;
+		numberOfMatchdays *= numberOfMatchesAgainstSameOpponent;
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile[i]);
+			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile.get(i));
 		}
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new String[this.numberOfTeams];
+		this.teamsFromFile = new ArrayList<>();
 		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile[i] = this.mannschaften[i].toString();
+			this.teamsFromFile.add(this.mannschaften[i].toString());
 		}
 		inDatei(this.dateiMannschaft, this.teamsFromFile);
 	}
@@ -529,7 +540,7 @@ public class Gruppe implements Wettbewerb {
 			this.spielplanFromFile = ausDatei(this.dateiSpielplan); 
 		    
 	        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
-	            String[] inhalte = this.spielplanFromFile[matchday].split(";");
+	            String[] inhalte = this.spielplanFromFile.get(matchday).split(";");
 	            
 	            this.setSpielplanEnteredFromRepresentation(matchday, inhalte[0]);
 	            
@@ -565,7 +576,7 @@ public class Gruppe implements Wettbewerb {
     }
 
 	private void spielplanSpeichern() {
-		this.spielplanFromFile = new String[this.numberOfMatchdays];
+		this.spielplanFromFile = new ArrayList<>();
 		
 		for (int spieltag = 0; spieltag < numberOfMatchdays; spieltag++) {
 			String element = getSpielplanRepresentation(spieltag) + ";";
@@ -580,7 +591,7 @@ public class Gruppe implements Wettbewerb {
 					element += getSpiel(spieltag, match) + ";";
 				}
 			}
-			this.spielplanFromFile[spieltag] = element;
+			this.spielplanFromFile.add(element);
 		}
 		
 		inDatei(this.dateiSpielplan, this.spielplanFromFile);
@@ -591,7 +602,7 @@ public class Gruppe implements Wettbewerb {
 			this.ergebnisseFromFile = ausDatei(this.dateiErgebnisse);
 	        
 	        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
-	            String[] inhalte = this.ergebnisseFromFile[matchday].split(";");
+	            String[] inhalte = this.ergebnisseFromFile.get(matchday).split(";");
 	            this.setErgebnisplanEnteredFromRepresentation(matchday, inhalte[0]);
 	            
 	            int match = 0;
@@ -622,7 +633,7 @@ public class Gruppe implements Wettbewerb {
     }
 
 	private void ergebnisseSpeichern() {
-		this.ergebnisseFromFile = new String[numberOfMatchdays];
+		this.ergebnisseFromFile = new ArrayList<>();
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			String element = getErgebnisplanRepresentation(i) + ";";
@@ -631,7 +642,7 @@ public class Gruppe implements Wettbewerb {
 					element += getErgebnis(i, j) + ";";
 				}
 			}
-			this.ergebnisseFromFile[i] = element;
+			this.ergebnisseFromFile.add(element);
 		}
 		
 		inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
@@ -642,4 +653,3 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 }
-

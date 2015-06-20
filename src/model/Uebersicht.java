@@ -58,6 +58,7 @@ public class Uebersicht extends JPanel {
     private int height = 15;
     private int[] gapx = {5, 5, 10, 0, 0, 10, 0};
     private int gapy = 5;
+    private int middlegapy = 15;
 	
     private int kaderSTARTX = 20;
     private int kaderSTARTY = 10;
@@ -127,6 +128,7 @@ public class Uebersicht extends JPanel {
 			mannschaften = wettbewerb.getMannschaften();
 			numberOfMatchdays = wettbewerb.getNumberOfMatchdays();
 			numberOfPositions = 4;
+			if (wettbewerb.getNumberOfMatchesAgainstSameOpponent() == 1)	middlegapy = 0;
 			
             spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
             opponents = new int[numberOfMatchdays];
@@ -144,7 +146,7 @@ public class Uebersicht extends JPanel {
             for (int i = 0; i < gapx.length; i++) {
             	sumofwidthes += gapx[i];
             }
-            RECSPPLPNL = new Rectangle(startx, starty, sumofwidthes, 2 * 5 + numberOfMatchdays * height + (numberOfMatchdays + 2) * gapy);
+            RECSPPLPNL = new Rectangle(startx, starty, sumofwidthes, 2 * 5 + numberOfMatchdays * height + (numberOfMatchdays - 1) * gapy + middlegapy);
             RECINFPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty, 420, 80);
             
             {
@@ -163,7 +165,7 @@ public class Uebersicht extends JPanel {
                 for (int j = 0; j < spieltage[i].length; j++) {
                     spieltage[i][j] = new JLabel();
                     spiele.add(spieltage[i][j]);
-                    spieltage[i][j].setBounds(nstartx + diff, 5 + i * (height + gapy) + 3 * (i / (spieltage.length / 2)) * gapy, widthes[j], height);
+                    spieltage[i][j].setBounds(nstartx + diff, 5 + i * (height + gapy) + (i / (spieltage.length / 2)) * middlegapy, widthes[j], height);
                     
                     diff += widthes[j] + gapx[j];
                 }
@@ -398,4 +400,3 @@ public class Uebersicht extends JPanel {
     	}
     }
 }
-

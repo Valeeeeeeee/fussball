@@ -4,6 +4,7 @@ public interface Wettbewerb {
 
 	public int getCurrentMatchday();
 	public int getNumberOfMatchdays();
+	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);
 	
 	public boolean isSpielplanEntered(int matchday, int match);
@@ -29,4 +30,3 @@ public interface Wettbewerb {
 	public boolean useGoalDifference();
 	
 }
-

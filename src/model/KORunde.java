@@ -1,6 +1,7 @@
 package model;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static util.Utilities.*;
 
@@ -14,6 +15,7 @@ public class KORunde implements Wettbewerb {
 	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
+	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
 	private Mannschaft[] mannschaften;
 	private int numberOfTeamsPrequalified;
@@ -46,9 +48,9 @@ public class KORunde implements Wettbewerb {
 	private String dateiSpielplan;
 	private String dateiMannschaft;
 	
-	private String[] teamsFromFile;
-	private String[] spielplanFromFile;
-	private String[] ergebnisseFromFile;
+	private ArrayList<String> teamsFromFile;
+	private ArrayList<String> spielplanFromFile;
+	private ArrayList<String> ergebnisseFromFile;
 	
 	/**
 	 * [Spieltag][spielIndex]
@@ -183,6 +185,10 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNumberOfMatchdays() {
 		return numberOfMatchdays;
+	}
+	
+	public int getNumberOfMatchesAgainstSameOpponent() {
+		return numberOfMatchesAgainstSameOpponent;
 	}
 	
 	public int getCurrentMatchday() {
@@ -582,21 +588,22 @@ public class KORunde implements Wettbewerb {
 	private void mannschaftenLaden() {
 		teamsFromFile = ausDatei(dateiMannschaft);
 		
-		this.numberOfTeams = teamsFromFile.length;
+		this.numberOfTeams = teamsFromFile.size();
 		mannschaften = new Mannschaft[numberOfTeams];
+		this.numberOfMatchesAgainstSameOpponent = this.hasSecondLeg ? 2 : 1;
 		this.numberOfMatchdays = this.hasSecondLeg ? 2 : 1;
 		this.numberOfMatchesPerMatchday = numberOfTeams / 2;
 		
 		teamsOrigins = new String[this.numberOfTeams];
 		for (int i = 0; i < teamsOrigins.length; i++) {
-			teamsOrigins[i] = teamsFromFile[i];
+			teamsOrigins[i] = teamsFromFile.get(i);
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
 			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, teamsOrigins[i]);
 		}
 		
-		testGNOTFOC();
+		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeamsFromOtherCompetition; i++) {
 			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
@@ -606,9 +613,9 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new String[this.numberOfTeams];
+		this.teamsFromFile = new ArrayList<>();
 		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile[i] = this.teamsOrigins[i]; //.toString());
+			this.teamsFromFile.add(this.teamsOrigins[i]); //.toString());
 		}
 		inDatei(this.dateiMannschaft, this.teamsFromFile);
 	}
@@ -617,8 +624,8 @@ public class KORunde implements Wettbewerb {
 		try {
 			spielplanFromFile = ausDatei(dateiSpielplan);
 			
-	    	for (int matchday = 0; matchday < spielplanFromFile.length; matchday++) {
-	        	String[] inhalte = spielplanFromFile[matchday].split(";");
+	    	for (int matchday = 0; matchday < spielplanFromFile.size(); matchday++) {
+	        	String[] inhalte = spielplanFromFile.get(matchday).split(";");
 	        	
 	        	this.setSpielplanEnteredFromRepresentation(matchday, inhalte[0]);
 	        	
@@ -655,7 +662,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void spielplanSpeichern() {
-		this.spielplanFromFile = new String[this.numberOfMatchdays];
+		this.spielplanFromFile = new ArrayList<>();
 		
 		for (int spieltag = 0; spieltag < numberOfMatchdays; spieltag++) {
 			String element = getSpielplanRepresentation(spieltag) + ";";
@@ -670,7 +677,7 @@ public class KORunde implements Wettbewerb {
 					element += getSpiel(spieltag, match) + ";";
 				}
 			}
-			this.spielplanFromFile[spieltag] = element;
+			this.spielplanFromFile.add(element);
 		}
 		
 		inDatei(this.dateiSpielplan, this.spielplanFromFile);
@@ -681,7 +688,7 @@ public class KORunde implements Wettbewerb {
 			this.ergebnisseFromFile = ausDatei(this.dateiErgebnisse);
 	        
 	        for (int counter = 0; counter < this.numberOfMatchdays; counter++) {
-	            String[] inhalte = this.ergebnisseFromFile[counter].split(";");
+	            String[] inhalte = this.ergebnisseFromFile.get(counter).split(";");
 	            
 	            this.setErgebnisplanEnteredFromRepresentation(counter, inhalte[0]);
 	            
@@ -709,7 +716,7 @@ public class KORunde implements Wettbewerb {
     }
 	
 	private void ergebnisseSpeichern() {
-		this.ergebnisseFromFile = new String[numberOfMatchdays];
+		this.ergebnisseFromFile = new ArrayList<>();
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			String element = getErgebnisplanRepresentation(i) + ";";
@@ -718,7 +725,7 @@ public class KORunde implements Wettbewerb {
 					element += getErgebnis(i, j) + ";";
 				}
 			}
-			this.ergebnisseFromFile[i] = element;
+			this.ergebnisseFromFile.add(element);
 		}
 		
 		inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
@@ -752,4 +759,3 @@ public class KORunde implements Wettbewerb {
 		workspace = start.getWorkspace();
 	}
 }
-

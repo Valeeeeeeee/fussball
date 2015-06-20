@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import static util.Utilities.*;
 
 public class Turnier {
+	private boolean debug = false;
+	
 	private Start start;
 	private int id;
 	private String name;
@@ -16,13 +18,14 @@ public class Turnier {
 	
 	private boolean isETPossible = false;
 	private boolean isSummerToSpringSeason;
+	private boolean hasQualification;
 	private boolean hasGroupStage;
 	private boolean hasKOStage;
 	private boolean groupPhaseSecondLeg;
 	private boolean koPhaseSecondLeg;
 	private boolean matchForThirdPlace;
 	
-	private int[] seasons;
+	private ArrayList<Integer> seasons;
 	private int aktuelleSaison;
 	
 	private Spieltag overview;
@@ -36,8 +39,11 @@ public class Turnier {
 	
 	private String workspace;
 	
+	private String dateiQualifikationDaten;
+	private ArrayList<String> qualifikationDatenFromFile;
+	
 	private String dateiKORundenDaten;
-	private String[] koRundenDatenFromFile;
+	private ArrayList<String> koRundenDatenFromFile;
 	
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
@@ -54,8 +60,8 @@ public class Turnier {
 	
 	public String getWorkspace(int season) {
 		int seasonIndex = 0;
-		for (seasonIndex = 0; seasonIndex < seasons.length; seasonIndex++) {
-			if (seasons[seasonIndex] == season)	break;
+		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
+			if (seasons.get(seasonIndex) == season)	break;
 		}
 		return workspace + File.separator + name + File.separator + getSeason(seasonIndex) + File.separator;
 	}
@@ -96,6 +102,10 @@ public class Turnier {
 		return this.finalDate;
 	}
 	
+	public boolean hasQualification() {
+		return this.hasQualification;
+	}
+	
 	public boolean hasGroupStage() {
 		return this.hasGroupStage;
 	}
@@ -121,41 +131,40 @@ public class Turnier {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.seasons.length];
-        for (int i = 0; i < this.seasons.length; i++) {
-            hilfsarray[i] = this.seasons[i] + (this.isSummerToSpringSeason ? "/" + (this.seasons[i] + 1) : "");
+		String[] hilfsarray = new String[this.seasons.size()];
+        for (int i = 0; i < this.seasons.size(); i++) {
+            hilfsarray[i] = this.seasons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.seasons.get(i) + 1) : "");
         }
         return hilfsarray;
 	}
 	
 	public String getSeasonsRepresentation() {
 		String representation = "";
-		for (int i = 0; i < this.seasons.length; i++) {
+		for (int i = 0; i < this.seasons.size(); i++) {
 			String trenn = "S" + i;
-			representation += trenn + "*" + this.seasons[i] + "*" + trenn + ",";
+			representation += trenn + "*" + this.seasons.get(i) + "*" + trenn + ",";
 		}
 		return representation.substring(0, representation.length() - 1);
 	}
 	
-	public int[] getSeasonsFromRepresentation(String representation) {
+	public ArrayList<Integer> getSeasonsFromRepresentation(String representation) {
 		String[] seasonsReps = representation.split(",");
-		int[] seasons = new int[seasonsReps.length];
+		ArrayList<Integer> seasons = new ArrayList<>();
 		
-		for (int i = 0; i < seasons.length; i++) {
+		for (int i = 0; i < seasonsReps.length; i++) {
 			String rep = seasonsReps[i];
-			seasons[i] = Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*")));
+			seasons.add(Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*"))));
 		}
 		
 		return seasons;
 	}
 	
 	public String getSeason(int seasonIndex) {
-		
-		return this.seasons[seasonIndex] + (this.isSummerToSpringSeason ? "_" + (this.seasons[seasonIndex] + 1) : "");
+		return this.seasons.get(seasonIndex) + (this.isSummerToSpringSeason ? "_" + (this.seasons.get(seasonIndex) + 1) : "");
 	}
 	
 	public int getAktuelleSaison() {
-		return this.seasons[this.aktuelleSaison];
+		return this.seasons.get(this.aktuelleSaison);
 	}
 	
 	public Mannschaft[] getMannschaftenInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound) {
@@ -426,12 +435,14 @@ public class Turnier {
 	public void laden(int index) {
 		aktuelleSaison = index;
 		
+		dateiQualifikationDaten = workspace + File.separator + name + File.separator + getSeason(aktuelleSaison) + File.separator + "QualiConfig.txt";
 		dateiKORundenDaten = workspace + File.separator + name + File.separator + getSeason(aktuelleSaison) + File.separator + "KOconfig.txt";
 		
-		if (hasGroupStage)	gruppenLaden();
+		if (hasQualification)	qualifikationLaden();
+		if (hasGroupStage)		gruppenLaden();
     	if (hasKOStage) {
     		koRundenLaden();
-        	testGetGroupStageOriginsOfTeams();
+        	if (debug)	testGetGroupStageOriginsOfTeams();
     	}
 	}
 	
@@ -443,13 +454,19 @@ public class Turnier {
 		if (hasKOStage) {
 			for (KORunde koRunde : koRunden)	koRunde.speichern();
 			
-			koRundenDatenFromFile = new String[numberOfKORounds];
+			koRundenDatenFromFile.clear();
 			for (int i = 0; i < numberOfKORounds; i++) {
-				koRundenDatenFromFile[i] = koRunden[i].toString();
+				koRundenDatenFromFile.add(koRunden[i].toString());
 			}
 			
 			inDatei(dateiKORundenDaten, koRundenDatenFromFile);
 		}
+	}
+	
+	private void qualifikationLaden() {
+		this.qualifikationDatenFromFile = ausDatei(dateiQualifikationDaten);
+		
+		
 	}
 	
 	private void gruppenLaden() {
@@ -464,10 +481,10 @@ public class Turnier {
 	
 	private void koRundenLaden() {
     	this.koRundenDatenFromFile = ausDatei(dateiKORundenDaten);
-    	this.numberOfKORounds = koRundenDatenFromFile.length;
+    	this.numberOfKORounds = koRundenDatenFromFile.size();
     	
 		koRunden = new KORunde[this.numberOfKORounds];
-    	for (int i = 0; i < koRunden.length; i++)	koRunden[i] = new KORunde(this.start, this, i, koRundenDatenFromFile[i]);
+    	for (int i = 0; i < koRunden.length; i++)	koRunden[i] = new KORunde(this.start, this, i, koRundenDatenFromFile.get(i));
 	}
 	
 	private void fromString(String daten) {
@@ -479,13 +496,14 @@ public class Turnier {
 		this.startDate = Integer.parseInt(alleDaten[3].substring(7));
 		this.finalDate = Integer.parseInt(alleDaten[4].substring(7));
 		this.numberOfTeams = Integer.parseInt(alleDaten[5].substring(9));
-		this.hasGroupStage = Boolean.parseBoolean(alleDaten[6].substring(7));
-		this.hasKOStage = Boolean.parseBoolean(alleDaten[7].substring(6));
-		this.numberOfGroups = Integer.parseInt(alleDaten[8].substring(8));
-		this.groupPhaseSecondLeg = Boolean.parseBoolean(alleDaten[9].substring(10));
-		this.koPhaseSecondLeg = Boolean.parseBoolean(alleDaten[10].substring(9));
-		this.matchForThirdPlace = Boolean.parseBoolean(alleDaten[11].substring(10));
-		this.seasons = getSeasonsFromRepresentation(alleDaten[12]);
+		this.hasQualification = Boolean.parseBoolean(alleDaten[6].substring(6));
+		this.hasGroupStage = Boolean.parseBoolean(alleDaten[7].substring(7));
+		this.hasKOStage = Boolean.parseBoolean(alleDaten[8].substring(6));
+		this.numberOfGroups = Integer.parseInt(alleDaten[9].substring(8));
+		this.groupPhaseSecondLeg = Boolean.parseBoolean(alleDaten[10].substring(10));
+		this.koPhaseSecondLeg = Boolean.parseBoolean(alleDaten[11].substring(9));
+		this.matchForThirdPlace = Boolean.parseBoolean(alleDaten[12].substring(10));
+		this.seasons = getSeasonsFromRepresentation(alleDaten[13]);
 	}
 	
 	public String toString() {
@@ -495,6 +513,7 @@ public class Turnier {
 		alles += "STDATE*" + this.startDate + ";";
 		alles += "FIDATE*" + this.finalDate + ";";
 		alles += "NOFTEAMS*" + this.numberOfTeams + ";";
+		alles += "QUALI*" + this.hasQualification + ";";
 		alles += "GRPSTG*" + this.hasGroupStage + ";";
 		alles += "KOSTG*" + this.hasKOStage + ";";
 		alles += "NOFGRPS*" + this.numberOfGroups + ";";

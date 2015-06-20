@@ -227,12 +227,14 @@ public class NewLeagueDialog extends JFrame {
 			infoPnl.add(oneYearRB);
 			oneYearRB.setBounds(REC1YRB);
 			oneYearRB.setActionCommand("false");
+			oneYearRB.setOpaque(false);
 		}
 		{
 			twoYearsRB = new JRadioButton("zwei Jahre");
 			infoPnl.add(twoYearsRB);
 			twoYearsRB.setBounds(REC2YRB);
 			twoYearsRB.setActionCommand("true");
+			twoYearsRB.setOpaque(false);
 		}
 		{
 			yearsRBGrp = new ButtonGroup();
