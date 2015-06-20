@@ -969,7 +969,7 @@ public class Liga implements Wettbewerb {
 		this.ANZAHL_EL = Integer.parseInt(daten.substring(daten.indexOf("A_EL*") + 5, daten.indexOf(";A_REL*")));
 		this.ANZAHL_REL = Integer.parseInt(daten.substring(daten.indexOf("A_REL*") + 6, daten.indexOf(";A_ABS*")));
 		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";GLDIF*")));
-		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";S")));
+		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";KADER*")));
 		this.teamsHaveKader = Boolean.parseBoolean(daten.substring(daten.indexOf("KADER*") + 6, daten.indexOf(";S")));
 		
 		this.saisons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));

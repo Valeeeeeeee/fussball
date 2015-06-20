@@ -119,7 +119,7 @@ public class Mannschaft {
 	}
 	
 	public void saveKader() {
-		if (playsInGroup || !playsInLeague)	return;
+		if (!wettbewerb.teamsHaveKader())	return;
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
 			players.add(this.kader.get(i).toString());
