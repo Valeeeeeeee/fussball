@@ -17,6 +17,7 @@ public class Gruppe implements Wettbewerb {
 	private Turnier turnier;
 	private boolean isETPossible = false;
 	private boolean goalDifference = true;
+	private boolean teamsHaveKader = false;
 	
 	/**
 	 * [Spieltag][Spiel]
@@ -93,6 +94,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public int getNumberOfMatchesAgainstSameOpponent() {
 		return numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public boolean teamsHaveKader() {
+		return this.teamsHaveKader;
 	}
 	
 	public int getStartDate() {

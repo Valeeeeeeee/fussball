@@ -26,9 +26,10 @@ public class Liga implements Wettbewerb {
 	private int ANZAHL_EL;
 	private int ANZAHL_REL;
 	private int ANZAHL_ABS;
-	private boolean goalDifference = true; // TODO in toString
+	private boolean goalDifference; // TODO in toString
 	
 	private Mannschaft[] mannschaften;
+	private boolean teamsHaveKader;
 	
 	private String workspace;
     
@@ -104,7 +105,11 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public int getNumberOfMatchesAgainstSameOpponent() {
-		return numberOfMatchesAgainstSameOpponent;
+		return this.numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public boolean teamsHaveKader() {
+		return this.teamsHaveKader;
 	}
 	
 	public int getCurrentMatchday() {
@@ -945,7 +950,8 @@ public class Liga implements Wettbewerb {
 		rueckgabe = rueckgabe + "A_EL*" + this.ANZAHL_EL + ";";
 		rueckgabe = rueckgabe + "A_REL*" + this.ANZAHL_REL + ";";
 		rueckgabe = rueckgabe + "A_ABS*" + this.ANZAHL_ABS + ";";
-		rueckgabe = rueckgabe + "A_SAI*" + this.saisons.size() + ";";
+		rueckgabe = rueckgabe + "GLDIF*" + this.goalDifference + ";";
+		rueckgabe = rueckgabe + "KADER*" + this.teamsHaveKader + ";";
 		rueckgabe += getSeasonsRepresentation() + ";";
 		
 		return rueckgabe;
@@ -962,7 +968,9 @@ public class Liga implements Wettbewerb {
 		this.ANZAHL_CLQ = Integer.parseInt(daten.substring(daten.indexOf("A_CLQ*") + 6, daten.indexOf(";A_EL*")));
 		this.ANZAHL_EL = Integer.parseInt(daten.substring(daten.indexOf("A_EL*") + 5, daten.indexOf(";A_REL*")));
 		this.ANZAHL_REL = Integer.parseInt(daten.substring(daten.indexOf("A_REL*") + 6, daten.indexOf(";A_ABS*")));
-		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";A_SAI*")));
+		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";GLDIF*")));
+		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";S")));
+		this.teamsHaveKader = Boolean.parseBoolean(daten.substring(daten.indexOf("KADER*") + 6, daten.indexOf(";S")));
 		
 		this.saisons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
 	}

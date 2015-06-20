@@ -101,7 +101,7 @@ public class Mannschaft {
 	}
 	
 	private void loadKader() {
-		if (playsInGroup || !playsInLeague)	return;
+		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = liga.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory

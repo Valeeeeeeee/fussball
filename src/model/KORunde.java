@@ -26,6 +26,7 @@ public class KORunde implements Wettbewerb {
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
 	private boolean goalDifference = true;
+	private boolean teamsHaveKader = false;
 	
 	private boolean teamsAreWinners;
 	private String[] teamsOrigins;
@@ -189,6 +190,10 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNumberOfMatchesAgainstSameOpponent() {
 		return numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public boolean teamsHaveKader() {
+		return this.teamsHaveKader;
 	}
 	
 	public int getCurrentMatchday() {

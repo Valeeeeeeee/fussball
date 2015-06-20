@@ -28,5 +28,6 @@ public interface Wettbewerb {
 	 * If false, all matches between these two teams are compared.
 	 * */
 	public boolean useGoalDifference();
+	public boolean teamsHaveKader();
 	
 }
