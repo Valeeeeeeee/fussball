@@ -1,0 +1,8 @@
+GA1
+GA2
+GB1
+GB2
+GC1
+GC2
+GB3
+GC3
