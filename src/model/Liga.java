@@ -18,7 +18,7 @@ public class Liga implements Wettbewerb {
 	private int numberOfTeams;
 	private int halbeanzMSAuf;
 	private int numberOfMatchesPerMatchday;
-	private int numberOfMatchesAgainstSameOpponent = 2;
+	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
 	
 	private int ANZAHL_CL;
@@ -26,17 +26,18 @@ public class Liga implements Wettbewerb {
 	private int ANZAHL_EL;
 	private int ANZAHL_REL;
 	private int ANZAHL_ABS;
-	private boolean goalDifference = true; // TODO in toString
+	private boolean goalDifference; // TODO in toString
 	
 	private Mannschaft[] mannschaften;
+	private boolean teamsHaveKader;
 	
 	private String workspace;
     
     private String dateiTeams;
-    private String[] teamsFromFile;
+    private ArrayList<String> teamsFromFile;
     
 	private String dateiSpielplan;
-	private String[] spielplanFromFile;
+	private ArrayList<String> spielplanFromFile;
     private boolean[][] spielplanEingetragen;
     /**
      * [spieltag][spiel]
@@ -44,7 +45,7 @@ public class Liga implements Wettbewerb {
     private Spiel[][] spielplan;
     
     private String dateiErgebnisse;
-    private String[] ergebnisseFromFile;
+    private ArrayList<String> ergebnisseFromFile;
     private boolean[][] ergebnisplanEingetragen;
     /**
      * [spieltag][spiel]
@@ -52,7 +53,7 @@ public class Liga implements Wettbewerb {
 	private Ergebnis[][] ergebnisplan;
     
 	private String dateiSpieldaten;
-	private String[] spieldatenFromFile;
+	private ArrayList<String> spieldatenFromFile;
 	
     private int[][] datesAndTimes;
     
@@ -101,6 +102,14 @@ public class Liga implements Wettbewerb {
 	
 	public LigaStatistik getLigaStatistik() {
 		return this.statistik;
+	}
+	
+	public int getNumberOfMatchesAgainstSameOpponent() {
+		return this.numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public boolean teamsHaveKader() {
+		return this.teamsHaveKader;
 	}
 	
 	public int getCurrentMatchday() {
@@ -269,9 +278,7 @@ public class Liga implements Wettbewerb {
         	statistik.setLocation((start.WIDTH - statistik.getSize().width) / 2, 50);
         	statistik.setVisible(false);
         }
-        
-//        testIsSpielplanEntered();
-//        testIsErgebnisplanEntered();
+        tabelle.resetCurrentMatchday();
     }
 	
 	public void speichern() throws Exception {
@@ -736,17 +743,17 @@ public class Liga implements Wettbewerb {
 		
 		this.mannschaften = new Mannschaft[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
-			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile[i + 1]);
+			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, teamsFromFile.get(i + 1));
 		}
     }
     
     private void mannschaftenSchreiben() {
-    	this.teamsFromFile = new String[this.numberOfTeams + 1];
+    	this.teamsFromFile = new ArrayList<>();
     	
-    	this.teamsFromFile[0] = "" + this.numberOfTeams;
+    	this.teamsFromFile.add("" + this.numberOfTeams);
 		for (int i = 0; i < this.numberOfTeams; i++) {
 			this.mannschaften[i].saveKader();
-			this.teamsFromFile[i + 1] = this.mannschaften[i].toString();
+			this.teamsFromFile.add(this.mannschaften[i].toString());
 		}
 		inDatei(this.dateiTeams, this.teamsFromFile);
     }
@@ -758,7 +765,7 @@ public class Liga implements Wettbewerb {
 	        int counter = 0;
 	        
 	        // Anstosszeiten / Spieltermine
-	        String allKickoffTimes = this.spielplanFromFile[0];
+	        String allKickoffTimes = this.spielplanFromFile.get(0);
 	        String[] kickoffs = allKickoffTimes.split(";");
 	        this.numberOfKickoffTimes = Integer.parseInt(kickoffs[0]);
 	        this.daysSinceDST = new int[this.numberOfKickoffTimes];
@@ -770,7 +777,7 @@ public class Liga implements Wettbewerb {
 	        }
 	        
 	        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
-	        	String[] inhalte = this.spielplanFromFile[matchday + 1].split(";");
+	        	String[] inhalte = this.spielplanFromFile.get(matchday + 1).split(";");
 	        	
 	            this.setSpielplanEnteredFromRepresentation(matchday, inhalte[0]);
 	            
@@ -811,13 +818,13 @@ public class Liga implements Wettbewerb {
 			throw new NullPointerException();
 		}
 		
-        this.spielplanFromFile = new String[this.numberOfMatchdays + 1];
+        this.spielplanFromFile = new ArrayList<>();
         
 		String string = this.numberOfKickoffTimes + ";";
 		for (int i = 0; i < this.numberOfKickoffTimes; i++) {
 			string = string + this.daysSinceDST[i] + "," + this.kickoffTimes[i] + ";";
         }
-		this.spielplanFromFile[0] = string;
+		this.spielplanFromFile.add(string);
 		
         for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
             string = this.getSpielplanRepresentation(matchday) + ";";
@@ -832,7 +839,7 @@ public class Liga implements Wettbewerb {
                 }
             }
             
-            this.spielplanFromFile[matchday + 1] = string;
+            this.spielplanFromFile.add(string);
         }
         
         inDatei(this.dateiSpielplan, this.spielplanFromFile);
@@ -844,7 +851,7 @@ public class Liga implements Wettbewerb {
 	        int counter;
 	        
 	        for (counter = 0; counter < this.numberOfMatchdays; counter++) {
-	        	String inhalte[] = this.ergebnisseFromFile[counter].split(";");
+	        	String inhalte[] = this.ergebnisseFromFile.get(counter).split(";");
 	            this.setErgebnisplanEnteredFromRepresentation(counter, inhalte[0]);
 
 	            int match = 0;
@@ -878,7 +885,7 @@ public class Liga implements Wettbewerb {
 			throw new NullPointerException();
 		}
 		
-        this.ergebnisseFromFile = new String[this.numberOfMatchdays];
+        this.ergebnisseFromFile = new ArrayList<>();
         for (int i = 0; i < this.numberOfMatchdays; i++) {
             String string = this.getErgebnisplanRepresentation(i) + ";";
             if (!this.isErgebnisplanFullyEmpty(i)) {
@@ -887,7 +894,7 @@ public class Liga implements Wettbewerb {
 				}
             }
             
-            this.ergebnisseFromFile[i] = string;
+            this.ergebnisseFromFile.add(string);
         }
         
         inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
@@ -898,8 +905,8 @@ public class Liga implements Wettbewerb {
 			this.spieldatenFromFile = ausDatei(this.dateiSpieldaten);
 			int matchday;
 			
-			for (matchday = 0; matchday < this.numberOfMatchdays && matchday < spieldatenFromFile.length; matchday++) {
-				String inhalte[] = this.spieldatenFromFile[matchday].split(";");
+			for (matchday = 0; matchday < this.numberOfMatchdays && matchday < spieldatenFromFile.size(); matchday++) {
+				String inhalte[] = this.spieldatenFromFile.get(matchday).split(";");
 				int match = 0;
 				for (match = 0; match < inhalte.length; match++) {
 					if (isSpielplanEntered(matchday, match)) {
@@ -918,14 +925,14 @@ public class Liga implements Wettbewerb {
 			throw new NullPointerException();
 		}
 		
-		this.spieldatenFromFile = new String[this.numberOfMatchdays];
+		this.spieldatenFromFile = new ArrayList<>();
 		for (int i = 0; i < this.numberOfMatchdays; i++) {
 			String string = "";
 			for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
 				if (getSpiel(i, j) != null)	string += getSpiel(i, j).fullString() + ";";
 				else						string += "null;";
 			}
-			this.spieldatenFromFile[i] = string;
+			this.spieldatenFromFile.add(string);
 		}
 		
 		inDatei(this.dateiSpieldaten, this.spieldatenFromFile);
@@ -943,7 +950,8 @@ public class Liga implements Wettbewerb {
 		rueckgabe = rueckgabe + "A_EL*" + this.ANZAHL_EL + ";";
 		rueckgabe = rueckgabe + "A_REL*" + this.ANZAHL_REL + ";";
 		rueckgabe = rueckgabe + "A_ABS*" + this.ANZAHL_ABS + ";";
-		rueckgabe = rueckgabe + "A_SAI*" + this.saisons.size() + ";";
+		rueckgabe = rueckgabe + "GLDIF*" + this.goalDifference + ";";
+		rueckgabe = rueckgabe + "KADER*" + this.teamsHaveKader + ";";
 		rueckgabe += getSeasonsRepresentation() + ";";
 		
 		return rueckgabe;
@@ -960,7 +968,9 @@ public class Liga implements Wettbewerb {
 		this.ANZAHL_CLQ = Integer.parseInt(daten.substring(daten.indexOf("A_CLQ*") + 6, daten.indexOf(";A_EL*")));
 		this.ANZAHL_EL = Integer.parseInt(daten.substring(daten.indexOf("A_EL*") + 5, daten.indexOf(";A_REL*")));
 		this.ANZAHL_REL = Integer.parseInt(daten.substring(daten.indexOf("A_REL*") + 6, daten.indexOf(";A_ABS*")));
-		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";A_SAI*")));
+		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";GLDIF*")));
+		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";KADER*")));
+		this.teamsHaveKader = Boolean.parseBoolean(daten.substring(daten.indexOf("KADER*") + 6, daten.indexOf(";S")));
 		
 		this.saisons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
 	}
@@ -969,4 +979,3 @@ public class Liga implements Wettbewerb {
 		workspace = start.getWorkspace();
 	}
 }
-

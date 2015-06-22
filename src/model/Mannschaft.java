@@ -101,28 +101,28 @@ public class Mannschaft {
 	}
 	
 	private void loadKader() {
-		if (playsInGroup || !playsInLeague)	return;
+		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = liga.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
 		kaderFileName += this.name + ".txt";
 		kaderFileName = removeUmlaute(kaderFileName);
 		
-		String[] spieler = ausDatei(kaderFileName);
-		numberOfPlayers = spieler.length;
+		ArrayList<String> spieler = ausDatei(kaderFileName);
+		numberOfPlayers = spieler.size();
 		numberOfPlayersByPosition = new int[4];
 		kader.clear();
 		for (int i = 0; i < numberOfPlayers; i++) {
-			kader.add(new Spieler(spieler[i], this));
+			kader.add(new Spieler(spieler.get(i), this));
 			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
 	}
 	
 	public void saveKader() {
-		if (playsInGroup || !playsInLeague)	return;
-		String[] players = new String[numberOfPlayers];
+		if (!wettbewerb.teamsHaveKader())	return;
+		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
-			players[i] = this.kader.get(i).toString();
+			players.add(this.kader.get(i).toString());
 		}
 		inDatei(kaderFileName, players);
 	}
@@ -207,6 +207,55 @@ public class Mannschaft {
 		if (index == 8)	return this.tdiff;
 		if (index == 9)	return this.punkte;
 		return -1;
+	}
+	
+	/**
+	 * 1: Siegesserie <br/>
+	 * 2: Unentschiedenserie <br/>
+	 * 3: Niederlagenserie <br/>
+	 * 4: Unbesiegt-Serie <br/>
+	 * 5: Sieglos-Serie <br/>
+	 * 6: Tor-Serie <br/>
+	 * 7: Torlos-Serie <br/>
+	 * 8: Gegentor-Serie <br/>
+	 * 9: Gegentorlos-Serie <br/>
+	 * @param index
+	 * @return
+	 */
+	public int getSeries(int index) {
+		int currentDuration = 0, longestDuration = 0;
+		
+		
+		
+		
+		boolean reset;
+		for (int matchday = 0; matchday < daten.length; matchday++) {
+			if (daten[matchday][0] != 0) {
+				reset = false;
+				
+				switch (index) {
+					case 1:		if (daten[matchday][3] != 3)	reset = true;	break;
+					case 2:		if (daten[matchday][3] != 1)	reset = true;	break;
+					case 3:		if (daten[matchday][3] != 0)	reset = true;	break;
+					case 4:		if (daten[matchday][3] == 0)	reset = true;	break;
+					case 5:		if (daten[matchday][3] == 3)	reset = true;	break;
+					case 6:		if (daten[matchday][1] == 0)	reset = true;	break;
+					case 7:		if (daten[matchday][1] > 0)		reset = true;	break;
+					case 8:		if (daten[matchday][2] == 0)	reset = true;	break;
+					case 9:		if (daten[matchday][2] > 0)		reset = true;	break;
+				}
+				if (reset) {
+					longestDuration = Math.max(longestDuration, currentDuration);
+					currentDuration = 0;
+				} else {
+					currentDuration++;
+				}
+			}
+		}
+		
+		longestDuration = Math.max(longestDuration, currentDuration);
+		
+		return longestDuration;
 	}
 
 	public int getPlace() {
@@ -502,4 +551,3 @@ public class Mannschaft {
 		return data;
 	}
 }
-

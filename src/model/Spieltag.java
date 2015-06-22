@@ -838,7 +838,7 @@ public class Spieltag extends JPanel {
 				
 				vergleich = wettbewerb.getSpiel(editedMatchday, matchID);
 				
-				if ((home = array[matchID][0]) != -1 && (away = array[matchID][1]) != -1) {
+				if ((home = array[match][0]) != -1 && (away = array[match][1]) != -1) {
 					spiel = new Spiel(wettbewerb, editedMatchday, wettbewerb.getDate(editedMatchday, matchID), 
 								wettbewerb.getTime(editedMatchday, matchID), home - offset, away - offset);
 				}

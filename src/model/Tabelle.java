@@ -285,6 +285,10 @@ public class Tabelle extends JPanel {
         }
     }
     
+    public void resetCurrentMatchday() {
+    	currentMatchday = -1;
+    }
+    
     public void aktualisieren() {
     	if (currentMatchday == -1) {
     		jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
@@ -399,4 +403,3 @@ public class Tabelle extends JPanel {
     	aktualisieren();
 	}
 }
-

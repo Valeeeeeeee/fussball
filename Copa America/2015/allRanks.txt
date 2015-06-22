@@ -1,0 +1,12 @@
+GA1: Chile
+GA2: Bolivien
+GA3: Ecuador
+GA4: Mexiko
+GB1: Argentinien
+GB2: Paraguay
+GB3: Uruguay
+GB4: Jamaika
+GC1: Brasilien
+GC2: Peru
+GC3: Kolumbien
+GC4: Venezuela

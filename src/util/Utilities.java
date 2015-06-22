@@ -40,11 +40,11 @@ public class Utilities {
 	}
 	
 	private static void testAusDatei() {
-		String[] strings = new String[0];
+		ArrayList<String> strings = new ArrayList<>();
 		String dateiname = "/Users/valentinschraub/Documents/workspace/Fussball/config.txt";
 		strings = ausDatei(dateiname);
-		for (int i = 0; i < strings.length; i++) {
-			log(strings[i]);
+		for (int i = 0; i < strings.size(); i++) {
+			log(strings.get(i));
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class Utilities {
 		return clone;
 	}
 	
-	public static String[] ausDatei(String dateiname) {
+	public static String[] ausDateiArray(String dateiname) {
 		ArrayList<String> arraylist = new ArrayList<String>();
 		try {
 			File datei = new File(dateiname);
@@ -180,6 +180,44 @@ public class Utilities {
 		}
 		
 		return zielarray;
+	}
+	
+	public static ArrayList<String> ausDatei(String dateiname) {
+		ArrayList<String> arraylist = new ArrayList<String>();
+		try {
+			File datei = new File(dateiname);
+			BufferedReader in = null;
+			if (!datei.exists()) {
+				datei.createNewFile();
+				log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
+			} else {
+				String element;
+				try {
+					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
+					while ((element = in.readLine()) != null) {
+						if (!element.isEmpty()) {
+							arraylist.add(element);
+						}
+					}
+				} catch (Exception e) {
+					log("Fehler beim Laden!");
+					e.printStackTrace();
+				} finally {
+					if (in != null) {
+						try {
+							in.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		} catch (IOException ioe) {
+			log("No such file or directory!");
+//			ioe.printStackTrace();
+		}
+		
+		return arraylist;
 	}
 	
 	public static void inDatei(String dateiname, String[] strings) {
