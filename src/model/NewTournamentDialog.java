@@ -69,8 +69,8 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_KOLBL = new Rectangle(5, 0, 70, 30); // checked
 	private Rectangle REC_KOYES = new Rectangle(80, 0, 45, 30); // checked
 	private Rectangle REC_KONO = new Rectangle(120, 0, 60, 30); // checked
-	private Rectangle REC_NOFKOCB = new Rectangle(235, 0, 70, 30);
-	private Rectangle REC_NOFKOLBL = new Rectangle(310, 0, 70, 30); // checked
+	private Rectangle REC_NOFKOCB = new Rectangle(225, 0, 70, 30);
+	private Rectangle REC_NOFKOLBL = new Rectangle(300, 0, 75, 30); // checked
 	private Rectangle REC_KO2LEGLBL = new Rectangle(205, 30, 70, 30); // checked
 	private Rectangle REC_KO2LEGYES = new Rectangle(280, 30, 45, 30); // checked
 	private Rectangle REC_KO2LEGNO = new Rectangle(320, 30, 60, 30); // checked
@@ -78,9 +78,9 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_NOTPQTF = new Rectangle(5, 65, 40, 30);
 	private Rectangle REC_NOTPQLBL = new Rectangle(50, 65, 180, 30);
 	private Rectangle REC_NOTPRTF = new Rectangle(5, 100, 40, 30);
-	private Rectangle REC_NOTPRLBL = new Rectangle(50, 100, 180, 30);
+	private Rectangle REC_NOTPRLBL = new Rectangle(50, 100, 190, 30);
 	private Rectangle REC_NOTOCTF = new Rectangle(5, 135, 40, 30);
-	private Rectangle REC_NOTOCLBL = new Rectangle(50, 135, 200, 30);
+	private Rectangle REC_NOTOCLBL = new Rectangle(50, 135, 220, 30);
 
 	// View
 	private JButton go;
@@ -527,7 +527,7 @@ public class NewTournamentDialog extends JFrame {
 			numOfKORoundsCB.setModel(new DefaultComboBoxModel(posNumOfKORounds));
 			numOfKORoundsCB.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent evt) {
-					numOfKORoundsCBItemStateChanged(evt);
+					if (deleteProvidedData())	numOfKORoundsCBItemStateChanged(evt);
 				}
 			});
 		}
@@ -796,6 +796,17 @@ public class NewTournamentDialog extends JFrame {
 			nOKO = newNumOfKORounds;*/
 			log("details combobox index changed to " + detailsKOCB.getSelectedIndex());
 		}
+	}
+	
+	private boolean deleteProvidedData() {
+		boolean result = true;
+		
+		if (fiDate > 3) {
+			result = false;
+		}
+		fiDate++;
+		
+		return result;
 	}
 	
 	private void numOfKORoundsCBItemStateChanged(ItemEvent evt) {
