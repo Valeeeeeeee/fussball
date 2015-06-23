@@ -7,6 +7,7 @@ import static util.Utilities.*;
 public class Gruppe implements Wettbewerb {
 	private boolean debug = false;
 	private int id;
+	private String name;
 	private Start start;
 	
 	private int numberOfTeams;
@@ -53,6 +54,7 @@ public class Gruppe implements Wettbewerb {
 		checkOS();
 		
 		this.id = id;
+		name = "Gruppe " + start.getAlphabet()[id];
 		
 		this.turnier = turnier;
 		this.startDate = turnier.getStartDate();
@@ -65,7 +67,7 @@ public class Gruppe implements Wettbewerb {
 	
 	public String getWorkspace() {
 		String saison = "" + turnier.getAktuelleSaison() + (turnier.isSTSS() ? "_" + (turnier.getAktuelleSaison() + 1) : "");
-		return this.workspace + File.separator + this.turnier.getName() + File.separator + saison + File.separator + "Gruppe " + (this.id + 1) + File.separator;
+		return this.workspace + File.separator + this.turnier.getName() + File.separator + saison + File.separator + name + File.separator;
 	}
 	
 	public int getID() {
@@ -74,6 +76,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public String getMatchdayDescription(int matchday) {
 		return turnier.getName() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	public String getTournamentName() {
@@ -456,7 +462,7 @@ public class Gruppe implements Wettbewerb {
 		String saison = "" + turnier.getAktuelleSaison();
 		if (turnier.isSTSS())	saison += "_" + (turnier.getAktuelleSaison() + 1);
 		
-		String root = workspace + File.separator + turnier.getName() + File.separator + saison + File.separator + "Gruppe " + (this.id + 1);
+		String root = workspace + File.separator + turnier.getName() + File.separator + saison + File.separator + name;
 		
 		dateiErgebnisse = root + File.separator + "Ergebnisse.txt";
 		dateiSpielplan = root + File.separator + "Spielplan.txt";

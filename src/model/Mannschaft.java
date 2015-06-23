@@ -225,9 +225,6 @@ public class Mannschaft {
 	public int getSeries(int index) {
 		int currentDuration = 0, longestDuration = 0;
 		
-		
-		
-		
 		boolean reset;
 		for (int matchday = 0; matchday < daten.length; matchday++) {
 			if (daten[matchday][0] != 0) {

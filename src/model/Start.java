@@ -685,7 +685,7 @@ public class Start extends JFrame {
 	    		groupStageButtons[i] = new JButton();
 				GruppenphaseHomescreen.add(groupStageButtons[i]);
 				groupStageButtons[i].setBounds(520, 50 + i * (60 + 10), start_btnswidth, 60);
-				groupStageButtons[i].setText("Gruppe " + alphabet[i]);
+				groupStageButtons[i].setText(aktuellesTurnier.getGruppen()[i].getName());
 				groupStageButtons[i].setFocusable(false);
 				groupStageButtons[i].addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent evt) {
@@ -1300,7 +1300,7 @@ public class Start extends JFrame {
 					}
 
             		// Erstellung des Ordners
-    				File groupFile = new File(seasonFile.getAbsolutePath() + File.separator + "Gruppe " + (index + 1));
+    				File groupFile = new File(seasonFile.getAbsolutePath() + File.separator + "Gruppe " + alphabet[index]);
     				groupFile.mkdir();
     				
     				// Speicherung des Spielplans und des Ergebnisplans

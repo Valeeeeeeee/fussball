@@ -636,7 +636,7 @@ public class NewTournamentDialog extends JFrame {
 	private void refreshTeamsNamesGrpCBModel() {
 		String[] gruppenNamen = new String[nOGrp];
 		for (int i = 0; i < gruppenNamen.length; i++) {
-			gruppenNamen[i] = "Gruppe " + (i + 1);
+			gruppenNamen[i] = "Gruppe " + start.getAlphabet()[i];
 		}
 		teamsNamesGrpCB.setModel(new DefaultComboBoxModel(gruppenNamen));
 	}
