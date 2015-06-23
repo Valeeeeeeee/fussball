@@ -18,4 +18,4 @@ FC Granada;01.01.1970
 SD Eibar;01.01.1970
 Real Betis Sevilla;01.01.1970
 Sporting de Gijón;01.01.1970
-TBD;01.01.1970
+UD Las Palmas;01.01.1970
