@@ -19,19 +19,19 @@ public class Spieltag extends JPanel {
 	private Color colorDatum = new Color(255, 191, 31);
 	
 	private JComboBox jCBSpieltage;
-	public JLabel[] mannschaften;
-	public JTextField[] tore;
-	private JLabel[] zusatzInfos;
-	private JButton bearbeiten;
-	private JButton fertig;
-	private JButton previous;
-	private JButton next;
-	private JButton[] moreOptions;
+	public JLabel[] jLblsMannschaften;
+	public JTextField[] jTFsTore;
+	private JLabel[] jLblsZusatzInfos;
+	private JButton jBtnBearbeiten;
+	private JButton jBtnFertig;
+	private JButton jBtnPrevious;
+	private JButton jBtnNext;
+	private JButton[] jBtnsMoreOptions;
 	private JButton jBtnResetMatchday;
 	private JButton jBtnEnterRueckrunde;
-	private JButton defaultKickoff;
-	private JLabel[] spieltagsdaten;
-	private JLabel[] gruppenLbls;
+	private JButton jBtnDefaultKickoff;
+	private JLabel[] jLblsSpieltagsdaten;
+	private JLabel[] jLblsGruppen;
 	private SpielInformationen spielInformationen;
 
 	private int[][] array;
@@ -59,8 +59,8 @@ public class Spieltag extends JPanel {
 	private Rectangle REC_DEFKOT = new Rectangle(30, 45, 170, 30);
 	private Rectangle REC_BTNRRUNDE = new Rectangle(340, 45, 120, 30);
 
-	private JPanel teamsSelection;
-	private JButton[] mannschaftenbtns;
+	private JPanel jPnlTeamsSelection;
+	private JButton[] jBtnsMannschaften;
 
 	private int numberOfTeams;
 	private int numberOfMatches;
@@ -241,14 +241,14 @@ public class Spieltag extends JPanel {
 
 			ergebnisse = new Ergebnis[numberOfMatches];
 			
-			gruppenLbls = new JLabel[numberOfMatches];
-			zusatzInfos = new JLabel[numberOfMatches];
-			moreOptions = new  JButton[numberOfMatches];
-			mannschaftenbtns = new JButton[numberOfTeams];
-			mannschaften = new JLabel[2 * numberOfMatches];
-			tore = new JTextField[2 * numberOfMatches];
+			jLblsGruppen = new JLabel[numberOfMatches];
+			jLblsZusatzInfos = new JLabel[numberOfMatches];
+			jBtnsMoreOptions = new  JButton[numberOfMatches];
+			jBtnsMannschaften = new JButton[numberOfTeams];
+			jLblsMannschaften = new JLabel[2 * numberOfMatches];
+			jTFsTore = new JTextField[2 * numberOfMatches];
 			array = new int[numberOfMatches][2];
-			spieltagsdaten = new JLabel[numberOfMatches];
+			jLblsSpieltagsdaten = new JLabel[numberOfMatches];
 			
 			{
 				String[] hilfsarray = new String[numberOfMatchdays];
@@ -267,52 +267,52 @@ public class Spieltag extends JPanel {
 				});
 			}
 			
-			for (int i = 0; i < spieltagsdaten.length; i++) {
+			for (int i = 0; i < jLblsSpieltagsdaten.length; i++) {
 				final int x = i;
-				spieltagsdaten[i] = new JLabel();
-				this.add(spieltagsdaten[i]);
-				spieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
-				spieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
-				spieltagsdaten[i].setBackground(colorDatum);
-				spieltagsdaten[i].addMouseListener(new MouseAdapter() {
+				jLblsSpieltagsdaten[i] = new JLabel();
+				this.add(jLblsSpieltagsdaten[i]);
+				jLblsSpieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
+				jLblsSpieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+				jLblsSpieltagsdaten[i].setBackground(colorDatum);
+				jLblsSpieltagsdaten[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
 						datumsLabelClicked(x);
-						mannschaften[x].setBorder(null);
-						mannschaften[x + numberOfMatches].setBorder(null);
-						spieltagsdaten[x].setBorder(null);
+						jLblsMannschaften[x].setBorder(null);
+						jLblsMannschaften[x + numberOfMatches].setBorder(null);
+						jLblsSpieltagsdaten[x].setBorder(null);
 					}
 					
 					public void mouseEntered(MouseEvent e) {
 						if (editedDate == -1) {
-							mannschaften[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
-							mannschaften[x + numberOfMatches].setBorder(BorderFactory.createDashedBorder(getForeground()));
-							spieltagsdaten[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
-							spieltagsdaten[x].setOpaque(true);
-							repaintImmediately(spieltagsdaten[x]);
+							jLblsMannschaften[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							jLblsMannschaften[x + numberOfMatches].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							jLblsSpieltagsdaten[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							jLblsSpieltagsdaten[x].setOpaque(true);
+							repaintImmediately(jLblsSpieltagsdaten[x]);
 						}
 					}
 
 					public void mouseExited(MouseEvent e) {
 						if (editedDate == -1) {
-							mannschaften[x].setBorder(null);
-							mannschaften[x + numberOfMatches].setBorder(null);
-							spieltagsdaten[x].setBorder(null);
-							spieltagsdaten[x].setOpaque(false);
-							repaintImmediately(spieltagsdaten[x]);
+							jLblsMannschaften[x].setBorder(null);
+							jLblsMannschaften[x + numberOfMatches].setBorder(null);
+							jLblsSpieltagsdaten[x].setBorder(null);
+							jLblsSpieltagsdaten[x].setOpaque(false);
+							repaintImmediately(jLblsSpieltagsdaten[x]);
 						}
 					}
 				});
 			}
 			if (isOverview) {
-				for (int i = 0; i < gruppenLbls.length; i++) {
+				for (int i = 0; i < jLblsGruppen.length; i++) {
 					final int x = i;
-					gruppenLbls[i] = new JLabel();
-					this.add(gruppenLbls[i]);
-					gruppenLbls[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
-					gruppenLbls[i].setHorizontalAlignment(SwingConstants.RIGHT);
-					gruppenLbls[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
-//					gruppenLbls[i].setOpaque(true);
-					gruppenLbls[i].addMouseListener(new MouseAdapter() {
+					jLblsGruppen[i] = new JLabel();
+					this.add(jLblsGruppen[i]);
+					jLblsGruppen[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
+					jLblsGruppen[i].setHorizontalAlignment(SwingConstants.RIGHT);
+					jLblsGruppen[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+//					jLblsGruppen[i].setOpaque(true);
+					jLblsGruppen[i].addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent evt) {
 							gruppeClicked(x);
 						}
@@ -320,105 +320,104 @@ public class Spieltag extends JPanel {
 				}
 			}
 			
-			for (int i = 0; i < mannschaften.length; i++) {
+			for (int i = 0; i < jLblsMannschaften.length; i++) {
 				final int x = i;
 				int zeile = i % numberOfMatches;
 				int spalte = i / numberOfMatches;
 
-				mannschaften[i] = new JLabel();
-				this.add(mannschaften[i]);
-				mannschaften[i].setBounds(labels[STARTX] + spalte * (labels[SIZEX] + labels[GAPX]), 
+				jLblsMannschaften[i] = new JLabel();
+				this.add(jLblsMannschaften[i]);
+				jLblsMannschaften[i].setBounds(labels[STARTX] + spalte * (labels[SIZEX] + labels[GAPX]), 
 						labels[STARTY] + zeile * (labels[SIZEY] + labels[GAPY]), labels[SIZEX], labels[SIZEY]);
-				if (spalte == 0)	mannschaften[i].setHorizontalAlignment(SwingConstants.RIGHT);
-				else				mannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
-				mannschaften[i].setEnabled(false);
-				mannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
-//				mannschaften[i].setOpaque(true);
-				mannschaften[i].addMouseListener(new MouseAdapter() {
+				if (spalte == 0)	jLblsMannschaften[i].setHorizontalAlignment(SwingConstants.RIGHT);
+				else				jLblsMannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
+				jLblsMannschaften[i].setEnabled(false);
+				jLblsMannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+//				jLblsMannschaften[i].setOpaque(true);
+				jLblsMannschaften[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						if (mannschaften[x].isEnabled()) {
+						if (jLblsMannschaften[x].isEnabled()) {
 							mannschaftClicked(x);
 						}
 					}
 				});
 			}
 			
-			for (int i = 0; i < tore.length; i++) {
+			for (int i = 0; i < jTFsTore.length; i++) {
 				final int x = i;
-				tore[i] = new JTextField();
-				this.add(tore[i]);
-				tore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[SIZEX] + textfields[GAPX]), 
+				jTFsTore[i] = new JTextField();
+				this.add(jTFsTore[i]);
+				jTFsTore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[SIZEX] + textfields[GAPX]), 
 						textfields[STARTY] + (i % numberOfMatches) * (textfields[SIZEY] + textfields[GAPY]), textfields[SIZEX], textfields[SIZEY]);
-				tore[i].setHorizontalAlignment(SwingConstants.CENTER);
-				tore[i].addKeyListener(new KeyAdapter() {
+				jTFsTore[i].setHorizontalAlignment(SwingConstants.CENTER);
+				jTFsTore[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
 						if (arg0.getKeyChar() == 8) {
 							aValidKeyWasPressed(x, arg0);
-						} else if ((tore[x].getText().length() >= 2 && !tore[x].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
+						} else if ((jTFsTore[x].getText().length() >= 2 && !jTFsTore[x].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
 							arg0.consume();
 						} else {
 							aValidKeyWasPressed(x, arg0);
 						}
 					}
 				});
-				tore[i].addFocusListener(new FocusAdapter() {
+				jTFsTore[i].addFocusListener(new FocusAdapter() {
 					public void focusGained(FocusEvent arg0) {
-						tore[x].selectAll();
+						jTFsTore[x].selectAll();
 					}
 				});
 			}
-			for (int i = 0; i < zusatzInfos.length; i++) {
-				zusatzInfos[i] = new JLabel();
-				this.add(zusatzInfos[i]);
-				zusatzInfos[i].setText("");
-				zusatzInfos[i].setBounds(zusInfLabels[STARTX], zusInfLabels[STARTY] + i * (zusInfLabels[SIZEY] + zusInfLabels[GAPY]), zusInfLabels[SIZEX], zusInfLabels[SIZEY]);
+			for (int i = 0; i < jLblsZusatzInfos.length; i++) {
+				jLblsZusatzInfos[i] = new JLabel();
+				this.add(jLblsZusatzInfos[i]);
+				jLblsZusatzInfos[i].setBounds(zusInfLabels[STARTX], zusInfLabels[STARTY] + i * (zusInfLabels[SIZEY] + zusInfLabels[GAPY]), zusInfLabels[SIZEX], zusInfLabels[SIZEY]);
 			}
 			{
-				bearbeiten = new JButton();
-				this.add(bearbeiten);
-				bearbeiten.setBounds(REC_EDITSAVE);
-				bearbeiten.setText("Spielplan bearbeiten");
-				bearbeiten.setFocusable(false);
-				bearbeiten.addActionListener(new ActionListener() {
+				jBtnBearbeiten = new JButton();
+				this.add(jBtnBearbeiten);
+				jBtnBearbeiten.setBounds(REC_EDITSAVE);
+				jBtnBearbeiten.setText("Spielplan bearbeiten");
+				jBtnBearbeiten.setFocusable(false);
+				jBtnBearbeiten.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						bearbeitenActionPerformed();
-					}
-				});
-			}
-			{
-				fertig = new JButton();
-				this.add(fertig);
-				fertig.setBounds(REC_EDITSAVE);
-				fertig.setText("Speichern");
-				fertig.setFocusable(false);
-				fertig.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						fertigActionPerformed();
-					}
-				});
-				fertig.setVisible(false);
-			}
-			{
-				previous = new JButton();
-				this.add(previous);
-				previous.setBounds(REC_PREV);
-				previous.setText("<<");
-				previous.setFocusable(false);
-				previous.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						previousMatchdayActionPerformed();
+						jBtnBearbeitenActionPerformed();
 					}
 				});
 			}
 			{
-				next = new JButton();
-				this.add(next);
-				next.setBounds(REC_NEXT);
-				next.setText(">>");
-				next.setFocusable(false);
-				next.addActionListener(new ActionListener() {
+				jBtnFertig = new JButton();
+				this.add(jBtnFertig);
+				jBtnFertig.setBounds(REC_EDITSAVE);
+				jBtnFertig.setText("Speichern");
+				jBtnFertig.setFocusable(false);
+				jBtnFertig.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						nextMatchdayActionPerformed();
+						jBtnFertigActionPerformed();
+					}
+				});
+				jBtnFertig.setVisible(false);
+			}
+			{
+				jBtnPrevious = new JButton();
+				this.add(jBtnPrevious);
+				jBtnPrevious.setBounds(REC_PREV);
+				jBtnPrevious.setText("<<");
+				jBtnPrevious.setFocusable(false);
+				jBtnPrevious.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						previousMatchday();
+					}
+				});
+			}
+			{
+				jBtnNext = new JButton();
+				this.add(jBtnNext);
+				jBtnNext.setBounds(REC_NEXT);
+				jBtnNext.setText(">>");
+				jBtnNext.setFocusable(false);
+				jBtnNext.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						nextMatchday();
 					}
 				});
 			}
@@ -447,55 +446,54 @@ public class Spieltag extends JPanel {
 					}
 				});
 			}
-			for (int i = 0; i < moreOptions.length; i++) {
+			for (int i = 0; i < jBtnsMoreOptions.length; i++) {
 				final int x = i;
-				moreOptions[i] = new JButton();
-				this.add(moreOptions[i]);
-				moreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
+				jBtnsMoreOptions[i] = new JButton();
+				this.add(jBtnsMoreOptions[i]);
+				jBtnsMoreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
 						moreOptButtons[SIZEX], moreOptButtons[SIZEY]);
-				moreOptions[i].setText("+");
-				moreOptions[i].setToolTipText("Reset this result.");
-				moreOptions[i].setFocusable(false);
-				moreOptions[i].addActionListener(new ActionListener() {
+				jBtnsMoreOptions[i].setText("+");
+				jBtnsMoreOptions[i].setToolTipText("Reset this result.");
+				jBtnsMoreOptions[i].setFocusable(false);
+				jBtnsMoreOptions[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						moreOptionsClicked(x);
+						jBtnsMoreOptionsClicked(x);
 					}
 				});
 			}
 			if (belongsToALeague) {
-				defaultKickoff = new JButton();
-				this.add(defaultKickoff);
-				defaultKickoff.setBounds(REC_DEFKOT);
-				defaultKickoff.setText("Standardanstosszeiten");
-				defaultKickoff.setFocusable(false);
-				defaultKickoff.addActionListener(new ActionListener() {
+				jBtnDefaultKickoff = new JButton();
+				this.add(jBtnDefaultKickoff);
+				jBtnDefaultKickoff.setBounds(REC_DEFKOT);
+				jBtnDefaultKickoff.setText("Standardanstosszeiten");
+				jBtnDefaultKickoff.setFocusable(false);
+				jBtnDefaultKickoff.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						defaultKickoffActionPerformed();
+						jBtnDefaultKickoffActionPerformed();
 					}
 				});
 			}
 			
 			{
-				teamsSelection = new JPanel();
-				this.add(teamsSelection);
-				teamsSelection.setLayout(null);
-				teamsSelection.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[SIZEX]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
+				jPnlTeamsSelection = new JPanel();
+				this.add(jPnlTeamsSelection);
+				jPnlTeamsSelection.setLayout(null);
+				jPnlTeamsSelection.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[SIZEX]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
 						+ halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]);
-				teamsSelection.setLocation(730, (this.getSize().height - teamsSelection.getSize().height) / 2);
-				teamsSelection.setVisible(false);
-				teamsSelection.setOpaque(true);
-				teamsSelection.setBackground(Color.red);
+				jPnlTeamsSelection.setLocation(730, (this.getSize().height - jPnlTeamsSelection.getSize().height) / 2);
+				jPnlTeamsSelection.setVisible(false);
+				jPnlTeamsSelection.setOpaque(true);
+				jPnlTeamsSelection.setBackground(Color.red);
 			}
 
 			for (int i = 0; i < numberOfTeams; i++) {
-				final int x = i; // for the ActionListener
+				final int x = i;
 				int xfactor = i % 2, yfactor = i / 2;
-//				int xfactor = i / halfCountTeamsRoundUp, yfactor = i % halfCountTeamsRoundUp;
-				mannschaftenbtns[i] = new JButton();
-				teamsSelection.add(mannschaftenbtns[i]);
-				mannschaftenbtns[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[SIZEX] + buttonsauswahl[GAPX]),
+				jBtnsMannschaften[i] = new JButton();
+				jPnlTeamsSelection.add(jBtnsMannschaften[i]);
+				jBtnsMannschaften[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[SIZEX] + buttonsauswahl[GAPX]),
 								buttonsauswahl[STARTY] + yfactor * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]), buttonsauswahl[SIZEX], buttonsauswahl[SIZEY]);
-				mannschaftenbtns[i].addActionListener(new ActionListener() {
+				jBtnsMannschaften[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						mannschaftenButtonClicked(x);
 					}
@@ -521,21 +519,6 @@ public class Spieltag extends JPanel {
 									colorUp.getBlue() + ((colorDown.getBlue() - colorUp.getBlue()) * i / (this.getHeight() - 2))));
 			g.drawLine(2, i, this.getWidth() - 3, i);
 		}
-
-		// 10/50/100 Raster
-//		Color[] colors = new Color[] {Color.lightGray, Color.white, Color.black};
-//		int[] schritte = new int[] {10, 50, 100};
-//		
-//		g.setColor(Color.lightGray);
-//		for (int j = 0; j < colors.length; j++) {
-//			g.setColor(colors[j]);
-//			for (int i = 1; i * schritte[j] < getWidth(); i++) {
-//				g.drawLine(i * schritte[j], 0, i * schritte[j], this.getHeight());
-//			}
-//			for (int i = 0; i * schritte[j] < getHeight(); i++) {
-//				g.drawLine(0, i * schritte[j], this.getWidth(), i * schritte[j]);
-//			}
-//		}
 	}
 
 	public int getNumberOfMatches() {
@@ -570,18 +553,18 @@ public class Spieltag extends JPanel {
 		
 		if (changeTFs) {
 			int index = newOrder != null ? newOrder[match] : match;
-			zusatzInfos[index].setText("");
+			jLblsZusatzInfos[index].setText("");
 			
 			if (result != null) {
-				tore[index].setText("" + result.home());
-				tore[index + numberOfMatches].setText("" + result.away());
+				jTFsTore[index].setText("" + result.home());
+				jTFsTore[index + numberOfMatches].setText("" + result.away());
 				if (result.toString().indexOf("n") != -1) {
-					if (result.toString().indexOf("nE") != -1)			zusatzInfos[index].setText("n. E.");
-					else if (result.toString().indexOf("nV") != -1)		zusatzInfos[index].setText("n. V.");
+					if (result.toString().indexOf("nE") != -1)			jLblsZusatzInfos[index].setText("n. E.");
+					else if (result.toString().indexOf("nV") != -1)		jLblsZusatzInfos[index].setText("n. V.");
 				}
 			} else {
-				tore[index].setText("-1");
-				tore[index + numberOfMatches].setText("-1");
+				jTFsTore[index].setText("-1");
+				jTFsTore[index + numberOfMatches].setText("-1");
 			}
 		}
 	}
@@ -609,19 +592,19 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void aValidKeyWasPressed(int indexOfTF, KeyEvent arg0) {
-		String selText = tore[indexOfTF].getSelectedText();
-		String otherGoals = tore[(indexOfTF + numberOfMatches) % (2 * numberOfMatches)].getText();
+		String selText = jTFsTore[indexOfTF].getSelectedText();
+		String otherGoals = jTFsTore[(indexOfTF + numberOfMatches) % (2 * numberOfMatches)].getText();
 		String newContent = "";
 		
 		if (arg0.getKeyChar() == 8) {
-			if (tore[indexOfTF].getText().length() == 0 || tore[indexOfTF].getText().equals("-")) {
-				tore[indexOfTF].setText("-1");
-				tore[indexOfTF].selectAll();
+			if (jTFsTore[indexOfTF].getText().length() == 0 || jTFsTore[indexOfTF].getText().equals("-")) {
+				jTFsTore[indexOfTF].setText("-1");
+				jTFsTore[indexOfTF].selectAll();
 			}
-			newContent = tore[indexOfTF].getText();
+			newContent = jTFsTore[indexOfTF].getText();
 		} else {
-			if (selText != null) 	newContent = tore[indexOfTF].getText().replaceAll(selText, "");
-			else					newContent = tore[indexOfTF].getText();
+			if (selText != null) 	newContent = jTFsTore[indexOfTF].getText().replaceAll(selText, "");
+			else					newContent = jTFsTore[indexOfTF].getText();
 			newContent += arg0.getKeyChar();
 		}
 		
@@ -639,14 +622,14 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void setLabelsEnabled(boolean bool) {
-		for (JLabel lbl : mannschaften) {
+		for (JLabel lbl : jLblsMannschaften) {
 			lbl.setEnabled(bool);
 			lbl.setOpaque(false);
 		}
 	}
 	
 	private void disableTFs() {
-		for (JTextField tf : tore)	tf.setEditable(false);
+		for (JTextField tf : jTFsTore)	tf.setEditable(false);
 	}
 	
 	private void setTFsEditableFromRepresentation() {
@@ -663,16 +646,16 @@ public class Spieltag extends JPanel {
 		
 		for (int match = 0; match < this.numberOfMatches; match++) {
 			if (representation.charAt(match) == 't') {
-				tore[match].setEditable(true);
-				tore[match + numberOfMatches].setEditable(true);
+				jTFsTore[match].setEditable(true);
+				jTFsTore[match + numberOfMatches].setEditable(true);
 			} else if (representation.charAt(match) == 'f') {
-				tore[match].setEditable(false);
-				tore[match + numberOfMatches].setEditable(false);
+				jTFsTore[match].setEditable(false);
+				jTFsTore[match + numberOfMatches].setEditable(false);
 			}
 		}
 		for (int match = 0; match < this.numberOfMatches; match++) {
-			if (tore[match].isEditable()) {
-				tore[match].selectAll();
+			if (jTFsTore[match].isEditable()) {
+				jTFsTore[match].selectAll();
 				break;
 			}
 		}
@@ -683,7 +666,7 @@ public class Spieltag extends JPanel {
 		int groupID = 0, matchID = 0;
 		for (int i = 0; i < numberOfMatches; i++) {
 			dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateAndTime(currentMatchday, matchID);
-			spieltagsdaten[i].setText(dateandtimeofmatches[i]);
+			jLblsSpieltagsdaten[i].setText(dateandtimeofmatches[i]);
 			
 			matchID++;
 			if (matchID == numbersOfMatches[groupID]) {
@@ -691,9 +674,9 @@ public class Spieltag extends JPanel {
 				groupID++;
 			}
 		}
-		for (int i = spieltagsdaten.length - 1; i > 0; i--) {
-			if (spieltagsdaten[i].getText().equals(spieltagsdaten[i - 1].getText())) {
-				spieltagsdaten[i].setText("");
+		for (int i = jLblsSpieltagsdaten.length - 1; i > 0; i--) {
+			if (jLblsSpieltagsdaten[i].getText().equals(jLblsSpieltagsdaten[i - 1].getText())) {
+				jLblsSpieltagsdaten[i].setText("");
 			}
 		}
 	}
@@ -714,29 +697,29 @@ public class Spieltag extends JPanel {
 					groupID++;
 				}
 			}
-			if (isOverview)	spieltagsdaten[newOrder[i]].setText(dateandtimeofmatches[i]);
-			else			spieltagsdaten[i].setText(dateandtimeofmatches[i]);
+			if (isOverview)	jLblsSpieltagsdaten[newOrder[i]].setText(dateandtimeofmatches[i]);
+			else			jLblsSpieltagsdaten[i].setText(dateandtimeofmatches[i]);
 		}
-		for (int i = spieltagsdaten.length - 1; i > 0; i--) {
-			if (spieltagsdaten[i].getText().equals(spieltagsdaten[i - 1].getText())) {
-				spieltagsdaten[i].setText("");
+		for (int i = jLblsSpieltagsdaten.length - 1; i > 0; i--) {
+			if (jLblsSpieltagsdaten[i].getText().equals(jLblsSpieltagsdaten[i - 1].getText())) {
+				jLblsSpieltagsdaten[i].setText("");
 			}
 		}
 	}
 
 	private void setMannschaftenButtonsNames() {
 		int groupID = 0, teamID = 0;
-		for (int i = 0; i < mannschaftenbtns.length; i++) {
-			if (belongsToALeague)		mannschaftenbtns[i].setText(liga.getMannschaften()[i].getName());
-			else if (belongsToGroup)	mannschaftenbtns[i].setText(gruppe.getMannschaften()[i].getName());
+		for (int i = 0; i < jBtnsMannschaften.length; i++) {
+			if (belongsToALeague)		jBtnsMannschaften[i].setText(liga.getMannschaften()[i].getName());
+			else if (belongsToGroup)	jBtnsMannschaften[i].setText(gruppe.getMannschaften()[i].getName());
 			else if (belongsToKORound)	{
 				try {
-					mannschaftenbtns[i].setText(teams[i].getName());
+					jBtnsMannschaften[i].setText(teams[i].getName());
 				} catch (NullPointerException npe) {
-					mannschaftenbtns[i].setText(koRunde.getTeamsOrigin(i));
+					jBtnsMannschaften[i].setText(koRunde.getTeamsOrigin(i));
 				}
 			} else {
-				mannschaftenbtns[i].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
+				jBtnsMannschaften[i].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
 				
 				teamID++;
 				if (teamID == numbersOfTeams[groupID]) {
@@ -750,7 +733,7 @@ public class Spieltag extends JPanel {
 	/**
 	 * Optimized for <code>Gruppe</code> and <code>KORunde</code>
 	 */
-	private void bearbeitenActionPerformed() {
+	private void jBtnBearbeitenActionPerformed() {
 		editedMatchday = jCBSpieltage.getSelectedIndex();
 		
 		setMannschaftenButtonsNames();
@@ -807,20 +790,20 @@ public class Spieltag extends JPanel {
 		
 		setLabelsEnabled(true);
 		disableTFs();
-		bearbeiten.setVisible(false);
-		fertig.setVisible(true);
+		jBtnBearbeiten.setVisible(false);
+		jBtnFertig.setVisible(true);
 		jCBSpieltage.setEnabled(false);
-		previous.setEnabled(false);
-		next.setEnabled(false);
+		jBtnPrevious.setEnabled(false);
+		jBtnNext.setEnabled(false);
 		jBtnResetMatchday.setVisible(false);
-		if (defaultKickoff != null)	defaultKickoff.setVisible(false);
+		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(false);
 	}
 
 	/**
 	 * Optimized for <code>Gruppe</code> and <code>KORunde</code>, setMatch is not called for KORunde
 	 * @return if the content was saved: 0 if yes, 1 if not
 	 */
-	public int fertigActionPerformed() {
+	public int jBtnFertigActionPerformed() {
 		int fehlerart = -1;
 		// 1. Fehlerfall: es gibt doppelte Vorkommnisse im Array
 		for (int i = 0; i < 2 * array.length; i++) {
@@ -886,25 +869,25 @@ public class Spieltag extends JPanel {
 			
 			setLabelsEnabled(false);
 			setTFsEditableFromRepresentation();
-			fertig.setVisible(false);
-			teamsSelection.setVisible(false);
+			jBtnFertig.setVisible(false);
+			jPnlTeamsSelection.setVisible(false);
 			
-			bearbeiten.setVisible(true);
+			jBtnBearbeiten.setVisible(true);
 			jCBSpieltage.setEnabled(true);
-			previous.setEnabled(true);
-			next.setEnabled(true);
+			jBtnPrevious.setEnabled(true);
+			jBtnNext.setEnabled(true);
 			jBtnResetMatchday.setVisible(true);
-			if (defaultKickoff != null)	defaultKickoff.setVisible(true);
+			if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(true);
 			spieltagAnzeigen();
 		}
 		return saveanyway;
 	}
 	
-	private void previousMatchdayActionPerformed() {
+	private void previousMatchday() {
 		jCBSpieltage.setSelectedIndex(currentMatchday - 1);
 	}
 	
-	private void nextMatchdayActionPerformed() {
+	private void nextMatchday() {
 		jCBSpieltage.setSelectedIndex(currentMatchday + 1);
 	}
 	
@@ -997,15 +980,15 @@ public class Spieltag extends JPanel {
 		spieltagAnzeigen();
 	}
 
-	private void defaultKickoffActionPerformed() {
+	private void jBtnDefaultKickoffActionPerformed() {
 		if (belongsToALeague) {
 			liga.useDefaultKickoffTimes(currentMatchday);
 		} else if (belongsToGroup) {
-			message("Nicht vorgesehen für Gruppe");
+			message("Nicht vorgesehen fuer Gruppe");
 		} else if (belongsToKORound) {
-			message("Nicht vorgesehen für KORunde");
+			message("Nicht vorgesehen fuer KORunde");
 		} else {
-			message("Nicht vorgesehen für Gruppenuebersicht");
+			message("Nicht vorgesehen fuer Gruppenuebersicht");
 		}
 		spieltagsdatenBefuellen();
 	}
@@ -1068,10 +1051,10 @@ public class Spieltag extends JPanel {
 		} else {
 			currentMatchday = jCBSpieltage.getSelectedIndex();
 			
-			if (currentMatchday - 1 < 0)	previous.setEnabled(false);
-			else							previous.setEnabled(true);
-			if (currentMatchday + 1 == this.numberOfMatchdays)		next.setEnabled(false);
-			else													next.setEnabled(true);
+			if (currentMatchday - 1 < 0)	jBtnPrevious.setEnabled(false);
+			else							jBtnPrevious.setEnabled(true);
+			if (currentMatchday + 1 == this.numberOfMatchdays)		jBtnNext.setEnabled(false);
+			else													jBtnNext.setEnabled(true);
 			
 			changeOrderToChronological(currentMatchday);
 			
@@ -1089,16 +1072,16 @@ public class Spieltag extends JPanel {
 	
 	private void fillTeamsLabelsAndGoalsTFs(int matchday) {
 		// fill with dummy text
-		for (int i = 0; i < this.mannschaften.length; i++) {
-			this.mannschaften[i].setText("n. a.");
-			this.tore[i].setText("-1");
+		for (int i = 0; i < this.jLblsMannschaften.length; i++) {
+			this.jLblsMannschaften[i].setText("n. a.");
+			this.jTFsTore[i].setText("-1");
 		}
 		if (belongsToALeague) {
 			for (int match = 0; match < numberOfMatches; match++) {
 				if (liga.isSpielplanEntered(matchday, match)) {
 					Spiel spiel = liga.getSpiel(matchday, match);
-					this.mannschaften[match].setText(liga.getMannschaften()[spiel.home() - 1].getName());
-					this.mannschaften[match + numberOfMatches].setText(liga.getMannschaften()[spiel.away() - 1].getName());
+					this.jLblsMannschaften[match].setText(liga.getMannschaften()[spiel.home() - 1].getName());
+					this.jLblsMannschaften[match + numberOfMatches].setText(liga.getMannschaften()[spiel.away() - 1].getName());
 				}
 				if (liga.isErgebnisplanEntered(matchday, match)) {
 					setErgebnis(match, new Ergebnis(liga.getErgebnis(matchday, match).toString()));
@@ -1108,8 +1091,8 @@ public class Spieltag extends JPanel {
 			for (int match = 0; match < numberOfMatches; match++) {
 				if (gruppe.isSpielplanEntered(matchday, match)) {
 					Spiel spiel = gruppe.getSpiel(matchday, match);
-					this.mannschaften[match].setText(gruppe.getMannschaften()[spiel.home() - 1].getName());
-					this.mannschaften[match + numberOfMatches].setText(gruppe.getMannschaften()[spiel.away() - 1].getName());
+					this.jLblsMannschaften[match].setText(gruppe.getMannschaften()[spiel.home() - 1].getName());
+					this.jLblsMannschaften[match + numberOfMatches].setText(gruppe.getMannschaften()[spiel.away() - 1].getName());
 				}
 				if (gruppe.isErgebnisplanEntered(matchday, match)) {
 					setErgebnis(match, new Ergebnis(gruppe.getErgebnis(matchday, match).toString()));
@@ -1121,11 +1104,11 @@ public class Spieltag extends JPanel {
 				if (koRunde.isSpielplanEntered(matchday, match)) {
 					Spiel spiel = koRunde.getSpiel(matchday, match);
 					try {
-						this.mannschaften[match].setText(teams[spiel.home() - 1].getName());
-						this.mannschaften[match + numberOfMatches].setText(teams[spiel.away() - 1].getName());
+						this.jLblsMannschaften[match].setText(teams[spiel.home() - 1].getName());
+						this.jLblsMannschaften[match + numberOfMatches].setText(teams[spiel.away() - 1].getName());
 					} catch (NullPointerException npe) {
-						this.mannschaften[match].setText(koRunde.getTeamsOrigin(spiel.home() - 1));
-						this.mannschaften[match + numberOfMatches].setText(koRunde.getTeamsOrigin(spiel.away() - 1));
+						this.jLblsMannschaften[match].setText(koRunde.getTeamsOrigin(spiel.home() - 1));
+						this.jLblsMannschaften[match + numberOfMatches].setText(koRunde.getTeamsOrigin(spiel.away() - 1));
 					}
 					
 				}
@@ -1137,17 +1120,17 @@ public class Spieltag extends JPanel {
 			int groupID = 0, matchID = 0;
 			for (int match = 0; match < numberOfMatches; match++) {
 				Gruppe gruppe = turnier.getGruppen()[groupID];
-				gruppenLbls[newOrder[match]].setText(("" + alphabet[groupID]).toUpperCase());
+				jLblsGruppen[newOrder[match]].setText(("" + alphabet[groupID]).toUpperCase());
 				
 				if (gruppe.isSpielplanEntered(matchday, matchID)) {
 					Spiel spiel = gruppe.getSpiel(matchday, matchID);
-					this.mannschaften[newOrder[match]].setText(gruppe.getMannschaften()[spiel.home() - 1].getName());
-					this.mannschaften[newOrder[match] + numberOfMatches].setText(gruppe.getMannschaften()[spiel.away() - 1].getName());
+					this.jLblsMannschaften[newOrder[match]].setText(gruppe.getMannschaften()[spiel.home() - 1].getName());
+					this.jLblsMannschaften[newOrder[match] + numberOfMatches].setText(gruppe.getMannschaften()[spiel.away() - 1].getName());
 				}
 				if (gruppe.isErgebnisplanEntered(matchday, matchID)) {
 					setErgebnis(match, new Ergebnis(gruppe.getErgebnis(matchday, matchID).toString()));
-					this.tore[newOrder[match]].setText("" + ergebnisse[match].home());
-					this.tore[newOrder[match] + numberOfMatches].setText("" + ergebnisse[match].away());
+					this.jTFsTore[newOrder[match]].setText("" + ergebnisse[match].home());
+					this.jTFsTore[newOrder[match] + numberOfMatches].setText("" + ergebnisse[match].away());
 				}
 				
 				matchID++;
@@ -1189,8 +1172,8 @@ public class Spieltag extends JPanel {
 			return;
 		}
 		editedDate = index;
-		spieltagsdaten[editedDate].setOpaque(true);
-		repaintImmediately(spieltagsdaten[editedDate]);
+		jLblsSpieltagsdaten[editedDate].setOpaque(true);
+		repaintImmediately(jLblsSpieltagsdaten[editedDate]);
 		if (isOverview)	editedDate = oldOrder[editedDate];
 		
 		if (belongsToALeague) {
@@ -1247,8 +1230,8 @@ public class Spieltag extends JPanel {
 	public void dateEnteredLeagueStyle(int startDate, int KOTindex) {
 		liga.setDate(currentMatchday, startDate);
 		liga.setKOTIndex(currentMatchday, editedDate, KOTindex);
-		spieltagsdaten[editedDate].setOpaque(false);
-		repaintImmediately(spieltagsdaten[editedDate]);
+		jLblsSpieltagsdaten[editedDate].setOpaque(false);
+		repaintImmediately(jLblsSpieltagsdaten[editedDate]);
 		editedDate = -1;
 		spieltagsdatenBefuellen();
 	}
@@ -1277,13 +1260,13 @@ public class Spieltag extends JPanel {
 			gruppe.setTime(currentMatchday, matchID, myTime);
 		}
 		if (isOverview)	editedDate = newOrder[editedDate];
-		spieltagsdaten[editedDate].setOpaque(false);
-		repaintImmediately(spieltagsdaten[editedDate]);
+		jLblsSpieltagsdaten[editedDate].setOpaque(false);
+		repaintImmediately(jLblsSpieltagsdaten[editedDate]);
 		editedDate = -1;
 		spieltagsdatenBefuellen();
 	}
 	
-	private void moreOptionsClicked(int index) {
+	private void jBtnsMoreOptionsClicked(int index) {
 		
 		editedResult = index;
 		int offset = 0;
@@ -1319,16 +1302,16 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void mannschaftClicked(int index) {
-		mannschaften[index].setOpaque(true);
-		mannschaften[index].setBackground(new Color(255, 255, 0));
-		mannschaften[index].paintImmediately(0, 0, mannschaften[index].getWidth(), mannschaften[index].getHeight());
-		for (int i = 0; i < mannschaften.length; i++) {
+		jLblsMannschaften[index].setOpaque(true);
+		jLblsMannschaften[index].setBackground(new Color(255, 255, 0));
+		jLblsMannschaften[index].paintImmediately(0, 0, jLblsMannschaften[index].getWidth(), jLblsMannschaften[index].getHeight());
+		for (int i = 0; i < jLblsMannschaften.length; i++) {
 			if (i != index) {
-				mannschaften[i].setBackground(null);
-				mannschaften[i].paintImmediately(0, 0, mannschaften[i].getWidth(), mannschaften[i].getHeight());
+				jLblsMannschaften[i].setBackground(null);
+				jLblsMannschaften[i].paintImmediately(0, 0, jLblsMannschaften[i].getWidth(), jLblsMannschaften[i].getHeight());
 			}
 		}
-		teamsSelection.setVisible(true);
+		jPnlTeamsSelection.setVisible(true);
 		editedLabel = index;
 		if (isOverview) {
 			int hlf = editedLabel % numberOfMatches;
@@ -1344,13 +1327,13 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void mannschaftenButtonClicked(int index) {
-		if (belongsToALeague)		mannschaften[editedLabel].setText(liga.getMannschaften()[index].getName());
-		else if (belongsToGroup)	mannschaften[editedLabel].setText(gruppe.getMannschaften()[index].getName());
+		if (belongsToALeague)		jLblsMannschaften[editedLabel].setText(liga.getMannschaften()[index].getName());
+		else if (belongsToGroup)	jLblsMannschaften[editedLabel].setText(gruppe.getMannschaften()[index].getName());
 		else if (belongsToKORound) {
 			try {
-				mannschaften[editedLabel].setText(teams[index].getName());
+				jLblsMannschaften[editedLabel].setText(teams[index].getName());
 			} catch (NullPointerException npe) {
-				mannschaften[editedLabel].setText(koRunde.getTeamsOrigin(index));
+				jLblsMannschaften[editedLabel].setText(koRunde.getTeamsOrigin(index));
 			}
 		} else {
 			int groupID = 0, teamID = index;
@@ -1368,12 +1351,12 @@ public class Spieltag extends JPanel {
 				return;
 			}
 			
-			mannschaften[editedLabel].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
+			jLblsMannschaften[editedLabel].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
 		}
 		array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] = index + 1;
-		mannschaften[editedLabel].setBackground(null);
+		jLblsMannschaften[editedLabel].setBackground(null);
 		editedLabel = -1;
 		editedGroupID = -1;
-		teamsSelection.setVisible(false);
+		jPnlTeamsSelection.setVisible(false);
 	}
 }
