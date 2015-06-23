@@ -13,6 +13,10 @@ public class Spieltag extends JPanel {
 
 	private Start start;
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	private Color colorRand = new Color(0, 192, 0);
+	private Color colorUp = new Color(224, 255, 224);
+	private Color colorDown = new Color(96, 255, 96);
+	private Color colorDatum = new Color(255, 191, 31);
 	
 	private JComboBox jCBSpieltage;
 	public JLabel[] mannschaften;
@@ -269,9 +273,33 @@ public class Spieltag extends JPanel {
 				this.add(spieltagsdaten[i]);
 				spieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
 				spieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+				spieltagsdaten[i].setBackground(colorDatum);
 				spieltagsdaten[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
 						datumsLabelClicked(x);
+						mannschaften[x].setBorder(null);
+						mannschaften[x + numberOfMatches].setBorder(null);
+						spieltagsdaten[x].setBorder(null);
+					}
+					
+					public void mouseEntered(MouseEvent e) {
+						if (editedDate == -1) {
+							mannschaften[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							mannschaften[x + numberOfMatches].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							spieltagsdaten[x].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							spieltagsdaten[x].setOpaque(true);
+							repaintImmediately(spieltagsdaten[x]);
+						}
+					}
+
+					public void mouseExited(MouseEvent e) {
+						if (editedDate == -1) {
+							mannschaften[x].setBorder(null);
+							mannschaften[x + numberOfMatches].setBorder(null);
+							spieltagsdaten[x].setBorder(null);
+							spieltagsdaten[x].setOpaque(false);
+							repaintImmediately(spieltagsdaten[x]);
+						}
 					}
 				});
 			}
@@ -481,18 +509,16 @@ public class Spieltag extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.setColor(Color.red);
+		g.setColor(colorRand);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.clearRect(2, 2, getWidth() - 4, getHeight() - 4);
 		
-		Color colUp = new Color(243, 255, 243);
-		Color colDown = new Color(128, 255, 128);
 		
 		// Hintergrund
 		for (int i = 2; i < this.getHeight() - 2; i++) {
-			g.setColor(new Color(colUp.getRed() + ((colDown.getRed() - colUp.getRed()) * i / (this.getHeight() - 2)), 
-									colUp.getGreen() + ((colDown.getGreen() - colUp.getGreen()) * i / (this.getHeight() - 2)), 
-									colUp.getBlue() + ((colDown.getBlue() - colUp.getBlue()) * i / (this.getHeight() - 2))));
+			g.setColor(new Color(colorUp.getRed() + ((colorDown.getRed() - colorUp.getRed()) * i / (this.getHeight() - 2)), 
+									colorUp.getGreen() + ((colorDown.getGreen() - colorUp.getGreen()) * i / (this.getHeight() - 2)), 
+									colorUp.getBlue() + ((colorDown.getBlue() - colorUp.getBlue()) * i / (this.getHeight() - 2))));
 			g.drawLine(2, i, this.getWidth() - 3, i);
 		}
 
@@ -1158,7 +1184,13 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void datumsLabelClicked(int index) {
+		if (editedDate != -1) {
+			message("Das Datum eines anderen Spiels wird bereits gesetzt.");
+			return;
+		}
 		editedDate = index;
+		spieltagsdaten[editedDate].setOpaque(true);
+		repaintImmediately(spieltagsdaten[editedDate]);
 		if (isOverview)	editedDate = oldOrder[editedDate];
 		
 		if (belongsToALeague) {
@@ -1166,6 +1198,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setDateAndKOTindex(liga.getDate(currentMatchday), liga.getKOTIndex(currentMatchday, editedDate));
+			mdc.setMatch(liga, currentMatchday, editedDate);
 			
 			start.toFront();
 			mdc.toFront();
@@ -1174,6 +1207,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setDateAndTime(gruppe.getDate(currentMatchday, editedDate), gruppe.getTime(currentMatchday, editedDate));
+			mdc.setMatch(gruppe, currentMatchday, editedDate);
 
 			start.toFront();
 			mdc.toFront();
@@ -1182,6 +1216,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setDateAndTime(koRunde.getDate(currentMatchday, editedDate), koRunde.getTime(currentMatchday, editedDate));
+			mdc.setMatch(koRunde, currentMatchday, editedDate);
 
 			start.toFront();
 			mdc.toFront();
@@ -1202,6 +1237,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setDateAndTime(gruppe.getDate(currentMatchday, matchID), gruppe.getTime(currentMatchday, matchID));
+			mdc.setMatch(gruppe, currentMatchday, matchID);
 
 			start.toFront();
 			mdc.toFront();
@@ -1211,6 +1247,8 @@ public class Spieltag extends JPanel {
 	public void dateEnteredLeagueStyle(int startDate, int KOTindex) {
 		liga.setDate(currentMatchday, startDate);
 		liga.setKOTIndex(currentMatchday, editedDate, KOTindex);
+		spieltagsdaten[editedDate].setOpaque(false);
+		repaintImmediately(spieltagsdaten[editedDate]);
 		editedDate = -1;
 		spieltagsdatenBefuellen();
 	}
@@ -1238,6 +1276,9 @@ public class Spieltag extends JPanel {
 			gruppe.setDate(currentMatchday, matchID, myDate);
 			gruppe.setTime(currentMatchday, matchID, myTime);
 		}
+		if (isOverview)	editedDate = newOrder[editedDate];
+		spieltagsdaten[editedDate].setOpaque(false);
+		repaintImmediately(spieltagsdaten[editedDate]);
 		editedDate = -1;
 		spieltagsdatenBefuellen();
 	}

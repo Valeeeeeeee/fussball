@@ -14,11 +14,11 @@ public class MyDateChooser extends JFrame {
 	/**
 	 * The width of this window for leaague
 	 */
-	public final int WIDTH_LG = 450;
+	public final int WIDTH_LG = 460;
 	/**
 	 * The height of this window for league
 	 */
-	public final int HEIGHT_LG = 200;
+	public final int HEIGHT_LG = 230;
 	/**
 	 * The width of this window for tournament
 	 */
@@ -26,7 +26,7 @@ public class MyDateChooser extends JFrame {
 	/**
 	 * The height of this window for tournament
 	 */
-	public final int HEIGHT_TOUR = 100;
+	public final int HEIGHT_TOUR = 130;
 	
 	private Liga liga;
 	private Gruppe gruppe;
@@ -48,7 +48,9 @@ public class MyDateChooser extends JFrame {
 	private int startjahr;
 	private boolean schaltjahr;
 	
-	private JLabel lblstarttag;
+	private JLabel jLblSpiel;
+	private JLabel jLblStarttag;
+	private JLabel jLblStandard;
 	private JComboBox jCBStDay;
 	private JComboBox jCBStMonth;
 	private JComboBox jCBStYear;
@@ -58,25 +60,28 @@ public class MyDateChooser extends JFrame {
 	private JComboBox jCBYear;
 	private JComboBox jCBHour;
 	private JComboBox jCBMinute;
-	private JButton go;
+	private JButton jBtnGo;
 	
-	private Rectangle RECSTDAY =	new Rectangle(20, 40, 70, 30);
-	private Rectangle RECSTMONTH =	new Rectangle(90, 40, 70, 30);
-	private Rectangle RECSTYEAR =	new Rectangle(160, 40, 85, 30);
-	private Rectangle RECDAY =		new Rectangle(20, 80, 70, 30);
-	private Rectangle RECMONTH =	new Rectangle(90, 80, 70, 30);
-	private Rectangle RECYEAR =		new Rectangle(160, 80, 85, 30);
-	private Rectangle RECANSTOSS =	new Rectangle(250, 40, 110, 30);
-	private Rectangle RECHOUR =		new Rectangle(20, 110, 70, 30);
-	private Rectangle RECMINUTE =	new Rectangle(90, 110, 70, 30);
-	private Rectangle RECGO =		new Rectangle(370, 40, 70, 30);
+	private Rectangle REC_LBLSPIEL =	new Rectangle(55, 10, 340, 20);
+	private Rectangle REC_LBLSTARTTAG =	new Rectangle(20, 45, 60, 20);
+	private Rectangle REC_LBLSTANDARD =	new Rectangle(110, 45, 135, 20);
+	private Rectangle REC_STDAY =		new Rectangle(20, 70, 70, 30);
+	private Rectangle REC_STMONTH =		new Rectangle(90, 70, 70, 30);
+	private Rectangle REC_STYEAR =		new Rectangle(160, 70, 85, 30);
+	private Rectangle REC_DAY =			new Rectangle(20, 110, 70, 30);
+	private Rectangle REC_MONTH =		new Rectangle(90, 110, 70, 30);
+	private Rectangle REC_YEAR =		new Rectangle(160, 110, 85, 30);
+	private Rectangle REC_ANSTOSS =		new Rectangle(250, 70, 110, 30);
+	private Rectangle REC_HOUR =		new Rectangle(20, 140, 70, 30);
+	private Rectangle REC_MINUTE =		new Rectangle(90, 140, 70, 30);
+	private Rectangle REC_GO =			new Rectangle(370, 70, 70, 30);
 	
-	private Rectangle RECDAYTOUR =		new Rectangle(20, 10, 70, 30);
-	private Rectangle RECMONTHTOUR =	new Rectangle(90, 10, 70, 30);
-	private Rectangle RECYEARTOUR =		new Rectangle(160, 10, 85, 30);
-	private Rectangle RECHOURTOUR =		new Rectangle(20, 40, 70, 30);
-	private Rectangle RECMINUTETOUR =	new Rectangle(90, 40, 70, 30);
-	private Rectangle RECGOTOUR =		new Rectangle(260, 10, 70, 30);
+	private Rectangle REC_DAYTOUR =		new Rectangle(20, 40, 70, 30);
+	private Rectangle REC_MONTHTOUR =	new Rectangle(90, 40, 70, 30);
+	private Rectangle REC_YEARTOUR =	new Rectangle(160, 40, 85, 30);
+	private Rectangle REC_HOURTOUR =	new Rectangle(20, 70, 70, 30);
+	private Rectangle REC_MINUTETOUR =	new Rectangle(90, 70, 70, 30);
+	private Rectangle REC_GOTOUR =		new Rectangle(260, 40, 70, 30);
 	
 	
 	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
@@ -143,19 +148,32 @@ public class MyDateChooser extends JFrame {
 			minutes[i] = "" + 5 * i;
 		}
 		
+		{
+			jLblSpiel = new JLabel();
+			this.add(jLblSpiel);
+			jLblSpiel.setBounds(REC_LBLSPIEL);
+			jLblSpiel.setOpaque(true);
+			jLblSpiel.setBackground(Color.yellow);
+			jLblSpiel.setHorizontalAlignment(SwingConstants.CENTER);
+		}
+		
 		if (belongsToLeague) {
-			lblstarttag = new JLabel();
-			this.add(lblstarttag);
-			lblstarttag.setBounds(20, 10, 175, 20);
-			lblstarttag.setText("Standard-Starttag: " + wochentage[defaultStarttag]);
-			lblstarttag.setOpaque(true);
-			lblstarttag.setBackground(Color.yellow);
+			jLblStarttag = new JLabel();
+			this.add(jLblStarttag);
+			jLblStarttag.setBounds(REC_LBLSTARTTAG);
+			jLblStarttag.setText("Starttag");
+			
+			jLblStandard = new JLabel();
+			this.add(jLblStandard);
+			jLblStandard.setBounds(REC_LBLSTANDARD);
+			jLblStandard.setHorizontalAlignment(SwingConstants.RIGHT);
+			jLblStandard.setText("Standard: " + wochentage[defaultStarttag]);
 		}
 		if (belongsToLeague) {
 	        jCBStDay = new JComboBox();
 	        this.add(jCBStDay);
 	        jCBStDay.setModel(new DefaultComboBoxModel(days));
-	        jCBStDay.setBounds(RECSTDAY);
+	        jCBStDay.setBounds(REC_STDAY);
 	        jCBStDay.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
 	                jCBStDayItemStateChanged(evt);
@@ -166,7 +184,7 @@ public class MyDateChooser extends JFrame {
 	        jCBStMonth = new JComboBox();
 	        this.add(jCBStMonth);
 	        jCBStMonth.setModel(new DefaultComboBoxModel(months));
-	        jCBStMonth.setBounds(RECSTMONTH);
+	        jCBStMonth.setBounds(REC_STMONTH);
 	        jCBStMonth.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
 	            	jCBMonthItemStateChanged(evt, true);
@@ -177,7 +195,7 @@ public class MyDateChooser extends JFrame {
 	        jCBStYear = new JComboBox();
 	        this.add(jCBStYear);
 	        jCBStYear.setModel(new DefaultComboBoxModel(years));
-	        jCBStYear.setBounds(RECSTYEAR);
+	        jCBStYear.setBounds(REC_STYEAR);
 	        jCBStYear.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
 	                jCBYearItemStateChanged(evt, true);
@@ -187,7 +205,7 @@ public class MyDateChooser extends JFrame {
 		if (belongsToLeague) {
 			jCBAnstosszeiten = new JComboBox();
 	        this.add(jCBAnstosszeiten);
-	        jCBAnstosszeiten.setBounds(RECANSTOSS);
+	        jCBAnstosszeiten.setBounds(REC_ANSTOSS);
 	        jCBAnstosszeiten.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
 	            	jCBAnstosszeitenItemStateChanged(evt);
@@ -196,13 +214,13 @@ public class MyDateChooser extends JFrame {
 	        comboBoxAnstosszeitenAktualisieren();
 		}
 		{
-			go = new JButton();
-			this.add(go);
-			if (belongsToLeague)	go.setBounds(RECGO);
-			else					go.setBounds(RECGOTOUR);
-			go.setText("fertig");
-			go.setFocusable(false);
-			go.addActionListener(new ActionListener() {
+			jBtnGo = new JButton();
+			this.add(jBtnGo);
+			if (belongsToLeague)	jBtnGo.setBounds(REC_GO);
+			else					jBtnGo.setBounds(REC_GOTOUR);
+			jBtnGo.setText("fertig");
+			jBtnGo.setFocusable(false);
+			jBtnGo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 			        if (belongsToLeague)	returnLeagueStyle();
 			        else					returnTournamentStyle();
@@ -214,8 +232,8 @@ public class MyDateChooser extends JFrame {
 	        jCBDay = new JComboBox();
 	        this.add(jCBDay);
 	        jCBDay.setModel(jCBDayModel);
-	        if (belongsToLeague)	jCBDay.setBounds(RECDAY);
-	        else					jCBDay.setBounds(RECDAYTOUR);
+	        if (belongsToLeague)	jCBDay.setBounds(REC_DAY);
+	        else					jCBDay.setBounds(REC_DAYTOUR);
 	        if (belongsToLeague)	jCBDay.setVisible(false);
 		}
 		{
@@ -223,8 +241,8 @@ public class MyDateChooser extends JFrame {
 	        jCBMonth = new JComboBox();
 	        this.add(jCBMonth);
 	        jCBMonth.setModel(jCBMonthModel);
-	        if (belongsToLeague)	jCBMonth.setBounds(RECMONTH);
-	        else					jCBMonth.setBounds(RECMONTHTOUR);
+	        if (belongsToLeague)	jCBMonth.setBounds(REC_MONTH);
+	        else					jCBMonth.setBounds(REC_MONTHTOUR);
 	        if (belongsToLeague)	jCBMonth.setVisible(false);
 	        jCBMonth.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
@@ -237,8 +255,8 @@ public class MyDateChooser extends JFrame {
 	        jCBYear = new JComboBox();
 	        this.add(jCBYear);
 	        jCBYear.setModel(jCBYearModel);
-	        if (belongsToLeague)	jCBYear.setBounds(RECYEAR);
-	        else					jCBYear.setBounds(RECYEARTOUR);
+	        if (belongsToLeague)	jCBYear.setBounds(REC_YEAR);
+	        else					jCBYear.setBounds(REC_YEARTOUR);
 	        if (belongsToLeague)	jCBYear.setVisible(false);
 	        jCBYear.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
@@ -251,8 +269,8 @@ public class MyDateChooser extends JFrame {
 	        jCBHour = new JComboBox();
 	        this.add(jCBHour);
 	        jCBHour.setModel(jCBHourModel);
-	        if (belongsToLeague)	jCBHour.setBounds(RECHOUR);
-	        else					jCBHour.setBounds(RECHOURTOUR);
+	        if (belongsToLeague)	jCBHour.setBounds(REC_HOUR);
+	        else					jCBHour.setBounds(REC_HOURTOUR);
 	        if (belongsToLeague)	jCBHour.setVisible(false);
 		}
 		{
@@ -260,8 +278,8 @@ public class MyDateChooser extends JFrame {
 	        jCBMinute = new JComboBox();
 	        this.add(jCBMinute);
 	        jCBMinute.setModel(jCBMinuteModel);
-	        if (belongsToLeague)	jCBMinute.setBounds(RECMINUTE);
-	        else					jCBMinute.setBounds(RECMINUTETOUR);
+	        if (belongsToLeague)	jCBMinute.setBounds(REC_MINUTE);
+	        else					jCBMinute.setBounds(REC_MINUTETOUR);
 	        if (belongsToLeague)	jCBMinute.setVisible(false);
 		}
 		
@@ -326,6 +344,17 @@ public class MyDateChooser extends JFrame {
 			this.date = today;
 			this.date = 2000;
 		}
+	}
+	
+	public void setMatch(Wettbewerb wettbewerb, int matchday, int matchID) {
+		log("\n---------- Change date ----------\nWettbewerb: " + wettbewerb.getName());
+		Spiel spiel = wettbewerb.getSpiel(matchday, matchID);
+		String match = "";
+		if (spiel != null)	match = spiel.getHomeTeam().getName() + " gegen " + spiel.getAwayTeam().getName();
+		else				match = "n/a gegen n/a";
+		log("Spiel: " + match + "\n");
+		
+		jLblSpiel.setText(match);
 	}
 	
 	private void returnTournamentStyle() {
