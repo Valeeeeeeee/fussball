@@ -242,30 +242,6 @@ public class KORunde implements Wettbewerb {
 		this.startTime[matchday][match] = myTime;
 	}
 	
-	@SuppressWarnings("unused")
-	private void testIsSpielplanEntered() {
-		log("\n\nTest-Ausgabe des spielplanEingetragen-Arrays:\n");
-		for (int i = 0; i < numberOfMatchdays; i++) {
-			log((i + 1) + ". matchday is" + (isSpielplanFullyEmpty(i) ? "" : " not") + " fully empty.");
-			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				log("   " + (j + 1) + ". match is" + (isSpielplanEntered(i, j) ? "" : " not") + " entered");
-			}
-			log();
-		}
-	}
-	
-	@SuppressWarnings("unused")
-	private void testIsErgebnisplanEntered() {
-		log("\n\nTest-Ausgabe des ergebnisplanEingetragen-Arrays:\n");
-		for (int i = 0; i < numberOfMatchdays; i++) {
-			log((i + 1) + ". matchday is" + (isErgebnisplanFullyEmpty(i) ? "" : " not") + " fully empty.");
-			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				log("   " + (j + 1) + ". match is" + (isErgebnisplanEntered(i, j) ? "" : " not") + " entered");
-			}
-			log();
-		}
-	}
-	
 	// Spielplan eingetragen
 	
 	public boolean isSpielplanFullyEmpty(int matchday) {

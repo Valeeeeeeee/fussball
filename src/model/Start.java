@@ -9,7 +9,6 @@ import javax.swing.*;
 
 import static util.Utilities.*;
 
-@SuppressWarnings({"rawtypes","unchecked"}) 
 public class Start extends JFrame {
     private static final long serialVersionUID = -3201913070768333811L;
     
@@ -93,7 +92,7 @@ public class Start extends JFrame {
     // Liga - Homescreen
     private JPanel LigaHomescreen;
     private JLabel jLblWettbewerb;
-    private JComboBox jCBSaisonauswahl;
+    private JComboBox<String> jCBSaisonauswahl;
     private JButton jBtnNeueSaison;
     private JButton jBtnSpieltage;
     private JButton jBtnTabelle;
@@ -138,7 +137,7 @@ public class Start extends JFrame {
     public JPanel optionen;
     private JButton correctNames;
     private JLabel defaultStarttag;
-    private JComboBox jCBDefStarttag;
+    private JComboBox<String> jCBDefStarttag;
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -326,7 +325,7 @@ public class Start extends JFrame {
     	}
         {
             
-            jCBSaisonauswahl = new JComboBox();
+            jCBSaisonauswahl = new JComboBox<>();
             LigaHomescreen.add(jCBSaisonauswahl);
             jCBSaisonauswahl.setBounds(REC_CBSAISONS);
             jCBSaisonauswahl.addItemListener(new ItemListener() {
@@ -476,9 +475,9 @@ public class Start extends JFrame {
         }
         {
         	String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
-        	jCBDefStarttag = new JComboBox();
+        	jCBDefStarttag = new JComboBox<>();
         	optionen.add(jCBDefStarttag);
-	        jCBDefStarttag.setModel(new DefaultComboBoxModel(wochentage));
+	        jCBDefStarttag.setModel(new DefaultComboBoxModel<>(wochentage));
 	        jCBDefStarttag.setBounds(130, 50, 100, 20);
 	        jCBDefStarttag.setVisible(false);
 	        jCBDefStarttag.addItemListener(new ItemListener() {
@@ -523,8 +522,7 @@ public class Start extends JFrame {
     		jLblWettbewerb.setText(aktuelleLiga.getName());
     		
     		// befuellt die ComboBox mit den verfuegbaren Saisons
-            ComboBoxModel jCBSaisonauswahlModel = new DefaultComboBoxModel(aktuelleLiga.getAllSeasons());
-            jCBSaisonauswahl.setModel(jCBSaisonauswahlModel);
+            jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
     		jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
     		
     		if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
@@ -555,8 +553,7 @@ public class Start extends JFrame {
 			aktuellesTurnier = turniere.get(index);
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
-            ComboBoxModel jCBSaisonauswahlModel = new DefaultComboBoxModel(aktuellesTurnier.getAllSeasons());
-            jCBSaisonauswahl.setModel(jCBSaisonauswahlModel);
+            jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuellesTurnier.getAllSeasons()));
     		jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			
     		if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
@@ -574,7 +571,6 @@ public class Start extends JFrame {
     }
     
     public void jBtnGruppenphaseActionPerformed() {
-    	// TODO
     	isCurrentlyInGroupStage = true;
     	
     	TurnierHomescreen.setVisible(false);
@@ -583,7 +579,6 @@ public class Start extends JFrame {
     }
     
     public void jBtnKORundeActionPerformed() {
-    	// TODO
     	isCurrentlyInGroupStage = false;
     	
     	TurnierHomescreen.setVisible(false);
@@ -729,20 +724,6 @@ public class Start extends JFrame {
 	            });
 			}
 		}
-    }
-    
-    @SuppressWarnings("unused")
-	private void testLigaAusgabeSpielplanUndErgebnisse() {
-    	for (int i = 0; i < aktuelleLiga.getNumberOfMatchdays(); i++) {
-    		System.out.println("\n\nNeuer Spieltag");
-        	for (int j = 0; j < aktuelleLiga.getNumberOfMatchesPerMatchday(); j++) {
-        		if (aktuelleLiga.isSpielplanEntered(i, j)) {
-        			log(aktuelleLiga.getMannschaften()[aktuelleLiga.getSpiel(i, j).home() - 1].getName() + " " + 
-                			aktuelleLiga.getErgebnis(i, j) + " " + 
-                			aktuelleLiga.getMannschaften()[aktuelleLiga.getSpiel(i, j).away() - 1].getName());
-        		}
-          	}
-        }
     }
     
     // Action- und ItemListener
@@ -990,7 +971,6 @@ public class Start extends JFrame {
     }
     
     private void jBtnLigaNeueSaisonFertigActionPerformed() {
-    	// TODO new season done
     	int season;
     	try {
     		season = Integer.parseInt(jTFSaison.getText());
@@ -1008,8 +988,7 @@ public class Start extends JFrame {
     	
     	if (aktuelleLiga.addSeason(season, newSeasonTeamsOrder)) {
     		// befuellt die ComboBox mit den verfuegbaren Saisons
-            ComboBoxModel jCBSaisonauswahlModel = new DefaultComboBoxModel(aktuelleLiga.getAllSeasons());
-            jCBSaisonauswahl.setModel(jCBSaisonauswahlModel);
+            jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
     		jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
     		
     		LigaNeueSaison.setVisible(false);

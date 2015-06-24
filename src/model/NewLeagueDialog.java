@@ -7,7 +7,6 @@ import javax.swing.*;
 
 import static util.Utilities.*;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class NewLeagueDialog extends JFrame {
 	private static final long serialVersionUID = -4797487798345998331L;
 	
@@ -76,7 +75,7 @@ public class NewLeagueDialog extends JFrame {
 	private JLabel seasonLbl;
 	private JTextField seasonTF;
 	private JLabel defaultSTLbl;
-	private JComboBox defaultSTCB;
+	private JComboBox<String> defaultSTCB;
 	private JLabel isSTSSLbl;
 	private JRadioButton oneYearRB;
 	private JRadioButton twoYearsRB;
@@ -87,11 +86,11 @@ public class NewLeagueDialog extends JFrame {
 	
 	// Mannschaften
 	private JPanel teamsPnl;
-	private JComboBox numOfTeamsCB;
+	private JComboBox<String> numOfTeamsCB;
 	private JLabel teamsLbl;
 	private JScrollPane teamsSP;
-	private JList teamsL;
-	private DefaultListModel teamsModel;
+	private JList<String> teamsL;
+	private DefaultListModel<String> teamsModel;
 	private JButton editTeamBtn;
 	
 	
@@ -105,8 +104,8 @@ public class NewLeagueDialog extends JFrame {
 	private JPanel kotPnl;
 	private JLabel kotLbl;
 	private JScrollPane kotSP;
-	private JList kotL;
-	private DefaultListModel kotModel = new DefaultListModel();
+	private JList<String> kotL;
+	private DefaultListModel<String> kotModel = new DefaultListModel<>();
 	private JButton addKOTBtn;
 	private JButton editKOTBtn;
 	private JLabel defKOTLbl;
@@ -166,7 +165,8 @@ public class NewLeagueDialog extends JFrame {
 		buildAmounts();
 		buildKOT();
 		
-//		enterPresetValues();
+		boolean enterValues = false;
+		if (enterValues)	enterPresetValues();
 		
 		setTitle("Neue Liga erstellen");
 		setSize(this.dim);
@@ -211,10 +211,10 @@ public class NewLeagueDialog extends JFrame {
 			defaultSTLbl.setText("Starttag");
 		}
 		{
-			defaultSTCB = new JComboBox();
+			defaultSTCB = new JComboBox<>();
 			infoPnl.add(defaultSTCB);
 	        defaultSTCB.setBounds(RECDEFSTCB);
-	        defaultSTCB.setModel(new DefaultComboBoxModel(wochentage));
+	        defaultSTCB.setModel(new DefaultComboBoxModel<>(wochentage));
 		}
 		{
 			isSTSSLbl = new JLabel();
@@ -268,10 +268,10 @@ public class NewLeagueDialog extends JFrame {
 			teamsPnl.setBackground(background);
 		}
 		{
-			numOfTeamsCB = new JComboBox();
+			numOfTeamsCB = new JComboBox<>();
 			teamsPnl.add(numOfTeamsCB);
 			numOfTeamsCB.setBounds(RECNOTEAMCB);
-			numOfTeamsCB.setModel(new DefaultComboBoxModel(posNumOfTeams));
+			numOfTeamsCB.setModel(new DefaultComboBoxModel<>(posNumOfTeams));
 			numOfTeamsCB.addItemListener(new ItemListener() {
                 public void itemStateChanged(ItemEvent evt) {
                 	numOfTeamsCBItemStateChanged(evt);
@@ -284,13 +284,13 @@ public class NewLeagueDialog extends JFrame {
 			teamsLbl.setBounds(RECTEAMLBL);
 			teamsLbl.setText("Mannschaften");
 		}
-		teamsModel = new DefaultListModel();
+		teamsModel = new DefaultListModel<>();
 		{
 			teamsSP = new JScrollPane();
 			teamsPnl.add(teamsSP);
 			teamsSP.setBounds(RECTEAMSP);
 			{
-				teamsL = new JList();
+				teamsL = new JList<>();
 			    teamsSP.setViewportView(teamsL);
 			    teamsL.setModel(teamsModel);
 			    teamsL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -354,7 +354,7 @@ public class NewLeagueDialog extends JFrame {
 			kotPnl.add(kotSP);
 			kotSP.setBounds(RECKOTSP);
 			{
-				kotL = new JList();
+				kotL = new JList<>();
 				kotSP.setViewportView(kotL);
 				kotL.setModel(kotModel);
 				kotL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -395,7 +395,6 @@ public class NewLeagueDialog extends JFrame {
 		}
 	}
 	
-	@SuppressWarnings("unused")
 	private void enterPresetValues() {
 		// TODO remove these preentered values
     	int[] preDefAnzahlen = new int[] {2, 1, 0, 1, 2};

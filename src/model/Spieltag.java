@@ -7,7 +7,6 @@ import javax.swing.*;
 
 import static util.Utilities.*;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class Spieltag extends JPanel {
 	private static final long serialVersionUID = 533273470193095401L;
 
@@ -18,7 +17,7 @@ public class Spieltag extends JPanel {
 	private Color colorDown = new Color(96, 255, 96);
 	private Color colorDatum = new Color(255, 191, 31);
 	
-	private JComboBox jCBSpieltage;
+	private JComboBox<String> jCBSpieltage;
 	public JLabel[] jLblsMannschaften;
 	public JTextField[] jTFsTore;
 	private JLabel[] jLblsZusatzInfos;
@@ -146,7 +145,6 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	// in case of failure delete this constructor and the variable isOverview
 	public Spieltag(Start start, Turnier turnier) {
 		super();
 		
@@ -186,8 +184,6 @@ public class Spieltag extends JPanel {
 		
 		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
 			buttonsauswahl[SIZEY] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
-//			message("The calculated value of height is " + buttonsauswahl[SIZEY] + " with hAnzAuf = "
-//					+ halfCountTeamsRoundUp, "\"height\" was calculated");
 		}
 	}
 	
@@ -227,7 +223,6 @@ public class Spieltag extends JPanel {
 					- buttonsauswahl[GAPY];
 
 			dim.height = (heightOfTeamLabels > heightOfTeamSelection ? heightOfTeamLabels : heightOfTeamSelection);
-//			message("labelsHeight = " + heightOfTeamLabels + " oder buttonsHeight = " + heightOfTeamSelection + " macht: " + dim.height);
 
 			// correction to minimumheight or maximumheight if out of these bounds
 			if (dim.height < minimumheight) {
@@ -237,7 +232,6 @@ public class Spieltag extends JPanel {
 			}
 
 			this.setSize(dim);
-//			message("This is dim: " + dim);
 
 			ergebnisse = new Ergebnis[numberOfMatches];
 			
@@ -255,9 +249,9 @@ public class Spieltag extends JPanel {
 				for (int i = 0; i < numberOfMatchdays; i++) {
 					hilfsarray[i] = (i + 1) + ". Spieltag";
 				}
-				jCBSpieltage = new JComboBox();
+				jCBSpieltage = new JComboBox<>();
 				this.add(jCBSpieltage);
-				jCBSpieltage.setModel(new DefaultComboBoxModel(hilfsarray));
+				jCBSpieltage.setModel(new DefaultComboBoxModel<>(hilfsarray));
 				jCBSpieltage.setBounds(REC_COMBO);
 				jCBSpieltage.setFocusable(false);
 				jCBSpieltage.addItemListener(new ItemListener() {
@@ -311,7 +305,6 @@ public class Spieltag extends JPanel {
 					jLblsGruppen[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
 					jLblsGruppen[i].setHorizontalAlignment(SwingConstants.RIGHT);
 					jLblsGruppen[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
-//					jLblsGruppen[i].setOpaque(true);
 					jLblsGruppen[i].addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent evt) {
 							gruppeClicked(x);
@@ -333,7 +326,6 @@ public class Spieltag extends JPanel {
 				else				jLblsMannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
 				jLblsMannschaften[i].setEnabled(false);
 				jLblsMannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
-//				jLblsMannschaften[i].setOpaque(true);
 				jLblsMannschaften[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						if (jLblsMannschaften[x].isEnabled()) {

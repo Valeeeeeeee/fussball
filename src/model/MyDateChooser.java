@@ -7,7 +7,6 @@ import javax.swing.*;
 
 import static util.Utilities.*;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class MyDateChooser extends JFrame {
 	private static final long serialVersionUID = -2889713010836842244L;
 	
@@ -51,15 +50,15 @@ public class MyDateChooser extends JFrame {
 	private JLabel jLblSpiel;
 	private JLabel jLblStarttag;
 	private JLabel jLblStandard;
-	private JComboBox jCBStDay;
-	private JComboBox jCBStMonth;
-	private JComboBox jCBStYear;
-	private JComboBox jCBAnstosszeiten;
-	private JComboBox jCBDay;
-	private JComboBox jCBMonth;
-	private JComboBox jCBYear;
-	private JComboBox jCBHour;
-	private JComboBox jCBMinute;
+	private JComboBox<String> jCBStDay;
+	private JComboBox<String> jCBStMonth;
+	private JComboBox<String> jCBStYear;
+	private JComboBox<String> jCBAnstosszeiten;
+	private JComboBox<String> jCBDay;
+	private JComboBox<String> jCBMonth;
+	private JComboBox<String> jCBYear;
+	private JComboBox<String> jCBHour;
+	private JComboBox<String> jCBMinute;
 	private JButton jBtnGo;
 	
 	private Rectangle REC_LBLSPIEL =	new Rectangle(55, 10, 340, 20);
@@ -170,9 +169,9 @@ public class MyDateChooser extends JFrame {
 			jLblStandard.setText("Standard: " + wochentage[defaultStarttag]);
 		}
 		if (belongsToLeague) {
-	        jCBStDay = new JComboBox();
+	        jCBStDay = new JComboBox<>();
 	        this.add(jCBStDay);
-	        jCBStDay.setModel(new DefaultComboBoxModel(days));
+	        jCBStDay.setModel(new DefaultComboBoxModel<>(days));
 	        jCBStDay.setBounds(REC_STDAY);
 	        jCBStDay.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
@@ -181,9 +180,9 @@ public class MyDateChooser extends JFrame {
 	        });
 		}
 		if (belongsToLeague) {
-	        jCBStMonth = new JComboBox();
+	        jCBStMonth = new JComboBox<>();
 	        this.add(jCBStMonth);
-	        jCBStMonth.setModel(new DefaultComboBoxModel(months));
+	        jCBStMonth.setModel(new DefaultComboBoxModel<>(months));
 	        jCBStMonth.setBounds(REC_STMONTH);
 	        jCBStMonth.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
@@ -192,9 +191,9 @@ public class MyDateChooser extends JFrame {
 	        });
 		}
 		if (belongsToLeague) {
-	        jCBStYear = new JComboBox();
+	        jCBStYear = new JComboBox<>();
 	        this.add(jCBStYear);
-	        jCBStYear.setModel(new DefaultComboBoxModel(years));
+	        jCBStYear.setModel(new DefaultComboBoxModel<>(years));
 	        jCBStYear.setBounds(REC_STYEAR);
 	        jCBStYear.addItemListener(new ItemListener() {
 	            public void itemStateChanged(ItemEvent evt) {
@@ -203,7 +202,7 @@ public class MyDateChooser extends JFrame {
 	        });
 		}
 		if (belongsToLeague) {
-			jCBAnstosszeiten = new JComboBox();
+			jCBAnstosszeiten = new JComboBox<>();
 	        this.add(jCBAnstosszeiten);
 	        jCBAnstosszeiten.setBounds(REC_ANSTOSS);
 	        jCBAnstosszeiten.addItemListener(new ItemListener() {
@@ -228,19 +227,17 @@ public class MyDateChooser extends JFrame {
 			});
 		}
 		{
-			ComboBoxModel jCBDayModel = new DefaultComboBoxModel(days);
-	        jCBDay = new JComboBox();
+	        jCBDay = new JComboBox<>();
 	        this.add(jCBDay);
-	        jCBDay.setModel(jCBDayModel);
+	        jCBDay.setModel(new DefaultComboBoxModel<>(days));
 	        if (belongsToLeague)	jCBDay.setBounds(REC_DAY);
 	        else					jCBDay.setBounds(REC_DAYTOUR);
 	        if (belongsToLeague)	jCBDay.setVisible(false);
 		}
 		{
-			ComboBoxModel jCBMonthModel = new DefaultComboBoxModel(months);
-	        jCBMonth = new JComboBox();
+	        jCBMonth = new JComboBox<>();
 	        this.add(jCBMonth);
-	        jCBMonth.setModel(jCBMonthModel);
+	        jCBMonth.setModel(new DefaultComboBoxModel<>(months));
 	        if (belongsToLeague)	jCBMonth.setBounds(REC_MONTH);
 	        else					jCBMonth.setBounds(REC_MONTHTOUR);
 	        if (belongsToLeague)	jCBMonth.setVisible(false);
@@ -251,10 +248,9 @@ public class MyDateChooser extends JFrame {
 	        });
 		}
 		{
-			ComboBoxModel jCBYearModel = new DefaultComboBoxModel(years);
-	        jCBYear = new JComboBox();
+	        jCBYear = new JComboBox<>();
 	        this.add(jCBYear);
-	        jCBYear.setModel(jCBYearModel);
+	        jCBYear.setModel(new DefaultComboBoxModel<>(years));
 	        if (belongsToLeague)	jCBYear.setBounds(REC_YEAR);
 	        else					jCBYear.setBounds(REC_YEARTOUR);
 	        if (belongsToLeague)	jCBYear.setVisible(false);
@@ -265,19 +261,17 @@ public class MyDateChooser extends JFrame {
 	        });
 		}
 		{
-			ComboBoxModel jCBHourModel = new DefaultComboBoxModel(hours);
-	        jCBHour = new JComboBox();
+	        jCBHour = new JComboBox<>();
 	        this.add(jCBHour);
-	        jCBHour.setModel(jCBHourModel);
+	        jCBHour.setModel(new DefaultComboBoxModel<>(hours));
 	        if (belongsToLeague)	jCBHour.setBounds(REC_HOUR);
 	        else					jCBHour.setBounds(REC_HOURTOUR);
 	        if (belongsToLeague)	jCBHour.setVisible(false);
 		}
 		{
-			ComboBoxModel jCBMinuteModel = new DefaultComboBoxModel(minutes);
-	        jCBMinute = new JComboBox();
+	        jCBMinute = new JComboBox<>();
 	        this.add(jCBMinute);
-	        jCBMinute.setModel(jCBMinuteModel);
+	        jCBMinute.setModel(new DefaultComboBoxModel<>(minutes));
 	        if (belongsToLeague)	jCBMinute.setBounds(REC_MINUTE);
 	        else					jCBMinute.setBounds(REC_MINUTETOUR);
 	        if (belongsToLeague)	jCBMinute.setVisible(false);
@@ -302,8 +296,6 @@ public class MyDateChooser extends JFrame {
 			this.date = date;
 			userCanMakeChanges = true;
 		} catch (IllegalArgumentException iae) {
-//			message("The given parameter was incorrect!");
-			
 			int today = 0;
 			if (spieltag.getCurrentMatchday() > 0)	today = MyDate.verschoben(liga.getDate(spieltag.getCurrentMatchday() - 1), 7);
 			else									today = startjahr * 10000 + 824;
@@ -347,12 +339,10 @@ public class MyDateChooser extends JFrame {
 	}
 	
 	public void setMatch(Wettbewerb wettbewerb, int matchday, int matchID) {
-		log("\n---------- Change date ----------\nWettbewerb: " + wettbewerb.getName());
 		Spiel spiel = wettbewerb.getSpiel(matchday, matchID);
 		String match = "";
 		if (spiel != null)	match = spiel.getHomeTeam().getName() + " gegen " + spiel.getAwayTeam().getName();
 		else				match = "n/a gegen n/a";
-		log("Spiel: " + match + "\n");
 		
 		jLblSpiel.setText(match);
 	}
@@ -367,15 +357,6 @@ public class MyDateChooser extends JFrame {
 	}
 	
 	private void returnLeagueStyle() {
-//		GregorianCalendar greg = new GregorianCalendar(jCBStYear.getSelectedIndex() + startjahr, jCBStMonth.getSelectedIndex(), jCBStDay.getSelectedIndex() + 1);
-//		if ((greg.get(Calendar.DAY_OF_WEEK) - 2) != defaultStarttag) {
-//			int cancel = JOptionPane.showConfirmDialog(null,	"The day you chose is not the default startday for a matchday. (" + wochentage[def_starttag] + ") \n" +
-//																"Do you want to continue anyway?", "Are you sure?", JOptionPane.YES_NO_OPTION);
-//			if (cancel == JOptionPane.NO_OPTION) {
-//				return false;
-//			}
-//		}
-		
 		this.date = 10000 * (jCBStYear.getSelectedIndex() + startjahr) + 100 * (jCBStMonth.getSelectedIndex() + 1) + (jCBStDay.getSelectedIndex() + 1);
 		this.aszindex = jCBAnstosszeiten.getSelectedIndex();
 		
@@ -430,12 +411,12 @@ public class MyDateChooser extends JFrame {
 			
 			if (tag > anzahltage)	tag = anzahltage;
 			
-			//Re-Initialisierung der Tage-ComboBox
+			// Re-Initialisierung der Tage-ComboBox
 			String[] days = new String[anzahltage];
 			for (int i = 0; i < days.length; i++) {
 				days[i] = "" + (i + 1);
 			}
-			ComboBoxModel jCBDayModel = new DefaultComboBoxModel(days);
+			ComboBoxModel<String> jCBDayModel = new DefaultComboBoxModel<>(days);
 			if (starttag) {
 				jCBStDay.setModel(jCBDayModel);
 				jCBStDay.setSelectedIndex(tag - 1);
@@ -480,7 +461,7 @@ public class MyDateChooser extends JFrame {
 			for (int i = 0; i < days.length; i++) {
 				days[i] = "" + (i + 1);
 			}
-			ComboBoxModel jCBDayModel = new DefaultComboBoxModel(days);
+			ComboBoxModel<String> jCBDayModel = new DefaultComboBoxModel<>(days);
 			if (starttag) {
 				jCBStDay.setModel(jCBDayModel);
 		        jCBStDay.setSelectedIndex(tag - 1);
@@ -510,11 +491,9 @@ public class MyDateChooser extends JFrame {
 				asz[i] = wt_kurz[((dayofweek + liga.daysSinceDST[i]) % 7 + 12) % 7] + " " + MyDate.uhrzeit(liga.kickoffTimes[i]);
 			}
 			asz[asz.length - 1] = "anderes";
-			ComboBoxModel jCBAnstosszeitenModel = new DefaultComboBoxModel(asz);
+			ComboBoxModel<String> jCBAnstosszeitenModel = new DefaultComboBoxModel<>(asz);
 			
 	        jCBAnstosszeiten.setModel(jCBAnstosszeitenModel);
-		} else {
-			// TODO comboBoxAnstosszeitenAktualisieren fuer Gruppe
 		}
 	}
 	
