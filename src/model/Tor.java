@@ -57,6 +57,10 @@ public class Tor {
 		this.spiel = spiel;
 		parseString(daten);
 	}
+	
+	public String getID() {
+		return id;
+	}
 
 	public Spiel getSpiel() {
 		return spiel;

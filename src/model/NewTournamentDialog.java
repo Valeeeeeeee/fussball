@@ -57,24 +57,24 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_GRPLBL = new Rectangle(5, 0, 90, 30);
 	private Rectangle REC_GRPYES = new Rectangle(100, 0, 45, 30); // checked
 	private Rectangle REC_GRPNO = new Rectangle(140, 0, 60, 30); // checked
-	private Rectangle REC_NOFGRPCB = new Rectangle(5, 30, 70, 30);
+	private Rectangle REC_NOFGRPCB = new Rectangle(5, 35, 70, 25);
 	private Rectangle REC_NOFGRPLBL = new Rectangle(80, 30, 70, 30);
 	private Rectangle REC_GRP2LEGLBL = new Rectangle(205, 30, 70, 30); // checked
 	private Rectangle REC_GRP2LEGYES = new Rectangle(280, 30, 45, 30); // checked
 	private Rectangle REC_GRP2LEGNO = new Rectangle(320, 30, 60, 30); // checked
-	private Rectangle REC_TNGRPCB = new Rectangle(5, 60, 120, 30); // checked
+	private Rectangle REC_TNGRPCB = new Rectangle(5, 65, 120, 25); // checked
 
 	// Knockout stage
 	private Rectangle REC_KOPNL;
 	private Rectangle REC_KOLBL = new Rectangle(5, 0, 70, 30); // checked
 	private Rectangle REC_KOYES = new Rectangle(80, 0, 45, 30); // checked
 	private Rectangle REC_KONO = new Rectangle(120, 0, 60, 30); // checked
-	private Rectangle REC_NOFKOCB = new Rectangle(225, 0, 70, 30);
+	private Rectangle REC_NOFKOCB = new Rectangle(225, 5, 70, 25);
 	private Rectangle REC_NOFKOLBL = new Rectangle(300, 0, 75, 30); // checked
 	private Rectangle REC_KO2LEGLBL = new Rectangle(205, 30, 70, 30); // checked
 	private Rectangle REC_KO2LEGYES = new Rectangle(280, 30, 45, 30); // checked
 	private Rectangle REC_KO2LEGNO = new Rectangle(320, 30, 60, 30); // checked
-	private Rectangle REC_DETKOCB = new Rectangle(5, 30, 170, 30);
+	private Rectangle REC_DETKOCB = new Rectangle(5, 35, 170, 25);
 	private Rectangle REC_NOTPQTF = new Rectangle(5, 65, 40, 30);
 	private Rectangle REC_NOTPQLBL = new Rectangle(50, 65, 180, 30);
 	private Rectangle REC_NOTPRTF = new Rectangle(5, 100, 40, 30);
@@ -169,6 +169,9 @@ public class NewTournamentDialog extends JFrame {
 	
 	private ArrayList<ArrayList<String>> grpTeamsModelArr;
 	private DefaultListModel<String> grpTeamsModel;
+	
+	private ArrayList<ArrayList<String>> koTeamsModelArr;
+	private DefaultListModel<String> koTeamsModel;
 
 
 	public NewTournamentDialog(Start start) {
@@ -183,6 +186,9 @@ public class NewTournamentDialog extends JFrame {
 	private void initGUI() {
 		this.setLayout(null);
 
+		grpTeamsModelArr = new ArrayList<>();
+		koTeamsModelArr = new ArrayList<>();
+		
 		{
 			go = new JButton();
 			getContentPane().add(go);
@@ -648,7 +654,7 @@ public class NewTournamentDialog extends JFrame {
 //		koSecondLegNoRB.setSelected(true);
 	}
 	
-	private void updateGUI() {// TODO update GUI: adjust window size
+	private void updateGUI() {
 		hasQ = Boolean.parseBoolean(qualificationRBGrp.getSelection().getActionCommand());
 		hasGrp = Boolean.parseBoolean(groupStageRBGrp.getSelection().getActionCommand());
 		hasKO = Boolean.parseBoolean(koStageRBGrp.getSelection().getActionCommand());
@@ -665,7 +671,6 @@ public class NewTournamentDialog extends JFrame {
 		REC_KOPNL = new Rectangle(OFFSETX, REC_GRPPNL.y + REC_GRPPNL.height + GAPPNL, 380, heightK);
 		koStagePnl.setBounds(REC_KOPNL);
 		
-		// 30 + 120(INFO) + 10 + 50(Q) + 10 + 150(GRP) + 10 + 180(KO) = 560
 		REC_CANCEL = new Rectangle(200, REC_KOPNL.y + REC_KOPNL.height + GAPPNL, 100, 30);
 		cancel.setBounds(REC_CANCEL);
 		
@@ -739,7 +744,9 @@ public class NewTournamentDialog extends JFrame {
 	private void teamsNamesGrpCBItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			int index = teamsNamesGrpCB.getSelectedIndex();
-			grpTeamsModel.clear();
+			if (grpTeamsModel != null)	grpTeamsModel.clear();
+			else						grpTeamsModel = new DefaultListModel<>();
+			
 			ArrayList<String> list = grpTeamsModelArr.get(index);
 			for (int i = 0; i < list.size(); i++) {
 				grpTeamsModel.addElement(list.get(i));
@@ -761,18 +768,30 @@ public class NewTournamentDialog extends JFrame {
 	
 	private void detailsKOCBItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			log("details combobox index changed to " + detailsKOCB.getSelectedIndex());
+			int index = detailsKOCB.getSelectedIndex();
+			log("details combobox index changed to " + index);
 			// TODO save values in TFs to array and set values in TFs for newly chosen k.o. round, create variable with index of current k.o. round
+			if (koTeamsModel != null)	koTeamsModel.clear();
+			else						koTeamsModel = new DefaultListModel<>();
+			
+			ArrayList<String> list = koTeamsModelArr.get(index);
+			for (int i = 0; i < list.size(); i++) {
+				koTeamsModel.addElement(list.get(i));
+			}
 		}
 	}
 	
 	private boolean deleteProvidedData() {
 		boolean result = true;
 		
-		if (fiDate > 3) {
-			result = false;
+		if (nOKO > (numOfKORoundsCB.getSelectedIndex() + minNumberOfKORounds)) {
+			// TODO check for entered data
+			int proceed = yesNoDialog("Mit dem Heruntersetzen der Anzahl an KO-Runden werden bereits eingegebene Daten" + "\n"
+					+ "der entfernten KO-Runden unwiederbringlich vernichtet. Trotzdem fortfahren?");
+			if (proceed == JOptionPane.NO_OPTION) {
+				result = false;
+			}
 		}
-		fiDate++;
 		
 		return result;
 	}
@@ -783,9 +802,13 @@ public class NewTournamentDialog extends JFrame {
 			int newNumOfKORounds = numOfKORoundsCB.getSelectedIndex() + minNumberOfKORounds;
 			
 			if (oldNumOfKORounds > newNumOfKORounds) {
-				
-			} else if (oldNumOfKORounds < newNumOfKORounds) {
-				
+				for (int i = newNumOfKORounds; i < oldNumOfKORounds; i++) {
+					koTeamsModelArr.remove(newNumOfKORounds);
+				}
+			} else {
+				for (int i = oldNumOfKORounds; i < newNumOfKORounds; i++) {
+					koTeamsModelArr.add(new ArrayList<String>());
+				}
 			}
 			
 			nOKO = newNumOfKORounds;
