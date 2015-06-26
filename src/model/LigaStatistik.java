@@ -491,7 +491,6 @@ public class LigaStatistik extends JPanel {
 		
 		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
 		jLblLeastGoalsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		log();
 		
 		
 		// Meiste - wenigste Gegentore
@@ -505,7 +504,6 @@ public class LigaStatistik extends JPanel {
 		
 		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
 		jLblLeastConcededGoalsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		log();
 		
 		
 		// Meiste - wenigste Siege
@@ -519,7 +517,6 @@ public class LigaStatistik extends JPanel {
 		
 		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
 		jLblLeastWinsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		log();
 		
 		
 		// Meiste - wenigste Unentschieden
@@ -533,7 +530,6 @@ public class LigaStatistik extends JPanel {
 		
 		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
 		jLblLeastDrawsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		log();
 		
 		
 		// Meiste - wenigste Niederlagen
@@ -547,7 +543,6 @@ public class LigaStatistik extends JPanel {
 		
 		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
 		jLblLeastLossesValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		log();
 	}
 	
 	private void updateSeries() {
@@ -563,6 +558,5 @@ public class LigaStatistik extends JPanel {
 			weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
 			jLblsSeriesValues[i].setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
 		}
-		log();
 	}
 }
