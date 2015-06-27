@@ -43,8 +43,8 @@ public class LigaStatistik extends JPanel {
 	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
 	
 	private static final int NUMBER_OF_MOSTLEAST = 5;
-	private int[] indices = new int[] {6, 7, 3, 4, 5};
-	private String[] mostLeastStrings = new String[] {"Tore", "Gegentore", "Siege", "Unentschieden", "Niederlagen"};
+	private int[] indices = new int[] {3, 4, 5, 6, 7};
+	private String[] mostLeastStrings = new String[] {"Siege", "Unentschieden", "Niederlagen", "Tore", "Gegentore"};
 	
 	private Font fontWettbewerbLbl = new Font("Verdana", Font.PLAIN, 24);
 	
