@@ -228,6 +228,7 @@ public class Mannschaft {
 		boolean reset;
 		for (int matchday = 0; matchday < daten.length; matchday++) {
 			if (daten[matchday][0] != 0) {
+				if (daten[matchday][3] == 0 && daten[matchday][2] == 0)	continue;
 				reset = false;
 				
 				switch (index) {
