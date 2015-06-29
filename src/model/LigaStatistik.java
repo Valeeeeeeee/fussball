@@ -2,7 +2,6 @@ package model;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.swing.*;
 
@@ -12,117 +11,87 @@ public class LigaStatistik extends JPanel {
 	
 	private static final long serialVersionUID = -7289043093848224094L;
 	
-	private Dimension preferredSize = new Dimension(900, 600);
+	private Dimension preferredSize = new Dimension(900, 650);
 	private Liga liga;
 	private Mannschaft[] mannschaften;
 	private int currentMatchday;
 	
 	// global variables for results
-	private int numberOfHomeWins = 0;
-	private int numberOfDraws = 0;
-	private int numberOfAwayWins = 0;
-	private HashMap<String, Integer> indices;
+	private int numberOfHomeWins;
+	private int numberOfDraws;
+	private int numberOfAwayWins;
+	private int numberOfHomeGoals;
+	private int numberOfAwayGoals;
 	private ArrayList<String> resultsHash;
 	private ArrayList<Integer> resultsFrequency;
 	
 	// global variables for most/least comparisons
-	private int value = 0;
-	private int maximum = -1;
-	private int minimum = 1000;
-	private int maxIndex = -1;
-	private int minIndex = -1;
-	private int moreMax = 0;
-	private int moreMin = 0;
+	private int value;
+	private int maximum;
+	private int minimum;
+	private int maxIndex;
+	private int minIndex;
+	private int moreMax;
+	private int moreMin;
+	
+	private static final int NUMBER_OF_HOMEAWAY = 5;
+	private String[] homeAwayStrings = new String[] {"Heimsiege", "Unentschieden", "Auswaertssiege", "Heimtore", "Auswaertstore"};
+	
+	private static final int NUMBER_OF_RESULTS = 5;
 	
 	private static final int NUMBER_OF_SERIES = 9;
-	private String[] serien = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
+	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
+	
+	private static final int NUMBER_OF_MOSTLEAST = 5;
+	private int[] indices = new int[] {3, 4, 5, 6, 7};
+	private String[] mostLeastStrings = new String[] {"Siege", "Unentschieden", "Niederlagen", "Tore", "Gegentore"};
 	
 	private Font fontWettbewerbLbl = new Font("Verdana", Font.PLAIN, 24);
 	
 	private JLabel jLblWettbewerb;
-	
-	private JLabel jLblMostGoals;
-	private JLabel jLblMostGoalsValue;
-	private JLabel jLblLeastGoals;
-	private JLabel jLblLeastGoalsValue;
-	private JLabel jLblMostConcededGoals;
-	private JLabel jLblMostConcededGoalsValue;
-	private JLabel jLblLeastConcededGoals;
-	private JLabel jLblLeastConcededGoalsValue;
-	private JLabel jLblMostWins;
-	private JLabel jLblMostWinsValue;
-	private JLabel jLblLeastWins;
-	private JLabel jLblLeastWinsValue;
-	private JLabel jLblMostDraws;
-	private JLabel jLblMostDrawsValue;
-	private JLabel jLblLeastDraws;
-	private JLabel jLblLeastDrawsValue;
-	private JLabel jLblMostLosses;
-	private JLabel jLblMostLossesValue;
-	private JLabel jLblLeastLosses;
-	private JLabel jLblLeastLossesValue;
+	private JLabel[] jLblsMost;
+	private JLabel[] jLblsMostValues;
+	private JLabel[] jLblsLeast;
+	private JLabel[] jLblsLeastValues;
 
 	private JLabel jLblsSerien;
 	private JLabel[] jLblsSeries;
 	private JLabel[] jLblsSeriesValues;
 	
-	private JLabel jLblHomeWins;
-	private JLabel jLblDraws;
-	private JLabel jLblAwayWins;
-	private JLabel jLblHomeWinsPercentage;
-	private JLabel jLblDrawsPercentage;
-	private JLabel jLblAwayWinsPercentage;
-	private JLabel jLblHomeWinsAbsolute;
-	private JLabel jLblDrawsAbsolute;
-	private JLabel jLblAwayWinsAbsolute;
+	private JLabel[] jLblsHomeAway;
+	private JLabel[] jLblsHomeAwayPercentage;
+	private JLabel[] jLblsHomeAwayAbsolute;
+	private JLabel[] jLblsResults;
+	private JLabel[] jLblsResultsPercentage;
+	private JLabel[] jLblsResultsAbsolute;
 	
 	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 210, 30);
 	
-	private Rectangle REC_LBLMOSTGOALS = new Rectangle(20, 90, 150, 25);
-	private Rectangle REC_LBLMOSTGOALSVAL = new Rectangle(190, 90, 200, 25);
-	private Rectangle REC_LBLLEASTGOALS = new Rectangle(20, 115, 150, 25);
-	private Rectangle REC_LBLLEASTGOALSVAL = new Rectangle(190, 115, 200, 25);
-	private Rectangle REC_LBLMOSTCONCEDEDGOALS = new Rectangle(20, 150, 150, 25);
-	private Rectangle REC_LBLMOSTCONCEDEDGOALSVAL = new Rectangle(190, 150, 200, 25);
-	private Rectangle REC_LBLLEASTCONCEDEDGOALS = new Rectangle(20, 175, 150, 25);
-	private Rectangle REC_LBLLEASTCONCEDEDGOALSVAL = new Rectangle(190, 175, 200, 25);
-	private Rectangle REC_LBLMOSTWINS = new Rectangle(20, 210, 150, 25);
-	private Rectangle REC_LBLMOSTWINSVAL = new Rectangle(190, 210, 200, 25);
-	private Rectangle REC_LBLLEASTWINS = new Rectangle(20, 235, 150, 25);
-	private Rectangle REC_LBLLEASTWINSVAL = new Rectangle(190, 235, 200, 25);
-	private Rectangle REC_LBLMOSTDRAWS = new Rectangle(20, 270, 150, 25);
-	private Rectangle REC_LBLMOSTDRAWSVAL = new Rectangle(190, 270, 200, 25);
-	private Rectangle REC_LBLLEASTDRAWS = new Rectangle(20, 295, 150, 25);
-	private Rectangle REC_LBLLEASTDRAWSVAL = new Rectangle(190, 295, 200, 25);
-	private Rectangle REC_LBLMOSTLOSSES = new Rectangle(20, 330, 150, 25);
-	private Rectangle REC_LBLMOSTLOSSESVAL = new Rectangle(190, 330, 200, 25);
-	private Rectangle REC_LBLLEASTLOSSES = new Rectangle(20, 355, 150, 25);
-	private Rectangle REC_LBLLEASTLOSSESVAL = new Rectangle(190, 355, 200, 25);
+	private int[] most = new int[] {20, 90, 0, 60, 160, 25};
+	private int[] mostV = new int[] {200, 90, 0, 60, 240, 25};
+	private int[] least = new int[] {20, 115, 0, 60, 160, 25};
+	private int[] leastV = new int[] {200, 115, 0, 60, 240, 25};
 	
-	private Rectangle REC_LBLSERIEN = new Rectangle(490, 90, 140, 25);
+	private Rectangle REC_LBLSERIEN = new Rectangle(490, 90, 150, 25);
+	private int[] series = new int[] {490, 120, 0, 30, 110, 25};
+	private int[] seriesV = new int[] {620, 120, 0, 30, 240, 25};
 	
-	// alte Position rechts oben x-Werte +465, y-Werte -380
-	private Rectangle REC_LBLHOMEWINS = new Rectangle(20, 470, 110, 25);
-	private Rectangle REC_LBLHOMEWINSPERC = new Rectangle(140, 470, 40, 25);
-	private Rectangle REC_LBLHOMEWINSABS = new Rectangle(240, 470, 30, 25);
-	private Rectangle REC_LBLDRAWS = new Rectangle(20, 500, 110, 25);
-	private Rectangle REC_LBLDRAWSPERC = new Rectangle(140, 500, 40, 25);
-	private Rectangle REC_LBLDRAWSABS = new Rectangle(240, 500, 30, 25);
-	private Rectangle REC_LBLAWAYWINS = new Rectangle(20, 530, 110, 25);
-	private Rectangle REC_LBLAWAYWINSPERC = new Rectangle(140, 530, 40, 25);
-	private Rectangle REC_LBLAWAYWINSABS = new Rectangle(240, 530, 30, 25);
+	// alte Position rechts oben x-Werte +465, y-Werte -350
+	private static final int STARTX_HOMEAWAY = 135;
+	private static final int SIZEX_HOMEAWAY = 99;
+	private static final int SIZEY_HOMEAWAY = 25;
+	private int[] homeAway = new int[] {20, 440, 0, 30, 110, 25};
+	private int[] homeAwayP = new int[] {140, 440, 0, 30, 40, 25};
+	private int[] homeAwayA = new int[] {240, 440, 0, 30, 30, 25};
+	private static final int STARTX_RESULTS = 350;
+	private static final int SIZEX_RESULTS = 99;
+	private static final int SIZEY_RESULTS = 25;
+	private int[] results = new int[] {320, 440, 0, 30, 30, 25};
+	private int[] resultsP = new int[] {355, 440, 0, 30, 40, 25};
+	private int[] resultsA = new int[] {455, 440, 0, 30, 30, 25};
 	
 	/* TODO
-	 * 
-	 * haeufigstes Ergebnis
-	 * Heim-/Auswaertssiege/Unentschieden
-	 * 
-	 * meiste/wenigste Gegen-/Tore/Punkte
-	 * meiste/wenigste Siege/Niederlagen
-	 * 
 	 * meiste Tore in einem Spiel
-	 * laengste Sieges-/Niederlagenserie
-	 * 
 	 */
 	
 	public LigaStatistik(Liga liga) {
@@ -136,7 +105,6 @@ public class LigaStatistik extends JPanel {
 	private void initGUI() {
 		this.setLayout(null);
 		
-		indices = new HashMap<>();
 		resultsHash = new ArrayList<>();
 		resultsFrequency = new ArrayList<>();
 		
@@ -148,191 +116,82 @@ public class LigaStatistik extends JPanel {
 			jLblWettbewerb.setText(liga.getName());
 		}
 		
+		buildResults();
 		buildMostLeast();
 		buildSeries();
 		
-		{
-			jLblHomeWins = new JLabel();
-			this.add(jLblHomeWins);
-			jLblHomeWins.setBounds(REC_LBLHOMEWINS);
-			jLblHomeWins.setText("Heimsiege:");
-		}
-		{
-			jLblDraws = new JLabel();
-			this.add(jLblDraws);
-			jLblDraws.setBounds(REC_LBLDRAWS);
-			jLblDraws.setText("Unentschieden:");
-		}
-		{
-			jLblAwayWins = new JLabel();
-			this.add(jLblAwayWins);
-			jLblAwayWins.setBounds(REC_LBLAWAYWINS);
-			jLblAwayWins.setText("Auswaertssiege:");
-		}
-		{
-			jLblHomeWinsPercentage = new JLabel();
-			this.add(jLblHomeWinsPercentage);
-			jLblHomeWinsPercentage.setBounds(REC_LBLHOMEWINSPERC);
-		}
-		{
-			jLblDrawsPercentage = new JLabel();
-			this.add(jLblDrawsPercentage);
-			jLblDrawsPercentage.setBounds(REC_LBLDRAWSPERC);
-		}
-		{
-			jLblAwayWinsPercentage = new JLabel();
-			this.add(jLblAwayWinsPercentage);
-			jLblAwayWinsPercentage.setBounds(REC_LBLAWAYWINSPERC);
-		}
-		{
-			jLblHomeWinsAbsolute = new JLabel();
-			this.add(jLblHomeWinsAbsolute);
-			jLblHomeWinsAbsolute.setBounds(REC_LBLHOMEWINSABS);
-		}
-		{
-			jLblDrawsAbsolute = new JLabel();
-			this.add(jLblDrawsAbsolute);
-			jLblDrawsAbsolute.setBounds(REC_LBLDRAWSABS);
-		}
-		{
-			jLblAwayWinsAbsolute = new JLabel();
-			this.add(jLblAwayWinsAbsolute);
-			jLblAwayWinsAbsolute.setBounds(REC_LBLAWAYWINSABS);
-		}
 		
         this.setSize(preferredSize);
 	}
 	
+	private void buildResults() {
+		jLblsHomeAway = new JLabel[NUMBER_OF_HOMEAWAY];
+		jLblsHomeAwayPercentage = new JLabel[NUMBER_OF_HOMEAWAY];
+		jLblsHomeAwayAbsolute = new JLabel[NUMBER_OF_HOMEAWAY];
+		for (int i = 0; i < NUMBER_OF_HOMEAWAY; i++) {
+			jLblsHomeAway[i] = new JLabel();
+			this.add(jLblsHomeAway[i]);
+			jLblsHomeAway[i].setBounds(homeAway[STARTX], homeAway[STARTY] + i * homeAway[GAPY], homeAway[SIZEX], homeAway[SIZEY]);
+			jLblsHomeAway[i].setText(homeAwayStrings[i] + ":");
+			
+			jLblsHomeAwayPercentage[i] = new JLabel();
+			this.add(jLblsHomeAwayPercentage[i]);
+			jLblsHomeAwayPercentage[i].setBounds(homeAwayP[STARTX], homeAwayP[STARTY] + i * homeAwayP[GAPY], homeAwayP[SIZEX], homeAwayP[SIZEY]);
+			
+			jLblsHomeAwayAbsolute[i] = new JLabel();
+			this.add(jLblsHomeAwayAbsolute[i]);
+			jLblsHomeAwayAbsolute[i].setBounds(homeAwayA[STARTX], homeAwayA[STARTY] + i * homeAwayA[GAPY], homeAwayA[SIZEX], homeAwayA[SIZEY]);
+		}
+		
+		jLblsResults = new JLabel[NUMBER_OF_RESULTS];
+		jLblsResultsPercentage = new JLabel[NUMBER_OF_RESULTS];
+		jLblsResultsAbsolute = new JLabel[NUMBER_OF_RESULTS];
+		for (int i = 0; i < NUMBER_OF_RESULTS; i++) {
+			jLblsResults[i] = new JLabel();
+			this.add(jLblsResults[i]);
+			jLblsResults[i].setBounds(results[STARTX], results[STARTY] + i * results[GAPY], results[SIZEX], results[SIZEY]);
+			
+			jLblsResultsPercentage[i] = new JLabel();
+			this.add(jLblsResultsPercentage[i]);
+			jLblsResultsPercentage[i].setBounds(resultsP[STARTX], resultsP[STARTY] + i * resultsP[GAPY], resultsP[SIZEX], resultsP[SIZEY]);
+			
+			jLblsResultsAbsolute[i] = new JLabel();
+			this.add(jLblsResultsAbsolute[i]);
+			jLblsResultsAbsolute[i].setBounds(resultsA[STARTX], resultsA[STARTY] + i * resultsA[GAPY], resultsA[SIZEX], resultsA[SIZEY]);
+		}
+	}
+	
 	private void buildMostLeast() {
-		{
-			jLblMostGoals = new JLabel();
-			this.add(jLblMostGoals);
-			jLblMostGoals.setBounds(REC_LBLMOSTGOALS);
-			jLblMostGoals.setText("Meiste Tore:");
-		}
-		{
-			jLblMostGoalsValue = new JLabel();
-			this.add(jLblMostGoalsValue);
-			jLblMostGoalsValue.setBounds(REC_LBLMOSTGOALSVAL);
-			jLblMostGoalsValue.setText("n/a");
-		}
-		{
-			jLblLeastGoals = new JLabel();
-			this.add(jLblLeastGoals);
-			jLblLeastGoals.setBounds(REC_LBLLEASTGOALS);
-			jLblLeastGoals.setText("Wenigste Tore:");
-		}
-		{
-			jLblLeastGoalsValue = new JLabel();
-			this.add(jLblLeastGoalsValue);
-			jLblLeastGoalsValue.setBounds(REC_LBLLEASTGOALSVAL);
-			jLblLeastGoalsValue.setText("n/a");
-		}
-		{
-			jLblMostConcededGoals = new JLabel();
-			this.add(jLblMostConcededGoals);
-			jLblMostConcededGoals.setBounds(REC_LBLMOSTCONCEDEDGOALS);
-			jLblMostConcededGoals.setText("Meiste Gegentore:");
-		}
-		{
-			jLblMostConcededGoalsValue = new JLabel();
-			this.add(jLblMostConcededGoalsValue);
-			jLblMostConcededGoalsValue.setBounds(REC_LBLMOSTCONCEDEDGOALSVAL);
-			jLblMostConcededGoalsValue.setText("n/a");
-		}
-		{
-			jLblLeastConcededGoals = new JLabel();
-			this.add(jLblLeastConcededGoals);
-			jLblLeastConcededGoals.setBounds(REC_LBLLEASTCONCEDEDGOALS);
-			jLblLeastConcededGoals.setText("Wenigste Gegentore:");
-		}
-		{
-			jLblLeastConcededGoalsValue = new JLabel();
-			this.add(jLblLeastConcededGoalsValue);
-			jLblLeastConcededGoalsValue.setBounds(REC_LBLLEASTCONCEDEDGOALSVAL);
-			jLblLeastConcededGoalsValue.setText("n/a");
-		}
-		{
-			jLblMostWins = new JLabel();
-			this.add(jLblMostWins);
-			jLblMostWins.setBounds(REC_LBLMOSTWINS);
-			jLblMostWins.setText("Meiste Siege:");
-		}
-		{
-			jLblMostWinsValue = new JLabel();
-			this.add(jLblMostWinsValue);
-			jLblMostWinsValue.setBounds(REC_LBLMOSTWINSVAL);
-			jLblMostWinsValue.setText("n/a");
-		}
-		{
-			jLblLeastWins = new JLabel();
-			this.add(jLblLeastWins);
-			jLblLeastWins.setBounds(REC_LBLLEASTWINS);
-			jLblLeastWins.setText("Wenigste Siege:");
-		}
-		{
-			jLblLeastWinsValue = new JLabel();
-			this.add(jLblLeastWinsValue);
-			jLblLeastWinsValue.setBounds(REC_LBLLEASTWINSVAL);
-			jLblLeastWinsValue.setText("n/a");
-		}
-		{
-			jLblMostDraws = new JLabel();
-			this.add(jLblMostDraws);
-			jLblMostDraws.setBounds(REC_LBLMOSTDRAWS);
-			jLblMostDraws.setText("Meiste Unentschieden:");
-		}
-		{
-			jLblMostDrawsValue = new JLabel();
-			this.add(jLblMostDrawsValue);
-			jLblMostDrawsValue.setBounds(REC_LBLMOSTDRAWSVAL);
-			jLblMostDrawsValue.setText("n/a");
-		}
-		{
-			jLblLeastDraws = new JLabel();
-			this.add(jLblLeastDraws);
-			jLblLeastDraws.setBounds(REC_LBLLEASTDRAWS);
-			jLblLeastDraws.setText("Wenigste Unentschieden:");
-		}
-		{
-			jLblLeastDrawsValue = new JLabel();
-			this.add(jLblLeastDrawsValue);
-			jLblLeastDrawsValue.setBounds(REC_LBLLEASTDRAWSVAL);
-			jLblLeastDrawsValue.setText("n/a");
-		}
-		{
-			jLblMostLosses = new JLabel();
-			this.add(jLblMostLosses);
-			jLblMostLosses.setBounds(REC_LBLMOSTLOSSES);
-			jLblMostLosses.setText("Meiste Niederlagen:");
-		}
-		{
-			jLblMostLossesValue = new JLabel();
-			this.add(jLblMostLossesValue);
-			jLblMostLossesValue.setBounds(REC_LBLMOSTLOSSESVAL);
-			jLblMostLossesValue.setText("n/a");
-		}
-		{
-			jLblLeastLosses = new JLabel();
-			this.add(jLblLeastLosses);
-			jLblLeastLosses.setBounds(REC_LBLLEASTLOSSES);
-			jLblLeastLosses.setText("Wenigste Niederlagen:");
-		}
-		{
-			jLblLeastLossesValue = new JLabel();
-			this.add(jLblLeastLossesValue);
-			jLblLeastLossesValue.setBounds(REC_LBLLEASTLOSSESVAL);
-			jLblLeastLossesValue.setText("n/a");
+		jLblsMost = new JLabel[NUMBER_OF_MOSTLEAST];
+		jLblsMostValues = new JLabel[NUMBER_OF_MOSTLEAST];
+		jLblsLeast = new JLabel[NUMBER_OF_MOSTLEAST];
+		jLblsLeastValues = new JLabel[NUMBER_OF_MOSTLEAST];
+		for (int i = 0; i < NUMBER_OF_MOSTLEAST; i++) {
+			jLblsMost[i] = new JLabel();
+			this.add(jLblsMost[i]);
+			jLblsMost[i].setBounds(most[STARTX], most[STARTY] + i * most[GAPY], most[SIZEX], most[SIZEY]);
+			jLblsMost[i].setText("Meiste " + mostLeastStrings[i] + ":");
+			
+			jLblsMostValues[i] = new JLabel();
+			this.add(jLblsMostValues[i]);
+			jLblsMostValues[i].setBounds(mostV[STARTX], mostV[STARTY] + i * mostV[GAPY], mostV[SIZEX], mostV[SIZEY]);
+			jLblsMostValues[i].setText("n/a");
+			
+			jLblsLeast[i] = new JLabel();
+			this.add(jLblsLeast[i]);
+			jLblsLeast[i].setBounds(least[STARTX], least[STARTY] + i * least[GAPY], least[SIZEX], least[SIZEY]);
+			jLblsLeast[i].setText("Wenigste " + mostLeastStrings[i] + ":");
+			
+			jLblsLeastValues[i] = new JLabel();
+			this.add(jLblsLeastValues[i]);
+			jLblsLeastValues[i].setBounds(leastV[STARTX], leastV[STARTY] + i * leastV[GAPY], leastV[SIZEX], leastV[SIZEY]);
+			jLblsLeastValues[i].setText("n/a");
 		}
 	}
 	
 	public void buildSeries() {
 		jLblsSeries = new JLabel[NUMBER_OF_SERIES];
 		jLblsSeriesValues = new JLabel[NUMBER_OF_SERIES];
-		
-		int[] series = new int[] {490, 120, 0, 30, 100, 25};
-		int[] seriesV = new int[] {610, 120, 0, 30, 200, 25};
-		
 		{
 			
 			jLblsSerien = new JLabel();
@@ -345,7 +204,7 @@ public class LigaStatistik extends JPanel {
 			jLblsSeries[i] = new JLabel();
 			this.add(jLblsSeries[i]);
 			jLblsSeries[i].setBounds(series[STARTX], series[STARTY] + i * series[GAPY], series[SIZEX], series[SIZEY]);
-			jLblsSeries[i].setText("... " + serien[i]);
+			jLblsSeries[i].setText("... " + seriesStrings[i]);
 			
 			jLblsSeriesValues[i] = new JLabel();
 			this.add(jLblsSeriesValues[i]);
@@ -368,11 +227,22 @@ public class LigaStatistik extends JPanel {
     	int maximum = Math.max(Math.max(numberOfHomeWins, numberOfDraws), numberOfAwayWins);
 		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
     	g.setColor(Color.yellow);
-    	g.fillRect(135, 470, numberOfHomeWins * 100 / maximum, 25);
-    	g.setColor(Color.yellow);
-    	g.fillRect(135, 500, numberOfDraws * 100 / maximum, 25);
-    	g.setColor(Color.yellow);
-    	g.fillRect(135, 530, numberOfAwayWins * 100 / maximum, 25);
+    	g.fillRect(STARTX_HOMEAWAY, 440, 1 + numberOfHomeWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+    	g.fillRect(STARTX_HOMEAWAY, 470, 1 + numberOfDraws * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+    	g.fillRect(STARTX_HOMEAWAY, 500, 1 + numberOfAwayWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+    	
+    	maximum = Math.max(numberOfHomeGoals, numberOfAwayGoals);
+		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
+    	g.fillRect(STARTX_HOMEAWAY, 530, 1 + numberOfHomeGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+    	g.fillRect(STARTX_HOMEAWAY, 560, 1 + numberOfAwayGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+    	
+    	maximum = 1;
+    	if (resultsFrequency.size() > 0)	maximum = resultsFrequency.get(0);
+    	for (int i = 0; i < 5; i++) {
+    		int height = 0;
+    		if (resultsFrequency.size() > i)	height = resultsFrequency.get(i);
+        	g.fillRect(STARTX_RESULTS, 440 + i * 30, 1 + height * SIZEX_RESULTS / maximum, SIZEY_RESULTS);
+		}
     }
 	
 	public void aktualisieren() {
@@ -382,9 +252,8 @@ public class LigaStatistik extends JPanel {
 	}
 	
 	private void resetValues() {
-		maximum = -1;
+		maximum = maxIndex = minIndex = -1;
 		minimum = 1000;
-		maxIndex = minIndex = -1;
 		moreMax = moreMin = 0;
 	}
 	
@@ -446,7 +315,7 @@ public class LigaStatistik extends JPanel {
 	}
 	
 	private void updateResults() {
-		numberOfHomeWins = numberOfDraws = numberOfAwayWins = 0;
+		numberOfHomeWins = numberOfDraws = numberOfAwayWins = numberOfHomeGoals = numberOfAwayGoals = 0;
 		resultsHash.clear();
 		resultsFrequency.clear();
 		for (int i = 0; i < liga.getNumberOfMatchdays(); i++) {
@@ -457,92 +326,75 @@ public class LigaStatistik extends JPanel {
 					if (result.home() > result.away())		numberOfHomeWins++;
 					else if (result.home() < result.away())	numberOfAwayWins++;
 					else									numberOfDraws++;
+					numberOfHomeGoals += result.home();
+					numberOfAwayGoals += result.away();
 				}
 			}
 		}
 		
 		orderLists();
 		log("Haeufigste Ergebnisse:");
-		for (int i = 0; i < resultsHash.size() && i < 5; i++) {
-			log(resultsHash.get(i) + ":  " + resultsFrequency.get(i) + " mal");
+		for (int i = 0; i < 5; i++) {
+			if (i < resultsHash.size()) {
+				jLblsResults[i].setText(resultsHash.get(i));
+				jLblsResultsPercentage[i].setText((100 * resultsFrequency.get(i) / resultsFrequency.get(0)) + "%");
+				jLblsResultsAbsolute[i].setText("" + resultsFrequency.get(i));
+				log(resultsHash.get(i) + ":  " + resultsFrequency.get(i) + " mal");
+			} else {
+				jLblsResults[i].setText("n/a");
+				jLblsResultsPercentage[i].setText("0%");
+				jLblsResultsAbsolute[i].setText("");
+			}
 		}
 		
 		int sumOfMatches = numberOfHomeWins + numberOfDraws + numberOfAwayWins;
-		if (sumOfMatches == 0)	sumOfMatches = 1;// to avoid dividing by zero
-		jLblHomeWinsPercentage.setText((100 * numberOfHomeWins / sumOfMatches) + "%");
-		jLblDrawsPercentage.setText((100 * numberOfDraws / sumOfMatches) + "%");
-		jLblAwayWinsPercentage.setText((100 * numberOfAwayWins / sumOfMatches) + "%");
-		jLblHomeWinsAbsolute.setText("" + numberOfHomeWins);
-		jLblDrawsAbsolute.setText("" + numberOfDraws);
-		jLblAwayWinsAbsolute.setText("" + numberOfAwayWins);
+		if (sumOfMatches == 0) {
+			sumOfMatches = 1;// to avoid dividing by zero
+			jLblsHomeAwayAbsolute[0].setVisible(false);
+			jLblsHomeAwayAbsolute[1].setVisible(false);
+			jLblsHomeAwayAbsolute[2].setVisible(false);
+		} else {
+			jLblsHomeAwayAbsolute[0].setText("" + numberOfHomeWins);
+			jLblsHomeAwayAbsolute[1].setText("" + numberOfDraws);
+			jLblsHomeAwayAbsolute[2].setText("" + numberOfAwayWins);
+			jLblsHomeAwayAbsolute[0].setVisible(true);
+			jLblsHomeAwayAbsolute[1].setVisible(true);
+			jLblsHomeAwayAbsolute[2].setVisible(true);
+		}
+		jLblsHomeAwayPercentage[0].setText((100 * numberOfHomeWins / sumOfMatches) + "%");
+		jLblsHomeAwayPercentage[1].setText((100 * numberOfDraws / sumOfMatches) + "%");
+		jLblsHomeAwayPercentage[2].setText((100 * numberOfAwayWins / sumOfMatches) + "%");
+		
+		int sumOfGoals = numberOfHomeGoals + numberOfAwayGoals;
+		if (sumOfGoals == 0) {
+			sumOfGoals = 1;// to avoid dividing by zero
+			jLblsHomeAwayAbsolute[3].setVisible(false);
+			jLblsHomeAwayAbsolute[4].setVisible(false);
+		} else {
+			jLblsHomeAwayAbsolute[3].setText("" + numberOfHomeGoals);
+			jLblsHomeAwayAbsolute[4].setText("" + numberOfAwayGoals);
+			jLblsHomeAwayAbsolute[3].setVisible(true);
+			jLblsHomeAwayAbsolute[4].setVisible(true);
+		}
+		jLblsHomeAwayPercentage[3].setText((100 * numberOfHomeGoals / sumOfGoals) + "%");
+		jLblsHomeAwayPercentage[4].setText((100 * numberOfAwayGoals / sumOfGoals) + "%");
 	}
 	
 	private void updateMostLeast() {
 		String weitere;
 		
-		// Meiste - wenigste Tore
-		resetValues();
-		for (Mannschaft team : mannschaften) {
-			value = team.get(6, 0, currentMatchday);
-			compareMinMax(team.getId());
+		for (int i = 0; i < NUMBER_OF_MOSTLEAST; i++) {
+			resetValues();
+			for (Mannschaft team : mannschaften) {
+				value = team.get(indices[i], 0, currentMatchday);
+				compareMinMax(team.getId());
+			}
+			weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
+			jLblsMostValues[i].setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
+			
+			weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
+			jLblsLeastValues[i].setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
 		}
-		weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-		jLblMostGoalsValue.setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
-		
-		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-		jLblLeastGoalsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		
-		
-		// Meiste - wenigste Gegentore
-		resetValues();
-		for (Mannschaft team : mannschaften) {
-			value = team.get(7, 0, currentMatchday);
-			compareMinMax(team.getId());
-		}
-		weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-		jLblMostConcededGoalsValue.setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
-		
-		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-		jLblLeastConcededGoalsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		
-		
-		// Meiste - wenigste Siege
-		resetValues();
-		for (Mannschaft team : mannschaften) {
-			value = team.get(3, 0, currentMatchday);
-			compareMinMax(team.getId());
-		}
-		weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-		jLblMostWinsValue.setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
-		
-		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-		jLblLeastWinsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		
-		
-		// Meiste - wenigste Unentschieden
-		resetValues();
-		for (Mannschaft team : mannschaften) {
-			value = team.get(4, 0, currentMatchday);
-			compareMinMax(team.getId());
-		}
-		weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-		jLblMostDrawsValue.setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
-		
-		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-		jLblLeastDrawsValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
-		
-		
-		// Meiste - wenigste Niederlagen
-		resetValues();
-		for (Mannschaft team : mannschaften) {
-			value = team.get(5, 0, currentMatchday);
-			compareMinMax(team.getId());
-		}
-		weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-		jLblMostLossesValue.setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
-		
-		weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-		jLblLeastLossesValue.setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
 	}
 	
 	private void updateSeries() {

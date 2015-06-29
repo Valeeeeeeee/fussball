@@ -537,9 +537,15 @@ public class Liga implements Wettbewerb {
 		
 		for (int m = 0; m < this.numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < this.numberOfMatchesPerMatchday; m2++) {
-				if (dates[m2] > dates[m])									hilfsarray[m2]++;
-				else if (dates[m2] == dates[m] && times[m2] >= times[m])	hilfsarray[m2]++;
-				else														hilfsarray[m]++;
+				if (dates[m2] > dates[m])		hilfsarray[m2]++;
+				else if (dates[m2] < dates[m])	hilfsarray[m]++;
+				else if (times[m2] > times[m])	hilfsarray[m2]++;
+				else if (times[m2] < times[m])	hilfsarray[m]++;
+				else {
+					Spiel sp1 = getSpiel(matchday, m), sp2 = getSpiel(matchday, m2);
+					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
+					else	hilfsarray[m2]++;
+				}
 			}
 		}
 		
