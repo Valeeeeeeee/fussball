@@ -60,12 +60,12 @@ public class Start extends JFrame {
     
     private int start_btnsstartx = 315;
     private int start_btnsstarty = 120;
-    private int start_btnswidth = 400;
-    private int start_btnsheight = 70;
+    private static final int SIZEX_BTNS = 400;
+    private static final int SIZEY_BTNS = 90;
     
     private Rectangle REC_BTNZURUECK = new Rectangle(10, 10, 100, 30);
     
-    private Rectangle REC_CBSAISONS = new Rectangle(650, 100, 130, 25);
+    private Rectangle REC_CBSAISONS = new Rectangle(655, 100, 130, 25);
     private Rectangle REC_BTNNEUESAISON = new Rectangle(800, 100, 120, 25);
     private Rectangle REC_BTNSPIELTAGE = new Rectangle(520, 150, 400, 100);
     private Rectangle REC_BTNTABELLE = new Rectangle(520, 270, 400, 100);
@@ -285,7 +285,7 @@ public class Start extends JFrame {
         	final int x = i;
         	jBtnsLigen[i] = new JButton();
         	Homescreen.add(jBtnsLigen[i]);
-        	jBtnsLigen[i].setBounds(start_btnsstartx, start_btnsstarty + i * (start_btnsheight + 10), start_btnswidth, start_btnsheight);
+        	jBtnsLigen[i].setBounds(start_btnsstartx, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
         	jBtnsLigen[i].setText(ligen[i].getName());
         	jBtnsLigen[i].setFocusable(false);
         	jBtnsLigen[i].addActionListener(new ActionListener() {
@@ -298,7 +298,7 @@ public class Start extends JFrame {
         	final int x = i;
         	jBtnsTurniere[i] = new JButton();
         	Homescreen.add(jBtnsTurniere[i]);
-        	jBtnsTurniere[i].setBounds(start_btnsstartx + start_btnswidth + 10, start_btnsstarty + i * (start_btnsheight + 10), start_btnswidth, start_btnsheight);
+        	jBtnsTurniere[i].setBounds(start_btnsstartx + SIZEX_BTNS + 10, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
         	jBtnsTurniere[i].setText(turniere.get(i).getName());
         	jBtnsTurniere[i].setFocusable(false);
         	jBtnsTurniere[i].addActionListener(new ActionListener() {
@@ -326,7 +326,6 @@ public class Start extends JFrame {
         {
             
             jCBSaisonauswahl = new JComboBox<>();
-            LigaHomescreen.add(jCBSaisonauswahl);
             jCBSaisonauswahl.setBounds(REC_CBSAISONS);
             jCBSaisonauswahl.addItemListener(new ItemListener() {
                 public void itemStateChanged(ItemEvent evt) {
@@ -407,7 +406,7 @@ public class Start extends JFrame {
         { 
         	jBtnGruppenphase = new JButton();
         	TurnierHomescreen.add(jBtnGruppenphase);
-            jBtnGruppenphase.setBounds(520, 300, start_btnswidth, start_btnsheight);
+            jBtnGruppenphase.setBounds(520, 300, SIZEX_BTNS, SIZEY_BTNS);
             jBtnGruppenphase.setText("Gruppenphase");
             jBtnGruppenphase.setFocusable(false);
             jBtnGruppenphase.addActionListener(new ActionListener() {
@@ -419,7 +418,7 @@ public class Start extends JFrame {
         { 
         	jBtnKORunde = new JButton();
         	TurnierHomescreen.add(jBtnKORunde);
-        	jBtnKORunde.setBounds(520, 450, start_btnswidth, start_btnsheight);
+        	jBtnKORunde.setBounds(520, 450, SIZEX_BTNS, SIZEY_BTNS);
         	jBtnKORunde.setText("K.O.-Runde");
         	jBtnKORunde.setFocusable(false);
         	jBtnKORunde.addActionListener(new ActionListener() {
@@ -524,6 +523,7 @@ public class Start extends JFrame {
     		// befuellt die ComboBox mit den verfuegbaren Saisons
             jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
     		jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
+            LigaHomescreen.add(jCBSaisonauswahl);
     		
     		if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
         		// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
@@ -555,6 +555,7 @@ public class Start extends JFrame {
 			// befuellt die ComboBox mit den verfuegbaren Saisons
             jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuellesTurnier.getAllSeasons()));
     		jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
+            TurnierHomescreen.add(jCBSaisonauswahl);
 			
     		if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
 //        		// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
@@ -564,8 +565,10 @@ public class Start extends JFrame {
     		
     		if (!aktuellesTurnier.hasGroupStage()) {
     			jBtnKORundeActionPerformed();
+    	    	KORundeHomescreen.add(jCBSaisonauswahl);
     		} else if (!aktuellesTurnier.hasKOStage()) {
     			jBtnGruppenphaseActionPerformed();
+    	    	GruppenphaseHomescreen.add(jCBSaisonauswahl);
     		}
 		}
     }
@@ -644,7 +647,7 @@ public class Start extends JFrame {
                 	aktuellesTurnier.speichern();
                 } catch (Exception e) {}
                 aktuellesTurnier.laden(index);
-                ligaspezifischesachenladen();
+                turnierspezifischeSachenLaden();
     		}
     	}
 	}
@@ -679,7 +682,7 @@ public class Start extends JFrame {
 	    		final int x = i;
 	    		groupStageButtons[i] = new JButton();
 				GruppenphaseHomescreen.add(groupStageButtons[i]);
-				groupStageButtons[i].setBounds(520, 50 + i * (60 + 10), start_btnswidth, 60);
+				groupStageButtons[i].setBounds(295 + (i % 2) * (SIZEX_BTNS + 50), 150 + (i / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 				groupStageButtons[i].setText(aktuellesTurnier.getGruppen()[i].getName());
 				groupStageButtons[i].setFocusable(false);
 				groupStageButtons[i].addActionListener(new ActionListener() {
@@ -692,7 +695,7 @@ public class Start extends JFrame {
 	    	{
 	    		groupStageButtons[lastindex] = new JButton();
 				GruppenphaseHomescreen.add(groupStageButtons[lastindex]);
-				groupStageButtons[lastindex].setBounds(520, 50 + lastindex * (60 + 10), start_btnswidth, 60);
+				groupStageButtons[lastindex].setBounds(295 + (lastindex % 2) * (SIZEX_BTNS + 50), 150 + (lastindex / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 				groupStageButtons[lastindex].setText("Alle Gruppen");
 				groupStageButtons[lastindex].setFocusable(false);
 				groupStageButtons[lastindex].addActionListener(new ActionListener() {
@@ -714,7 +717,7 @@ public class Start extends JFrame {
 	    		final int x = i;
 	    		KORoundsButtons[i] = new JButton();
 	    		KORundeHomescreen.add(KORoundsButtons[i]);
-				KORoundsButtons[i].setBounds(520, 100 + i * (100 + 15), start_btnswidth, 100);
+				KORoundsButtons[i].setBounds(520, 150 + i * (SIZEY_BTNS + 15), SIZEX_BTNS, SIZEY_BTNS);
 				KORoundsButtons[i].setText(aktuellesTurnier.getKORunden()[i].getName());
 				KORoundsButtons[i].setFocusable(false);
 				KORoundsButtons[i].addActionListener(new ActionListener() {
