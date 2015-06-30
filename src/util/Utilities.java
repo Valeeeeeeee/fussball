@@ -19,6 +19,9 @@ public class Utilities {
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
 	
+	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	
+	
 	public static void main(String[] args) {
 		
 		boolean testing = false;
@@ -171,7 +174,7 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log("No such file or directory!");
+			log("No such file or directory: " + dateiname);
 //			ioe.printStackTrace();
 		}
 		String[] zielarray = new String[arraylist.size()];
@@ -213,7 +216,7 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log("No such file or directory!");
+			log("No such file or directory: " + dateiname);
 //			ioe.printStackTrace();
 		}
 		

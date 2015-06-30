@@ -82,6 +82,8 @@ public class Spieltag extends JPanel {
 	private Gruppe gruppe;
 	private KORunde koRunde;
 	private Turnier turnier;
+	private TurnierSaison season;
+	private Gruppe[] tGruppen;
 	private Mannschaft[] teams;
 	
 	// Overview
@@ -150,21 +152,27 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	public Spieltag(Start start, Turnier turnier) {
+	public Spieltag(Start start, Turnier turnier/*TurnierSaison season*/) {
 		super();
 		
 		this.start = start;
 		this.turnier = turnier;
+		this.tGruppen = turnier.getGruppen();
+//		this.season = season;
+//		this.tGruppen = season.getGruppen();
 		this.belongsToALeague = false;
 		this.belongsToGroup = false;
 		this.belongsToKORound = false;
 		this.isOverview = true;
 		this.isETPossible = turnier.isETPossible();
+//		this.isETPossible = season.isETPossible();
 		
 		this.numbersOfTeams = new int[turnier.getNumberOfGroups()];
 		this.numbersOfMatches = new int[turnier.getNumberOfGroups()];
+//		this.numbersOfTeams = new int[season.getNumberOfGroups()];
+//		this.numbersOfMatches = new int[season.getNumberOfGroups()];
 		
-		for (Gruppe gruppe : turnier.getGruppen()) {
+		for (Gruppe gruppe : tGruppen) {
 			int nOMatchdays = gruppe.getNumberOfMatchdays();
 			this.numbersOfTeams[gruppe.getID()] = gruppe.getNumberOfTeams();
 			this.numbersOfMatches[gruppe.getID()] = gruppe.getNumberOfMatchesPerMatchday();
@@ -176,6 +184,10 @@ public class Spieltag extends JPanel {
 		this.halfCountTeamsRoundUp = (this.numberOfTeams + 1) / 2;
 		
 		initGUI();
+	}
+	
+	public Spieltag(Start start, TurnierSaison season) {
+		this(start, season.getTurnier());
 	}
 
 	private void calculateButtonsauswahlBounds(int maxHeight) {
@@ -582,6 +594,7 @@ public class Spieltag extends JPanel {
 				spieltagAnzeigen();
 			} else {
 				turnier.ergebnisseSichern();
+//				season.ergebnisseSichern();
 				spieltagAnzeigen();
 			}
 		}
@@ -635,7 +648,7 @@ public class Spieltag extends JPanel {
 		else if (belongsToKORound)	representation = koRunde.getSpielplanRepresentation(currentMatchday);
 		else {
 			representation = "";
-			for (Gruppe gruppe : turnier.getGruppen()) {
+			for (Gruppe gruppe : tGruppen) {
 				representation += gruppe.getSpielplanRepresentation(currentMatchday);
 			}
 		}
@@ -661,7 +674,7 @@ public class Spieltag extends JPanel {
 		String[] dateandtimeofmatches = new String[numberOfMatches];
 		int groupID = 0, matchID = 0;
 		for (int i = 0; i < numberOfMatches; i++) {
-			dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateAndTime(currentMatchday, matchID);
+			dateandtimeofmatches[i] = tGruppen[groupID].getDateAndTime(currentMatchday, matchID);
 			jLblsSpieltagsdaten[i].setText(dateandtimeofmatches[i]);
 			
 			matchID++;
@@ -685,7 +698,7 @@ public class Spieltag extends JPanel {
 			else if (belongsToGroup)	dateandtimeofmatches[i] = gruppe.getDateAndTime(currentMatchday, i);
 			else if (belongsToKORound)	dateandtimeofmatches[i] = koRunde.getDateAndTime(currentMatchday, i);
 			else {
-				dateandtimeofmatches[i] = turnier.getGruppen()[groupID].getDateAndTime(currentMatchday, matchID);
+				dateandtimeofmatches[i] = tGruppen[groupID].getDateAndTime(currentMatchday, matchID);
 				
 				matchID++;
 				if (matchID == numbersOfMatches[groupID]) {
@@ -715,7 +728,7 @@ public class Spieltag extends JPanel {
 					jBtnsMannschaften[i].setText(koRunde.getTeamsOrigin(i));
 				}
 			} else {
-				jBtnsMannschaften[i].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
+				jBtnsMannschaften[i].setText(tGruppen[groupID].getMannschaften()[teamID].getName());
 				
 				teamID++;
 				if (teamID == numbersOfTeams[groupID]) {
@@ -755,7 +768,7 @@ public class Spieltag extends JPanel {
 					matchID += numbersOfMatches[groupID];
 				}
 				
-				spiel = turnier.getGruppen()[groupID].getSpiel(editedMatchday, matchID);
+				spiel = tGruppen[groupID].getSpiel(editedMatchday, matchID);
 			}
 			
 			if (spiel != null) {
@@ -838,7 +851,7 @@ public class Spieltag extends JPanel {
 			if (belongsToKORound)	koRunde.setCheckTeamsFromPreviousRound(false);
 			int groupID = 0, matchID = 0, offset = 0, home, away;
 			for (int match = 0; match < array.length; match++) {
-				if (isOverview)	wettbewerb = turnier.getGruppen()[groupID];
+				if (isOverview)	wettbewerb = tGruppen[groupID];
 				Spiel spiel = null, vergleich;
 				
 				vergleich = wettbewerb.getSpiel(editedMatchday, matchID);
@@ -921,7 +934,7 @@ public class Spieltag extends JPanel {
 			koRunde.ergebnisseSichern();
 			spieltagAnzeigen();
 		} else {
-			for (Gruppe gruppe : turnier.getGruppen()) {
+			for (Gruppe gruppe : tGruppen) {
 				for (int match = 0; match < gruppe.getNumberOfMatchesPerMatchday(); match++) {
 					gruppe.setSpiel(currentMatchday, match, null);
 				}
@@ -932,6 +945,7 @@ public class Spieltag extends JPanel {
 			}
 			
 			turnier.ergebnisseSichern();
+//			season.ergebnisseSichern();
 			spieltagAnzeigen();
 		}
 	}
@@ -995,10 +1009,10 @@ public class Spieltag extends JPanel {
 		else if (belongsToKORound)	koRunde.changeOrderToChronological(matchday);
 		else if (isOverview) {
 			oldOrder = turnier.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
+//			oldOrder = season.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
 			newOrder = new int[oldOrder.length]; // beinhaltet die neuen Indizes in der alten Reihenfolge
 			for (int i = 0; i < oldOrder.length; i++) {
 				newOrder[oldOrder[i]] = i; // if enabled
-//				log((i + 1) + ". Spiel:   alterIndex " + oldOrder[i] + "\t oder: " + (oldOrder[i] + 1) + ". Spiel:   alterIndex " + i);
 //				oldOrder[i] = i; // if disabled
 //				newOrder[i] = i; // if disabled
 			}
@@ -1011,6 +1025,7 @@ public class Spieltag extends JPanel {
 			else if (belongsToGroup)	currentMatchday = gruppe.getCurrentMatchday();
 			else if (belongsToKORound)	currentMatchday = koRunde.getCurrentMatchday();
 			else 						currentMatchday = turnier.getCurrentMatchday();
+//			else 						currentMatchday = season.getCurrentMatchday();
 			
 			// damit nicht bei setSelectedIndex die default-Inhalte von tore in das ergebnis-Array kopiert werden muss das Befuellen davor erfolgen
 			for (int match = 0; match < numberOfMatches; match++) {
@@ -1031,7 +1046,7 @@ public class Spieltag extends JPanel {
 							groupID--;
 							matchID += numbersOfMatches[groupID];
 						}
-						setErgebnis(match, new Ergebnis(turnier.getGruppen()[groupID].getErgebnis(currentMatchday, matchID).toString()));
+						setErgebnis(match, new Ergebnis(tGruppen[groupID].getErgebnis(currentMatchday, matchID).toString()));
 					}
 				} catch (NullPointerException e) {
 					setErgebnis(match, null);
@@ -1115,7 +1130,7 @@ public class Spieltag extends JPanel {
 		} else {
 			int groupID = 0, matchID = 0;
 			for (int match = 0; match < numberOfMatches; match++) {
-				Gruppe gruppe = turnier.getGruppen()[groupID];
+				Gruppe gruppe = tGruppen[groupID];
 				jLblsGruppen[newOrder[match]].setText(("" + alphabet[groupID]).toUpperCase());
 				
 				if (gruppe.isSpielplanEntered(matchday, matchID)) {
@@ -1210,7 +1225,7 @@ public class Spieltag extends JPanel {
 				groupID--;
 				matchID += numbersOfMatches[groupID];
 			}
-			Gruppe gruppe = turnier.getGruppen()[groupID];
+			Gruppe gruppe = tGruppen[groupID];
 			
 			MyDateChooser mdc = new MyDateChooser(gruppe, this);
 			mdc.setLocationRelativeTo(null);
@@ -1250,7 +1265,7 @@ public class Spieltag extends JPanel {
 				groupID--;
 				matchID += numbersOfMatches[groupID];
 			}
-			Gruppe gruppe = turnier.getGruppen()[groupID];
+			Gruppe gruppe = tGruppen[groupID];
 			
 			gruppe.setDate(currentMatchday, matchID, myDate);
 			gruppe.setTime(currentMatchday, matchID, myTime);
@@ -1269,7 +1284,7 @@ public class Spieltag extends JPanel {
 		int matchID = editedResult;
 		
 		if (isOverview) {
-			for (Gruppe gruppe : turnier.getGruppen()) {
+			for (Gruppe gruppe : tGruppen) {
 				int nOMatches = gruppe.getNumberOfMatchesPerMatchday();
 				if ((offset += nOMatches) > oldOrder[index]) {
 					matchID = oldOrder[index] - offset + nOMatches;
@@ -1347,7 +1362,7 @@ public class Spieltag extends JPanel {
 				return;
 			}
 			
-			jLblsMannschaften[editedLabel].setText(turnier.getGruppen()[groupID].getMannschaften()[teamID].getName());
+			jLblsMannschaften[editedLabel].setText(tGruppen[groupID].getMannschaften()[teamID].getName());
 		}
 		array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] = index + 1;
 		jLblsMannschaften[editedLabel].setBackground(colorEdited);

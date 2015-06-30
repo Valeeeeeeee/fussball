@@ -16,6 +16,7 @@ public class Gruppe implements Wettbewerb {
 	private int numberOfMatchdays;
 	private Mannschaft[] mannschaften;
 	private Turnier turnier;
+	private TurnierSaison season;
 	private boolean isETPossible = false;
 	private boolean goalDifference = true;
 	private boolean teamsHaveKader = false;
@@ -49,25 +50,31 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(Start start, int id, Turnier turnier) {
+	public Gruppe(Start start, int id, Turnier turnier/*TurnierSaison season*/) {
 		this.start = start;
-		checkOS();
 		
 		this.id = id;
 		name = "Gruppe " + start.getAlphabet()[id];
 		
 		this.turnier = turnier;
+//		this.season = season;
+//		this.turnier = season.getTurnier();
 		this.startDate = turnier.getStartDate();
 		this.finalDate = turnier.getFinalDate();
+//		this.startDate = season.getStartDate();
+//		this.finalDate = season.getFinalDate();
 		
 		this.laden();
 		
 		if (debug)	testAusgabePlatzierungen();
 	}
 	
+	public Gruppe(Start start, int id, TurnierSaison season) {
+		this(start, id, season.getTurnier());
+	}
+	
 	public String getWorkspace() {
-		String saison = "" + turnier.getAktuelleSaison() + (turnier.isSTSS() ? "_" + (turnier.getAktuelleSaison() + 1) : "");
-		return this.workspace + File.separator + this.turnier.getName() + File.separator + saison + File.separator + name + File.separator;
+		return this.workspace;
 	}
 	
 	public int getID() {
@@ -76,6 +83,7 @@ public class Gruppe implements Wettbewerb {
 	
 	public String getMatchdayDescription(int matchday) {
 		return turnier.getName() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
+//		return season.getDescription() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
 	public String getName() {
@@ -438,11 +446,12 @@ public class Gruppe implements Wettbewerb {
 		String saison = "" + turnier.getAktuelleSaison();
 		if (turnier.isSTSS())	saison += "_" + (turnier.getAktuelleSaison() + 1);
 		
-		String root = workspace + File.separator + turnier.getName() + File.separator + saison + File.separator + name;
+		workspace = turnier.getWorkspace() + saison + File.separator + name + File.separator;
+//		workspace = season.getWorkspace() + name + File.separator;
 		
-		dateiErgebnisse = root + File.separator + "Ergebnisse.txt";
-		dateiSpielplan = root + File.separator + "Spielplan.txt";
-		dateiMannschaft = root + File.separator + "Mannschaften.txt";
+		dateiErgebnisse = workspace + "Ergebnisse.txt";
+		dateiSpielplan = workspace + "Spielplan.txt";
+		dateiMannschaft = workspace + "Mannschaften.txt";
 		
     	mannschaftenLaden();
     	
@@ -478,12 +487,14 @@ public class Gruppe implements Wettbewerb {
 		numberOfTeams = this.teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		numberOfMatchesAgainstSameOpponent = turnier.groupHasSecondLeg() ? 2 : 1;
+//		numberOfMatchesAgainstSameOpponent = season.hasSecondLegGroupStage() ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
 		numberOfMatchdays *= numberOfMatchesAgainstSameOpponent;
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
 			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile.get(i));
+//			mannschaften[i] = new Mannschaft(start, i + 1, season, this, teamsFromFile.get(i));
 		}
 	}
 	
@@ -633,10 +644,6 @@ public class Gruppe implements Wettbewerb {
 		}
 		
 		inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
-	}
-	
-	public void checkOS() {
-		workspace = start.getWorkspace();
 	}
 	
 }
