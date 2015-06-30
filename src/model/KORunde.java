@@ -68,27 +68,20 @@ public class KORunde implements Wettbewerb {
     
     private Spieltag spieltag;
 	
-	public KORunde(Start start, Turnier turnier/*TurnierSaison season*/, int id, String daten) {
+	public KORunde(Start start, TurnierSaison season, int id, String daten) {
 		this.start = start;
 		
-		this.turnier = turnier;
-//		this.season = season;
+		this.season = season;
 		this.id = id;
 		
-		this.startDate = turnier.getStartDate();
-		this.finalDate = turnier.getFinalDate();
-//		this.startDate = season.getStartDate();
-//		this.finalDate = season.getFinalDate();
+		this.startDate = season.getStartDate();
+		this.finalDate = season.getFinalDate();
 		
 		fromString(daten);
 		
 		laden();
 	}
 	
-	public KORunde (Start start, TurnierSaison season, int id, String daten) {
-		this(start, season.getTurnier(), id, daten);
-	}
-
 	public int getID() {
 		return this.id;
 	}
@@ -98,8 +91,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public String getMatchdayDescription(int matchday) {
-		return turnier.getName() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
-//		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
+		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
 	}
 	
 	public String getShortName() {
@@ -149,8 +141,7 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < partOfOrigins.length; i++) {
 			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
 		}
-		Mannschaft[] prevRoundTeams = turnier.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id);
-//		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id);
+		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id);
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
@@ -529,12 +520,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void laden() {
-		String saison;
-		if (turnier.isSTSS())	saison = turnier.getAktuelleSaison() + "_" + (turnier.getAktuelleSaison() + 1);
-		else					saison = "" + turnier.getAktuelleSaison();
-		
-		workspace = turnier.getWorkspace() + saison + File.separator + this.name + File.separator;
-//		workspace = season.getWorkspace() + name + File.separator;
+		workspace = season.getWorkspace() + name + File.separator;
 		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
@@ -591,15 +577,13 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, teamsOrigins[i]);
-//			mannschaften[i] = new Mannschaft(start, i, season, this, teamsOrigins[i]);
+			mannschaften[i] = new Mannschaft(start, i, season, this, teamsOrigins[i]);
 		}
 		
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeamsFromOtherCompetition; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i, this.turnier, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
-//			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
+			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		
 		mannschaftenAktualisieren();

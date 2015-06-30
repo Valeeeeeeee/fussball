@@ -66,10 +66,9 @@ public class Mannschaft {
 		if (!start.addingNewSeason())	loadKader();
 	}
 
-	public Mannschaft(Start start, int id, Turnier turnier/*, TurnierSaison season*/, Gruppe gruppe, String mannschaftsDaten) {
+	public Mannschaft(Start start, int id, TurnierSaison season, Gruppe gruppe, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
-		this.turnier = turnier;
 		this.season = season;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
@@ -79,10 +78,9 @@ public class Mannschaft {
 		parseString(mannschaftsDaten);
 	}
 	
-	public Mannschaft(Start start, int id, Turnier turnier/*, TurnierSaison season*/, KORunde koRunde, String mannschaftsDaten) {
+	public Mannschaft(Start start, int id, TurnierSaison season, KORunde koRunde, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
-		this.turnier = turnier;
 		this.season = season;
 		this.startKORunde = koRunde;
 		this.wettbewerb = koRunde;
@@ -96,8 +94,7 @@ public class Mannschaft {
 		int numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = liga.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
-		else					numberOfMatchdays = turnier.getNumberOfKORounds() * (turnier.koPhaseHasSecondLeg() ? 2 : 1);
-//		else					numberOfMatchdays = season.getNumberOfKORounds() * (season.hasSecondLegKOStage() ? 2 : 1);
+		else					numberOfMatchdays = season.getNumberOfKORounds() * (season.hasSecondLegKOStage() ? 2 : 1);
 		daten = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 		spiele = new Spiel[numberOfMatchdays];

@@ -44,6 +44,7 @@ public class Start extends JFrame {
 	
 	private ArrayList<Turnier> turniere;
 	private Turnier aktuellesTurnier;
+	private TurnierSaison aktuelleTSaison;
 	private Gruppe aktuelleGruppe;
 	private KORunde aktuelleKORunde;
 	
@@ -560,13 +561,14 @@ public class Start extends JFrame {
     		if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
 //        		// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
                 aktuellesTurnier.laden(0);
+        		aktuelleTSaison = aktuellesTurnier.getAktuelleSaison();
     			turnierspezifischeSachenLaden();
     		}
     		
-    		if (!aktuellesTurnier.hasGroupStage()) {
+    		if (!aktuelleTSaison.hasGroupStage()) {
     			jBtnKORundeActionPerformed();
     	    	KORundeHomescreen.add(jCBSaisonauswahl);
-    		} else if (!aktuellesTurnier.hasKOStage()) {
+    		} else if (!aktuelleTSaison.hasKOStage()) {
     			jBtnGruppenphaseActionPerformed();
     	    	GruppenphaseHomescreen.add(jCBSaisonauswahl);
     		}
@@ -593,7 +595,7 @@ public class Start extends JFrame {
     	GruppenphaseHomescreen.setVisible(false);
     	isCurrentlyInOverviewMode = true;
     	
-    	aktuellerSpieltag = aktuellesTurnier.getSpieltag();
+    	aktuellerSpieltag = aktuelleTSaison.getSpieltag();
     	getContentPane().add(aktuellerSpieltag);
     	aktuellerSpieltag.add(jBtnZurueck);
     	aktuellerSpieltag.setVisible(true);
@@ -601,7 +603,7 @@ public class Start extends JFrame {
     }
     
     public void jBtnGruppePressed(int index) {
-    	aktuelleGruppe = aktuellesTurnier.getGruppen()[index];
+    	aktuelleGruppe = aktuelleTSaison.getGruppen()[index];
     	
 		jLblWettbewerb.setText("Gruppe " + (index + 1));
     	
@@ -622,7 +624,7 @@ public class Start extends JFrame {
     }
     
     public void jBtnKORundePressed(int index) {
-    	aktuelleKORunde = aktuellesTurnier.getKORunden()[index];
+    	aktuelleKORunde = aktuelleTSaison.getKORunden()[index];
     	
     	KORundeHomescreen.setVisible(false);
     	
@@ -647,6 +649,7 @@ public class Start extends JFrame {
                 	aktuellesTurnier.speichern();
                 } catch (Exception e) {}
                 aktuellesTurnier.laden(index);
+                aktuelleTSaison = aktuellesTurnier.getAktuelleSaison();
                 turnierspezifischeSachenLaden();
     		}
     	}
@@ -670,20 +673,20 @@ public class Start extends JFrame {
     private void turnierspezifischeSachenLaden() {
     	// falls sie bereits existieren (wird benoetigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga muessen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
-		if (aktuellesTurnier.hasGroupStage()) {
+		if (aktuelleTSaison.hasGroupStage()) {
 			try {
 				for (int i = 0; i < groupStageButtons.length; i++) {
         			GruppenphaseHomescreen.remove(groupStageButtons[i]);
     			}
 	    	} catch(NullPointerException npe) {}
 			
-			groupStageButtons = new JButton[aktuellesTurnier.getNumberOfGroups() + 1];
+			groupStageButtons = new JButton[aktuelleTSaison.getNumberOfGroups() + 1];
 	    	for (int i = 0; i < groupStageButtons.length - 1; i++) {
 	    		final int x = i;
 	    		groupStageButtons[i] = new JButton();
 				GruppenphaseHomescreen.add(groupStageButtons[i]);
 				groupStageButtons[i].setBounds(295 + (i % 2) * (SIZEX_BTNS + 50), 150 + (i / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				groupStageButtons[i].setText(aktuellesTurnier.getGruppen()[i].getName());
+				groupStageButtons[i].setText(aktuelleTSaison.getGruppen()[i].getName());
 				groupStageButtons[i].setFocusable(false);
 				groupStageButtons[i].addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent evt) {
@@ -705,20 +708,20 @@ public class Start extends JFrame {
 	            });
 	    	}
 		}
-		if (aktuellesTurnier.hasKOStage()) {
+		if (aktuelleTSaison.hasKOStage()) {
 			try {
 				for (int i = 0; i < KORoundsButtons.length; i++) {
         			KORundeHomescreen.remove(KORoundsButtons[i]);
     			}
 	    	} catch(NullPointerException npe) {}
 			
-			KORoundsButtons = new JButton[aktuellesTurnier.getNumberOfKORounds()];
+			KORoundsButtons = new JButton[aktuelleTSaison.getNumberOfKORounds()];
 	    	for (int i = 0; i < KORoundsButtons.length; i++) {
 	    		final int x = i;
 	    		KORoundsButtons[i] = new JButton();
 	    		KORundeHomescreen.add(KORoundsButtons[i]);
 				KORoundsButtons[i].setBounds(520, 150 + i * (SIZEY_BTNS + 15), SIZEX_BTNS, SIZEY_BTNS);
-				KORoundsButtons[i].setText(aktuellesTurnier.getKORunden()[i].getName());
+				KORoundsButtons[i].setText(aktuelleTSaison.getKORunden()[i].getName());
 				KORoundsButtons[i].setFocusable(false);
 				KORoundsButtons[i].addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent evt) {
@@ -1455,7 +1458,7 @@ public class Start extends JFrame {
 			
 			if (isCurrentlyInOverviewMode) {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuellesTurnier.ergebnisseSichern();
+					aktuelleTSaison.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0){
                     	JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
@@ -1473,7 +1476,7 @@ public class Start extends JFrame {
 				KORundeHomescreen.setVisible(false);
 				TurnierHomescreen.add(jBtnZurueck);
 				TurnierHomescreen.setVisible(true);
-				if (!aktuellesTurnier.hasGroupStage() || !aktuellesTurnier.hasKOStage()) {
+				if (!aktuelleTSaison.hasGroupStage() || !aktuelleTSaison.hasKOStage()) {
 					jBtnZurueckActionPerformed();
 				}
 			} else if (LigaHomescreen.isVisible()) {

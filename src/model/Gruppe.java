@@ -50,27 +50,20 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(Start start, int id, Turnier turnier/*TurnierSaison season*/) {
+	public Gruppe(Start start, int id, TurnierSaison season) {
 		this.start = start;
 		
 		this.id = id;
 		name = "Gruppe " + start.getAlphabet()[id];
 		
-		this.turnier = turnier;
-//		this.season = season;
-//		this.turnier = season.getTurnier();
-		this.startDate = turnier.getStartDate();
-		this.finalDate = turnier.getFinalDate();
-//		this.startDate = season.getStartDate();
-//		this.finalDate = season.getFinalDate();
+		this.season = season;
+		this.turnier = season.getTurnier();
+		this.startDate = season.getStartDate();
+		this.finalDate = season.getFinalDate();
 		
 		this.laden();
 		
 		if (debug)	testAusgabePlatzierungen();
-	}
-	
-	public Gruppe(Start start, int id, TurnierSaison season) {
-		this(start, id, season.getTurnier());
 	}
 	
 	public String getWorkspace() {
@@ -82,8 +75,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public String getMatchdayDescription(int matchday) {
-		return turnier.getName() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
-//		return season.getDescription() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
+		return season.getDescription() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
 	public String getName() {
@@ -443,11 +435,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void laden() {
-		String saison = "" + turnier.getAktuelleSaison();
-		if (turnier.isSTSS())	saison += "_" + (turnier.getAktuelleSaison() + 1);
-		
-		workspace = turnier.getWorkspace() + saison + File.separator + name + File.separator;
-//		workspace = season.getWorkspace() + name + File.separator;
+		workspace = season.getWorkspace() + name + File.separator;
 		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
@@ -486,15 +474,13 @@ public class Gruppe implements Wettbewerb {
 		
 		numberOfTeams = this.teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
-		numberOfMatchesAgainstSameOpponent = turnier.groupHasSecondLeg() ? 2 : 1;
-//		numberOfMatchesAgainstSameOpponent = season.hasSecondLegGroupStage() ? 2 : 1;
+		numberOfMatchesAgainstSameOpponent = season.hasSecondLegGroupStage() ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
 		numberOfMatchdays *= numberOfMatchesAgainstSameOpponent;
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(this.start, i + 1, this.turnier, this, teamsFromFile.get(i));
-//			mannschaften[i] = new Mannschaft(start, i + 1, season, this, teamsFromFile.get(i));
+			mannschaften[i] = new Mannschaft(start, i + 1, season, this, teamsFromFile.get(i));
 		}
 	}
 	
@@ -510,11 +496,11 @@ public class Gruppe implements Wettbewerb {
 		String[] ranks = new String[this.numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
-			String id = "G" + start.getAlphabet()[this.id] + (i + 1);
+			String id = "G" + alphabet[this.id] + (i + 1);
 			try {
 				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
 			} catch (NullPointerException npe) {
-				ranks[i] = id + ": " + turnier.getShortName() + turnier.getAktuelleSaison() + id;
+				ranks[i] = id + ": " + turnier.getShortName() + turnier.getCurrentSeason() + id;
 			}
 		}
 		

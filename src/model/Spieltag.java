@@ -81,7 +81,6 @@ public class Spieltag extends JPanel {
 	private Liga liga;
 	private Gruppe gruppe;
 	private KORunde koRunde;
-	private Turnier turnier;
 	private TurnierSaison season;
 	private Gruppe[] tGruppen;
 	private Mannschaft[] teams;
@@ -152,25 +151,20 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	public Spieltag(Start start, Turnier turnier/*TurnierSaison season*/) {
+	public Spieltag(Start start, TurnierSaison season) {
 		super();
 		
 		this.start = start;
-		this.turnier = turnier;
-		this.tGruppen = turnier.getGruppen();
-//		this.season = season;
-//		this.tGruppen = season.getGruppen();
+		this.season = season;
+		this.tGruppen = season.getGruppen();
 		this.belongsToALeague = false;
 		this.belongsToGroup = false;
 		this.belongsToKORound = false;
 		this.isOverview = true;
-		this.isETPossible = turnier.isETPossible();
-//		this.isETPossible = season.isETPossible();
+		this.isETPossible = season.isETPossible();
 		
-		this.numbersOfTeams = new int[turnier.getNumberOfGroups()];
-		this.numbersOfMatches = new int[turnier.getNumberOfGroups()];
-//		this.numbersOfTeams = new int[season.getNumberOfGroups()];
-//		this.numbersOfMatches = new int[season.getNumberOfGroups()];
+		this.numbersOfTeams = new int[season.getNumberOfGroups()];
+		this.numbersOfMatches = new int[season.getNumberOfGroups()];
 		
 		for (Gruppe gruppe : tGruppen) {
 			int nOMatchdays = gruppe.getNumberOfMatchdays();
@@ -184,10 +178,6 @@ public class Spieltag extends JPanel {
 		this.halfCountTeamsRoundUp = (this.numberOfTeams + 1) / 2;
 		
 		initGUI();
-	}
-	
-	public Spieltag(Start start, TurnierSaison season) {
-		this(start, season.getTurnier());
 	}
 
 	private void calculateButtonsauswahlBounds(int maxHeight) {
@@ -593,8 +583,7 @@ public class Spieltag extends JPanel {
 				koRunde.ergebnisseSichern();
 				spieltagAnzeigen();
 			} else {
-				turnier.ergebnisseSichern();
-//				season.ergebnisseSichern();
+				season.ergebnisseSichern();
 				spieltagAnzeigen();
 			}
 		}
@@ -944,8 +933,7 @@ public class Spieltag extends JPanel {
 				}
 			}
 			
-			turnier.ergebnisseSichern();
-//			season.ergebnisseSichern();
+			season.ergebnisseSichern();
 			spieltagAnzeigen();
 		}
 	}
@@ -1008,8 +996,7 @@ public class Spieltag extends JPanel {
 		else if (belongsToGroup)	gruppe.changeOrderToChronological(matchday);
 		else if (belongsToKORound)	koRunde.changeOrderToChronological(matchday);
 		else if (isOverview) {
-			oldOrder = turnier.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
-//			oldOrder = season.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
+			oldOrder = season.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
 			newOrder = new int[oldOrder.length]; // beinhaltet die neuen Indizes in der alten Reihenfolge
 			for (int i = 0; i < oldOrder.length; i++) {
 				newOrder[oldOrder[i]] = i; // if enabled
@@ -1024,8 +1011,7 @@ public class Spieltag extends JPanel {
 			if (belongsToALeague)		currentMatchday = liga.getCurrentMatchday();
 			else if (belongsToGroup)	currentMatchday = gruppe.getCurrentMatchday();
 			else if (belongsToKORound)	currentMatchday = koRunde.getCurrentMatchday();
-			else 						currentMatchday = turnier.getCurrentMatchday();
-//			else 						currentMatchday = season.getCurrentMatchday();
+			else 						currentMatchday = season.getCurrentMatchday();
 			
 			// damit nicht bei setSelectedIndex die default-Inhalte von tore in das ergebnis-Array kopiert werden muss das Befuellen davor erfolgen
 			for (int match = 0; match < numberOfMatches; match++) {

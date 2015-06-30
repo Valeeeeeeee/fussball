@@ -1,1 +1,1 @@
-2015;false;20150612;20150704;false;true;true;
+2015;false;20150612;20150704;false;true;true;false;false;true;

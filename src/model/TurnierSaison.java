@@ -48,7 +48,6 @@ public class TurnierSaison {
 		this.season = season;
 		this.startDate = startDate;
 		this.finalDate = finalDate;
-		laden();
 	}
 	
 	public TurnierSaison(Start start, Turnier turnier, int seasonIndex, String data) {
@@ -56,7 +55,6 @@ public class TurnierSaison {
 		this.turnier = turnier;
 		this.seasonIndex = seasonIndex;
 		fromString(data);
-		laden();
 	}
 	
 	public Turnier getTurnier() {
@@ -119,7 +117,7 @@ public class TurnierSaison {
 		return false;
 	}
 
-	public Spieltag getOverview() {
+	public Spieltag getSpieltag() {
 		return overview;
 	}
 	
@@ -325,6 +323,64 @@ public class TurnierSaison {
 		return deepestOrigin;
 	}
 	
+	private void testGetGroupStageOriginsOfTeams() {
+		log("\n\n");
+		for (int i = 0; i < koRunden.length; i++) {
+			log(koRunden[i].getName() + "\n-------------");
+			koRunden[i].setCheckTeamsFromPreviousRound(false);
+			Mannschaft[] teams = koRunden[i].getMannschaften();
+			koRunden[i].setCheckTeamsFromPreviousRound(true);
+			for (int j = 0; j < teams.length; j++) {
+				Mannschaft team = teams[j];
+				logWONL("Team " + (j + 1) + ": ");
+				if (team != null) {
+					log(team.getName());
+				} else {
+					log("n/a");
+				}
+			}
+			log();
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	private Mannschaft getTeamFromDeepestOrigin(String teamsorigin) {
+		Mannschaft mannschaft = null;
+		// TODO find out what was supposed to happen here
+		
+		String identifier;
+		int index;
+		while (true) {
+			break;
+		}
+		int koIndex;
+		for (koIndex = 0; koIndex < koRunden.length; koIndex++) {
+			if (teamsorigin.charAt(1) == alphabet[koIndex])	break;
+		}
+		
+		// ("this is bullshit")
+//		mannschaft = new Mannschaft(start, 0, this, koRunden[1]);
+		
+//		if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
+//			// Bestimmen des Indexes der Gruppe
+//			int groupindex;
+//			for (groupindex = 0; groupindex < alphabet.length; groupindex++) {
+//				if (teamsorigin.charAt(1) == alphabet[groupindex])	break;
+//			}
+//			
+//			if (groupindex == alphabet.length) {
+//				error("    ungueltiger Gruppenindex:  " + groupindex + " fuer Buchstabe  " + teamsorigin.charAt(1));
+//				return null;
+//			}
+//			
+//			int placeindex = Integer.parseInt("" + teamsorigin.charAt(2));
+//			
+//			mannschaft = getTeamFromGroupstageOrigin(groupindex, placeindex);
+//		}
+		
+		return mannschaft;
+	}
+	
 	// Laden / Speichern
 	
 	public void qualifikationLaden() {
@@ -355,8 +411,12 @@ public class TurnierSaison {
 	public void gruppenSpeichern() {
 		if (!hasGroupStage)	return;
 		
+		for (Gruppe gruppe : gruppen)	gruppe.speichern();
+		
 		gruppenDatenFromFile.clear();
 		gruppenDatenFromFile.add("" + numberOfGroups);
+		
+		saveRanks();
 		
 		inDatei(dateiGruppenDaten, gruppenDatenFromFile);
 	}
@@ -372,6 +432,13 @@ public class TurnierSaison {
 	
 	public void koRundenSpeichern() {
 		if (!hasKOStage)	return;
+		
+		for (KORunde koRunde : koRunden)	koRunde.speichern();
+		
+		koRundenDatenFromFile.clear();
+		for (int i = 0; i < koRunden.length; i++) {
+			koRundenDatenFromFile.add(koRunden[i].toString());
+		}
 		
 		inDatei(dateiKORundenDaten, koRundenDatenFromFile);
 	}
@@ -397,6 +464,9 @@ public class TurnierSaison {
 		gruppenLaden();
 		koRundenLaden();
 		geladen = true;
+		
+		boolean debug = false;
+		if (debug)	testGetGroupStageOriginsOfTeams();
 	}
 	
 	public void speichern() {
@@ -417,6 +487,9 @@ public class TurnierSaison {
 		toString += hasQualification + ";";
 		toString += hasGroupStage + ";";
 		toString += hasKOStage + ";";
+		toString += hasSecondLegGroupStage + ";";
+		toString += hasSecondLegKOStage + ";";
+		toString += matchForThirdPlace + ";";
 		
 		return toString;
 	}
@@ -432,5 +505,8 @@ public class TurnierSaison {
 		hasQualification = Boolean.parseBoolean(split[index++]);
 		hasGroupStage = Boolean.parseBoolean(split[index++]);
 		hasKOStage = Boolean.parseBoolean(split[index++]);
+		hasSecondLegGroupStage = Boolean.parseBoolean(split[index++]);
+		hasSecondLegKOStage = Boolean.parseBoolean(split[index++]);
+		matchForThirdPlace = Boolean.parseBoolean(split[index++]);
 	}
 }
