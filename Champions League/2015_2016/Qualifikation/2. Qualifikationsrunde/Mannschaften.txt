@@ -1,4 +1,4 @@
-﻿Steaua Bukarest
+Steaua Bukarest
 Maccabi Tel Aviv
 APOEL Nikosia
 FC Midtjylland
@@ -15,7 +15,7 @@ NK Maribor
 FK AS Trencin
 FC Milsami
 FK Qarabag Agdam
-Fc Dila Gori
+FC Dila Gori
 FK Astana
 FK Sarajevo
 HJK Helsinki

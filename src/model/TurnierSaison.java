@@ -26,6 +26,14 @@ public class TurnierSaison {
 	private Gruppe[] gruppen;
 	private KORunde[] koRunden;
 	
+	private boolean hasQGroupStage;
+	private boolean hasQKOStage;
+	private Gruppe[] qGruppen;
+	private KORunde[] qKORunden;
+	
+	private int numberOfQGroups;
+	private int numberOfQKORounds;
+	
 	private int numberOfGroups;
 	private int numberOfKORounds;
 	
@@ -141,7 +149,7 @@ public class TurnierSaison {
 			if (matchday != gruppen[i].getCurrentMatchday()) altMD = gruppen[i].getCurrentMatchday();	
 		}
 		if (altMD != -1) {
-			log("\n\nGet the current matchday properly!!\n\n"); // TODO
+			// always use the earlier matchday to remember setting the result
 			matchday = matchday < altMD ? matchday : altMD;
 		}
 		return matchday;
@@ -199,10 +207,14 @@ public class TurnierSaison {
 		return newOrder;
 	}
 	
-	public Mannschaft[] getMannschaftenInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound) {
+	public Mannschaft[] getMannschaftenInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
-		if (hasGroupStage) {
+		if (isQ) {
+			for (int i = 0; i < orderOfOrigins.length; i++) {
+				orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
+			}
+		} else if (hasGroupStage) {
 			String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound);
 			
 			for (int i = 0; i < orderOfOrigins.length; i++) {
@@ -210,7 +222,7 @@ public class TurnierSaison {
 			}
 		} else {
 			for (int i = 0; i < orderOfOrigins.length; i++) {
-				orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound);
+				orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
 			}
 		}
 		
@@ -290,7 +302,7 @@ public class TurnierSaison {
 		return mannschaft;
 	}
 	
-	public Mannschaft getDeepestOrigin(String origin, boolean teamsAreWinners, int KORound) {
+	public Mannschaft getDeepestOrigin(String origin, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft deepestOrigin = null;
 		boolean teamFound = false;
 		int koIndex = -1;
@@ -300,21 +312,38 @@ public class TurnierSaison {
 			int matchIndex = Integer.parseInt(origin.substring(2));
 			
 			boolean foundKO = false;
-			for (koIndex = 0; koIndex < koRunden.length && !foundKO; koIndex++) {
-				if (koRunden[koIndex].getShortName().equals(origKOround))	foundKO = true;
+			if (isQ) {
+				for (koIndex = 0; koIndex < qKORunden.length && !foundKO; koIndex++) {
+					if (qKORunden[koIndex].getShortName().equals(origKOround))	foundKO = true;
+				}
+			} else {
+				for (koIndex = 0; koIndex < koRunden.length && !foundKO; koIndex++) {
+					if (koRunden[koIndex].getShortName().equals(origKOround))	foundKO = true;
+				}
 			}
 			
 			if (foundKO) {
 				int teamIndex = 0;
-				if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, true);
-				else					teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, false);
+				if (isQ) {
+					if (teamsAreWinners)	teamIndex = qKORunden[koIndex - 1].getIndexOf(matchIndex, true);
+					else					teamIndex = qKORunden[koIndex - 1].getIndexOf(matchIndex, false);
+					deepestOrigin = qKORunden[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
+				} else {
+					if (teamsAreWinners)	teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, true);
+					else					teamIndex = koRunden[koIndex - 1].getIndexOf(matchIndex, false);
+					deepestOrigin = koRunden[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
+				}
 				
-				deepestOrigin = koRunden[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
 				if (deepestOrigin != null) {
 					teamFound = true;
 				} else {
-					if (teamsAreWinners)	origin = koRunden[koIndex - 1].getOriginOfWinnerOf(matchIndex);
-					else					origin = koRunden[koIndex - 1].getOriginOfLoserOf(matchIndex);
+					if (isQ) {
+						if (teamsAreWinners)	origin = qKORunden[koIndex - 1].getOriginOfWinnerOf(matchIndex);
+						else					origin = qKORunden[koIndex - 1].getOriginOfLoserOf(matchIndex);
+					} else {
+						if (teamsAreWinners)	origin = koRunden[koIndex - 1].getOriginOfWinnerOf(matchIndex);
+						else					origin = koRunden[koIndex - 1].getOriginOfLoserOf(matchIndex);
+					}
 					teamsAreWinners = true;
 				}
 			}
@@ -386,10 +415,42 @@ public class TurnierSaison {
 	public void qualifikationLaden() {
 		if (!hasQualification)	return;
 		qualifikationDatenFromFile = ausDatei(dateiQualifikationDaten);
+		
+		numberOfQGroups = Integer.parseInt(qualifikationDatenFromFile.remove(0));
+		if (numberOfQGroups > 0) {
+			hasQGroupStage = true;
+			qGruppen = new Gruppe[numberOfQGroups];
+			for (int i = 0; i < numberOfQGroups; i++) {
+				qGruppen[i] = new Gruppe(start, this, i, true);
+			}
+		}
+		
+		numberOfQKORounds = Integer.parseInt(qualifikationDatenFromFile.remove(0));
+		if (numberOfQKORounds > 0) {
+			hasQKOStage = true;
+			qKORunden = new KORunde[numberOfQKORounds];
+			for (int i = 0; i < numberOfQKORounds; i++) {
+				qKORunden[i] = new KORunde(start, this, 0, true, qualifikationDatenFromFile.remove(0));
+			}
+		}
+		
 	}
 	
 	public void qualifikationSpeichern() {
 		if (!hasQualification)	return;
+		
+		qualifikationDatenFromFile.clear();
+		
+		qualifikationDatenFromFile.add("" + numberOfQGroups);
+		for (int i = 0; i < numberOfQGroups; i++) { // TODO catch/prevent null pointer
+			qGruppen[i].speichern();
+		}
+		
+		qualifikationDatenFromFile.add("" + numberOfQKORounds);
+		for (int i = 0; i < numberOfQKORounds; i++) {
+			qKORunden[i].speichern();
+			qualifikationDatenFromFile.add("" + qKORunden[i].toString());
+		}
 		
 		inDatei(dateiQualifikationDaten, qualifikationDatenFromFile);
 	}
@@ -400,7 +461,7 @@ public class TurnierSaison {
 		
 		numberOfGroups = Integer.parseInt(gruppenDatenFromFile.get(0));
 		gruppen = new Gruppe[numberOfGroups];
-		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this.start, i, this);
+		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this.start, this, i, false);
 		{
     		overview = new Spieltag(this.start, this);
     		overview.setLocation((this.start.WIDTH - overview.getSize().width) / 2, (this.start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
@@ -427,7 +488,7 @@ public class TurnierSaison {
 		this.numberOfKORounds = koRundenDatenFromFile.size();
 		
 		koRunden = new KORunde[numberOfKORounds];
-    	for (int i = 0; i < koRunden.length; i++)	koRunden[i] = new KORunde(start, this, i, koRundenDatenFromFile.get(i));
+    	for (int i = 0; i < koRunden.length; i++)	koRunden[i] = new KORunde(start, this, i, false, koRundenDatenFromFile.get(i));
 	}
 	
 	public void koRundenSpeichern() {

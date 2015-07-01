@@ -7,6 +7,7 @@ import static util.Utilities.*;
 public class Gruppe implements Wettbewerb {
 	private boolean debug = false;
 	private int id;
+	private boolean isQ;
 	private String name;
 	private Start start;
 	
@@ -50,10 +51,11 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(Start start, int id, TurnierSaison season) {
+	public Gruppe(Start start, TurnierSaison season, int id, boolean isQ) {
 		this.start = start;
 		
 		this.id = id;
+		this.isQ = isQ;
 		name = "Gruppe " + start.getAlphabet()[id];
 		
 		this.season = season;
@@ -75,7 +77,8 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public String getMatchdayDescription(int matchday) {
-		return season.getDescription() + ", Gruppe " + (id + 1) + ", " + (matchday + 1) + ". Spieltag";
+		String isQuali = isQ ? ", Qualifikation" : "";
+		return season.getDescription() + isQuali + ", " + name + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
 	public String getName() {
@@ -435,7 +438,8 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void laden() {
-		workspace = season.getWorkspace() + name + File.separator;
+		String isQuali = isQ ? "Qualifikation" + File.separator : "";
+		workspace = season.getWorkspace() + isQuali + name + File.separator;
 		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";

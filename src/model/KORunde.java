@@ -11,6 +11,7 @@ public class KORunde implements Wettbewerb {
 	private Turnier turnier;
 	private TurnierSaison season;
 	private int id;
+	private boolean isQ;
 	private String name;
 	private String shortName;
 	
@@ -68,11 +69,12 @@ public class KORunde implements Wettbewerb {
     
     private Spieltag spieltag;
 	
-	public KORunde(Start start, TurnierSaison season, int id, String daten) {
+	public KORunde(Start start, TurnierSaison season, int id, boolean isQ, String daten) {
 		this.start = start;
 		
 		this.season = season;
 		this.id = id;
+		this.isQ = isQ;
 		
 		this.startDate = season.getStartDate();
 		this.finalDate = season.getFinalDate();
@@ -118,8 +120,8 @@ public class KORunde implements Wettbewerb {
 		return this.goalDifference;
 	}
 	
-	public void setCheckTeamsFromPreviousRound(boolean checkTeamsFromPreviousRound) {
-		this.checkTeamsFromPreviousRound = checkTeamsFromPreviousRound;
+	public void setCheckTeamsFromPreviousRound(boolean check) {
+		this.checkTeamsFromPreviousRound = check;
 	}
 
 	public Mannschaft[] getMannschaften() {
@@ -141,7 +143,7 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < partOfOrigins.length; i++) {
 			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
 		}
-		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id);
+		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			mannschaften[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
@@ -520,7 +522,8 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void laden() {
-		workspace = season.getWorkspace() + name + File.separator;
+		String isQuali = isQ ? "Qualifikation" + File.separator : "";
+		workspace = season.getWorkspace() + isQuali + name + File.separator;
 		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
