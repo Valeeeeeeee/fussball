@@ -11,24 +11,12 @@ public class Turnier {
 	private String name;
 	private String shortName;
 	
-	private int startDate;
-	private int finalDate;
-	
 	private boolean isSummerToSpringSeason;
-	private boolean hasQualification;
-	private boolean hasGroupStage;
-	private boolean hasKOStage;
-	private boolean groupPhaseSecondLeg;
-	private boolean koPhaseSecondLeg;
-	private boolean matchForThirdPlace;
 	
 	private ArrayList<Integer> seasons;
 	private int aktuelleSaison;
 	
 	private ArrayList<TurnierSaison> saisons;
-	
-	private int numberOfTeams;
-	private int numberOfGroups;
 	
 	private String workspace;
 	
@@ -138,7 +126,6 @@ public class Turnier {
 	
 	public void laden(int index) {
 		aktuelleSaison = index;
-		
 		saisons.get(aktuelleSaison).laden();
 	}
 	
@@ -151,34 +138,12 @@ public class Turnier {
 		
 		this.name = alleDaten[0].substring(5);
 		this.shortName = alleDaten[1].substring(4);
-//		this.isSummerToSpringSeason = Boolean.parseBoolean(alleDaten[2].substring(7));
-//		this.startDate = Integer.parseInt(alleDaten[3].substring(7));
-//		this.finalDate = Integer.parseInt(alleDaten[4].substring(7));
-//		this.numberOfTeams = Integer.parseInt(alleDaten[5].substring(9));
-//		this.hasQualification = Boolean.parseBoolean(alleDaten[6].substring(6));
-//		this.hasGroupStage = Boolean.parseBoolean(alleDaten[7].substring(7));
-//		this.hasKOStage = Boolean.parseBoolean(alleDaten[8].substring(6));
-//		this.numberOfGroups = Integer.parseInt(alleDaten[9].substring(8));
-//		this.groupPhaseSecondLeg = Boolean.parseBoolean(alleDaten[10].substring(10));
-//		this.koPhaseSecondLeg = Boolean.parseBoolean(alleDaten[11].substring(9));
-//		this.matchForThirdPlace = Boolean.parseBoolean(alleDaten[12].substring(10));
 		this.seasons = getSeasonsFromRepresentation(alleDaten[2]);
 	}
 	
 	public String toString() {
 		String alles = "NAME*" + this.name + ";";
 		alles += "SHN*" + this.shortName + ";";
-//		alles += "ISSTSS*" + this.isSummerToSpringSeason + ";";
-//		alles += "STDATE*" + this.startDate + ";";
-//		alles += "FIDATE*" + this.finalDate + ";";
-//		alles += "NOFTEAMS*" + this.numberOfTeams + ";";
-//		alles += "QUALI*" + this.hasQualification + ";";
-//		alles += "GRPSTG*" + this.hasGroupStage + ";";
-//		alles += "KOSTG*" + this.hasKOStage + ";";
-//		alles += "NOFGRPS*" + this.numberOfGroups + ";";
-//		alles += "GRPSECLEG*" + this.groupPhaseSecondLeg + ";";
-//		alles += "KOSECLEG*"+ this.koPhaseSecondLeg + ";";
-//		alles += "MATCHF3PL*" + this.matchForThirdPlace + ";";
 		alles += getSeasonsRepresentation() + ";";
 		return alles;
 	}

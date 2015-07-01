@@ -69,13 +69,8 @@ public class Uebersicht extends JPanel {
     
 	private Start start;
 	private Wettbewerb wettbewerb;
-	private Liga liga;
-	private Gruppe gruppe;
-	private Turnier turnier;
 	
-	private boolean belongsToLeague;
-	private boolean belongsToGroup;
-	private boolean belongsToKORound;
+	private boolean hasGrDatum;
 	
 	private int mannschaftID;
 	private Mannschaft mannschaft;
@@ -90,10 +85,7 @@ public class Uebersicht extends JPanel {
         super();
         this.start = start;
         this.wettbewerb = liga;
-        this.liga = liga;
-        this.belongsToLeague = true;
-        this.belongsToGroup = false;
-        this.belongsToKORound = false;
+        this.hasGrDatum = true;
 //        this.mannschaft = mannschaft;
         initGUI();
     }
@@ -102,10 +94,7 @@ public class Uebersicht extends JPanel {
     	super();
         this.start = start;
         this.wettbewerb = gruppe;
-    	this.gruppe = gruppe;
-        this.belongsToLeague = false;
-        this.belongsToGroup = true;
-        this.belongsToKORound = false;
+        this.hasGrDatum = false;
 //        this.mannschaft = mannschaft;
     	initGUI();
     }
@@ -113,10 +102,7 @@ public class Uebersicht extends JPanel {
     public Uebersicht(Start start, Turnier turnier/*, Mannschaft mannschaft*/) {
     	super();
         this.start = start;
-    	this.turnier = turnier;
-        this.belongsToLeague = false;
-        this.belongsToGroup = false;
-        this.belongsToKORound = true;
+        this.hasGrDatum = false;
 //        this.mannschaft = mannschaft;
 //    	initGUI();
 	}
@@ -215,7 +201,7 @@ public class Uebersicht extends JPanel {
                 mannschaftsname.setFont(new Font("Dialog", 0, 24));
                 mannschaftsname.setHorizontalAlignment(SwingConstants.CENTER);
             }
-            if (belongsToLeague) {
+            if (hasGrDatum) {
             	gruendungsdatum = new JLabel();
                 informationen.add(gruendungsdatum);
                 gruendungsdatum.setBounds(RECLBLGRDATUM);
@@ -325,7 +311,7 @@ public class Uebersicht extends JPanel {
     	mannschaftID = id;
     	mannschaft = mannschaften[mannschaftID - 1];
         mannschaftsname.setText(mannschaft.getName());
-        if (belongsToLeague)	gruendungsdatum.setText(mannschaft.getGruendungsdatum());
+        if (hasGrDatum)	gruendungsdatum.setText(mannschaft.getGruendungsdatum());
         newKader();
     }
 	
@@ -398,5 +384,40 @@ public class Uebersicht extends JPanel {
         		spieltage[matchday][GOALSAWAY].setOpaque(false);
     		}
     	}
+    }
+    
+    public void prepareForTableExcerpt() {
+    	// TODO rename, when completed
+    	// funktioniert, solange die Uebersicht nur aus der Tabelle aufrufbar ist
+    	int anzahlMannschaften = mannschaften.length;
+    	int[] tabelle = new int[anzahlMannschaften];
+    	
+    	int nextPlace = 0, thisTeamsPlace = 0;
+    	for (int i = 0; i < anzahlMannschaften; i++) {
+    		for (Mannschaft ms : mannschaften) {
+    			if (ms.getPlace() == i) {
+    				tabelle[nextPlace] = ms.getId();
+    				if (ms.getId() == mannschaftID)	thisTeamsPlace = nextPlace;
+    				nextPlace++;
+    			}
+    		}
+		}
+    	int firstShownTeam = thisTeamsPlace - 2, lastShownTeam = thisTeamsPlace + 2;
+    	int lowDiff, upDiff;
+    	if ((lowDiff = firstShownTeam - 0) < 0) {
+    		firstShownTeam -= lowDiff;
+    		lastShownTeam -= lowDiff;
+    	} else if ((upDiff = lastShownTeam - anzahlMannschaften + 1) > 0) {
+    		firstShownTeam -= upDiff;
+    		lastShownTeam -= upDiff;
+    	}
+    	
+    	for (int i = firstShownTeam; i <= lastShownTeam; i++) {
+    		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday()) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
+			for (int j = 2; j < 10; j++) {
+				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday());
+			}
+			log(values);
+		}
     }
 }

@@ -37,7 +37,6 @@ public class Mannschaft {
 	
 	private Wettbewerb wettbewerb;
 	private Liga liga;
-	private Turnier turnier;
 	private TurnierSaison season;
 	private Gruppe gruppe;
 	private KORunde startKORunde;
