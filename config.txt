@@ -9,5 +9,5 @@ NAME*Super League;D_ST*5;DKT*0,1,2,2,3;ISSTSS*true;A_MS*10;A_SGDG*4;A_CL*1;A_CLQ
 NAME*FIFA Weltmeisterschaft;SHN*WM;S0*2014*S0;
 NAME*Champions League;SHN*CL;S0*2014*S0;
 NAME*Europameisterschaft Qualifikation;SHN*EQ;S0*2014*S0;
-NAME*DFB-Pokal;SHN*DP;S0*2014*S0;
+NAME*DFB-Pokal;SHN*DP;S0*2014*S0,S1*2015*S1;
 NAME*Copa America;SHN*CA;S0*2015*S0;
