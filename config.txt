@@ -7,7 +7,7 @@ NAME*Primera Division;D_ST*4;DKT*0,1,2,3,4,5,6,7,8,9;ISSTSS*true;A_MS*20;A_SGDG*
 NAME*Super League;D_ST*5;DKT*0,1,2,2,3;ISSTSS*true;A_MS*10;A_SGDG*4;A_CL*1;A_CLQ*1;A_EL*2;A_REL*0;A_ABS*1;GLDIF*true;KADER*false;S0*2014*S0,S1*2015*S1;
 5
 NAME*FIFA Weltmeisterschaft;SHN*WM;S0*2014*S0;
-NAME*Champions League;SHN*CL;S0*2014*S0;
+NAME*Champions League;SHN*CL;S0*2014*S0,S1*2015*S1;
 NAME*Europameisterschaft Qualifikation;SHN*EQ;S0*2014*S0;
 NAME*DFB-Pokal;SHN*DP;S0*2014*S0,S1*2015*S1;
 NAME*Copa America;SHN*CA;S0*2015*S0;
