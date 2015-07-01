@@ -28,6 +28,8 @@ public class TurnierSaison {
 	
 	private boolean hasQGroupStage;
 	private boolean hasQKOStage;
+	
+	private Spieltag qOverview;
 	private Gruppe[] qGruppen;
 	private KORunde[] qKORunden;
 	
@@ -109,6 +111,22 @@ public class TurnierSaison {
 		return numberOfKORounds;
 	}
 	
+	public boolean hasQGroupStage() {
+		return hasQGroupStage;
+	}
+	
+	public boolean hasQKOStage() {
+		return hasQKOStage;
+	}
+	
+	public int getNumberOfQGroups() {
+		return numberOfQGroups;
+	}
+	
+	public int getNumberOfQKORounds() {
+		return numberOfQKORounds;
+	}
+	
 	public boolean hasSecondLegGroupStage() {
 		return hasSecondLegGroupStage;
 	}
@@ -129,12 +147,24 @@ public class TurnierSaison {
 		return overview;
 	}
 	
+	public Spieltag getQSpieltag() {
+		return qOverview;
+	}
+	
 	public Gruppe[] getGruppen() {
 		return gruppen;
 	}
 	
 	public KORunde[] getKORunden() {
 		return koRunden;
+	}
+	
+	public Gruppe[] getQGruppen() {
+		return qGruppen;
+	}
+	
+	public KORunde[] getQKORunden() {
+		return qKORunden;
 	}
 	
 	public String getWorkspace() {
@@ -144,30 +174,60 @@ public class TurnierSaison {
 	// Saison-spezifische Methoden
 	
 	public int getCurrentMatchday() {
-		int matchday = gruppen[0].getCurrentMatchday(), altMD = -1;
-		for (int i = 1; i < numberOfGroups && altMD == -1; i++) {
-			if (matchday != gruppen[i].getCurrentMatchday()) altMD = gruppen[i].getCurrentMatchday();	
+		int matchday = 0, altMD = -1;
+		if (start.isCurrentlyInQualification()) {
+			matchday = qGruppen[0].getCurrentMatchday();
+			for (int i = 1; i < numberOfQGroups && altMD == -1; i++) {
+				if (matchday != qGruppen[i].getCurrentMatchday()) altMD = qGruppen[i].getCurrentMatchday();	
+			}
+			if (altMD != -1) {
+				// always use the earlier matchday to remember setting the result
+				matchday = matchday < altMD ? matchday : altMD;
+			}
+		} else {
+			matchday = gruppen[0].getCurrentMatchday();
+			for (int i = 1; i < numberOfGroups && altMD == -1; i++) {
+				if (matchday != gruppen[i].getCurrentMatchday()) altMD = gruppen[i].getCurrentMatchday();	
+			}
+			if (altMD != -1) {
+				// always use the earlier matchday to remember setting the result
+				matchday = matchday < altMD ? matchday : altMD;
+			}
 		}
-		if (altMD != -1) {
-			// always use the earlier matchday to remember setting the result
-			matchday = matchday < altMD ? matchday : altMD;
-		}
+		
 		return matchday;
 	}
 	
 	public void ergebnisseSichern() {
 		// when in overview mode
-		int matchday = overview.getCurrentMatchday();
-		
-		for (int groupID = 0; groupID < gruppen.length; groupID++) {
-			Gruppe gruppe = gruppen[groupID];
-			for (int match = 0; match < gruppe.getNumberOfMatchesPerMatchday(); match++) {
-				if (gruppe.isSpielplanEntered(matchday, match)) {
-					Ergebnis result = overview.getErgebnis(groupID, match);
-					
-					gruppe.setErgebnis(matchday, match, result);
-					gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).home() - 1].setResult(matchday, result);
-					gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).away() - 1].setResult(matchday, result);
+		if (start.isCurrentlyInQualification()) {
+			int matchday = qOverview.getCurrentMatchday();
+			
+			for (int groupID = 0; groupID < qGruppen.length; groupID++) {
+				Gruppe gruppe = qGruppen[groupID];
+				for (int match = 0; match < gruppe.getNumberOfMatchesPerMatchday(); match++) {
+					if (gruppe.isSpielplanEntered(matchday, match)) {
+						Ergebnis result = qOverview.getErgebnis(groupID, match);
+						
+						gruppe.setErgebnis(matchday, match, result);
+						gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).home() - 1].setResult(matchday, result);
+						gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).away() - 1].setResult(matchday, result);
+					}
+				}
+			}
+		} else {
+			int matchday = overview.getCurrentMatchday();
+			
+			for (int groupID = 0; groupID < gruppen.length; groupID++) {
+				Gruppe gruppe = gruppen[groupID];
+				for (int match = 0; match < gruppe.getNumberOfMatchesPerMatchday(); match++) {
+					if (gruppe.isSpielplanEntered(matchday, match)) {
+						Ergebnis result = overview.getErgebnis(groupID, match);
+						
+						gruppe.setErgebnis(matchday, match, result);
+						gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).home() - 1].setResult(matchday, result);
+						gruppe.getMannschaften()[gruppe.getSpiel(matchday, match).away() - 1].setResult(matchday, result);
+					}
 				}
 			}
 		}
@@ -175,16 +235,23 @@ public class TurnierSaison {
 	
 	public int[] getChronologicalOrder(int matchday) {
 		int numberOfMatches = 0;
-		for (int i = 0; i < numberOfGroups; i++) {
-			numberOfMatches += gruppen[i].getNumberOfMatchesPerMatchday();
+		if (start.isCurrentlyInQualification()) {
+			for (int i = 0; i < numberOfQGroups; i++) {
+				numberOfMatches += qGruppen[i].getNumberOfMatchesPerMatchday();
+			}
+		} else {
+			for (int i = 0; i < numberOfGroups; i++) {
+				numberOfMatches += gruppen[i].getNumberOfMatchesPerMatchday();
+			}
 		}
+		
 		int[] newOrder = new int[numberOfMatches];
 		int[] hilfsarray = new int[numberOfMatches];
 		int[] dates = new int[numberOfMatches];
 		int[] times = new int[numberOfMatches];
 		
 		int matchID = 0;
-		for (Gruppe gruppe : gruppen) {
+		for (Gruppe gruppe : start.isCurrentlyInQualification() ? qGruppen : gruppen) {
 			for (int match = 0; match < gruppe.getNumberOfMatchesPerMatchday(); match++) {
 				dates[matchID] = gruppe.getDate(matchday, match);
 				times[matchID] = gruppe.getTime(matchday, match);
@@ -423,6 +490,11 @@ public class TurnierSaison {
 			for (int i = 0; i < numberOfQGroups; i++) {
 				qGruppen[i] = new Gruppe(start, this, i, true);
 			}
+			{
+				qOverview = new Spieltag(this.start, this, true);
+				qOverview.setLocation((this.start.WIDTH - qOverview.getSize().width) / 2, (this.start.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+				qOverview.setVisible(false);
+	    	}
 		}
 		
 		numberOfQKORounds = Integer.parseInt(qualifikationDatenFromFile.remove(0));
@@ -433,7 +505,6 @@ public class TurnierSaison {
 				qKORunden[i] = new KORunde(start, this, 0, true, qualifikationDatenFromFile.remove(0));
 			}
 		}
-		
 	}
 	
 	public void qualifikationSpeichern() {
@@ -442,7 +513,7 @@ public class TurnierSaison {
 		qualifikationDatenFromFile.clear();
 		
 		qualifikationDatenFromFile.add("" + numberOfQGroups);
-		for (int i = 0; i < numberOfQGroups; i++) { // TODO catch/prevent null pointer
+		for (int i = 0; i < numberOfQGroups; i++) {
 			qGruppen[i].speichern();
 		}
 		
@@ -463,7 +534,7 @@ public class TurnierSaison {
 		gruppen = new Gruppe[numberOfGroups];
 		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this.start, this, i, false);
 		{
-    		overview = new Spieltag(this.start, this);
+    		overview = new Spieltag(this.start, this, false);
     		overview.setLocation((this.start.WIDTH - overview.getSize().width) / 2, (this.start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
     		overview.setVisible(false);
     	}

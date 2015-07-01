@@ -122,6 +122,7 @@ public class Start extends JFrame {
 	private JButton jBtnKORunde;
 	
 	private JPanel QualifikationHomescreen;
+	private JButton[] qualificationButtons;
 	
 	private JPanel GruppenphaseHomescreen;
 	private JButton[] groupStageButtons;
@@ -531,6 +532,10 @@ public class Start extends JFrame {
 		return addingNewSeason;
 	}
 	
+	public boolean isCurrentlyInQualification() {
+		return isCurrentlyInQualification;
+	}
+	
 	public void jBtnLigenPressed(int index) {
 		Homescreen.setVisible(false);
 		jBtnZurueck.setVisible(true);
@@ -626,10 +631,15 @@ public class Start extends JFrame {
 	}
 	
 	public void jBtnAlleGruppenPressed() {
-		GruppenphaseHomescreen.setVisible(false);
 		isCurrentlyInOverviewMode = true;
+		if (isCurrentlyInQualification) {
+			QualifikationHomescreen.setVisible(false);
+			aktuellerSpieltag = aktuelleTSaison.getQSpieltag();
+		} else {
+			GruppenphaseHomescreen.setVisible(false);
+			aktuellerSpieltag = aktuelleTSaison.getSpieltag();
+		}
 		
-		aktuellerSpieltag = aktuelleTSaison.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
 		aktuellerSpieltag.add(jBtnZurueck);
 		aktuellerSpieltag.setVisible(true);
@@ -637,11 +647,15 @@ public class Start extends JFrame {
 	}
 	
 	public void jBtnGruppePressed(int index) {
-		aktuelleGruppe = aktuelleTSaison.getGruppen()[index];
+		if (isCurrentlyInQualification) {
+			aktuelleGruppe = aktuelleTSaison.getQGruppen()[index];
+			QualifikationHomescreen.setVisible(false);
+		} else {
+			aktuelleGruppe = aktuelleTSaison.getGruppen()[index];
+			GruppenphaseHomescreen.setVisible(false);
+		}
 		
-		jLblWettbewerb.setText("Gruppe " + (index + 1));
-		
-		GruppenphaseHomescreen.setVisible(false);
+		jLblWettbewerb.setText(aktuelleGruppe.getName());
 		LigaHomescreen.setVisible(true);
 		LigaHomescreen.add(jBtnZurueck);
 		
@@ -658,9 +672,13 @@ public class Start extends JFrame {
 	}
 	
 	public void jBtnKORundePressed(int index) {
-		aktuelleKORunde = aktuelleTSaison.getKORunden()[index];
-		
-		KORundeHomescreen.setVisible(false);
+		if (isCurrentlyInQualification) {
+			aktuelleKORunde = aktuelleTSaison.getQKORunden()[index];
+			QualifikationHomescreen.setVisible(false);
+		} else {
+			aktuelleKORunde = aktuelleTSaison.getKORunden()[index];
+			KORundeHomescreen.setVisible(false);
+		}
 		
 		aktuellerSpieltag = aktuelleKORunde.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
@@ -707,7 +725,57 @@ public class Start extends JFrame {
 	private void turnierspezifischeSachenLaden() {
 		// falls sie bereits existieren (wird benoetigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga muessen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
+		if (aktuelleTSaison.hasQualification()) {
+			jBtnQualifikation.setVisible(true);
+			
+			int numberOfButtons = aktuelleTSaison.hasQGroupStage() ? aktuelleTSaison.getNumberOfQGroups() + 1 : 0;
+			numberOfButtons += aktuelleTSaison.getNumberOfQKORounds();
+			qualificationButtons = new JButton[numberOfButtons];
+			int ctr;
+			for (ctr = 0; ctr < aktuelleTSaison.getNumberOfQGroups(); ctr++) {
+				final int x = ctr;
+				qualificationButtons[ctr] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[ctr]);
+				qualificationButtons[ctr].setBounds(295 + (ctr % 2) * (SIZEX_BTNS + 50), 150 + (ctr / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[ctr].setText(aktuelleTSaison.getQGruppen()[ctr].getName());
+				qualificationButtons[ctr].setFocusable(false);
+				qualificationButtons[ctr].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						jBtnGruppePressed(x);
+					}
+				});
+			}
+			if (aktuelleTSaison.getNumberOfQGroups() > 0) {
+				qualificationButtons[ctr] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[ctr]);
+				qualificationButtons[ctr].setBounds(295 + (ctr % 2) * (SIZEX_BTNS + 50), 150 + (ctr / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[ctr].setText("Alle Gruppen");
+				qualificationButtons[ctr].setFocusable(false);
+				qualificationButtons[ctr].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						jBtnAlleGruppenPressed();
+					}
+				});
+				ctr++;
+			}
+			for (int i = 0; i < aktuelleTSaison.getNumberOfQKORounds(); i++) {
+				final int x = ctr + i;
+				qualificationButtons[x] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[x]);
+				qualificationButtons[x].setBounds(295 + (x % 2) * (SIZEX_BTNS + 50), 150 + (x / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[x].setText(aktuelleTSaison.getQKORunden()[x].getName());
+				qualificationButtons[x].setFocusable(false);
+				qualificationButtons[x].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						jBtnKORundePressed(x);
+					}
+				});
+			}
+		} else {
+			jBtnQualifikation.setVisible(false);
+		}
 		if (aktuelleTSaison.hasGroupStage()) {
+			jBtnGruppenphase.setVisible(true);
 			try {
 				for (int i = 0; i < groupStageButtons.length; i++) {
 					GruppenphaseHomescreen.remove(groupStageButtons[i]);
@@ -741,8 +809,11 @@ public class Start extends JFrame {
 					}
 				});
 			}
+		} else {
+			jBtnGruppenphase.setVisible(false);
 		}
 		if (aktuelleTSaison.hasKOStage()) {
+			jBtnKORunde.setVisible(true);
 			try {
 				for (int i = 0; i < KORoundsButtons.length; i++) {
 					KORundeHomescreen.remove(KORoundsButtons[i]);
@@ -763,6 +834,8 @@ public class Start extends JFrame {
 					}
 				});
 			}
+		} else {
+			jBtnKORunde.setVisible(false);
 		}
 	}
 	
@@ -1531,6 +1604,17 @@ public class Start extends JFrame {
 				aktuelleTabelle.add(jBtnZurueck);
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
+			} else if (isCurrentlyInQualification) {
+				if (aktuelleTSaison.hasQGroupStage()) {
+					aktuelleTabelle.setVisible(false);
+					optionen.setVisible(false);
+				}
+				aktuellerSpieltag.setVisible(false);
+				QualifikationHomescreen.add(jBtnZurueck);
+				QualifikationHomescreen.setVisible(true);
+				
+				aktuelleGruppe = null;
+				aktuelleKORunde = null;
 			} else if (isCurrentlyInGroupStage) {
 				aktuellerSpieltag.setVisible(false);
 				aktuelleTabelle.setVisible(false);

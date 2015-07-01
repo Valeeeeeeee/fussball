@@ -26,7 +26,7 @@ public class Liga implements Wettbewerb {
 	private int ANZAHL_EL;
 	private int ANZAHL_REL;
 	private int ANZAHL_ABS;
-	private boolean goalDifference; // TODO in toString
+	private boolean goalDifference;
 	
 	private Mannschaft[] mannschaften;
 	private boolean teamsHaveKader;

@@ -151,20 +151,20 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	public Spieltag(Start start, TurnierSaison season) {
+	public Spieltag(Start start, TurnierSaison season, boolean isQ) {
 		super();
 		
 		this.start = start;
 		this.season = season;
-		this.tGruppen = season.getGruppen();
+		this.tGruppen = isQ ? season.getQGruppen() : season.getGruppen();
 		this.belongsToALeague = false;
 		this.belongsToGroup = false;
 		this.belongsToKORound = false;
 		this.isOverview = true;
 		this.isETPossible = season.isETPossible();
 		
-		this.numbersOfTeams = new int[season.getNumberOfGroups()];
-		this.numbersOfMatches = new int[season.getNumberOfGroups()];
+		this.numbersOfTeams = new int[isQ ? season.getNumberOfQGroups() : season.getNumberOfGroups()];
+		this.numbersOfMatches = new int[isQ ? season.getNumberOfQGroups() : season.getNumberOfGroups()];
 		
 		for (Gruppe gruppe : tGruppen) {
 			int nOMatchdays = gruppe.getNumberOfMatchdays();
