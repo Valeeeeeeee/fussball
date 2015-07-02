@@ -51,15 +51,6 @@ public class TurnierSaison {
 	private String dateiKORundenDaten;
 	private ArrayList<String> koRundenDatenFromFile;
 	
-	public TurnierSaison(Start start, Turnier turnier, int seasonIndex, int season, int startDate, int finalDate) {
-		this.start = start;
-		this.turnier = turnier;
-		this.seasonIndex = seasonIndex;
-		this.season = season;
-		this.startDate = startDate;
-		this.finalDate = finalDate;
-	}
-	
 	public TurnierSaison(Start start, Turnier turnier, int seasonIndex, String data) {
 		this.start = start;
 		this.turnier = turnier;

@@ -1,0 +1,4 @@
+2012;true;18;2;true;true;3,1,2,1,2;
+2013;true;18;2;true;true;3,1,2,1,2;
+2014;true;18;2;true;true;3,1,2,1,2;
+2015;true;18;2;true;true;3,1,2,1,2;

@@ -12,7 +12,8 @@ public class Liga implements Wettbewerb {
 	
 	private boolean isETPossible = false;
 	private boolean isSummerToSpringSeason;
-	private ArrayList<Integer> saisons;
+	private ArrayList<Integer> seasons;
+	private ArrayList<LigaSaison> saisons;
 	private int aktuelleSaison;
 	
 	private int numberOfTeams;
@@ -32,6 +33,9 @@ public class Liga implements Wettbewerb {
 	private boolean teamsHaveKader;
 	
 	private String workspace;
+	
+	private String dateiSaisonsDaten;
+	private ArrayList<String> saisonsDatenFromFile;
     
     private String dateiTeams;
     private ArrayList<String> teamsFromFile;
@@ -69,7 +73,6 @@ public class Liga implements Wettbewerb {
     
 	public Liga(int id, Start start, String daten) {
 		this.start = start;
-		checkOS();
 		
 		this.id = id;
 		fromString(daten);
@@ -78,7 +81,6 @@ public class Liga implements Wettbewerb {
 	
 	public Liga(int id, Start start, String name, int anz_MS, int nOMASO, int anzCL, int anzCLQ, int anzEL, int anzREL, int anzABS) {
 		this.start = start;
-		checkOS();
 		
 		this.id = id;
 		this.name = name;
@@ -139,17 +141,17 @@ public class Liga implements Wettbewerb {
 		} catch (Exception e) {}
 		
 		int index = 0;
-		for (int i = 0; i < saisons.size(); i++) {
-			if (season == saisons.get(i)) {
+		for (int i = 0; i < seasons.size(); i++) {
+			if (season == seasons.get(i)) {
 				message("A season for that year already exists.");
 				return false;
-			} else if (season > saisons.get(i))	index++;
+			} else if (season > seasons.get(i))	index++;
 		}
-		saisons.add(index, season);
+		seasons.add(index, season);
 		aktuelleSaison = index;
 		
-		String saison = "" + saisons.get(aktuelleSaison);
-		if (this.isSummerToSpringSeason)	saison += "_" + (saisons.get(aktuelleSaison) + 1);
+		String saison = "" + seasons.get(aktuelleSaison);
+		if (this.isSummerToSpringSeason)	saison += "_" + (seasons.get(aktuelleSaison) + 1);
 		
         String folder = workspace + File.separator + name + File.separator + saison + File.separator;
         (new File(folder)).mkdirs();
@@ -237,17 +239,20 @@ public class Liga implements Wettbewerb {
 	public void laden(int index) {
 		String saison;
 		aktuelleSaison = index;
-		if (this.isSummerToSpringSeason)	saison = saisons.get(aktuelleSaison) + "_" + (saisons.get(aktuelleSaison) + 1);
-		else								saison = "" + saisons.get(aktuelleSaison);
+		if (this.isSummerToSpringSeason)	saison = seasons.get(aktuelleSaison) + "_" + (seasons.get(aktuelleSaison) + 1);
+		else								saison = "" + seasons.get(aktuelleSaison);
 		
-        dateiErgebnisse = workspace + File.separator + name + File.separator + saison + File.separator + "Ergebnisse.txt";
-        dateiSpieldaten = workspace + File.separator + name + File.separator + saison + File.separator + "Spieldaten.txt";
-        dateiSpielplan = workspace + File.separator + name + File.separator + saison + File.separator + "Spielplan.txt";
-    	dateiTeams = workspace + File.separator + name + File.separator + saison + File.separator + "Mannschaften.txt";
-    	
-    	File file = new File(workspace + File.separator + name + File.separator + saison);
+		saisonsLaden();
+		
+		workspace = workspace + saison + File.separator;
+		
+        dateiErgebnisse = workspace + "Ergebnisse.txt";
+        dateiSpieldaten = workspace + "Spieldaten.txt";
+        dateiSpielplan = workspace + "Spielplan.txt";
+    	dateiTeams = workspace + "Mannschaften.txt";
     	
     	try {
+    		File file = new File(workspace);
     		file.mkdir();
     	} catch (Exception e) {
     		System.out.println("Error while creating directory!");
@@ -286,6 +291,8 @@ public class Liga implements Wettbewerb {
 		this.ergebnisplanSchreiben();
 		this.spieldatenSchreiben();
 		this.mannschaftenSchreiben();
+		
+		saisonsSpeichern();
 	}
 	
 	public Mannschaft[] getMannschaften() {
@@ -328,7 +335,7 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public String getWorkspace() {
-		return this.workspace + File.separator + name + File.separator + getAktuelleSaison() + (isSTSS() ? "_" + (getAktuelleSaison() + 1) : "") + File.separator;
+		return this.workspace;
 	}
 	
 	/**
@@ -336,18 +343,18 @@ public class Liga implements Wettbewerb {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.saisons.size()];
-        for (int i = 0; i < this.saisons.size(); i++) {
-            hilfsarray[i] = this.saisons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.saisons.get(i) + 1) : "");
+		String[] hilfsarray = new String[this.seasons.size()];
+        for (int i = 0; i < this.seasons.size(); i++) {
+            hilfsarray[i] = this.seasons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.seasons.get(i) + 1) : "");
         }
         return hilfsarray;
 	}
 	
 	public String getSeasonsRepresentation() {
 		String representation = "";
-		for (int i = 0; i < this.saisons.size(); i++) {
+		for (int i = 0; i < this.seasons.size(); i++) {
 			String trenn = "S" + i;
-			representation += trenn + "*" + this.saisons.get(i) + "*" + trenn + ",";
+			representation += trenn + "*" + this.seasons.get(i) + "*" + trenn + ",";
 		}
 		return representation.substring(0, representation.length() - 1);
 	}
@@ -366,7 +373,7 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public int getAktuelleSaison() {
-		return this.saisons.get(this.aktuelleSaison);
+		return this.seasons.get(this.aktuelleSaison);
 	}
 	
 	public int getDefaultStarttag() {
@@ -715,6 +722,30 @@ public class Liga implements Wettbewerb {
         this.ergebnisplanEingetragen = new boolean[this.numberOfMatchdays][this.numberOfMatchesPerMatchday];
     }
 	
+	private void saisonsLaden() {
+		workspace = start.getWorkspace() + File.separator + name + File.separator;
+		
+		// SaisonsConfig.txt
+		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
+		saisonsDatenFromFile = ausDatei(dateiSaisonsDaten);
+		
+		// LigaSaisons erstellen
+		saisons = new ArrayList<>();
+		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
+			saisons.add(new LigaSaison(start, this, i, saisonsDatenFromFile.get(i)));
+		}
+	}
+	
+	private void saisonsSpeichern() {
+		saisonsDatenFromFile.clear();
+		for (int i = 0; i < saisons.size(); i++) {
+			saisons.get(i).speichern();
+			saisonsDatenFromFile.add(saisons.get(i).toString());
+		}
+		
+		inDatei(dateiSaisonsDaten, saisonsDatenFromFile);
+	}
+	
     private void mannschaftenLaden() {
     	this.teamsFromFile = ausDatei(this.dateiTeams);
     	
@@ -954,10 +985,6 @@ public class Liga implements Wettbewerb {
 		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";KADER*")));
 		this.teamsHaveKader = Boolean.parseBoolean(daten.substring(daten.indexOf("KADER*") + 6, daten.indexOf(";S")));
 		
-		this.saisons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
-	}
-	
-	public void checkOS() {
-		workspace = start.getWorkspace();
+		this.seasons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
 	}
 }
