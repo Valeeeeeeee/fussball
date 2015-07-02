@@ -298,7 +298,7 @@ public class MyDateChooser extends JFrame {
 		} catch (IllegalArgumentException iae) {
 			int today = 0;
 			if (spieltag.getCurrentMatchday() > 0)	today = MyDate.verschoben(liga.getDate(spieltag.getCurrentMatchday() - 1), 7);
-			else									today = startjahr * 10000 + 824;
+			if (today < 19700101)	today = startjahr * 10000 + 824;
 			jCBStYear.setSelectedIndex(today / 10000 - startjahr);
 			jCBStMonth.setSelectedIndex(today % 10000 / 100 - 1);
 			jCBStDay.setSelectedIndex(today % 100 - 1);

@@ -786,6 +786,9 @@ public class Spieltag extends JPanel {
 			}
 		}
 		
+		for (int i = 0; i < jBtnsMannschaften.length; i++) {
+			jBtnsMannschaften[i].setEnabled(true);
+		}
 		setLabelsEnabled(true);
 		disableTFs();
 		jBtnBearbeiten.setVisible(false);
@@ -1350,7 +1353,11 @@ public class Spieltag extends JPanel {
 			
 			jLblsMannschaften[editedLabel].setText(tGruppen[groupID].getMannschaften()[teamID].getName());
 		}
+		int oldButton = array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] - 1;
+		if (oldButton >= 0)	jBtnsMannschaften[oldButton].setEnabled(true);
+		
 		array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] = index + 1;
+		jBtnsMannschaften[index].setEnabled(false);
 		jLblsMannschaften[editedLabel].setBackground(colorEdited);
 		editedLabel = -1;
 		editedGroupID = -1;
