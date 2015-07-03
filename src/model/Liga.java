@@ -76,22 +76,8 @@ public class Liga implements Wettbewerb {
 		
 		this.id = id;
 		fromString(daten);
-		this.mannschaften = new Mannschaft[0];
-	}
-	
-	public Liga(int id, Start start, String name, int anz_MS, int nOMASO, int anzCL, int anzCLQ, int anzEL, int anzREL, int anzABS) {
-		this.start = start;
-		
-		this.id = id;
-		this.name = name;
-		this.mannschaften = new Mannschaft[0];
-		
-		this.numberOfMatchesAgainstSameOpponent = nOMASO;
-		this.ANZAHL_CL = anzCL;
-		this.ANZAHL_CLQ = anzCLQ;
-		this.ANZAHL_EL = anzEL;
-		this.ANZAHL_REL = anzREL;
-		this.ANZAHL_ABS = anzABS;
+		saisonsLaden();
+//		this.mannschaften = new Mannschaft[0];
 	}
 	
 	public Spieltag getSpieltag() {
@@ -153,7 +139,7 @@ public class Liga implements Wettbewerb {
 		String saison = "" + seasons.get(aktuelleSaison);
 		if (this.isSummerToSpringSeason)	saison += "_" + (seasons.get(aktuelleSaison) + 1);
 		
-        String folder = workspace + File.separator + name + File.separator + saison + File.separator;
+        String folder = workspace + saison + File.separator;
         (new File(folder)).mkdirs();
         
         String dateiErgebnisse = folder + "Ergebnisse.txt";
@@ -237,19 +223,18 @@ public class Liga implements Wettbewerb {
 	}
 	
 	public void laden(int index) {
+		// replace all this
 		String saison;
 		aktuelleSaison = index;
 		if (this.isSummerToSpringSeason)	saison = seasons.get(aktuelleSaison) + "_" + (seasons.get(aktuelleSaison) + 1);
 		else								saison = "" + seasons.get(aktuelleSaison);
 		
-		saisonsLaden();
+		String root = workspace + saison + File.separator;
 		
-		workspace = workspace + saison + File.separator;
-		
-        dateiErgebnisse = workspace + "Ergebnisse.txt";
-        dateiSpieldaten = workspace + "Spieldaten.txt";
-        dateiSpielplan = workspace + "Spielplan.txt";
-    	dateiTeams = workspace + "Mannschaften.txt";
+        dateiErgebnisse = root + "Ergebnisse.txt";
+        dateiSpieldaten = root + "Spieldaten.txt";
+        dateiSpielplan = root + "Spielplan.txt";
+    	dateiTeams = root + "Mannschaften.txt";
     	
     	try {
     		File file = new File(workspace);
@@ -284,6 +269,9 @@ public class Liga implements Wettbewerb {
         	statistik.setVisible(false);
         }
         tabelle.resetCurrentMatchday();
+        
+        // with
+		saisons.get(index).laden();
     }
 	
 	public void speichern() throws Exception {
@@ -336,6 +324,13 @@ public class Liga implements Wettbewerb {
 	
 	public String getWorkspace() {
 		return this.workspace;
+	}
+	
+	public String getWorkspace(int season) {
+		String saison;
+		if (this.isSummerToSpringSeason)	saison = seasons.get(aktuelleSaison) + "_" + (seasons.get(aktuelleSaison) + 1);
+		else								saison = "" + seasons.get(aktuelleSaison);
+		return this.workspace + saison + File.separator;
 	}
 	
 	/**

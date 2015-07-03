@@ -1,7 +1,6 @@
 package model;
 
-import static util.Utilities.ausDatei;
-import static util.Utilities.inDatei;
+import static util.Utilities.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -16,12 +15,15 @@ public class LigaSaison {
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	
+	private Mannschaft[] mannschaften;
 	private int numberOfTeams;
+	private int halbeanzMSAuf;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
 	
 	private int[] anzahl;
+	private int[] defaultKickoffTimes;
 	
 	private int[][] datesAndTimes;
 	
@@ -51,6 +53,10 @@ public class LigaSaison {
 		this.liga = liga;
 		this.seasonIndex = seasonIndex;
 		fromString(data);
+	}
+	
+	public Liga getLiga() {
+		return liga;
 	}
 	
 	public int getSeasonIndex() {
@@ -96,8 +102,41 @@ public class LigaSaison {
 		return anzahl;
 	}
 	
+	private void initDefaultKickoffTimes(String DKTAsString) {
+		// kommt als 0,1,1,1,1,1,2,3,4
+		String[] DKTValues = DKTAsString.split(",");
+		defaultKickoffTimes = new int[DKTValues.length];
+		for (int i = 0; i < DKTValues.length; i++) {
+			defaultKickoffTimes[i] = Integer.parseInt(DKTValues[i]);
+		}
+	}
+	
+	private String getDefaultKickoffTimes() {
+		String dktimes = "";
+		if (defaultKickoffTimes.length >= 1) {
+			dktimes += defaultKickoffTimes[0];
+			for (int i = 1; i < defaultKickoffTimes.length; i++) {
+				dktimes += "," + defaultKickoffTimes[i];
+			}
+		}
+		
+		return dktimes;
+	}
+	
 	public void mannschaftenLaden() {
-//		mannschaftenFromFile = ausDatei(dateiMannschaften);
+		mannschaftenFromFile = ausDatei(dateiMannschaften);
+		
+		halbeanzMSAuf = (int) Math.round((double) numberOfTeams / 2);				// liefert die (aufgerundete) Haelfte zurueck
+		numberOfMatchesPerMatchday = numberOfTeams / 2;								// liefert die (abgerundete) Haelfte zurueck
+		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halbeanzMSAuf - 1);
+		else						numberOfMatchdays = 0;
+		
+		this.mannschaften = new Mannschaft[numberOfTeams];
+		for (int i = 0; i < numberOfTeams; i++) {
+			this.mannschaften[i] = new Mannschaft(this.start, i + 1, this, mannschaftenFromFile.get(i + 1));
+			log(this.mannschaften[i]);
+		}
+		log();
 	}
 	
 	public void mannschaftenSpeichern() {
@@ -143,7 +182,7 @@ public class LigaSaison {
         dateiSpieldaten = workspace + "Spieldaten.txt";
         dateiSpielplan = workspace + "Spielplan.txt";
     	dateiMannschaften = workspace + "Mannschaften.txt";
-    	
+    	log(workspace);
 		mannschaftenLaden();
 		initializeArrays();
 		
@@ -174,7 +213,7 @@ public class LigaSaison {
 		toString += numberOfMatchesAgainstSameOpponent + ";";
 		
 //		toString += defaultStarttag +";";
-//		toString += getDefaultKickoffTimes() + ";";
+		toString += getDefaultKickoffTimes() + ";";
 		
 		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
@@ -191,6 +230,7 @@ public class LigaSaison {
 		isSummerToSpringSeason = Boolean.parseBoolean(split[index++]);
 		numberOfTeams = Integer.parseInt(split[index++]);
 		numberOfMatchesAgainstSameOpponent = Integer.parseInt(split[index++]);
+		initDefaultKickoffTimes(split[index++]);
 		goalDifference = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		anzahl = getAnzahlFromString(split[index++]);

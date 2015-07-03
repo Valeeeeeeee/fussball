@@ -64,6 +64,10 @@ public class Mannschaft {
 		parseString(mannschaftsDaten);
 		if (!start.addingNewSeason())	loadKader();
 	}
+	
+	public Mannschaft(Start start, int id, LigaSaison season, String mannschaftsDaten) {
+		this(start, id, season.getLiga(), mannschaftsDaten);
+	}
 
 	public Mannschaft(Start start, int id, TurnierSaison season, Gruppe gruppe, String mannschaftsDaten) {
 		this.id = id;
@@ -102,7 +106,7 @@ public class Mannschaft {
 	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
-		if (playsInLeague)		kaderFileName = liga.getWorkspace() + "Kader" + File.separator;
+		if (playsInLeague)		kaderFileName = liga.getWorkspace(liga.getAktuelleSaison()) + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
 		kaderFileName += this.name + ".txt";
