@@ -21,7 +21,7 @@ public class MyDateChooser extends JFrame {
 	/**
 	 * The width of this window for tournament
 	 */
-	public final int WIDTH_TOUR = 350;
+	public final int WIDTH_TOUR = 360;
 	/**
 	 * The height of this window for tournament
 	 */
@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20150622;
-	private int defaultMyTime = 2100;
+	private int defaultMyDate = 20150808;
+	private int defaultMyTime = 1530;
 	private int defaultStarttag = -1;
 	private int date;
 	private int time;
@@ -74,13 +74,14 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_HOUR =		new Rectangle(20, 140, 70, 30);
 	private Rectangle REC_MINUTE =		new Rectangle(90, 140, 70, 30);
 	private Rectangle REC_GO =			new Rectangle(370, 70, 70, 30);
-	
-	private Rectangle REC_DAYTOUR =		new Rectangle(20, 40, 70, 30);
-	private Rectangle REC_MONTHTOUR =	new Rectangle(90, 40, 70, 30);
-	private Rectangle REC_YEARTOUR =	new Rectangle(160, 40, 85, 30);
-	private Rectangle REC_HOURTOUR =	new Rectangle(20, 70, 70, 30);
-	private Rectangle REC_MINUTETOUR =	new Rectangle(90, 70, 70, 30);
-	private Rectangle REC_GOTOUR =		new Rectangle(260, 40, 70, 30);
+
+	private Rectangle REC_LBLSPIELTOUR =	new Rectangle(10, 10, 340, 20);
+	private Rectangle REC_DAYTOUR =			new Rectangle(20, 40, 70, 30);
+	private Rectangle REC_MONTHTOUR =		new Rectangle(90, 40, 70, 30);
+	private Rectangle REC_YEARTOUR =		new Rectangle(160, 40, 85, 30);
+	private Rectangle REC_HOURTOUR =		new Rectangle(20, 70, 70, 30);
+	private Rectangle REC_MINUTETOUR =		new Rectangle(90, 70, 70, 30);
+	private Rectangle REC_GOTOUR =			new Rectangle(260, 40, 70, 30);
 	
 	
 	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
@@ -150,7 +151,8 @@ public class MyDateChooser extends JFrame {
 		{
 			jLblSpiel = new JLabel();
 			this.add(jLblSpiel);
-			jLblSpiel.setBounds(REC_LBLSPIEL);
+	        if (belongsToLeague)	jLblSpiel.setBounds(REC_LBLSPIEL);
+	        else					jLblSpiel.setBounds(REC_LBLSPIELTOUR);
 			jLblSpiel.setOpaque(true);
 			jLblSpiel.setBackground(Color.yellow);
 			jLblSpiel.setHorizontalAlignment(SwingConstants.CENTER);
