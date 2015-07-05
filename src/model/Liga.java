@@ -10,31 +10,14 @@ public class Liga {
     private Start start;
 	private String name;
 	
-	private boolean isSummerToSpringSeason;
 	private ArrayList<Integer> seasons;
 	private ArrayList<LigaSaison> saisons;
 	private int aktuelleSaison;
-	
-	private int numberOfTeams;
-	private int numberOfMatchesAgainstSameOpponent;
-	
-	private int ANZAHL_CL;
-	private int ANZAHL_CLQ;
-	private int ANZAHL_EL;
-	private int ANZAHL_REL;
-	private int ANZAHL_ABS;
-	private boolean goalDifference;
-	
-	private Mannschaft[] mannschaften;
-	private boolean teamsHaveKader;
 	
 	private String workspace;
 	
 	private String dateiSaisonsDaten;
 	private ArrayList<String> saisonsDatenFromFile;
-    
-    private int defaultStarttag;
-    private int[] defaultKickoffTimes;
     
     
 	public Liga(int id, Start start, String daten) {
@@ -43,14 +26,13 @@ public class Liga {
 		this.id = id;
 		fromString(daten);
 		saisonsLaden();
-//		this.mannschaften = new Mannschaft[0];
 	}
 	
 	public boolean addSeason(int season, ArrayList<Mannschaft> teams) {
 		boolean outOfUse = true;
 		if (outOfUse) {
 			message("Add season must be refactored, variables used are not correctly accessed (old implementation required configuration to be identical)");
-			// TODO refactor
+			// TODO refactor: create a new type like new league dialog
 			// add radiobuttons, textfields etc and fill them with data of previous season, so that if no changes are necessary, user has to do nothing
 			// move currently local fields to signature as parameters
 			return false;
@@ -133,16 +115,6 @@ public class Liga {
 		saisonsSpeichern();
 	}
 
-	private String teamsToString() {
-		String alles = "";
-		
-		for (int i = 0; i < numberOfTeams; i++) {
-			alles = alles + mannschaften[i].toString() + "\n";
-		}
-		
-		return alles;
-	}
-	
 	public String getWorkspace() {
 		return this.workspace;
 	}
@@ -154,7 +126,7 @@ public class Liga {
 	public String[] getAllSeasons() {
 		String[] hilfsarray = new String[this.seasons.size()];
         for (int i = 0; i < this.seasons.size(); i++) {
-            hilfsarray[i] = this.seasons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.seasons.get(i) + 1) : "");
+            hilfsarray[i] = this.seasons.get(i) + (saisons.get(i).isSTSS() ? "/" + (this.seasons.get(i) + 1) : "");
         }
         return hilfsarray;
 	}
@@ -197,27 +169,6 @@ public class Liga {
 		return this.name;
 	}
 	
-	private void initDefaultKickoffTimes(String DKTAsString) {
-		// kommt als 0,1,1,1,1,1,2,3,4
-		String[] DKTValues = DKTAsString.split(",");
-		defaultKickoffTimes = new int[DKTValues.length];
-		for (int i = 0; i < DKTValues.length; i++) {
-			defaultKickoffTimes[i] = Integer.parseInt(DKTValues[i]);
-		}
-	}
-	
-	private String getDefaultKickoffTimes() {
-		String dktimes = "";
-		if (defaultKickoffTimes.length >= 1) {
-			dktimes += defaultKickoffTimes[0];
-			for (int i = 1; i < defaultKickoffTimes.length; i++) {
-				dktimes += "," + defaultKickoffTimes[i];
-			}
-		}
-		
-		return dktimes;
-	}
-	
 	private void saisonsLaden() {
 		workspace = start.getWorkspace() + File.separator + name + File.separator;
 		
@@ -244,38 +195,13 @@ public class Liga {
 	
 	public String toString() {
 		String rueckgabe = "NAME*" + this.name + ";";
-		rueckgabe = rueckgabe + "D_ST*" + this.defaultStarttag +";";
-		rueckgabe = rueckgabe + "DKT*" + getDefaultKickoffTimes() + ";";
-		rueckgabe = rueckgabe + "ISSTSS*" + this.isSummerToSpringSeason + ";";
-		rueckgabe = rueckgabe + "A_MS*" + this.numberOfTeams + ";";
-		rueckgabe = rueckgabe + "A_SGDG*" + this.numberOfMatchesAgainstSameOpponent + ";";
-		rueckgabe = rueckgabe + "A_CL*" + this.ANZAHL_CL + ";";
-		rueckgabe = rueckgabe + "A_CLQ*" + this.ANZAHL_CLQ + ";";
-		rueckgabe = rueckgabe + "A_EL*" + this.ANZAHL_EL + ";";
-		rueckgabe = rueckgabe + "A_REL*" + this.ANZAHL_REL + ";";
-		rueckgabe = rueckgabe + "A_ABS*" + this.ANZAHL_ABS + ";";
-		rueckgabe = rueckgabe + "GLDIF*" + this.goalDifference + ";";
-		rueckgabe = rueckgabe + "KADER*" + this.teamsHaveKader + ";";
 		rueckgabe += getSeasonsRepresentation() + ";";
 		
 		return rueckgabe;
 	}
 	
 	private void fromString(String daten) {
-		this.name = daten.substring(daten.indexOf("NAME*") + 5, daten.indexOf(";D_ST*"));
-		this.defaultStarttag = Integer.parseInt(daten.substring(daten.indexOf("D_ST*") + 5, daten.indexOf(";DKT*")));
-		initDefaultKickoffTimes(daten.substring(daten.indexOf("DKT*") + 4, daten.indexOf(";ISSTSS*")));
-		this.isSummerToSpringSeason = Boolean.parseBoolean(daten.substring(daten.indexOf("ISSTSS*") + 7, daten.indexOf(";A_MS*")));
-		this.numberOfTeams = Integer.parseInt(daten.substring(daten.indexOf("A_MS*") + 5, daten.indexOf(";A_SGDG*")));
-		this.numberOfMatchesAgainstSameOpponent = Integer.parseInt(daten.substring(daten.indexOf("A_SGDG*") + 7, daten.indexOf(";A_CL*")));
-		this.ANZAHL_CL = Integer.parseInt(daten.substring(daten.indexOf("A_CL*") + 5, daten.indexOf(";A_CLQ*")));
-		this.ANZAHL_CLQ = Integer.parseInt(daten.substring(daten.indexOf("A_CLQ*") + 6, daten.indexOf(";A_EL*")));
-		this.ANZAHL_EL = Integer.parseInt(daten.substring(daten.indexOf("A_EL*") + 5, daten.indexOf(";A_REL*")));
-		this.ANZAHL_REL = Integer.parseInt(daten.substring(daten.indexOf("A_REL*") + 6, daten.indexOf(";A_ABS*")));
-		this.ANZAHL_ABS = Integer.parseInt(daten.substring(daten.indexOf("A_ABS*") + 6, daten.indexOf(";GLDIF*")));
-		this.goalDifference = Boolean.parseBoolean(daten.substring(daten.indexOf("GLDIF*") + 6, daten.indexOf(";KADER*")));
-		this.teamsHaveKader = Boolean.parseBoolean(daten.substring(daten.indexOf("KADER*") + 6, daten.indexOf(";S")));
-		
+		this.name = daten.substring(daten.indexOf("NAME*") + 5, daten.indexOf(";S"));
 		this.seasons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
 	}
 }

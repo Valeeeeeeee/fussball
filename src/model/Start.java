@@ -88,8 +88,8 @@ public class Start extends JFrame {
 	private JPanel Homescreen;
 	private JButton[] jBtnsLigen;
 	private JButton[] jBtnsTurniere;
-	private JButton addLeague;
-	private JButton addTournament;
+	private JButton jBtnAddLeague;
+	private JButton jBtnAddTournament;
 	private JButton jBtnBeenden;
 	
 	// Liga - Homescreen
@@ -180,8 +180,8 @@ public class Start extends JFrame {
 //		jBtnTabelleActionPerformed();
 //		uebersichtAnzeigen("VfB Stuttgart");
 		
-//		addLeagueActionPerformed();
-//		addTournamentActionPerformed();
+//		jBtnAddLeagueActionPerformed();
+//		jBtnAddTournamentActionPerformed();
 //		jBtnBeendenActionPerformed();
 		
 		
@@ -243,26 +243,26 @@ public class Start extends JFrame {
 		buildLeaguesButtons();
 		
 		{ 
-			addLeague = new JButton(); 
-			Homescreen.add(addLeague);
-			addLeague.setBounds(REC_ADDLEAG);
-			addLeague.setText("Add league");
-			addLeague.setFocusable(false);
-			addLeague.addActionListener(new ActionListener() {
+			jBtnAddLeague = new JButton(); 
+			Homescreen.add(jBtnAddLeague);
+			jBtnAddLeague.setBounds(REC_ADDLEAG);
+			jBtnAddLeague.setText("Add league");
+			jBtnAddLeague.setFocusable(false);
+			jBtnAddLeague.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					addLeagueActionPerformed();
+					jBtnAddLeagueActionPerformed();
 				}
 			});
 		}
 		{ 
-			addTournament = new JButton(); 
-			Homescreen.add(addTournament);
-			addTournament.setBounds(REC_ADDTOUR);
-			addTournament.setText("Add tournament");
-			addTournament.setFocusable(false);
-			addTournament.addActionListener(new ActionListener() {
+			jBtnAddTournament = new JButton(); 
+			Homescreen.add(jBtnAddTournament);
+			jBtnAddTournament.setBounds(REC_ADDTOUR);
+			jBtnAddTournament.setText("Add tournament");
+			jBtnAddTournament.setFocusable(false);
+			jBtnAddTournament.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					addTournamentActionPerformed();
+					jBtnAddTournamentActionPerformed();
 				}
 			});
 		}
@@ -1223,7 +1223,12 @@ public class Start extends JFrame {
 		return null;
 	}
 	
-	private void addLeagueActionPerformed() {
+	private void jBtnAddLeagueActionPerformed() {
+		boolean outOfUse = true;
+		if (outOfUse) {
+			message("Nicht aktuell. Erst refactorn.");
+			return;
+		}
 		NewLeagueDialog nld = new NewLeagueDialog(this);
 		nld.setLocationRelativeTo(null);
 		nld.setVisible(true);
@@ -1232,7 +1237,12 @@ public class Start extends JFrame {
 		nld.toFront();
 	}
 	
-	private void addTournamentActionPerformed() {
+	private void jBtnAddTournamentActionPerformed() {
+		boolean outOfUse = true;
+		if (outOfUse) {
+			message("Nicht aktuell. Erst refactorn.");
+			return;
+		}
 		NewTournamentDialog ntd = new NewTournamentDialog(this);
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
@@ -1248,7 +1258,6 @@ public class Start extends JFrame {
 				return;
 			}
 		}
-		
 		
 		// Erstellung des config-Strings
 		if (teamsNames == null) {
