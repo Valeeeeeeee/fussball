@@ -46,6 +46,7 @@ public class Spieltag extends JPanel {
 	private int editedGroupID = -1;
 	private int editedMatchday = -1;
 	private int currentMatchday = -1;
+	private boolean editingMatches;
 	
 	private int[] buttonsauswahl;
 	private int[] labels;
@@ -334,8 +335,24 @@ public class Spieltag extends JPanel {
 				jLblsMannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
 				jLblsMannschaften[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						if (jLblsMannschaften[x].isEnabled()) {
+						if (editingMatches) {
 							mannschaftClicked(x);
+							jLblsMannschaften[x % numberOfMatches].setBorder(null);
+							jLblsMannschaften[x % numberOfMatches + numberOfMatches].setBorder(null);
+						}
+					}
+					
+					public void mouseEntered(MouseEvent e) {
+						if (editingMatches) {
+							jLblsMannschaften[x % numberOfMatches].setBorder(BorderFactory.createDashedBorder(getForeground()));
+							jLblsMannschaften[x % numberOfMatches + numberOfMatches].setBorder(BorderFactory.createDashedBorder(getForeground()));
+						}
+					}
+					
+					public void mouseExited(MouseEvent e) {
+						if (editingMatches) {
+							jLblsMannschaften[x % numberOfMatches].setBorder(null);
+							jLblsMannschaften[x % numberOfMatches + numberOfMatches].setBorder(null);
 						}
 					}
 				});
@@ -732,6 +749,7 @@ public class Spieltag extends JPanel {
 	 * Optimized for <code>Gruppe</code> and <code>KORunde</code>
 	 */
 	private void jBtnBearbeitenActionPerformed() {
+		editingMatches = true;
 		editedMatchday = jCBSpieltage.getSelectedIndex();
 		
 		setMannschaftenButtonsNames();
@@ -879,6 +897,7 @@ public class Spieltag extends JPanel {
 			jBtnNext.setEnabled(true);
 			jBtnResetMatchday.setVisible(true);
 			if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(true);
+			editingMatches = false;
 			spieltagAnzeigen();
 		}
 		return saveanyway;
