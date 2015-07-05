@@ -12,7 +12,7 @@ public class LigaStatistik extends JPanel {
 	private static final long serialVersionUID = -7289043093848224094L;
 	
 	private Dimension preferredSize = new Dimension(900, 650);
-	private Liga liga;
+	private LigaSaison season;
 	private Mannschaft[] mannschaften;
 	private int currentMatchday;
 	
@@ -94,10 +94,10 @@ public class LigaStatistik extends JPanel {
 	 * meiste Tore in einem Spiel
 	 */
 	
-	public LigaStatistik(Liga liga) {
+	public LigaStatistik(LigaSaison season) {
 		super();
 		
-		this.liga = liga;
+		this.season = season;
 		
 		initGUI();
 	}
@@ -113,7 +113,7 @@ public class LigaStatistik extends JPanel {
 			this.add(jLblWettbewerb);
 			jLblWettbewerb.setBounds(REC_LBLWETTBW);
 			jLblWettbewerb.setFont(fontWettbewerbLbl);
-			jLblWettbewerb.setText(liga.getName());
+			jLblWettbewerb.setText(season.getName());
 		}
 		
 		buildResults();
@@ -246,8 +246,8 @@ public class LigaStatistik extends JPanel {
     }
 	
 	public void aktualisieren() {
-		this.mannschaften = liga.getMannschaften();
-		this.currentMatchday = liga.getCurrentMatchday();
+		this.mannschaften = season.getMannschaften();
+		this.currentMatchday = season.getCurrentMatchday();
 		updateGUI();
 	}
 	
@@ -318,10 +318,10 @@ public class LigaStatistik extends JPanel {
 		numberOfHomeWins = numberOfDraws = numberOfAwayWins = numberOfHomeGoals = numberOfAwayGoals = 0;
 		resultsHash.clear();
 		resultsFrequency.clear();
-		for (int i = 0; i < liga.getNumberOfMatchdays(); i++) {
-			for (int j = 0; j < liga.getNumberOfMatchesPerMatchday(); j++) {
-				if (liga.isErgebnisplanEntered(i, j)) {
-					Ergebnis result = liga.getErgebnis(i, j);
+		for (int i = 0; i < season.getNumberOfMatchdays(); i++) {
+			for (int j = 0; j < season.getNumberOfMatchesPerMatchday(); j++) {
+				if (season.isErgebnisplanEntered(i, j)) {
+					Ergebnis result = season.getErgebnis(i, j);
 					addResult(Math.max(result.home(), result.away()), Math.min(result.home(), result.away()));
 					if (result.home() > result.away())		numberOfHomeWins++;
 					else if (result.home() < result.away())	numberOfAwayWins++;

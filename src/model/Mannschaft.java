@@ -36,8 +36,8 @@ public class Mannschaft {
 	public final static int AWAY = 5;
 	
 	private Wettbewerb wettbewerb;
-	private Liga liga;
-	private TurnierSaison season;
+	private LigaSaison lSeason;
+	private TurnierSaison tSeason;
 	private Gruppe gruppe;
 	private KORunde startKORunde;
 	
@@ -52,11 +52,11 @@ public class Mannschaft {
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
 
-	public Mannschaft(Start start, int id, Liga liga, String mannschaftsDaten) {
+	public Mannschaft(Start start, int id, LigaSaison lSeason, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
-		this.liga = liga;
-		this.wettbewerb = liga;
+		this.lSeason = lSeason;
+		this.wettbewerb = lSeason;
 		this.playsInLeague = true;
 		this.playsInGroup = false;
 		
@@ -64,15 +64,11 @@ public class Mannschaft {
 		parseString(mannschaftsDaten);
 		if (!start.addingNewSeason())	loadKader();
 	}
-	
-	public Mannschaft(Start start, int id, LigaSaison season, String mannschaftsDaten) {
-		this(start, id, season.getLiga(), mannschaftsDaten);
-	}
 
-	public Mannschaft(Start start, int id, TurnierSaison season, Gruppe gruppe, String mannschaftsDaten) {
+	public Mannschaft(Start start, int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
-		this.season = season;
+		this.tSeason = tSeason;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
 		this.playsInLeague = false;
@@ -81,10 +77,10 @@ public class Mannschaft {
 		parseString(mannschaftsDaten);
 	}
 	
-	public Mannschaft(Start start, int id, TurnierSaison season, KORunde koRunde, String mannschaftsDaten) {
+	public Mannschaft(Start start, int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
 		this.id = id;
 		this.start = start;
-		this.season = season;
+		this.tSeason = tSeason;
 		this.startKORunde = koRunde;
 		this.wettbewerb = koRunde;
 		this.playsInLeague = false;
@@ -95,9 +91,9 @@ public class Mannschaft {
 
 	private void initializeArrays() {
 		int numberOfMatchdays = 0;
-		if (playsInLeague)		numberOfMatchdays = liga.getNumberOfMatchdays();
+		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
-		else					numberOfMatchdays = season.getNumberOfKORounds() * (season.hasSecondLegKOStage() ? 2 : 1);
+		else					numberOfMatchdays = tSeason.getNumberOfKORounds() * (tSeason.hasSecondLegKOStage() ? 2 : 1);
 		daten = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 		spiele = new Spiel[numberOfMatchdays];
@@ -106,7 +102,7 @@ public class Mannschaft {
 	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
-		if (playsInLeague)		kaderFileName = liga.getWorkspace(liga.getAktuelleSaison()) + "Kader" + File.separator;
+		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
 		kaderFileName += this.name + ".txt";
@@ -346,7 +342,7 @@ public class Mannschaft {
 	}
 	
 	public String getDateAndTime(int matchday) {
-		if (playsInLeague)		return liga.getDateOfTeam(matchday, id);
+		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, id);
 		else if (playsInGroup)	return gruppe.getDateOfTeam(matchday, id);
 		else					return "21.06.2014 22:00";
 	}

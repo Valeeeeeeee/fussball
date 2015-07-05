@@ -201,7 +201,7 @@ public class Gruppe implements Wettbewerb {
     	return -1;
     }
 	
-	public Mannschaft getTeamwithName(String teamsName) {
+	public Mannschaft getTeamWithName(String teamsName) {
     	return mannschaften[getIndexOfMannschaft(teamsName) - 1];
     }
 	

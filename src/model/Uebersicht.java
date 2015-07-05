@@ -14,7 +14,6 @@ public class Uebersicht extends JPanel {
 	// Spielplan
 	private Rectangle RECSPPLPNL;
 	
-	
 	// Informationen
 	private Rectangle RECINFPNL;
     private Rectangle RECLBLNAME = new Rectangle(50, 10, 320, 30);
@@ -81,10 +80,10 @@ public class Uebersicht extends JPanel {
 	private int numberOfPlayers;
 	private int numberOfPositions;
 
-    public Uebersicht(Start start, Liga liga/*, Mannschaft mannschaft*/) {
+    public Uebersicht(Start start, LigaSaison season/*, Mannschaft mannschaft*/) {
         super();
         this.start = start;
-        this.wettbewerb = liga;
+        this.wettbewerb = season;
         this.hasGrDatum = true;
 //        this.mannschaft = mannschaft;
         initGUI();

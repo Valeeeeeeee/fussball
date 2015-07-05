@@ -13,7 +13,7 @@ public class Tabelle extends JPanel {
     
     private Start start;
     private Wettbewerb wettbewerb;
-    private Liga liga;
+    private LigaSaison season;
     private Gruppe gruppe;
     
     private int currentMatchday = -1;
@@ -76,19 +76,19 @@ public class Tabelle extends JPanel {
     	initGUI();
     }
     
-    public Tabelle(Start start, Liga liga) {
+    public Tabelle(Start start, LigaSaison season) {
     	super();
     	this.start = start;
-    	this.liga = liga;
-    	this.wettbewerb = liga;
+    	this.season = season;
+    	this.wettbewerb = season;
     	this.belongsToALeague = true;
     	
-    	this.ANZAHL_TEAMS = liga.getNumberOfTeams();
-    	this.ANZAHL_CL = liga.getAnzahlCL();
-    	this.ANZAHL_CLQ = liga.getAnzahlCLQ();
-    	this.ANZAHL_EL = liga.getAnzahlEL();
-    	this.ANZAHL_REL = liga.getAnzahlREL();
-    	this.ANZAHL_ABS = liga.getAnzahlABS();
+    	this.ANZAHL_TEAMS = season.getNumberOfTeams();
+    	this.ANZAHL_CL = season.getAnzahl(0);
+    	this.ANZAHL_CLQ = season.getAnzahl(1);
+    	this.ANZAHL_EL = season.getAnzahl(2);
+    	this.ANZAHL_REL = season.getAnzahl(3);
+    	this.ANZAHL_ABS = season.getAnzahl(4);
     	
     	initGUI();
     }
@@ -366,12 +366,12 @@ public class Tabelle extends JPanel {
     	String dateiname = start.workspace;
     	log("There are " + order.length + " teams.");
     	for (int i = 0; i < order.length; i++) {
-			if (belongsToALeague)	order[i] = liga.getTeamwithName(tabelle[i][1].getText()).toString();
-			else					order[i] = gruppe.getTeamwithName(tabelle[i][1].getText()).toString();
+			if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
+			else					order[i] = gruppe.getTeamWithName(tabelle[i][1].getText()).toString();
 			log((i + 1) + ". " + order[i]);
 		}
     	if (belongsToALeague) {
-			dateiname += File.separator + liga.getName() + File.separator + "Tabelle.txt";
+			dateiname += File.separator + season.getName() + File.separator + "Tabelle.txt";
     	} else {
     		dateiname += File.separator + gruppe.getTournamentName() + File.separator + "Gruppe " + (gruppe.getID() + 1) + File.separator + "Tabelle.txt";
     	}

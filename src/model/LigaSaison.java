@@ -17,7 +17,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	private Mannschaft[] mannschaften;
 	private int numberOfTeams;
-	private int halbeanzMSAuf;
+	private int halbeAnzMSAuf;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
@@ -37,7 +37,11 @@ public class LigaSaison implements Wettbewerb {
 	
 	private Ergebnis[][] ergebnisplan;
 	private boolean[][] ergebnisplanEingetragen;
-
+	
+	private Spieltag spieltag;
+	private Tabelle tabelle;
+	private LigaStatistik statistik;
+	
 	private boolean geladen;
 	private String workspace;
 	
@@ -65,11 +69,23 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public String getName() {
-		return liga.getName();
+		return liga.getName() + " " + getSeasonFull("/");
+	}
+	
+	public String getWorkspace() {
+		return workspace;
 	}
 	
 	public int getSeasonIndex() {
 		return seasonIndex;
+	}
+	
+	public int getSeason() {
+		return season;
+	}
+	
+	public boolean isSTSS() {
+		return isSummerToSpringSeason;
 	}
 	
 	public String getSeasonFull(String trennzeichen) {
@@ -82,6 +98,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public int getNumberOfTeams() {
 		return numberOfTeams;
+	}
+	
+	public int getHalbeAnzMSAuf() {
+		return halbeAnzMSAuf;
 	}
 	
 	public int getNumberOfMatchdays() {
@@ -108,9 +128,34 @@ public class LigaSaison implements Wettbewerb {
 		return false;
 	}
 	
+	public Spieltag getSpieltag() {
+		return this.spieltag;
+	}
+	
+	public Tabelle getTabelle() {
+		return this.tabelle;
+	}
+	
+	public LigaStatistik getLigaStatistik() {
+		return this.statistik;
+	}
+	
 	public Mannschaft[] getMannschaften() {
 		return mannschaften;
 	}
+
+    public int getIndexOfMannschaft(String name) {
+    	for (Mannschaft ms : this.mannschaften) {
+    		if (ms.getName().equals(name)) {
+    			return ms.getId();
+    		}
+    	}
+    	return -1;
+    }
+	
+	public Mannschaft getTeamWithName(String teamsName) {
+    	return mannschaften[getIndexOfMannschaft(teamsName) - 1];
+    }
 	
 	public String getMatchdayDescription(int matchday) {
 		return liga.getName() + " " + getSeasonFull("/") + ", " + (matchday + 1) + ". Spieltag";
@@ -180,6 +225,58 @@ public class LigaSaison implements Wettbewerb {
 	
 	public int getTime(int matchday, int match) {
 		return this.kickoffTimes[this.getKOTIndex(matchday, match)];
+	}
+	
+	public void addNewKickoffTime(int tageseitfreitag, int kickofftime) {
+		// TODO get rid of arrays and use arraylists
+		int[] oldtageseitfr = daysSinceDST;
+		int[] oldKickoffTimes = kickoffTimes;
+		daysSinceDST = new int[oldtageseitfr.length + 1];
+		kickoffTimes = new int[oldKickoffTimes.length + 1];
+		
+		for (int i = 0; i < oldtageseitfr.length; i++) {
+			daysSinceDST[i] = oldtageseitfr[i];
+			kickoffTimes[i] = oldKickoffTimes[i];
+		}
+		
+		daysSinceDST[daysSinceDST.length - 1] = tageseitfreitag;
+		kickoffTimes[kickoffTimes.length - 1] = kickofftime;
+		this.numberOfKickoffTimes++;
+	}
+	
+	public int getIndexOfKOT(int diff, int timeOfNewKOT) {
+		for (int i = 0; i < daysSinceDST.length; i++) {
+			if (daysSinceDST[i] == diff) {
+				if (kickoffTimes[i] == timeOfNewKOT) {
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
+	
+	public void useDefaultKickoffTimes(int matchday) {
+		for (int i = 0; i < defaultKickoffTimes.length; i++) {
+			setKOTIndex(matchday, i, defaultKickoffTimes[i]);
+		}
+	}
+	
+	// TODO improve this by passing on the kot (create data type) instead of granting separate direct access to the arrays
+	
+	public int getDefaultKickoffTime(int index) {
+		return defaultKickoffTimes[index];
+	}
+	
+	public int getDaysSinceST(int index) {
+		return daysSinceDST[index];
+	}
+	
+	public int getKickoffTimes(int index) {
+		return kickoffTimes[index];
+	}
+	
+	public int getNumberOfKickoffTimes() {
+		return numberOfKickoffTimes;
 	}
 	
 	// Spielplan eingetragen
@@ -278,11 +375,142 @@ public class LigaSaison implements Wettbewerb {
 	public void setSpiel(int matchday, int match, Spiel spiel) {
 		if (spiel != null) {
 			setSpielplanEntered(matchday, match, true);
-	    	this.mannschaften[spiel.home() - 1].setMatch(matchday, spiel);
-	        this.mannschaften[spiel.away() - 1].setMatch(matchday, spiel);
+			this.mannschaften[spiel.home() - 1].setMatch(matchday, spiel);
+			this.mannschaften[spiel.away() - 1].setMatch(matchday, spiel);
 		}
 		else				setSpielplanEntered(matchday, match, false);
 		spielplan[matchday][match] = spiel;
+	}
+	
+	public void ergebnisseSichern() {
+		int matchday = spieltag.getCurrentMatchday();
+		
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			if (isSpielplanEntered(matchday, match)) {
+				Ergebnis result = spieltag.getErgebnis(match);
+				
+				setErgebnis(matchday, match, result);
+				mannschaften[getSpiel(matchday, match).home() - 1].setResult(matchday, result);
+				mannschaften[getSpiel(matchday, match).away() - 1].setResult(matchday, result);
+			}
+		}
+	}
+	
+	public void setRueckrundeToOrder(int[] orderOfRueckRunde) {
+		if (2 * orderOfRueckRunde.length != this.numberOfMatchdays) {
+			errorMessage("Your Rueckrunde does not match the expected number of matchdays.");
+			return;
+		}
+		boolean[] inHinrunde = new boolean[this.numberOfMatchdays];
+		for (int i = 0; i < orderOfRueckRunde.length; i++) {
+			if (inHinrunde[orderOfRueckRunde[i] - 1] == true) {
+				errorMessage("Some matchday appears to be twice in the Rueckrunde.");
+				return;
+			}
+			inHinrunde[orderOfRueckRunde[i] - 1] = true;
+		}
+		
+		int matchdayOld, matchdayNew = 0;
+		for (int i = 0; i < orderOfRueckRunde.length; i++) {
+			Spiel[] spieleInNewOrder = new Spiel[this.numberOfMatchesPerMatchday];
+			matchdayOld = orderOfRueckRunde[i] - 1;
+			while (inHinrunde[matchdayNew]) {
+				matchdayNew++;
+			}
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				Spiel oldSpiel = getSpiel(matchdayOld, j);
+				spieleInNewOrder[j] = new Spiel(this, matchdayNew, this.datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
+			}
+			for (int j = 0; j < spieleInNewOrder.length; j++) {
+				for (int k = j + 1; k < spieleInNewOrder.length; k++) {
+					if (spieleInNewOrder[j].home() > spieleInNewOrder[k].home()) {
+						Spiel zwischen = spieleInNewOrder[j];
+						spieleInNewOrder[j] = spieleInNewOrder[k];
+						spieleInNewOrder[k] = zwischen;
+					}
+				}
+			}
+			for (int j = 0; j < spieleInNewOrder.length; j++) {
+				setSpiel(matchdayNew, j, spieleInNewOrder[j]);
+			}
+			matchdayNew++;
+		}
+	}
+	
+	public void changeOrderToChronological(int matchday) {
+		int[] newOrder = new int[this.numberOfMatchesPerMatchday];
+		int[] hilfsarray = new int[this.numberOfMatchesPerMatchday];
+		int[] dates = new int[this.numberOfMatchesPerMatchday];
+		int[] times = new int[this.numberOfMatchesPerMatchday];
+		
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++) {
+			dates[match] = MyDate.verschoben(this.getDate(matchday), this.daysSinceDST[this.getKOTIndex(matchday, match)]);
+			times[match] = this.kickoffTimes[this.getKOTIndex(matchday, match)];
+		}
+		
+		for (int m = 0; m < this.numberOfMatchesPerMatchday; m++) {
+			for (int m2 = m + 1; m2 < this.numberOfMatchesPerMatchday; m2++) {
+				if (dates[m2] > dates[m])		hilfsarray[m2]++;
+				else if (dates[m2] < dates[m])	hilfsarray[m]++;
+				else if (times[m2] > times[m])	hilfsarray[m2]++;
+				else if (times[m2] < times[m])	hilfsarray[m]++;
+				else {
+					Spiel sp1 = getSpiel(matchday, m), sp2 = getSpiel(matchday, m2);
+					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
+					else	hilfsarray[m2]++;
+				}
+			}
+		}
+		
+		for (int i = 0; i < hilfsarray.length; i++) {
+			newOrder[hilfsarray[i]] = i;
+		}
+		
+		changeOrderOfMatches(matchday, newOrder);
+	}
+	
+	public void changeOrderOfMatches(int matchday, int[] oldIndicesInNewOrder) {
+		// check the correctness of the parameter array
+		if (oldIndicesInNewOrder.length != this.numberOfMatchesPerMatchday) {
+			errorMessage("The parameter array does not have the correct length.");
+			return;
+		}
+		
+		boolean[] checked = new boolean[oldIndicesInNewOrder.length];
+		try {
+			for (int i = 0; i < checked.length; i++) {
+				checked[oldIndicesInNewOrder[i]] = !checked[oldIndicesInNewOrder[i]];
+			}
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			errorMessage("Array contains irregular match indices.");
+			return;
+		}
+		
+		for (int i = 0; i < checked.length; i++) {
+			if (!checked[i]) {
+				errorMessage("Irregular distribution of indices, not every index has appeared.");
+				return;
+			}
+		}
+		
+		// duplicate old arrays and set new ones
+		Spiel[] oldSpielplan = new Spiel[this.numberOfMatchesPerMatchday];
+		Ergebnis[] oldErgebnisplan = new Ergebnis[this.numberOfMatchesPerMatchday];
+		boolean[] oldSpielplanEingetragen = new boolean[this.numberOfMatchesPerMatchday];
+		boolean[] oldErgebnisplanEingetragen = new boolean[this.numberOfMatchesPerMatchday];
+		int[] oldKOTindices = new int[this.numberOfMatchesPerMatchday];
+		
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	oldSpielplan[match] = getSpiel(matchday, match);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	oldErgebnisplan[match] = getErgebnis(matchday, match);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	oldSpielplanEingetragen[match] = isSpielplanEntered(matchday, match);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	oldErgebnisplanEingetragen[match] = isErgebnisplanEntered(matchday, match);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	oldKOTindices[match] = datesAndTimes[matchday][match + 1];
+		
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	setSpiel(matchday, match, oldSpielplan[oldIndicesInNewOrder[match]]);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	setErgebnis(matchday, match, oldErgebnisplan[oldIndicesInNewOrder[match]]);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	setSpielplanEntered(matchday, match, oldSpielplanEingetragen[oldIndicesInNewOrder[match]]);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	setErgebnisplanEntered(matchday, match, oldErgebnisplanEingetragen[oldIndicesInNewOrder[match]]);
+		for (int match = 0; match < this.numberOfMatchesPerMatchday; match++)	datesAndTimes[matchday][match + 1] = oldKOTindices[oldIndicesInNewOrder[match]];
 	}
 	
 	private String getAnzahlRepresentation() {
@@ -340,9 +568,9 @@ public class LigaSaison implements Wettbewerb {
 	public void mannschaftenLaden() {
 		mannschaftenFromFile = ausDatei(dateiMannschaften);
 		
-		halbeanzMSAuf = (int) Math.round((double) numberOfTeams / 2);				// liefert die (aufgerundete) Haelfte zurueck
+		halbeAnzMSAuf = (int) Math.round((double) numberOfTeams / 2);				// liefert die (aufgerundete) Haelfte zurueck
 		numberOfMatchesPerMatchday = numberOfTeams / 2;								// liefert die (abgerundete) Haelfte zurueck
-		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halbeanzMSAuf - 1);
+		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halbeAnzMSAuf - 1);
 		else						numberOfMatchdays = 0;
 		
 		this.mannschaften = new Mannschaft[numberOfTeams];
@@ -421,24 +649,24 @@ public class LigaSaison implements Wettbewerb {
 		String string = this.numberOfKickoffTimes + ";";
 		for (int i = 0; i < this.numberOfKickoffTimes; i++) {
 			string = string + this.daysSinceDST[i] + "," + this.kickoffTimes[i] + ";";
-        }
+		}
 		this.spielplanFromFile.add(string);
 		
-        for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
-            string = this.getSpielplanRepresentation(matchday) + ";";
-            if (!this.isSpielplanFullyEmpty(matchday)) {
-            	string += getDate(matchday);
-            	for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
-            		string += ":" + getKOTIndex(matchday, j);
-            	}
-            	string += ";";
-                for (int match = 0; match < this.numberOfMatchesPerMatchday; match++) {
-                    string += getSpiel(matchday, match) + ";";
-                }
-            }
-            
-            this.spielplanFromFile.add(string);
-        }
+		for (int matchday = 0; matchday < this.numberOfMatchdays; matchday++) {
+			string = this.getSpielplanRepresentation(matchday) + ";";
+			if (!this.isSpielplanFullyEmpty(matchday)) {
+				string += getDate(matchday);
+				for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
+					string += ":" + getKOTIndex(matchday, j);
+				}
+				string += ";";
+				for (int match = 0; match < this.numberOfMatchesPerMatchday; match++) {
+					string += getSpiel(matchday, match) + ";";
+				}
+			}
+			
+			this.spielplanFromFile.add(string);
+		}
 		
 		inDatei(dateiSpielplan, spielplanFromFile);
 	}
@@ -448,32 +676,32 @@ public class LigaSaison implements Wettbewerb {
 		
 		try {
 			this.ergebnisseFromFile = ausDatei(this.dateiErgebnisse);
-	        int counter;
-	        
-	        for (counter = 0; counter < this.numberOfMatchdays; counter++) {
-	        	String inhalte[] = this.ergebnisseFromFile.get(counter).split(";");
-	            this.setErgebnisplanEnteredFromRepresentation(counter, inhalte[0]);
+			int counter;
+			
+			for (counter = 0; counter < this.numberOfMatchdays; counter++) {
+				String inhalte[] = this.ergebnisseFromFile.get(counter).split(";");
+				this.setErgebnisplanEnteredFromRepresentation(counter, inhalte[0]);
 
-	            int match = 0;
-	            if (!this.isSpielplanFullyEmpty(counter) && !this.isErgebnisplanFullyEmpty(counter)) {
-	            	for (match = 0; (match + 1) < inhalte.length; match++) {
-	        			if (isSpielplanEntered(counter, match)) {
-	        				Ergebnis ergebnis;
-		        			if (isErgebnisplanEntered(counter, match))	ergebnis = new Ergebnis(inhalte[match + 1]);
-		        			else										ergebnis = null;
-		        			
-		        			setErgebnis(counter, match, ergebnis);
-	        			
-	        				this.mannschaften[getSpiel(counter, match).home() - 1].setResult(counter, ergebnis);
-		                    this.mannschaften[getSpiel(counter, match).away() - 1].setResult(counter, ergebnis);
-	        			}
-		            }
-	            }
-	            while (match < this.numberOfMatchesPerMatchday) {
-	            	setErgebnis(counter, match, null);
-	            	match++;
-	            }
-	        }
+				int match = 0;
+				if (!this.isSpielplanFullyEmpty(counter) && !this.isErgebnisplanFullyEmpty(counter)) {
+					for (match = 0; (match + 1) < inhalte.length; match++) {
+						if (isSpielplanEntered(counter, match)) {
+							Ergebnis ergebnis;
+							if (isErgebnisplanEntered(counter, match))	ergebnis = new Ergebnis(inhalte[match + 1]);
+							else										ergebnis = null;
+							
+							setErgebnis(counter, match, ergebnis);
+						
+							this.mannschaften[getSpiel(counter, match).home() - 1].setResult(counter, ergebnis);
+							this.mannschaften[getSpiel(counter, match).away() - 1].setResult(counter, ergebnis);
+						}
+					}
+				}
+				while (match < this.numberOfMatchesPerMatchday) {
+					setErgebnis(counter, match, null);
+					match++;
+				}
+			}
 		} catch (Exception e) {
 			errorMessage("Kein Ergebnisseplan: " + e.getMessage());
 			e.printStackTrace();
@@ -484,16 +712,16 @@ public class LigaSaison implements Wettbewerb {
 		ergebnisseFromFile.clear();
 		
 		for (int i = 0; i < this.numberOfMatchdays; i++) {
-            String string = this.getErgebnisplanRepresentation(i) + ";";
-            if (!this.isErgebnisplanFullyEmpty(i)) {
+			String string = this.getErgebnisplanRepresentation(i) + ";";
+			if (!this.isErgebnisplanFullyEmpty(i)) {
 				for (int j = 0; j < this.numberOfMatchesPerMatchday; j++) {
-                	string += getErgebnis(i, j) + ";";
+					string += getErgebnis(i, j) + ";";
 				}
-            }
-            
-            this.ergebnisseFromFile.add(string);
-        }
-        
+			}
+			
+			this.ergebnisseFromFile.add(string);
+		}
+		
 		inDatei(dateiErgebnisse, ergebnisseFromFile);
 	}
 	
@@ -559,6 +787,24 @@ public class LigaSaison implements Wettbewerb {
 		ergebnisseLaden();
 		spieldatenLaden();
 		
+		if (spieltag == null) {
+			spieltag = new Spieltag(start, this);
+			spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			spieltag.setVisible(false);
+		}
+		if (tabelle == null) {
+			tabelle = new Tabelle(start, this);
+			tabelle.setLocation((start.WIDTH - tabelle.getSize().width) / 2, 50);
+			tabelle.setVisible(false);
+		}
+		if (statistik == null) {
+			statistik = new LigaStatistik(this);
+			statistik.setLocation((start.WIDTH - statistik.getSize().width) / 2, 50);
+			statistik.setVisible(false);
+		}
+		spieltag.resetCurrentMatchday();
+		tabelle.resetCurrentMatchday();
+		
 		geladen = true;
 	}
 	
@@ -569,6 +815,13 @@ public class LigaSaison implements Wettbewerb {
 		spielplanSpeichern();
 		ergebnisseSpeichern();
 		spieldatenSpeichern();
+		
+		spieltag.setVisible(false);
+		spieltag = null;
+		tabelle.setVisible(false);
+		tabelle = null;
+		statistik.setVisible(false);
+		statistik = null;
 		
 		geladen = false;
 	}

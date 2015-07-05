@@ -39,8 +39,9 @@ public class Start extends JFrame {
 	private int anzahlLigen;
 	private int anzahlTurniere;
 	
-	private Liga[] ligen;
+	private ArrayList<Liga> ligen;
 	private Liga aktuelleLiga;
+	private LigaSaison aktuelleLSaison;
 	
 	private ArrayList<Turnier> turniere;
 	private Turnier aktuellesTurnier;
@@ -292,7 +293,7 @@ public class Start extends JFrame {
 			jBtnsLigen[i] = new JButton();
 			Homescreen.add(jBtnsLigen[i]);
 			jBtnsLigen[i].setBounds(start_btnsstartx, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-			jBtnsLigen[i].setText(ligen[i].getName());
+			jBtnsLigen[i].setText(ligen.get(i).getName());
 			jBtnsLigen[i].setFocusable(false);
 			jBtnsLigen[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -546,7 +547,7 @@ public class Start extends JFrame {
 			LigaHomescreen.setVisible(true);
 			LigaHomescreen.add(jBtnZurueck);
 			
-			aktuelleLiga = ligen[index];
+			aktuelleLiga = ligen.get(index);
 			jLblWettbewerb.setText(aktuelleLiga.getName());
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
@@ -557,15 +558,9 @@ public class Start extends JFrame {
 			if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
 				// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
 				aktuelleLiga.laden(0);
+				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
 				ligaspezifischesachenladen();
 			}
-			
-			aktuellerSpieltag = aktuelleLiga.getSpieltag();
-			getContentPane().add(aktuellerSpieltag);
-			aktuelleTabelle = aktuelleLiga.getTabelle();
-			getContentPane().add(aktuelleTabelle);
-			aktuelleStatistik = aktuelleLiga.getLigaStatistik();
-			getContentPane().add(aktuelleStatistik);
 		}
 	}
 	
@@ -580,6 +575,8 @@ public class Start extends JFrame {
 			TurnierHomescreen.add(jBtnZurueck);
 			
 			aktuellesTurnier = turniere.get(index);
+			// TODO check if this is visible
+			jLblWettbewerb.setText(aktuellesTurnier.getName());
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuellesTurnier.getAllSeasons()));
@@ -695,6 +692,7 @@ public class Start extends JFrame {
 					aktuelleLiga.speichern();
 				} catch (Exception e) {}
 				aktuelleLiga.laden(index);
+				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
 				ligaspezifischesachenladen();
 			} else {
 				try {
@@ -715,11 +713,18 @@ public class Start extends JFrame {
 	
 	private void ligaspezifischesachenladen() {
 		{
-			uebersicht = new Uebersicht(this, aktuelleLiga);
+			uebersicht = new Uebersicht(this, aktuelleLSaison);
 			getContentPane().add(uebersicht);
 			uebersicht.setLocation((this.WIDTH - uebersicht.getSize().width) / 2, 5);
 			uebersicht.setVisible(false);
 		}
+		
+		aktuellerSpieltag = aktuelleLSaison.getSpieltag();
+		getContentPane().add(aktuellerSpieltag);
+		aktuelleTabelle = aktuelleLSaison.getTabelle();
+		getContentPane().add(aktuelleTabelle);
+		aktuelleStatistik = aktuelleLSaison.getLigaStatistik();
+		getContentPane().add(aktuelleStatistik);
 	}
 	
 	private void turnierspezifischeSachenLaden() {
@@ -862,7 +867,7 @@ public class Start extends JFrame {
 			jTFSaison = new JTextField();
 			LigaNeueSaison.add(jTFSaison);
 			jTFSaison.setBounds(REC_TFSAISON);
-			jTFSaison.setText("" + (aktuelleLiga.getAktuelleSaison() + 1));
+			jTFSaison.setText("" + (aktuelleLiga.getAktuelleSeason() + 1));
 			jTFSaison.setOpaque(true);
 		}
 		{
@@ -878,7 +883,7 @@ public class Start extends JFrame {
 			});
 		}
 		
-		Mannschaft[] mannschaften = aktuelleLiga.getMannschaften();
+		Mannschaft[] mannschaften = aktuelleLSaison.getMannschaften();
 		for (Mannschaft mannschaft : mannschaften) {
 			oldSeasonTeamsOrder.add(mannschaft);
 		}
@@ -991,8 +996,8 @@ public class Start extends JFrame {
 	}
 	
 	private void putOldTeamToNextFreePosition(int index) {
-		if (oldSeasonTeamsOrder.size() <= aktuelleLiga.getAnzahlABS()) {
-			if(yesNoDialog("Laut Konfiguration muessen " + aktuelleLiga.getAnzahlABS()
+		if (oldSeasonTeamsOrder.size() <= aktuelleLSaison.getAnzahl(4)) {
+			if(yesNoDialog("Laut Konfiguration muessen " + aktuelleLSaison.getAnzahl(4)
 					+ " Mannschaften absteigen. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
 		}
 		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
@@ -1066,7 +1071,7 @@ public class Start extends JFrame {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
 		} else {
-			Mannschaft mannschaft = new Mannschaft(this, newSeasonTeamIndex, aktuelleLiga, name + ";" + grDatum);
+			Mannschaft mannschaft = new Mannschaft(this, newSeasonTeamIndex, aktuelleLSaison, name + ";" + grDatum);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
 			newSeasonTeamsOrder.add(mannschaft);
@@ -1092,8 +1097,9 @@ public class Start extends JFrame {
 			return;
 		}
 		
-		if (newSeasonTeamsOrder.size() != aktuelleLiga.getNumberOfTeams()) {
-			message("Bitte fuer die neue Saison " + aktuelleLiga.getNumberOfTeams() + " Mannschaften angeben.");
+		if (newSeasonTeamsOrder.size() != aktuelleLSaison.getNumberOfTeams()) {
+			// TODO what if new season has less teams -> write the current value in an editable textfield and compare size with that value
+			message("Bitte fuer die neue Saison " + aktuelleLSaison.getNumberOfTeams() + " Mannschaften angeben.");
 			return;
 		}
 		
@@ -1112,7 +1118,7 @@ public class Start extends JFrame {
 	public void jBtnSpieltageActionPerformed() {
 		if (isCurrentlyALeague) {
 			// der Button wurde in einer Liga aufgerufen
-			if (aktuelleLiga.getNumberOfTeams() > 1) {
+			if (aktuelleLSaison.getNumberOfTeams() > 1) {
 				isCurrentlyInMatchdayView = true;
 				LigaHomescreen.setVisible(false);
 				aktuellerSpieltag.add(jBtnZurueck);
@@ -1136,7 +1142,7 @@ public class Start extends JFrame {
 	
 	public void jBtnTabelleActionPerformed() {
 		if (isCurrentlyALeague) {
-			if (aktuelleLiga.getNumberOfTeams() <= 0) {
+			if (aktuelleLSaison.getNumberOfTeams() <= 0) {
 				JOptionPane.showMessageDialog(null, "Es wurden noch keine Mannschaften angelegt. Davor kann keine Tabelle angezeigt werden.");
 				return;
 			}
@@ -1190,10 +1196,10 @@ public class Start extends JFrame {
 	
 	public void teamsVerbessern() {
 		if (isCurrentlyALeague) {
-			for (int i = 0; i < aktuelleLiga.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleLiga.getMannschaften()[i].getName() + "\"");
+			for (int i = 0; i < aktuelleLSaison.getNumberOfTeams(); i++) {
+				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleLSaison.getMannschaften()[i].getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
-					aktuelleLiga.getMannschaften()[i].setName(newName);
+					aktuelleLSaison.getMannschaften()[i].setName(newName);
 				}
 			}
 		} else {
@@ -1306,13 +1312,7 @@ public class Start extends JFrame {
 		inDatei(seasonFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", ergebnisplan);
 		
 		anzahlLigen++;
-		Liga[] oldLigen = ligen;
-		
-		ligen = new Liga[anzahlLigen];
-		for (int i = 0; i < oldLigen.length; i++) {
-			ligen[i] = oldLigen[i];
-		}
-		ligen[ligen.length - 1] = new Liga(ligen.length - 1, this, daten);
+		ligen.add(new Liga(ligen.size(), this, daten));
 		
 		saveConfiguration();
 		loadConfiguration();
@@ -1511,7 +1511,7 @@ public class Start extends JFrame {
 			// is a league
 			if (aktuellerSpieltag.isVisible()) {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuelleLiga.ergebnisseSichern();
+					aktuelleLSaison.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
 						JOptionPane.showMessageDialog(null, "huhu");
@@ -1639,11 +1639,11 @@ public class Start extends JFrame {
 		int counter = 0;
 		
 		anzahlLigen = Integer.parseInt(configurationFromFile.get(counter));
-		ligen = new Liga[anzahlLigen];
+		ligen = new ArrayList<>();
 		counter++;
 		
 		for (int i = 0; i < anzahlLigen; i++) {
-			ligen[i] = new Liga(i, this, (String) configurationFromFile.get(counter));
+			ligen.add(new Liga(i, this, (String) configurationFromFile.get(counter)));
 			counter++;
 		}
 		
@@ -1663,8 +1663,8 @@ public class Start extends JFrame {
 		
 		configurationFromFile.add("" + anzahlLigen);
 		
-		for (int i = 0; i < ligen.length; i++) {
-			configurationFromFile.add(ligen[i].toString());
+		for (int i = 0; i < ligen.size(); i++) {
+			configurationFromFile.add(ligen.get(i).toString());
 		}
 		
 		configurationFromFile.add("" + anzahlTurniere);
