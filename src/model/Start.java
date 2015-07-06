@@ -1096,10 +1096,10 @@ public class Start extends JFrame {
 		jBtnChangeTeamCompleted.setVisible(false);
 	}
 	
-	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<Mannschaft> teamsNewSeasonOrder) {
+	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<Mannschaft> teamsNewSeasonOrder, String dKOTRep) {
 		addingNewSeason = false;
 		
-		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder)) {
+		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder, dKOTRep)) {
 			// befuellt die ComboBox mit den verfuegbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);

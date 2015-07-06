@@ -28,7 +28,7 @@ public class Liga {
 		saisonsLaden();
 	}
 	
-	public boolean addSeason(String toString, ArrayList<Mannschaft> teams) {
+	public boolean addSeason(String toString, ArrayList<Mannschaft> teams, String dKOTRepresentation) {
 		LigaSaison neueSaison = new LigaSaison(start, this, seasons.size(), toString);
 		for (int i = 0; i < seasons.size(); i++) {
 			if (seasons.get(i) == neueSaison.getSeason()) {
@@ -60,15 +60,7 @@ public class Liga {
 			allNull += "null;";
 		}
 		
-//		int numberOfDKOT = neueSaison.getNumberOfKickoffTimes();
-//		String defaultKickOffTimes = numberOfDKOT + ";";
-//		for (int i = 0; i < numberOfDKOT; i++) {
-//			defaultKickOffTimes += neueSaison.getDaysSinceST(i) + "," + neueSaison.getKickoffTimes(i) + ";";
-//		}
-		
-		String defaultKickOffTimes = "0;";
-		
-		spielplan.add(defaultKickOffTimes);
+		spielplan.add(dKOTRepresentation);
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			ergebnisplan.add(allF);
 			spielplan.add(allF);
@@ -88,6 +80,7 @@ public class Liga {
 		return true;
 	}
 	
+	@Deprecated
 	public boolean addSeason(int season, ArrayList<Mannschaft> teams) {
 		boolean outOfUse = true;
 		if (outOfUse) {
@@ -140,13 +133,6 @@ public class Liga {
 			allNull += "null;";
 		}
 		
-		int numberOfDKOT = lastSeason.getDefaultKickoffTime(numberOfMatchesPerMatchday - 1) + 1;
-		String defaultKickOffTimes = numberOfDKOT + ";";
-		for (int i = 0; i < numberOfDKOT; i++) {
-			defaultKickOffTimes += lastSeason.getDaysSinceST(i) + "," + lastSeason.getKickoffTimes(i) + ";";
-		}
-		
-		spielplan.add(defaultKickOffTimes);
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			ergebnisplan.add(allF);
 			spielplan.add(allF);

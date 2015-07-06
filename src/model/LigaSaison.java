@@ -27,8 +27,7 @@ public class LigaSaison implements Wettbewerb {
 	private int[][] datesAndTimes;
 	
 	private int numberOfKickoffTimes;
-	private ArrayList<Integer> kickoffTimes;
-	private ArrayList<Integer> daysSinceST;
+	private ArrayList<AnstossZeit> kickOffTimes;
 	private int[] defaultKickoffTimes;
 	
 	private Spiel[][] spielplan;
@@ -197,12 +196,13 @@ public class LigaSaison implements Wettbewerb {
 	public String getDateAndTime(int matchday, int match) {
 		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday && getDate(matchday) != 0)
 			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
+//			return kickOffTimes.get(getKOTIndex(matchday, match)).getDateAndTime(getDate(matchday));
 		else
 			return "nicht terminiert";
 	}
 	
 	public int getDate(int matchday) {
-		if (matchday >= 0 && matchday < numberOfMatchdays)	return datesAndTimes[matchday][0];
+		if (matchday > 0 && matchday < numberOfMatchdays)	return datesAndTimes[matchday][0];
 		else												return datesAndTimes[0][0];
 	}
 	
@@ -219,25 +219,22 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getDate(int matchday, int match) {
-		return MyDate.verschoben(datesAndTimes[matchday][0], daysSinceST.get(datesAndTimes[matchday][match + 1]));
+		return kickOffTimes.get(datesAndTimes[matchday][match + 1]).getDate(datesAndTimes[matchday][0]);
 	}
 	
 	public int getTime(int matchday, int match) {
-		return kickoffTimes.get(getKOTIndex(matchday, match));
+		return kickOffTimes.get(datesAndTimes[matchday][match + 1]).getTime();
 	}
 	
 	public void addNewKickoffTime(int tageseitstarttag, int kickofftime) {
-		daysSinceST.add(tageseitstarttag);
-		kickoffTimes.add(kickofftime);
+		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, tageseitstarttag, kickofftime));
 		numberOfKickoffTimes++;
 	}
 	
 	public int getIndexOfKOT(int diff, int timeOfNewKOT) {
-		for (int i = 0; i < daysSinceST.size(); i++) {
-			if (daysSinceST.get(i) == diff) {
-				if (kickoffTimes.get(i) == timeOfNewKOT) {
-					return i;
-				}
+		for (AnstossZeit az : kickOffTimes) {
+			if (az.matches(diff, timeOfNewKOT)) {
+				return az.getIndex();
 			}
 		}
 		return -1;
@@ -251,16 +248,20 @@ public class LigaSaison implements Wettbewerb {
 	
 	// TODO improve this by passing on the kot (create data type) instead of granting separate direct access to the arrays
 	
-	public int getDefaultKickoffTime(int index) {
-		return defaultKickoffTimes[index];
+	public int[] getDefaultKickoffTimes() {
+		return defaultKickoffTimes;
 	}
 	
-	public int getDaysSinceST(int index) {
-		return daysSinceST.get(index);
+	private int getDaysSinceST(int index) {
+		return kickOffTimes.get(index).getDaysSince();
 	}
 	
-	public int getKickoffTimes(int index) {
-		return kickoffTimes.get(index);
+	private int getKickoffTimes(int index) {
+		return kickOffTimes.get(index).getTime();
+	}
+	
+	public ArrayList<AnstossZeit> getKickOffTimes() {
+		return kickOffTimes;
 	}
 	
 	public int getNumberOfKickoffTimes() {
@@ -432,8 +433,8 @@ public class LigaSaison implements Wettbewerb {
 		int[] times = new int[numberOfMatchesPerMatchday];
 		
 		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
-			dates[match] = MyDate.verschoben(getDate(matchday), daysSinceST.get(getKOTIndex(matchday, match)));
-			times[match] = kickoffTimes.get(getKOTIndex(matchday, match));
+			dates[match] = kickOffTimes.get(getKOTIndex(matchday, match)).getDate(getDate(matchday));
+			times[match] = kickOffTimes.get(getKOTIndex(matchday, match)).getTime();
 		}
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
@@ -532,7 +533,7 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	public String getDefaultKickoffTimes() {
+	private String getDefaultKickoffTimesRepresentation() {
 		String dktimes = "";
 		if (defaultKickoffTimes.length >= 1) {
 			dktimes += defaultKickoffTimes[0];
@@ -590,12 +591,9 @@ public class LigaSaison implements Wettbewerb {
 			String allKickoffTimes = spielplanFromFile.get(0);
 			String[] kickoffs = allKickoffTimes.split(";");
 			numberOfKickoffTimes = Integer.parseInt(kickoffs[0]);
-			daysSinceST = new ArrayList<>();
-			kickoffTimes = new ArrayList<>();
+			kickOffTimes = new ArrayList<>();
 			for (counter = 0; counter < numberOfKickoffTimes; counter++) {
-				String[] kickoffDetails = kickoffs[counter + 1].split(",");
-				daysSinceST.add(Integer.parseInt(kickoffDetails[0]));
-				kickoffTimes.add(Integer.parseInt(kickoffDetails[1]));
+				kickOffTimes.add(new AnstossZeit(counter, kickoffs[counter + 1]));
 			}
 			
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -640,7 +638,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		String string = numberOfKickoffTimes + ";";
 		for (int i = 0; i < numberOfKickoffTimes; i++) {
-			string = string + daysSinceST.get(i) + "," + kickoffTimes.get(i) + ";";
+			string = string + kickOffTimes.get(i) + ";";
 		}
 		spielplanFromFile.add(string);
 		
@@ -815,7 +813,7 @@ public class LigaSaison implements Wettbewerb {
 		toString += isSummerToSpringSeason + ";";
 		toString += numberOfTeams + ";";
 		toString += numberOfMatchesAgainstSameOpponent + ";";
-		toString += getDefaultKickoffTimes() + ";";
+		toString += getDefaultKickoffTimesRepresentation() + ";";
 		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
@@ -835,5 +833,62 @@ public class LigaSaison implements Wettbewerb {
 		goalDifference = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		anzahl = getAnzahlFromString(split[index++]);
+	}
+}
+
+class AnstossZeit {
+	
+	private int index;
+	private int daysSince;
+	private int time;
+	
+	public AnstossZeit(int index, int daysSince, int time) {
+		this.index = index;
+		this.daysSince = daysSince;
+		this.time = time;
+	}
+
+	public AnstossZeit(int index, String data) {
+		this.index = index;
+		fromString(data);
+	}
+	
+	public int getIndex() {
+		return index;
+	}
+	
+	public String getDateAndTime(int startDate) {
+		int date = MyDate.verschoben(startDate, daysSince);
+		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+	}
+	
+	public int getDate(int startDate) {
+		return MyDate.verschoben(startDate, daysSince);
+	}
+	
+	public int getDaysSince() {
+		return daysSince;
+	}
+	
+	public int getTime() {
+		return time;
+	}
+	
+	public boolean matches(int diff, int timeOfNewKOT) {
+		if (daysSince != diff)		return false;
+		if (time != timeOfNewKOT)	return false;
+		return true;
+	}
+	
+	public String toString() {
+		return this.daysSince + "," + time;
+	}
+	
+	private void fromString(String data) {
+		String[] split = data.split(",");
+		int index = 0;
+		
+		this.daysSince = Integer.parseInt(split[index++]);
+		this.time = Integer.parseInt(split[index++]);
 	}
 }
