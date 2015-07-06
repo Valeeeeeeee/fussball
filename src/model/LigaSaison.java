@@ -195,8 +195,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	public String getDateAndTime(int matchday, int match) {
 		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday && getDate(matchday) != 0)
-			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
-//			return kickOffTimes.get(getKOTIndex(matchday, match)).getDateAndTime(getDate(matchday));
+			return kickOffTimes.get(getKOTIndex(matchday, match)).getDateAndTime(getDate(matchday));
 		else
 			return "nicht terminiert";
 	}
@@ -233,9 +232,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	public int getIndexOfKOT(int diff, int timeOfNewKOT) {
 		for (AnstossZeit az : kickOffTimes) {
-			if (az.matches(diff, timeOfNewKOT)) {
-				return az.getIndex();
-			}
+			if (az.matches(diff, timeOfNewKOT))	return az.getIndex();
 		}
 		return -1;
 	}
@@ -246,18 +243,8 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	// TODO improve this by passing on the kot (create data type) instead of granting separate direct access to the arrays
-	
 	public int[] getDefaultKickoffTimes() {
 		return defaultKickoffTimes;
-	}
-	
-	private int getDaysSinceST(int index) {
-		return kickOffTimes.get(index).getDaysSince();
-	}
-	
-	private int getKickoffTimes(int index) {
-		return kickOffTimes.get(index).getTime();
 	}
 	
 	public ArrayList<AnstossZeit> getKickOffTimes() {
