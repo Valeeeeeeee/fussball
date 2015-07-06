@@ -60,9 +60,11 @@ public class Mannschaft {
 		this.playsInLeague = true;
 		this.playsInGroup = false;
 		
-		initializeArrays();
 		parseString(mannschaftsDaten);
-		if (!start.addingNewSeason())	loadKader();
+		if (wettbewerb != null) {
+			initializeArrays();
+			loadKader();
+		}
 	}
 
 	public Mannschaft(Start start, int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
@@ -73,8 +75,8 @@ public class Mannschaft {
 		this.wettbewerb = gruppe;
 		this.playsInLeague = false;
 		this.playsInGroup = true;
-		initializeArrays();
 		parseString(mannschaftsDaten);
+		initializeArrays();
 	}
 	
 	public Mannschaft(Start start, int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
@@ -85,8 +87,8 @@ public class Mannschaft {
 		this.wettbewerb = koRunde;
 		this.playsInLeague = false;
 		this.playsInGroup = false;
-		initializeArrays();
 		parseString(mannschaftsDaten);
+		initializeArrays();
 	}
 
 	private void initializeArrays() {

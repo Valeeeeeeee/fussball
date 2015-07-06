@@ -847,6 +847,13 @@ public class Start extends JFrame {
 	// Action- und ItemListener
 	private void jBtnNeueSaisonActionPerformed() {
 		addingNewSeason = true;
+		
+		NeueLigaSaisonDialog nlsd = new NeueLigaSaisonDialog(this);
+		nlsd.setLocationRelativeTo(null);
+		nlsd.setVisible(true);
+		nlsd.setConfigurationFromPreviousSeason(aktuelleLSaison);
+		
+		// replace ...
 		newSeasonTeamsOrder = new ArrayList<>();
 		oldSeasonTeamsOrder = new ArrayList<>();
 		LigaHomescreen.setVisible(false);
@@ -856,6 +863,7 @@ public class Start extends JFrame {
 			LigaNeueSaison.setLayout(null);
 			LigaNeueSaison.setBounds(470, 20, 500, 800);
 			LigaNeueSaison.setBackground(Color.red);
+			LigaNeueSaison.setVisible(false);
 		}
 		{
 			jLblSaison = new JLabel();
@@ -1071,7 +1079,7 @@ public class Start extends JFrame {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
 		} else {
-			Mannschaft mannschaft = new Mannschaft(this, newSeasonTeamIndex, aktuelleLSaison, name + ";" + grDatum);
+			Mannschaft mannschaft = new Mannschaft(this, newSeasonTeamIndex, null, name + ";" + grDatum);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
 			newSeasonTeamsOrder.add(mannschaft);
@@ -1086,6 +1094,18 @@ public class Start extends JFrame {
 		jLblDatum.setVisible(false);
 		jTFDatum.setVisible(false);
 		jBtnChangeTeamCompleted.setVisible(false);
+	}
+	
+	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<Mannschaft> teamsNewSeasonOrder) {
+		addingNewSeason = false;
+		
+		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder)) {
+			// befuellt die ComboBox mit den verfuegbaren Saisons
+			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
+			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
+			
+			LigaHomescreen.setVisible(true);
+		}
 	}
 	
 	private void jBtnLigaNeueSaisonFertigActionPerformed() {
@@ -1224,11 +1244,6 @@ public class Start extends JFrame {
 	}
 	
 	private void jBtnAddLeagueActionPerformed() {
-		boolean outOfUse = true;
-		if (outOfUse) {
-			message("Nicht aktuell. Erst refactorn.");
-			return;
-		}
 		NewLeagueDialog nld = new NewLeagueDialog(this);
 		nld.setLocationRelativeTo(null);
 		nld.setVisible(true);

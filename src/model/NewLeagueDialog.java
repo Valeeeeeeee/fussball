@@ -18,9 +18,9 @@ public class NewLeagueDialog extends JFrame {
 	private Color background = new Color(78, 235, 78);
 	
 	// Bounds
-	private Dimension dim = new Dimension(390, 585);
-	private Rectangle RECGO = new Rectangle(300, 525, 70, 30);
-	private Rectangle RECCANCEL = new Rectangle(200, 525, 90, 30);
+	private Dimension dim = new Dimension(390 + 6, 585 + 28);
+	private Rectangle RECGO = new Rectangle(300, 545, 70, 30);
+	private Rectangle RECCANCEL = new Rectangle(190, 545, 100, 30);
 	
 	
 	// Allgemeine Informationen
@@ -32,36 +32,36 @@ public class NewLeagueDialog extends JFrame {
 	private Rectangle RECSTSSLBL = new Rectangle(5, 60, 100, 30);
 	private Rectangle RECSGDGLBL = new Rectangle(5, 90, 260, 30);
 	
-	private Rectangle RECNAMETF = new Rectangle(110, 0, 240, 30);
-	private Rectangle RECSEASTF = new Rectangle(110, 30, 60, 30);
-	private Rectangle RECDEFSTCB = new Rectangle(250, 30, 100, 30);
-	private Rectangle REC1YRB = new Rectangle(110, 60, 80, 30);
-	private Rectangle REC2YRB = new Rectangle(200, 60, 95, 30);
-	private Rectangle RECSGDGTF = new Rectangle(270, 90, 60, 30);
+	private Rectangle RECNAMETF = new Rectangle(110, 1, 239, 28);
+	private Rectangle RECSEASTF = new Rectangle(110, 31, 60, 28);
+	private Rectangle RECDEFSTCB = new Rectangle(250, 31, 99, 28);
+	private Rectangle REC1YRB = new Rectangle(110, 61, 80, 28);
+	private Rectangle REC2YRB = new Rectangle(200, 61, 95, 28);
+	private Rectangle RECSGDGTF = new Rectangle(270, 91, 60, 28);
 	
 	
 	// Mannschaften
-	private Rectangle RECTEAMPNL = new Rectangle(20, 150, 170, 370);
-	private Rectangle RECNOTEAMCB = new Rectangle(0, 0, 70, 30);
-	private Rectangle RECTEAMLBL = new Rectangle(70, 0, 90, 30);
-	private Rectangle RECTEAMSP = new Rectangle(5, 30, 160, 310);
-	private Rectangle RECEDITBTN = new Rectangle(5, 340, 160, 30);
+	private Rectangle RECTEAMPNL = new Rectangle(20, 150, 180, 380);
+	private Rectangle RECNOTEAMCB = new Rectangle(5, 6, 70, 28);
+	private Rectangle RECTEAMLBL = new Rectangle(80, 5, 90, 30);
+	private Rectangle RECTEAMSP = new Rectangle(5, 35, 170, 310);
+	private Rectangle RECEDITBTN = new Rectangle(5, 346, 170, 28);
 	
 	
 	// Kick off times
-	private Rectangle RECKOTPNL = new Rectangle(200, 310, 170, 210);
+	private Rectangle RECKOTPNL = new Rectangle(210, 310, 160, 220);
 	private Rectangle RECKOTLBL = new Rectangle(5, 0, 90, 30);
-	private Rectangle RECKOTSP = new Rectangle(5, 30, 160, 110);
-	private Rectangle RECAKOTBTN = new Rectangle(5, 140, 40, 30);
-	private Rectangle RECEKOTBTN = new Rectangle(50, 140, 90, 30);
-	private Rectangle RECDEFKOTLBL = new Rectangle(5, 160, 90, 30);
-	private Rectangle RECDEFKOTTF = new Rectangle(0, 180, 170, 30);
+	private Rectangle RECKOTSP = new Rectangle(5, 30, 150, 105);
+	private Rectangle RECAKOTBTN = new Rectangle(5, 140, 45, 30);
+	private Rectangle RECEKOTBTN = new Rectangle(55, 140, 95, 30);
+	private Rectangle RECDEFKOTLBL = new Rectangle(5, 165, 90, 30);
+	private Rectangle RECDEFKOTTF = new Rectangle(1, 190, 158, 28);
 	
 	
 	// Anzahlen
-	private Rectangle RECANZPNL = new Rectangle(200, 150, 170, 150);
+	private Rectangle RECANZPNL = new Rectangle(210, 150, 160, 150);
 	private int[] anzLbls = new int[] {5, 0, 0, 0, 100, 30};
-	private int[] anzTFs = new int[] {140, 0, 0, 0, 30, 30};
+	private int[] anzTFs = new int[] {129, 1, 0, 2, 30, 28};
 	
 	// View
 	private JButton go;
@@ -536,6 +536,12 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void goActionPerformed() {
+		boolean outOfUse = true;
+		if (outOfUse) {
+			message("Nicht aktuell. Erst refactorn.");
+			cancelActionPerformed();
+			return;
+		}
 		// TODO kopieren aus der Methode in Start
 
     	log("REQUIREMENT --- This should be done correctly. ");

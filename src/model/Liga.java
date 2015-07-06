@@ -7,7 +7,7 @@ import static util.Utilities.*;
 
 public class Liga {
 	private int id = -1;
-    private Start start;
+	private Start start;
 	private String name;
 	
 	private ArrayList<Integer> seasons;
@@ -18,14 +18,74 @@ public class Liga {
 	
 	private String dateiSaisonsDaten;
 	private ArrayList<String> saisonsDatenFromFile;
-    
-    
+	
+	
 	public Liga(int id, Start start, String daten) {
 		this.start = start;
 		
 		this.id = id;
 		fromString(daten);
 		saisonsLaden();
+	}
+	
+	public boolean addSeason(String toString, ArrayList<Mannschaft> teams) {
+		LigaSaison neueSaison = new LigaSaison(start, this, seasons.size(), toString);
+		for (int i = 0; i < seasons.size(); i++) {
+			if (seasons.get(i) == neueSaison.getSeason()) {
+				message("Eine Saison mit diesem Startjahr existiert bereits.");
+				return false;
+			}
+		}
+		saisons.add(neueSaison);
+		seasons.add(neueSaison.getSeason());
+		
+		String folder = workspace + neueSaison.getSeasonFull("_") + File.separator;
+		(new File(folder)).mkdirs();
+		
+		String dateiErgebnisse = folder + "Ergebnisse.txt";
+		String dateiSpieldaten = folder + "Spieldaten.txt";
+		String dateiSpielplan = folder + "Spielplan.txt";
+		String dateiTeams = folder + "Mannschaften.txt";
+		ArrayList<String> ergebnisplan = new ArrayList<>();
+		ArrayList<String> spieldaten = new ArrayList<>();
+		ArrayList<String> spielplan = new ArrayList<>();
+		ArrayList<String> teamsNames = new ArrayList<>();
+
+		int numberOfMatchdays = neueSaison.getNumberOfMatchesAgainstSameOpponent() * (2 * ((teams.size() + 1) / 2) - 1);
+		int numberOfMatchesPerMatchday = teams.size() / 2;
+		
+		String allF = "", allNull = "";
+		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+			allF += "f";
+			allNull += "null;";
+		}
+		
+//		int numberOfDKOT = neueSaison.getNumberOfKickoffTimes();
+//		String defaultKickOffTimes = numberOfDKOT + ";";
+//		for (int i = 0; i < numberOfDKOT; i++) {
+//			defaultKickOffTimes += neueSaison.getDaysSinceST(i) + "," + neueSaison.getKickoffTimes(i) + ";";
+//		}
+		
+		String defaultKickOffTimes = "0;";
+		
+		spielplan.add(defaultKickOffTimes);
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			ergebnisplan.add(allF);
+			spielplan.add(allF);
+			spieldaten.add(allNull);
+		}
+		
+		teamsNames.add("" + teams.size());
+		for (int i = 0; i < teams.size(); i++) {
+			teamsNames.add(teams.get(i).toString());
+		}
+		
+		inDatei(dateiErgebnisse, ergebnisplan);
+		inDatei(dateiSpieldaten, spieldaten);
+		inDatei(dateiSpielplan, spielplan);
+		inDatei(dateiTeams, teamsNames);
+		
+		return true;
 	}
 	
 	public boolean addSeason(int season, ArrayList<Mannschaft> teams) {
@@ -62,54 +122,54 @@ public class Liga {
 		String saison = "" + seasons.get(aktuelleSaison);
 		if (isSummerToSpringSeason)	saison += "_" + (seasons.get(aktuelleSaison) + 1);
 		
-        String folder = workspace + saison + File.separator;
-        (new File(folder)).mkdirs();
-        
-        String dateiErgebnisse = folder + "Ergebnisse.txt";
-        String dateiSpieldaten = folder + "Spieldaten.txt";
-        String dateiSpielplan = folder + "Spielplan.txt";
-        String dateiTeams = folder + "Mannschaften.txt";
-        ArrayList<String> ergebnisplan = new ArrayList<>();
-        ArrayList<String> spieldaten = new ArrayList<>();
-        ArrayList<String> spielplan = new ArrayList<>();
-        ArrayList<String> teamsNames = new ArrayList<>();
-        
-        String allF = "", allNull = "";
-        for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+		String folder = workspace + saison + File.separator;
+		(new File(folder)).mkdirs();
+		
+		String dateiErgebnisse = folder + "Ergebnisse.txt";
+		String dateiSpieldaten = folder + "Spieldaten.txt";
+		String dateiSpielplan = folder + "Spielplan.txt";
+		String dateiTeams = folder + "Mannschaften.txt";
+		ArrayList<String> ergebnisplan = new ArrayList<>();
+		ArrayList<String> spieldaten = new ArrayList<>();
+		ArrayList<String> spielplan = new ArrayList<>();
+		ArrayList<String> teamsNames = new ArrayList<>();
+		
+		String allF = "", allNull = "";
+		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
 			allF += "f";
 			allNull += "null;";
 		}
-        
-        int numberOfDKOT = lastSeason.getDefaultKickoffTime(numberOfMatchesPerMatchday - 1) + 1;
-        String defaultKickOffTimes = numberOfDKOT + ";";
-        for (int i = 0; i < numberOfDKOT; i++) {
-        	defaultKickOffTimes += lastSeason.getDaysSinceST(i) + "," + lastSeason.getKickoffTimes(i) + ";";
+		
+		int numberOfDKOT = lastSeason.getDefaultKickoffTime(numberOfMatchesPerMatchday - 1) + 1;
+		String defaultKickOffTimes = numberOfDKOT + ";";
+		for (int i = 0; i < numberOfDKOT; i++) {
+			defaultKickOffTimes += lastSeason.getDaysSinceST(i) + "," + lastSeason.getKickoffTimes(i) + ";";
 		}
-        
-        spielplan.add(defaultKickOffTimes);
-        for (int i = 0; i < numberOfMatchdays; i++) {
-        	ergebnisplan.add(allF);
-        	spielplan.add(allF);
-        	spieldaten.add(allNull);
+		
+		spielplan.add(defaultKickOffTimes);
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			ergebnisplan.add(allF);
+			spielplan.add(allF);
+			spieldaten.add(allNull);
 		}
-        
-        teamsNames.add("" + teams.size());
-        for (int i = 0; i < teams.size(); i++) {
-        	teamsNames.add(teams.get(i).toString());
+		
+		teamsNames.add("" + teams.size());
+		for (int i = 0; i < teams.size(); i++) {
+			teamsNames.add(teams.get(i).toString());
 		}
-        
-        inDatei(dateiErgebnisse, ergebnisplan);
-        inDatei(dateiSpieldaten, spieldaten);
-        inDatei(dateiSpielplan, spielplan);
-        inDatei(dateiTeams, teamsNames);
-        
-        return true;
+		
+		inDatei(dateiErgebnisse, ergebnisplan);
+		inDatei(dateiSpieldaten, spieldaten);
+		inDatei(dateiSpielplan, spielplan);
+		inDatei(dateiTeams, teamsNames);
+		
+		return true;
 	}
 	
 	public void laden(int index) {
 		aktuelleSaison = index;
 		saisons.get(aktuelleSaison).laden();
-    }
+	}
 	
 	public void speichern() throws Exception {
 		saisonsSpeichern();
@@ -125,10 +185,10 @@ public class Liga {
 	 */
 	public String[] getAllSeasons() {
 		String[] hilfsarray = new String[this.seasons.size()];
-        for (int i = 0; i < this.seasons.size(); i++) {
-            hilfsarray[i] = this.seasons.get(i) + (saisons.get(i).isSTSS() ? "/" + (this.seasons.get(i) + 1) : "");
-        }
-        return hilfsarray;
+		for (int i = 0; i < this.seasons.size(); i++) {
+			hilfsarray[i] = this.seasons.get(i) + (saisons.get(i).isSTSS() ? "/" + (this.seasons.get(i) + 1) : "");
+		}
+		return hilfsarray;
 	}
 	
 	public String getSeasonsRepresentation() {

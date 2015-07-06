@@ -532,7 +532,7 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	private String getDefaultKickoffTimes() {
+	public String getDefaultKickoffTimes() {
 		String dktimes = "";
 		if (defaultKickoffTimes.length >= 1) {
 			dktimes += defaultKickoffTimes[0];
@@ -570,6 +570,7 @@ public class LigaSaison implements Wettbewerb {
 	public void mannschaftenSpeichern() {
 		mannschaftenFromFile.clear();
 		
+		mannschaftenFromFile.add("" + numberOfTeams);
 		for (int i = 0; i < mannschaften.length; i++) {
 			mannschaftenFromFile.add(mannschaften[i].toString());
 		}
@@ -814,10 +815,7 @@ public class LigaSaison implements Wettbewerb {
 		toString += isSummerToSpringSeason + ";";
 		toString += numberOfTeams + ";";
 		toString += numberOfMatchesAgainstSameOpponent + ";";
-		
-//		toString += defaultStarttag +";";
 		toString += getDefaultKickoffTimes() + ";";
-		
 		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
