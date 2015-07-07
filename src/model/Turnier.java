@@ -11,11 +11,7 @@ public class Turnier {
 	private String name;
 	private String shortName;
 	
-	private boolean isSummerToSpringSeason;
-	
-	private ArrayList<Integer> seasons;
 	private int aktuelleSaison;
-	
 	private ArrayList<TurnierSaison> saisons;
 	
 	private String workspace;
@@ -37,10 +33,10 @@ public class Turnier {
 	
 	public String getWorkspace(int season) {
 		int seasonIndex = 0;
-		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
-			if (seasons.get(seasonIndex) == season)	break;
+		for (seasonIndex = 0; seasonIndex < saisons.size(); seasonIndex++) {
+			if (saisons.get(seasonIndex).getSeason() == season)	break;
 		}
-		return workspace + getSeason(seasonIndex) + File.separator;
+		return workspace + saisons.get(seasonIndex).getSeasonFull("_") + File.separator;
 	}
 	
 	public String getWorkspace() {
@@ -60,40 +56,15 @@ public class Turnier {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.seasons.size()];
-        for (int i = 0; i < this.seasons.size(); i++) {
-            hilfsarray[i] = this.seasons.get(i) + (this.isSummerToSpringSeason ? "/" + (this.seasons.get(i) + 1) : "");
+		String[] hilfsarray = new String[this.saisons.size()];
+        for (int i = 0; i < saisons.size(); i++) {
+            hilfsarray[i] = saisons.get(i).getSeasonFull("/");
         }
         return hilfsarray;
 	}
 	
-	public String getSeasonsRepresentation() {
-		String representation = "";
-		for (int i = 0; i < this.seasons.size(); i++) {
-			String trenn = "S" + i;
-			representation += trenn + "*" + this.seasons.get(i) + "*" + trenn + ",";
-		}
-		return representation.substring(0, representation.length() - 1);
-	}
-	
-	public ArrayList<Integer> getSeasonsFromRepresentation(String representation) {
-		String[] seasonsReps = representation.split(",");
-		ArrayList<Integer> seasons = new ArrayList<>();
-		
-		for (int i = 0; i < seasonsReps.length; i++) {
-			String rep = seasonsReps[i];
-			seasons.add(Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*"))));
-		}
-		
-		return seasons;
-	}
-	
-	public String getSeason(int seasonIndex) {
-		return this.seasons.get(seasonIndex) + (this.isSummerToSpringSeason ? "_" + (this.seasons.get(seasonIndex) + 1) : "");
-	}
-	
 	public int getCurrentSeason() {
-		return this.seasons.get(this.aktuelleSaison);
+		return this.saisons.get(this.aktuelleSaison).getSeason();
 	}
 	
 	public TurnierSaison getAktuelleSaison() {
@@ -138,13 +109,11 @@ public class Turnier {
 		
 		this.name = alleDaten[0].substring(5);
 		this.shortName = alleDaten[1].substring(4);
-		this.seasons = getSeasonsFromRepresentation(alleDaten[2]);
 	}
 	
 	public String toString() {
 		String alles = "NAME*" + this.name + ";";
 		alles += "SHN*" + this.shortName + ";";
-		alles += getSeasonsRepresentation() + ";";
 		return alles;
 	}
 }

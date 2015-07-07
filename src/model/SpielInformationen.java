@@ -62,8 +62,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30); //300, 80, 50, 30);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30); //350, 80, 50, 30);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30);
 	
 	// Untere Button-Reihe
 	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 110, 100, 30);

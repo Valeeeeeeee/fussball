@@ -460,8 +460,10 @@ public class NeueLigaSaisonDialog extends JFrame {
 		toString += getAnzahlRepresentation() + ";";
 		
 		log("will pass on " + toString + "\nand teams: ");
+		ArrayList<String> teamsNames = new ArrayList<>();
 		for (int i = 0; i < newSeasonTeamsOrder.size(); i++) {
-			log(newSeasonTeamsOrder.get(i).toString());
+			teamsNames.add(newSeasonTeamsOrder.get(i).toString());
+			log(teamsNames.get(i));
 		}
 		
 		int numberOfDKOT = kickOffTimes.size();
@@ -469,7 +471,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		start.jBtnNeueLigaSaisonFertigActionPerformed(toString, newSeasonTeamsOrder, defaultKickOffTimes);
+		start.jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

@@ -10,7 +10,6 @@ public class Liga {
 	private Start start;
 	private String name;
 	
-	private ArrayList<Integer> seasons;
 	private ArrayList<LigaSaison> saisons;
 	private int aktuelleSaison;
 	
@@ -28,16 +27,15 @@ public class Liga {
 		saisonsLaden();
 	}
 	
-	public boolean addSeason(String toString, ArrayList<Mannschaft> teams, String dKOTRepresentation) {
-		LigaSaison neueSaison = new LigaSaison(start, this, seasons.size(), toString);
-		for (int i = 0; i < seasons.size(); i++) {
-			if (seasons.get(i) == neueSaison.getSeason()) {
+	public boolean addSeason(String toString, ArrayList<String> teams, String KOTRepresentation) {
+		LigaSaison neueSaison = new LigaSaison(start, this, saisons.size(), toString);
+		for (int i = 0; i < saisons.size(); i++) {
+			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
 				return false;
 			}
 		}
 		saisons.add(neueSaison);
-		seasons.add(neueSaison.getSeason());
 		
 		String folder = workspace + neueSaison.getSeasonFull("_") + File.separator;
 		(new File(folder)).mkdirs();
@@ -60,7 +58,7 @@ public class Liga {
 			allNull += "null;";
 		}
 		
-		spielplan.add(dKOTRepresentation);
+		spielplan.add(KOTRepresentation);
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			ergebnisplan.add(allF);
 			spielplan.add(allF);
@@ -69,7 +67,7 @@ public class Liga {
 		
 		teamsNames.add("" + teams.size());
 		for (int i = 0; i < teams.size(); i++) {
-			teamsNames.add(teams.get(i).toString());
+			teamsNames.add(teams.get(i));
 		}
 		
 		inDatei(dateiErgebnisse, ergebnisplan);
@@ -85,7 +83,7 @@ public class Liga {
 		saisons.get(aktuelleSaison).laden();
 	}
 	
-	public void speichern() throws Exception {
+	public void speichern() {
 		saisonsSpeichern();
 	}
 
@@ -98,37 +96,15 @@ public class Liga {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.seasons.size()];
-		for (int i = 0; i < this.seasons.size(); i++) {
-			hilfsarray[i] = this.seasons.get(i) + (saisons.get(i).isSTSS() ? "/" + (this.seasons.get(i) + 1) : "");
+		String[] hilfsarray = new String[this.saisons.size()];
+		for (int i = 0; i < this.saisons.size(); i++) {
+			hilfsarray[i] = this.saisons.get(i).getSeasonFull("/");
 		}
 		return hilfsarray;
 	}
 	
-	public String getSeasonsRepresentation() {
-		String representation = "";
-		for (int i = 0; i < this.seasons.size(); i++) {
-			String trenn = "S" + i;
-			representation += trenn + "*" + this.seasons.get(i) + "*" + trenn + ",";
-		}
-		return representation.substring(0, representation.length() - 1);
-	}
-	
-	public ArrayList<Integer> getSeasonsFromRepresentation(String representation) {
-		String[] seasonsReps = representation.split(",");
-		
-		ArrayList<Integer> seasons = new ArrayList<>();
-		
-		for (int i = 0; i < seasonsReps.length; i++) {
-			String rep = seasonsReps[i];
-			seasons.add(Integer.parseInt(rep.substring(rep.indexOf("*") + 1, rep.lastIndexOf("*"))));
-		}
-		
-		return seasons;
-	}
-	
 	public int getAktuelleSeason() {
-		return this.seasons.get(this.aktuelleSaison);
+		return this.saisons.get(this.aktuelleSaison).getSeason();
 	}
 	
 	public LigaSaison getAktuelleSaison() {
@@ -168,14 +144,14 @@ public class Liga {
 	}
 	
 	public String toString() {
-		String rueckgabe = "NAME*" + this.name + ";";
-		rueckgabe += getSeasonsRepresentation() + ";";
-		
+		String rueckgabe = this.name;
 		return rueckgabe;
 	}
 	
 	private void fromString(String daten) {
-		this.name = daten.substring(daten.indexOf("NAME*") + 5, daten.indexOf(";S"));
-		this.seasons = getSeasonsFromRepresentation(daten.substring(daten.indexOf(";S") + 1));
+		String[] split = daten.split(";");
+		int index = 0;
+		
+		this.name = split[index++];
 	}
 }

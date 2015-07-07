@@ -1,13 +1,13 @@
 6
-NAME*Bundesliga;S0*2012*S0,S1*2013*S1,S2*2014*S2,S3*2015*S3;
-NAME*2. Bundesliga;S0*2014*S0,S1*2015*S1;
-NAME*3. Bundesliga;S0*2014*S0,S1*2015*S1;
-NAME*Premier League;S0*2013*S0,S1*2014*S1,S2*2015*S2;
-NAME*Primera Division;S0*2014*S0,S1*2015*S1;
-NAME*Super League;S0*2014*S0,S1*2015*S1;
+Bundesliga
+2. Bundesliga
+3. Bundesliga
+Premier League
+Primera Division
+Super League
 5
-NAME*FIFA Weltmeisterschaft;SHN*WM;S0*2014*S0;
-NAME*Champions League;SHN*CL;S0*2014*S0,S1*2015*S1;
-NAME*Europameisterschaft Qualifikation;SHN*EQ;S0*2014*S0;
-NAME*DFB-Pokal;SHN*DP;S0*2014*S0,S1*2015*S1;
-NAME*Copa America;SHN*CA;S0*2015*S0;
+NAME*FIFA Weltmeisterschaft;SHN*WM;
+NAME*Champions League;SHN*CL;
+NAME*Europameisterschaft Qualifikation;SHN*EQ;
+NAME*DFB-Pokal;SHN*DP;
+NAME*Copa America;SHN*CA;

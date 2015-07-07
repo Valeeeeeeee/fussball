@@ -119,7 +119,6 @@ public class Start extends JFrame {
 	public JPanel optionen;
 	private JButton correctNames;
 	private JLabel defaultStarttag;
-	private JComboBox<String> jCBDefStarttag;
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -473,19 +472,6 @@ public class Start extends JFrame {
 			defaultStarttag.setToolTipText("An diesem Wochentag beginnt ueblicherweise ein Spieltag.");
 			defaultStarttag.setVisible(false);
 		}
-		{
-			String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
-			jCBDefStarttag = new JComboBox<>();
-			optionen.add(jCBDefStarttag);
-			jCBDefStarttag.setModel(new DefaultComboBoxModel<>(wochentage));
-			jCBDefStarttag.setBounds(130, 50, 100, 20);
-			jCBDefStarttag.setVisible(false);
-			jCBDefStarttag.addItemListener(new ItemListener() {
-				public void itemStateChanged(ItemEvent evt) {
-					jCBDefStarttagItemStateChanged(evt);
-				}
-			});
-		}
 	}
 	
 	public char[] getAlphabet() {
@@ -663,26 +649,16 @@ public class Start extends JFrame {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			int index = jCBSaisonauswahl.getSelectedIndex();
 			if (isCurrentlyALeague) {
-				try {
-					aktuelleLiga.speichern();
-				} catch (Exception e) {}
+				aktuelleLiga.speichern();
 				aktuelleLiga.laden(index);
 				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
 				ligaspezifischesachenladen();
 			} else {
-				try {
-					aktuellesTurnier.speichern();
-				} catch (Exception e) {}
+				aktuellesTurnier.speichern();
 				aktuellesTurnier.laden(index);
 				aktuelleTSaison = aktuellesTurnier.getAktuelleSaison();
 				turnierspezifischeSachenLaden();
 			}
-		}
-	}
-	
-	public void jCBDefStarttagItemStateChanged(ItemEvent evt) {
-		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			// TODO default starttag aendern
 		}
 	}
 	
@@ -831,7 +807,7 @@ public class Start extends JFrame {
 		LigaHomescreen.setVisible(false);
 	}
 	
-	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<Mannschaft> teamsNewSeasonOrder, String dKOTRep) {
+	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<String> teamsNewSeasonOrder, String dKOTRep) {
 		addingNewSeason = false;
 		
 		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder, dKOTRep)) {
@@ -961,11 +937,6 @@ public class Start extends JFrame {
 	}
 	
 	private void jBtnAddTournamentActionPerformed() {
-		boolean outOfUse = true;
-		if (outOfUse) {
-			message("Nicht aktuell. Erst refactorn.");
-			return;
-		}
 		NewTournamentDialog ntd = new NewTournamentDialog(this);
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
@@ -974,7 +945,7 @@ public class Start extends JFrame {
 		ntd.toFront();
 	}
 	
-	public void addNewLeague(String name, int season, int numberOfTeams, int spGgSG, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
+	public void addNewLeague(String name, int season, boolean isSTSS, int numberOfTeams, int spGgSG, String defKOTsRep, boolean goalD, boolean tKader, String anzahlenRep, ArrayList<String> teamsNames, String KOTsRep) {
 		for (Liga liga : ligen) {
 			if (liga.getName().equals(name)) {
 				message("A league with this name already exists.");
@@ -982,70 +953,34 @@ public class Start extends JFrame {
 			}
 		}
 		
-		// Erstellung des config-Strings
-		if (teamsNames == null) {
-			teamsNames = new String[numberOfTeams + 1];
-			teamsNames[0] = "" + numberOfTeams;
-			for (int i = 1; i < teamsNames.length; i++)		teamsNames[i] = "Team " + i;
-		}
-		
-		String defaultKOTs = "" + defKOTs[0];
-		for (int i = 1; i < defKOTs.length; i++)	defaultKOTs += "," + defKOTs[i];
-		
-		String daten = "NAME*" + name + ";";
-		daten = daten + "D_ST*" + defaultST +";";
-		daten = daten + "DKT*" + defaultKOTs + ";";
-		daten = daten + "ISSTSS*" + isSTSS + ";";
-		daten = daten + "A_MS*" + numberOfTeams + ";";
-		daten = daten + "A_SGDG*" + spGgSG + ";";
-		daten = daten + "A_CL*" + anzahlen[0] + ";";
-		daten = daten + "A_CLQ*" + anzahlen[1] + ";";
-		daten = daten + "A_EL*" + anzahlen[2] + ";";
-		daten = daten + "A_REL*" + anzahlen[3] + ";";
-		daten = daten + "A_ABS*" + anzahlen[4] + ";";
-		daten = daten + "A_SAI*" + 1 + ";";
-		daten = daten + "S0*" + season + "*S0;";
-		
-		// Erstellung der Ordner
-		String saison;
-		if (isSTSS)	saison = season + "_" + (season + 1);
-		else		saison = "" + season;
-		
-		File leagueFile = new File(workspace + File.separator + name);
-		File seasonFile = new File(workspace + File.separator + name + File.separator + saison);
-		
 		try {
+			File leagueFile = new File(workspace + File.separator + name);
 			leagueFile.mkdir();
-			seasonFile.mkdir();
 		} catch (Exception e) {
-			error("Error while creating directories!");
+			error("Error while creating directories: " + e.getMessage());
+			message("The league could not be created because of an unexpected file error.");
+			return;
 		}
 		
-		// Erstellen und Abspeichern des Spiel- und Ergebnisplans
-		int numberOfMatchdays = spGgSG * (2 * (int) Math.round((double) numberOfTeams / 2) - 1);
-		int numberOfMatches = numberOfTeams / 2;
-		
-		String[] spielplan = new String[numberOfMatchdays + 1];
-		String[] ergebnisplan = new String[numberOfMatchdays];
-		
-		String representation = "";
-		for (int i = 0; i < numberOfMatches; i++) {
-			representation += "f";
-		}
-		
-		spielplan[0] = KOTs;
-		for (int i = 0; i < numberOfMatchdays; i++) {
-			spielplan[i + 1] = representation + ";";
-			ergebnisplan[i] = representation + ";";
-		}
-		
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teamsNames);
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Spielplan.txt", spielplan);
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", ergebnisplan);
-		
+		String toString = name + ";";
+		Liga neueLiga = new Liga(anzahlLigen, this, toString);
+		ligen.add(neueLiga);
 		anzahlLigen++;
-		ligen.add(new Liga(ligen.size(), this, daten));
 		
+		toString = season + ";";
+		toString += isSTSS + ";";
+		toString += numberOfTeams + ";";
+		toString += spGgSG + ";";
+		toString += defKOTsRep + ";";
+		toString += goalD + ";";
+		toString += tKader + ";";
+		toString += anzahlenRep + ";";
+		
+		neueLiga.addSeason(toString, teamsNames, KOTsRep);
+		
+		for (int i = 0; i < ligen.size(); i++) {
+			ligen.get(i).speichern();
+		}
 		saveConfiguration();
 		loadConfiguration();
 		buildLeaguesButtons();

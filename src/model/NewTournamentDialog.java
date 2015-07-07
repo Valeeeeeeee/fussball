@@ -842,8 +842,13 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void goActionPerformed() {
+		boolean outOfUse = true;
+		if (outOfUse) {
+			message("Nicht aktuell. Erst refactorn.");
+			cancelActionPerformed();
+			return;
+		}
 		// TODO kopieren aus der Methode in Start
-
 		
 		log("REQUIREMENT --- This should be done correctly. ");
 
