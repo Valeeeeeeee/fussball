@@ -412,9 +412,9 @@ public class Uebersicht extends JPanel {
     	}
     	
     	for (int i = firstShownTeam; i <= lastShownTeam; i++) {
-    		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday()) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
+    		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
 			for (int j = 2; j < 10; j++) {
-				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday());
+				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE);
 			}
 			log(values);
 		}

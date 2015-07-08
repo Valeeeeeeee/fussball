@@ -21,6 +21,7 @@ public class Mannschaft {
 	private int tdiff;
 	private int punkte;
 	private int valuesCorrectAsOfMatchday = -1;
+	private Tabellenart valuesCorrectAsOf;
 	private int deductedPoints = 0;
 	
 	private int[][] daten;
@@ -133,11 +134,13 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
-	private void setValuesForMatchday(int untilMatchday) {
-		if (valuesCorrectAsOfMatchday == untilMatchday)	return;
+	private void setValuesForMatchday(int untilMatchday, Tabellenart tabellenart) {
+		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tabellenart)	return;
 		
 		anzahl_g = anzahl_u = anzahl_v = anzahl_tplus = anzahl_tminus = 0;
 		for (int matchday = 0; matchday <= untilMatchday; matchday++) {
+			if (homeaway[matchday] && tabellenart == Tabellenart.AWAY)	continue;
+			if (!homeaway[matchday] && tabellenart == Tabellenart.HOME)	continue;
 			if (daten[matchday][3] == 3)		anzahl_g++;
 			else if (daten[matchday][3] == 1)	anzahl_u++;
 			else if (daten[matchday][1] < daten[matchday][2])	anzahl_v++;
@@ -151,6 +154,7 @@ public class Mannschaft {
 		tdiff = anzahl_tplus - anzahl_tminus;
 		
 		valuesCorrectAsOfMatchday = untilMatchday;
+		valuesCorrectAsOf = tabellenart;
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday) {
@@ -197,8 +201,8 @@ public class Mannschaft {
 		return null;
 	}
 
-	public int get(int index, int untilMatchday) {
-		setValuesForMatchday(untilMatchday);
+	public int get(int index, int untilMatchday, Tabellenart tabellenart) {
+		setValuesForMatchday(untilMatchday, tabellenart);
 		if (index == 0)	return this.platz;
 		if (index == 2)	return this.anzahl_sp;
 		if (index == 3)	return this.anzahl_g;
@@ -306,7 +310,7 @@ public class Mannschaft {
 		// force update of values
 		int untilMatchday = valuesCorrectAsOfMatchday;
 		valuesCorrectAsOfMatchday = -1;
-		setValuesForMatchday(untilMatchday);
+		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
 	}
 	
 	private void updateEligiblePlayers(int date) {
@@ -469,14 +473,14 @@ public class Mannschaft {
 		return match;
 	}
 
-	public void compareWithOtherTeams(Mannschaft[] otherTeams, int untilMatchday) {
-		this.setValuesForMatchday(untilMatchday);
+	public void compareWithOtherTeams(Mannschaft[] otherTeams, int untilMatchday, Tabellenart tabellenart) {
+		this.setValuesForMatchday(untilMatchday, tabellenart);
 		ArrayList<Integer> teamsSamePoints = new ArrayList<>();
 		this.platz = 0;
 		
 		for (Mannschaft vergleich : otherTeams) {
 			if (this.id == vergleich.id)	continue;
-			vergleich.setValuesForMatchday(untilMatchday);
+			vergleich.setValuesForMatchday(untilMatchday, tabellenart);
 			
 			if (this.punkte == vergleich.punkte)	teamsSamePoints.add(vergleich.id);
 			else if (this.punkte < vergleich.punkte)	this.platz++;
@@ -501,7 +505,7 @@ public class Mannschaft {
 				for (int j = 0; j < teamsSamePoints.size(); j++) {
 					if (i == j)	continue;
 					Mannschaft team2 = otherTeams[teamsSamePoints.get(j) - 1];
-					for (int k = 0; k < daten.length; k++) {
+					for (int k = 0; k < untilMatchday; k++) {
 						if (team1.daten[k][OPPONENT] == team2.id) {
 							goals[i] += team1.daten[k][GOALS];
 							goalsOpp[i] += team1.daten[k][CGOALS];
