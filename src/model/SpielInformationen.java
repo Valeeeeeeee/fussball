@@ -11,7 +11,7 @@ import static util.Utilities.*;
 public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
-	private final Dimension dim = new Dimension(700, 550);
+	private final Dimension dim = new Dimension(700 + 6, 550 + 28);
 	
 	private Spiel spiel;
 	
@@ -36,6 +36,7 @@ public class SpielInformationen extends JFrame {
 	
 	private JPanel jPnlLineupSelection;
 	private JLabel[] jLblsLineupSelectionPlayers;
+	private JButton jBtnLineupSelectionCancel;
 	private JButton jBtnLineupSelectionCompleted;
 	
 	private JLabel[] jLblsLineupHome;
@@ -61,17 +62,17 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30); //300, 80, 50, 30);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30); //350, 80, 50, 30);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30);
 	
 	// Untere Button-Reihe
 	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 110, 100, 30);
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(40, 110, 110, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(550, 110, 110, 30);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(30, 110, 110, 30);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(560, 110, 110, 30);
 	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(150, 110, 90, 30);
 	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(460, 110, 90, 30);
-	private Rectangle REC_BTNGOALHOME = new Rectangle(240, 110, 60, 30);
-	private Rectangle REC_BTNGOALAWAY = new Rectangle(400, 110, 60, 30);
+	private Rectangle REC_BTNGOALHOME = new Rectangle(250, 110, 60, 30);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(390, 110, 60, 30);
 	
 	// Labels Aufstellung, Wechsel, Tore
 	private int[] subLbls = new int[] {25, 160, 540, 5, 110, 20};
@@ -95,6 +96,7 @@ public class SpielInformationen extends JFrame {
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 150);
 	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 350);
+	private Rectangle REC_BTNLUSCANCEL = new Rectangle(120, 310, 70, 30);
 	private Rectangle REC_BTNLUSCOMPL = new Rectangle(200, 310, 70, 30);
 	
 	
@@ -348,10 +350,21 @@ public class SpielInformationen extends JFrame {
 			jBtnLineupSelectionCompleted = new JButton();
 			jPnlLineupSelection.add(jBtnLineupSelectionCompleted);
 			jBtnLineupSelectionCompleted.setBounds(REC_BTNLUSCOMPL);
-			jBtnLineupSelectionCompleted.setText("Fertig");
+			jBtnLineupSelectionCompleted.setText("fertig");
 			jBtnLineupSelectionCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					jBtnLineupSelectionCompletedActionPerformed();
+				}
+			});
+		}
+		{
+			jBtnLineupSelectionCancel = new JButton();
+			jPnlLineupSelection.add(jBtnLineupSelectionCancel);
+			jBtnLineupSelectionCancel.setBounds(REC_BTNLUSCANCEL);
+			jBtnLineupSelectionCancel.setText("abbrechen");
+			jBtnLineupSelectionCancel.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnLineupSelectionCancelActionPerformed();
 				}
 			});
 		}
@@ -1012,6 +1025,21 @@ public class SpielInformationen extends JFrame {
 		if (editingHomeTeam)	jPnlLineupSelection.setLocation(LOC_PNLLINEUPHOMESEL);
 		else					jPnlLineupSelection.setLocation(LOC_PNLLINEUPAWAYSEL);
 		jPnlLineupSelection.setVisible(true);
+	}
+	
+	private void jBtnLineupSelectionCancelActionPerformed() {
+		if (!enteringLineup)	return;
+		
+		// hiding lineup selection labels -> will be replaced next time
+		for (JLabel label : jLblsLineupSelectionPlayers) {
+			label.setVisible(false);
+		}
+		
+		// show hidden lineup labels
+		setLabelsVisible(true);
+		
+		jPnlLineupSelection.setVisible(false);
+		enteringLineup = false;
 	}
 	
 	private void playerSelected(int index) {

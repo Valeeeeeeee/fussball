@@ -21,13 +21,13 @@ public class MyDateChooser extends JFrame {
 	/**
 	 * The width of this window for tournament
 	 */
-	public final int WIDTH_TOUR = 350;
+	public final int WIDTH_TOUR = 360;
 	/**
 	 * The height of this window for tournament
 	 */
 	public final int HEIGHT_TOUR = 130;
 	
-	private Liga liga;
+	private LigaSaison season;
 	private Gruppe gruppe;
 	private KORunde koRunde;
 	private Spieltag spieltag;
@@ -37,9 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20150622;
-	private int defaultMyTime = 2100;
-	private int defaultStarttag = -1;
+	private int defaultMyDate = 20150808;
+	private int defaultMyTime = 1530;
 	private int date;
 	private int time;
 	private int aszindex;
@@ -49,7 +48,6 @@ public class MyDateChooser extends JFrame {
 	
 	private JLabel jLblSpiel;
 	private JLabel jLblStarttag;
-	private JLabel jLblStandard;
 	private JComboBox<String> jCBStDay;
 	private JComboBox<String> jCBStMonth;
 	private JComboBox<String> jCBStYear;
@@ -63,7 +61,6 @@ public class MyDateChooser extends JFrame {
 	
 	private Rectangle REC_LBLSPIEL =	new Rectangle(55, 10, 340, 20);
 	private Rectangle REC_LBLSTARTTAG =	new Rectangle(20, 45, 60, 20);
-	private Rectangle REC_LBLSTANDARD =	new Rectangle(110, 45, 135, 20);
 	private Rectangle REC_STDAY =		new Rectangle(20, 70, 70, 30);
 	private Rectangle REC_STMONTH =		new Rectangle(90, 70, 70, 30);
 	private Rectangle REC_STYEAR =		new Rectangle(160, 70, 85, 30);
@@ -74,21 +71,22 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_HOUR =		new Rectangle(20, 140, 70, 30);
 	private Rectangle REC_MINUTE =		new Rectangle(90, 140, 70, 30);
 	private Rectangle REC_GO =			new Rectangle(370, 70, 70, 30);
-	
-	private Rectangle REC_DAYTOUR =		new Rectangle(20, 40, 70, 30);
-	private Rectangle REC_MONTHTOUR =	new Rectangle(90, 40, 70, 30);
-	private Rectangle REC_YEARTOUR =	new Rectangle(160, 40, 85, 30);
-	private Rectangle REC_HOURTOUR =	new Rectangle(20, 70, 70, 30);
-	private Rectangle REC_MINUTETOUR =	new Rectangle(90, 70, 70, 30);
-	private Rectangle REC_GOTOUR =		new Rectangle(260, 40, 70, 30);
+
+	private Rectangle REC_LBLSPIELTOUR =	new Rectangle(10, 10, 340, 20);
+	private Rectangle REC_DAYTOUR =			new Rectangle(20, 40, 70, 30);
+	private Rectangle REC_MONTHTOUR =		new Rectangle(90, 40, 70, 30);
+	private Rectangle REC_YEARTOUR =		new Rectangle(160, 40, 85, 30);
+	private Rectangle REC_HOURTOUR =		new Rectangle(20, 70, 70, 30);
+	private Rectangle REC_MINUTETOUR =		new Rectangle(90, 70, 70, 30);
+	private Rectangle REC_GOTOUR =			new Rectangle(260, 40, 70, 30);
 	
 	
 	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
-	public MyDateChooser(Liga liga, Spieltag spieltag) {
+	public MyDateChooser(LigaSaison season, Spieltag spieltag) {
 		super();
-		this.liga = liga;
+		this.season = season;
 		this.spieltag = spieltag;
 		belongsToLeague = true;
 		initGUI();
@@ -114,10 +112,8 @@ public class MyDateChooser extends JFrame {
 		this.setLayout(null);
 		
 		if (belongsToLeague) {
-			startjahr = liga.getAktuelleSaison();
-			defaultStarttag = liga.getDefaultStarttag();
-			if (liga.isSTSS())	numberOfYears = 2;
-			else	numberOfYears = 1;
+			startjahr = season.getSeason();
+			numberOfYears = season.isSTSS() ? 2 : 1;
 		} else if (belongsToGroup) {
 			startjahr = gruppe.getStartDate() / 10000;
 			numberOfYears = gruppe.getFinalDate() / 10000 - startjahr + 1;
@@ -150,7 +146,8 @@ public class MyDateChooser extends JFrame {
 		{
 			jLblSpiel = new JLabel();
 			this.add(jLblSpiel);
-			jLblSpiel.setBounds(REC_LBLSPIEL);
+	        if (belongsToLeague)	jLblSpiel.setBounds(REC_LBLSPIEL);
+	        else					jLblSpiel.setBounds(REC_LBLSPIELTOUR);
 			jLblSpiel.setOpaque(true);
 			jLblSpiel.setBackground(Color.yellow);
 			jLblSpiel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -161,12 +158,6 @@ public class MyDateChooser extends JFrame {
 			this.add(jLblStarttag);
 			jLblStarttag.setBounds(REC_LBLSTARTTAG);
 			jLblStarttag.setText("Starttag");
-			
-			jLblStandard = new JLabel();
-			this.add(jLblStandard);
-			jLblStandard.setBounds(REC_LBLSTANDARD);
-			jLblStandard.setHorizontalAlignment(SwingConstants.RIGHT);
-			jLblStandard.setText("Standard: " + wochentage[defaultStarttag]);
 		}
 		if (belongsToLeague) {
 	        jCBStDay = new JComboBox<>();
@@ -297,7 +288,7 @@ public class MyDateChooser extends JFrame {
 			userCanMakeChanges = true;
 		} catch (IllegalArgumentException iae) {
 			int today = 0;
-			if (spieltag.getCurrentMatchday() > 0)	today = MyDate.verschoben(liga.getDate(spieltag.getCurrentMatchday() - 1), 7);
+			if (spieltag.getCurrentMatchday() > 0)	today = MyDate.verschoben(season.getDate(spieltag.getCurrentMatchday() - 1), 7);
 			if (today < 19700101)	today = startjahr * 10000 + 824;
 			jCBStYear.setSelectedIndex(today / 10000 - startjahr);
 			jCBStMonth.setSelectedIndex(today % 10000 / 100 - 1);
@@ -366,17 +357,10 @@ public class MyDateChooser extends JFrame {
 			
 			// herausfinden, ob die Anstosszeit bereits existiert
 			int diff = compareDates(date, dateOfNewKOT);
-			for (int i = 0; i < liga.daysSinceDST.length; i++) {
-				if (liga.daysSinceDST[i] == diff) {
-					if (liga.kickoffTimes[i] == timeOfNewKOT) {
-						this.aszindex = i;
-						break;
-					}
-				}
-			}
+			this.aszindex = season.getIndexOfKOT(diff, timeOfNewKOT);
 			
-			if (this.aszindex == (jCBAnstosszeiten.getModel().getSize() - 1))	liga.addNewKickoffTime(diff, timeOfNewKOT);
-			else																message("Diese Anstosszeit gibt es bereits.");
+			if (this.aszindex == 1)	season.addNewKickoffTime(diff, timeOfNewKOT);
+			else					message("Diese Anstosszeit gibt es bereits.");
 		}
 		
 		this.setVisible(false);
@@ -485,10 +469,11 @@ public class MyDateChooser extends JFrame {
 			
 			int dayofweek = greg.get(Calendar.DAY_OF_WEEK);
 			
-			String[] asz = new String[liga.kickoffTimes.length + 1];
+			String[] asz = new String[season.getNumberOfKickoffTimes() + 1];
+			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
 			for (int i = 0; i < (asz.length - 1); i++) {
 				// nach dem ersten % 7 liegen die Zahlen zwischen -6 und 6, dann plus 12 [5(weil Calendar.MONDAY == 2) waere zu wenig] und noch mal % 7
-				asz[i] = wt_kurz[((dayofweek + liga.daysSinceDST[i]) % 7 + 12) % 7] + " " + MyDate.uhrzeit(liga.kickoffTimes[i]);
+				asz[i] = wt_kurz[((dayofweek + kickOffTimes.get(i).getDaysSince()) % 7 + 12) % 7] + " " + MyDate.uhrzeit(kickOffTimes.get(i).getTime());
 			}
 			asz[asz.length - 1] = "anderes";
 			ComboBoxModel<String> jCBAnstosszeitenModel = new DefaultComboBoxModel<>(asz);

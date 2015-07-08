@@ -66,6 +66,10 @@ public class TurnierSaison {
 		return seasonIndex;
 	}
 	
+	public int getSeason() {
+		return season;
+	}
+	
 	public String getSeasonFull(String trennzeichen) {
 		return season + (isSummerToSpringSeason ? trennzeichen + (season + 1) : "");
 	}

@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -12,56 +13,59 @@ public class NewLeagueDialog extends JFrame {
 	
 	private Start start;
 	
-	private String[] wochentage = new String[] {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	private final int minNumOfTeams = 2;
 	private final int maxNumOfTeams = 24;
 	private Color background = new Color(78, 235, 78);
 	
 	// Bounds
-	private Dimension dim = new Dimension(390, 585);
-	private Rectangle RECGO = new Rectangle(300, 525, 70, 30);
-	private Rectangle RECCANCEL = new Rectangle(200, 525, 90, 30);
+	private Dimension dim = new Dimension(390 + 6, 590 + 28);
+	private Rectangle REC_GO = new Rectangle(300, 540, 70, 30);
+	private Rectangle REC_CANCEL = new Rectangle(190, 540, 100, 30);
 	
 	
 	// Allgemeine Informationen
-	private Rectangle RECINFOPNL = new Rectangle(20, 20, 350, 120);
+	private Rectangle REC_INFOPNL = new Rectangle(20, 20, 350, 120);
 	
-	private Rectangle RECNAMELBL = new Rectangle(5, 0, 100, 30);
-	private Rectangle RECSEASLBL = new Rectangle(5, 30, 100, 30);
-	private Rectangle RECDEFSTLBL = new Rectangle(190, 30, 60, 30);
-	private Rectangle RECSTSSLBL = new Rectangle(5, 60, 100, 30);
-	private Rectangle RECSGDGLBL = new Rectangle(5, 90, 260, 30);
+	private Rectangle REC_NAMELBL = new Rectangle(5, 1, 90, 28);
+	private Rectangle REC_SEASLBL = new Rectangle(5, 31, 90, 28);
+	private Rectangle REC_CALYEARLBL = new Rectangle(175, 31, 80, 28);
+	private Rectangle REC_SGDGLBL = new Rectangle(5, 61, 260, 28);
+	private Rectangle REC_GDIFFLBL = new Rectangle(5, 91, 80, 28);
+	private Rectangle REC_KADERLBL = new Rectangle(210, 91, 45, 28);
 	
-	private Rectangle RECNAMETF = new Rectangle(110, 0, 240, 30);
-	private Rectangle RECSEASTF = new Rectangle(110, 30, 60, 30);
-	private Rectangle RECDEFSTCB = new Rectangle(250, 30, 100, 30);
-	private Rectangle REC1YRB = new Rectangle(110, 60, 80, 30);
-	private Rectangle REC2YRB = new Rectangle(200, 60, 95, 30);
-	private Rectangle RECSGDGTF = new Rectangle(270, 90, 60, 30);
+	private Rectangle REC_NAMETF = new Rectangle(100, 1, 239, 28);
+	private Rectangle REC_SEASTF = new Rectangle(100, 31, 60, 28);
+	private Rectangle REC_CALYEARYRB = new Rectangle(255, 31, 40, 28);
+	private Rectangle REC_CALYEARNRB = new Rectangle(295, 31, 50, 28);
+	private Rectangle REC_SGDGTF = new Rectangle(270, 61, 60, 28);
+	private Rectangle REC_GDIFFYRB = new Rectangle(85, 91, 40, 28);
+	private Rectangle REC_GDIFFNRB = new Rectangle(125, 91, 50, 28);
+	private Rectangle REC_KADERYRB = new Rectangle(255, 91, 40, 28);
+	private Rectangle REC_KADERNRB = new Rectangle(295, 91, 50, 28);
 	
 	
 	// Mannschaften
-	private Rectangle RECTEAMPNL = new Rectangle(20, 150, 170, 370);
-	private Rectangle RECNOTEAMCB = new Rectangle(0, 0, 70, 30);
-	private Rectangle RECTEAMLBL = new Rectangle(70, 0, 90, 30);
-	private Rectangle RECTEAMSP = new Rectangle(5, 30, 160, 310);
-	private Rectangle RECEDITBTN = new Rectangle(5, 340, 160, 30);
+	private Rectangle REC_TEAMPNL = new Rectangle(20, 150, 180, 380);
+	private Rectangle REC_NOTEAMCB = new Rectangle(5, 6, 70, 28);
+	private Rectangle REC_TEAMLBL = new Rectangle(80, 5, 90, 30);
+	private Rectangle REC_TEAMSP = new Rectangle(5, 35, 170, 310);
+	private Rectangle REC_EDITBTN = new Rectangle(5, 346, 170, 28);
 	
 	
 	// Kick off times
-	private Rectangle RECKOTPNL = new Rectangle(200, 310, 170, 210);
-	private Rectangle RECKOTLBL = new Rectangle(5, 0, 90, 30);
-	private Rectangle RECKOTSP = new Rectangle(5, 30, 160, 110);
-	private Rectangle RECAKOTBTN = new Rectangle(5, 140, 40, 30);
-	private Rectangle RECEKOTBTN = new Rectangle(50, 140, 90, 30);
-	private Rectangle RECDEFKOTLBL = new Rectangle(5, 160, 90, 30);
-	private Rectangle RECDEFKOTTF = new Rectangle(0, 180, 170, 30);
+	private Rectangle REC_KOTPNL = new Rectangle(210, 310, 160, 220);
+	private Rectangle REC_KOTLBL = new Rectangle(5, 0, 90, 30);
+	private Rectangle REC_KOTSP = new Rectangle(5, 30, 150, 105);
+	private Rectangle REC_AKOTBTN = new Rectangle(5, 140, 45, 30);
+	private Rectangle REC_EKOTBTN = new Rectangle(55, 140, 95, 30);
+	private Rectangle REC_DEFKOTLBL = new Rectangle(5, 165, 90, 30);
+	private Rectangle REC_DEFKOTTF = new Rectangle(1, 190, 158, 28);
 	
 	
 	// Anzahlen
-	private Rectangle RECANZPNL = new Rectangle(200, 150, 170, 150);
+	private Rectangle REC_ANZPNL = new Rectangle(210, 150, 160, 150);
 	private int[] anzLbls = new int[] {5, 0, 0, 0, 100, 30};
-	private int[] anzTFs = new int[] {140, 0, 0, 0, 30, 30};
+	private int[] anzTFs = new int[] {129, 1, 0, 2, 30, 28};
 	
 	// View
 	private JButton go;
@@ -74,14 +78,20 @@ public class NewLeagueDialog extends JFrame {
 	private JTextField nameTF;
 	private JLabel seasonLbl;
 	private JTextField seasonTF;
-	private JLabel defaultSTLbl;
-	private JComboBox<String> defaultSTCB;
-	private JLabel isSTSSLbl;
-	private JRadioButton oneYearRB;
-	private JRadioButton twoYearsRB;
-	private ButtonGroup yearsRBGrp;
+	private JLabel calendarYearLbl;
+	private JRadioButton calendarYearYesRB;
+	private JRadioButton calendarYearNoRB;
+	private ButtonGroup calendarYearRBGrp;
 	private JLabel sameOpponentLbl;
 	private JTextField sameOpponentTF;
+	private JLabel goalDifferenceLbl;
+	private JRadioButton goalDifferenceYesRB;
+	private JRadioButton goalDifferenceNoRB;
+	private ButtonGroup goalDifferenceRBGrp;
+	private JLabel teamsHaveKaderLbl;
+	private JRadioButton teamsHaveKaderYesRB;
+	private JRadioButton teamsHaveKaderNoRB;
+	private ButtonGroup teamsHaveKaderRBGrp;
 	
 	
 	// Mannschaften
@@ -117,12 +127,13 @@ public class NewLeagueDialog extends JFrame {
 	private int season;
 	private int numberOfTeams;
 	private int spGgSGegner;
-	private String[] teamsNames;
-	private int[] anzahlen;
+	private ArrayList<String> teamsNames;
+	private String anzahlenRep;
 	private boolean isSTSS;
-	private int defaultST;
-	private String KOTs;
-	private int[] defKOTs;
+	private boolean goalDifference;
+	private boolean teamsHaveKader;
+	private String KOTsRep;
+	private String defKOTsRep;
 	
 	
 	public NewLeagueDialog(Start start) {
@@ -139,7 +150,7 @@ public class NewLeagueDialog extends JFrame {
 		{
 			go = new JButton();
 			getContentPane().add(go);
-			go.setBounds(RECGO);
+			go.setBounds(REC_GO);
 			go.setText("weiter");
 			go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -150,7 +161,7 @@ public class NewLeagueDialog extends JFrame {
 		{
 			cancel = new JButton();
 			getContentPane().add(cancel);
-			cancel.setBounds(RECCANCEL);
+			cancel.setBounds(REC_CANCEL);
 			cancel.setText("abbrechen");
 			cancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -165,8 +176,7 @@ public class NewLeagueDialog extends JFrame {
 		buildAmounts();
 		buildKOT();
 		
-		boolean enterValues = false;
-		if (enterValues)	enterPresetValues();
+		enterPresetValues();
 		
 		setTitle("Neue Liga erstellen");
 		setSize(this.dim);
@@ -178,79 +188,117 @@ public class NewLeagueDialog extends JFrame {
 			infoPnl = new JPanel();
 			getContentPane().add(infoPnl);
 			infoPnl.setLayout(null);
-			infoPnl.setBounds(RECINFOPNL);
+			infoPnl.setBounds(REC_INFOPNL);
 			infoPnl.setOpaque(true);
 			infoPnl.setBackground(background);
 		}
 		{
 			nameLbl = new JLabel();
 			infoPnl.add(nameLbl);
-			nameLbl.setBounds(RECNAMELBL);
+			nameLbl.setBounds(REC_NAMELBL);
 			nameLbl.setText("Name der Liga");
 		}
 		{
 			nameTF = new JTextField();
 			infoPnl.add(nameTF);
-			nameTF.setBounds(RECNAMETF);
+			nameTF.setBounds(REC_NAMETF);
 		}
 		{
 			seasonLbl = new JLabel();
 			infoPnl.add(seasonLbl);
-			seasonLbl.setBounds(RECSEASLBL);
+			seasonLbl.setBounds(REC_SEASLBL);
 			seasonLbl.setText("Saison beginnt");
 		}
 		{
 			seasonTF = new JTextField();
 			infoPnl.add(seasonTF);
-			seasonTF.setBounds(RECSEASTF);
+			seasonTF.setBounds(REC_SEASTF);
 		}
 		{
-			defaultSTLbl = new JLabel();
-			infoPnl.add(defaultSTLbl);
-			defaultSTLbl.setBounds(RECDEFSTLBL);
-			defaultSTLbl.setText("Starttag");
+			calendarYearLbl = new JLabel();
+			infoPnl.add(calendarYearLbl);
+			calendarYearLbl.setBounds(REC_CALYEARLBL);
+			calendarYearLbl.setText("Kalenderjahr");
 		}
 		{
-			defaultSTCB = new JComboBox<>();
-			infoPnl.add(defaultSTCB);
-	        defaultSTCB.setBounds(RECDEFSTCB);
-	        defaultSTCB.setModel(new DefaultComboBoxModel<>(wochentage));
+			calendarYearYesRB = new JRadioButton("ja");
+			infoPnl.add(calendarYearYesRB);
+			calendarYearYesRB.setBounds(REC_CALYEARYRB);
+			calendarYearYesRB.setActionCommand("false");
+			calendarYearYesRB.setOpaque(false);
 		}
 		{
-			isSTSSLbl = new JLabel();
-			infoPnl.add(isSTSSLbl);
-			isSTSSLbl.setBounds(RECSTSSLBL);
-			isSTSSLbl.setText("Saison dauert");
+			calendarYearNoRB = new JRadioButton("nein");
+			infoPnl.add(calendarYearNoRB);
+			calendarYearNoRB.setBounds(REC_CALYEARNRB);
+			calendarYearNoRB.setActionCommand("true");
+			calendarYearNoRB.setOpaque(false);
 		}
 		{
-			oneYearRB = new JRadioButton("ein Jahr");
-			infoPnl.add(oneYearRB);
-			oneYearRB.setBounds(REC1YRB);
-			oneYearRB.setActionCommand("false");
-			oneYearRB.setOpaque(false);
-		}
-		{
-			twoYearsRB = new JRadioButton("zwei Jahre");
-			infoPnl.add(twoYearsRB);
-			twoYearsRB.setBounds(REC2YRB);
-			twoYearsRB.setActionCommand("true");
-			twoYearsRB.setOpaque(false);
-		}
-		{
-			yearsRBGrp = new ButtonGroup();
-			yearsRBGrp.add(oneYearRB);
-			yearsRBGrp.add(twoYearsRB);
+			calendarYearRBGrp = new ButtonGroup();
+			calendarYearRBGrp.add(calendarYearYesRB);
+			calendarYearRBGrp.add(calendarYearNoRB);
 		}
 		{
 			sameOpponentLbl = new JLabel();
 			infoPnl.add(sameOpponentLbl);
-			sameOpponentLbl.setBounds(RECSGDGLBL);
+			sameOpponentLbl.setBounds(REC_SGDGLBL);
 			sameOpponentLbl.setText("Anzahl Spiele gegen denselben Gegner:");
 		}
 		{
 			sameOpponentTF = new JTextField();
 			infoPnl.add(sameOpponentTF);
-			sameOpponentTF.setBounds(RECSGDGTF);
+			sameOpponentTF.setBounds(REC_SGDGTF);
+		}
+		{
+			goalDifferenceLbl = new JLabel();
+			infoPnl.add(goalDifferenceLbl);
+			goalDifferenceLbl.setBounds(REC_GDIFFLBL);
+			goalDifferenceLbl.setText("Tordifferenz");
+		}
+		{
+			goalDifferenceYesRB = new JRadioButton("ja");
+			infoPnl.add(goalDifferenceYesRB);
+			goalDifferenceYesRB.setBounds(REC_GDIFFYRB);
+			goalDifferenceYesRB.setActionCommand("true");
+			goalDifferenceYesRB.setOpaque(false);
+		}
+		{
+			goalDifferenceNoRB = new JRadioButton("nein");
+			infoPnl.add(goalDifferenceNoRB);
+			goalDifferenceNoRB.setBounds(REC_GDIFFNRB);
+			goalDifferenceNoRB.setActionCommand("false");
+			goalDifferenceNoRB.setOpaque(false);
+		}
+		{
+			goalDifferenceRBGrp = new ButtonGroup();
+			goalDifferenceRBGrp.add(goalDifferenceYesRB);
+			goalDifferenceRBGrp.add(goalDifferenceNoRB);
+		}
+		{
+			teamsHaveKaderLbl = new JLabel();
+			infoPnl.add(teamsHaveKaderLbl);
+			teamsHaveKaderLbl.setBounds(REC_KADERLBL);
+			teamsHaveKaderLbl.setText("Kader");
+		}
+		{
+			teamsHaveKaderYesRB = new JRadioButton("ja");
+			infoPnl.add(teamsHaveKaderYesRB);
+			teamsHaveKaderYesRB.setBounds(REC_KADERYRB);
+			teamsHaveKaderYesRB.setActionCommand("true");
+			teamsHaveKaderYesRB.setOpaque(false);
+		}
+		{
+			teamsHaveKaderNoRB = new JRadioButton("nein");
+			infoPnl.add(teamsHaveKaderNoRB);
+			teamsHaveKaderNoRB.setBounds(REC_KADERNRB);
+			teamsHaveKaderNoRB.setActionCommand("false");
+			teamsHaveKaderNoRB.setOpaque(false);
+		}
+		{
+			teamsHaveKaderRBGrp = new ButtonGroup();
+			teamsHaveKaderRBGrp.add(teamsHaveKaderYesRB);
+			teamsHaveKaderRBGrp.add(teamsHaveKaderNoRB);
 		}
 	}
 	
@@ -263,14 +311,14 @@ public class NewLeagueDialog extends JFrame {
 			teamsPnl = new JPanel();
 			getContentPane().add(teamsPnl);
 			teamsPnl.setLayout(null);
-			teamsPnl.setBounds(RECTEAMPNL);
+			teamsPnl.setBounds(REC_TEAMPNL);
 			teamsPnl.setOpaque(true);
 			teamsPnl.setBackground(background);
 		}
 		{
 			numOfTeamsCB = new JComboBox<>();
 			teamsPnl.add(numOfTeamsCB);
-			numOfTeamsCB.setBounds(RECNOTEAMCB);
+			numOfTeamsCB.setBounds(REC_NOTEAMCB);
 			numOfTeamsCB.setModel(new DefaultComboBoxModel<>(posNumOfTeams));
 			numOfTeamsCB.addItemListener(new ItemListener() {
                 public void itemStateChanged(ItemEvent evt) {
@@ -281,14 +329,16 @@ public class NewLeagueDialog extends JFrame {
 		{
 			teamsLbl = new JLabel();
 			teamsPnl.add(teamsLbl);
-			teamsLbl.setBounds(RECTEAMLBL);
+			teamsLbl.setBounds(REC_TEAMLBL);
 			teamsLbl.setText("Mannschaften");
 		}
 		teamsModel = new DefaultListModel<>();
+		teamsModel.addElement("Mannschaft 1");
+		teamsModel.addElement("Mannschaft 2");
 		{
 			teamsSP = new JScrollPane();
 			teamsPnl.add(teamsSP);
-			teamsSP.setBounds(RECTEAMSP);
+			teamsSP.setBounds(REC_TEAMSP);
 			{
 				teamsL = new JList<>();
 			    teamsSP.setViewportView(teamsL);
@@ -299,7 +349,7 @@ public class NewLeagueDialog extends JFrame {
 		{
 			editTeamBtn = new JButton();
 			teamsPnl.add(editTeamBtn);
-			editTeamBtn.setBounds(RECEDITBTN);
+			editTeamBtn.setBounds(REC_EDITBTN);
 			editTeamBtn.setText("Name bearbeiten");
 			editTeamBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -317,7 +367,7 @@ public class NewLeagueDialog extends JFrame {
 			anzahlenPnl = new JPanel();
 			getContentPane().add(anzahlenPnl);
 			anzahlenPnl.setLayout(null);
-			anzahlenPnl.setBounds(RECANZPNL);
+			anzahlenPnl.setBounds(REC_ANZPNL);
 			anzahlenPnl.setOpaque(true);
 			anzahlenPnl.setBackground(background);
 		}
@@ -339,20 +389,20 @@ public class NewLeagueDialog extends JFrame {
 			kotPnl = new JPanel();
 			getContentPane().add(kotPnl);
 			kotPnl.setLayout(null);
-			kotPnl.setBounds(RECKOTPNL);
+			kotPnl.setBounds(REC_KOTPNL);
 			kotPnl.setOpaque(true);
 			kotPnl.setBackground(background);
 		}
 		{
 			kotLbl = new JLabel();
 			kotPnl.add(kotLbl);
-			kotLbl.setBounds(RECKOTLBL);
+			kotLbl.setBounds(REC_KOTLBL);
 			kotLbl.setText("Anstosszeiten");
 		}
 		{
 			kotSP = new JScrollPane();
 			kotPnl.add(kotSP);
-			kotSP.setBounds(RECKOTSP);
+			kotSP.setBounds(REC_KOTSP);
 			{
 				kotL = new JList<>();
 				kotSP.setViewportView(kotL);
@@ -363,7 +413,7 @@ public class NewLeagueDialog extends JFrame {
 		{
 			addKOTBtn = new JButton();
 			kotPnl.add(addKOTBtn);
-			addKOTBtn.setBounds(RECAKOTBTN);
+			addKOTBtn.setBounds(REC_AKOTBTN);
 			addKOTBtn.setText("+");
 			addKOTBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -374,7 +424,7 @@ public class NewLeagueDialog extends JFrame {
 		{
 			editKOTBtn = new JButton();
 			kotPnl.add(editKOTBtn);
-			editKOTBtn.setBounds(RECEKOTBTN);
+			editKOTBtn.setBounds(REC_EKOTBTN);
 			editKOTBtn.setText("bearbeiten");
 			editKOTBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -385,33 +435,23 @@ public class NewLeagueDialog extends JFrame {
 		{
 			defKOTLbl = new JLabel();
 			kotPnl.add(defKOTLbl);
-			defKOTLbl.setBounds(RECDEFKOTLBL);
+			defKOTLbl.setBounds(REC_DEFKOTLBL);
 			defKOTLbl.setText("Standard:");
 		}
 		{
 			defaultKOTTF = new JTextField();
 			kotPnl.add(defaultKOTTF);
-			defaultKOTTF.setBounds(RECDEFKOTTF);
+			defaultKOTTF.setBounds(REC_DEFKOTTF);
 		}
 	}
 	
 	private void enterPresetValues() {
-		// TODO remove these preentered values
-    	int[] preDefAnzahlen = new int[] {2, 1, 0, 1, 2};
-		
-		nameTF.setText("2. Bundesliga");
-		seasonTF.setText("2014");
-        defaultSTCB.setSelectedIndex(4);
-		twoYearsRB.setSelected(true);
+		seasonTF.setText("" + MyDate.newMyDate() / 10000);
+		calendarYearNoRB.setSelected(true);
+		goalDifferenceYesRB.setSelected(true);
+		teamsHaveKaderNoRB.setSelected(true);
+		sameOpponentTF.setText("2");
 		numOfTeamsCB.setSelectedIndex(18 - minNumOfTeams);
-		for (int i = 0; i < anzahlenTFs.length; i++) {
-			anzahlenTFs[i].setText("" + preDefAnzahlen[i]);
-		}
-		kotModel.addElement("0,1830");
-		kotModel.addElement("1,1300");
-		kotModel.addElement("2,1330");
-		kotModel.addElement("3,2015");
-		defaultKOTTF.setText("0,0,0,1,1,2,2,2,3");
 	}
 	
 	private void editTeamBtnActionPerformed() {
@@ -487,28 +527,28 @@ public class NewLeagueDialog extends JFrame {
 		}
 	}
 	
-	private int[] getAnzahlen() {
-		int[] anzahlen = new int[anzahlenTFs.length];
+	private String getAnzahlen() {
+		String anzahlen = "", sep = "";
 		
-		for (int i = 0; i < anzahlen.length; i++) {
-			anzahlen[i] = Integer.parseInt(anzahlenTFs[i].getText());
+		for (int i = 0; i < anzahlenTFs.length; i++) {
+			anzahlen += sep + Integer.parseInt(anzahlenTFs[i].getText());
+			sep = ",";
 		}
 		
 		return anzahlen;
 	}
 	
-	private String[] getTeamsNames() {
-		String[] teamsNames = new String[numberOfTeams + 1];
+	private ArrayList<String> getTeamsNames() {
+		ArrayList<String> teamsNames = new ArrayList<>();
 		
-		teamsNames[0] = "" + numberOfTeams;
 		for (int i = 0; i < teamsModel.size(); i++) {
-			teamsNames[i + 1] = teamsModel.getElementAt(i).toString() + ";01.01.1970;";
+			teamsNames.add(teamsModel.getElementAt(i).toString() + ";01.01.1970;");
 		}
 		
 		return teamsNames;
 	}
 	
-	private String getKOTs() {
+	private String getKOTsRep() {
 		String kotRepresentation = kotModel.getSize() + ";";
 		
 		for (int i = 0; i < kotModel.getSize(); i++) {
@@ -518,17 +558,26 @@ public class NewLeagueDialog extends JFrame {
 		return kotRepresentation;
 	}
 	
-	private int[] getDefaultKOTs() {
+	private String getDefaultKOTsRep() {
 		int[] defaultKOTs = new int[numberOfTeams / 2];
+		String allZero = "0";
+		for (int i = 1; i < numberOfTeams / 2; i++) {
+			allZero += ",0";
+		}
 		String[] defKOTs = defaultKOTTF.getText().split(",");
 		
-		if (defaultKOTs.length != defKOTs.length)	return null;
+		if (defaultKOTs.length != defKOTs.length)	return allZero;
 		
 		for (int i = 0; i < defKOTs.length; i++) {
-			defaultKOTs[i] = Integer.parseInt(defKOTs[i]);
+			try {
+				defaultKOTs[i] = Integer.parseInt(defKOTs[i]);
+				if (defaultKOTs[i] >= kotModel.getSize())	return allZero;
+			} catch(NumberFormatException nfe) {
+				return allZero;
+			}
 		}
 		
-		return defaultKOTs;
+		return defaultKOTTF.getText();
 	}
 	
 	private void cancelActionPerformed() {
@@ -536,22 +585,19 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void goActionPerformed() {
-		// TODO kopieren aus der Methode in Start
-
-    	log("REQUIREMENT --- This should be done correctly. ");
-		
     	name = nameTF.getText();
     	season = Integer.parseInt(seasonTF.getText());
     	numberOfTeams = numOfTeamsCB.getSelectedIndex() + minNumOfTeams;
     	spGgSGegner = Integer.parseInt(sameOpponentTF.getText());
     	teamsNames = getTeamsNames();
-    	anzahlen = getAnzahlen();
-    	isSTSS = Boolean.parseBoolean(yearsRBGrp.getSelection().getActionCommand());
-    	defaultST = defaultSTCB.getSelectedIndex();
-    	KOTs = getKOTs();
-    	defKOTs = getDefaultKOTs();
+    	anzahlenRep = getAnzahlen();
+    	isSTSS = Boolean.parseBoolean(calendarYearRBGrp.getSelection().getActionCommand());
+    	goalDifference = Boolean.parseBoolean(goalDifferenceRBGrp.getSelection().getActionCommand());
+    	teamsHaveKader = Boolean.parseBoolean(teamsHaveKaderRBGrp.getSelection().getActionCommand());
+    	KOTsRep = getKOTsRep();
+    	defKOTsRep = getDefaultKOTsRep();
     	
-		start.addNewLeague(name, season, numberOfTeams, spGgSGegner, teamsNames, anzahlen, isSTSS, defaultST, KOTs, defKOTs);
+		start.addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
 		
 		this.setVisible(false);
 		start.toFront();

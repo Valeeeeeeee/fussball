@@ -34,13 +34,12 @@ public class Start extends JFrame {
 	private String[] koRShort = new String[] {"1R", "2R", "AF", "VF", "HF", "P3", "FI"};
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
-	
 	private int anzahlLigen;
 	private int anzahlTurniere;
 	
-	private Liga[] ligen;
+	private ArrayList<Liga> ligen;
 	private Liga aktuelleLiga;
+	private LigaSaison aktuelleLSaison;
 	
 	private ArrayList<Turnier> turniere;
 	private Turnier aktuellesTurnier;
@@ -49,10 +48,6 @@ public class Start extends JFrame {
 	private KORunde aktuelleKORunde;
 	
 	private boolean addingNewSeason;
-	private boolean teamChangeMode;
-	private int newSeasonTeamIndex = -1;
-	private ArrayList<Mannschaft> newSeasonTeamsOrder;
-	private ArrayList<Mannschaft> oldSeasonTeamsOrder;
 	
 	private boolean isCurrentlyALeague = false;
 	private boolean isCurrentlyInQualification = false;
@@ -78,17 +73,12 @@ public class Start extends JFrame {
 	private Rectangle REC_ADDLEAG = new Rectangle(520, 60, 180, 40);
 	private Rectangle REC_ADDTOUR = new Rectangle(740, 60, 180, 40);
 	
-	private Rectangle REC_LBLSAISON = new Rectangle(30, 30, 50, 25);
-	private Rectangle REC_TFSAISON = new Rectangle(90, 30, 50, 25);
-	private Rectangle REC_LBLBEARBEITEN = new Rectangle(170, 30, 70, 25);
-	private Rectangle REC_BTNNSFERTIG = new Rectangle(400, 750, 80, 30);
-	
 	// Homescreen
 	private JPanel Homescreen;
 	private JButton[] jBtnsLigen;
 	private JButton[] jBtnsTurniere;
-	private JButton addLeague;
-	private JButton addTournament;
+	private JButton jBtnAddLeague;
+	private JButton jBtnAddTournament;
 	private JButton jBtnBeenden;
 	
 	// Liga - Homescreen
@@ -100,20 +90,6 @@ public class Start extends JFrame {
 	private JButton jBtnTabelle;
 	private JButton jBtnStatistik;
 	private JButton jBtnOptionen;
-	
-	// Liga - neue Saison
-	private JPanel LigaNeueSaison;
-	private JLabel jLblSaison;
-	private JTextField jTFSaison;
-	private JLabel jLblBearbeiten;
-	private JLabel[] jLblsMannschaftenNeueSaison;
-	private JLabel[] jLblsMannschaftenAlteSaison;
-	private JLabel jLblName;
-	private JTextField jTFName;
-	private JLabel jLblDatum;
-	private JTextField jTFDatum;
-	private JButton jBtnChangeTeamCompleted;
-	private JButton jBtnLigaNeueSaisonFertig;
 	
 	// Turnier - Homescreen
 	private JPanel TurnierHomescreen;
@@ -143,7 +119,6 @@ public class Start extends JFrame {
 	public JPanel optionen;
 	private JButton correctNames;
 	private JLabel defaultStarttag;
-	private JComboBox<String> jCBDefStarttag;
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -179,8 +154,8 @@ public class Start extends JFrame {
 //		jBtnTabelleActionPerformed();
 //		uebersichtAnzeigen("VfB Stuttgart");
 		
-//		addLeagueActionPerformed();
-//		addTournamentActionPerformed();
+//		jBtnAddLeagueActionPerformed();
+//		jBtnAddTournamentActionPerformed();
 //		jBtnBeendenActionPerformed();
 		
 		
@@ -242,26 +217,26 @@ public class Start extends JFrame {
 		buildLeaguesButtons();
 		
 		{ 
-			addLeague = new JButton(); 
-			Homescreen.add(addLeague);
-			addLeague.setBounds(REC_ADDLEAG);
-			addLeague.setText("Add league");
-			addLeague.setFocusable(false);
-			addLeague.addActionListener(new ActionListener() {
+			jBtnAddLeague = new JButton(); 
+			Homescreen.add(jBtnAddLeague);
+			jBtnAddLeague.setBounds(REC_ADDLEAG);
+			jBtnAddLeague.setText("Add league");
+			jBtnAddLeague.setFocusable(false);
+			jBtnAddLeague.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					addLeagueActionPerformed();
+					jBtnAddLeagueActionPerformed();
 				}
 			});
 		}
 		{ 
-			addTournament = new JButton(); 
-			Homescreen.add(addTournament);
-			addTournament.setBounds(REC_ADDTOUR);
-			addTournament.setText("Add tournament");
-			addTournament.setFocusable(false);
-			addTournament.addActionListener(new ActionListener() {
+			jBtnAddTournament = new JButton(); 
+			Homescreen.add(jBtnAddTournament);
+			jBtnAddTournament.setBounds(REC_ADDTOUR);
+			jBtnAddTournament.setText("Add tournament");
+			jBtnAddTournament.setFocusable(false);
+			jBtnAddTournament.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					addTournamentActionPerformed();
+					jBtnAddTournamentActionPerformed();
 				}
 			});
 		}
@@ -292,7 +267,7 @@ public class Start extends JFrame {
 			jBtnsLigen[i] = new JButton();
 			Homescreen.add(jBtnsLigen[i]);
 			jBtnsLigen[i].setBounds(start_btnsstartx, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-			jBtnsLigen[i].setText(ligen[i].getName());
+			jBtnsLigen[i].setText(ligen.get(i).getName());
 			jBtnsLigen[i].setFocusable(false);
 			jBtnsLigen[i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -497,19 +472,6 @@ public class Start extends JFrame {
 			defaultStarttag.setToolTipText("An diesem Wochentag beginnt ueblicherweise ein Spieltag.");
 			defaultStarttag.setVisible(false);
 		}
-		{
-			String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
-			jCBDefStarttag = new JComboBox<>();
-			optionen.add(jCBDefStarttag);
-			jCBDefStarttag.setModel(new DefaultComboBoxModel<>(wochentage));
-			jCBDefStarttag.setBounds(130, 50, 100, 20);
-			jCBDefStarttag.setVisible(false);
-			jCBDefStarttag.addItemListener(new ItemListener() {
-				public void itemStateChanged(ItemEvent evt) {
-					jCBDefStarttagItemStateChanged(evt);
-				}
-			});
-		}
 	}
 	
 	public char[] getAlphabet() {
@@ -546,7 +508,7 @@ public class Start extends JFrame {
 			LigaHomescreen.setVisible(true);
 			LigaHomescreen.add(jBtnZurueck);
 			
-			aktuelleLiga = ligen[index];
+			aktuelleLiga = ligen.get(index);
 			jLblWettbewerb.setText(aktuelleLiga.getName());
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
@@ -557,15 +519,9 @@ public class Start extends JFrame {
 			if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
 				// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
 				aktuelleLiga.laden(0);
+				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
 				ligaspezifischesachenladen();
 			}
-			
-			aktuellerSpieltag = aktuelleLiga.getSpieltag();
-			getContentPane().add(aktuellerSpieltag);
-			aktuelleTabelle = aktuelleLiga.getTabelle();
-			getContentPane().add(aktuelleTabelle);
-			aktuelleStatistik = aktuelleLiga.getLigaStatistik();
-			getContentPane().add(aktuelleStatistik);
 		}
 	}
 	
@@ -580,6 +536,8 @@ public class Start extends JFrame {
 			TurnierHomescreen.add(jBtnZurueck);
 			
 			aktuellesTurnier = turniere.get(index);
+			// TODO check if this is visible
+			jLblWettbewerb.setText(aktuellesTurnier.getName());
 			
 			// befuellt die ComboBox mit den verfuegbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuellesTurnier.getAllSeasons()));
@@ -691,15 +649,12 @@ public class Start extends JFrame {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			int index = jCBSaisonauswahl.getSelectedIndex();
 			if (isCurrentlyALeague) {
-				try {
-					aktuelleLiga.speichern();
-				} catch (Exception e) {}
+				aktuelleLiga.speichern();
 				aktuelleLiga.laden(index);
+				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
 				ligaspezifischesachenladen();
 			} else {
-				try {
-					aktuellesTurnier.speichern();
-				} catch (Exception e) {}
+				aktuellesTurnier.speichern();
 				aktuellesTurnier.laden(index);
 				aktuelleTSaison = aktuellesTurnier.getAktuelleSaison();
 				turnierspezifischeSachenLaden();
@@ -707,19 +662,20 @@ public class Start extends JFrame {
 		}
 	}
 	
-	public void jCBDefStarttagItemStateChanged(ItemEvent evt) {
-		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			// TODO default starttag aendern
-		}
-	}
-	
 	private void ligaspezifischesachenladen() {
 		{
-			uebersicht = new Uebersicht(this, aktuelleLiga);
+			uebersicht = new Uebersicht(this, aktuelleLSaison);
 			getContentPane().add(uebersicht);
 			uebersicht.setLocation((this.WIDTH - uebersicht.getSize().width) / 2, 5);
 			uebersicht.setVisible(false);
 		}
+		
+		aktuellerSpieltag = aktuelleLSaison.getSpieltag();
+		getContentPane().add(aktuellerSpieltag);
+		aktuelleTabelle = aktuelleLSaison.getTabelle();
+		getContentPane().add(aktuelleTabelle);
+		aktuelleStatistik = aktuelleLSaison.getLigaStatistik();
+		getContentPane().add(aktuelleStatistik);
 	}
 	
 	private void turnierspezifischeSachenLaden() {
@@ -842,269 +798,23 @@ public class Start extends JFrame {
 	// Action- und ItemListener
 	private void jBtnNeueSaisonActionPerformed() {
 		addingNewSeason = true;
-		newSeasonTeamsOrder = new ArrayList<>();
-		oldSeasonTeamsOrder = new ArrayList<>();
+		
+		NeueLigaSaisonDialog nlsd = new NeueLigaSaisonDialog(this);
+		nlsd.setLocationRelativeTo(null);
+		nlsd.setVisible(true);
+		nlsd.setConfigurationFromPreviousSeason(aktuelleLSaison);
+		
 		LigaHomescreen.setVisible(false);
-		{
-			LigaNeueSaison = new JPanel();
-			getContentPane().add(LigaNeueSaison);
-			LigaNeueSaison.setLayout(null);
-			LigaNeueSaison.setBounds(470, 20, 500, 800);
-			LigaNeueSaison.setBackground(Color.red);
-		}
-		{
-			jLblSaison = new JLabel();
-			LigaNeueSaison.add(jLblSaison);
-			jLblSaison.setBounds(REC_LBLSAISON);
-			jLblSaison.setText("Saison");
-		}
-		{
-			jTFSaison = new JTextField();
-			LigaNeueSaison.add(jTFSaison);
-			jTFSaison.setBounds(REC_TFSAISON);
-			jTFSaison.setText("" + (aktuelleLiga.getAktuelleSaison() + 1));
-			jTFSaison.setOpaque(true);
-		}
-		{
-			jLblBearbeiten = new JLabel();
-			LigaNeueSaison.add(jLblBearbeiten);
-			jLblBearbeiten.setBounds(REC_LBLBEARBEITEN);
-			jLblBearbeiten.setText("Bearbeiten");
-			jLblBearbeiten.setCursor(handCursor);
-			jLblBearbeiten.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent evt) {
-					changeMode();
-				}
-			});
-		}
-		
-		Mannschaft[] mannschaften = aktuelleLiga.getMannschaften();
-		for (Mannschaft mannschaft : mannschaften) {
-			oldSeasonTeamsOrder.add(mannschaft);
-		}
-		jLblsMannschaftenNeueSaison = new JLabel[mannschaften.length];
-		jLblsMannschaftenAlteSaison = new JLabel[mannschaften.length];
-		for (int i = 0; i < jLblsMannschaftenNeueSaison.length; i++) {
-			final int x = i;
-			jLblsMannschaftenNeueSaison[i] = new JLabel();
-			LigaNeueSaison.add(jLblsMannschaftenNeueSaison[i]);
-			jLblsMannschaftenNeueSaison[i].setBounds(30, 70 + i * 30, 180, 20);
-			jLblsMannschaftenNeueSaison[i].setText("n/a");
-			jLblsMannschaftenNeueSaison[i].setVisible(false);
-			jLblsMannschaftenNeueSaison[i].setCursor(handCursor);
-			jLblsMannschaftenNeueSaison[i].addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent evt) {
-					putNewTeamToNextFreePosition(x);
-				}
-			});
-			
-			jLblsMannschaftenAlteSaison[i] = new JLabel();
-			LigaNeueSaison.add(jLblsMannschaftenAlteSaison[i]);
-			jLblsMannschaftenAlteSaison[i].setBounds(280, 70 + i * 30, 180, 20);
-			jLblsMannschaftenAlteSaison[i].setText(mannschaften[i].getName());
-			jLblsMannschaftenAlteSaison[i].setOpaque(false);
-			jLblsMannschaftenAlteSaison[i].setCursor(handCursor);
-			jLblsMannschaftenAlteSaison[i].addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent evt) {
-					putOldTeamToNextFreePosition(x);
-				}
-			});
-		}
-		int starty = 70 + mannschaften.length * 30;
-		Rectangle REC_LBLNAME = new Rectangle(30, starty + 15, 80, 25);
-		Rectangle REC_TFNAME = new Rectangle(150, starty + 15, 100, 25);
-		Rectangle REC_LBLDATUM = new Rectangle(30, starty + 50, 110, 25);
-		Rectangle REC_TFDATUM = new Rectangle(150, starty + 50, 100, 25);
-		Rectangle REC_BTNCTFERTIG = new Rectangle(30, starty + 85, 80, 25);
-		
-		{
-			jLblName = new JLabel();
-			LigaNeueSaison.add(jLblName);
-			jLblName.setBounds(REC_LBLNAME);
-			jLblName.setText("Vereinsname");
-			jLblName.setVisible(false);
-		}
-		{
-			jTFName = new JTextField();
-			LigaNeueSaison.add(jTFName);
-			jTFName.setBounds(REC_TFNAME);
-			jTFName.setVisible(false);
-		}
-		{
-			jLblDatum = new JLabel();
-			LigaNeueSaison.add(jLblDatum);
-			jLblDatum.setBounds(REC_LBLDATUM);
-			jLblDatum.setText("Gruendungsdatum");
-			jLblDatum.setVisible(false);
-		}
-		{
-			jTFDatum = new JTextField();
-			LigaNeueSaison.add(jTFDatum);
-			jTFDatum.setBounds(REC_TFDATUM);
-			jTFDatum.setVisible(false);
-			jTFDatum.addFocusListener(new FocusAdapter() {
-				public void focusGained(FocusEvent evt) {
-					jTFDatum.selectAll();
-				}
-			});
-		}
-		{
-			jBtnChangeTeamCompleted = new JButton();
-			LigaNeueSaison.add(jBtnChangeTeamCompleted);
-			jBtnChangeTeamCompleted.setBounds(REC_BTNCTFERTIG);
-			jBtnChangeTeamCompleted.setText("Fertig");
-			jBtnChangeTeamCompleted.setVisible(false);
-			jBtnChangeTeamCompleted.setFocusable(false);
-			jBtnChangeTeamCompleted.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					jBtnChangeTeamCompletedActionPerformed();
-				}
-			});
-		}
-		{
-			jBtnLigaNeueSaisonFertig = new JButton();
-			LigaNeueSaison.add(jBtnLigaNeueSaisonFertig);
-			jBtnLigaNeueSaisonFertig.setBounds(REC_BTNNSFERTIG);
-			jBtnLigaNeueSaisonFertig.setText("Fertig");
-			jBtnLigaNeueSaisonFertig.setFocusable(false);
-			jBtnLigaNeueSaisonFertig.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent evt) {
-					jBtnLigaNeueSaisonFertigActionPerformed();
-				}
-			});
-		}
 	}
 	
-	private void putNewTeamToNextFreePosition(int index) {
-		if (teamChangeMode) {
-			changeTeam(index);
-			return;
-		}
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setVisible(true);
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText(newSeasonTeamsOrder.get(index).getName());
-		oldSeasonTeamsOrder.add(newSeasonTeamsOrder.remove(index));
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(false);
-		for (int i = index; i < newSeasonTeamsOrder.size(); i++) {
-			jLblsMannschaftenNeueSaison[i].setText(newSeasonTeamsOrder.get(i).getName());
-		}
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText("n/a");
-	}
-	
-	private void putOldTeamToNextFreePosition(int index) {
-		if (oldSeasonTeamsOrder.size() <= aktuelleLiga.getAnzahlABS()) {
-			if(yesNoDialog("Laut Konfiguration muessen " + aktuelleLiga.getAnzahlABS()
-					+ " Mannschaften absteigen. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
-		}
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(oldSeasonTeamsOrder.get(index).getName());
-		newSeasonTeamsOrder.add(oldSeasonTeamsOrder.remove(index));
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setVisible(false);
-		for (int i = index; i < oldSeasonTeamsOrder.size(); i++) {
-			jLblsMannschaftenAlteSaison[i].setText(oldSeasonTeamsOrder.get(i).getName());
-		}
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText("n/a");
-	}
-	
-	private void changeMode() {
-		teamChangeMode = !teamChangeMode;
-		if (teamChangeMode) {
-			jLblBearbeiten.setText("Fertig");
-			for (JLabel label : jLblsMannschaftenNeueSaison) {
-				label.setVisible(true);
-			}
-		} else {
-			jLblBearbeiten.setText("Bearbeiten");
-			for (int i = newSeasonTeamsOrder.size(); i < jLblsMannschaftenNeueSaison.length; i++) {
-				jLblsMannschaftenNeueSaison[i].setVisible(false);
-			}
-		}
-	}
-	
-	private void changeTeam(int index) {
-		if (newSeasonTeamIndex != -1) {
-			jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(false);
-			repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
-		}
-		
-		newSeasonTeamIndex = index;
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(true);
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setBackground(Color.green);
-		repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
-		
-		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
-			jTFName.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getName());
-			jTFDatum.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getGruendungsdatum());
-		} else {
-			jTFName.setText("");
-			jTFDatum.setText("01.01.1970");
-		}
-		
-		jLblName.setVisible(true);
-		jTFName.setVisible(true);
-		jLblDatum.setVisible(true);
-		jTFDatum.setVisible(true);
-		jBtnChangeTeamCompleted.setVisible(true);
-		jTFName.requestFocus();
-	}
-	
-	private void jBtnChangeTeamCompletedActionPerformed() {
-		String name = jTFName.getText();
-		if (name.isEmpty()) {
-			message("Bitte Vereinsnamen angeben!");
-			return;
-		}
-		
-		String grDatum = jTFDatum.getText();
-		if (name.isEmpty()) {
-			message("Bitte Gruendungsdatum angeben!");
-			return;
-		}
-		int datum = MyDate.getDate(grDatum);
-		grDatum = MyDate.datum(datum);
-		
-		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
-			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
-			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
-		} else {
-			Mannschaft mannschaft = new Mannschaft(this, newSeasonTeamIndex, aktuelleLiga, name + ";" + grDatum);
-			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
-			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
-			newSeasonTeamsOrder.add(mannschaft);
-		}
-		
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(false);
-		repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
-		newSeasonTeamIndex = -1;
-		
-		jLblName.setVisible(false);
-		jTFName.setVisible(false);
-		jLblDatum.setVisible(false);
-		jTFDatum.setVisible(false);
-		jBtnChangeTeamCompleted.setVisible(false);
-	}
-	
-	private void jBtnLigaNeueSaisonFertigActionPerformed() {
-		int season;
-		try {
-			season = Integer.parseInt(jTFSaison.getText());
-		} catch(NumberFormatException nfe) {
-			message("Bitte geben Sie eine gueltige Zahl an.");
-			return;
-		}
-		
-		if (newSeasonTeamsOrder.size() != aktuelleLiga.getNumberOfTeams()) {
-			message("Bitte fuer die neue Saison " + aktuelleLiga.getNumberOfTeams() + " Mannschaften angeben.");
-			return;
-		}
-		
+	public void jBtnNeueLigaSaisonFertigActionPerformed(String toString, ArrayList<String> teamsNewSeasonOrder, String dKOTRep) {
 		addingNewSeason = false;
 		
-		if (aktuelleLiga.addSeason(season, newSeasonTeamsOrder)) {
+		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder, dKOTRep)) {
 			// befuellt die ComboBox mit den verfuegbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			
-			LigaNeueSaison.setVisible(false);
 			LigaHomescreen.setVisible(true);
 		}
 	}
@@ -1112,7 +822,7 @@ public class Start extends JFrame {
 	public void jBtnSpieltageActionPerformed() {
 		if (isCurrentlyALeague) {
 			// der Button wurde in einer Liga aufgerufen
-			if (aktuelleLiga.getNumberOfTeams() > 1) {
+			if (aktuelleLSaison.getNumberOfTeams() > 1) {
 				isCurrentlyInMatchdayView = true;
 				LigaHomescreen.setVisible(false);
 				aktuellerSpieltag.add(jBtnZurueck);
@@ -1136,7 +846,7 @@ public class Start extends JFrame {
 	
 	public void jBtnTabelleActionPerformed() {
 		if (isCurrentlyALeague) {
-			if (aktuelleLiga.getNumberOfTeams() <= 0) {
+			if (aktuelleLSaison.getNumberOfTeams() <= 0) {
 				JOptionPane.showMessageDialog(null, "Es wurden noch keine Mannschaften angelegt. Davor kann keine Tabelle angezeigt werden.");
 				return;
 			}
@@ -1190,10 +900,10 @@ public class Start extends JFrame {
 	
 	public void teamsVerbessern() {
 		if (isCurrentlyALeague) {
-			for (int i = 0; i < aktuelleLiga.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleLiga.getMannschaften()[i].getName() + "\"");
+			for (int i = 0; i < aktuelleLSaison.getNumberOfTeams(); i++) {
+				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleLSaison.getMannschaften()[i].getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
-					aktuelleLiga.getMannschaften()[i].setName(newName);
+					aktuelleLSaison.getMannschaften()[i].setName(newName);
 				}
 			}
 		} else {
@@ -1217,7 +927,7 @@ public class Start extends JFrame {
 		return null;
 	}
 	
-	private void addLeagueActionPerformed() {
+	private void jBtnAddLeagueActionPerformed() {
 		NewLeagueDialog nld = new NewLeagueDialog(this);
 		nld.setLocationRelativeTo(null);
 		nld.setVisible(true);
@@ -1226,7 +936,7 @@ public class Start extends JFrame {
 		nld.toFront();
 	}
 	
-	private void addTournamentActionPerformed() {
+	private void jBtnAddTournamentActionPerformed() {
 		NewTournamentDialog ntd = new NewTournamentDialog(this);
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
@@ -1235,7 +945,7 @@ public class Start extends JFrame {
 		ntd.toFront();
 	}
 	
-	public void addNewLeague(String name, int season, int numberOfTeams, int spGgSG, String[] teamsNames, int[] anzahlen, boolean isSTSS, int defaultST, String KOTs, int[] defKOTs) {
+	public void addNewLeague(String name, int season, boolean isSTSS, int numberOfTeams, int spGgSG, String defKOTsRep, boolean goalD, boolean tKader, String anzahlenRep, ArrayList<String> teamsNames, String KOTsRep) {
 		for (Liga liga : ligen) {
 			if (liga.getName().equals(name)) {
 				message("A league with this name already exists.");
@@ -1243,77 +953,34 @@ public class Start extends JFrame {
 			}
 		}
 		
-		
-		// Erstellung des config-Strings
-		if (teamsNames == null) {
-			teamsNames = new String[numberOfTeams + 1];
-			teamsNames[0] = "" + numberOfTeams;
-			for (int i = 1; i < teamsNames.length; i++)		teamsNames[i] = "Team " + i;
-		}
-		
-		String defaultKOTs = "" + defKOTs[0];
-		for (int i = 1; i < defKOTs.length; i++)	defaultKOTs += "," + defKOTs[i];
-		
-		String daten = "NAME*" + name + ";";
-		daten = daten + "D_ST*" + defaultST +";";
-		daten = daten + "DKT*" + defaultKOTs + ";";
-		daten = daten + "ISSTSS*" + isSTSS + ";";
-		daten = daten + "A_MS*" + numberOfTeams + ";";
-		daten = daten + "A_SGDG*" + spGgSG + ";";
-		daten = daten + "A_CL*" + anzahlen[0] + ";";
-		daten = daten + "A_CLQ*" + anzahlen[1] + ";";
-		daten = daten + "A_EL*" + anzahlen[2] + ";";
-		daten = daten + "A_REL*" + anzahlen[3] + ";";
-		daten = daten + "A_ABS*" + anzahlen[4] + ";";
-		daten = daten + "A_SAI*" + 1 + ";";
-		daten = daten + "S0*" + season + "*S0;";
-		
-		// Erstellung der Ordner
-		String saison;
-		if (isSTSS)	saison = season + "_" + (season + 1);
-		else		saison = "" + season;
-		
-		File leagueFile = new File(workspace + File.separator + name);
-		File seasonFile = new File(workspace + File.separator + name + File.separator + saison);
-		
 		try {
+			File leagueFile = new File(workspace + File.separator + name);
 			leagueFile.mkdir();
-			seasonFile.mkdir();
 		} catch (Exception e) {
-			error("Error while creating directories!");
+			error("Error while creating directories: " + e.getMessage());
+			message("The league could not be created because of an unexpected file error.");
+			return;
 		}
 		
-		// Erstellen und Abspeichern des Spiel- und Ergebnisplans
-		int numberOfMatchdays = spGgSG * (2 * (int) Math.round((double) numberOfTeams / 2) - 1);
-		int numberOfMatches = numberOfTeams / 2;
-		
-		String[] spielplan = new String[numberOfMatchdays + 1];
-		String[] ergebnisplan = new String[numberOfMatchdays];
-		
-		String representation = "";
-		for (int i = 0; i < numberOfMatches; i++) {
-			representation += "f";
-		}
-		
-		spielplan[0] = KOTs;
-		for (int i = 0; i < numberOfMatchdays; i++) {
-			spielplan[i + 1] = representation + ";";
-			ergebnisplan[i] = representation + ";";
-		}
-		
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teamsNames);
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Spielplan.txt", spielplan);
-		inDatei(seasonFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", ergebnisplan);
-		
+		String toString = name + ";";
+		Liga neueLiga = new Liga(anzahlLigen, this, toString);
+		ligen.add(neueLiga);
 		anzahlLigen++;
-		Liga[] oldLigen = ligen;
 		
-		ligen = new Liga[anzahlLigen];
-		for (int i = 0; i < oldLigen.length; i++) {
-			ligen[i] = oldLigen[i];
+		toString = season + ";";
+		toString += isSTSS + ";";
+		toString += numberOfTeams + ";";
+		toString += spGgSG + ";";
+		toString += defKOTsRep + ";";
+		toString += goalD + ";";
+		toString += tKader + ";";
+		toString += anzahlenRep + ";";
+		
+		neueLiga.addSeason(toString, teamsNames, KOTsRep);
+		
+		for (int i = 0; i < ligen.size(); i++) {
+			ligen.get(i).speichern();
 		}
-		ligen[ligen.length - 1] = new Liga(ligen.length - 1, this, daten);
-		
 		saveConfiguration();
 		loadConfiguration();
 		buildLeaguesButtons();
@@ -1511,7 +1178,7 @@ public class Start extends JFrame {
 			// is a league
 			if (aktuellerSpieltag.isVisible()) {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuelleLiga.ergebnisseSichern();
+					aktuelleLSaison.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
 						JOptionPane.showMessageDialog(null, "huhu");
@@ -1639,11 +1306,11 @@ public class Start extends JFrame {
 		int counter = 0;
 		
 		anzahlLigen = Integer.parseInt(configurationFromFile.get(counter));
-		ligen = new Liga[anzahlLigen];
+		ligen = new ArrayList<>();
 		counter++;
 		
 		for (int i = 0; i < anzahlLigen; i++) {
-			ligen[i] = new Liga(i, this, (String) configurationFromFile.get(counter));
+			ligen.add(new Liga(i, this, (String) configurationFromFile.get(counter)));
 			counter++;
 		}
 		
@@ -1663,8 +1330,8 @@ public class Start extends JFrame {
 		
 		configurationFromFile.add("" + anzahlLigen);
 		
-		for (int i = 0; i < ligen.length; i++) {
-			configurationFromFile.add(ligen[i].toString());
+		for (int i = 0; i < ligen.size(); i++) {
+			configurationFromFile.add(ligen.get(i).toString());
 		}
 		
 		configurationFromFile.add("" + anzahlTurniere);

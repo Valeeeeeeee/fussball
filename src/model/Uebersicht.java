@@ -14,7 +14,6 @@ public class Uebersicht extends JPanel {
 	// Spielplan
 	private Rectangle RECSPPLPNL;
 	
-	
 	// Informationen
 	private Rectangle RECINFPNL;
     private Rectangle RECLBLNAME = new Rectangle(50, 10, 320, 30);
@@ -81,10 +80,10 @@ public class Uebersicht extends JPanel {
 	private int numberOfPlayers;
 	private int numberOfPositions;
 
-    public Uebersicht(Start start, Liga liga/*, Mannschaft mannschaft*/) {
+    public Uebersicht(Start start, LigaSaison season/*, Mannschaft mannschaft*/) {
         super();
         this.start = start;
-        this.wettbewerb = liga;
+        this.wettbewerb = season;
         this.hasGrDatum = true;
 //        this.mannschaft = mannschaft;
         initGUI();
@@ -413,9 +412,9 @@ public class Uebersicht extends JPanel {
     	}
     	
     	for (int i = firstShownTeam; i <= lastShownTeam; i++) {
-    		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday()) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
+    		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
 			for (int j = 2; j < 10; j++) {
-				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday());
+				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE);
 			}
 			log(values);
 		}

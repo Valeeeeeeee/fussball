@@ -186,7 +186,7 @@ public class Gruppe implements Wettbewerb {
 		
 		tabelle.aktualisieren();
 		for (Mannschaft ms : mannschaften) {
-			if (ms.get(0, numberOfMatchdays - 1) == place - 1)		return ms;
+			if (ms.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
 		}
 		
 		return null;
@@ -201,7 +201,7 @@ public class Gruppe implements Wettbewerb {
     	return -1;
     }
 	
-	public Mannschaft getTeamwithName(String teamsName) {
+	public Mannschaft getTeamWithName(String teamsName) {
     	return mannschaften[getIndexOfMannschaft(teamsName) - 1];
     }
 	
