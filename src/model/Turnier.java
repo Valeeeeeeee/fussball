@@ -71,6 +71,22 @@ public class Turnier {
 		return saisons.get(this.aktuelleSaison);
 	}
 	
+	public boolean addNewSeason(String toString, ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
+		TurnierSaison neueSaison = new TurnierSaison(start, this, saisons.size(), toString);
+		for (int i = 0; i < saisons.size(); i++) {
+			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
+				message("Eine Saison mit diesem Startjahr existiert bereits.");
+				return false;
+			}
+		}
+		saisons.add(neueSaison);
+		
+		String folder = workspace + neueSaison.getSeasonFull("_") + File.separator;
+		(new File(folder)).mkdirs();
+		
+		return true;
+	}
+	
 	private void saisonsLaden() {
 		workspace = start.getWorkspace() + File.separator + name + File.separator;
 		

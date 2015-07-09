@@ -988,6 +988,42 @@ public class Start extends JFrame {
 		message("Successfully created new league.");
 	}
 	
+	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl,
+									ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
+		for (Turnier turnier : turniere) {
+			if (turnier.getName().equals(name)) {
+				message("A tournament with this name already exists.");
+				return;
+			}
+		}
+		
+		String toString = "NAME*" + name + ";";
+		toString += "SHN*" + shortName + ";";;
+		
+		Turnier neuesTurnier = new Turnier(anzahlTurniere, this, toString);
+		turniere.add(neuesTurnier);
+		anzahlTurniere++;
+		
+		toString = season + ";";
+		toString += isSTSS + ";";
+		toString += stDate + ";";
+		toString += fiDate + ";";
+		toString += hasQ + ";";
+		toString += hasGrp + ";";
+		toString += hasKO + ";";
+		toString += grp2leg + ";";
+		toString += ko2leg + ";";
+		toString += has3pl + ";";
+		
+		neuesTurnier.addNewSeason(toString, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+		
+		saveConfiguration();
+		loadConfiguration();
+		buildLeaguesButtons();
+		
+		message("Successfully created new tournament.");
+	}
+	
 	public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
 									int nOTeam, int nOGrp, int nOKO, String[][] teamsGrp, String[][] teamsKO) {
 		for (Turnier turnier : turniere) {
