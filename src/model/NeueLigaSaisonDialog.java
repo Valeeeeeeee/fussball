@@ -405,11 +405,9 @@ public class NeueLigaSaisonDialog extends JFrame {
 		defaultKickoffTimes = lSeason.getDefaultKickoffTimes();
 		kickOffTimes = lSeason.getKickOffTimes();
 		int lastKOT = defaultKickoffTimes[defaultKickoffTimes.length - 1];
-		log("Es waren mal " + kickOffTimes.size());
 		while (lastKOT + 1 < kickOffTimes.size()) {
 			kickOffTimes.remove(lastKOT);
 		}
-		log("Hier sind es noch " + kickOffTimes.size());
 	}
 	
 	private void setAnzahlen(LigaSaison lSeason) {
@@ -459,11 +457,9 @@ public class NeueLigaSaisonDialog extends JFrame {
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
 		
-		log("will pass on " + toString + "\nand teams: ");
 		ArrayList<String> teamsNames = new ArrayList<>();
 		for (int i = 0; i < newSeasonTeamsOrder.size(); i++) {
 			teamsNames.add(newSeasonTeamsOrder.get(i).toString());
-			log(teamsNames.get(i));
 		}
 		
 		int numberOfDKOT = kickOffTimes.size();

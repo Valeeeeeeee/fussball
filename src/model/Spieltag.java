@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -21,6 +22,8 @@ public class Spieltag extends JPanel {
 	private Color colorUp = new Color(224, 255, 224);
 	private Color colorDown = new Color(96, 255, 96);
 	private Color colorDatum = new Color(255, 191, 31);
+	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
+	private Font fontRR = new Font("Dialog", 1, 18);
 	
 	private JComboBox<String> jCBSpieltage;
 	public JLabel[] jLblsMannschaften;
@@ -37,6 +40,15 @@ public class Spieltag extends JPanel {
 	private JLabel[] jLblsSpieltagsdaten;
 	private JLabel[] jLblsGruppen;
 	private SpielInformationen spielInformationen;
+	
+	private JPanel jPnlEnterRueckrunde;
+	private JLabel jLblRRBeschreibung;
+	private JLabel jLblHinrunde;
+	private JLabel[] jLblsHinrunde;
+	private JLabel jLblRueckrunde;
+	private JLabel[] jLblsRueckrunde;
+	private JButton jBtnEnterRueckrundeCancel;
+	private JButton jBtnEnterRueckrundeCompleted;
 
 	private int[][] array;
 	private Ergebnis[] ergebnisse;
@@ -47,6 +59,11 @@ public class Spieltag extends JPanel {
 	private int editedMatchday = -1;
 	private int currentMatchday = -1;
 	private boolean editingMatches;
+	
+	private ArrayList<Integer> matchdaysHinrunde;
+	private ArrayList<Integer> matchdaysRueckrunde;
+	
+	private int[] rrLabels = new int[] {20, 80, 50, 70, 40, 30};
 	
 	private int[] buttonsauswahl;
 	private int[] labels;
@@ -63,6 +80,14 @@ public class Spieltag extends JPanel {
 	private Rectangle REC_RESETMD = new Rectangle(250, 45, 80, 30);
 	private Rectangle REC_DEFKOT = new Rectangle(30, 45, 170, 30);
 	private Rectangle REC_BTNRRUNDE = new Rectangle(340, 45, 120, 30);
+	
+	private static final int INDENT = 20;
+	private Rectangle REC_PNLRRUNDE;
+	private Rectangle REC_LBLRRDESCR;
+	private Rectangle REC_LBLHRUNDE;
+	private Rectangle REC_LBLRRUNDE;
+	private Rectangle REC_BTNRRCANCEL;
+	private Rectangle REC_BTNRRCOMPLETE;
 
 	private JPanel jPnlTeamsSelection;
 	private JButton[] jBtnsMannschaften;
@@ -250,6 +275,10 @@ public class Spieltag extends JPanel {
 			jTFsTore = new JTextField[2 * numberOfMatches];
 			array = new int[numberOfMatches][2];
 			jLblsSpieltagsdaten = new JLabel[numberOfMatches];
+			jLblsHinrunde = new JLabel[numberOfMatchdays / 2];
+			jLblsRueckrunde = new JLabel[numberOfMatchdays / 2];
+			matchdaysHinrunde = new ArrayList<>();
+			matchdaysRueckrunde = new ArrayList<>();
 			
 			{
 				String[] hilfsarray = new String[numberOfMatchdays];
@@ -382,6 +411,21 @@ public class Spieltag extends JPanel {
 					}
 				});
 			}
+			for (int i = 0; i < jBtnsMoreOptions.length; i++) {
+				final int x = i;
+				jBtnsMoreOptions[i] = new JButton();
+				this.add(jBtnsMoreOptions[i]);
+				jBtnsMoreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
+						moreOptButtons[SIZEX], moreOptButtons[SIZEY]);
+				jBtnsMoreOptions[i].setText("+");
+				jBtnsMoreOptions[i].setToolTipText("Reset this result.");
+				jBtnsMoreOptions[i].setFocusable(false);
+				jBtnsMoreOptions[i].addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						jBtnsMoreOptionsClicked(x);
+					}
+				});
+			}
 			for (int i = 0; i < jLblsZusatzInfos.length; i++) {
 				jLblsZusatzInfos[i] = new JLabel();
 				this.add(jLblsZusatzInfos[i]);
@@ -461,18 +505,93 @@ public class Spieltag extends JPanel {
 					}
 				});
 			}
-			for (int i = 0; i < jBtnsMoreOptions.length; i++) {
+			int width = (numberOfMatchdays / 2 - 1) * rrLabels[GAPX] + rrLabels[SIZEX] + 2 * INDENT;
+			int height = rrLabels[STARTY] + rrLabels[GAPY] + rrLabels[SIZEY] + INDENT;
+			REC_PNLRRUNDE = new Rectangle(50, 60, width, height);
+			REC_LBLRRDESCR = new Rectangle(INDENT, INDENT, 530, 20);
+			REC_LBLHRUNDE = new Rectangle(INDENT, rrLabels[STARTY] - 25, 60, 20);
+			REC_LBLRRUNDE = new Rectangle(INDENT, rrLabels[STARTY] - 25 + rrLabels[GAPY], 80, 20);
+			REC_BTNRRCANCEL = new Rectangle(width - 2 * (120 + INDENT), INDENT, 120, 25);
+			REC_BTNRRCOMPLETE = new Rectangle(width - 120 - INDENT, INDENT, 120, 25);
+			{
+				jPnlEnterRueckrunde = new JPanel();
+				this.add(jPnlEnterRueckrunde);
+				jPnlEnterRueckrunde.setLayout(null);
+				jPnlEnterRueckrunde.setBackground(colorSelection);
+				jPnlEnterRueckrunde.setBounds(REC_PNLRRUNDE);
+				jPnlEnterRueckrunde.setVisible(false);
+			}
+			{
+				jLblRRBeschreibung = new JLabel();
+				jPnlEnterRueckrunde.add(jLblRRBeschreibung);
+				jLblRRBeschreibung.setBounds(REC_LBLRRDESCR);
+				jLblRRBeschreibung.setText("Klicken die auf die Spieltage in der Reihenfolge, wie sie in der Rueckrunde gespielt werden.");
+			}
+			{
+				jLblHinrunde = new JLabel();
+				jPnlEnterRueckrunde.add(jLblHinrunde);
+				jLblHinrunde.setBounds(REC_LBLHRUNDE);
+				jLblHinrunde.setText("Hinrunde");
+			}
+			{
+				jLblRueckrunde = new JLabel();
+				jPnlEnterRueckrunde.add(jLblRueckrunde);
+				jLblRueckrunde.setBounds(REC_LBLRRUNDE);
+				jLblRueckrunde.setText("Rueckrunde");
+			}
+			for (int i = 0; i < numberOfMatchdays / 2; i++) {
+				matchdaysHinrunde.add(i + 1);
+				
 				final int x = i;
-				jBtnsMoreOptions[i] = new JButton();
-				this.add(jBtnsMoreOptions[i]);
-				jBtnsMoreOptions[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
-						moreOptButtons[SIZEX], moreOptButtons[SIZEY]);
-				jBtnsMoreOptions[i].setText("+");
-				jBtnsMoreOptions[i].setToolTipText("Reset this result.");
-				jBtnsMoreOptions[i].setFocusable(false);
-				jBtnsMoreOptions[i].addActionListener(new ActionListener() {
+				jLblsHinrunde[i] = new JLabel();
+				jPnlEnterRueckrunde.add(jLblsHinrunde[i]);
+				jLblsHinrunde[i].setBounds(rrLabels[STARTX] + i * rrLabels[GAPX], rrLabels[STARTY], rrLabels[SIZEX], rrLabels[SIZEY]);
+				jLblsHinrunde[i].setHorizontalAlignment(SwingConstants.CENTER);
+				jLblsHinrunde[i].setFont(fontRR);
+				jLblsHinrunde[i].setText("" + (i + 1));
+				jLblsHinrunde[i].setCursor(handCursor);
+				jLblsHinrunde[i].setOpaque(true);
+				jLblsHinrunde[i].addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						putHinrundeMDToNextFreePosition(x);
+					}
+				});
+				
+				jLblsRueckrunde[i] = new JLabel();
+				jPnlEnterRueckrunde.add(jLblsRueckrunde[i]);
+				jLblsRueckrunde[i].setBounds(rrLabels[STARTX] + i * rrLabels[GAPX], rrLabels[STARTY] + rrLabels[GAPY], rrLabels[SIZEX], rrLabels[SIZEY]);
+				jLblsRueckrunde[i].setHorizontalAlignment(SwingConstants.CENTER);
+				jLblsRueckrunde[i].setFont(fontRR);
+				jLblsRueckrunde[i].setText("");
+				jLblsRueckrunde[i].setCursor(handCursor);
+				jLblsRueckrunde[i].setOpaque(true);
+				jLblsRueckrunde[i].addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						putRueckrundeMDToNextFreePosition(x);
+					}
+				});
+			}
+			{
+				jBtnEnterRueckrundeCancel = new JButton();
+				jPnlEnterRueckrunde.add(jBtnEnterRueckrundeCancel);
+				jBtnEnterRueckrundeCancel.setBounds(REC_BTNRRCANCEL);
+				jBtnEnterRueckrundeCancel.setText("abbrechen");
+				jBtnEnterRueckrundeCancel.setFocusable(false);
+				jBtnEnterRueckrundeCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						jBtnsMoreOptionsClicked(x);
+						jBtnEnterRueckrundeCancelActionPerformed();
+					}
+				});
+			}
+			{
+				jBtnEnterRueckrundeCompleted = new JButton();
+				jPnlEnterRueckrunde.add(jBtnEnterRueckrundeCompleted);
+				jBtnEnterRueckrundeCompleted.setBounds(REC_BTNRRCOMPLETE);
+				jBtnEnterRueckrundeCompleted.setText("fertig");
+				jBtnEnterRueckrundeCompleted.setFocusable(false);
+				jBtnEnterRueckrundeCompleted.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						jBtnEnterRueckrundeCompletedActionPerformed();
 					}
 				});
 			}
@@ -815,6 +934,7 @@ public class Spieltag extends JPanel {
 		jBtnPrevious.setEnabled(false);
 		jBtnNext.setEnabled(false);
 		jBtnResetMatchday.setVisible(false);
+		jBtnEnterRueckrunde.setVisible(false);
 		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(false);
 	}
 
@@ -824,21 +944,7 @@ public class Spieltag extends JPanel {
 	 */
 	public int jBtnFertigActionPerformed() {
 		int fehlerart = -1;
-		// 1. Fehlerfall: es gibt doppelte Vorkommnisse im Array
-		for (int i = 0; i < 2 * array.length; i++) {
-			int r = array[i % array.length][i / array.length];
-			for (int j = 0; j < 2 * array.length; j++) {
-				if (i != j) {
-					int s = array[j % array.length][j / array.length];
-					if (r == s) {
-						fehlerart = 2;
-						break;
-					}
-				}
-			}
-			if (fehlerart == 2)		break;
-		}
-		// 2. Fehlerfall: es befinden sich noch ungesetzte Felder im Array
+		// 1. Fehlerfall: es befinden sich noch ungesetzte Felder im Array
 		for (int i = 0; i < array.length; i++) {
 			if (array[i][0] == -1) {
 				fehlerart = 1;
@@ -850,11 +956,8 @@ public class Spieltag extends JPanel {
 		}
 		
 		int saveanyway = 0;
-		if (fehlerart == 2) {
-			JOptionPane.showMessageDialog(null, "Some teams appear twice. Remove the mistake before you can save.", "Fehler", JOptionPane.ERROR_MESSAGE);
-			saveanyway = 1;
-		} else if (fehlerart == 1) {
-			saveanyway = JOptionPane.showConfirmDialog(null, "The matchday is incomplete. \nContinue anyway?", "Warning", JOptionPane.YES_NO_OPTION);
+		if (fehlerart == 1) {
+			saveanyway = JOptionPane.showConfirmDialog(null, "Es fehlen noch Spiele. \nTrotzdem fortfahren?", "Warnung", JOptionPane.YES_NO_OPTION);
 		}
 		
 		if (saveanyway == 0) {
@@ -896,6 +999,7 @@ public class Spieltag extends JPanel {
 			jBtnPrevious.setEnabled(true);
 			jBtnNext.setEnabled(true);
 			jBtnResetMatchday.setVisible(true);
+			jBtnEnterRueckrunde.setVisible(true);
 			if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(true);
 			editingMatches = false;
 			spieltagAnzeigen();
@@ -961,43 +1065,62 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void jBtnEnterRueckrundeActionPerformed() {
-		String standard = "1";
-		for (int i = 2; i <= (numberOfMatchdays / 2); i++) {
-			standard += "," + i;
+		showRueckrundePanel(true);
+	}
+	
+	private void putHinrundeMDToNextFreePosition(int index) {
+		jLblsRueckrunde[matchdaysRueckrunde.size()].setText("" + matchdaysHinrunde.get(index));
+		matchdaysRueckrunde.add(matchdaysHinrunde.remove(index));
+		jLblsHinrunde[matchdaysHinrunde.size()].setVisible(false);
+		for (int i = index; i < matchdaysHinrunde.size(); i++) {
+			jLblsHinrunde[i].setText("" + matchdaysHinrunde.get(i));
 		}
-		String eingabe = inputDialog("Please enter the order of the hinrunde matchdays matching the rueckrunde order.", standard);
-		String[] eingabeSplit = eingabe.split(",");
-		if (eingabeSplit.length * 2 != numberOfMatchdays) {
-			message("You have to submit " + (numberOfMatchdays / 2) + " values separated by comma.");
+		jLblsHinrunde[matchdaysHinrunde.size()].setText("");
+	}
+	
+	private void putRueckrundeMDToNextFreePosition(int index) {
+		if (index >= matchdaysRueckrunde.size())	return;
+		jLblsHinrunde[matchdaysHinrunde.size()].setVisible(true);
+		jLblsHinrunde[matchdaysHinrunde.size()].setText("" + matchdaysRueckrunde.get(index));
+		matchdaysHinrunde.add(matchdaysRueckrunde.remove(index));
+		for (int i = index; i < matchdaysRueckrunde.size(); i++) {
+			jLblsRueckrunde[i].setText("" + matchdaysRueckrunde.get(i));
+		}
+		jLblsRueckrunde[matchdaysRueckrunde.size()].setText("");
+	}
+	
+	private void jBtnEnterRueckrundeCancelActionPerformed() {
+		showRueckrundePanel(false);
+	}
+	
+	private void jBtnEnterRueckrundeCompletedActionPerformed() {
+		if (matchdaysHinrunde.size() > 0) {
+			message("Es fehlen noch Spieltage aus der Hinrunde.");
 			return;
 		}
 		
-		int[] rueckrundeOrder = new int[eingabeSplit.length];
-		try {
-			for (int i = 0; i < rueckrundeOrder.length; i++) {
-				rueckrundeOrder[i] = Integer.parseInt(eingabeSplit[i]);
-			}
-		} catch (NumberFormatException nfe) {
-			message("You have to enter numbers!");
-			return;
+		int[] rueckrundeOrder = new int[matchdaysRueckrunde.size()];
+		for (int i = 0; i < rueckrundeOrder.length; i++) {
+			rueckrundeOrder[i] = matchdaysRueckrunde.remove(0);
 		}
 		
-		boolean[] checks = new boolean[rueckrundeOrder.length];
-		try {
-			for (int i = 0; i < rueckrundeOrder.length; i++) {
-				if (!checks[rueckrundeOrder[i] - 1])	checks[rueckrundeOrder[i] - 1] = true;
-				else {
-					message("You have to submit distinct values.");
-					return;
-				}
-			}
-		} catch (ArrayIndexOutOfBoundsException aioobe) {
-			message("You have to submit values between 0 and " + (numberOfMatchdays / 2) + ".");
-			return;
-		}
-		
+		showRueckrundePanel(false);
 		season.setRueckrundeToOrder(rueckrundeOrder);
 		spieltagAnzeigen();
+	}
+	
+	private void showRueckrundePanel(boolean showRRPanel) {
+		jPnlEnterRueckrunde.setVisible(showRRPanel);
+		
+		for (JTextField tf : jTFsTore)			tf.setVisible(!showRRPanel);
+		for (JLabel lbl : jLblsMannschaften)	lbl.setVisible(!showRRPanel);
+		for (JLabel lbl : jLblsSpieltagsdaten)	lbl.setVisible(!showRRPanel);
+		for (JButton btn : jBtnsMoreOptions)	btn.setVisible(!showRRPanel);
+		
+		jBtnBearbeiten.setVisible(!showRRPanel);
+		jBtnResetMatchday.setVisible(!showRRPanel);
+		jBtnEnterRueckrunde.setVisible(!showRRPanel);
+		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(!showRRPanel);
 	}
 
 	private void jBtnDefaultKickoffActionPerformed() {
