@@ -96,7 +96,7 @@ public class Mannschaft {
 		int numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
-		else					numberOfMatchdays = tSeason.getNumberOfKORounds() * (tSeason.hasSecondLegKOStage() ? 2 : 1);
+		else					numberOfMatchdays = 0;
 		daten = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 		spiele = new Spiel[numberOfMatchdays];

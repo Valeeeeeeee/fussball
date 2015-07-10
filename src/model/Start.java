@@ -988,7 +988,7 @@ public class Start extends JFrame {
 		message("Successfully created new league.");
 	}
 	
-	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl,
+	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
 									ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
 		for (Turnier turnier : turniere) {
 			if (turnier.getName().equals(name)) {
@@ -998,7 +998,7 @@ public class Start extends JFrame {
 		}
 		
 		String toString = "NAME*" + name + ";";
-		toString += "SHN*" + shortName + ";";;
+		toString += "SHN*" + shortName + ";";
 		
 		Turnier neuesTurnier = new Turnier(anzahlTurniere, this, toString);
 		turniere.add(neuesTurnier);
@@ -1011,8 +1011,6 @@ public class Start extends JFrame {
 		toString += hasQ + ";";
 		toString += hasGrp + ";";
 		toString += hasKO + ";";
-		toString += grp2leg + ";";
-		toString += ko2leg + ";";
 		toString += has3pl + ";";
 		
 		neuesTurnier.addNewSeason(toString, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);

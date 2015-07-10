@@ -19,7 +19,6 @@ public class TurnierSaison {
 	private boolean hasGroupStage;
 	private boolean hasKOStage;
 	private boolean hasSecondLegGroupStage;
-	private boolean hasSecondLegKOStage;
 	private boolean matchForThirdPlace;
 	
 	private Spieltag overview;
@@ -28,6 +27,7 @@ public class TurnierSaison {
 	
 	private boolean hasQGroupStage;
 	private boolean hasQKOStage;
+	private boolean hasSecondLegQGroupStage;
 	
 	private Spieltag qOverview;
 	private Gruppe[] qGruppen;
@@ -126,8 +126,8 @@ public class TurnierSaison {
 		return hasSecondLegGroupStage;
 	}
 
-	public boolean hasSecondLegKOStage() {
-		return hasSecondLegKOStage;
+	public boolean hasSecondLegQGroupStage() {
+		return hasSecondLegQGroupStage;
 	}
 	
 	public boolean hasMatchForThirdPlace() {
@@ -481,6 +481,7 @@ public class TurnierSaison {
 		numberOfQGroups = Integer.parseInt(qualifikationDatenFromFile.remove(0));
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
+			hasSecondLegQGroupStage = Boolean.parseBoolean(qualifikationDatenFromFile.remove(0));
 			qGruppen = new Gruppe[numberOfQGroups];
 			for (int i = 0; i < numberOfQGroups; i++) {
 				qGruppen[i] = new Gruppe(start, this, i, true);
@@ -508,6 +509,7 @@ public class TurnierSaison {
 		qualifikationDatenFromFile.clear();
 		
 		qualifikationDatenFromFile.add("" + numberOfQGroups);
+		if (hasQGroupStage)	qualifikationDatenFromFile.add("" + hasSecondLegQGroupStage);
 		for (int i = 0; i < numberOfQGroups; i++) {
 			qGruppen[i].speichern();
 		}
@@ -525,7 +527,8 @@ public class TurnierSaison {
 		if (!hasGroupStage)	return;
 		gruppenDatenFromFile = ausDatei(dateiGruppenDaten);
 		
-		numberOfGroups = Integer.parseInt(gruppenDatenFromFile.get(0));
+		numberOfGroups = Integer.parseInt(gruppenDatenFromFile.remove(0));
+		hasSecondLegGroupStage = Boolean.parseBoolean(gruppenDatenFromFile.remove(0));
 		gruppen = new Gruppe[numberOfGroups];
 		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this.start, this, i, false);
 		{
@@ -542,6 +545,7 @@ public class TurnierSaison {
 		
 		gruppenDatenFromFile.clear();
 		gruppenDatenFromFile.add("" + numberOfGroups);
+		gruppenDatenFromFile.add("" + hasSecondLegGroupStage);
 		
 		saveRanks();
 		
@@ -614,8 +618,6 @@ public class TurnierSaison {
 		toString += hasQualification + ";";
 		toString += hasGroupStage + ";";
 		toString += hasKOStage + ";";
-		toString += hasSecondLegGroupStage + ";";
-		toString += hasSecondLegKOStage + ";";
 		toString += matchForThirdPlace + ";";
 		
 		return toString;
@@ -632,8 +634,6 @@ public class TurnierSaison {
 		hasQualification = Boolean.parseBoolean(split[index++]);
 		hasGroupStage = Boolean.parseBoolean(split[index++]);
 		hasKOStage = Boolean.parseBoolean(split[index++]);
-		hasSecondLegGroupStage = Boolean.parseBoolean(split[index++]);
-		hasSecondLegKOStage = Boolean.parseBoolean(split[index++]);
 		matchForThirdPlace = Boolean.parseBoolean(split[index++]);
 	}
 }

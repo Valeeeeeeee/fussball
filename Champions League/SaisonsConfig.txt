@@ -1,2 +1,2 @@
-2014;true;20140916;20150606;false;true;true;true;true;false;
-2015;true;20150630;20160528;true;true;true;true;true;false;
+2014;true;20140916;20150606;false;true;true;false;
+2015;true;20150630;20160528;true;true;true;false;

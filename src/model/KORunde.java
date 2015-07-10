@@ -88,6 +88,10 @@ public class KORunde implements Wettbewerb {
 		return this.id;
 	}
 	
+	public boolean isQualification() {
+		return isQ;
+	}
+	
 	public String getName() {
 		return this.name;
 	}

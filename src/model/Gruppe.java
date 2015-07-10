@@ -76,6 +76,10 @@ public class Gruppe implements Wettbewerb {
 		return this.id;
 	}
 	
+	public boolean isQualification() {
+		return isQ;
+	}
+	
 	public String getMatchdayDescription(int matchday) {
 		String isQuali = isQ ? ", Qualifikation" : "";
 		return season.getDescription() + isQuali + ", " + name + ", " + (matchday + 1) + ". Spieltag";
@@ -478,7 +482,7 @@ public class Gruppe implements Wettbewerb {
 		
 		numberOfTeams = this.teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
-		numberOfMatchesAgainstSameOpponent = season.hasSecondLegGroupStage() ? 2 : 1;
+		numberOfMatchesAgainstSameOpponent = (isQ ? season.hasSecondLegQGroupStage() : season.hasSecondLegGroupStage()) ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
 		numberOfMatchdays *= numberOfMatchesAgainstSameOpponent;
 		mannschaften = new Mannschaft[numberOfTeams];
