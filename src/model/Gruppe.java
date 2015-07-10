@@ -60,8 +60,8 @@ public class Gruppe implements Wettbewerb {
 		
 		this.season = season;
 		this.turnier = season.getTurnier();
-		this.startDate = season.getStartDate();
-		this.finalDate = season.getFinalDate();
+		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
+		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
 		
 		this.laden();
 		

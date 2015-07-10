@@ -76,8 +76,8 @@ public class KORunde implements Wettbewerb {
 		this.id = id;
 		this.isQ = isQ;
 		
-		this.startDate = season.getStartDate();
-		this.finalDate = season.getFinalDate();
+		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
+		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
 		
 		fromString(daten);
 		

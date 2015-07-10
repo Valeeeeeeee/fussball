@@ -14,6 +14,8 @@ public class TurnierSaison {
 	private int season;
 	private int startDate;
 	private int finalDate;
+	private int qStartDate;
+	private int qFinalDate;
 	
 	private boolean hasQualification;
 	private boolean hasGroupStage;
@@ -84,6 +86,14 @@ public class TurnierSaison {
 	
 	public int getFinalDate() {
 		return finalDate;
+	}
+	
+	public int getQStartDate() {
+		return qStartDate;
+	}
+	
+	public int getQFinalDate() {
+		return qFinalDate;
 	}
 	
 	public boolean hasQualification() {
@@ -273,20 +283,31 @@ public class TurnierSaison {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
 		if (isQ) {
-			for (int i = 0; i < orderOfOrigins.length; i++) {
-				orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
-			}
-		} else if (hasGroupStage) {
-			String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound);
-			
-			for (int i = 0; i < orderOfOrigins.length; i++) {
-				orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i]);
+			if (hasQGroupStage) {
+				String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
+				
+				for (int i = 0; i < orderOfOrigins.length; i++) {
+					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
+				}
+			} else {
+				for (int i = 0; i < orderOfOrigins.length; i++) {
+					orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
+				}
 			}
 		} else {
-			for (int i = 0; i < orderOfOrigins.length; i++) {
-				orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
+			if (hasGroupStage) {
+				String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
+				
+				for (int i = 0; i < orderOfOrigins.length; i++) {
+					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
+				}
+			} else {
+				for (int i = 0; i < orderOfOrigins.length; i++) {
+					orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
+				}
 			}
 		}
+		
 		
 		return orderOfOrigins;
 	}
@@ -299,9 +320,9 @@ public class TurnierSaison {
 	 * @param KORound
 	 * @return
 	 */
-	private String[] getGroupStageOriginsOfTeams(String[] origins, boolean teamsAreWinners, int KORound) {
-		if (KORound < 0 || KORound >= numberOfKORounds) {
-			log("just returned null because KORound = " + KORound + " which is less than 0 or greater than or equal to " + numberOfKORounds);
+	private String[] getGroupStageOriginsOfTeams(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
+		if (KORound < 0 || (isQ && KORound >= numberOfQKORounds) || (!isQ && KORound >= numberOfKORounds)) {
+			log("just returned null because KORound = " + KORound + " which is less than 0 or greater than or equal to " + (isQ ? numberOfQKORounds : numberOfKORounds));
 			return null;
 		}
 		
@@ -309,7 +330,7 @@ public class TurnierSaison {
 		
 		int skipARound = 0;
 		// in case of a match for the third place, there is a gap of two rounds between the final and the semifinals
-		if (matchForThirdPlace && KORound == numberOfKORounds - 1)	skipARound = 1;
+		if (!isQ && matchForThirdPlace && KORound == numberOfKORounds - 1)	skipARound = 1;
 		int koIndex = KORound - 1 - skipARound;
 		
 		String[] olderOrigins = new String[origins.length];
@@ -317,13 +338,15 @@ public class TurnierSaison {
 			if (origins[i] == null) {
 				olderOrigins[i] = null;
 			} else if (teamsAreWinners) {
-				olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
 			} else {
-				olderOrigins[i] = koRunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2, 3)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
 			}
 		}
 		
-		return getGroupStageOriginsOfTeams(olderOrigins, true, KORound - 1 - skipARound);
+		return getGroupStageOriginsOfTeams(olderOrigins, true, KORound - 1 - skipARound, isQ);
 	}
 	
 	/**
@@ -331,7 +354,7 @@ public class TurnierSaison {
 	 * @param teamsorigin origin of the team in the format 'GG1'
 	 * @return
 	 */
-	public Mannschaft getTeamFromGroupstageOrigin(String teamsorigin) {
+	public Mannschaft getTeamFromGroupstageOrigin(String teamsorigin, boolean isQ) {
 		Mannschaft mannschaft = null;
 		
 		if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
@@ -346,19 +369,21 @@ public class TurnierSaison {
 				return null;
 			}
 			
-			int placeindex = Integer.parseInt("" + teamsorigin.charAt(2));
+			int placeindex = Integer.parseInt(teamsorigin.substring(2));
 			
-			mannschaft = getTeamFromGroupstageOrigin(groupindex, placeindex);
+			mannschaft = getTeamFromGroupstageOrigin(groupindex, placeindex, isQ);
 		}
 		
 		return mannschaft;
 	}
 	
-	private Mannschaft getTeamFromGroupstageOrigin(int groupindex, int placeindex) {
+	private Mannschaft getTeamFromGroupstageOrigin(int groupindex, int placeindex, boolean isQ) {
 		Mannschaft mannschaft = null;
 		
-		if (groupindex >= 0 && groupindex < numberOfGroups) {
+		if (isQ && groupindex >= 0 && groupindex < numberOfGroups) {
 			mannschaft = gruppen[groupindex].getTeamOnPlace(placeindex);
+		} else if (!isQ && groupindex >= 0 && groupindex < numberOfQGroups) {
+			mannschaft = qGruppen[groupindex].getTeamOnPlace(placeindex);
 		}
 		
 		return mannschaft;
@@ -478,6 +503,8 @@ public class TurnierSaison {
 		if (!hasQualification)	return;
 		qualifikationDatenFromFile = ausDatei(dateiQualifikationDaten);
 		
+		qStartDate = Integer.parseInt(qualifikationDatenFromFile.remove(0));
+		qFinalDate = Integer.parseInt(qualifikationDatenFromFile.remove(0));
 		numberOfQGroups = Integer.parseInt(qualifikationDatenFromFile.remove(0));
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
@@ -508,6 +535,8 @@ public class TurnierSaison {
 		
 		qualifikationDatenFromFile.clear();
 		
+		qualifikationDatenFromFile.add("" + qStartDate);
+		qualifikationDatenFromFile.add("" + qFinalDate);
 		qualifikationDatenFromFile.add("" + numberOfQGroups);
 		if (hasQGroupStage)	qualifikationDatenFromFile.add("" + hasSecondLegQGroupStage);
 		for (int i = 0; i < numberOfQGroups; i++) {
