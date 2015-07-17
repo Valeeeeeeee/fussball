@@ -14,11 +14,16 @@ public class NewTournamentDialog extends JFrame {
 	private Start start;
 
 	private Color background = new Color(78, 235, 78);
+	private Color backgroundRemove = new Color(235, 31, 31);
+	private Color foregroundRemove = new Color(255, 255, 255);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
+	private Font fontWettbewerb = new Font("Dialog", 0, 25);
 	
 	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
 	private String[] possibleKORoundsShort = new String[] {"1R", "2R", "3R", "ZR", "SF", "AF", "VF", "HF", "P3", "FI"};
 	
+	private final int minNumberOfTeamsPerGroup = 2;
+	private final int maxNumberOfTeamsPerGroup = 6;
 	private final int minNumberOfGroups = 1;
 	private final int maxNumberOfGroups = 12;
 	private final int minNumberOfKORounds = 1;
@@ -30,25 +35,21 @@ public class NewTournamentDialog extends JFrame {
 	
 	// Bounds
 	private Dimension dim;
+	private Rectangle REC_WETTBLBL = new Rectangle(30, 30, 380, 40);
 	private Rectangle REC_GO;
 	private Rectangle REC_CANCEL;
 
 	// Allgemeine Informationen
-	private Rectangle REC_INFOPNL = new Rectangle(OFFSETX, OFFSETY, 380, 120);
+	private Rectangle REC_INFOPNL = new Rectangle(OFFSETX, OFFSETY, 380, 65);
 
-	private Rectangle REC_NAMELBL = new Rectangle(5, 0, 120, 30);
-	private Rectangle REC_NAMETF = new Rectangle(145, 0, 235, 30);
-	private Rectangle REC_STDLBL = new Rectangle(5, 30, 90, 30); // checked
-	private Rectangle REC_STDTF = new Rectangle(145, 30, 120, 30); // checked
-	private Rectangle REC_FIDLBL = new Rectangle(5, 60, 75, 30); // checked
-	private Rectangle REC_FIDTF = new Rectangle(145, 60, 120, 30); // checked
-	private Rectangle REC_H3PLBL = new Rectangle(270, 30, 100, 30); // checked
-	private Rectangle REC_H3PYESRB = new Rectangle(270, 60, 45, 30); // checked
-	private Rectangle REC_H3PNORB = new Rectangle(320, 60, 60, 30); // checked
-	private Rectangle REC_NOFTLBL = new Rectangle(5, 90, 135, 30);
-	private Rectangle REC_NOFTTF = new Rectangle(145, 90, 50, 30);
-	private Rectangle REC_SHNLBL = new Rectangle(270, 90, 65, 30);
-	private Rectangle REC_SHNTF = new Rectangle(340, 90, 40, 30);
+	private Rectangle REC_NAMELBL = new Rectangle(5, 5, 50, 25);
+	private Rectangle REC_NAMETF = new Rectangle(60, 5, 180, 25);
+	private Rectangle REC_SHNLBL = new Rectangle(265, 5, 65, 25);
+	private Rectangle REC_SHNTF = new Rectangle(335, 5, 40, 25);
+	private Rectangle REC_STDLBL = new Rectangle(5, 35, 50, 25); // checked
+	private Rectangle REC_STDTF = new Rectangle(60, 35, 85, 25); // checked
+	private Rectangle REC_FIDLBL = new Rectangle(250, 35, 35, 25); // checked
+	private Rectangle REC_FIDTF = new Rectangle(290, 35, 85, 25); // checked
 
 	// Qualification
 	private Rectangle REC_QPNL;
@@ -65,12 +66,22 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_GRPLBL = new Rectangle(5, 5, 90, 25);
 	private Rectangle REC_GRPYES = new Rectangle(100, 5, 45, 25); // checked
 	private Rectangle REC_GRPNO = new Rectangle(140, 5, 60, 25); // checked
-	private Rectangle REC_NOFGRPCB = new Rectangle(230, 5, 70, 25);
-	private Rectangle REC_NOFGRPLBL = new Rectangle(305, 5, 70, 25);
-	private Rectangle REC_GRP2LEGLBL = new Rectangle(205, 30, 70, 30); // checked
-	private Rectangle REC_GRP2LEGYES = new Rectangle(280, 30, 45, 30); // checked
-	private Rectangle REC_GRP2LEGNO = new Rectangle(320, 30, 60, 30); // checked
-	private Rectangle REC_TNGRPCB = new Rectangle(5, 65, 120, 25); // checked
+	private Rectangle REC_NOFGRPLBL = new Rectangle(215, 5, 70, 25);
+	private Rectangle REC_BTNCHNOFGRP = new Rectangle(290, 5, 85, 25);
+	private Rectangle REC_BTNADDGRP = new Rectangle(30, 35, 110, 25);
+	private Rectangle REC_BTNSAVEGRP = new Rectangle(270, 35, 100, 25);
+	private Rectangle REC_NOTGRPLBL = new Rectangle(200, 70, 150, 25);
+	private Rectangle REC_SAMENOTGRPLBL = new Rectangle(200, 100, 70, 25);
+	private Rectangle REC_SAMENOTGRPCB = new Rectangle(280, 100, 50, 25);
+	private Rectangle REC_DIFFNOTGRPLBL = new Rectangle(200, 130, 120, 25);
+	private Rectangle REC_DETGRPCB = new Rectangle(90, 45, 120, 25); // checked
+	private Rectangle REC_GRP2LEGLBL = new Rectangle(25, 75, 70, 25); // checked
+	private Rectangle REC_GRP2LEGYES = new Rectangle(100, 75, 45, 25); // checked
+	private Rectangle REC_GRP2LEGNO = new Rectangle(140, 75, 60, 25); // checked
+	
+	private int[] rmvGroups = new int[] {30, 70, 0, 25, 20, 20};
+	private int[] groups = new int[] {60, 70, 0, 25, 60, 20};
+	private int[] nOfTGrps = new int[] {130, 70, 0, 25, 25, 20};
 
 	// Knockout stage
 	private Rectangle REC_KOPNL;
@@ -79,23 +90,30 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_KONO = new Rectangle(120, 5, 60, 25); // checked
 	private Rectangle REC_NOFKOLBL = new Rectangle(200, 5, 75, 25); // checked
 	private Rectangle REC_BTNCHNOFKO = new Rectangle(290, 5, 85, 25);
-	private Rectangle REC_KO2LEGLBL = new Rectangle(205, 30, 70, 30); // checked
-	private Rectangle REC_KO2LEGYES = new Rectangle(280, 30, 45, 30); // checked
-	private Rectangle REC_KO2LEGNO = new Rectangle(320, 30, 60, 30); // checked
-	private Rectangle REC_DETKOCB = new Rectangle(5, 35, 170, 25);
-	private Rectangle REC_NOTPQVALLBL = new Rectangle(20, 65, 25, 25);
-	private Rectangle REC_NOTPQLBL = new Rectangle(50, 65, 180, 25);
-	private Rectangle REC_NOTPQMORELBL = new Rectangle(310, 65, 50, 25);
-	private Rectangle REC_NOTPRVALLBL = new Rectangle(20, 95, 25, 25);
-	private Rectangle REC_NOTPRLBL = new Rectangle(50, 95, 190, 25);
-	private Rectangle REC_NOTPRMORELBL = new Rectangle(310, 95, 50, 25);
-	private Rectangle REC_NOTOCVALLBL = new Rectangle(20, 125, 25, 25);
-	private Rectangle REC_NOTOCLBL = new Rectangle(50, 125, 220, 25);
-	private Rectangle REC_NOTOCMORELBL = new Rectangle(310, 125, 50, 25);
+	private Rectangle REC_DETKOLBL = new Rectangle(20, 45, 65, 25);
+	private Rectangle REC_DETKOCB = new Rectangle(90, 45, 140, 25);
+	private Rectangle REC_KO2LEGLBL = new Rectangle(25, 75, 70, 25); // checked
+	private Rectangle REC_KO2LEGYES = new Rectangle(100, 75, 45, 25); // checked
+	private Rectangle REC_KO2LEGNO = new Rectangle(140, 75, 60, 25); // checked
+	private Rectangle REC_NOTPQVALLBL = new Rectangle(20, 105, 25, 25);
+	private Rectangle REC_NOTPQLBL = new Rectangle(50, 105, 180, 25);
+	private Rectangle REC_NOTPQMORELBL = new Rectangle(310, 105, 50, 25);
+	private Rectangle REC_NOTPRVALLBL = new Rectangle(20, 135, 25, 25);
+	private Rectangle REC_NOTPRLBL = new Rectangle(50, 135, 190, 25);
+	private Rectangle REC_NOTPRMORELBL = new Rectangle(310, 135, 50, 25);
+	private Rectangle REC_NOTOCVALLBL = new Rectangle(20, 165, 25, 25);
+	private Rectangle REC_NOTOCLBL = new Rectangle(50, 165, 220, 25);
+	private Rectangle REC_NOTOCMORELBL = new Rectangle(310, 165, 50, 25);
 
 	// View
+	private JLabel jLblWettbewerb;
 	private JButton go;
 	private JButton cancel;
+	private JLabel jLblDetailsFor;
+	private JScrollPane jSPTeams;
+	private JList<String> jLTeams;
+	private DefaultListModel<String> jLTeamsModel;
+	private JButton jBtnEditTeam;
 
 	// Allgemeine Informationen
 	private JPanel infoPnl;
@@ -105,12 +123,6 @@ public class NewTournamentDialog extends JFrame {
 	private JLabel finalDateLbl;
 	private JTextField startDateTF;
 	private JTextField finalDateTF;
-	private JLabel hasThirdPlaceLbl;
-	private JRadioButton hasThirdPlaceYesRB;
-	private JRadioButton hasThirdPlaceNoRB;
-	private ButtonGroup hasThirdPlaceRBGrp;
-	private JLabel numberOfTeamsLbl;
-	private JTextField numberOfTeamsTF;
 	private JLabel shortNameLbl;
 	private JTextField shortNameTF;
 
@@ -131,13 +143,23 @@ public class NewTournamentDialog extends JFrame {
 	private JRadioButton groupStageYesRB;
 	private JRadioButton groupStageNoRB;
 	private ButtonGroup groupStageRBGrp;
-	private JComboBox<String> numOfGroupsCB;
+	private JButton jBtnChangeGroups;
+	private JButton jBtnAddGroup;
+	private ArrayList<JLabel> jLblsGroups;
+	private ArrayList<JLabel> jLblsRemoveGroup;
+	private JButton jBtnSaveGroups;
+	private JLabel jLblNumberOfTeams;
+	private JRadioButton jRBSameNumberOfTeams;
+	private JComboBox<String> jCBSameNumberOfTeams;
+	private JRadioButton jRBDifferentNumberOfTeams;
+	private ArrayList<JTextField> jTFsNumberOfTeams;
+	private ButtonGroup numberOfTeamsRBGrp;// not used
 	private JLabel numOfGroupsLbl;
 	private JLabel groupSecondLegLbl;
 	private JRadioButton groupSecondLegYesRB;// not used
 	private JRadioButton groupSecondLegNoRB;// not used
 	private ButtonGroup groupSecondLegRBGrp;// not used
-	private JComboBox<String> teamsNamesGrpCB;
+	private JComboBox<String> detailsGroupCB;
 
 	// Knockout stage
 	private JPanel koStagePnl;
@@ -149,15 +171,12 @@ public class NewTournamentDialog extends JFrame {
 	private JButton jBtnChangeKORounds;
 	private JCheckBox[] jChBKORunden;
 	private JButton jBtnSaveKORounds;
+	private JComboBox<String> detailsKOCB;
 	private JLabel koSecondLegLbl;
 	private JRadioButton koSecondLegYesRB;// not used
 	private JRadioButton koSecondLegNoRB;// not used
 	private ButtonGroup koSecondLegRBGrp;// not used
-	private JComboBox<String> detailsKOCB;
-	private JScrollPane jSPTeams;
-	private JList<String> jLTeams;
-	private DefaultListModel<String> jLTeamsModel;
-	private JButton jBtnEditTeam;
+	private JButton jBtnAddTeam;
 	private JButton jBtnDeleteTeam;
 	private JLabel jLblTeamsPQVal;
 	private JLabel jLblTeamsPQ;
@@ -168,9 +187,6 @@ public class NewTournamentDialog extends JFrame {
 	private JLabel jLblTeamsOCVal;
 	private JLabel jLblTeamsOC;
 	private JLabel jLblTeamsOCMore;
-//	private JScrollPane koStageSP;
-//	private JList koStageL;
-//	private DefaultListModel koStageModel = new DefaultListModel();
 
 	// Model
 	private String name;
@@ -183,22 +199,36 @@ public class NewTournamentDialog extends JFrame {
 	private boolean hasGrp;
 	private boolean hasKO;
 	private boolean has3pl;
-	private int nOTeam;
-	private int nOGrp;
+	private int numberOfGroups;
 	private int nOKO;
+	
+	private ArrayList<String> qConfig;
+	private ArrayList<String> grpConfig;
+	private ArrayList<String> koConfig;
+	private String[][] teamsQG;
+	private String[][] teamsQKO;
 	private String[][] teamsGrp;
 	private String[][] teamsKO;
 	
+	private int step = 0;
+	
+	private ArrayList<Integer> numberOfTeamsInGroup;
+	private ArrayList<ArrayList<String>> teamsNamesGroupStage;
+	private int currentGroup;
 	
 	private boolean[] isKORoundSelected;
 	private ArrayList<Integer> selectedKORounds;
 	private ArrayList<int[]> teamsComingFrom;
+	private int currentKORound;
 	private int showingMoreFrom;
 	
 	private ArrayList<ArrayList<String>> grpTeamsModelArr;
 	private DefaultListModel<String> grpTeamsModel;
 	
 	private ArrayList<ArrayList<String>> koTeamsModelArr;
+	private ArrayList<String> currentKORoundTeamsPQ;
+	private ArrayList<String> currentKORoundTeamsPR;
+	private ArrayList<String> currentKORoundTeamsOC;
 	private DefaultListModel<String> koTeamsModel;
 
 
@@ -217,11 +247,23 @@ public class NewTournamentDialog extends JFrame {
 
 		grpTeamsModelArr = new ArrayList<>();
 		koTeamsModelArr = new ArrayList<>();
+		jLTeamsModel = new DefaultListModel<>();
+		
+
+		{
+			jLblWettbewerb = new JLabel();
+			getContentPane().add(jLblWettbewerb);
+			jLblWettbewerb.setBounds(REC_WETTBLBL);
+			jLblWettbewerb.setFont(fontWettbewerb);
+			jLblWettbewerb.setHorizontalAlignment(SwingConstants.CENTER);
+			jLblWettbewerb.setVisible(false);
+		}
 		
 		{
 			go = new JButton();
 			getContentPane().add(go);
 			go.setText("weiter");
+			go.setFocusable(false);
 			go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					goActionPerformed();
@@ -232,9 +274,38 @@ public class NewTournamentDialog extends JFrame {
 			cancel = new JButton();
 			getContentPane().add(cancel);
 			cancel.setText("abbrechen");
+			cancel.setFocusable(false);
 			cancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					cancelActionPerformed();
+				}
+			});
+		}
+		
+		{
+			jLblDetailsFor = new JLabel();
+			jLblDetailsFor.setBounds(REC_DETKOLBL);
+			jLblDetailsFor.setText("Details zu");
+			jLblDetailsFor.setVisible(false);
+		}
+		{
+			jSPTeams = new JScrollPane();
+			jSPTeams.setVisible(false);
+			{
+				jLTeams = new JList<>();
+			    jSPTeams.setViewportView(jLTeams);
+			    jLTeams.setModel(jLTeamsModel);
+			    jLTeams.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			}
+		}
+		{
+			jBtnEditTeam = new JButton();
+			jBtnEditTeam.setText("Bearbeiten");
+			jBtnEditTeam.setVisible(false);
+			jBtnEditTeam.setFocusable(false);
+			jBtnEditTeam.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnEditTeamActionPerformed();
 				}
 			});
 		}
@@ -265,7 +336,7 @@ public class NewTournamentDialog extends JFrame {
 			nameLbl = new JLabel();
 			infoPnl.add(nameLbl);
 			nameLbl.setBounds(REC_NAMELBL);
-			nameLbl.setText("Name des Turniers");
+			nameLbl.setText("Name");
 		}
 		{
 			nameTF = new JTextField();
@@ -277,7 +348,7 @@ public class NewTournamentDialog extends JFrame {
 			startDateLbl = new JLabel();
 			infoPnl.add(startDateLbl);
 			startDateLbl.setBounds(REC_STDLBL);
-			startDateLbl.setText("Turnierbeginn");
+			startDateLbl.setText("Beginn");
 		}
 		{
 			startDateTF = new JTextField();
@@ -288,50 +359,12 @@ public class NewTournamentDialog extends JFrame {
 			finalDateLbl = new JLabel();
 			infoPnl.add(finalDateLbl);
 			finalDateLbl.setBounds(REC_FIDLBL);
-			finalDateLbl.setText("Turnierende");
+			finalDateLbl.setText("Ende");
 		}
 		{
 			finalDateTF = new JTextField();
 			infoPnl.add(finalDateTF);
 			finalDateTF.setBounds(REC_FIDTF);
-		}
-		// Spiel um Platz 3
-		{
-			hasThirdPlaceLbl = new JLabel();
-			infoPnl.add(hasThirdPlaceLbl);
-			hasThirdPlaceLbl.setBounds(REC_H3PLBL);
-			hasThirdPlaceLbl.setText("Spiel um Platz 3");
-		}
-		{
-			hasThirdPlaceYesRB = new JRadioButton("ja");
-			infoPnl.add(hasThirdPlaceYesRB);
-			hasThirdPlaceYesRB.setBounds(REC_H3PYESRB);
-			hasThirdPlaceYesRB.setActionCommand("true");
-			hasThirdPlaceYesRB.setOpaque(false);
-		}
-		{
-			hasThirdPlaceNoRB = new JRadioButton("nein");
-			infoPnl.add(hasThirdPlaceNoRB);
-			hasThirdPlaceNoRB.setBounds(REC_H3PNORB);
-			hasThirdPlaceNoRB.setActionCommand("false");
-			hasThirdPlaceNoRB.setOpaque(false);
-		}
-		{
-			hasThirdPlaceRBGrp = new ButtonGroup();
-			hasThirdPlaceRBGrp.add(hasThirdPlaceYesRB);
-			hasThirdPlaceRBGrp.add(hasThirdPlaceNoRB);
-		}
-		// Anzahl teilnehmende Mannschaften
-		{
-			numberOfTeamsLbl = new JLabel();
-			infoPnl.add(numberOfTeamsLbl);
-			numberOfTeamsLbl.setBounds(REC_NOFTLBL);
-			numberOfTeamsLbl.setText("Anzahl Mannschaften");
-		}
-		{
-			numberOfTeamsTF = new JTextField();
-			infoPnl.add(numberOfTeamsTF);
-			numberOfTeamsTF.setBounds(REC_NOFTTF);
 		}
 		// Kurzname
 		{
@@ -354,6 +387,7 @@ public class NewTournamentDialog extends JFrame {
 			qualificationPnl.setLayout(null);
 			qualificationPnl.setOpaque(true);
 			qualificationPnl.setBackground(background);
+			qualificationPnl.setVisible(false);
 		}
 		{
 			qualificationLbl = new JLabel();
@@ -367,6 +401,7 @@ public class NewTournamentDialog extends JFrame {
 			qualificationYesRB.setBounds(REC_QYES);
 			qualificationYesRB.setActionCommand("true");
 			qualificationYesRB.setOpaque(false);
+			qualificationYesRB.setFocusable(false);
 			qualificationYesRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					qualificationRBchanged(true);
@@ -379,6 +414,7 @@ public class NewTournamentDialog extends JFrame {
 			qualificationNoRB.setBounds(REC_QNO);
 			qualificationNoRB.setActionCommand("false");
 			qualificationNoRB.setOpaque(false);
+			qualificationNoRB.setFocusable(false);
 			qualificationNoRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					qualificationRBchanged(false);
@@ -419,9 +455,14 @@ public class NewTournamentDialog extends JFrame {
 	}
 
 	private void buildGroupStage() {
-		String[] posNumOfGroups = new String[maxNumberOfGroups - minNumberOfGroups + 1];
-		for (int i = 0; i < posNumOfGroups.length; i++) {
-			posNumOfGroups[i] = "" + (i + 1);
+		jLblsGroups = new ArrayList<>();
+		jLblsRemoveGroup = new ArrayList<>();
+		jTFsNumberOfTeams = new ArrayList<>();
+		numberOfTeamsInGroup = new ArrayList<>();
+		teamsNamesGroupStage = new ArrayList<>();
+		String[] posNumOfTeamsPerGroup = new String[maxNumberOfTeamsPerGroup - minNumberOfTeamsPerGroup + 1];
+		for (int i = 0; i < posNumOfTeamsPerGroup.length; i++) {
+			posNumOfTeamsPerGroup[i] = "" + (i + minNumberOfTeamsPerGroup);
 		}
 		{
 			groupStagePnl = new JPanel();
@@ -429,6 +470,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStagePnl.setLayout(null);
 			groupStagePnl.setOpaque(true);
 			groupStagePnl.setBackground(background);
+			groupStagePnl.setVisible(false);
 		}
 		// gibt es eine Gruppenphase
 		{
@@ -443,6 +485,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStageYesRB.setBounds(REC_GRPYES);
 			groupStageYesRB.setActionCommand("true");
 			groupStageYesRB.setOpaque(false);
+			groupStageYesRB.setFocusable(false);
 			groupStageYesRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					groupStageRBchanged(true);
@@ -455,6 +498,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStageNoRB.setBounds(REC_GRPNO);
 			groupStageNoRB.setActionCommand("false");
 			groupStageNoRB.setOpaque(false);
+			groupStageNoRB.setFocusable(false);
 			groupStageNoRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					groupStageRBchanged(false);
@@ -468,21 +512,88 @@ public class NewTournamentDialog extends JFrame {
 		}
 		// Anzahl Gruppen
 		{
-			numOfGroupsCB = new JComboBox<>();
-			groupStagePnl.add(numOfGroupsCB);
-			numOfGroupsCB.setBounds(REC_NOFGRPCB);
-			numOfGroupsCB.setModel(new DefaultComboBoxModel<>(posNumOfGroups));
-			numOfGroupsCB.addItemListener(new ItemListener() {
-				public void itemStateChanged(ItemEvent evt) {
-					numOfGroupsCBItemStateChanged(evt);
+			numOfGroupsLbl = new JLabel();
+			groupStagePnl.add(numOfGroupsLbl);
+			numOfGroupsLbl.setBounds(REC_NOFGRPLBL);
+		}
+		{
+			jBtnChangeGroups = new JButton();
+			groupStagePnl.add(jBtnChangeGroups);
+			jBtnChangeGroups.setText("Aendern");
+			jBtnChangeGroups.setBounds(REC_BTNCHNOFGRP);
+			jBtnChangeGroups.setVisible(false);
+			jBtnChangeGroups.setFocusable(false);
+			jBtnChangeGroups.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnChangeGroupsActionPerformed();
 				}
 			});
 		}
 		{
-			numOfGroupsLbl = new JLabel();
-			groupStagePnl.add(numOfGroupsLbl);
-			numOfGroupsLbl.setBounds(REC_NOFGRPLBL);
-			numOfGroupsLbl.setText("Gruppen");
+			jBtnAddGroup = new JButton();
+			groupStagePnl.add(jBtnAddGroup);
+			jBtnAddGroup.setText("Hinzufuegen");
+			jBtnAddGroup.setBounds(REC_BTNADDGRP);
+			jBtnAddGroup.setFocusable(false);
+			jBtnAddGroup.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnAddGroupActionPerformed();
+				}
+			});
+		}
+		{
+			jBtnSaveGroups = new JButton();
+			groupStagePnl.add(jBtnSaveGroups);
+			jBtnSaveGroups.setText("Speichern");
+			jBtnSaveGroups.setBounds(REC_BTNSAVEGRP);
+			jBtnSaveGroups.setFocusable(false);
+			jBtnSaveGroups.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnSaveGroupsActionPerformed();
+				}
+			});
+		}
+		{
+			jLblNumberOfTeams = new JLabel();
+			groupStagePnl.add(jLblNumberOfTeams);
+			jLblNumberOfTeams.setBounds(REC_NOTGRPLBL);
+			jLblNumberOfTeams.setText("Anzahl Teams pro Gruppe:");
+		}
+		{
+			jRBSameNumberOfTeams = new JRadioButton("immer");
+			groupStagePnl.add(jRBSameNumberOfTeams);
+			jRBSameNumberOfTeams.setBounds(REC_SAMENOTGRPLBL);
+			jRBSameNumberOfTeams.setOpaque(false);
+			jRBSameNumberOfTeams.setFocusable(false);
+			jRBSameNumberOfTeams.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					useSameNumberOfTeams(true);
+				}
+			});
+		}
+		{
+			jCBSameNumberOfTeams = new JComboBox<>();
+			groupStagePnl.add(jCBSameNumberOfTeams);
+			jCBSameNumberOfTeams.setBounds(REC_SAMENOTGRPCB);
+			jCBSameNumberOfTeams.setFocusable(false);
+			jCBSameNumberOfTeams.setModel(new DefaultComboBoxModel<>(posNumOfTeamsPerGroup));
+		}
+		{
+			jRBDifferentNumberOfTeams = new JRadioButton("unterschiedlich");
+			groupStagePnl.add(jRBDifferentNumberOfTeams);
+			jRBDifferentNumberOfTeams.setBounds(REC_DIFFNOTGRPLBL);
+			jRBDifferentNumberOfTeams.setOpaque(false);
+			jRBDifferentNumberOfTeams.setFocusable(false);
+			jRBDifferentNumberOfTeams.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					useSameNumberOfTeams(false);
+				}
+			});
+		}
+		{
+			numberOfTeamsRBGrp = new ButtonGroup();
+			numberOfTeamsRBGrp.add(jRBSameNumberOfTeams);
+			numberOfTeamsRBGrp.add(jRBDifferentNumberOfTeams);
 		}
 		// Rueckspiel
 		{
@@ -490,6 +601,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStagePnl.add(groupSecondLegLbl);
 			groupSecondLegLbl.setBounds(REC_GRP2LEGLBL);
 			groupSecondLegLbl.setText("Rueckspiel");
+			groupSecondLegLbl.setVisible(false);
 		}
 		{
 			groupSecondLegYesRB = new JRadioButton("ja");
@@ -497,6 +609,8 @@ public class NewTournamentDialog extends JFrame {
 			groupSecondLegYesRB.setBounds(REC_GRP2LEGYES);
 			groupSecondLegYesRB.setActionCommand("true");
 			groupSecondLegYesRB.setOpaque(false);
+			groupSecondLegYesRB.setFocusable(false);
+			groupSecondLegYesRB.setVisible(false);
 		}
 		{
 			groupSecondLegNoRB = new JRadioButton("nein");
@@ -504,6 +618,8 @@ public class NewTournamentDialog extends JFrame {
 			groupSecondLegNoRB.setBounds(REC_GRP2LEGNO);
 			groupSecondLegNoRB.setActionCommand("false");
 			groupSecondLegNoRB.setOpaque(false);
+			groupSecondLegNoRB.setFocusable(false);
+			groupSecondLegNoRB.setVisible(false);
 		}
 		{
 			groupSecondLegRBGrp = new ButtonGroup();
@@ -512,13 +628,13 @@ public class NewTournamentDialog extends JFrame {
 		}
 		// Teamnamen
 		{
-			teamsNamesGrpCB = new JComboBox<>();
-			groupStagePnl.add(teamsNamesGrpCB);
-			teamsNamesGrpCB.setBounds(REC_TNGRPCB);
-			teamsNamesGrpCB.setModel(new DefaultComboBoxModel<>(posNumOfGroups));
-			teamsNamesGrpCB.addItemListener(new ItemListener() {
+			detailsGroupCB = new JComboBox<>();
+			groupStagePnl.add(detailsGroupCB);
+			detailsGroupCB.setBounds(REC_DETGRPCB);
+			detailsGroupCB.setVisible(false);
+			detailsGroupCB.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent evt) {
-					teamsNamesGrpCBItemStateChanged(evt);
+					detailsGroupCBItemStateChanged(evt);
 				}
 			});
 		}
@@ -528,6 +644,9 @@ public class NewTournamentDialog extends JFrame {
 		jChBKORunden = new JCheckBox[possibleKORounds.length];
 		isKORoundSelected = new boolean[possibleKORounds.length];
 		selectedKORounds = new ArrayList<>();
+		currentKORoundTeamsPQ = new ArrayList<>();
+		currentKORoundTeamsPR = new ArrayList<>();
+		currentKORoundTeamsOC = new ArrayList<>();
 		String[] posNumOfKORounds = new String[maxNumberOfKORounds - minNumberOfKORounds + 1];
 		for (int i = 0; i < posNumOfKORounds.length; i++) {
 			posNumOfKORounds[i] = "" + (i + 1);
@@ -538,6 +657,7 @@ public class NewTournamentDialog extends JFrame {
 			koStagePnl.setLayout(null);
 			koStagePnl.setOpaque(true);
 			koStagePnl.setBackground(background);
+			koStagePnl.setVisible(false);
 		}
 		// gibt es eine KO Phase
 		{
@@ -552,6 +672,7 @@ public class NewTournamentDialog extends JFrame {
 			koStageYesRB.setBounds(REC_KOYES);
 			koStageYesRB.setActionCommand("true");
 			koStageYesRB.setOpaque(false);
+			koStageYesRB.setFocusable(false);
 			koStageYesRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					koStageRBchanged(true);
@@ -564,6 +685,7 @@ public class NewTournamentDialog extends JFrame {
 			koStageNoRB.setBounds(REC_KONO);
 			koStageNoRB.setActionCommand("false");
 			koStageNoRB.setOpaque(false);
+			koStageNoRB.setFocusable(false);
 			koStageNoRB.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					koStageRBchanged(false);
@@ -588,6 +710,7 @@ public class NewTournamentDialog extends JFrame {
 			jBtnChangeKORounds.setText("Aendern");
 			jBtnChangeKORounds.setBounds(REC_BTNCHNOFKO);
 			jBtnChangeKORounds.setVisible(false);
+			jBtnChangeKORounds.setFocusable(false);
 			jBtnChangeKORounds.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					jBtnChangeKORoundsActionPerformed();
@@ -600,12 +723,14 @@ public class NewTournamentDialog extends JFrame {
 			koStagePnl.add(jChBKORunden[i]);
 			jChBKORunden[i].setBounds(30, 40 + i * 25, 140, 20);
 			jChBKORunden[i].setOpaque(false);
+			jChBKORunden[i].setFocusable(false);
 		}
 		{
 			jBtnSaveKORounds = new JButton();
 			koStagePnl.add(jBtnSaveKORounds);
 			jBtnSaveKORounds.setText("Speichern");
 			jBtnSaveKORounds.setBounds(30, 300, 100, 25);
+			jBtnSaveKORounds.setFocusable(false);
 			jBtnSaveKORounds.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					jBtnSaveKORoundsActionPerformed();
@@ -627,6 +752,7 @@ public class NewTournamentDialog extends JFrame {
 			koSecondLegYesRB.setBounds(REC_KO2LEGYES);
 			koSecondLegYesRB.setActionCommand("true");
 			koSecondLegYesRB.setOpaque(false);
+			koSecondLegYesRB.setFocusable(false);
 			koSecondLegYesRB.setVisible(false);
 		}
 		{
@@ -635,6 +761,7 @@ public class NewTournamentDialog extends JFrame {
 			koSecondLegNoRB.setBounds(REC_KO2LEGNO);
 			koSecondLegNoRB.setActionCommand("false");
 			koSecondLegNoRB.setOpaque(false);
+			koSecondLegNoRB.setFocusable(false);
 			koSecondLegNoRB.setVisible(false);
 		}
 		{
@@ -643,7 +770,7 @@ public class NewTournamentDialog extends JFrame {
 			koSecondLegRBGrp.add(koSecondLegNoRB);
 		}
 		// Anzahl KO-Runden
-		// TODO Label davor mit "Details fuer "
+		
 		{
 			detailsKOCB = new JComboBox<>();
 			koStagePnl.add(detailsKOCB);
@@ -655,28 +782,15 @@ public class NewTournamentDialog extends JFrame {
 				}
 			});
 		}
-		jLTeamsModel = new DefaultListModel<>();
-		jLTeamsModel.addElement("Mannschaft 1");
-		jLTeamsModel.addElement("Mannschaft 2");
 		{
-			jSPTeams = new JScrollPane();
-			koStagePnl.add(jSPTeams);
-			jSPTeams.setVisible(false);
-			{
-				jLTeams = new JList<>();
-			    jSPTeams.setViewportView(jLTeams);
-			    jLTeams.setModel(jLTeamsModel);
-			    jLTeams.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			}
-		}
-		{
-			jBtnEditTeam = new JButton();
-			koStagePnl.add(jBtnEditTeam);
-			jBtnEditTeam.setText("Bearbeiten");
-			jBtnEditTeam.setVisible(false);
-			jBtnEditTeam.addActionListener(new ActionListener() {
+			jBtnAddTeam = new JButton();
+			koStagePnl.add(jBtnAddTeam);
+			jBtnAddTeam.setText("Hinzufuegen");
+			jBtnAddTeam.setVisible(false);
+			jBtnAddTeam.setFocusable(false);
+			jBtnAddTeam.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					jBtnEditTeamActionPerformed();
+					jBtnAddTeamActionPerformed();
 				}
 			});
 		}
@@ -685,13 +799,13 @@ public class NewTournamentDialog extends JFrame {
 			koStagePnl.add(jBtnDeleteTeam);
 			jBtnDeleteTeam.setText("Entfernen");
 			jBtnDeleteTeam.setVisible(false);
+			jBtnDeleteTeam.setFocusable(false);
 			jBtnDeleteTeam.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					jBtnDeleteTeamActionPerformed();
 				}
 			});
 		}
-		// TODO Labels mit 'mehr': beim draufdruecken liste mit scrollpane anzeigen
 		{
 			jLblTeamsPQVal = new JLabel();
 			koStagePnl.add(jLblTeamsPQVal);
@@ -705,7 +819,6 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsPQ.setBounds(REC_NOTPQLBL);
 			jLblTeamsPQ.setText("Teams qualifiziert");
 			jLblTeamsPQ.setVisible(false);
-			jLblTeamsPQ.setOpaque(true);
 		}
 		{
 			jLblTeamsPQMore = new JLabel();
@@ -733,7 +846,6 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsPR.setBounds(REC_NOTPRLBL);
 			jLblTeamsPR.setText("Teams aus vorherigen Runden");
 			jLblTeamsPR.setVisible(false);
-			jLblTeamsPR.setOpaque(true);
 		}
 		{
 			jLblTeamsPRMore = new JLabel();
@@ -761,7 +873,6 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsOC.setBounds(REC_NOTOCLBL);
 			jLblTeamsOC.setText("Teams aus anderen Wettbewerben");
 			jLblTeamsOC.setVisible(false);
-			jLblTeamsOC.setOpaque(true);
 		}
 		{
 			jLblTeamsOCMore = new JLabel();
@@ -776,47 +887,22 @@ public class NewTournamentDialog extends JFrame {
 				}
 			});
 		}
-		
-//		{
-//			koStageSP = new JScrollPane();
-//			koStagePnl.add(koStageSP);
-//			koStageSP.setBounds(REC_KOSTAGESP);
-//			{
-//				koStageL = new JList();
-//				koStageSP.setViewportView(koStageL);
-//				koStageL.setModel(koStageModel);
-//				koStageL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//			}
-//		}
 	}
-	
-	private void refreshTeamsNamesGrpCBModel() {
-		String[] gruppenNamen = new String[nOGrp];
-		for (int i = 0; i < gruppenNamen.length; i++) {
-			gruppenNamen[i] = "Gruppe " + start.getAlphabet()[i];
-		}
-		teamsNamesGrpCB.setModel(new DefaultComboBoxModel<>(gruppenNamen));
-	}
-
 	
 	private void enterPresetValues() {
-//		nameTF.setText("Copa2");
-//		shortNameTF.setText("C2");
-//		startDateTF.setText("12.06.2015");
-//		finalDateTF.setText("04.07.2015");
-		hasThirdPlaceYesRB.setSelected(true);
-//		numberOfTeamsTF.setText("12");
+		nameTF.setText("Pseudo Turnier");
+		shortNameTF.setText("PT");
+		startDateTF.setText("12.06.2015");
+		finalDateTF.setText("04.07.2016");
 		
 		qualificationNoRB.setSelected(true);
 		
 		groupStageYesRB.setSelected(true);
-//		groupStageRBchanged(true);
-//		numOfGroupsCB.setSelectedIndex(3 - minNumberOfGroups);
+		jRBSameNumberOfTeams.setSelected(true);
+		jCBSameNumberOfTeams.setSelectedIndex(4 - minNumberOfTeamsPerGroup);
 		groupSecondLegNoRB.setSelected(true);
 		
 		koStageYesRB.setSelected(true);
-//		koStageRBchanged(true);
-//		numOfKORoundsCB.setSelectedIndex(4 - minNumberOfKORounds);
 		koSecondLegNoRB.setSelected(true);
 		jChBKORunden[5].setSelected(true);
 		jChBKORunden[6].setSelected(true);
@@ -829,31 +915,35 @@ public class NewTournamentDialog extends JFrame {
 		hasGrp = Boolean.parseBoolean(groupStageRBGrp.getSelection().getActionCommand());
 		hasKO = Boolean.parseBoolean(koStageRBGrp.getSelection().getActionCommand());
 		
-		int heightQ = hasQ ? 150 : 50;
-		REC_QPNL = new Rectangle(OFFSETX, OFFSETY + REC_INFOPNL.height + GAPPNL, 380, heightQ);
+		int heightQ = hasQ ? 550 : 50;
+		REC_QPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightQ);
 		qualificationPnl.setBounds(REC_QPNL);
 		
-		int heightG = hasGrp ? 150 : 50;
-		REC_GRPPNL = new Rectangle(OFFSETX * 2 + 380, OFFSETY, 380, heightG);
+		int heightG = hasGrp ? 400 : 50;
+		REC_GRPPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightG);
 		groupStagePnl.setBounds(REC_GRPPNL);
 		
 		int heightK = hasKO ? 480 : 50;
-		REC_KOPNL = new Rectangle(OFFSETX * 2 + 380, REC_GRPPNL.y + REC_GRPPNL.height + GAPPNL, 380, heightK);
+		REC_KOPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightK);
 		koStagePnl.setBounds(REC_KOPNL);
 		
-		REC_CANCEL = new Rectangle(610, REC_KOPNL.y + REC_KOPNL.height + GAPPNL, 100, 30);
+		int startyGo = 0;
+		if (step == 0)	startyGo = REC_INFOPNL.y + REC_INFOPNL.height;
+		else if (step == 1)	startyGo = REC_QPNL.y + REC_QPNL.height;
+		else if (step == 2)	startyGo = REC_GRPPNL.y + REC_GRPPNL.height;
+		else if (step == 3)	startyGo = REC_KOPNL.y + REC_KOPNL.height;
+		REC_CANCEL = new Rectangle(200, startyGo + GAPPNL, 100, 30);
 		cancel.setBounds(REC_CANCEL);
 		
-		REC_GO = new Rectangle(720, REC_KOPNL.y + REC_KOPNL.height + GAPPNL, 70, 30);
+		REC_GO = new Rectangle(310, startyGo + GAPPNL, 70, 30);
 		go.setBounds(REC_GO);
 		
-		dim = new Dimension(2 * 380 + 3 * OFFSETX + 6, Math.max(REC_QPNL.y + REC_QPNL.height, REC_GO.y + REC_GO.height) + OFFSETY + 28);
+		dim = new Dimension(380 + 2 * OFFSETX + 6, REC_GO.y + REC_GO.height + OFFSETY + 28);
 		setSize(this.dim);
 		setLocationRelativeTo(null);
 	}
 	
 	private void qualificationRBchanged(boolean hasQ) {
-		// Alles was mit Qualifikationseinstellung zu tun hat disablen
 		log("Qualification has been " + (hasQ ? "enabled." : "disabled."));
 		
 		qStartDateLbl.setVisible(hasQ);
@@ -864,58 +954,204 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void groupStageRBchanged(boolean hasGrp) {
-		// Alles was mit Gruppeneinstellung zu tun hat disablen
 		log("Group stage has been " + (hasGrp ? "enabled." : "disabled."));
+		this.hasGrp = hasGrp;
 		
-		numOfGroupsCB.setVisible(hasGrp);
-		numOfGroupsLbl.setVisible(hasGrp);
-		groupSecondLegLbl.setVisible(hasGrp);
-		groupSecondLegYesRB.setVisible(hasGrp);
-		groupSecondLegNoRB.setVisible(hasGrp);
-		teamsNamesGrpCB.setVisible(hasGrp);
+		showGroupStageConfiguration(true);
 		updateGUI();
 	}
 	
 	private void koStageRBchanged(boolean hasKO) {
-		// Alles was mit KO-Rundeneinstellung zu tun hat disablen
 		log("Knockout stage has been " + (hasKO ? "enabled." : "disabled."));
 		this.hasKO = hasKO;
 		
+		if (showingMoreFrom != 0)	jLblMoreClicked(showingMoreFrom);
 		showKORoundConfiguration(true);
 		updateGUI();
 	}
 	
-	private void numOfGroupsCBItemStateChanged(ItemEvent evt) {
+	private void setDetailsGroupCBModel() {
+		String[] groupsNames = new String[numberOfGroups];
+		for (int i = 0; i < groupsNames.length; i++) {
+			groupsNames[i] = "Gruppe " + start.getAlphabet()[i];
+		}
+		detailsGroupCB.setModel(new DefaultComboBoxModel<>(groupsNames));
+	}
+	
+	private void detailsGroupCBItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			int oldNumOfGroups = nOGrp;
-			int newNumOfGroups = numOfGroupsCB.getSelectedIndex() + minNumberOfGroups;
-			
-			if (oldNumOfGroups > newNumOfGroups) { // wird weniger
-				for (int i = newNumOfGroups; i < oldNumOfGroups; i++) {
-					grpTeamsModelArr.remove(newNumOfGroups);
-				}
-			} else { // gleich viel oder mehr
-				for (int i = oldNumOfGroups; i < newNumOfGroups; i++) {
-					grpTeamsModelArr.add(new ArrayList<String>());
-				}
-			}
-			
-			nOGrp = newNumOfGroups;
-			refreshTeamsNamesGrpCBModel();
+			saveDataForGroup(currentGroup);
+			int index = detailsGroupCB.getSelectedIndex();
+			showDataForGroup(index);
 		}
 	}
 	
-	private void teamsNamesGrpCBItemStateChanged(ItemEvent evt) {
-		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			int index = teamsNamesGrpCB.getSelectedIndex();
-			if (grpTeamsModel != null)	grpTeamsModel.clear();
-			else						grpTeamsModel = new DefaultListModel<>();
+	private void jBtnChangeGroupsActionPerformed() {
+		showGroupStageConfiguration(true);
+	}
+	
+	private void useSameNumberOfTeams(boolean useSame) {
+		for (int i = 0; i < jTFsNumberOfTeams.size(); i++) {
+			jTFsNumberOfTeams.get(i).setVisible(!useSame);
+		}
+	}
+	
+	private void jBtnAddGroupActionPerformed() {
+		numberOfTeamsInGroup.add(4);
+		{
+			JLabel label = new JLabel();
+			groupStagePnl.add(label);
+			label.setText("Gruppe " + alphabet[numberOfGroups]);
+			label.setBounds(groups[STARTX], groups[STARTY] + numberOfGroups * groups[GAPY], groups[SIZEX], groups[SIZEY]);
+			jLblsGroups.add(label);
 			
-			ArrayList<String> list = grpTeamsModelArr.get(index);
-			for (int i = 0; i < list.size(); i++) {
-				grpTeamsModel.addElement(list.get(i));
+			label = new JLabel();
+			groupStagePnl.add(label);
+			label.setText("X");
+			label.setBounds(rmvGroups[STARTX], rmvGroups[STARTY] + numberOfGroups * rmvGroups[GAPY], rmvGroups[SIZEX], rmvGroups[SIZEY]);
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			label.setBackground(backgroundRemove);
+			label.setForeground(foregroundRemove);
+			label.setOpaque(true);
+			label.setCursor(handCursor);
+			final int index = numberOfGroups;
+			label.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent evt) {
+					removeGroup(index);
+				}
+			});
+			jLblsRemoveGroup.add(label);
+			
+			final JTextField textField = new JTextField();
+			groupStagePnl.add(textField);
+			textField.setBounds(nOfTGrps[STARTX], nOfTGrps[STARTY] + numberOfGroups * nOfTGrps[GAPY], nOfTGrps[SIZEX], nOfTGrps[SIZEY]);
+			textField.setHorizontalAlignment(SwingConstants.CENTER);
+			textField.setText("4");
+			textField.setVisible(jRBDifferentNumberOfTeams.isSelected());
+			textField.addFocusListener(new FocusAdapter() {
+				public void focusGained(FocusEvent evt) {
+					textField.selectAll();
+				}
+			});
+			jTFsNumberOfTeams.add(textField);
+			
+			ArrayList<String> list = new ArrayList<>();
+			for (int i = 0; i < numberOfTeamsInGroup.get(teamsNamesGroupStage.size()); i++) {
+				list.add("Mannschaft " + (i + 1));
+			}
+			teamsNamesGroupStage.add(list);
+		}
+		numberOfGroups++;
+	}
+	
+	private void removeGroup(int index) {
+		boolean hasData = false;
+		for (int i = 0; i < teamsNamesGroupStage.get(index).size(); i++) {
+			if (!teamsNamesGroupStage.get(index).get(i).equals("Mannschaft " + (i + 1)))	hasData = true;
+		}
+		if (hasData) {
+			int cont = yesNoDialog("Es wurden fuer die geloeschte Gruppe " + alphabet[index] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
+			if (cont != JOptionPane.YES_OPTION)	return;
+		}
+		numberOfGroups--;
+		numberOfTeamsInGroup.remove(index);
+		teamsNamesGroupStage.remove(index);
+		jLblsGroups.remove(index).setVisible(false);
+		jTFsNumberOfTeams.remove(index).setVisible(false);
+		for (int i = index; i < jLblsGroups.size(); i++) {
+			jLblsGroups.get(i).setLocation(jLblsGroups.get(i).getLocation().x, jLblsGroups.get(i).getLocation().y - 25);
+			jLblsGroups.get(i).setText("Gruppe " + alphabet[i]);
+			jTFsNumberOfTeams.get(i).setLocation(jLblsGroups.get(i).getLocation().x, jLblsGroups.get(i).getLocation().y - 25);
+			jTFsNumberOfTeams.get(i).setText("Gruppe " + alphabet[i]);
+		}
+		
+		jLblsRemoveGroup.remove(numberOfGroups).setVisible(false);
+	}
+	
+	private void jBtnSaveGroupsActionPerformed() {
+		if (numberOfGroups == 0) {
+			message("Es muss mindestens eine Gruppe geben!");
+			return;
+		}
+		
+		int[] numbersOfTeamsPerGroup = new int[numberOfGroups];
+		boolean sameNumberOfTeams = jRBSameNumberOfTeams.isSelected();
+		
+		for (int i = 0; i < numberOfGroups; i++) {
+			numbersOfTeamsPerGroup[i] = sameNumberOfTeams ? jCBSameNumberOfTeams.getSelectedIndex() + minNumberOfTeamsPerGroup : Integer.parseInt(jTFsNumberOfTeams.get(i).getText());
+		}
+		
+		for (int i = 0; i < numberOfGroups; i++) {
+			boolean hasData = false;
+			
+			if (teamsNamesGroupStage.get(i).size() > numbersOfTeamsPerGroup[i]) {
+				for (int j = numbersOfTeamsPerGroup[i]; j < teamsNamesGroupStage.get(i).size(); j++) {
+					if (!teamsNamesGroupStage.get(i).get(j).equals("Mannschaft " + (j + 1)))	hasData = true;
+				}
+			}
+			
+			if (hasData) {
+				int cont = yesNoDialog("Es wurden fuer die geaenderte Gruppe " + alphabet[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
+				if (cont != JOptionPane.YES_OPTION)	return;
 			}
 		}
+		
+		for (int i = 0; i < numberOfGroups; i++) {
+			while (teamsNamesGroupStage.get(i).size() > numbersOfTeamsPerGroup[i]) {
+				teamsNamesGroupStage.get(i).remove(numbersOfTeamsPerGroup[i]);
+			}
+			while (teamsNamesGroupStage.get(i).size() < numbersOfTeamsPerGroup[i]) {
+				teamsNamesGroupStage.get(i).add("Mannschaft " + (teamsNamesGroupStage.get(i).size() + 1));
+			}
+		}
+		
+		numOfGroupsLbl.setText(numberOfGroups + " Gruppen");
+		
+		jSPTeams.setBounds(20, 105, 230, 90);
+		jBtnEditTeam.setBounds(260, 110, 110, 25);
+		
+		setDetailsGroupCBModel();
+		showGroupStageConfiguration(false);
+		showDataForGroup(0);
+	}
+	
+	private void showGroupStageConfiguration(boolean show) {
+		for (int i = 0; i < jLblsGroups.size(); i++) {
+			jLblsGroups.get(i).setVisible(hasGrp && show);
+			jLblsRemoveGroup.get(i).setVisible(hasGrp && show);
+			jTFsNumberOfTeams.get(i).setVisible(hasGrp && show && jRBDifferentNumberOfTeams.isSelected());
+		}
+		jBtnAddGroup.setVisible(hasGrp && show);
+		jBtnSaveGroups.setVisible(hasGrp && show);
+		jLblNumberOfTeams.setVisible(hasGrp && show);
+		jRBSameNumberOfTeams.setVisible(hasGrp && show);
+		jCBSameNumberOfTeams.setVisible(hasGrp && show);
+		jRBDifferentNumberOfTeams.setVisible(hasGrp && show);
+
+		jBtnChangeGroups.setVisible(hasGrp && !show);
+		numOfGroupsLbl.setVisible(hasGrp && !show);
+		groupSecondLegLbl.setVisible(hasGrp && !show);
+		groupSecondLegYesRB.setVisible(hasGrp && !show);
+		groupSecondLegNoRB.setVisible(hasGrp && !show);
+		jLblDetailsFor.setVisible(hasGrp && !show);
+		detailsGroupCB.setVisible(hasGrp && !show);
+		jSPTeams.setVisible(hasGrp && !show);
+		jBtnEditTeam.setVisible(hasGrp && !show);
+	}
+	
+	private void saveDataForGroup(int index) {
+		teamsNamesGroupStage.get(index).clear();
+		for (int i = 0; i < jLTeamsModel.getSize(); i++) {
+			teamsNamesGroupStage.get(index).add(jLTeamsModel.getElementAt(i));
+		}
+	}
+	
+	private void showDataForGroup(int index) {
+		jLTeamsModel.clear();
+		for (int i = 0; i < teamsNamesGroupStage.get(index).size(); i++) {
+			jLTeamsModel.addElement(teamsNamesGroupStage.get(index).get(i));
+		}
+		currentGroup = index;
 	}
 	
 	private void setDetailsKOCBModel() {
@@ -997,6 +1233,7 @@ public class NewTournamentDialog extends JFrame {
 		koSecondLegLbl.setVisible(hasKO && !show);
 		koSecondLegYesRB.setVisible(hasKO && !show);
 		koSecondLegNoRB.setVisible(hasKO && !show);
+		jLblDetailsFor.setVisible(hasKO && !show);
 		detailsKOCB.setVisible(hasKO && !show);
 		jLblTeamsPQVal.setVisible(hasKO && !show);
 		jLblTeamsPQ.setVisible(hasKO && !show);
@@ -1009,21 +1246,28 @@ public class NewTournamentDialog extends JFrame {
 		jLblTeamsOCMore.setVisible(hasKO && !show);
 	}
 	
+	private void saveDataForKORound(int index) {
+		// TODO save teams from separate array lists to array list
+	}
+	
 	private void showDataForKORound(int index) {
 		jLblTeamsPQVal.setText("" + teamsComingFrom.get(index)[0]);
 		jLblTeamsPRVal.setText("" + teamsComingFrom.get(index)[1]);
 		jLblTeamsOCVal.setText("" + teamsComingFrom.get(index)[2]);
+		currentKORound = index;
+		// TODO get teams from array list to separate array lists
 	}
 	
 	private void detailsKOCBItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
+			saveDataForKORound(currentKORound);
 			int index = detailsKOCB.getSelectedIndex();
 			showDataForKORound(index);
 		}
 	}
 	
 	private void jLblMoreClicked(int index) {
-		int heightOfScrollPane = 100;
+		int heightOfScrollPane = 100, offsety = 0;
 		switch (showingMoreFrom) {
 			case 1:
 				REC_NOTPRVALLBL.y -= heightOfScrollPane;
@@ -1046,6 +1290,7 @@ public class NewTournamentDialog extends JFrame {
 		}
 		if (showingMoreFrom == index) {
 			jSPTeams.setVisible(false);
+			jBtnAddTeam.setVisible(false);
 			jBtnEditTeam.setVisible(false);
 			jBtnDeleteTeam.setVisible(false);
 			showingMoreFrom = 0;
@@ -1069,33 +1314,102 @@ public class NewTournamentDialog extends JFrame {
 				jLblTeamsOCMore.setBounds(REC_NOTOCMORELBL);
 		}
 		
+		jLTeamsModel.clear();
 		if (showingMoreFrom == 1) {
-			jSPTeams.setBounds(20, 95, 240, 90);
-			jBtnEditTeam.setBounds(270, 100, 100, 25);
-			jBtnDeleteTeam.setBounds(270, 130, 100, 25);
+			offsety = REC_NOTPQVALLBL.y + REC_NOTPQVALLBL.height;
 			jLblTeamsPQMore.setText("weniger");
+			for (int i = 0; i < currentKORoundTeamsPQ.size(); i++) {
+				jLTeamsModel.addElement(currentKORoundTeamsPQ.get(i));
+			}
 		} else if (showingMoreFrom == 2) {
-			jSPTeams.setBounds(20, 125, 240, 90);
-			jBtnEditTeam.setBounds(270, 130, 100, 25);
-			jBtnDeleteTeam.setBounds(270, 160, 100, 25);
+			offsety = REC_NOTPRVALLBL.y + REC_NOTPRVALLBL.height;
 			jLblTeamsPRMore.setText("weniger");
+			for (int i = 0; i < currentKORoundTeamsPR.size(); i++) {
+				jLTeamsModel.addElement(currentKORoundTeamsPR.get(i));
+			}
 		} else if (showingMoreFrom == 3) {
-			jSPTeams.setBounds(20, 155, 240, 90);
-			jBtnEditTeam.setBounds(270, 160, 100, 25);
-			jBtnDeleteTeam.setBounds(270, 190, 100, 25);
+			offsety = REC_NOTOCVALLBL.y + REC_NOTOCVALLBL.height;
 			jLblTeamsOCMore.setText("weniger");
+			for (int i = 0; i < currentKORoundTeamsOC.size(); i++) {
+				jLTeamsModel.addElement(currentKORoundTeamsOC.get(i));
+			}
 		}
+		jSPTeams.setBounds(20, offsety + 5, 230, 90);
+		jBtnAddTeam.setBounds(260, offsety + 10, 110, 25);
+		jBtnEditTeam.setBounds(260, offsety + 40, 110, 25);
+		jBtnDeleteTeam.setBounds(260, offsety + 70, 110, 25);
 		jSPTeams.setVisible(true);
+		jBtnAddTeam.setVisible(true);
 		jBtnEditTeam.setVisible(true);
 		jBtnDeleteTeam.setVisible(true);
 	}
 	
+	private void jBtnAddTeamActionPerformed() {
+		String newName = null;
+		boolean cancel = false;
+		while((newName == null || newName.isEmpty()) && !cancel) {
+			newName = inputDialog("Name der neuen Mannschaft:");
+			if (newName == null || newName.isEmpty()) {
+				cancel = yesNoDialog("Sie haben keinen validen Namen eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
+			}
+		}
+		if (!cancel)	jLTeamsModel.addElement(newName);
+		listeAktualisieren();
+	}
+	
 	private void jBtnEditTeamActionPerformed() {
-		
+		int index = jLTeams.getSelectedIndex();
+		if (index != -1) {
+			String newName = null;
+			boolean cancel = false;
+			while((newName == null || newName.isEmpty()) && !cancel) {
+				newName = inputDialog("Neuer Name fuer " + jLTeamsModel.get(index));
+				if (newName == null || newName.isEmpty()) {
+					cancel = yesNoDialog("Sie haben keinen validen Namen eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
+				}
+			}
+			if (!cancel)	jLTeamsModel.set(index, newName);
+			listeAktualisieren();
+		} else {
+			message("Sie haben keine Mannschaft ausgewaehlt.");
+		}
 	}
 	
 	private void jBtnDeleteTeamActionPerformed() {
-		
+		int index = jLTeams.getSelectedIndex();
+		if (index != -1) {
+			boolean cancel = yesNoDialog("Wollen Sie das Team \"" + jLTeamsModel.get(index) + "\" wirklich aus dieser KO-Runde entfernen?") == JOptionPane.YES_OPTION;
+			if (!cancel)	jLTeamsModel.remove(index);
+			listeAktualisieren();
+		} else {
+			message("Sie haben keine Mannschaft ausgewaehlt.");
+		}
+	}
+	
+	private void listeAktualisieren() {
+		switch (showingMoreFrom) {
+			case 1:
+				currentKORoundTeamsPQ.clear();
+				for (int i = 0; i < jLTeamsModel.getSize(); i++) {
+					currentKORoundTeamsPQ.add(jLTeamsModel.getElementAt(i));
+				}
+				jLblTeamsPQVal.setText("" + currentKORoundTeamsPQ.size());
+				break;
+			case 2:
+				currentKORoundTeamsPR.clear();
+				for (int i = 0; i < jLTeamsModel.getSize(); i++) {
+					currentKORoundTeamsPR.add(jLTeamsModel.getElementAt(i));
+				}
+				jLblTeamsPRVal.setText("" + currentKORoundTeamsPR.size());
+				break;
+			case 3:
+				currentKORoundTeamsOC.clear();
+				for (int i = 0; i < jLTeamsModel.getSize(); i++) {
+					currentKORoundTeamsOC.add(jLTeamsModel.getElementAt(i));
+				}
+				jLblTeamsOCVal.setText("" + currentKORoundTeamsOC.size());
+				break;
+		}
 	}
 	
 	private String[][] getTeamsGrp() {
@@ -1119,6 +1433,78 @@ public class NewTournamentDialog extends JFrame {
 		return teams;
 	}
 	
+	private boolean validateGeneralInfo() {
+		String message = "";
+		
+		name = nameTF.getText();
+		if (name.isEmpty())	message += "Geben Sie bitte einen gueltigen Namen ein.\n";
+		
+		shortName = shortNameTF.getText();
+		if (shortName.isEmpty())	message += "Geben Sie bitte einen gueltigen Kurznamen ein.\n";
+		
+		stDate = MyDate.getDate(startDateTF.getText());
+		if (stDate == 19700101)	message += "Geben Sie bitte ein gueltiges Startdatum ein.\n";
+		
+		fiDate = MyDate.getDate(finalDateTF.getText());
+		if (fiDate == 19700101)	message += "Geben Sie bitte ein gueltiges Enddatum ein.\n";
+		else if (stDate > fiDate)	message += "Das Finale kann nicht vor Beginn des Turniers stattfinden.\n";
+		
+		season = stDate / 10000;
+		isSTSS = season != (fiDate / 10000);
+		
+		if (message.length() > 0) {
+			message("Folgende Fehler sind aufgetreten:\n" + message);
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean validateQualification() {
+		qConfig = new ArrayList<>();
+		
+		hasQ = Boolean.parseBoolean(qualificationRBGrp.getSelection().getActionCommand());
+		
+		if (hasQ) {
+			// TODO check and save data
+			
+			
+		}
+		
+		return true;
+	}
+	
+	private boolean validateGroupStage() {
+		grpConfig = new ArrayList<>();
+		
+		hasGrp = Boolean.parseBoolean(groupStageRBGrp.getSelection().getActionCommand());
+		
+		if (hasGrp) {
+			// TODO check and save data
+			
+			grpConfig.add("" + numberOfGroups);
+			grpConfig.add("" + groupSecondLegRBGrp.getSelection().getActionCommand());
+		}
+		
+		return true;
+	}
+	
+	private boolean validateKOStage() {
+		// TODO check and save data
+		koConfig = new ArrayList<>();
+		
+		hasKO = Boolean.parseBoolean(koStageRBGrp.getSelection().getActionCommand());
+		
+		if (hasKO) {
+			
+			
+			
+			has3pl = isKORoundSelected[8];
+		}
+		
+		return true;
+	}
+	
 	public void dispose() {
 		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schliessen wollen? Dabei gehen die eingegebenen Daten verloren.");
 		if (cancel == JOptionPane.YES_OPTION)	super.dispose();
@@ -1129,33 +1515,53 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void goActionPerformed() {
-		boolean outOfUse = true;
-		if (outOfUse) {
-			message("Nicht aktuell. Erst refactorn.");
-			cancelActionPerformed();
-			return;
-		}
+		if (step == 0) {
+			if (!validateGeneralInfo())	return;
+			jLblWettbewerb.setText(name + " " + season + (isSTSS ? "/" + (season + 1) : ""));
+			jLblWettbewerb.setVisible(true);
+			
+			infoPnl.setVisible(false);
+			qualificationPnl.setVisible(true);
+			step++;
+		} else if (step == 1) {
+			if (!validateQualification())	return;
+			
+			
+			qualificationPnl.setVisible(false);
+			groupStagePnl.add(jSPTeams);
+			groupStagePnl.add(jBtnEditTeam);
+			groupStagePnl.add(jLblDetailsFor);
+			groupStagePnl.setVisible(true);
+			step++;
+		} else if (step == 2) {
+			if (!validateGroupStage())	return;
+			
+			
+			groupStagePnl.setVisible(false);
+			koStagePnl.add(jSPTeams);
+			koStagePnl.add(jBtnEditTeam);
+			koStagePnl.add(jLblDetailsFor);
+			jLblDetailsFor.setVisible(false);
+			koStagePnl.setVisible(true);
+			step++;
+		} else if (step == 3) {
+			if (!validateKOStage())	return;
+			
+			
+			
+			boolean outOfUse = true;
+			if (outOfUse) {
+				message("Nicht aktuell. Erst refactorn.");
+				cancelActionPerformed();
+				return;
+			}
+			
+			teamsGrp = getTeamsGrp();
+			teamsKO = getTeamsKO();
 
-		name = nameTF.getText();
-		shortName = shortNameTF.getText();
-		stDate = MyDate.getDate(startDateTF.getText());
-		fiDate = MyDate.getDate(finalDateTF.getText());
-		if (stDate == 19700101 || fiDate == 19700101) {
-			message("Geben Sie bitte ein gueltiges Start- und Enddatum ein.");
-			return;
+			start.addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+			this.setVisible(false);
 		}
-		season = stDate / 10000;
-		isSTSS = season != (fiDate / 10000);
-		qualificationNoRB.setSelected(true);
-		hasQ = Boolean.parseBoolean(qualificationRBGrp.getSelection().getActionCommand());
-		hasGrp = Boolean.parseBoolean(groupStageRBGrp.getSelection().getActionCommand());
-		hasKO = Boolean.parseBoolean(koStageRBGrp.getSelection().getActionCommand());
-		has3pl = Boolean.parseBoolean(hasThirdPlaceRBGrp.getSelection().getActionCommand());
-		nOTeam = Integer.parseInt(numberOfTeamsTF.getText());
-		teamsGrp = getTeamsGrp();
-		teamsKO = getTeamsKO();
-
-//		start.addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
-		this.setVisible(false);
+		updateGUI();
 	}
 }
