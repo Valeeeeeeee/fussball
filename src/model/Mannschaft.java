@@ -96,7 +96,7 @@ public class Mannschaft {
 		int numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
-		else					numberOfMatchdays = tSeason.getNumberOfKORounds() * (tSeason.hasSecondLegKOStage() ? 2 : 1);
+		else					numberOfMatchdays = 0;
 		daten = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 		spiele = new Spiel[numberOfMatchdays];
@@ -519,6 +519,14 @@ public class Mannschaft {
 				if (points[0] == points[i]) {
 					if (goals[0] - goalsOpp[0] == goals[i] - goalsOpp[i]) {
 						if (goals[0] < goals[i])	this.platz++;
+						else if (goals[0] == goals[i]) {
+							// use goal difference anyway
+							int otherID = teamsSamePoints.get(i);
+							if (this.tdiff == otherTeams[otherID - 1].tdiff) {
+								if (this.anzahl_tplus < otherTeams[otherID - 1].anzahl_tplus)	this.platz++;
+							}
+							else if (this.tdiff < otherTeams[otherID - 1].tdiff)	this.platz++;
+						}
 					} else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.platz++;
 				}
 				else if (points[0] < points[i])	this.platz++;

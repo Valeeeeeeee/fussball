@@ -8,6 +8,6 @@ Super League
 5
 NAME*FIFA Weltmeisterschaft;SHN*WM;
 NAME*Champions League;SHN*CL;
-NAME*Europameisterschaft Qualifikation;SHN*EQ;
+NAME*UEFA Europameisterschaft;SHN*EM;
 NAME*DFB-Pokal;SHN*DP;
 NAME*Copa America;SHN*CA;

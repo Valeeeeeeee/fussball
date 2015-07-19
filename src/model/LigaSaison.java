@@ -225,9 +225,10 @@ public class LigaSaison implements Wettbewerb {
 		return kickOffTimes.get(datesAndTimes[matchday][match + 1]).getTime();
 	}
 	
-	public void addNewKickoffTime(int tageseitstarttag, int kickofftime) {
+	public int addNewKickoffTime(int tageseitstarttag, int kickofftime) {
 		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, tageseitstarttag, kickofftime));
 		numberOfKickoffTimes++;
+		return numberOfKickoffTimes - 1;
 	}
 	
 	public int getIndexOfKOT(int diff, int timeOfNewKOT) {
@@ -395,11 +396,13 @@ public class LigaSaison implements Wettbewerb {
 			}
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldSpiel = getSpiel(matchdayOld, j);
-				spieleInNewOrder[j] = new Spiel(this, matchdayNew, datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
+				if (oldSpiel != null) {
+					spieleInNewOrder[j] = new Spiel(this, matchdayNew, datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
+				}
 			}
 			for (int j = 0; j < spieleInNewOrder.length; j++) {
 				for (int k = j + 1; k < spieleInNewOrder.length; k++) {
-					if (spieleInNewOrder[j].home() > spieleInNewOrder[k].home()) {
+					if (spieleInNewOrder[k] != null && (spieleInNewOrder[j] == null || spieleInNewOrder[j].home() > spieleInNewOrder[k].home())) {
 						Spiel zwischen = spieleInNewOrder[j];
 						spieleInNewOrder[j] = spieleInNewOrder[k];
 						spieleInNewOrder[k] = zwischen;

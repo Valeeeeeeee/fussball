@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*; 
 import java.io.*; 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import javax.swing.*; 
 
@@ -715,13 +717,13 @@ public class Start extends JFrame {
 				ctr++;
 			}
 			for (int i = 0; i < aktuelleTSaison.getNumberOfQKORounds(); i++) {
-				final int x = ctr + i;
-				qualificationButtons[x] = new JButton();
-				QualifikationHomescreen.add(qualificationButtons[x]);
-				qualificationButtons[x].setBounds(295 + (x % 2) * (SIZEX_BTNS + 50), 150 + (x / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[x].setText(aktuelleTSaison.getQKORunden()[x].getName());
-				qualificationButtons[x].setFocusable(false);
-				qualificationButtons[x].addActionListener(new ActionListener() {
+				final int x = i;
+				qualificationButtons[x + ctr] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[x + ctr]);
+				qualificationButtons[x + ctr].setBounds(295 + (x % 2) * (SIZEX_BTNS + 50), 150 + (x / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[x + ctr].setText(aktuelleTSaison.getQKORunden()[x].getName());
+				qualificationButtons[x + ctr].setFocusable(false);
+				qualificationButtons[x + ctr].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						jBtnKORundePressed(x);
 					}
@@ -937,6 +939,7 @@ public class Start extends JFrame {
 	}
 	
 	private void jBtnAddTournamentActionPerformed() {
+		testAddNewTournament();
 		NewTournamentDialog ntd = new NewTournamentDialog(this);
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
@@ -986,6 +989,77 @@ public class Start extends JFrame {
 		buildLeaguesButtons();
 		
 		message("Successfully created new league.");
+	}
+	
+	public void testAddNewTournament() {
+		String name = "UEFA Europameisterschaft";
+		String shortName = "EM";
+		int season = 2016;
+		boolean isSTSS = true;
+		int stDate = 20140907;
+		int fiDate = 20160710;
+		boolean hasQ = true;
+		boolean hasGrp = true;
+		boolean hasKO = true;
+		boolean has3pl = false;
+		ArrayList<String> qConfig = new ArrayList<>(Arrays.asList(new String[] {"20140907", "20151117", "9", "true", "1", "Play-offs;PO;true;true;0;8;0"}));
+		String[][] teamsQG = new String[][] {new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5", "Mannschaft 6"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4", "Mannschaft 5"}};
+		String[][] teamsQKO = new String[][] {new String[] {"GA3", "GB3", "GC3", "GD3", "GE3", "GF3", "GG3", "GH3"}};
+		ArrayList<String> grpConfig = new ArrayList<>(Arrays.asList(new String[] {"6", "false"}));
+		String[][] teamsGrp = new String[][] {new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"}, new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"}, new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"},
+												new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"}, new String[] {"Mannschaft 1", "Mannschaft 2", "Mannschaft 3", "Mannschaft 4"}};
+		ArrayList<String> koConfig = new ArrayList<>(Arrays.asList(new String[] {"Achtelfinale;AF;true;false;0;16;0", "Viertelfinale;VF;true;false;0;8;0", 
+																					"Halbfinale;HF;true;false;0;4;0", "Finale;FI;true;false;0;2;0"}));
+		String[][] teamsKO = new String[][] {new String[] {"GA1", "GA2", "GB1", "GB2", "GC1", "GC2", "GD1", "GD2", "GE1", "GE2", "GF1", "GF2", "GA3", "GB3", "GC3", "GD3"}, 
+								new String[] {"AF1", "AF2", "AF3", "AF4", "AF5", "AF6", "AF7", "AF8"}, new String[] {"VF1", "VF2", "VF3", "VF4"}, new String[] {"HF1", "HF2"}};
+		addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+	}
+	
+	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
+									ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
+		for (Turnier turnier : turniere) {
+			if (turnier.getName().equals(name)) {
+				message("A tournament with this name already exists.");
+				return;
+			}
+		}
+		
+		String toString = "NAME*" + name + ";";
+		toString += "SHN*" + shortName + ";";
+		
+		Turnier neuesTurnier = new Turnier(anzahlTurniere, this, toString);
+		turniere.add(neuesTurnier);
+		anzahlTurniere++;
+		
+		toString = season + ";";
+		toString += isSTSS + ";";
+		toString += stDate + ";";
+		toString += fiDate + ";";
+		toString += hasQ + ";";
+		toString += hasGrp + ";";
+		toString += hasKO + ";";
+		toString += has3pl + ";";
+		
+		neuesTurnier.addNewSeason(toString, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+		
+		for (int i = 0; i < turniere.size(); i++) {
+			turniere.get(i).speichern();
+		}
+		
+		saveConfiguration();
+		loadConfiguration();
+		buildLeaguesButtons();
+		
+		message("Successfully created new tournament.");
 	}
 	
 	public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
@@ -1257,14 +1331,24 @@ public class Start extends JFrame {
 				}
 			} else if (LigaHomescreen.isVisible()) {
 				LigaHomescreen.setVisible(false);
-				GruppenphaseHomescreen.add(jBtnZurueck);
-				GruppenphaseHomescreen.setVisible(true);
+				if (isCurrentlyInQualification) {
+					QualifikationHomescreen.add(jBtnZurueck);
+					QualifikationHomescreen.setVisible(true);
+				} else {
+					GruppenphaseHomescreen.add(jBtnZurueck);
+					GruppenphaseHomescreen.setVisible(true);
+				}
 				
 				aktuelleGruppe = null;
 			} else if (isCurrentlyInOverviewMode) {
 				aktuellerSpieltag.setVisible(false);
-				GruppenphaseHomescreen.add(jBtnZurueck);
-				GruppenphaseHomescreen.setVisible(true);
+				if (isCurrentlyInQualification) {
+					QualifikationHomescreen.add(jBtnZurueck);
+					QualifikationHomescreen.setVisible(true);
+				} else {
+					GruppenphaseHomescreen.add(jBtnZurueck);
+					GruppenphaseHomescreen.setVisible(true);
+				}
 				isCurrentlyInOverviewMode = false;
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {

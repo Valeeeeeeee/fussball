@@ -146,6 +146,7 @@ public class NewLeagueDialog extends JFrame {
 	
 	private void initGUI() {
 		this.setLayout(null);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		{
 			go = new JButton();
@@ -578,6 +579,11 @@ public class NewLeagueDialog extends JFrame {
 		}
 		
 		return defaultKOTTF.getText();
+	}
+	
+	public void dispose() {
+		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schliessen wollen? Dabei gehen die eingegebenen Daten verloren.");
+		if (cancel == JOptionPane.YES_OPTION)	super.dispose();
 	}
 	
 	private void cancelActionPerformed() {

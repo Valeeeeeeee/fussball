@@ -109,7 +109,7 @@ public class MyDateChooser extends JFrame {
 	}
 	
 	public void initGUI() {
-		this.setLayout(null);
+		setLayout(null);
 		
 		if (belongsToLeague) {
 			startjahr = season.getSeason();
@@ -268,13 +268,13 @@ public class MyDateChooser extends JFrame {
 	        if (belongsToLeague)	jCBMinute.setVisible(false);
 		}
 		
-		if (belongsToLeague)	setSize(this.WIDTH_LG, this.HEIGHT_LG);
-		else					setSize(this.WIDTH_TOUR, this.HEIGHT_TOUR);
+		if (belongsToLeague)	setSize(WIDTH_LG, HEIGHT_LG);
+		else					setSize(WIDTH_TOUR, HEIGHT_TOUR);
 		setResizable(false);
 	}
 	
 	public int getDate() {
-		return this.date;
+		return date;
 	}
 	
 	public void setDateAndKOTindex(int date, int aszindex) {
@@ -314,8 +314,8 @@ public class MyDateChooser extends JFrame {
 				jCBMinute.setSelectedIndex(defaultMyTime % 100 / 5);
 			}
 			
-			this.date = myDate;
-			this.time = myTime;
+			date = myDate;
+			time = myTime;
 		} catch (Exception e) {
 			int today = MyDate.verschoben(startjahr * 10000 + 815, spieltag.getCurrentMatchday() * 7);
 			jCBYear.setSelectedIndex(today / 10000 - startjahr);
@@ -324,8 +324,8 @@ public class MyDateChooser extends JFrame {
 			jCBHour.setSelectedIndex(19);
 			jCBMinute.setSelectedIndex(9);
 			
-			this.date = today;
-			this.date = 2000;
+			date = today;
+			date = 2000;
 		}
 	}
 	
@@ -339,31 +339,31 @@ public class MyDateChooser extends JFrame {
 	}
 	
 	private void returnTournamentStyle() {
-		this.date = 10000 * (jCBYear.getSelectedIndex() + startjahr) + 100 * (jCBMonth.getSelectedIndex() + 1) + (jCBDay.getSelectedIndex() + 1);
-		this.time = jCBHour.getSelectedIndex() * 100 + jCBMinute.getSelectedIndex() * 5;
+		date = 10000 * (jCBYear.getSelectedIndex() + startjahr) + 100 * (jCBMonth.getSelectedIndex() + 1) + (jCBDay.getSelectedIndex() + 1);
+		time = jCBHour.getSelectedIndex() * 100 + jCBMinute.getSelectedIndex() * 5;
 		
-		this.setVisible(false);
+		setVisible(false);
 		
 		spieltag.dateEnteredTournamentStyle(date, time);
 	}
 	
 	private void returnLeagueStyle() {
-		this.date = 10000 * (jCBStYear.getSelectedIndex() + startjahr) + 100 * (jCBStMonth.getSelectedIndex() + 1) + (jCBStDay.getSelectedIndex() + 1);
-		this.aszindex = jCBAnstosszeiten.getSelectedIndex();
+		date = 10000 * (jCBStYear.getSelectedIndex() + startjahr) + 100 * (jCBStMonth.getSelectedIndex() + 1) + (jCBStDay.getSelectedIndex() + 1);
+		aszindex = jCBAnstosszeiten.getSelectedIndex();
 		
-		if (this.jCBAnstosszeiten.getSelectedIndex() == (jCBAnstosszeiten.getModel().getSize() - 1)) { // dann wurde eine neue Anstosszeit ausgewaehlt
+		if (jCBAnstosszeiten.getSelectedIndex() == (jCBAnstosszeiten.getModel().getSize() - 1)) { // dann wurde eine neue Anstosszeit ausgewaehlt
 			int dateOfNewKOT = 10000 * (jCBYear.getSelectedIndex() + startjahr) + 100 * (jCBMonth.getSelectedIndex() + 1) + (jCBDay.getSelectedIndex() + 1);
 			int timeOfNewKOT = jCBHour.getSelectedIndex() * 100 + 5 * jCBMinute.getSelectedIndex();
 			
 			// herausfinden, ob die Anstosszeit bereits existiert
 			int diff = compareDates(date, dateOfNewKOT);
-			this.aszindex = season.getIndexOfKOT(diff, timeOfNewKOT);
+			aszindex = season.getIndexOfKOT(diff, timeOfNewKOT);
 			
-			if (this.aszindex == 1)	season.addNewKickoffTime(diff, timeOfNewKOT);
-			else					message("Diese Anstosszeit gibt es bereits.");
+			if (aszindex == -1)	aszindex = season.addNewKickoffTime(diff, timeOfNewKOT);
+			else				message("Diese Anstosszeit gibt es bereits.");
 		}
 		
-		this.setVisible(false);
+		setVisible(false);
 		
 		spieltag.dateEnteredLeagueStyle(date, aszindex);
 	}
