@@ -207,7 +207,9 @@ public class KORunde implements Wettbewerb {
 		if (this.numberOfMatchdays == 2) {
 			int today = MyDate.newMyDate();
 			
-			if (today < getDate(0, 0)) {
+			if (getDate(0, 0) == startDate) {
+				matchday = 0;
+			} else if (today < getDate(0, 0)) {
 				matchday = 0;
 			} else if (today > getDate(1, 0) && !isSpielplanFullyEmpty(1)) {
 				matchday = 1;
