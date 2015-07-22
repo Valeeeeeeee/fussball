@@ -406,10 +406,12 @@ public class Uebersicht extends JPanel {
     	if ((lowDiff = firstShownTeam - 0) < 0) {
     		firstShownTeam -= lowDiff;
     		lastShownTeam -= lowDiff;
-    	} else if ((upDiff = lastShownTeam - anzahlMannschaften + 1) > 0) {
+    	}
+    	if ((upDiff = lastShownTeam - anzahlMannschaften + 1) > 0) {
     		firstShownTeam -= upDiff;
     		lastShownTeam -= upDiff;
     	}
+    	if (firstShownTeam < 0) firstShownTeam = 0;
     	
     	for (int i = firstShownTeam; i <= lastShownTeam; i++) {
     		String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();

@@ -169,7 +169,6 @@ public class Start extends JFrame {
 	private void testSomethingBeforeIntroducingItIntoTheRealCode() {
 		// TODO do some testing
 		
-		// Heim-/Auswaertstabelle
 		
 		log("\n\n");
 	}
