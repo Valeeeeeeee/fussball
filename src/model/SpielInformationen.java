@@ -1160,7 +1160,7 @@ public class SpielInformationen extends JFrame {
 	private void goActionPerformed() {
 		Ergebnis ergebnis = this.ergebnis;
 		
-		if (this.ergebnis == null) {
+		if (this.ergebnis == null || (this.ergebnis.toString().equals("0:0") && isETpossible)) {
 			String resRT = (goalsTFs[1][0].getText().length() > 0 ? goalsTFs[1][0].getText() : "-1") + ":"
 					+ (goalsTFs[1][1].getText().length() > 0 ? goalsTFs[1][1].getText() : "-1");
 			String resET = (goalsTFs[2][0].getText().length() > 0 ? goalsTFs[2][0].getText() : "-1") + ":"
