@@ -216,6 +216,7 @@ public class Spieltag extends JPanel {
 		buttonsauswahl[SIZEY] = 50;
 		
 		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
+			buttonsauswahl[GAPY] = 1;
 			buttonsauswahl[SIZEY] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
 		}
 	}

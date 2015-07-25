@@ -338,11 +338,11 @@ public class TurnierSaison {
 			if (origins[i] == null) {
 				olderOrigins[i] = null;
 			} else if (teamsAreWinners) {
-				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
-				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
 			} else {
-				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2, 3)));
-				else		olderOrigins[i] = koRunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
 			}
 		}
 		
