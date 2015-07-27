@@ -680,10 +680,15 @@ public class Start extends JFrame {
 	}
 	
 	private void turnierspezifischeSachenLaden() {
-		// falls sie bereits existieren (wird benoetigt, falls ein Turnier komplett neugestartet wird)
+		// falls sie bereits existieren entfernen (wird benoetigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga muessen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
 		if (aktuelleTSaison.hasQualification()) {
 			jBtnQualifikation.setVisible(true);
+			try {
+				for (int i = 0; i < qualificationButtons.length; i++) {
+					QualifikationHomescreen.remove(qualificationButtons[i]);
+				}
+			} catch(NullPointerException npe) {}
 			
 			int numberOfButtons = aktuelleTSaison.hasQGroupStage() ? aktuelleTSaison.getNumberOfQGroups() + 1 : 0;
 			numberOfButtons += aktuelleTSaison.getNumberOfQKORounds();
