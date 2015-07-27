@@ -122,6 +122,20 @@ public class Ergebnis {
 		}
 	}
 	
+	public String getResult() {
+		if (amGruenenTisch)	return home(REGULAR) + ":" + away(REGULAR);
+		if (finishedInRegularTime)	return home(REGULAR) + ":" + away(REGULAR);
+		if (finishedInExtraTime)	return home(EXTRATIME) + ":" + away(EXTRATIME);
+		return home(PENALTIES) + ":" + away(PENALTIES);
+	}
+	
+	public String getMore() {
+		if (amGruenenTisch)	return "agT";
+		if (finishedInRegularTime)	return "";
+		if (finishedInExtraTime)	return "n.V.";
+		return "n.E.";
+	}
+	
 	public int home() {
 		if (amGruenenTisch) {
 			return home(REGULAR);

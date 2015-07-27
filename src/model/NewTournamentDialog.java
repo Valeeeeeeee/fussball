@@ -1072,6 +1072,10 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void jBtnAddGroupActionPerformed() {
+		if (numberOfGroups == maxNumberOfGroups) {
+			message("Es kann nicht mehr als " + maxNumberOfGroups + " Gruppen geben.");
+			return;
+		}
 		numberOfTeamsInGroup.add(4);
 		{
 			JLabel label = new JLabel();
@@ -1115,6 +1119,10 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void removeGroup(int index) {
+		if (numberOfGroups == minNumberOfGroups) {
+			message("Es muss mindestens " + maxNumberOfGroups + " Gruppe(n) geben.");
+			return;
+		}
 		boolean hasData = false;
 		for (int i = 0; i < teamsNamesGroupStage.get(index).size() && !hasData; i++) {
 			if (!teamsNamesGroupStage.get(index).get(i).equals("Mannschaft " + (i + 1)))	hasData = true;
@@ -1853,6 +1861,9 @@ public class NewTournamentDialog extends JFrame {
 			groupStagePnl.add(jSPTeams);
 			groupStagePnl.add(jBtnEditTeam);
 			groupStagePnl.add(jLblDetailsFor);
+			for (int i = 0; i < minNumberOfGroups; i++) {
+				jBtnAddGroupActionPerformed();
+			}
 			groupStagePnl.setVisible(true);
 			step++;
 		} else if (step == 2) {

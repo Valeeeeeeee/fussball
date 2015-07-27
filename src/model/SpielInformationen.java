@@ -22,6 +22,7 @@ public class SpielInformationen extends JFrame {
 	
 	private JLabel jLblHomeTeamName;
 	private JLabel jLblResult;
+	private JLabel jLblZusatz;
 	private JLabel jLblAwayTeamName;
 	
 	private JButton jBtnStartGame;
@@ -61,6 +62,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLDATUM = new Rectangle(290, 35, 120, 20);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
+	private Rectangle REC_LBLZUSATZ = new Rectangle(320, 90, 60, 20);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(230, 30, 50, 30);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 30, 50, 30);
@@ -204,8 +206,15 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblResult);
 			jLblResult.setBounds(REC_LBLRESULT);
 			jLblResult.setFont(fontTeamNames);
-			jLblResult.setText(ergebnis != null ? ergebnis.toString() : "-:-");
+			jLblResult.setText(ergebnis != null ? ergebnis.getResult() : "-:-");
 			jLblResult.setHorizontalAlignment(SwingConstants.CENTER);
+		}
+		{
+			jLblZusatz = new JLabel();
+			jPnlSpielInformationen.add(jLblZusatz);
+			jLblZusatz.setBounds(REC_LBLZUSATZ);
+			jLblZusatz.setText(ergebnis != null ? ergebnis.getMore() : "");
+			jLblZusatz.setHorizontalAlignment(SwingConstants.CENTER);
 		}
 		{
 			jLblAwayTeamName = new JLabel();
@@ -714,7 +723,8 @@ public class SpielInformationen extends JFrame {
 	private void startGame() {
 		if (ergebnis == null)	ergebnis = new Ergebnis("0:0");
 		spiel.setErgebnis(ergebnis);
-		jLblResult.setText(ergebnis.toString());
+		jLblResult.setText(ergebnis.getResult());
+		jLblZusatz.setText(ergebnis.getMore());
 		
 		jBtnStartGame.setVisible(false);
 		jBtnAGTHome.setVisible(false);
@@ -962,7 +972,8 @@ public class SpielInformationen extends JFrame {
 		else							tor = new Tor(spiel, editingHomeTeam, ownGoal, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
 		ergebnis = spiel.getErgebnis();
-		jLblResult.setText(ergebnis.toString());
+		jLblResult.setText(ergebnis.getResult());
+		jLblZusatz.setText(ergebnis.getMore());
 		if (repaint)	paintGoals();
 		else			displayGoal(tor);
 		enteringGoal = false;
