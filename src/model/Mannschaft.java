@@ -103,6 +103,10 @@ public class Mannschaft {
 		ergebnisse = new Ergebnis[numberOfMatchdays];
 	}
 	
+	public Wettbewerb getWettbewerb() {
+		return wettbewerb;
+	}
+	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;

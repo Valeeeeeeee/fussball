@@ -96,6 +96,10 @@ public class KORunde implements Wettbewerb {
 		return this.name;
 	}
 	
+	public String getWorkspace() {
+		return workspace;
+	}
+	
 	public String getMatchdayDescription(int matchday) {
 		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
 	}

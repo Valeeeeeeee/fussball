@@ -75,7 +75,7 @@ public class Spieler {
 	}
 	
 	public String getFullNameShort() {
-		return this.firstName + " " + lastNameShort;
+		return this.pseudonym != null ? this.pseudonym : this.firstName + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
