@@ -199,7 +199,7 @@ public class Utilities {
 					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
 					while ((element = in.readLine()) != null) {
 						if (!element.isEmpty()) {
-							arraylist.add(element);
+							arraylist.add(element.replace("" + (char) 65279, ""));
 						}
 					}
 				} catch (Exception e) {
