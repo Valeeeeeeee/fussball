@@ -2,11 +2,8 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import static util.Utilities.*;
@@ -16,7 +13,6 @@ public class Uebersicht extends JPanel {
 
 	// Spielplan
 	private Rectangle RECSPPLPNL;
-	private Rectangle RECSPINFOPNL;
 	
 	// Informationen
 	private Rectangle RECINFPNL;
@@ -40,9 +36,7 @@ public class Uebersicht extends JPanel {
 	private JLabel[][] kaderLbls;
 	private JLabel[] kaderDescrLbls;
 
-	private JFrame jFSpielerInfo;
-	private JScrollPane jSPImage;
-	private JLabel jLblImage;
+	private SpielerInformationen spielerInformationen;
 	
 	private static final int MATCHDAY = 0;
 	private static final int DATE = 1;
@@ -141,15 +135,13 @@ public class Uebersicht extends JPanel {
 				sumofwidthes += gapx[i];
 			}
 			RECSPPLPNL = new Rectangle(startx, starty, sumofwidthes, 2 * 5 + numberOfMatchdays * height + (numberOfMatchdays - 1) * gapy + middlegapy);
-			RECSPINFOPNL = RECSPPLPNL;
 			RECINFPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty, 420, 80);
 			
 			{
-				jFSpielerInfo = new JFrame();
-				jFSpielerInfo.setLayout(null);
-				jFSpielerInfo.setSize(820, 800);
-				jFSpielerInfo.setResizable(false);
+				spielerInformationen = new SpielerInformationen();
+				spielerInformationen.setLocationRelativeTo(null);
 			}
+			
 			{
 				spiele = new JPanel();
 				this.add(spiele);
@@ -329,32 +321,14 @@ public class Uebersicht extends JPanel {
 	}
 	
 	private void showPlayerPhoto(int playerIndex) {
-		// Testing image
-		String playerName = mannschaft.getEligiblePlayers(Start.today()).get(playerIndex).getFullNameShort();//kaderLbls[playerIndex][NAMES].getText();
-		playerName = removeUmlaute(playerName);
+		Spieler player = mannschaft.getEligiblePlayers(Start.today()).get(playerIndex);
+		String playerName = removeUmlaute(player.getFullNameShort());
 		playerName = playerName.toLowerCase().replace(' ', '-');
-		String _url = "file:///" + mannschaft.getWettbewerb().getWorkspace() + "Bilder" + File.separator + mannschaft.getName() + File.separator + playerName + ".jpg";
+		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
 		
-		Image image = null;
-		if (jLblImage != null) {
-			jLblImage.setVisible(false);
-			jSPImage.setVisible(false);
-		}
-		try {
-			URL url = new URL(_url);
-			image = ImageIO.read(url);
-			jLblImage = new JLabel(new ImageIcon(image));
-			jSPImage = new JScrollPane(jLblImage);
-			jSPImage.setBounds(10, 10, 505, 750);
-			jLblImage.setVisible(true);
-			jSPImage.setVisible(true);
-			jFSpielerInfo.add(jSPImage);
-			jFSpielerInfo.setVisible(true);
-			// TODO Name & Co. und veraenderbar
-		} catch (Exception e) {
-			message("Es wurde kein Foto zu diesem Spieler gefunden.");
-			jFSpielerInfo.setVisible(false);
-		}
+		spielerInformationen.setPlayer(player, url);
+		
+		spielerInformationen.setVisible(true);
 	}
 	
 	public void setMannschaft(int id) {

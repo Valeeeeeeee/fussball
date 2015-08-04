@@ -575,11 +575,11 @@ public class SpielInformationen extends JFrame {
 		
 		for (int i = 0; i < 11; i++) {
 			if (lineupHome != null) {
-				jLblsLineupHome[i].setText(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()).getPseudonym());
+				jLblsLineupHome[i].setText(spiel.getHomeTeam().getSpieler(lineupHome[i], spiel.getDate()).getPseudonymOrLN());
 				jLblsLineupHome[i].setVisible(true);
 			}
 			if (lineupAway != null) {
-				jLblsLineupAway[i].setText(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()).getPseudonym());
+				jLblsLineupAway[i].setText(spiel.getAwayTeam().getSpieler(lineupAway[i], spiel.getDate()).getPseudonymOrLN());
 				jLblsLineupAway[i].setVisible(true);
 			}
 		}
@@ -635,7 +635,7 @@ public class SpielInformationen extends JFrame {
 		jLblNewGoal.setLocation(gLbls[STARTX] + (tor.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + i * (gLbls[SIZEY] + gLbls[GAPY]));
 		jLblNewGoal.setSize(gLbls[SIZEX], gLbls[SIZEY]);
 		jLblNewGoal.setHorizontalAlignment(tor.isFirstTeam() ? SwingConstants.LEFT : SwingConstants.RIGHT);
-		jLblNewGoal.setText((tor.getScorer() != null ? tor.getScorer().getPseudonym() : "n/a") + " (" + tor.getMinute() + "')");
+		jLblNewGoal.setText((tor.getScorer() != null ? tor.getScorer().getPseudonymOrLN() : "n/a") + " (" + tor.getMinute() + "')");
 		jLblNewGoal.setOpaque(true);
 		jLblNewGoal.setCursor(handCursor);
 		jLblNewGoal.addMouseListener(new MouseAdapter() {
@@ -653,7 +653,7 @@ public class SpielInformationen extends JFrame {
 		jPnlSpielInformationen.add(jLblNewSubOn);
 		jLblNewSubOn.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + i * (subLbls[SIZEY] + subLbls[GAPY]));
 		jLblNewSubOn.setSize(subLbls[SIZEX], subLbls[SIZEY]);
-		jLblNewSubOn.setText(wechsel.getEingewechselterSpieler().getPseudonym() + " (" + wechsel.getMinute() + "')");
+		jLblNewSubOn.setText(wechsel.getEingewechselterSpieler().getPseudonymOrLN() + " (" + wechsel.getMinute() + "')");
 		jLblNewSubOn.setOpaque(true);
 		jLblNewSubOn.setCursor(handCursor);
 		jLblNewSubOn.addMouseListener(new MouseAdapter() {
@@ -668,7 +668,7 @@ public class SpielInformationen extends JFrame {
 		jPnlSpielInformationen.add(jLblNewSubOff);
 		jLblNewSubOff.setLocation(subLbls[STARTX] + (firstTeam ? 0 : subLbls[GAPX]), subLbls[STARTY] + (i + 1) * (subLbls[SIZEY] + subLbls[GAPY]));
 		jLblNewSubOff.setSize(subLbls[SIZEX], subLbls[SIZEY]);
-		jLblNewSubOff.setText(wechsel.getAusgewechselterSpieler().getPseudonym() + " (" + wechsel.getMinute() + "')");
+		jLblNewSubOff.setText(wechsel.getAusgewechselterSpieler().getPseudonymOrLN() + " (" + wechsel.getMinute() + "')");
 		jLblNewSubOff.setOpaque(true);
 		jLblNewSubOff.setCursor(handCursor);
 		jLblNewSubOff.addMouseListener(new MouseAdapter() {
@@ -686,7 +686,7 @@ public class SpielInformationen extends JFrame {
 		this.enteringGoal = true;
 		editingHomeTeam = tor.isFirstTeam();
 		
-		log("You want to change the goal of " + tor.getScorer().getPseudonym() + "(" + tor.getMinute() + ")");
+		log("You want to change the goal of " + tor.getScorer().getPseudonymOrLN() + "(" + tor.getMinute() + ")");
 		
 		setLabelsVisible(false);
 		
@@ -705,8 +705,8 @@ public class SpielInformationen extends JFrame {
 			jChBOwnGoal.setSelected(true);
 			goalDetails = 2;
 		}
-		if (tor.getScorer() != null)		jCBOben.setSelectedItem(tor.getScorer().getPseudonym());
-		if (tor.getAssistgeber() != null)	jCBUnten.setSelectedItem(tor.getAssistgeber().getPseudonym());
+		if (tor.getScorer() != null)		jCBOben.setSelectedItem(tor.getScorer().getPseudonymOrLN());
+		if (tor.getAssistgeber() != null)	jCBUnten.setSelectedItem(tor.getAssistgeber().getPseudonymOrLN());
 		jTFMinute.setText("" + tor.getMinute());
 		
 		if (editingHomeTeam)	jPnlEingabe.setLocation(LOC_PNLEINGABEHOME);
@@ -723,8 +723,8 @@ public class SpielInformationen extends JFrame {
 		this.repaint = true;
 		this.enteringSubstitution = true;
 		
-		log("You want to change the substitution " + wechsel.getAusgewechselterSpieler().getPseudonym() + "(" + wechsel.getMinute() + ". " + 
-				wechsel.getEingewechselterSpieler().getPseudonym() + ")");
+		log("You want to change the substitution " + wechsel.getAusgewechselterSpieler().getPseudonymOrLN() + "(" + wechsel.getMinute() + ". " + 
+				wechsel.getEingewechselterSpieler().getPseudonymOrLN() + ")");
 		
 		setLabelsVisible(false);
 		
@@ -733,8 +733,8 @@ public class SpielInformationen extends JFrame {
 		jLblUnten.setText("eingewechselt");
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayersSub(false)));
 		
-		jCBOben.setSelectedItem(wechsel.getAusgewechselterSpieler().getPseudonym());
-		jCBUnten.setSelectedItem(wechsel.getEingewechselterSpieler().getPseudonym());
+		jCBOben.setSelectedItem(wechsel.getAusgewechselterSpieler().getPseudonymOrLN());
+		jCBUnten.setSelectedItem(wechsel.getEingewechselterSpieler().getPseudonymOrLN());
 		jTFMinute.setText("" + wechsel.getMinute());
 		
 		if (editingHomeTeam)	jPnlEingabe.setLocation(LOC_PNLEINGABEHOME);
@@ -831,7 +831,7 @@ public class SpielInformationen extends JFrame {
 			}
 			eligiblePlayers = new String[eligiblePlayersListUpper.size()];
 			for (int i = 0; i < eligiblePlayers.length; i++) {
-				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPseudonym();
+				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPseudonymOrLN();
 			}
 		} else {
 			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(spiel.getDate()));
@@ -843,7 +843,7 @@ public class SpielInformationen extends JFrame {
 			}
 			eligiblePlayers = new String[eligiblePlayersListLower.size()];
 			for (int i = 0; i < eligiblePlayers.length; i++) {
-				eligiblePlayers[i] = eligiblePlayersListLower.get(i).getPseudonym();
+				eligiblePlayers[i] = eligiblePlayersListLower.get(i).getPseudonymOrLN();
 			}
 		}
 		
@@ -940,11 +940,11 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers = new String[1 + 11 + substitutions.size()];
 				for (int i = 0; i < 11; i++) {
 					eligiblePlayersListUpper.add(scoringTeam.getSpieler(scoringLineup[i], spiel.getDate()));
-					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPseudonym();
+					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPseudonymOrLN();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
 					eligiblePlayersListUpper.add(substitutions.get(i).getEingewechselterSpieler());
-					eligiblePlayers[12 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonym();
+					eligiblePlayers[12 + i] = eligiblePlayersListUpper.get(11 + i).getPseudonymOrLN();
 				}
 			} else {
 				eligiblePlayers = new String[1];
@@ -960,11 +960,11 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers = new String[1 + 11 + substitutions.size()];
 				for (int i = 0; i < 11; i++) {
 					eligiblePlayersListLower.add(assistingTeam.getSpieler(assistingLineup[i], spiel.getDate()));
-					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPseudonym();
+					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPseudonymOrLN();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
 					eligiblePlayersListLower.add(substitutions.get(i).getEingewechselterSpieler());
-					eligiblePlayers[12 + i] = eligiblePlayersListLower.get(11 + i).getPseudonym();
+					eligiblePlayers[12 + i] = eligiblePlayersListLower.get(11 + i).getPseudonymOrLN();
 				}
 			} else {
 				eligiblePlayers = new String[1];
@@ -1000,7 +1000,7 @@ public class SpielInformationen extends JFrame {
 			for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
 				if (wechsel.getAusgewechselterSpieler() == scorer && minute > wechsel.getMinute() || 
 						wechsel.getEingewechselterSpieler() == scorer && minute < wechsel.getMinute()) {
-					message("The player " + scorer.getPseudonym() + " was not on the pitch in the given minute.");
+					message("The player " + scorer.getPseudonymOrLN() + " was not on the pitch in the given minute.");
 					return;
 				}
 			}
@@ -1011,7 +1011,7 @@ public class SpielInformationen extends JFrame {
 			for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
 				if (wechsel.getAusgewechselterSpieler() == assistgeber && minute > wechsel.getMinute() || 
 						wechsel.getEingewechselterSpieler() == assistgeber && minute < wechsel.getMinute()) {
-					message("The player " + assistgeber.getPseudonym() + " was not on the pitch in the given minute.");
+					message("The player " + assistgeber.getPseudonymOrLN() + " was not on the pitch in the given minute.");
 					return;
 				}
 			}
@@ -1062,7 +1062,7 @@ public class SpielInformationen extends JFrame {
 			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[SIZEX], boundsLSP[SIZEY]);
 			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[SIZEX] + boundsLSP[GAPX]), 
 														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[SIZEY] + boundsLSP[GAPY]));
-			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPseudonym());
+			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPseudonymOrLN());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);
 			jLblsLineupSelectionPlayers[i].addMouseListener(new MouseAdapter() {
@@ -1132,11 +1132,11 @@ public class SpielInformationen extends JFrame {
 			if (playerSelected[i]) {
 				if (editingHomeTeam) {
 					lineupHome[counter] = kaderHome.get(i).getSquadNumber();
-					jLblsLineupHome[counter].setText(kaderHome.get(i).getPseudonym());
+					jLblsLineupHome[counter].setText(kaderHome.get(i).getPseudonymOrLN());
 					jLblsLineupHome[counter++].setVisible(true);
 				} else {
 					lineupAway[counter] = kaderAway.get(i).getSquadNumber();
-					jLblsLineupAway[counter].setText(kaderAway.get(i).getPseudonym());
+					jLblsLineupAway[counter].setText(kaderAway.get(i).getPseudonymOrLN());
 					jLblsLineupAway[counter++].setVisible(true);
 				}
 			}

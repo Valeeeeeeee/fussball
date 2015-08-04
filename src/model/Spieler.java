@@ -66,8 +66,12 @@ public class Spieler {
 		}
 	}
 	
-	public String getPseudonym() {
+	public String getPseudonymOrLN() {
 		return this.pseudonym != null ? this.pseudonym : this.lastNameShort;
+	}
+	
+	public String getPseudonym() {
+		return this.pseudonym;
 	}
 	
 	public String getFullName() {

@@ -38,7 +38,7 @@ public class Tor {
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getPseudonym());
+			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN());
 	}
 	
 	public Tor(Spiel spiel, boolean firstTeam, boolean penalty, boolean ownGoal, int minute, Spieler scorer, Spieler assistgeber) {
@@ -53,8 +53,8 @@ public class Tor {
 		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber() + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getPseudonym() + 
-			" and assisted by " + assistgeber.getPseudonym());
+			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN() + 
+			" and assisted by " + assistgeber.getPseudonymOrLN());
 	}
 	
 	public Tor(Spiel spiel, String daten) {

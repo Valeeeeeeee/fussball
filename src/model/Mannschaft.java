@@ -107,6 +107,10 @@ public class Mannschaft {
 		return wettbewerb;
 	}
 	
+	public String getPhotoDirectory() {
+		return wettbewerb.getWorkspace() + "Bilder" + File.separator + name + File.separator;
+	}
+	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
