@@ -136,23 +136,10 @@ public class SpielInformationen extends JFrame {
 	private boolean repaint;
 	
 	private boolean isETpossible = false;
-	private boolean amGruenenTisch = false;
-	private boolean isFinishedAfterRT = false;
-	private boolean isFinishedAfterET = false;
 	
 	private JButton go;
-	private JButton afterET;
-	private JButton afterPS;
-	private JLabel[] descrLbls;
-	private JTextField[][] goalsTFs;
 
 	private Rectangle RECGONEW = new Rectangle(600, 10, 90, 40);
-	private Rectangle RECGOOLD = new Rectangle(395, 380, 60, 30);
-	private Rectangle RECAET = new Rectangle(395, 420, 50, 30);
-	private Rectangle RECAPS = new Rectangle(395, 460, 50, 30);
-	
-	private int[] descr = new int[] {250, 383, 0, 16, 55, 24};
-	private int[] goals = new int[] {315, 380, 10, 10, 30, 30};
 	
 	public SpielInformationen(Spieltag spieltag, Spiel spiel, Ergebnis previous) {
 		super();
@@ -167,7 +154,6 @@ public class SpielInformationen extends JFrame {
 		
 		initGUI();
 		displayGivenValues();
-		setErgebnis(ergebnis);
 	}
 	
 	public void initGUI() {
@@ -487,84 +473,9 @@ public class SpielInformationen extends JFrame {
 				}
 			});
 		}
-		oldGUIElements();
-		
 		
 		setSize(this.dim);
 		setResizable(false);
-	}
-	
-	// TODO delete
-	private void oldGUIElements() {
-		boolean show = spiel.getWettbewerb().isETPossible();
-		String[] descriptions = new String[] {"45 min", "90 min", "120 min", "n.E."};
-		goalsTFs = new JTextField[4][2];
-		descrLbls = new JLabel[4];
-		
-		for (int i = 0; i < goalsTFs.length; i++) {
-			for (int j = 0; j < goalsTFs[i].length; j++) {
-				final int x = i, y = j;
-				goalsTFs[i][j] = new JTextField();
-				jPnlSpielInformationen.add(goalsTFs[i][j]);
-				goalsTFs[i][j].setBounds(goals[STARTX] + j * (goals[SIZEX] + goals[GAPX]), goals[STARTY] + i * (goals[SIZEY] + goals[GAPY]), goals[SIZEX], goals[SIZEY]);
-				goalsTFs[i][j].setVisible(show);
-				goalsTFs[i][j].setHorizontalAlignment(SwingConstants.CENTER);
-				goalsTFs[i][j].addKeyListener(new KeyAdapter() {
-					public void keyTyped(KeyEvent arg0) {
-						if ((goalsTFs[x][y].getText().length() >= 2 && !goalsTFs[x][y].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
-							arg0.consume();
-						}
-					}
-				});
-				goalsTFs[i][j].addFocusListener(new FocusAdapter() {
-					public void focusGained(FocusEvent e) {
-						goalsTFs[x][y].selectAll();
-					}
-				});
-			}
-		}
-		goalsTFs[0][0].setEnabled(false);
-		goalsTFs[0][1].setEnabled(false);
-		goalsTFs[1][0].requestFocus();
-		
-		for (int i = 0; i < descrLbls.length; i++) {
-			descrLbls[i] = new JLabel();
-			jPnlSpielInformationen.add(descrLbls[i]);
-			descrLbls[i].setBounds(descr[STARTX], descr[STARTY] + i * (descr[SIZEY] + descr[GAPY]), descr[SIZEX], descr[SIZEY]);
-			descrLbls[i].setText(descriptions[i]);
-			descrLbls[i].setHorizontalAlignment(SwingConstants.RIGHT);
-			descrLbls[i].setVisible(show);
-		}
-		
-		{
-			afterET = new JButton();
-			jPnlSpielInformationen.add(afterET);
-			afterET.setBounds(RECAET);
-			afterET.setText("n.V.");
-			afterET.setFocusable(false);
-			afterET.setVisible(show);
-			if (!isETpossible)	afterET.setEnabled(false);
-			afterET.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					afterETActionPerformed();
-				}
-			});
-		}
-		{
-			afterPS = new JButton();
-			jPnlSpielInformationen.add(afterPS);
-			afterPS.setBounds(RECAPS);
-			afterPS.setText("n.E.");
-			afterPS.setFocusable(false);
-			afterPS.setVisible(show);
-			if (!isETpossible)	afterPS.setEnabled(false);
-			afterPS.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					afterPSActionPerformed();
-				}
-			});
-		}
-		if (show)	go.setBounds(RECGOOLD);
 	}
 	
 	private void displayGivenValues() {
@@ -686,7 +597,7 @@ public class SpielInformationen extends JFrame {
 		this.enteringGoal = true;
 		editingHomeTeam = tor.isFirstTeam();
 		
-		log("You want to change the goal of " + tor.getScorer().getPseudonymOrLN() + "(" + tor.getMinute() + ")");
+		log("You want to change the goal of " + (tor.getScorer() == null ? "n/a" : tor.getScorer().getPseudonymOrLN()) + "(" + tor.getMinute() + ")");
 		
 		setLabelsVisible(false);
 		
@@ -745,9 +656,6 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void setAmGruenenTisch(boolean isHomeTeam) {
-		this.amGruenenTisch = true;
-		goalsTFs[1][0].setText(isHomeTeam ? "3" : "0");
-		goalsTFs[1][1].setText(isHomeTeam ? "0" : "3");
 		ergebnis = new Ergebnis((isHomeTeam ? "3:0" : "0:3") + " agT");
 		setErgebnis();
 	}
@@ -864,6 +772,13 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
+		if (minute > 121) {
+			message("Ein Spiel kann nicht laenger als 120 Minuten dauern.");
+			return;
+		} else if (!isETpossible && minute > 90) {
+			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			return;
+		}
 		for (Wechsel wechsel : spiel.getSubstitutions(editingHomeTeam)) {
 			if (wechsel.getMinute() > minute) {
 				this.repaint = true;
@@ -990,6 +905,13 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
+		if (minute > 121) {
+			message("Ein Spiel kann nicht laenger als 120 Minuten dauern.");
+			return;
+		} else if (!isETpossible && minute > 90) {
+			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			return;
+		}
 		for (Tor tor : tore) {
 			if (tor.getMinute() > minute ) {
 				this.repaint = true;
@@ -1033,6 +955,8 @@ public class SpielInformationen extends JFrame {
 		else			displayGoal(tor);
 		enteringGoal = false;
 		
+		buttonGroupDetails.clearSelection();
+		goalDetails = 0;
 		jChBPenalty.setSelected(false);
 		jChBPenalty.setVisible(false);
 		jChBOwnGoal.setSelected(false);
@@ -1162,98 +1086,8 @@ public class SpielInformationen extends JFrame {
 		enteringLineup = false;
 	}
 	
-	private void afterETActionPerformed() {
-		if (isFinishedAfterRT || !isFinishedAfterET)	showTextFields(true, false);
-		else											showTextFields(false, false);
-	}
-	
-	private void afterPSActionPerformed() {
-		if (isFinishedAfterRT || isFinishedAfterET)	showTextFields(true, true);
-		else										showTextFields(true, false);
-	}
-	
-	private void showTextFields(boolean extraTime, boolean penalties) {
-		if (!extraTime) {
-			isFinishedAfterRT = true;
-			isFinishedAfterET = false;
-			goalsTFs[2][0].setVisible(false);
-			goalsTFs[2][1].setVisible(false);
-			goalsTFs[3][0].setVisible(false);
-			goalsTFs[3][1].setVisible(false);
-			descrLbls[2].setVisible(false);
-			descrLbls[3].setVisible(false);
-		} else if (!penalties) {
-			isFinishedAfterRT = false;
-			isFinishedAfterET = true;
-			goalsTFs[2][0].setVisible(true);
-			goalsTFs[2][1].setVisible(true);
-			goalsTFs[3][0].setVisible(false);
-			goalsTFs[3][1].setVisible(false);
-			descrLbls[2].setVisible(true);
-			descrLbls[3].setVisible(false);
-		} else {
-			isFinishedAfterRT = false;
-			isFinishedAfterET = false;
-			goalsTFs[2][0].setVisible(true);
-			goalsTFs[2][1].setVisible(true);
-			goalsTFs[3][0].setVisible(true);
-			goalsTFs[3][1].setVisible(true);
-			descrLbls[2].setVisible(true);
-			descrLbls[3].setVisible(true);
-		}
-	}
-	
-	private void setErgebnis(Ergebnis ergebnis) {
-		for (int i = 0; i < 4; i++) {
-			goalsTFs[i][0].setText("-1");
-			goalsTFs[i][1].setText("-1");
-		}
-		if (ergebnis != null) {
-			if (ergebnis.toString().indexOf("n") == -1)	{
-				isFinishedAfterRT = true;
-				showTextFields(false, false);
-			} else if (ergebnis.toString().indexOf("nE") == -1)	{
-				isFinishedAfterET = true;
-				showTextFields(true, false);
-			}
-			for (int i = 0; i < 4; i++) {
-				goalsTFs[i][0].setText("" + ergebnis.home(i));
-				goalsTFs[i][1].setText("" + ergebnis.away(i));
-			}
-		} else {
-			showTextFields(false, false);
-		}
-	}
-	
 	private void goActionPerformed() {
 		Ergebnis ergebnis = this.ergebnis;
-		
-		if (this.ergebnis == null || (this.ergebnis.toString().equals("0:0") && isETpossible)) {
-			String resRT = (goalsTFs[1][0].getText().length() > 0 ? goalsTFs[1][0].getText() : "-1") + ":"
-					+ (goalsTFs[1][1].getText().length() > 0 ? goalsTFs[1][1].getText() : "-1");
-			String resET = (goalsTFs[2][0].getText().length() > 0 ? goalsTFs[2][0].getText() : "-1") + ":"
-					+ (goalsTFs[2][1].getText().length() > 0 ? goalsTFs[2][1].getText() : "-1");
-			String resPS = (goalsTFs[3][0].getText().length() > 0 ? goalsTFs[3][0].getText() : "-1") + ":"
-					+ (goalsTFs[3][1].getText().length() > 0 ? goalsTFs[3][1].getText() : "-1");
-			
-			if (amGruenenTisch) {
-				if(resRT.equals("3:0") || resRT.equals("0:3")) {
-					ergebnis = new Ergebnis(resRT + " agT");
-				}
-			} else if (isFinishedAfterRT) {
-				if (resRT.indexOf("-1") == -1) {
-					ergebnis = new Ergebnis(resRT);
-				}
-			} else if (isFinishedAfterET) {
-				if (resRT.indexOf("-1") == -1 && resET.indexOf("-1") == -1) {
-					ergebnis = new Ergebnis(resET + "nV (" + resRT + ")");
-				}
-			} else {
-				if (resRT.indexOf("-1") == -1 && resET.indexOf("-1") == -1 && resPS.indexOf("-1") == -1) {
-					ergebnis = new Ergebnis(resPS + "nE (" + resET + "," + resRT + ")");
-				}
-			}
-		}
 		
 		this.setVisible(false);
 		spieltag.moreOptions(ergebnis);
