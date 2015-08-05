@@ -130,10 +130,17 @@ public class Ergebnis {
 	}
 	
 	public String getMore() {
-		if (amGruenenTisch)	return "agT";
+		if (amGruenenTisch)	return "a.g.T.";
 		if (finishedInRegularTime)	return "";
 		if (finishedInExtraTime)	return "n.V.";
 		return "n.E.";
+	}
+	
+	public String getTooltipext() {
+		if (amGruenenTisch)	return "am gruenen Tisch";
+		if (finishedInRegularTime)	return "";
+		if (finishedInExtraTime)	return "nach Verlaengerung";
+		return "nach Elfmeterschiessen";
 	}
 	
 	public int home() {

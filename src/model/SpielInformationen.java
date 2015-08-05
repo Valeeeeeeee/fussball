@@ -748,17 +748,22 @@ public class SpielInformationen extends JFrame {
 		this.amGruenenTisch = true;
 		goalsTFs[1][0].setText(isHomeTeam ? "3" : "0");
 		goalsTFs[1][1].setText(isHomeTeam ? "0" : "3");
+		ergebnis = new Ergebnis((isHomeTeam ? "3:0" : "0:3") + " agT");
+		setErgebnis();
+	}
+	
+	private void setErgebnis() {
+		spiel.setErgebnis(ergebnis);
+		jLblResult.setText(ergebnis.getResult());
+		jLblZusatz.setText(ergebnis.getMore());
+		jLblZusatz.setToolTipText(ergebnis.getTooltipext());
 	}
 	
 	private void startGame() {
 		if (ergebnis == null)	ergebnis = new Ergebnis("0:0");
-		spiel.setErgebnis(ergebnis);
-		jLblResult.setText(ergebnis.getResult());
-		jLblZusatz.setText(ergebnis.getMore());
+		setErgebnis();
 		
 		jBtnStartGame.setVisible(false);
-		jBtnAGTHome.setVisible(false);
-		jBtnAGTAway.setVisible(false);
 		jBtnSubstitutionHome.setVisible(true);
 		jBtnGoalHome.setVisible(true);
 		jBtnSubstitutionAway.setVisible(true);
@@ -1023,8 +1028,7 @@ public class SpielInformationen extends JFrame {
 		else							tor = new Tor(spiel, editingHomeTeam, penalty, ownGoal, minute, scorer, assistgeber);
 		spiel.addGoal(tor);
 		ergebnis = spiel.getErgebnis();
-		jLblResult.setText(ergebnis.getResult());
-		jLblZusatz.setText(ergebnis.getMore());
+		setErgebnis();
 		if (repaint)	paintGoals();
 		else			displayGoal(tor);
 		enteringGoal = false;
