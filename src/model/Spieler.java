@@ -102,6 +102,10 @@ public class Spieler {
 		return this.squadNumber;
 	}
 	
+	public int getFirstDate() {
+		return firstDate;
+	}
+	
 	public boolean isEligible(int date) {
 		if (date < firstDate)					return false;
 		if (lastDate != -1 && date > lastDate)	return false;

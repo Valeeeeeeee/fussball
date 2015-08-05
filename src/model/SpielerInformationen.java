@@ -17,11 +17,14 @@ public class SpielerInformationen extends JFrame {
 	public static final int HEIGHT = 830 + 28;
 	
 	private Color background = new Color(255, 255, 255);
+	private Font fontAtClubSince = new Font("Calibri", 0, 24);
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
+	private Font fontDescription = new Font("Calibri", 0, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
+	private Font fontNationality = new Font("Calibri", 0, 24);
 	private Font fontPosition = new Font("Calibri", 0, 24);
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
-	private Font fontSquadnumber = new Font("Calibri", 0, 62);
+	private Font fontSquadnumber = new Font("Calibri", 0, 65);
 	
 	private JPanel jPnlPlayerInformation;
 	private JLabel jLblSquadnumber;
@@ -29,7 +32,13 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblLastNames;
 	private JLabel jLblPseudonym;
 	private JLabel jLblBirthDate;
+	private JLabel jLblBirthDateVal;
 	private JLabel jLblPosition;
+	private JLabel jLblPositionVal;
+	private JLabel jLblNationality;
+	private JLabel jLblNationalityVal;
+	private JLabel jLblAtClubSince;
+	private JLabel jLblAtClubSinceVal;
 	private JScrollPane jSPImage;
 	private JLabel jLblImage;
 	
@@ -42,7 +51,6 @@ public class SpielerInformationen extends JFrame {
 		setLayout(null);
 		setForeground(background);
 		
-		// TODO weitere Daten
 		// TODO Name & Co. veraenderbar
 		{
 			jPnlPlayerInformation = new JPanel();
@@ -54,45 +62,79 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblSquadnumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadnumber);
-			jLblSquadnumber.setBounds(530, 40, 70, 70);
+			jLblSquadnumber.setBounds(530, 65, 70, 65);
 			jLblSquadnumber.setHorizontalAlignment(SwingConstants.CENTER);
 			jLblSquadnumber.setFont(fontSquadnumber);
-			jLblSquadnumber.setOpaque(true);
 		}
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(610, 40, 230, 30);
+			jLblFirstNames.setBounds(610, 60, 230, 30);
 			jLblFirstNames.setFont(fontNames);
-			jLblFirstNames.setOpaque(true);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(610, 80, 230, 30);
+			jLblLastNames.setBounds(610, 100, 230, 30);
 			jLblLastNames.setFont(fontNames);
-			jLblLastNames.setOpaque(true);
 		}
 		{
 			jLblPseudonym = new JLabel();
 			jPnlPlayerInformation.add(jLblPseudonym);
-			jLblPseudonym.setBounds(530, 120, 220, 30);
+			jLblPseudonym.setBounds(530, 140, 220, 30);
 			jLblPseudonym.setFont(fontPseudonym);
-			jLblPseudonym.setOpaque(true);
 		}
 		{
 			jLblBirthDate = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDate);
-			jLblBirthDate.setBounds(530, 160, 120, 30);
-			jLblBirthDate.setFont(fontBirthDate);
-			jLblBirthDate.setOpaque(true);
+			jLblBirthDate.setBounds(530, 180, 105, 20);
+			jLblBirthDate.setFont(fontDescription);
+			jLblBirthDate.setText("Geburtsdatum:");
+		}
+		{
+			jLblBirthDateVal = new JLabel();
+			jPnlPlayerInformation.add(jLblBirthDateVal);
+			jLblBirthDateVal.setBounds(530, 200, 120, 30);
+			jLblBirthDateVal.setFont(fontBirthDate);
 		}
 		{
 			jLblPosition = new JLabel();
 			jPnlPlayerInformation.add(jLblPosition);
-			jLblPosition.setBounds(530, 200, 110, 30);
-			jLblPosition.setFont(fontPosition);
-			jLblPosition.setOpaque(true);
+			jLblPosition.setBounds(700, 180, 65, 20);
+			jLblPosition.setFont(fontDescription);
+			jLblPosition.setText("Position:");
+		}
+		{
+			jLblPositionVal = new JLabel();
+			jPnlPlayerInformation.add(jLblPositionVal);
+			jLblPositionVal.setBounds(700, 200, 110, 30);
+			jLblPositionVal.setFont(fontPosition);
+		}
+		{
+			jLblNationality = new JLabel();
+			jPnlPlayerInformation.add(jLblNationality);
+			jLblNationality.setBounds(530, 240, 120, 20);
+			jLblNationality.setFont(fontDescription);
+			jLblNationality.setText("Nationalitaet(en):");
+		}
+		{
+			jLblNationalityVal = new JLabel();
+			jPnlPlayerInformation.add(jLblNationalityVal);
+			jLblNationalityVal.setBounds(530, 260, 310, 30);
+			jLblNationalityVal.setFont(fontNationality);
+		}
+		{
+			jLblAtClubSince = new JLabel();
+			jPnlPlayerInformation.add(jLblAtClubSince);
+			jLblAtClubSince.setBounds(530, 300, 110, 20);
+			jLblAtClubSince.setFont(fontDescription);
+			jLblAtClubSince.setText("Im Verein seit:");
+		}
+		{
+			jLblAtClubSinceVal = new JLabel();
+			jPnlPlayerInformation.add(jLblAtClubSinceVal);
+			jLblAtClubSinceVal.setBounds(530, 320, 120, 30);
+			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
 		
 		setSize(WIDTH, HEIGHT);
@@ -104,8 +146,19 @@ public class SpielerInformationen extends JFrame {
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
 		jLblPseudonym.setText(player.getPseudonym() != null ? player.getPseudonym() : "kein Pseudonym");
-		jLblBirthDate.setText(MyDate.datum(player.getBirthDate()));
-		jLblPosition.setText(player.getPosition().getName());
+		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
+		jLblPositionVal.setText(player.getPosition().getName());
+		jLblNationalityVal.setText(player.getNationality());
+		int atClubSince = player.getFirstDate();
+		if (atClubSince != -1) {
+			jLblAtClubSinceVal.setText(MyDate.datum(atClubSince));
+			jLblAtClubSince.setVisible(true);
+			jLblAtClubSinceVal.setVisible(true);
+		} else {
+			jLblAtClubSinceVal.setText("");
+			jLblAtClubSince.setVisible(false);
+			jLblAtClubSinceVal.setVisible(false);
+		}
 		
 		Image image = null;
 		if (jLblImage != null) {
@@ -124,6 +177,5 @@ public class SpielerInformationen extends JFrame {
 		jLblImage.setVisible(true);
 		jSPImage.setVisible(true);
 		jSPImage.getVerticalScrollBar().setUnitIncrement(20);
-		util.Utilities.log("scroll bar unit increment: " + jSPImage.getVerticalScrollBar().getUnitIncrement());
 	}
 }
