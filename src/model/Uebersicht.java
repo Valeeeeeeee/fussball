@@ -138,7 +138,7 @@ public class Uebersicht extends JPanel {
 			RECINFPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty, 420, 80);
 			
 			{
-				spielerInformationen = new SpielerInformationen();
+				spielerInformationen = new SpielerInformationen(wettbewerb);
 				spielerInformationen.setLocationRelativeTo(null);
 			}
 			

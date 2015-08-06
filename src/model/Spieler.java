@@ -1,7 +1,5 @@
 package model;
 
-import static util.Utilities.*;
-
 public class Spieler {
 
 	private String trennZeichen = ";";

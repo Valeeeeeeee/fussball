@@ -142,6 +142,47 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
+	public int[] getPerformanceData(Spieler player) {
+		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0;
+		int squadNumber = player.getSquadNumber();
+		
+		for (Spiel spiel : spiele) {
+			if (spiel != null) {
+				int[] lineup = homeaway[spiel.getMatchday()] ? spiel.getLineupHome() : spiel.getLineupAway();
+				if (lineup == null)	continue;
+				int firstMinute = 91, lastMinute = 91;
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
+				ArrayList<Tor> tore = spiel.getTore();
+				
+				for (int i = 0; i < lineup.length; i++) {
+					if (lineup[i] == squadNumber) {
+						gamesPlayed++;
+						gamesStarted++;
+						firstMinute = 1;
+					}
+				}
+				for (Wechsel wechsel : substitutions) {
+					if (wechsel.getEingewechselterSpieler().getSquadNumber() == squadNumber) {
+						gamesPlayed++;
+						subOn++;
+						firstMinute = wechsel.getMinute();
+					} else if (wechsel.getAusgewechselterSpieler().getSquadNumber() == squadNumber) {
+						subOff++;
+						lastMinute = wechsel.getMinute();
+					}
+				}
+				for (Tor tor : tore) {
+					if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer().getSquadNumber() == squadNumber) {
+						goals++;
+					}
+				}
+				minutesPlayed += lastMinute - firstMinute;
+			}
+		}
+		
+		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals};
+	}
+	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tabellenart) {
 		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tabellenart)	return;
 		

@@ -19,9 +19,11 @@ public class SpielerInformationen extends JFrame {
 	private Color background = new Color(255, 255, 255);
 	private Font fontAtClubSince = new Font("Calibri", 0, 24);
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
+	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
 	private Font fontNationality = new Font("Calibri", 0, 24);
+	private Font fontPerformance = new Font("Calibri", 0, 18);
 	private Font fontPosition = new Font("Calibri", 0, 24);
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
 	private Font fontSquadnumber = new Font("Calibri", 0, 65);
@@ -39,10 +41,29 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblNationalityVal;
 	private JLabel jLblAtClubSince;
 	private JLabel jLblAtClubSinceVal;
+	private JLabel jLblPerformance;
+	private JLabel jLblCompetition;
+	private JLabel jLblGamesPlayed;
+	private JLabel jLblGamesPlayedVal;
+	private JLabel jLblGamesStarted;
+	private JLabel jLblGamesStartedVal;
+	private JLabel jLblSubstitutedOn;
+	private JLabel jLblSubstitutedOnVal;
+	private JLabel jLblSubstitutedOff;
+	private JLabel jLblSubstitutedOffVal;
+	private JLabel jLblMinutesPlayed;
+	private JLabel jLblMinutesPlayedVal;
+	private JLabel jLblGoalsScored;
+	private JLabel jLblGoalsScoredVal;
 	private JScrollPane jSPImage;
 	private JLabel jLblImage;
 	
-	public SpielerInformationen() {
+	private Wettbewerb wettbewerb;
+	
+	public SpielerInformationen(Wettbewerb wettbewerb) {
+		super();
+		
+		this.wettbewerb = wettbewerb;
 		
 		initGUI();
 	}
@@ -136,6 +157,104 @@ public class SpielerInformationen extends JFrame {
 			jLblAtClubSinceVal.setBounds(530, 320, 120, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
+		{
+			jLblPerformance = new JLabel();
+			jPnlPlayerInformation.add(jLblPerformance);
+			jLblPerformance.setBounds(530, 380, 120, 25);
+			jLblPerformance.setFont(fontPerformance);
+			jLblPerformance.setText("Leistungsdaten");
+		}
+		{
+			jLblCompetition = new JLabel();
+			jPnlPlayerInformation.add(jLblCompetition);
+			jLblCompetition.setBounds(660, 380, 180, 25);
+			jLblCompetition.setFont(fontCompetition);
+			jLblCompetition.setText(wettbewerb.getName());
+		}
+		{
+			jLblGamesPlayed = new JLabel();
+			jPnlPlayerInformation.add(jLblGamesPlayed);
+			jLblGamesPlayed.setBounds(530, 410, 160, 25);
+			jLblGamesPlayed.setFont(fontCompetition);
+			jLblGamesPlayed.setText("Gespielte Spiele");
+		}
+		{
+			jLblGamesPlayedVal = new JLabel();
+			jPnlPlayerInformation.add(jLblGamesPlayedVal);
+			jLblGamesPlayedVal.setBounds(700, 410, 50, 25);
+			jLblGamesPlayedVal.setFont(fontCompetition);
+			jLblGamesPlayedVal.setText("Gespielte Spiele");
+		}
+		{
+			jLblGamesStarted = new JLabel();
+			jPnlPlayerInformation.add(jLblGamesStarted);
+			jLblGamesStarted.setBounds(560, 440, 130, 25);
+			jLblGamesStarted.setFont(fontCompetition);
+			jLblGamesStarted.setText("in der Startelf");
+		}
+		{
+			jLblGamesStartedVal = new JLabel();
+			jPnlPlayerInformation.add(jLblGamesStartedVal);
+			jLblGamesStartedVal.setBounds(700, 440, 50, 25);
+			jLblGamesStartedVal.setFont(fontCompetition);
+			jLblGamesStartedVal.setText("in der Startelf");
+		}
+		{
+			jLblSubstitutedOn = new JLabel();
+			jPnlPlayerInformation.add(jLblSubstitutedOn);
+			jLblSubstitutedOn.setBounds(560, 470, 130, 25);
+			jLblSubstitutedOn.setFont(fontCompetition);
+			jLblSubstitutedOn.setText("eingewechselt");
+		}
+		{
+			jLblSubstitutedOnVal = new JLabel();
+			jPnlPlayerInformation.add(jLblSubstitutedOnVal);
+			jLblSubstitutedOnVal.setBounds(700, 470, 50, 25);
+			jLblSubstitutedOnVal.setFont(fontCompetition);
+			jLblSubstitutedOnVal.setText("eingewechselt");
+		}
+		{
+			jLblSubstitutedOff = new JLabel();
+			jPnlPlayerInformation.add(jLblSubstitutedOff);
+			jLblSubstitutedOff.setBounds(560, 500, 130, 25);
+			jLblSubstitutedOff.setFont(fontCompetition);
+			jLblSubstitutedOff.setText("ausgewechselt");
+		}
+		{
+			jLblSubstitutedOffVal = new JLabel();
+			jPnlPlayerInformation.add(jLblSubstitutedOffVal);
+			jLblSubstitutedOffVal.setBounds(700, 500, 50, 25);
+			jLblSubstitutedOffVal.setFont(fontCompetition);
+			jLblSubstitutedOffVal.setText("ausgewechselt");
+		}
+		{
+			jLblMinutesPlayed = new JLabel();
+			jPnlPlayerInformation.add(jLblMinutesPlayed);
+			jLblMinutesPlayed.setBounds(530, 530, 160, 25);
+			jLblMinutesPlayed.setFont(fontCompetition);
+			jLblMinutesPlayed.setText("Gespielte Minuten");
+		}
+		{
+			jLblMinutesPlayedVal = new JLabel();
+			jPnlPlayerInformation.add(jLblMinutesPlayedVal);
+			jLblMinutesPlayedVal.setBounds(700, 530, 50, 25);
+			jLblMinutesPlayedVal.setFont(fontCompetition);
+			jLblMinutesPlayedVal.setText("Gespielte Minuten");
+		}
+		{
+			jLblGoalsScored = new JLabel();
+			jPnlPlayerInformation.add(jLblGoalsScored);
+			jLblGoalsScored.setBounds(530, 560, 160, 25);
+			jLblGoalsScored.setFont(fontCompetition);
+			jLblGoalsScored.setText("Tore");
+		}
+		{
+			jLblGoalsScoredVal = new JLabel();
+			jPnlPlayerInformation.add(jLblGoalsScoredVal);
+			jLblGoalsScoredVal.setBounds(700, 560, 50, 25);
+			jLblGoalsScoredVal.setFont(fontCompetition);
+			jLblGoalsScoredVal.setText("Tore");
+		}
 		
 		setSize(WIDTH, HEIGHT);
 		setResizable(false);
@@ -145,7 +264,7 @@ public class SpielerInformationen extends JFrame {
 		jLblSquadnumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
-		jLblPseudonym.setText(player.getPseudonym() != null ? player.getPseudonym() : "kein Pseudonym");
+		jLblPseudonym.setText(player.getPseudonym() != null ? player.getPseudonym() : "");
 		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
 		jLblPositionVal.setText(player.getPosition().getName());
 		jLblNationalityVal.setText(player.getNationality());
@@ -159,6 +278,13 @@ public class SpielerInformationen extends JFrame {
 			jLblAtClubSince.setVisible(false);
 			jLblAtClubSinceVal.setVisible(false);
 		}
+		int[] performanceData = player.getTeam().getPerformanceData(player);
+		jLblGamesPlayedVal.setText("" + performanceData[0]);
+		jLblGamesStartedVal.setText("" + performanceData[1]);
+		jLblSubstitutedOnVal.setText("" + performanceData[2]);
+		jLblSubstitutedOffVal.setText("" + performanceData[3]);
+		jLblMinutesPlayedVal.setText("" + performanceData[4]);
+		jLblGoalsScoredVal.setText("" + performanceData[5]);
 		
 		Image image = null;
 		if (jLblImage != null) {
@@ -177,5 +303,6 @@ public class SpielerInformationen extends JFrame {
 		jLblImage.setVisible(true);
 		jSPImage.setVisible(true);
 		jSPImage.getVerticalScrollBar().setUnitIncrement(20);
+		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 }
