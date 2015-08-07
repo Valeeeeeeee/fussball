@@ -216,6 +216,7 @@ public class Spieltag extends JPanel {
 		buttonsauswahl[SIZEY] = 50;
 		
 		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
+			buttonsauswahl[GAPY] = 1;
 			buttonsauswahl[SIZEY] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
 		}
 	}
@@ -1372,9 +1373,7 @@ public class Spieltag extends JPanel {
 	public void dateEnteredLeagueStyle(int startDate, int KOTindex) {
 		season.setDate(currentMatchday, startDate);
 		season.setKOTIndex(currentMatchday, editedDate, KOTindex);
-		jLblsSpieltagsdaten[editedDate].setOpaque(false);
-		repaintImmediately(jLblsSpieltagsdaten[editedDate]);
-		editedDate = -1;
+		dateChooserClosed();
 		spieltagsdatenBefuellen();
 	}
 	
@@ -1401,11 +1400,16 @@ public class Spieltag extends JPanel {
 			gruppe.setDate(currentMatchday, matchID, myDate);
 			gruppe.setTime(currentMatchday, matchID, myTime);
 		}
+		dateChooserClosed();
+		spieltagsdatenBefuellen();
+	}
+	
+	public void dateChooserClosed() {
+		if (editedDate == -1)	return;
 		if (isOverview)	editedDate = newOrder[editedDate];
 		jLblsSpieltagsdaten[editedDate].setOpaque(false);
 		repaintImmediately(jLblsSpieltagsdaten[editedDate]);
 		editedDate = -1;
-		spieltagsdatenBefuellen();
 	}
 	
 	private void jBtnsMoreOptionsClicked(int index) {

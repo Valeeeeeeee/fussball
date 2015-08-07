@@ -1,0 +1,380 @@
+Q101W: Zeljeznicar Sarajevo
+Q101L: FC Balzan
+Q102W: Shamrock Rovers
+Q102L: Progrès Niederkorn
+Q103W: Dacia Chisinau
+Q103L: Renova Dzepciste
+Q104W: Beitar Jerusalem
+Q104L: Ordabassy Schymkent
+Q105W: Schirak Gjumri
+Q105L: Zrinjski Mostar
+Q106W: Jagiellonia Bialystok
+Q106L: Kruoja Pakruojis
+Q107W: Alaschkert Martuni
+Q107L: FC St. Johnstone
+Q108W: Inter Baku
+Q108L: KF Laci
+Q109W: Mladost Podgorica
+Q109L: Neftci Baku
+Q110W: Omonia Nikosia
+Q110L: Dinamo Batumi
+Q111W: FK Qäbälä
+Q111L: Dinamo Tiflis
+Q112W: Nömme Kalju
+Q112L: FK Aqtöbe
+Q113W: Spartak Trnava
+Q113L: Olimpic Sarajevo
+Q114W: FH Hafnarfjördur
+Q114L: Seinäjoen Jalkapallokerho
+Q115W: IF Elfsborg
+Q115L: FC Lahti
+Q116W: AIK Solna
+Q116L: Vaasa PS
+Q117W: Skonto Riga
+Q117L: St. Patrick's Athletic
+Q118W: FK Jelgava
+Q118L: Litex Lovech
+Q119W: FK Kukesi
+Q119L: Torpedo Schodsina
+Q120W: Beroe Stara Sagora
+Q120L: Atlantas Klaipeda
+Q121W: Rabotnicki Skopje
+Q121L: Flora Tallinn
+Q122W: Randers FC
+Q122L: UE Sant Julià
+Q123W: VSC Debrecen
+Q123L: Sutjeska Niksic
+Q124W: Hajduk Split
+Q124L: Kalev Sillamäe
+Q125W: FC Botosani
+Q125L: Spartaki Zchinwali
+Q126W: Bröndby IF
+Q126L: AC Juvenes/Dogana
+Q127W: Strömsgodset Toppfotball
+Q127L: Partizani Tirana
+Q128W: Apollon Limassol
+Q128L: Saxan Ceadîr-Lunga
+Q129W: Odds Ballklubb
+Q129L: Sheriff Tiraspol
+Q130W: FK Trakai
+Q130L: HB Tórshavn
+Q131W: FC Differdingen
+Q131L: Bala Town
+Q132W: Slovan Bratislava
+Q132L: College Europa
+Q133W: Lokomotiva Zagreb
+Q133L: Airbus UK
+Q134W: Ferencvaros Budapest
+Q134L: Go Ahead Eagles Deventer
+Q135W: Slask Wroclaw
+Q135L: NK Celje
+Q136W: FK Cukaricki
+Q136L: NK Domzale
+Q137W: Rosenborg Trondheim
+Q137L: Víkingur Göta
+Q138W: Newtown AFC
+Q138L: FC Valletta
+Q139W: Vojvodina Novi Sad
+Q139L: MTK Budapest
+Q140W: Spartaks Jurmala
+Q140L: Buducnost Podgorica
+Q141W: FC Vaduz
+Q141L: SP La Fiorita
+Q142W: West Ham United
+Q142L: FC Lusitanos
+Q143W: Qairat Almaty
+Q143L: Roter Stern Belgrad
+Q144W: KR Reykjavík
+Q144L: Cork City
+Q145W: University College Dublin
+Q145L: F91 Düdelingen
+Q146W: FC Birkirkara
+Q146L: Ulisses Erewan
+Q147W: Linfield FC
+Q147L: NSÍ Runavík
+Q148W: Schachzjor Salihorsk
+Q148L: Glenavon FC
+Q149W: MSK Zilina
+Q149L: Glentoran FC
+Q150W: FC Aberdeen
+Q150L: KF Shkendija
+Q151W: FC Koper
+Q151L: Víkingur Reykjavík
+Q201W: Qairat Almaty
+Q201L: Alaschkert Martuni
+Q202W: Rabotnicki Skopje
+Q202L: FK Jelgava
+Q203W: IF Elfsborg
+Q203L: Randers FC
+Q204W: MSK Zilina
+Q204L: Dacia Chisinau
+Q205W: VSC Debrecen
+Q205L: Skonto Riga
+Q206W: Wolfsberger AC
+Q206L: Schachzjor Salihorsk
+Q207W: Apollon Limassol
+Q207L: FK Trakai
+Q208W: Strömsgodset Toppfotball
+Q208L: Mladá Boleslav
+Q209W: FC Thun
+Q209L: Hapoel Be'er Scheva
+Q210W: Dinamo Minsk
+Q210L: Tscherno More Varna
+Q211W: AIK Solna
+Q211L: Schirak Gjumri
+Q212W: Bröndby IF
+Q212L: Beroe Stara Sagora
+Q213W: Hajduk Split
+Q213L: FC Koper
+Q214W: Sporting Charleroi
+Q214L: Beitar Jerusalem
+Q215W: FK Kukesi
+Q215L: Mladost Podgorica
+Q216W: FC Kopenhagen
+Q216L: Newtown AFC
+Q217W: FC Vaduz
+Q217L: Nömme Kalju
+Q218W: Trabzonspor
+Q218L: FC Differdingen
+Q219W: PAOK Thessaloniki
+Q219L: Lokomotiva Zagreb
+Q220W: Spartak Trnava
+Q220L: Linfield FC
+Q221W: Slovan Bratislava
+Q221L: University College Dublin
+Q222W: Omonia Nikosia
+Q222L: Jagiellonia Bialystok
+Q223W: IFK Göteborg
+Q223L: Slask Wroclaw
+Q224W: Vojvodina Novi Sad
+Q224L: Spartaks Jurmala
+Q225W: FK Qäbälä
+Q225L: FK Cukaricki
+Q226W: Zeljeznicar Sarajevo
+Q226L: Ferencvaros Budapest
+Q227W: West Ham United
+Q227L: FC Birkirkara
+Q228W: Astra Giurgiu
+Q228L: Inverness Caledonian Thistle
+Q229W: FC Aberdeen
+Q229L: HNK Rijeka
+Q230W: Legia Warschau
+Q230L: FC Botosani
+Q231W: Odds Ballklubb
+Q231L: Shamrock Rovers
+Q232W: Inter Baku
+Q232L: FH Hafnarfjördur
+Q233W: Rosenborg Trondheim
+Q233L: KR Reykjavík
+Q301W: BAUMIT Jablonec
+Q301L: FC Kopenhagen
+Q302W: Qairat Almaty
+Q302L: FC Aberdeen
+Q303W: Odds Ballklubb
+Q303L: IF Elfsborg
+Q304W: PAOK Thessaloniki
+Q304L: Spartak Trnava
+Q305W: FK Qäbälä
+Q305L: Apollon Limassol
+Q306W: FK Krasnodar
+Q306L: Slovan Bratislava
+Q307W: Atromitos Athen
+Q307L: AIK Solna
+Q308W: SC Rheindorf Altach
+Q308L: Vitória Guimaraes
+Q309W: Rubin Kasan
+Q309L: Sturm Graz
+Q310W: Slovan Liberec
+Q310L: Hapoel Ironi Kirjat Schmona
+Q311W: FC Thun
+Q311L: FC Vaduz
+Q312W: AZ Alkmaar
+Q312L: Istanbul Basaksehir
+Q313W: Dinamo Minsk
+Q313L: FC Zürich
+Q314W: MSK Zilina
+Q314L: Worskla Poltawa
+Q315W: Bröndby IF
+Q315L: Omonia Nikosia
+Q316W: AS Saint-Étienne
+Q316L: ASA Târgu Mures
+Q317W: Rosenborg Trondheim
+Q317L: VSC Debrecen
+Q318W: Legia Warschau
+Q318L: FK Kukesi
+Q319W: Rabotnicki Skopje
+Q319L: Trabzonspor
+Q320W: Sorja Luhansk
+Q320L: Sporting Charleroi
+Q321W: Girondins Bordeaux
+Q321L: AEK Larnaka
+Q322W: Standard Lüttich
+Q322L: Zeljeznicar Sarajevo
+Q323W: Athletic Bilbao
+Q323L: Inter Baku
+Q324W: Astra Giurgiu
+Q324L: West Ham United
+Q325W: Vojvodina Novi Sad
+Q325L: Sampdoria Genua
+Q326W: Belenenses Lissabon
+Q326L: IFK Göteborg
+Q327W: Hajduk Split
+Q327L: Strömsgodset Toppfotball
+Q328W: FC Southampton
+Q328L: Vitesse Arnheim
+Q329W: Borussia Dortmund
+Q329L: Wolfsberger AC
+PO01W: CL2015PO01W
+PO01L: CL2015PO01L
+PO02W: CL2015PO02W
+PO02L: CL2015PO02L
+PO03W: CL2015PO03W
+PO03L: CL2015PO03L
+PO04W: CL2015PO04W
+PO04L: CL2015PO04L
+PO05W: CL2015PO05W
+PO05L: CL2015PO05L
+PO06W: CL2015PO06W
+PO06L: CL2015PO06L
+PO07W: CL2015PO07W
+PO07L: CL2015PO07L
+PO08W: CL2015PO08W
+PO08L: CL2015PO08L
+PO09W: CL2015PO09W
+PO09L: CL2015PO09L
+PO10W: CL2015PO10W
+PO10L: CL2015PO10L
+PO11W: CL2015PO11W
+PO11L: CL2015PO11L
+PO12W: CL2015PO12W
+PO12L: CL2015PO12L
+PO13W: CL2015PO13W
+PO13L: CL2015PO13L
+PO14W: CL2015PO14W
+PO14L: CL2015PO14L
+PO15W: CL2015PO15W
+PO15L: CL2015PO15L
+PO16W: CL2015PO16W
+PO16L: CL2015PO16L
+PO17W: CL2015PO17W
+PO17L: CL2015PO17L
+PO18W: CL2015PO18W
+PO18L: CL2015PO18L
+PO19W: CL2015PO19W
+PO19L: CL2015PO19L
+PO20W: CL2015PO20W
+PO20L: CL2015PO20L
+PO21W: CL2015PO21W
+PO21L: CL2015PO21L
+PO22W: CL2015PO22W
+PO22L: CL2015PO22L
+GA1: CL2015GA1
+GA2: CL2015GA2
+GA3: CL2015GA3
+GA4: CL2015GA4
+GB1: CL2015GB1
+GB2: CL2015GB2
+GB3: CL2015GB3
+GB4: CL2015GB4
+GC1: CL2015GC1
+GC2: CL2015GC2
+GC3: CL2015GC3
+GC4: CL2015GC4
+GD1: CL2015GD1
+GD2: CL2015GD2
+GD3: CL2015GD3
+GD4: CL2015GD4
+GE1: CL2015GE1
+GE2: CL2015GE2
+GE3: CL2015GE3
+GE4: CL2015GE4
+GF1: CL2015GF1
+GF2: CL2015GF2
+GF3: CL2015GF3
+GF4: CL2015GF4
+GG1: CL2015GG1
+GG2: CL2015GG2
+GG3: CL2015GG3
+GG4: CL2015GG4
+GH1: CL2015GH1
+GH2: CL2015GH2
+GH3: CL2015GH3
+GH4: CL2015GH4
+GI1: CL2015GI1
+GI2: CL2015GI2
+GI3: CL2015GI3
+GI4: CL2015GI4
+GJ1: CL2015GJ1
+GJ2: CL2015GJ2
+GJ3: CL2015GJ3
+GJ4: CL2015GJ4
+GK1: CL2015GK1
+GK2: CL2015GK2
+GK3: CL2015GK3
+GK4: CL2015GK4
+GL1: CL2015GL1
+GL2: CL2015GL2
+GL3: CL2015GL3
+GL4: CL2015GL4
+SF01W: CL2015SF01W
+SF01L: CL2015SF01L
+SF02W: CL2015SF02W
+SF02L: CL2015SF02L
+SF03W: CL2015SF03W
+SF03L: CL2015SF03L
+SF04W: CL2015SF04W
+SF04L: CL2015SF04L
+SF05W: CL2015SF05W
+SF05L: CL2015SF05L
+SF06W: CL2015SF06W
+SF06L: CL2015SF06L
+SF07W: CL2015SF07W
+SF07L: CL2015SF07L
+SF08W: CL2015SF08W
+SF08L: CL2015SF08L
+SF09W: CL2015SF09W
+SF09L: CL2015SF09L
+SF10W: CL2015SF10W
+SF10L: CL2015SF10L
+SF11W: CL2015SF11W
+SF11L: CL2015SF11L
+SF12W: CL2015SF12W
+SF12L: CL2015SF12L
+SF13W: CL2015SF13W
+SF13L: CL2015SF13L
+SF14W: CL2015SF14W
+SF14L: CL2015SF14L
+SF15W: CL2015SF15W
+SF15L: CL2015SF15L
+SF16W: CL2015SF16W
+SF16L: CL2015SF16L
+AF01W: CL2015AF01W
+AF01L: CL2015AF01L
+AF02W: CL2015AF02W
+AF02L: CL2015AF02L
+AF03W: CL2015AF03W
+AF03L: CL2015AF03L
+AF04W: CL2015AF04W
+AF04L: CL2015AF04L
+AF05W: CL2015AF05W
+AF05L: CL2015AF05L
+AF06W: CL2015AF06W
+AF06L: CL2015AF06L
+AF07W: CL2015AF07W
+AF07L: CL2015AF07L
+AF08W: CL2015AF08W
+AF08L: CL2015AF08L
+VF01W: CL2015VF01W
+VF01L: CL2015VF01L
+VF02W: CL2015VF02W
+VF02L: CL2015VF02L
+VF03W: CL2015VF03W
+VF03L: CL2015VF03L
+VF04W: CL2015VF04W
+VF04L: CL2015VF04L
+HF01W: CL2015HF01W
+HF01L: CL2015HF01L
+HF02W: CL2015HF02W
+HF02L: CL2015HF02L
+FI01W: CL2015FI01W
+FI01L: CL2015FI01L

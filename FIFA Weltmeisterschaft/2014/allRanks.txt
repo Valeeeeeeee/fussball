@@ -30,3 +30,35 @@ GH1: Belgien
 GH2: Algerien
 GH3: Russland
 GH4: Südkorea
+AF01W: Brasilien
+AF01L: Chile
+AF02W: Kolumbien
+AF02L: Uruguay
+AF03W: Niederlande
+AF03L: Mexiko
+AF04W: Costa Rica
+AF04L: Griechenland
+AF05W: Frankreich
+AF05L: Nigeria
+AF06W: Deutschland
+AF06L: Algerien
+AF07W: Argentinien
+AF07L: Schweiz
+AF08W: Belgien
+AF08L: USA
+VF01W: Deutschland
+VF01L: Frankreich
+VF02W: Brasilien
+VF02L: Kolumbien
+VF03W: Argentinien
+VF03L: Belgien
+VF04W: Niederlande
+VF04L: Costa Rica
+HF01W: Deutschland
+HF01L: Brasilien
+HF02W: Argentinien
+HF02L: Niederlande
+P301W: Niederlande
+P301L: Brasilien
+FI01W: Deutschland
+FI01L: Argentinien

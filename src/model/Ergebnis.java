@@ -122,6 +122,27 @@ public class Ergebnis {
 		}
 	}
 	
+	public String getResult() {
+		if (amGruenenTisch)	return home(REGULAR) + ":" + away(REGULAR);
+		if (finishedInRegularTime)	return home(REGULAR) + ":" + away(REGULAR);
+		if (finishedInExtraTime)	return home(EXTRATIME) + ":" + away(EXTRATIME);
+		return home(PENALTIES) + ":" + away(PENALTIES);
+	}
+	
+	public String getMore() {
+		if (amGruenenTisch)	return "a.g.T.";
+		if (finishedInRegularTime)	return "";
+		if (finishedInExtraTime)	return "n.V.";
+		return "n.E.";
+	}
+	
+	public String getTooltipext() {
+		if (amGruenenTisch)	return "am gruenen Tisch";
+		if (finishedInRegularTime)	return "";
+		if (finishedInExtraTime)	return "nach Verlaengerung";
+		return "nach Elfmeterschiessen";
+	}
+	
 	public int home() {
 		if (amGruenenTisch) {
 			return home(REGULAR);

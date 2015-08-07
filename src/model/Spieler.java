@@ -1,7 +1,5 @@
 package model;
 
-import static util.Utilities.*;
-
 public class Spieler {
 
 	private String trennZeichen = ";";
@@ -66,8 +64,12 @@ public class Spieler {
 		}
 	}
 	
-	public String getPseudonym() {
+	public String getPseudonymOrLN() {
 		return this.pseudonym != null ? this.pseudonym : this.lastNameShort;
+	}
+	
+	public String getPseudonym() {
+		return this.pseudonym;
 	}
 	
 	public String getFullName() {
@@ -75,7 +77,7 @@ public class Spieler {
 	}
 	
 	public String getFullNameShort() {
-		return this.firstName + " " + lastNameShort;
+		return this.pseudonym != null ? this.pseudonym : this.firstName + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
@@ -96,6 +98,10 @@ public class Spieler {
 
 	public int getSquadNumber() {
 		return this.squadNumber;
+	}
+	
+	public int getFirstDate() {
+		return firstDate;
 	}
 	
 	public boolean isEligible(int date) {

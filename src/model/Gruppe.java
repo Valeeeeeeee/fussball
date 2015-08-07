@@ -504,7 +504,7 @@ public class Gruppe implements Wettbewerb {
 		String[] ranks = new String[this.numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
-			String id = "G" + alphabet[this.id] + (i + 1);
+			String id = (isQ ? "Q" :  "") + "G" + alphabet[this.id] + (i + 1);
 			try {
 				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
 			} catch (NullPointerException npe) {

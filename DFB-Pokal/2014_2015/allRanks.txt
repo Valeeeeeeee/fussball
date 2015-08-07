@@ -1,0 +1,126 @@
+1R01W: Chemnitzer FC
+1R01L: 1. FSV Mainz 05
+1R02W: Bayer 04 Leverkusen
+1R02L: SV Alemannia Waldalgesheim
+1R03W: MSV Duisburg
+1R03L: 1. FC Nürnberg
+1R04W: Borussia Mönchengladbach
+1R04L: FC 08 Homburg
+1R05W: FC St. Pauli
+1R05L: FSV Optik Rathenow
+1R06W: Eintracht Braunschweig
+1R06L: Bremer SV
+1R07W: VfL Bochum
+1R07L: VfB Stuttgart
+1R08W: Hertha BSC
+1R08L: FC Viktoria Köln
+1R09W: Borussia Dortmund
+1R09L: Stuttgarter Kickers
+1R10W: Hannover 96
+1R10L: FC-Astoria Walldorf
+1R11W: 1.FC Köln
+1R11L: FT Braunschweig
+1R12W: SpVgg Greuther Fürth
+1R12L: SV Waldkirch
+1R13W: 1. FC Kaiserlautern
+1R13L: SV Wehen Wiesbaden
+1R14W: Eintracht Frankfurt
+1R14L: FC Viktoria 1889 Berlin
+1R15W: FSV Frankfurt
+1R15L: Sportfreunde Siegen
+1R16W: VfR Aalen
+1R16L: BSV Schwarz-Weiß Rehden
+1R17W: 1860 München
+1R17L: Holstein Kiel
+1R18W: Werder Bremen
+1R18L: FV Illertissen
+1R19W: Erzgebirge Aue
+1R19L: FC Carl Zeiss Jena
+1R20W: TSG 1899 Hoffenheim
+1R20L: USC Paloma Hamburg
+1R21W: SC Freiburg
+1R21L: Eintracht Trier
+1R22W: Bayern München
+1R22L: Preußen Münster
+1R23W: Würzburger Kickers
+1R23L: Fortuna Düsseldorf
+1R24W: Karlsruher SC
+1R24L: 1. FC Neubrandenburg 04
+1R25W: Arminia Bielefeld
+1R25L: SV Sandhausen
+1R26W: 1. FC Magdeburg
+1R26L: FC Augsburg
+1R27W: RasenBallsport Leipzig
+1R27L: SC Paderborn 07
+1R28W: VfL Wolfsburg
+1R28L: SV Darmstadt 98
+1R29W: 1. FC Heidenheim
+1R29L: 1. FC Union Berlin
+1R30W: Kickers Offenbach
+1R30L: FC Ingolstadt 04
+1R31W: Hamburger SV
+1R31L: FC Energie Cottbus
+1R32W: Dynamo Dresden
+1R32L: FC Schalke 04
+2R01W: Werder Bremen
+2R01L: Chemnitzer FC
+2R02W: Arminia Bielefeld
+2R02L: Hertha BSC
+2R03W: Kickers Offenbach
+2R03L: Karlsruher SC
+2R04W: VfR Aalen
+2R04L: Hannover 96
+2R05W: Dynamo Dresden
+2R05L: VfL Bochum
+2R06W: 1.FC Köln
+2R06L: MSV Duisburg
+2R07W: 1. FC Kaiserlautern
+2R07L: SpVgg Greuther Fürth
+2R08W: Borussia Dortmund
+2R08L: FC St. Pauli
+2R09W: Bayer 04 Leverkusen
+2R09L: 1. FC Magdeburg
+2R10W: Eintracht Braunschweig
+2R10L: Würzburger Kickers
+2R11W: SC Freiburg
+2R11L: 1860 München
+2R12W: RasenBallsport Leipzig
+2R12L: Erzgebirge Aue
+2R13W: Bayern München
+2R13L: Hamburger SV
+2R14W: TSG 1899 Hoffenheim
+2R14L: FSV Frankfurt
+2R15W: VfL Wolfsburg
+2R15L: 1. FC Heidenheim
+2R16W: Borussia Mönchengladbach
+2R16L: Eintracht Frankfurt
+AF01W: Bayer 04 Leverkusen
+AF01L: 1. FC Kaiserlautern
+AF02W: TSG 1899 Hoffenheim
+AF02L: VfR Aalen
+AF03W: SC Freiburg
+AF03L: 1.FC Köln
+AF04W: Borussia Dortmund
+AF04L: Dynamo Dresden
+AF05W: VfL Wolfsburg
+AF05L: RasenBallsport Leipzig
+AF06W: Arminia Bielefeld
+AF06L: Werder Bremen
+AF07W: Borussia Mönchengladbach
+AF07L: Kickers Offenbach
+AF08W: Bayern München
+AF08L: Eintracht Braunschweig
+VF01W: VfL Wolfsburg
+VF01L: SC Freiburg
+VF02W: Borussia Dortmund
+VF02L: TSG 1899 Hoffenheim
+VF03W: Arminia Bielefeld
+VF03L: Borussia Mönchengladbach
+VF04W: Bayern München
+VF04L: Bayer 04 Leverkusen
+HF01W: Borussia Dortmund
+HF01L: Bayern München
+HF02W: VfL Wolfsburg
+HF02L: Arminia Bielefeld
+FI01W: VfL Wolfsburg
+FI01L: Borussia Dortmund

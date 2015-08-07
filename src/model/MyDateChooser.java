@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20150808;
-	private int defaultMyTime = 1530;
+	private int defaultMyDate = 20150813;
+	private int defaultMyTime = 1900;
 	private int date;
 	private int time;
 	private int aszindex;
@@ -110,6 +110,7 @@ public class MyDateChooser extends JFrame {
 	
 	public void initGUI() {
 		setLayout(null);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		if (belongsToLeague) {
 			startjahr = season.getSeason();
@@ -569,5 +570,10 @@ public class MyDateChooser extends JFrame {
 		compared = (int) Math.round((double) (r2 - r1) / 86400); // muss gerundet werden, da mit Winter-/Sommerzeit eine Stunde fehlt/zu viel da ist
 		
 		return compared;
+	}
+	
+	public void dispose() {
+		spieltag.dateChooserClosed();
+		setVisible(false);
 	}
 }

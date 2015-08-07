@@ -169,7 +169,6 @@ public class Start extends JFrame {
 	private void testSomethingBeforeIntroducingItIntoTheRealCode() {
 		// TODO do some testing
 		
-		// Heim-/Auswaertstabelle
 		
 		log("\n\n");
 	}
@@ -681,10 +680,15 @@ public class Start extends JFrame {
 	}
 	
 	private void turnierspezifischeSachenLaden() {
-		// falls sie bereits existieren (wird benoetigt, falls ein Turnier komplett neugestartet wird)
+		// falls sie bereits existieren entfernen (wird benoetigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga muessen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
 		if (aktuelleTSaison.hasQualification()) {
 			jBtnQualifikation.setVisible(true);
+			try {
+				for (int i = 0; i < qualificationButtons.length; i++) {
+					QualifikationHomescreen.remove(qualificationButtons[i]);
+				}
+			} catch(NullPointerException npe) {}
 			
 			int numberOfButtons = aktuelleTSaison.hasQGroupStage() ? aktuelleTSaison.getNumberOfQGroups() + 1 : 0;
 			numberOfButtons += aktuelleTSaison.getNumberOfQKORounds();
@@ -939,7 +943,7 @@ public class Start extends JFrame {
 	}
 	
 	private void jBtnAddTournamentActionPerformed() {
-		testAddNewTournament();
+//		testAddNewTournament();
 		NewTournamentDialog ntd = new NewTournamentDialog(this);
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
@@ -1287,7 +1291,7 @@ public class Start extends JFrame {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleGruppe.ergebnisseSichern();
 				} else {
-					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0){
+					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
 						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
 						return;
 					}
@@ -1298,7 +1302,7 @@ public class Start extends JFrame {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleKORunde.ergebnisseSichern();
 				} else {
-					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0){
+					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
 						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
 						return;
 					}
@@ -1309,7 +1313,7 @@ public class Start extends JFrame {
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleTSaison.ergebnisseSichern();
 				} else {
-					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0){
+					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
 						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
 						return;
 					}

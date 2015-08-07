@@ -30,3 +30,33 @@ GH1: FC Porto
 GH2: Schachtar Donezk
 GH3: Athletic Bilbao
 GH4: BATE Baryssau
+AF01W: Paris Saint-Germain
+AF01L: FC Chelsea
+AF02W: Bayern München
+AF02L: Schachtar Donezk
+AF03W: Real Madrid
+AF03L: FC Schalke 04
+AF04W: FC Porto
+AF04L: FC Basel
+AF05W: FC Barcelona
+AF05L: Manchester City
+AF06W: Juventus Turin
+AF06L: Borussia Dortmund
+AF07W: Atletico Madrid
+AF07L: Bayer 04 Leverkusen
+AF08W: AS Monaco
+AF08L: FC Arsenal
+VF01W: Real Madrid
+VF01L: Atletico Madrid
+VF02W: Juventus Turin
+VF02L: AS Monaco
+VF03W: FC Barcelona
+VF03L: Paris Saint-Germain
+VF04W: Bayern München
+VF04L: FC Porto
+HF01W: Juventus Turin
+HF01L: Real Madrid
+HF02W: FC Barcelona
+HF02L: Bayern München
+FI01W: FC Barcelona
+FI01L: Juventus Turin

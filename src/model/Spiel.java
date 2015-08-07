@@ -56,6 +56,10 @@ public class Spiel {
 		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
 	}
 	
+	public int getMatchday() {
+		return matchday;
+	}
+	
 	public int getDate() {
 		return this.date;
 	}

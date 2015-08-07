@@ -96,6 +96,10 @@ public class KORunde implements Wettbewerb {
 		return this.name;
 	}
 	
+	public String getWorkspace() {
+		return workspace;
+	}
+	
 	public String getMatchdayDescription(int matchday) {
 		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rueckspiel") : "");
 	}
@@ -165,11 +169,14 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		// TODO get the name from file
-		
 		String fileName = start.getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
-		log(fileName);
-//		String[] teams = ausDatei(fileName);
+		
+		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		for (String team : teams) {
+			if (origin.substring(6).equals(team.split(": ")[0])) {
+				return team.split(": ")[1];
+			}
+		}
 		
 		return origin;
 	}
@@ -207,7 +214,9 @@ public class KORunde implements Wettbewerb {
 		if (this.numberOfMatchdays == 2) {
 			int today = MyDate.newMyDate();
 			
-			if (today < getDate(0, 0)) {
+			if (getDate(0, 0) == startDate) {
+				matchday = 0;
+			} else if (today < getDate(0, 0)) {
 				matchday = 0;
 			} else if (today > getDate(1, 0) && !isSpielplanFullyEmpty(1)) {
 				matchday = 1;
@@ -379,12 +388,25 @@ public class KORunde implements Wettbewerb {
 	public void changeOrderToChronological(int matchday) {
 		int[] newOrder = new int[this.numberOfMatchesPerMatchday];
 		int[] hilfsarray = new int[this.numberOfMatchesPerMatchday];
+		int[] dates = new int[numberOfMatchesPerMatchday];
+		int[] times = new int[numberOfMatchesPerMatchday];
 		
-		for (int m = 0; m < this.numberOfMatchesPerMatchday; m++) {
-			for (int m2 = m + 1; m2 < this.numberOfMatchesPerMatchday; m2++) {
-				if (getDate(matchday, m2) > getDate(matchday, m))															hilfsarray[m2]++;
-				else if (getDate(matchday, m2) == getDate(matchday, m) && getTime(matchday, m2) >= getTime(matchday, m))	hilfsarray[m2]++;
-				else																										hilfsarray[m]++;
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			dates[match] = getDate(matchday, match);
+			times[match] = getTime(matchday, match);
+		}
+		
+		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
+			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
+				if (dates[m2] > dates[m])		hilfsarray[m2]++;
+				else if (dates[m2] < dates[m])	hilfsarray[m]++;
+				else if (times[m2] > times[m])	hilfsarray[m2]++;
+				else if (times[m2] < times[m])	hilfsarray[m]++;
+				else {
+					Spiel sp1 = getSpiel(matchday, m), sp2 = getSpiel(matchday, m2);
+					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
+					else	hilfsarray[m2]++;
+				}
 			}
 		}
 		
@@ -524,6 +546,25 @@ public class KORunde implements Wettbewerb {
 		// if there is no second leg / result is tied / other problem
 		return 0;
 	}
+
+	public String[] getRanks() {
+		String[] ranks = new String[2 * numberOfMatchesPerMatchday];
+		
+		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+			String matchID = getShortName() + ((i + 1) / 10) + ((i + 1) % 10);
+			ranks[2 * i] = matchID + "W" + ": ";
+			ranks[2 * i + 1] = matchID + "L" + ": ";
+			int index = getIndexOf(i + 1, true);
+			if (index != 0)	ranks[2 * i] += mannschaften[index - 1].getName();
+			else			ranks[2 * i] += season.getTurnier().getShortName() + season.getSeason() + matchID + "W";
+			
+			index = getIndexOf(i + 1, false);
+			if (index != 0)	ranks[2 * i + 1] += mannschaften[index - 1].getName();
+			else			ranks[2 * i + 1] += season.getTurnier().getShortName() + season.getSeason() + matchID + "L";
+		}
+		
+		return ranks;
+	}
 	
 	private void laden() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
@@ -589,7 +630,7 @@ public class KORunde implements Wettbewerb {
 		
 		// testGNOTFOC();
 		
-		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeamsFromOtherCompetition; i++) {
+		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
 			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		

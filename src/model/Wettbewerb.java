@@ -3,6 +3,7 @@ package model;
 public interface Wettbewerb {
 
 	public String getName();
+	public String getWorkspace();
 	public int getCurrentMatchday();
 	public int getNumberOfMatchdays();
 	public int getNumberOfMatchesAgainstSameOpponent();

@@ -338,11 +338,11 @@ public class TurnierSaison {
 			if (origins[i] == null) {
 				olderOrigins[i] = null;
 			} else if (teamsAreWinners) {
-				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
-				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
 			} else {
-				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2, 3)));
-				else		olderOrigins[i] = koRunden[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2, 3)));
+				if (isQ)	olderOrigins[i] = qKORunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
+				else		olderOrigins[i] = koRunden[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
 			}
 		}
 		
@@ -365,11 +365,58 @@ public class TurnierSaison {
 			}
 			
 			if (groupindex == alphabet.length) {
+				// check for best x-th-placed team
+				int xBest = (int) teamsorigin.charAt(2) - 48;
+				int placeindex = (int) teamsorigin.charAt(1) - 48;
+				ArrayList<Mannschaft> groupXth = new ArrayList<>();
+				ArrayList<Integer> order = new ArrayList<>();
+				for (int i = 0; i < numberOfGroups; i++) {
+					groupXth.add(getTeamFromGroupstageOrigin(i, placeindex, isQ));
+					order.add(1);
+				}
+				
+				for (int i = 0; i < numberOfGroups - 1; i++) {
+					for (int j = i + 1; j < numberOfGroups; j++) {
+						if (groupXth.get(i) != null && groupXth.get(j) != null) {
+							int punkte1 = groupXth.get(i).get(9, 0, gruppen[i].getNumberOfMatchdays() - 1);
+							int punkte2 = groupXth.get(j).get(9, 0, gruppen[j].getNumberOfMatchdays() - 1);
+							if (punkte1 < punkte2)		order.set(i, order.get(i) + 1);
+							else if (punkte2 < punkte1)	order.set(j, order.get(j) + 1);
+							else {
+								int tdiff1 = groupXth.get(i).get(8, 0, gruppen[i].getNumberOfMatchdays() - 1);
+								int tdiff2 = groupXth.get(j).get(8, 0, gruppen[j].getNumberOfMatchdays() - 1);
+								if (tdiff1 < tdiff2)		order.set(i, order.get(i) + 1);
+								else if (tdiff2 < tdiff1)	order.set(j, order.get(j) + 1);
+								else {
+									int tplus1 = groupXth.get(i).get(6, 0, gruppen[i].getNumberOfMatchdays() - 1);
+									int tplus2 = groupXth.get(j).get(6, 0, gruppen[j].getNumberOfMatchdays() - 1);
+									if (tplus1 < tplus2)		order.set(i, order.get(i) + 1);
+									else if (tplus2 < tplus1)	order.set(j, order.get(j) + 1);
+								}
+							}
+						} else if (groupXth.get(i) != null) {
+							order.set(j, order.get(j) + 1);
+						} else if (groupXth.get(j) != null) {
+							order.set(i, order.get(i) + 1);
+						}
+					}
+				}
+				
+				for (int i = 0; i < order.size(); i++) {
+					if (order.get(i) == xBest) {
+						return groupXth.get(i);
+					}
+				}
+				
+				groupindex = -1;
+			}
+			
+			if (groupindex == -1) {
 				error("    ungueltiger Gruppenindex:  " + groupindex + " fuer Buchstabe  " + teamsorigin.charAt(1));
 				return null;
 			}
 			
-			int placeindex = Integer.parseInt(teamsorigin.substring(2));
+			int placeindex = (int) teamsorigin.charAt(2) - 48;
 			
 			mannschaft = getTeamFromGroupstageOrigin(groupindex, placeindex, isQ);
 		}
@@ -380,10 +427,10 @@ public class TurnierSaison {
 	private Mannschaft getTeamFromGroupstageOrigin(int groupindex, int placeindex, boolean isQ) {
 		Mannschaft mannschaft = null;
 		
-		if (isQ && groupindex >= 0 && groupindex < numberOfGroups) {
-			mannschaft = gruppen[groupindex].getTeamOnPlace(placeindex);
-		} else if (!isQ && groupindex >= 0 && groupindex < numberOfQGroups) {
+		if (isQ && groupindex >= 0 && groupindex < numberOfQGroups) {
 			mannschaft = qGruppen[groupindex].getTeamOnPlace(placeindex);
+		} else if (!isQ && groupindex >= 0 && groupindex < numberOfGroups) {
+			mannschaft = gruppen[groupindex].getTeamOnPlace(placeindex);
 		}
 		
 		return mannschaft;
@@ -576,8 +623,6 @@ public class TurnierSaison {
 		gruppenDatenFromFile.add("" + numberOfGroups);
 		gruppenDatenFromFile.add("" + hasSecondLegGroupStage);
 		
-		saveRanks();
-		
 		inDatei(dateiGruppenDaten, gruppenDatenFromFile);
 	}
 	
@@ -605,12 +650,40 @@ public class TurnierSaison {
 	
 	private void saveRanks() {
 		ArrayList<String> allRanks = new ArrayList<>();
-		for(Gruppe gruppe : gruppen) {
-			String[] ranks = gruppe.getRanks();
-			for (int i = 0; i < ranks.length; i++) {
-				allRanks.add(ranks[i]);
+		
+		if (hasQGroupStage) {
+			for(Gruppe gruppe : qGruppen) {
+				String[] ranks = gruppe.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
 			}
 		}
+		if (hasQKOStage) {
+			for(KORunde koRunde : qKORunden) {
+				String[] ranks = koRunde.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		if (hasGroupStage) {
+			for(Gruppe gruppe : gruppen) {
+				String[] ranks = gruppe.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		if (hasKOStage) {
+			for(KORunde koRunde : koRunden) {
+				String[] ranks = koRunde.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		
 		inDatei(workspace + "allRanks.txt", allRanks);
 	}
 	
@@ -631,6 +704,8 @@ public class TurnierSaison {
 	
 	public void speichern() {
 		if (!geladen)	return;
+		saveRanks();
+		
 		qualifikationSpeichern();
 		gruppenSpeichern();
 		koRundenSpeichern();
