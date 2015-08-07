@@ -169,11 +169,14 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		// TODO get the name from file
-		
 		String fileName = start.getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
-		log(fileName);
-//		String[] teams = ausDatei(fileName);
+		
+		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		for (String team : teams) {
+			if (origin.substring(6).equals(team.split(": ")[0])) {
+				return team.split(": ")[1];
+			}
+		}
 		
 		return origin;
 	}
@@ -627,7 +630,7 @@ public class KORunde implements Wettbewerb {
 		
 		// testGNOTFOC();
 		
-		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeamsFromOtherCompetition; i++) {
+		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
 			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		
