@@ -623,8 +623,6 @@ public class TurnierSaison {
 		gruppenDatenFromFile.add("" + numberOfGroups);
 		gruppenDatenFromFile.add("" + hasSecondLegGroupStage);
 		
-		saveRanks();
-		
 		inDatei(dateiGruppenDaten, gruppenDatenFromFile);
 	}
 	
@@ -652,12 +650,40 @@ public class TurnierSaison {
 	
 	private void saveRanks() {
 		ArrayList<String> allRanks = new ArrayList<>();
-		for(Gruppe gruppe : gruppen) {
-			String[] ranks = gruppe.getRanks();
-			for (int i = 0; i < ranks.length; i++) {
-				allRanks.add(ranks[i]);
+		
+		if (hasQGroupStage) {
+			for(Gruppe gruppe : qGruppen) {
+				String[] ranks = gruppe.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
 			}
 		}
+		if (hasQKOStage) {
+			for(KORunde koRunde : qKORunden) {
+				String[] ranks = koRunde.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		if (hasGroupStage) {
+			for(Gruppe gruppe : gruppen) {
+				String[] ranks = gruppe.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		if (hasKOStage) {
+			for(KORunde koRunde : koRunden) {
+				String[] ranks = koRunde.getRanks();
+				for (int i = 0; i < ranks.length; i++) {
+					allRanks.add(ranks[i]);
+				}
+			}
+		}
+		
 		inDatei(workspace + "allRanks.txt", allRanks);
 	}
 	
@@ -678,6 +704,8 @@ public class TurnierSaison {
 	
 	public void speichern() {
 		if (!geladen)	return;
+		saveRanks();
+		
 		qualifikationSpeichern();
 		gruppenSpeichern();
 		koRundenSpeichern();

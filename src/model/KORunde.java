@@ -543,6 +543,25 @@ public class KORunde implements Wettbewerb {
 		// if there is no second leg / result is tied / other problem
 		return 0;
 	}
+
+	public String[] getRanks() {
+		String[] ranks = new String[2 * numberOfMatchesPerMatchday];
+		
+		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+			String matchID = getShortName() + ((i + 1) / 10) + ((i + 1) % 10);
+			ranks[2 * i] = matchID + "W" + ": ";
+			ranks[2 * i + 1] = matchID + "L" + ": ";
+			int index = getIndexOf(i + 1, true);
+			if (index != 0)	ranks[2 * i] += mannschaften[index - 1].getName();
+			else			ranks[2 * i] += season.getTurnier().getShortName() + season.getSeason() + matchID + "W";
+			
+			index = getIndexOf(i + 1, false);
+			if (index != 0)	ranks[2 * i + 1] += mannschaften[index - 1].getName();
+			else			ranks[2 * i + 1] += season.getTurnier().getShortName() + season.getSeason() + matchID + "L";
+		}
+		
+		return ranks;
+	}
 	
 	private void laden() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
