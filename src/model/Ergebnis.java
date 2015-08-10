@@ -46,10 +46,17 @@ public class Ergebnis {
 	 * @param home The number of goals that the left team has scored
 	 * @param away The number of goals that the right team has scored
 	 */
-	public Ergebnis(int home, int away) {
+	public Ergebnis(int homeRegular, int awayRegular) {
 		finishedInRegularTime = true;
-		this.home[REGULAR] = home;
-		this.away[REGULAR] = away;
+		home[REGULAR] = homeRegular;
+		away[REGULAR] = awayRegular;
+		
+		// falls Elfmeterschiessen dazu kommt
+		home[EXTRATIME] = home[REGULAR];
+		away[EXTRATIME] = away[REGULAR];
+		
+		home[PENALTIES] = home[REGULAR];
+		away[PENALTIES] = away[REGULAR];
 	}
 	
 	public Ergebnis(String daten) {
@@ -99,6 +106,10 @@ public class Ergebnis {
 				home[REGULAR] = Integer.parseInt(tore[0]);
 				away[REGULAR] = Integer.parseInt(tore[1]);
 				
+				// falls Elfmeterschiessen dazu kommt
+				home[PENALTIES] = home[EXTRATIME];
+				away[PENALTIES] = away[EXTRATIME];
+				
 			} else {
 				// Beispiel: >2:1<
 				finishedInRegularTime = true;
@@ -106,6 +117,13 @@ public class Ergebnis {
 				String[] tore = daten.split(":");
 				home[REGULAR] = Integer.parseInt(tore[0]);
 				away[REGULAR] = Integer.parseInt(tore[1]);
+				
+				// falls Elfmeterschiessen dazu kommt
+				home[EXTRATIME] = home[REGULAR];
+				away[EXTRATIME] = away[REGULAR];
+				
+				home[PENALTIES] = home[REGULAR];
+				away[PENALTIES] = away[REGULAR];
 			}
 			if (!validate()) {
 				throw new IllegalArgumentException();
