@@ -570,6 +570,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
+		createPseudoGoals();
 		paintGoals();
 		paintSubstitutions(true);
 		paintSubstitutions(false);
@@ -578,15 +579,8 @@ public class SpielInformationen extends JFrame {
 				inThePast(spiel.getDate(), spiel.getTime()))	startGame();
 	}
 	
-	private void paintGoals() {
-		jBtnPenaltyShootout.setBounds(REC_BTNPENALTIES);
-		if (jLblsGoals.size() > 0) {
-			for (JLabel label : jLblsGoals) {
-				label.setVisible(false);
-			}
-			jLblsGoals.clear();
-		}
-		// create pseudo-goals for matches without lineup, otherwise when modified later, all current goals would be lost
+	private void createPseudoGoals() {
+		// for matches without lineup, otherwise when modified later, all current goals would be lost
 		if (ergebnis != null) {
 			if (ergebnis.home(1) + ergebnis.away(1) != tore.size() || ergebnis.home(2) + ergebnis.away(2) != tore.size()) {
 				for (int i = 0; i < ergebnis.home(1); i++) {
@@ -618,6 +612,16 @@ public class SpielInformationen extends JFrame {
 				}
 				latestPenalty = max;
 			}
+		}
+	}
+	
+	private void paintGoals() {
+		jBtnPenaltyShootout.setBounds(REC_BTNPENALTIES);
+		if (jLblsGoals.size() > 0) {
+			for (JLabel label : jLblsGoals) {
+				label.setVisible(false);
+			}
+			jLblsGoals.clear();
 		}
 		for (Tor tor : tore) {
 			displayGoal(tor);
@@ -1022,8 +1026,8 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
-		if (minute > 121) {
-			message("Ein Spiel kann nicht laenger als 120 Minuten dauern.");
+		if (minute > 120) {
+			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
 		} else if (!isETpossible && minute > 90) {
 			message("In diesem Spiel kann es keine Verlaengerung geben.");
@@ -1155,15 +1159,15 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
-		if (minute > 121) {
-			message("Ein Spiel kann nicht laenger als 120 Minuten dauern.");
+		if (minute > 120) {
+			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte fuer Elfmeterschiessen die dafuer vorgesehene Eingabemaske.");
 			return;
 		} else if (!isETpossible && minute > 90) {
 			message("In diesem Spiel kann es keine Verlaengerung geben.");
 			return;
 		}
 		for (Tor tor : tore) {
-			if (tor.getMinute() > minute ) {
+			if (tor.getMinute() > minute) {
 				this.repaint = true;
 			}
 		}
