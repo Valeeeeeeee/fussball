@@ -22,7 +22,6 @@ Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;8
 Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26;
 Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23
 Marvin;Wanitzek;null;19920507;Deutschland;Mittelfeld;28
-Mohammed;Abdellaoue;null;19851023;Norwegen;Sturm;25
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9
