@@ -222,6 +222,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void calculateBounds() {
+		int zusInfWidth = 35;
 		int height = 25, gapy = 2;
 		if(numberOfMatches > 26) {
 			height = 24;
@@ -229,12 +230,12 @@ public class Spieltag extends JPanel {
 		}
 		groupLabels = new int[] {160, 80, 0, gapy, 10, height};
 		
-		labels = new int[] { groupLabels[STARTX] + groupLabels[SIZEX] + 5, 80, (isETPossible ? 175 : 135), gapy, 180, height };
+		labels = new int[] { groupLabels[STARTX] + groupLabels[SIZEX] + 5, 80, (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
 
 		textfields = new int[] { labels[STARTX] + labels[SIZEX] + 10, labels[STARTY], 
-				labels[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? 45 : 5), labels[GAPY], 40, labels[SIZEY] };
+				labels[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? zusInfWidth + 15 : 5), labels[GAPY], 40, labels[SIZEY] };
 		
-		zusInfLabels = new int[] { labels[STARTX] + labels[SIZEX] + 95, labels[STARTY], 0, labels[GAPY], (isETPossible ? 30 : 0), labels[SIZEY] };
+		zusInfLabels = new int[] { labels[STARTX] + labels[SIZEX] + 95, labels[STARTY], 0, labels[GAPY], (isETPossible ? zusInfWidth : 0), labels[SIZEY] };
 		
 		moreOptButtons = new int[] { labels[STARTX] + labels[SIZEX] + labels[GAPX] - 45, labels[STARTY], 0, labels[GAPY], 40, labels[SIZEY] };
 	}
@@ -693,10 +694,8 @@ public class Spieltag extends JPanel {
 			if (result != null) {
 				jTFsTore[index].setText("" + result.home());
 				jTFsTore[index + numberOfMatches].setText("" + result.away());
-				if (result.toString().indexOf("n") != -1) {
-					if (result.toString().indexOf("nE") != -1)			jLblsZusatzInfos[index].setText("n. E.");
-					else if (result.toString().indexOf("nV") != -1)		jLblsZusatzInfos[index].setText("n. V.");
-				}
+				jLblsZusatzInfos[index].setText(result.getMore());
+				jLblsZusatzInfos[index].setToolTipText(result.getTooltipText());
 			} else {
 				jTFsTore[index].setText("-1");
 				jTFsTore[index + numberOfMatches].setText("-1");

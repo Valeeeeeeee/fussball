@@ -783,7 +783,7 @@ public class SpielInformationen extends JFrame {
 		spiel.setErgebnis(ergebnis);
 		jLblResult.setText(ergebnis.getResult());
 		jLblZusatz.setText(ergebnis.getMore());
-		jLblZusatz.setToolTipText(ergebnis.getTooltipext());
+		jLblZusatz.setToolTipText(ergebnis.getTooltipText());
 	}
 	
 	private void startPenaltyShootout() {
