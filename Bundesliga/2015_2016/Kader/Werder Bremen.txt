@@ -4,7 +4,8 @@ Michael;Zetterer;null;19950712;Deutschland;Tor;30
 Marnon;Busch;null;19941208;Deutschland;Abwehr;38
 Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
 Alejandro;Galvez;null;19890606;Spanien;Abwehr;4
-Santiago;Garcia;null;19880708;Italien, Argentinien;Abwehr;2
+Santiago;Garcia;S. Garcia;19880708;Italien, Argentinien;Abwehr;2
+Ulisses;Garcia;U. Garcia;19960111;Schweiz;Abwehr;20
 Theodor;Gebre Selassie;null;19861224;Tschechien;Mittelfeld;23
 Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25
 Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
@@ -14,6 +15,7 @@ Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7
 Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;10
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;27
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
 Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
