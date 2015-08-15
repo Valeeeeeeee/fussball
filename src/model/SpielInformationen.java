@@ -11,7 +11,7 @@ import static util.Utilities.*;
 public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
-	private final Dimension dim = new Dimension(700 + 6, 550 + 28);
+	private final Dimension dim = new Dimension(800 + 6, 550 + 28);
 	
 	private Spiel spiel;
 	
@@ -66,34 +66,34 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnPenaltiesCompleted;
 	
 	// Obere Labels
-	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 700, 550);
-	private Rectangle REC_LBLWETTBW = new Rectangle(150, 10, 400, 20);
-	private Rectangle REC_LBLDATUM = new Rectangle(290, 35, 120, 25);
-	private Rectangle REC_LBLHOMENAME = new Rectangle(40, 60, 265, 40);
-	private Rectangle REC_LBLRESULT = new Rectangle(310, 60, 80, 40);
-	private Rectangle REC_LBLZUSATZ = new Rectangle(320, 90, 60, 20);
-	private Rectangle REC_LBLAWAYNAME = new Rectangle(395, 60, 265, 40);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(210, 35, 70, 25);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(420, 35, 70, 25);
+	private Rectangle REC_PNLSPINFO = new Rectangle(0, 0, 800, 550);
+	private Rectangle REC_LBLWETTBW = new Rectangle(200, 10, 400, 20);
+	private Rectangle REC_LBLDATUM = new Rectangle(340, 35, 120, 25);
+	private Rectangle REC_LBLHOMENAME = new Rectangle(25, 60, 330, 40);
+	private Rectangle REC_LBLRESULT = new Rectangle(360, 60, 80, 40);
+	private Rectangle REC_LBLZUSATZ = new Rectangle(370, 90, 60, 20);
+	private Rectangle REC_LBLAWAYNAME = new Rectangle(445, 60, 330, 40);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(260, 35, 70, 25);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(470, 35, 70, 25);
 	
 	// Untere Button-Reihe
-	private Rectangle REC_BTNSTARTGAME = new Rectangle(300, 110, 100, 30);
+	private Rectangle REC_BTNSTARTGAME = new Rectangle(350, 110, 100, 30);
 	private Rectangle REC_BTNLINEUPHOME = new Rectangle(30, 110, 110, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(560, 110, 110, 30);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(660, 110, 110, 30);
 	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(150, 110, 90, 30);
-	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(460, 110, 90, 30);
+	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(560, 110, 90, 30);
 	private Rectangle REC_BTNGOALHOME = new Rectangle(250, 110, 60, 30);
-	private Rectangle REC_BTNGOALAWAY = new Rectangle(390, 110, 60, 30);
-	private Rectangle REC_BTNPENALTIES = new Rectangle(280, 170, 150, 25);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(490, 110, 60, 30);
+	private Rectangle REC_BTNPENALTIES = new Rectangle(325, 170, 150, 25);
 	
 	// Labels Aufstellung, Wechsel, Tore
-	private int[] subLbls = new int[] {25, 160, 540, 5, 110, 20};
-	private int[] luLbls = new int[] {145, 160, 300, 5, 110, 20};
-	private int[] gLbls = new int[] {265, 160, 40, 5, 130, 20};
+	private int[] subLbls = new int[] {25, 160, 620, 5, 130, 20};
+	private int[] luLbls = new int[] {165, 160, 350, 5, 120, 20};
+	private int[] gLbls = new int[] {295, 160, 60, 5, 150, 20};
 	
 	// Toreingabe
-	private Point LOC_PNLEINGABEHOME = new Point(150, 150);
-	private Point LOC_PNLEINGABEAWAY = new Point(310, 150);
+	private Point LOC_PNLEINGABEHOME = new Point(140, 150);
+	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
 	private Dimension DIM_PNLEINGABE = new Dimension(250, 130);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(170, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
@@ -107,13 +107,13 @@ public class SpielInformationen extends JFrame {
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
-	private Point LOC_PNLLINEUPAWAYSEL = new Point(390, 150);
-	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 350);
-	private Rectangle REC_BTNLUSCANCEL = new Rectangle(120, 310, 70, 30);
-	private Rectangle REC_BTNLUSCOMPL = new Rectangle(200, 310, 70, 30);
+	private Point LOC_PNLLINEUPAWAYSEL = new Point(490, 150);
+	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 370);
+	private Rectangle REC_BTNLUSCANCEL = new Rectangle(100, 330, 90, 30);
+	private Rectangle REC_BTNLUSCOMPL = new Rectangle(200, 330, 70, 30);
 	
 	// Penalties
-	private Rectangle REC_PNLPENALTIES = new Rectangle(120, 120, 460, 120);
+	private Rectangle REC_PNLPENALTIES = new Rectangle(170, 120, 460, 120);
 	private Rectangle REC_LBLPENALTIES = new Rectangle(10, 10, 130, 25);
 	private Rectangle REC_BTNPENALTIESCOMPL = new Rectangle(380, 10, 70, 25);
 	
@@ -164,7 +164,7 @@ public class SpielInformationen extends JFrame {
 	
 	private JButton go;
 
-	private Rectangle RECGO = new Rectangle(600, 10, 90, 40);
+	private Rectangle RECGO = new Rectangle(700, 10, 90, 40);
 	
 	public SpielInformationen(Spieltag spieltag, Spiel spiel, Ergebnis previous) {
 		super();
@@ -1052,7 +1052,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
-		jBtnPenaltyShootout.setVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 	}
 	
 	private void enterNewGoal(boolean isHomeTeam) {
@@ -1220,7 +1220,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
-		jBtnPenaltyShootout.setVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 	}
 	
 	private void enterNewLineup(boolean isHomeTeam) {
