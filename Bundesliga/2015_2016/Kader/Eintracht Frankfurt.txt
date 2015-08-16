@@ -4,6 +4,7 @@ David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
 Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
 Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
 Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15
+Joel;Gerezgiher;null;19951009;Deutschland;Abwehr;32
 Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
 David;Kinsombi;null;19951212;Deutschland;Abwehr;31
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6

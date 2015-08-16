@@ -1,6 +1,5 @@
 Marwin;Hitz;null;19870918;Schweiz;Tor;35
 Alexander;Manninger;null;19770604;Österreich;Tor;1
-Abdul Rahman;Baba;null;19940702;Ghana;Abwehr;17
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
 Jeong-Ho;Hong;null;19890812;Südkorea;Abwehr;20
 Christoph;Janker;null;19850214;Deutschland;Abwehr;16
