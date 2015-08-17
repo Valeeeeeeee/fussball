@@ -65,7 +65,7 @@ public class LigaStatistik extends JPanel {
 	private JLabel[] jLblsResultsPercentage;
 	private JLabel[] jLblsResultsAbsolute;
 	
-	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 310, 30);
+	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 340, 30);
 	
 	private int[] most = new int[] {20, 90, 0, 60, 160, 25};
 	private int[] mostV = new int[] {200, 90, 0, 60, 240, 25};
