@@ -404,7 +404,7 @@ public class KORunde implements Wettbewerb {
 				else if (times[m2] < times[m])	hilfsarray[m]++;
 				else {
 					Spiel sp1 = getSpiel(matchday, m), sp2 = getSpiel(matchday, m2);
-					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
+					if (sp1 != null && sp2 != null && sp1.home() > sp2.home())	hilfsarray[m]++;
 					else	hilfsarray[m2]++;
 				}
 			}

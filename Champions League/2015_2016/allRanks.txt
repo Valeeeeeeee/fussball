@@ -14,14 +14,14 @@ Q203W: FC Midtjylland
 Q203L: Lincoln Red Imps FC
 Q204W: FC Milsami
 Q204L: Ludogorez Rasgrad
-Q205W: Videoton Szekesfehervar
-Q205L: The New Saints FC
-Q206W: Molde FK
-Q206L: FC Pjunik Erewan
-Q207W: KF Skenderbeu Korça
-Q207L: Crusaders FC
-Q208W: Maccabi Tel Aviv
-Q208L: Hibernians Football Club
+Q205W: Molde FK
+Q205L: FC Pjunik Erewan
+Q206W: KF Skenderbeu Korça
+Q206L: Crusaders FC
+Q207W: Maccabi Tel Aviv
+Q207L: Hibernians Football Club
+Q208W: Videoton Szekesfehervar
+Q208L: The New Saints FC
 Q209W: FK Astana
 Q209L: NK Maribor
 Q210W: Steaua Bukarest

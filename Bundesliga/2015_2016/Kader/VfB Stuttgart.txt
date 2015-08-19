@@ -7,7 +7,6 @@ Adam;Hlousek;null;19881220;Tschechien;Abwehr;21
 Emiliano;Insua;null;19890107;Argentinien;Abwehr;2
 Florian;Klein;null;19861117;Österreich;Abwehr;16
 Georg;Niedermeier;null;19860226;Deutschland;Abwehr;6
-Antonio;Rüdiger;null;19930303;Deutschland;Abwehr;24
 Stephen;Sama;null;19930305;Deutschland;Abwehr;41
 Daniel;Schwaab;null;19880823;Deutschland;Abwehr;3
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
