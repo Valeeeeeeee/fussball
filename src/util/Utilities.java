@@ -18,6 +18,7 @@ public class Utilities {
 	public static final int GAPY = 3;
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
+	private static boolean osX = true;
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
@@ -283,5 +284,15 @@ public class Utilities {
 			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
 //			ioe.printStackTrace();
 		}
+	}
+	
+	public static int getWindowDecorationWidth() {
+		if (osX)	return 0;
+		else		return 6;
+	}
+	
+	public static int getWindowDecorationHeight() {
+		if (osX)	return 22;
+		else		return 28;
 	}
 }

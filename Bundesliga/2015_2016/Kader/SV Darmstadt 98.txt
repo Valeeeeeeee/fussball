@@ -15,7 +15,7 @@ Marcel;Heller;null;19860212;Deutschland;Mittelfeld;20
 Milan;Ivana;null;19831126;Slowakei;Mittelfeld;27
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;11
 Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
-Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;11
+Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;10
 Yannick;Stark;null;19901028;Deutschland;Mittelfeld;25
 Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
 Marco;Sailer;null;19851116;Deutschland;Sturm;7

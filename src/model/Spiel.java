@@ -20,9 +20,10 @@ public class Spiel {
 	
 	private String schiedsrichter;
 	private Ergebnis ergebnis;
-	private ArrayList<Tor> tore = new ArrayList<>();
+	private ArrayList<Tor> goals = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
+	private ArrayList<Karte> bookings = new ArrayList<>();
 	
 	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
 		this.wettbewerb = wettbewerb;
@@ -109,22 +110,26 @@ public class Spiel {
 	}
 	
 	public ArrayList<Tor> getTore() {
-		return this.tore;
-	}
-	
-	public void addGoal(Tor tor) {
-		if (tor != null) {
-			int index = 0;
-			for (int i = 0; i < tore.size(); i++) {
-				if (tore.get(i).getMinute() <= tor.getMinute())	index++;
-			}
-			tore.add(index, tor);
-			ergebnis = new Ergebnis(tore);
-		}
+		return this.goals;
 	}
 	
 	public ArrayList<Wechsel> getSubstitutions(boolean firstTeam) {
 		return firstTeam ? substitutionsHome : substitutionsAway;
+	}
+	
+	public ArrayList<Karte> getBookings() {
+		return this.bookings;
+	}
+	
+	public void addGoal(Tor goal) {
+		if (goal != null) {
+			int index = 0;
+			for (int i = 0; i < goals.size(); i++) {
+				if (goals.get(i).getMinute() <= goal.getMinute())	index++;
+			}
+			goals.add(index, goal);
+			ergebnis = new Ergebnis(goals);
+		}
 	}
 	
 	public void addSubstitution(Wechsel substitution) {
@@ -141,6 +146,16 @@ public class Spiel {
 				}
 				substitutionsAway.add(index, substitution);
 			}
+		}
+	}
+	
+	public void addBooking(Karte booking) {
+		if (booking != null) {
+			int index = 0;
+			for (int i = 0; i < bookings.size(); i++) {
+				if (bookings.get(i).getMinute() <= booking.getMinute())	index++;
+			}
+			bookings.add(index, booking);
 		}
 	}
 	
@@ -180,8 +195,14 @@ public class Spiel {
 	private String matchDataToString() {
 		String matchData = "" + ergebnis;
 		
-		for (Tor tor : tore) {
+		for (Tor tor : goals) {
 			matchData += "#" + tor;
+		}
+		
+		if (bookings.size() > 0)	matchData += "^";
+		
+		for (Karte booking : bookings) {
+			matchData += "#" + booking;
 		}
 		
 		return matchData;
@@ -207,11 +228,20 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
-		String[] matchDataSplit = matchData.split("#");
-		if(!matchDataSplit[0].equals("null"))	this.ergebnis = new Ergebnis(matchDataSplit[0]);
+		String[] matchDataSplit = matchData.split("\\^");
+		String allGoals = matchDataSplit[0];
+		String[] goalsSplit = allGoals.split("#");
+		if(!goalsSplit[0].equals("null"))	this.ergebnis = new Ergebnis(goalsSplit[0]);
+		if (goalsSplit.length > 1) {
+			for (int i = 1; i < goalsSplit.length; i++) {
+				goals.add(new Tor(this, goalsSplit[i]));
+			}
+		}
 		if (matchDataSplit.length > 1) {
-			for (int i = 1; i < matchDataSplit.length; i++) {
-				tore.add(new Tor(this, matchDataSplit[i]));
+			String allBookings = matchDataSplit[1];
+			String[] bookingsSplit = allBookings.split("#");
+			for (int i = 0; i < bookingsSplit.length; i++) {
+				if (bookingsSplit[i].length() > 0)	bookings.add(new Karte(this, bookingsSplit[i]));
 			}
 		}
 	}
@@ -252,7 +282,6 @@ public class Spiel {
 			
 			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
 			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
-			
 		} catch (IllegalArgumentException iae) {
 			log("The given match was formally correct, but impossible.");
 			log(iae.getMessage());

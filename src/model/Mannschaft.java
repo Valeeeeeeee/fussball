@@ -143,7 +143,7 @@ public class Mannschaft {
 	}
 	
 	public int[] getPerformanceData(Spieler player) {
-		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0;
+		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, booked = 0, bookedTwice = 0, redCards = 0;
 		int squadNumber = player.getSquadNumber();
 		
 		for (Spiel spiel : spiele) {
@@ -153,6 +153,7 @@ public class Mannschaft {
 				int firstMinute = 91, lastMinute = 91;
 				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
 				ArrayList<Tor> tore = spiel.getTore();
+				ArrayList<Karte> bookings = spiel.getBookings();
 				
 				for (int i = 0; i < lineup.length; i++) {
 					if (lineup[i] == squadNumber) {
@@ -176,11 +177,22 @@ public class Mannschaft {
 						goals++;
 					}
 				}
+				for (Karte booking : bookings) {
+					if (booking.getBookedPlayer().getSquadNumber() == squadNumber) {
+						if (booking.isYellowCard())	booked++;
+						else						redCards++;
+						if (booking.isSecondBooking()) {
+							booked--;
+							bookedTwice++;
+						}
+					}
+				}
+				
 				minutesPlayed += lastMinute - firstMinute;
 			}
 		}
 		
-		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals};
+		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, booked, bookedTwice, redCards};
 	}
 	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tabellenart) {
