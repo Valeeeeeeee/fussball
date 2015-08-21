@@ -15,6 +15,7 @@ Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7
 Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;10
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
 Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;27
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
