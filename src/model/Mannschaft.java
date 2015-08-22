@@ -178,13 +178,13 @@ public class Mannschaft {
 					}
 				}
 				for (Karte booking : bookings) {
-					if (booking.getBookedPlayer().getSquadNumber() == squadNumber) {
-						if (booking.isYellowCard())	booked++;
-						else						redCards++;
+					if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer().getSquadNumber() == squadNumber) {
 						if (booking.isSecondBooking()) {
 							booked--;
 							bookedTwice++;
 						}
+						else if (booking.isYellowCard())	booked++;
+						else								redCards++;
 					}
 				}
 				
