@@ -15,7 +15,7 @@ Genki;Haraguchi;null;19910509;Japan;Mittelfeld;24
 Jens;Hegeler;null;19880122;Deutschland;Mittelfeld;13
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12
-Nico;Schulz;null;19930401;Deutschland;Mittelfeld;26
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;26;-20150817
 Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
 Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14
 Mitchell;Weiser;null;19940421;Deutschland;Mittelfeld;20

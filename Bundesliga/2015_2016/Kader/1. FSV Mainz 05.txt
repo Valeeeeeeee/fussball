@@ -1,3 +1,4 @@
+Gianluca;Curci;null;19850712;Italien;Tor;23;20150815-
 Jannik;Huth;null;19940415;Deutschland;Tor;33
 Loris;Karius;null;19930622;Deutschland;Tor;1
 Robin;Zentner;null;19941028;Deutschland;Tor;38

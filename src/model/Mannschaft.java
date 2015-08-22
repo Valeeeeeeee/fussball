@@ -9,6 +9,7 @@ public class Mannschaft {
 	private int id;
 	private Start start;
 	private String name;
+	private String nameForFileSearch;
 	private String gruendungsdatum;
 	
 	private int platz = -1;
@@ -108,7 +109,7 @@ public class Mannschaft {
 	}
 	
 	public String getPhotoDirectory() {
-		return wettbewerb.getWorkspace() + "Bilder" + File.separator + name + File.separator;
+		return wettbewerb.getWorkspace() + "Bilder" + File.separator + nameForFileSearch + File.separator;
 	}
 	
 	private void loadKader() {
@@ -116,8 +117,7 @@ public class Mannschaft {
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
-		kaderFileName += this.name + ".txt";
-		kaderFileName = removeUmlaute(kaderFileName);
+		kaderFileName += nameForFileSearch + ".txt";
 		
 		ArrayList<String> spieler = ausDatei(kaderFileName);
 		numberOfPlayers = spieler.size();
@@ -347,6 +347,7 @@ public class Mannschaft {
 
 	public void setName(String value) {
 		this.name = value;
+		this.nameForFileSearch = removeUmlaute(name);
 	}
 
 	public String getGruendungsdatum() {
@@ -599,6 +600,7 @@ public class Mannschaft {
 		String[] daten = data.split(";");
 		
 		this.name = daten[0];
+		nameForFileSearch = removeUmlaute(name);
 		if (daten.length > 1) {
 			this.gruendungsdatum = !daten[1].equals("null") ? daten[1] : null;
 			if (daten.length > 2) {

@@ -16,6 +16,7 @@ André;Hahn;null;19900813;Deutschland;Mittelfeld;28
 Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;10
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
 Havard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14;20150818-
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
