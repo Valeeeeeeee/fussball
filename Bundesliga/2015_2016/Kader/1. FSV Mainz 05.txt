@@ -24,6 +24,6 @@ Patrick;Pflücke;null;19961130;Deutschland;Mittelfeld;30
 Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
 Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
 Niki;Zimling;null;19850419;Dänemark;Mittelfeld;25
-Yoshinori;Muto;null;19;Japan;Sturm;9
+Yoshinori;Muto;null;19920715;Japan;Sturm;9
 Florian;Niederlechner;null;19901024;Deutschland;Sturm;31
 Devante;Parker;null;19960316;Deutschland;Sturm;29
