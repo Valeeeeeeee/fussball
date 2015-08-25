@@ -182,9 +182,13 @@ public class Mannschaft {
 						if (booking.isSecondBooking()) {
 							booked--;
 							bookedTwice++;
+							lastMinute = booking.getMinute();
 						}
 						else if (booking.isYellowCard())	booked++;
-						else								redCards++;
+						else {
+							redCards++;
+							lastMinute = booking.getMinute();
+						}
 					}
 				}
 				
