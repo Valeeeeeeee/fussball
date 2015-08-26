@@ -1,5 +1,6 @@
 package util;
 
+import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -11,6 +12,12 @@ import model.Spieler;
 import model.Start;
 
 public class Utilities {
+	
+	public static final Color colorCategory1 = new Color(0, 200, 0);
+	public static final Color colorCategory2 = new Color(128, 255, 0);
+	public static final Color colorCategory3 = new Color(255, 255, 0);
+	public static final Color colorCategory4 = new Color(255, 128, 0);
+	public static final Color colorCategory5 = new Color(255, 0, 0);
 	
 	public static final int STARTX = 0;
 	public static final int STARTY = 1;

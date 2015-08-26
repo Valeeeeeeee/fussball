@@ -19,9 +19,6 @@ public class Uebersicht extends JPanel {
 	private Rectangle RECLBLNAME = new Rectangle(50, 10, 320, 30);
 	private Rectangle RECLBLGRDATUM = new Rectangle(160, 40, 100, 30);
 	
-	// Kader
-	private Rectangle RECKADPNL;
-	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
@@ -32,6 +29,12 @@ public class Uebersicht extends JPanel {
 	private JLabel mannschaftsname;
 	private JLabel gruendungsdatum;
 	
+	private JPanel jPnlStatistics;
+	
+	private JPanel jPnlTableExcerpt;
+	private JLabel[][] jLblsTableExcerpt;
+	
+	private JScrollPane jSPKader;
 	private JPanel kaderPanel;
 	private JLabel[][] kaderLbls;
 	private JLabel[] kaderDescrLbls;
@@ -61,6 +64,17 @@ public class Uebersicht extends JPanel {
 	private int[] gapx = {5, 5, 10, 0, 0, 10, 0};
 	private int gapy = 5;
 	private int middlegapy = 15;
+	
+	private int teStartx = 5;
+	private int teStarty = 40;
+	private int[] teWidthes = {20, 180, 20, 20, 20, 20, 25, 25, 25, 25};
+	private int teHeight = 15;
+	private int[] teGapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
+	private int teGapy = 5;
+	
+	private int heightStatistics = 225;
+	private int heightTableExcerpt = 160;
+	private int heightKader = 220;
 	
 	private int kaderSTARTX = 20;
 	private int kaderSTARTY = 10;
@@ -120,11 +134,7 @@ public class Uebersicht extends JPanel {
 			
 			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
-			
-			// TODO: Infos zur angezeigten Mannschaft
-			// TODO: (Ausschnitt aus der Tabelle, z.B. mit weiteren 4 drumherum, dazu Klasse TabellenAusschnitt)
-			// TODO: allg. Infos zu Mannschaften, dazu Erweiterung der Klasse Mannschaft
-			
+			jLblsTableExcerpt = new JLabel[5][10];
 			
 
 			int sumofwidthes = 2 * nstartx;
@@ -252,11 +262,8 @@ public class Uebersicht extends JPanel {
 		String[] positionen = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 		
 		if (kaderLbls == null) {
-			RECKADPNL = new Rectangle(startx + RECSPPLPNL.width + 5, starty + RECINFPNL.height + 5, 420, 615);
 			kaderPanel = new JPanel();
-			this.add(kaderPanel);
 			kaderPanel.setLayout(null);
-			kaderPanel.setBounds(RECKADPNL);
 			kaderPanel.setOpaque(true);
 			kaderPanel.setBackground(cbackground);
 		} else {
