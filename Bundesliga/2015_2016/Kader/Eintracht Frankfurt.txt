@@ -1,0 +1,26 @@
+Lukas;Hradecky;null;19891124;Finnland;Tor;1
+Heinz;Lindner;null;19900717;Österreich;Tor;13
+David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
+Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
+Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
+Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15
+Joel;Gerezgiher;null;19951009;Deutschland;Abwehr;32
+Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
+David;Kinsombi;null;19951212;Deutschland;Abwehr;31
+Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
+Carlos;Zambrano;null;19890710;Peru;Abwehr;5
+Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;16
+Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
+Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
+Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
+Takashi;Inui;null;19880602;Japan;Mittelfeld;8
+Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
+Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
+Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
+Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;7
+Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
+Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
+Luc;Castaignos;null;19920927;Niederlande, Kapverdische Inseln;Sturm;30
+Vaclav;Kadlec;null;19920520;Tschechien;Sturm;10
+Haris;Seferovic;null;19920222;Schweiz;Sturm;9
+Luca;Waldschmidt;null;19960519;Deutschland;Sturm;24

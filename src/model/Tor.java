@@ -112,6 +112,7 @@ public class Tor {
 		}
 		
 		toString = daten + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = spiel.home() + "v" + spiel.away() + "-h" + toString;
 	}
 	
 	public String toString() {

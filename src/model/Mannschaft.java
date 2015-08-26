@@ -9,6 +9,7 @@ public class Mannschaft {
 	private int id;
 	private Start start;
 	private String name;
+	private String nameForFileSearch;
 	private String gruendungsdatum;
 	
 	private int platz = -1;
@@ -108,7 +109,7 @@ public class Mannschaft {
 	}
 	
 	public String getPhotoDirectory() {
-		return wettbewerb.getWorkspace() + "Bilder" + File.separator + name + File.separator;
+		return wettbewerb.getWorkspace() + "Bilder" + File.separator + nameForFileSearch + File.separator;
 	}
 	
 	private void loadKader() {
@@ -116,8 +117,7 @@ public class Mannschaft {
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = gruppe.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
-		kaderFileName += this.name + ".txt";
-		kaderFileName = removeUmlaute(kaderFileName);
+		kaderFileName += nameForFileSearch + ".txt";
 		
 		ArrayList<String> spieler = ausDatei(kaderFileName);
 		numberOfPlayers = spieler.size();
@@ -143,7 +143,7 @@ public class Mannschaft {
 	}
 	
 	public int[] getPerformanceData(Spieler player) {
-		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0;
+		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, booked = 0, bookedTwice = 0, redCards = 0;
 		int squadNumber = player.getSquadNumber();
 		
 		for (Spiel spiel : spiele) {
@@ -153,6 +153,7 @@ public class Mannschaft {
 				int firstMinute = 91, lastMinute = 91;
 				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
 				ArrayList<Tor> tore = spiel.getTore();
+				ArrayList<Karte> bookings = spiel.getBookings();
 				
 				for (int i = 0; i < lineup.length; i++) {
 					if (lineup[i] == squadNumber) {
@@ -176,11 +177,26 @@ public class Mannschaft {
 						goals++;
 					}
 				}
+				for (Karte booking : bookings) {
+					if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer().getSquadNumber() == squadNumber) {
+						if (booking.isSecondBooking()) {
+							booked--;
+							bookedTwice++;
+							lastMinute = booking.getMinute();
+						}
+						else if (booking.isYellowCard())	booked++;
+						else {
+							redCards++;
+							lastMinute = booking.getMinute();
+						}
+					}
+				}
+				
 				minutesPlayed += lastMinute - firstMinute;
 			}
 		}
 		
-		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals};
+		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, booked, bookedTwice, redCards};
 	}
 	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tabellenart) {
@@ -335,6 +351,7 @@ public class Mannschaft {
 
 	public void setName(String value) {
 		this.name = value;
+		this.nameForFileSearch = removeUmlaute(name);
 	}
 
 	public String getGruendungsdatum() {
@@ -587,6 +604,7 @@ public class Mannschaft {
 		String[] daten = data.split(";");
 		
 		this.name = daten[0];
+		nameForFileSearch = removeUmlaute(name);
 		if (daten.length > 1) {
 			this.gruendungsdatum = !daten[1].equals("null") ? daten[1] : null;
 			if (daten.length > 2) {

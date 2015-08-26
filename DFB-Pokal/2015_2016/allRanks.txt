@@ -58,8 +58,8 @@
 1R29L: VfR Aalen
 1R30W: Hertha BSC
 1R30L: Arminia Bielefeld
-1R31W: DP20151R31W
-1R31L: DP20151R31L
+1R31W: RasenBallsport Leipzig
+1R31L: VfL Osnabrück
 1R32W: Borussia Mönchengladbach
 1R32L: FC St. Pauli
 2R01W: DP20152R01W

@@ -11,7 +11,7 @@ public class LigaStatistik extends JPanel {
 	
 	private static final long serialVersionUID = -7289043093848224094L;
 	
-	private Dimension preferredSize = new Dimension(900, 650);
+	private Dimension preferredSize = new Dimension(1100, 750);
 	private LigaSaison season;
 	private Mannschaft[] mannschaften;
 	private int currentMatchday;
@@ -65,16 +65,16 @@ public class LigaStatistik extends JPanel {
 	private JLabel[] jLblsResultsPercentage;
 	private JLabel[] jLblsResultsAbsolute;
 	
-	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 310, 30);
+	private Rectangle REC_LBLWETTBW = new Rectangle(250, 20, 340, 30);
 	
 	private int[] most = new int[] {20, 90, 0, 60, 160, 25};
-	private int[] mostV = new int[] {200, 90, 0, 60, 240, 25};
+	private int[] mostV = new int[] {200, 90, 0, 60, 280, 25};
 	private int[] least = new int[] {20, 115, 0, 60, 160, 25};
-	private int[] leastV = new int[] {200, 115, 0, 60, 240, 25};
+	private int[] leastV = new int[] {200, 115, 0, 60, 280, 25};
 	
-	private Rectangle REC_LBLSERIEN = new Rectangle(490, 90, 150, 25);
-	private int[] series = new int[] {490, 120, 0, 30, 110, 25};
-	private int[] seriesV = new int[] {620, 120, 0, 30, 240, 25};
+	private Rectangle REC_LBLSERIEN = new Rectangle(530, 90, 150, 25);
+	private int[] series = new int[] {530, 120, 0, 30, 110, 25};
+	private int[] seriesV = new int[] {660, 120, 0, 30, 280, 25};
 	
 	// alte Position rechts oben x-Werte +465, y-Werte -350
 	private static final int STARTX_HOMEAWAY = 135;

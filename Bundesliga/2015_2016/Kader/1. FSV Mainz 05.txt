@@ -1,0 +1,29 @@
+Gianluca;Curci;null;19850712;Italien;Tor;23;20150815-
+Jannik;Huth;null;19940415;Deutschland;Tor;33
+Loris;Karius;null;19930622;Deutschland;Tor;1
+Robin;Zentner;null;19941028;Deutschland;Tor;38
+Leon;Balogun;null;19880628;Nigeria, Deutschland;Abwehr;3
+Stefan;Bell;null;19910824;Deutschland;Abwehr;16
+Pierre;Bengtsson;null;19880412;Schweden;Abwehr;7
+Daniel;Brosinski;null;19880717;Deutschland;Abwehr;18
+Niko;Bungert;null;19861024;Deutschland;Abwehr;26
+Gonzalo;Jara;null;19850829;Chile;Abwehr;2
+Joo-Ho;Park;null;19870116;Südkorea;Abwehr;24
+Henrique;Sereno;null;19850518;Portugal;Abwehr;5
+Julian;Baumgartlinger;null;19880102;Österreich;Mittelfeld;14
+Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
+Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
+Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20
+Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;13
+Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
+Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10
+Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;8
+Todor;Nedelev;null;19930207;Bulgarien;Mittelfeld;28
+Patrick;Pflücke;null;19961130;Deutschland;Mittelfeld;30
+Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
+Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
+Niki;Zimling;null;19850419;Dänemark;Mittelfeld;25
+Yoshinori;Muto;null;19920715;Japan;Sturm;9
+Florian;Niederlechner;null;19901024;Deutschland;Sturm;31
+Devante;Parker;null;19960316;Deutschland;Sturm;29

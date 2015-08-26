@@ -710,14 +710,12 @@ public class LigaSaison implements Wettbewerb {
 		
 		try {
 			spieldatenFromFile = ausDatei(dateiSpieldaten);
-			int matchday;
 			
-			for (matchday = 0; matchday < numberOfMatchdays && matchday < spieldatenFromFile.size(); matchday++) {
-				String inhalte[] = spieldatenFromFile.get(matchday).split(";");
-				int match = 0;
-				for (match = 0; match < inhalte.length; match++) {
+			for (int matchday = 0; matchday < numberOfMatchdays && matchday < spieldatenFromFile.size(); matchday++) {
+				for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+					String inhalt = spieldatenFromFile.get(matchday * numberOfMatchesPerMatchday + match);
 					if (isSpielplanEntered(matchday, match)) {
-						getSpiel(matchday, match).setRemainder(inhalte[match]);
+						getSpiel(matchday, match).setRemainder(inhalt);
 					}
 				}
 			}
@@ -731,12 +729,9 @@ public class LigaSaison implements Wettbewerb {
 		spieldatenFromFile.clear();
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
-			String string = "";
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				if (getSpiel(i, j) != null)	string += getSpiel(i, j).fullString() + ";";
-				else						string += "null;";
+				spieldatenFromFile.add((getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null"));
 			}
-			spieldatenFromFile.add(string);
 		}
 		
 		inDatei(dateiSpieldaten, spieldatenFromFile);

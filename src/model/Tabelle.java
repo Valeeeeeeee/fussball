@@ -38,11 +38,6 @@ public class Tabelle extends JPanel {
 	private int ANZAHL_AUSGESCHIEDEN;
 	
 	private String[] titelleist = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
-	private Color colorCategory1 = new Color(0, 200, 0);
-	private Color colorCategory2 = new Color(128, 255, 0);
-	private Color colorCategory3 = new Color(255, 255, 0);
-	private Color colorCategory4 = new Color(255, 128, 0);
-	private Color colorCategory5 = new Color(255, 0, 0);
 	private Color colorTabellenart = new Color(255, 255, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	

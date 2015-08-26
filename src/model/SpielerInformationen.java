@@ -55,6 +55,12 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblMinutesPlayedVal;
 	private JLabel jLblGoalsScored;
 	private JLabel jLblGoalsScoredVal;
+	private JLabel jLblBooked;
+	private JLabel jLblBookedVal;
+	private JLabel jLblBookedTwice;
+	private JLabel jLblBookedTwiceVal;
+	private JLabel jLblRedCards;
+	private JLabel jLblRedCardsVal;
 	private JScrollPane jSPImage;
 	private JLabel jLblImage;
 	
@@ -255,6 +261,48 @@ public class SpielerInformationen extends JFrame {
 			jLblGoalsScoredVal.setFont(fontCompetition);
 			jLblGoalsScoredVal.setText("Tore");
 		}
+		{
+			jLblBooked = new JLabel();
+			jPnlPlayerInformation.add(jLblBooked);
+			jLblBooked.setBounds(530, 590, 160, 25);
+			jLblBooked.setFont(fontCompetition);
+			jLblBooked.setText("Gelbe Karten");
+		}
+		{
+			jLblBookedVal = new JLabel();
+			jPnlPlayerInformation.add(jLblBookedVal);
+			jLblBookedVal.setBounds(700, 590, 50, 25);
+			jLblBookedVal.setFont(fontCompetition);
+			jLblBookedVal.setText("Gelbe Karten");
+		}
+		{
+			jLblBookedTwice = new JLabel();
+			jPnlPlayerInformation.add(jLblBookedTwice);
+			jLblBookedTwice.setBounds(530, 620, 160, 25);
+			jLblBookedTwice.setFont(fontCompetition);
+			jLblBookedTwice.setText("Gelb-Rote Karten");
+		}
+		{
+			jLblBookedTwiceVal = new JLabel();
+			jPnlPlayerInformation.add(jLblBookedTwiceVal);
+			jLblBookedTwiceVal.setBounds(700, 620, 50, 25);
+			jLblBookedTwiceVal.setFont(fontCompetition);
+			jLblBookedTwiceVal.setText("Gelb-Rote Karten");
+		}
+		{
+			jLblRedCards = new JLabel();
+			jPnlPlayerInformation.add(jLblRedCards);
+			jLblRedCards.setBounds(530, 650, 160, 25);
+			jLblRedCards.setFont(fontCompetition);
+			jLblRedCards.setText("Rote Karten");
+		}
+		{
+			jLblRedCardsVal = new JLabel();
+			jPnlPlayerInformation.add(jLblRedCardsVal);
+			jLblRedCardsVal.setBounds(700, 650, 50, 25);
+			jLblRedCardsVal.setFont(fontCompetition);
+			jLblRedCardsVal.setText("Rote Karten");
+		}
 		
 		setSize(WIDTH, HEIGHT);
 		setResizable(false);
@@ -285,6 +333,9 @@ public class SpielerInformationen extends JFrame {
 		jLblSubstitutedOffVal.setText("" + performanceData[3]);
 		jLblMinutesPlayedVal.setText("" + performanceData[4]);
 		jLblGoalsScoredVal.setText("" + performanceData[5]);
+		jLblBookedVal.setText("" + performanceData[6]);
+		jLblBookedTwiceVal.setText("" + performanceData[7]);
+		jLblRedCardsVal.setText("" + performanceData[8]);
 		
 		Image image = null;
 		if (jLblImage != null) {
@@ -298,7 +349,7 @@ public class SpielerInformationen extends JFrame {
 			jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
 		}
 		jSPImage = new JScrollPane(jLblImage);
-		jSPImage.setBounds(10, 10, 505, 810);
+		jSPImage.setBounds(10, 10, 487 + 19, 810);
 		jPnlPlayerInformation.add(jSPImage);
 		jLblImage.setVisible(true);
 		jSPImage.setVisible(true);

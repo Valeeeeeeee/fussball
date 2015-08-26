@@ -1,5 +1,6 @@
 package util;
 
+import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -12,12 +13,19 @@ import model.Start;
 
 public class Utilities {
 	
+	public static final Color colorCategory1 = new Color(0, 200, 0);
+	public static final Color colorCategory2 = new Color(128, 255, 0);
+	public static final Color colorCategory3 = new Color(255, 255, 0);
+	public static final Color colorCategory4 = new Color(255, 128, 0);
+	public static final Color colorCategory5 = new Color(255, 0, 0);
+	
 	public static final int STARTX = 0;
 	public static final int STARTY = 1;
 	public static final int GAPX = 2;
 	public static final int GAPY = 3;
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
+	private static boolean osX = true;
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
@@ -283,5 +291,15 @@ public class Utilities {
 			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
 //			ioe.printStackTrace();
 		}
+	}
+	
+	public static int getWindowDecorationWidth() {
+		if (osX)	return 0;
+		else		return 6;
+	}
+	
+	public static int getWindowDecorationHeight() {
+		if (osX)	return 22;
+		else		return 28;
 	}
 }

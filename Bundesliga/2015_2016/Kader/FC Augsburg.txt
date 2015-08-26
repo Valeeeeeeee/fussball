@@ -1,0 +1,24 @@
+Marwin;Hitz;null;19870918;Schweiz;Tor;35
+Alexander;Manninger;null;19770604;Österreich;Tor;1
+Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
+Jeong-Ho;Hong;null;19890812;Südkorea;Abwehr;20
+Christoph;Janker;null;19850214;Deutschland;Abwehr;16
+Ragnar;Klavan;null;19851030;Estland;Abwehr;5
+Philipp;Max;null;19930930;Deutschland;Abwehr;31
+Daniel;Opare;null;19901018;Ghana;Abwehr;4
+Konstantinos;Stafylidis;null;19931202;Griechenland;Abwehr;3;20150820-
+Paul;Verhaegh;null;19830901;Niederlande;Abwehr;2
+Halil;Altintop;null;19821208;Türkei;Mittelfeld;7
+Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
+Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
+Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;11
+Markus;Feulner;null;19820212;Deutschland;Mittelfeld;8
+Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
+Jan;Moravek;null;19891101;Tschechien;Mittelfeld;14
+Shawn;Parker;null;19930307;Deutschland;Mittelfeld;9
+Piotr;Trochowski;null;19840322;Deutschland;Mittelfeld;15
+Tobias;Werner;null;19850719;Deutschland;Mittelfeld;13
+Raul;Bobadilla;null;19870618;Argentinien;Sturm;25
+Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
+Tim;Matavz;null;19890113;Slowenien;Sturm;23
+Sascha;Mölders;null;19850320;Deutschland;Sturm;33

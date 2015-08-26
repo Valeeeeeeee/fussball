@@ -104,26 +104,26 @@ Q201W: Qairat Almaty
 Q201L: Alaschkert Martuni
 Q202W: Rabotnicki Skopje
 Q202L: FK Jelgava
-Q203W: IF Elfsborg
-Q203L: Randers FC
-Q204W: MSK Zilina
-Q204L: Dacia Chisinau
-Q205W: VSC Debrecen
-Q205L: Skonto Riga
+Q203W: MSK Zilina
+Q203L: Dacia Chisinau
+Q204W: VSC Debrecen
+Q204L: Skonto Riga
+Q205W: IF Elfsborg
+Q205L: Randers FC
 Q206W: Wolfsberger AC
 Q206L: Schachzjor Salihorsk
-Q207W: Apollon Limassol
-Q207L: FK Trakai
-Q208W: Strömsgodset Toppfotball
-Q208L: Mladá Boleslav
-Q209W: FC Thun
-Q209L: Hapoel Be'er Scheva
-Q210W: Dinamo Minsk
-Q210L: Tscherno More Varna
-Q211W: AIK Solna
-Q211L: Schirak Gjumri
-Q212W: Bröndby IF
-Q212L: Beroe Stara Sagora
+Q207W: Strömsgodset Toppfotball
+Q207L: Mladá Boleslav
+Q208W: FC Thun
+Q208L: Hapoel Be'er Scheva
+Q209W: Dinamo Minsk
+Q209L: Tscherno More Varna
+Q210W: AIK Solna
+Q210L: Schirak Gjumri
+Q211W: Bröndby IF
+Q211L: Beroe Stara Sagora
+Q212W: Apollon Limassol
+Q212L: FK Trakai
 Q213W: Hajduk Split
 Q213L: FC Koper
 Q214W: Sporting Charleroi
@@ -144,18 +144,18 @@ Q221W: Slovan Bratislava
 Q221L: University College Dublin
 Q222W: Omonia Nikosia
 Q222L: Jagiellonia Bialystok
-Q223W: IFK Göteborg
-Q223L: Slask Wroclaw
-Q224W: Vojvodina Novi Sad
-Q224L: Spartaks Jurmala
+Q223W: Zeljeznicar Sarajevo
+Q223L: Ferencvaros Budapest
+Q224W: IFK Göteborg
+Q224L: Slask Wroclaw
 Q225W: FK Qäbälä
 Q225L: FK Cukaricki
-Q226W: Zeljeznicar Sarajevo
-Q226L: Ferencvaros Budapest
-Q227W: West Ham United
-Q227L: FC Birkirkara
-Q228W: Astra Giurgiu
-Q228L: Inverness Caledonian Thistle
+Q226W: Vojvodina Novi Sad
+Q226L: Spartaks Jurmala
+Q227W: Astra Giurgiu
+Q227L: Inverness Caledonian Thistle
+Q228W: West Ham United
+Q228L: FC Birkirkara
 Q229W: FC Aberdeen
 Q229L: HNK Rijeka
 Q230W: Legia Warschau
@@ -166,50 +166,50 @@ Q232W: Inter Baku
 Q232L: FH Hafnarfjördur
 Q233W: Rosenborg Trondheim
 Q233L: KR Reykjavík
-Q301W: BAUMIT Jablonec
+Q301W: FK Jablonec
 Q301L: FC Kopenhagen
 Q302W: Qairat Almaty
 Q302L: FC Aberdeen
 Q303W: Odds Ballklubb
 Q303L: IF Elfsborg
-Q304W: PAOK Thessaloniki
-Q304L: Spartak Trnava
-Q305W: FK Qäbälä
-Q305L: Apollon Limassol
-Q306W: FK Krasnodar
-Q306L: Slovan Bratislava
-Q307W: Atromitos Athen
-Q307L: AIK Solna
-Q308W: SC Rheindorf Altach
-Q308L: Vitória Guimaraes
-Q309W: Rubin Kasan
-Q309L: Sturm Graz
-Q310W: Slovan Liberec
-Q310L: Hapoel Ironi Kirjat Schmona
-Q311W: FC Thun
-Q311L: FC Vaduz
-Q312W: AZ Alkmaar
-Q312L: Istanbul Basaksehir
-Q313W: Dinamo Minsk
-Q313L: FC Zürich
-Q314W: MSK Zilina
-Q314L: Worskla Poltawa
-Q315W: Bröndby IF
-Q315L: Omonia Nikosia
-Q316W: AS Saint-Étienne
-Q316L: ASA Târgu Mures
+Q304W: FK Krasnodar
+Q304L: Slovan Bratislava
+Q305W: SC Rheindorf Altach
+Q305L: Vitória Guimaraes
+Q306W: Rubin Kasan
+Q306L: Sturm Graz
+Q307W: Slovan Liberec
+Q307L: Hapoel Ironi Kirjat Schmona
+Q308W: Atromitos Athen
+Q308L: AIK Solna
+Q309W: FK Qäbälä
+Q309L: Apollon Limassol
+Q310W: PAOK Thessaloniki
+Q310L: Spartak Trnava
+Q311W: AZ Alkmaar
+Q311L: Istanbul Basaksehir
+Q312W: Dinamo Minsk
+Q312L: FC Zürich
+Q313W: MSK Zilina
+Q313L: Worskla Poltawa
+Q314W: FC Thun
+Q314L: FC Vaduz
+Q315W: AS Saint-Étienne
+Q315L: ASA Târgu Mures
+Q316W: Rabotnicki Skopje
+Q316L: Trabzonspor
 Q317W: Rosenborg Trondheim
 Q317L: VSC Debrecen
-Q318W: Legia Warschau
-Q318L: FK Kukesi
-Q319W: Rabotnicki Skopje
-Q319L: Trabzonspor
-Q320W: Sorja Luhansk
-Q320L: Sporting Charleroi
-Q321W: Girondins Bordeaux
-Q321L: AEK Larnaka
-Q322W: Standard Lüttich
-Q322L: Zeljeznicar Sarajevo
+Q318W: Bröndby IF
+Q318L: Omonia Nikosia
+Q319W: Legia Warschau
+Q319L: FK Kukesi
+Q320W: Girondins Bordeaux
+Q320L: AEK Larnaka
+Q321W: Standard Lüttich
+Q321L: Zeljeznicar Sarajevo
+Q322W: Sorja Luhansk
+Q322L: Sporting Charleroi
 Q323W: Athletic Bilbao
 Q323L: Inter Baku
 Q324W: Astra Giurgiu

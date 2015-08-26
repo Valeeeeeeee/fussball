@@ -62,7 +62,7 @@ public class Ergebnis {
 	public Ergebnis(String daten) {
 		try {
 			if (daten.indexOf("agT") != -1) {
-				// >3:0 agT<
+				// >3:0 agT< / >0:2 agT<
 				amGruenenTisch = true;
 				
 				String[] teile = daten.split(":|\\ ");
@@ -154,7 +154,7 @@ public class Ergebnis {
 		return "n.E.";
 	}
 	
-	public String getTooltipext() {
+	public String getTooltipText() {
 		if (amGruenenTisch)	return "am gruenen Tisch";
 		if (finishedInRegularTime)	return "";
 		if (finishedInExtraTime)	return "nach Verlaengerung";
@@ -234,7 +234,7 @@ public class Ergebnis {
 		
 		// if the match was decided agT and the result is 3:0 or 0:3
 		if (amGruenenTisch) {
-			if (home[REGULAR] + away[REGULAR] != 3 || home[REGULAR] * away[REGULAR] != 0)	return false;
+			if ((home[REGULAR] + away[REGULAR] != 3 && home[REGULAR] + away[REGULAR] != 2) || home[REGULAR] * away[REGULAR] != 0)	return false;
 			return true;
 		}
 		

@@ -14,14 +14,14 @@ Q203W: FC Midtjylland
 Q203L: Lincoln Red Imps FC
 Q204W: FC Milsami
 Q204L: Ludogorez Rasgrad
-Q205W: Videoton Szekesfehervar
-Q205L: The New Saints FC
-Q206W: Molde FK
-Q206L: FC Pjunik Erewan
-Q207W: KF Skenderbeu Korça
-Q207L: Crusaders FC
-Q208W: Maccabi Tel Aviv
-Q208L: Hibernians Football Club
+Q205W: Molde FK
+Q205L: FC Pjunik Erewan
+Q206W: KF Skenderbeu Korça
+Q206L: Crusaders FC
+Q207W: Maccabi Tel Aviv
+Q207L: Hibernians Football Club
+Q208W: Videoton Szekesfehervar
+Q208L: The New Saints FC
 Q209W: FK Astana
 Q209L: NK Maribor
 Q210W: Steaua Bukarest
@@ -70,26 +70,26 @@ Q314W: Celtic Glasgow
 Q314L: FK Qarabag Agdam
 Q315W: SK Rapid Wien
 Q315L: Ajax Amsterdam
-PO01W: CL2015PO01W
-PO01L: CL2015PO01L
-PO02W: CL2015PO02W
-PO02L: CL2015PO02L
-PO03W: CL2015PO03W
-PO03L: CL2015PO03L
-PO04W: CL2015PO04W
-PO04L: CL2015PO04L
-PO05W: CL2015PO05W
-PO05L: CL2015PO05L
-PO06W: CL2015PO06W
-PO06L: CL2015PO06L
-PO07W: CL2015PO07W
-PO07L: CL2015PO07L
-PO08W: CL2015PO08W
-PO08L: CL2015PO08L
-PO09W: CL2015PO09W
-PO09L: CL2015PO09L
-PO10W: CL2015PO10W
-PO10L: CL2015PO10L
+PO01W: FK Astana
+PO01L: APOEL Nikosia
+PO02W: Manchester United
+PO02L: FC Brügge
+PO03W: Bayer 04 Leverkusen
+PO03L: Lazio Rom
+PO04W: ZSKA Moskau
+PO04L: Sporting Lissabon
+PO05W: BATE Baryssau
+PO05L: FK Partizan Belgrad
+PO06W: FC Valencia
+PO06L: AS Monaco
+PO07W: Dinamo Zagreb
+PO07L: KF Skenderbeu Korça
+PO08W: Maccabi Tel Aviv
+PO08L: FC Basel
+PO09W: Malmö FF
+PO09L: Celtic Glasgow
+PO10W: Schachtar Donezk
+PO10L: SK Rapid Wien
 GA1: CL2015GA1
 GA2: CL2015GA2
 GA3: CL2015GA3
