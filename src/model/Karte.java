@@ -1,5 +1,7 @@
 package model;
 
+import static util.Utilities.log;
+
 public class Karte {
 	private String id;
 	private String toString;
@@ -20,6 +22,8 @@ public class Karte {
 		
 		this.toString = firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber();
 		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		log("Booking for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+				" in the " + minute + ". minute: " + bookedPlayer.getPseudonymOrLN());
 	}
 	
 	public Karte(Spiel spiel, String data) {

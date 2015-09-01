@@ -14,12 +14,14 @@ Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
 Charles;Aranguiz;null;19890417;Chile;Mittelfeld;20
 Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
 Hakan;Calhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
+Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;20150828-
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
 Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
 Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
 Julian;Brandt;null;19960502;Deutschland;Sturm;19
+Javier;Hernández;null;19880601;Mexiko;Sturm;7;20150831-
 Stefan;Kießling;null;19840125;Deutschland;Sturm;11
-Robbie;Kruse;null;19881005;Australien;Sturm;23
+Robbie;Kruse;null;19881005;Australien;Sturm;27;-20150830
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
-Heung-Min;Son;null;19920708;Südkorea;Sturm;7
+Heung-Min;Son;null;19920708;Südkorea;Sturm;7;-20150827

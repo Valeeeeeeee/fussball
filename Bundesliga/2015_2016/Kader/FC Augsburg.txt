@@ -14,6 +14,7 @@ Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
 Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;11
 Markus;Feulner;null;19820212;Deutschland;Mittelfeld;8
 Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
+Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19;20150831-
 Jan;Moravek;null;19891101;Tschechien;Mittelfeld;14
 Shawn;Parker;null;19930307;Deutschland;Mittelfeld;9
 Piotr;Trochowski;null;19840322;Deutschland;Mittelfeld;15

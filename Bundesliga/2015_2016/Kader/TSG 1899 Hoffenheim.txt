@@ -16,6 +16,7 @@ Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
 Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;6
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;10
 Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;16
+Eduardo;Vargas;null;19891120;Chile;Mittelfeld;9;20150824-
 Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
 Joelinton Cassio;Apolinaro de Lira;Joelinton;19960814;Brasilien;Sturm;40
 Kevin;Kurányi;null;19820302;Deutschland, Brasilien;Sturm;22
