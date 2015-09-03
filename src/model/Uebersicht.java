@@ -21,6 +21,7 @@ public class Uebersicht extends JPanel {
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
+	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	
 	private JPanel spiele;
 	private JLabel[][] spieltage;
@@ -32,6 +33,7 @@ public class Uebersicht extends JPanel {
 	private JPanel jPnlStatistics;
 	
 	private JPanel jPnlTableExcerpt;
+	private JLabel[] jLblsTableHeader;
 	private JLabel[][] jLblsTableExcerpt;
 	
 	private JScrollPane jSPKader;
@@ -66,14 +68,14 @@ public class Uebersicht extends JPanel {
 	private int middlegapy = 15;
 	
 	private int teStartx = 5;
-	private int teStarty = 40;
+	private int teStarty = 5;
 	private int[] teWidthes = {20, 180, 20, 20, 20, 20, 25, 25, 25, 25};
 	private int teHeight = 15;
 	private int[] teGapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
 	private int teGapy = 5;
 	
-	private int heightStatistics = 225;
-	private int heightTableExcerpt = 160;
+	private int heightStatistics = 255;
+	private int heightTableExcerpt = 130;
 	private int heightKader = 220;
 	
 	private int kaderSTARTX = 20;
@@ -134,6 +136,7 @@ public class Uebersicht extends JPanel {
 			
 			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
+			jLblsTableHeader = new JLabel[10];
 			jLblsTableExcerpt = new JLabel[5][10];
 			
 
@@ -240,6 +243,16 @@ public class Uebersicht extends JPanel {
 				jPnlTableExcerpt.setOpaque(true);
 				jPnlTableExcerpt.setBackground(cbackground);
 			}
+			sumofwidthes = 0;
+			for (int i = 0; i < 10; i++) {
+				jLblsTableHeader[i] = new JLabel();
+				jPnlTableExcerpt.add(jLblsTableHeader[i]);
+				if (i == 1)	jLblsTableHeader[i].setHorizontalAlignment(SwingConstants.LEFT);
+				else		jLblsTableHeader[i].setHorizontalAlignment(SwingConstants.CENTER);
+				jLblsTableHeader[i].setBounds(teStartx + sumofwidthes, teStarty, teWidthes[i], teHeight);
+				jLblsTableHeader[i].setText(headerStrings[i]);
+				sumofwidthes += teWidthes[i] + teGapx[i];
+			}
 			for (int i = 0; i < 5; i++) {
 				sumofwidthes = 0;
 				for (int j = 0; j < 10; j++) {
@@ -247,9 +260,8 @@ public class Uebersicht extends JPanel {
 					jPnlTableExcerpt.add(jLblsTableExcerpt[i][j]);
 					if (j == 1)	jLblsTableExcerpt[i][j].setHorizontalAlignment(SwingConstants.LEFT);
 					else		jLblsTableExcerpt[i][j].setHorizontalAlignment(SwingConstants.CENTER);
-					jLblsTableExcerpt[i][j].setBounds(teStartx + sumofwidthes, teStarty + i * (teHeight + teGapy), teWidthes[j], teHeight);
+					jLblsTableExcerpt[i][j].setBounds(teStartx + sumofwidthes, teStarty + (i + 1) * (teHeight + teGapy), teWidthes[j], teHeight);
 					sumofwidthes += teWidthes[j] + teGapx[j];
-					jLblsTableExcerpt[i][j].setOpaque(true);
 				}
 			}
 			{
@@ -456,8 +468,7 @@ public class Uebersicht extends JPanel {
 		}
 	}
 	
-	public void prepareForTableExcerpt() {
-		// TODO rename, when completed
+	public void showTableExcerpt() {
 		// funktioniert, solange die Uebersicht nur aus der Tabelle aufrufbar ist
 		int anzahlMannschaften = mannschaften.length;
 		int[] tabelle = new int[anzahlMannschaften];
@@ -487,20 +498,17 @@ public class Uebersicht extends JPanel {
 		int index = 0;
 		for (int i = firstShownTeam; i <= lastShownTeam; i++) {
 			boolean thisTeam = i == thisTeamsPlace;
-			String values = (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1) + ", " + mannschaften[tabelle[i] - 1].getName();
 			jLblsTableExcerpt[index][0].setText("" + (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1));
 			jLblsTableExcerpt[index][1].setText(mannschaften[tabelle[i] - 1].getName());
-			
 			for (int j = 2; j < 10; j++) {
-				values += ", " + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE);
 				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE));
 			}
+			
 			for (int j = 0; j < 10; j++) {
 				if (thisTeam)	jLblsTableExcerpt[index][j].setBackground(colorCategory3);
 				jLblsTableExcerpt[index][j].setOpaque(thisTeam);
 				repaintImmediately(jLblsTableExcerpt[index][j]);
 			}
-			log(values);
 			index++;
 		}
 	}

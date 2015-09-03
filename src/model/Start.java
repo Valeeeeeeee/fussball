@@ -891,7 +891,7 @@ public class Start extends JFrame {
 		uebersicht.add(jBtnZurueck);
 		uebersicht.setMannschaft(index);
 		uebersicht.labelsBefuellen();
-		uebersicht.prepareForTableExcerpt();
+		uebersicht.showTableExcerpt();
 		uebersicht.setVisible(true);
 	}
 	
