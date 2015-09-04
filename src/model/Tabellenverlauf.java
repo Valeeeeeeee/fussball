@@ -38,8 +38,9 @@ public class Tabellenverlauf extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		int pixelsPerRank = 6;
-		int pixelsPerMatchday = 10;
+		int pixelsPerRank = (130 - 5) / numberOfTeams;
+		int pixelsPerMatchday = (400 - 10) / rankings.length;
+		log(pixelsPerRank + "/" + pixelsPerMatchday);
 		int freeSpaceX = (400 - rankings.length * pixelsPerMatchday) / 2;
 		int freeSpaceY = (130 - numberOfTeams * pixelsPerRank) / 2;
 		
@@ -74,19 +75,20 @@ public class Tabellenverlauf extends JPanel {
 		g.drawLine(freeSpaceX, freeSpaceY, freeSpaceX, freeSpaceY + numberOfTeams * pixelsPerRank);
 		g.drawLine(freeSpaceX + rankings.length * pixelsPerMatchday, freeSpaceY, freeSpaceX + rankings.length * pixelsPerMatchday, freeSpaceY + numberOfTeams * pixelsPerRank);
 		
-		int lastX = 0, lastY = 0, thisX, thisY, noRankY = freeSpaceY - pixelsPerRank / 2;
+		int lastX = 0, lastY = 0, lastRank = 0, thisX, thisY;
 		for (int i = 0; i < rankings.length; i++) {
 			thisX = freeSpaceX + pixelsPerMatchday / 2 + i * pixelsPerMatchday;
 			thisY = freeSpaceY + pixelsPerRank / 2 + pixelsPerRank * (rankings[i] - 1);
 			
-			if (thisY != noRankY) {
+			if (rankings[i] != 0) {
 				g.drawRect(thisX - 1, thisY - 1, 2, 2);
-				if (lastX != 0 && lastY != noRankY) {
+				if (lastRank != 0) {
 					g.drawLine(lastX, lastY, thisX, thisY);
 				}
 			}
 			lastX = thisX;
 			lastY = thisY;
+			lastRank = rankings[i];
 		}
 	}
 }

@@ -17,7 +17,6 @@ Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11
 Jerome;Kiesewetter;null;19930209;Deutschland, USA;Mittelfeld;42
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
-Robbie;Kruse;null;19881005;Australien;Sturm;9;20150831-
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;8
@@ -28,4 +27,5 @@ Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
+Robbie;Kruse;null;19881005;Australien;Sturm;9;20150831-
 Timo;Werner;null;19960306;Deutschland;Sturm;19

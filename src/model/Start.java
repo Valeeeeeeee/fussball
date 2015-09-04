@@ -721,13 +721,13 @@ public class Start extends JFrame {
 				ctr++;
 			}
 			for (int i = 0; i < aktuelleTSaison.getNumberOfQKORounds(); i++) {
-				final int x = i;
-				qualificationButtons[x + ctr] = new JButton();
-				QualifikationHomescreen.add(qualificationButtons[x + ctr]);
-				qualificationButtons[x + ctr].setBounds(295 + (x % 2) * (SIZEX_BTNS + 50), 150 + (x / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[x + ctr].setText(aktuelleTSaison.getQKORunden()[x].getName());
-				qualificationButtons[x + ctr].setFocusable(false);
-				qualificationButtons[x + ctr].addActionListener(new ActionListener() {
+				final int x = i, position = i + ctr;
+				qualificationButtons[position] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[position]);
+				qualificationButtons[position].setBounds(295 + (position % 2) * (SIZEX_BTNS + 50), 150 + position / 2 * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[position].setText(aktuelleTSaison.getQKORunden()[x].getName());
+				qualificationButtons[position].setFocusable(false);
+				qualificationButtons[position].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						jBtnKORundePressed(x);
 					}
@@ -1358,7 +1358,7 @@ public class Start extends JFrame {
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
 			} else if (isCurrentlyInQualification) {
-				if (aktuelleTSaison.hasQGroupStage()) {
+				if (aktuelleTSaison.hasQGroupStage() && aktuelleTabelle != null) {
 					aktuelleTabelle.setVisible(false);
 					optionen.setVisible(false);
 				}

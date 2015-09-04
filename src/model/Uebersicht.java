@@ -17,7 +17,7 @@ public class Uebersicht extends JPanel {
 	// Informationen
 	private Rectangle REC_INFPNL;
 	private Rectangle REC_LBLNAME = new Rectangle(50, 10, 320, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(140, 40, 140, 30);
+	private Rectangle REC_LBLGRDATUM = new Rectangle(135, 40, 150, 30);
 	
 	// Statistiken
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
@@ -25,19 +25,19 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
 	private Rectangle REC_LBLMATCHESWON = new Rectangle(40, 35, 70, 20);
 	private Rectangle REC_LBLMATCHESDRAWNVAL = new Rectangle(10, 60, 25, 20);
-	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 90, 20);
+	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 95, 20);
 	private Rectangle REC_LBLMATCHESLOSTVAL = new Rectangle(10, 85, 25, 20);
 	private Rectangle REC_LBLMATCHESLOST = new Rectangle(40, 85, 60, 20);
 	private Rectangle REC_LBLGOALSVAL = new Rectangle(150, 10, 25, 20);
 	private Rectangle REC_LBLGOALS = new Rectangle(180, 10, 40, 20);
 	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(150, 35, 25, 20);
 	private Rectangle REC_LBLGOALSCONC = new Rectangle(180, 35, 70, 20);
-	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(270, 10, 25, 20);
-	private Rectangle REC_LBLBOOKED = new Rectangle(300, 10, 85, 20);
-	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(270, 35, 25, 20);
-	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(300, 35, 105, 20);
-	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(270, 60, 25, 20);
-	private Rectangle REC_LBLREDCARDS = new Rectangle(300, 60, 80, 20);
+	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(260, 10, 25, 20);
+	private Rectangle REC_LBLBOOKED = new Rectangle(290, 10, 85, 20);
+	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(260, 35, 25, 20);
+	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(290, 35, 110, 20);
+	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(260, 60, 25, 20);
+	private Rectangle REC_LBLREDCARDS = new Rectangle(290, 60, 80, 20);
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -113,8 +113,8 @@ public class Uebersicht extends JPanel {
 	private int[] teGapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
 	private int teGapy = 5;
 	
-	private int heightStatistics = 255 - 140;
-	private int heightTableExcerpt = 130 + 140;
+	private int heightStatistics = 115;
+	private int heightTableExcerpt = 270;
 	private int heightKader = 220;
 	
 	private int kaderSTARTX = 20;
@@ -432,9 +432,9 @@ public class Uebersicht extends JPanel {
 				dim.height = maximumheight;
 			}
 			this.setSize(dim);
-			jPnlStatistics.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader - heightTableExcerpt - heightStatistics - 10, 420, heightStatistics);
-			jPnlTableExcerpt.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader - heightTableExcerpt - 5, 420, heightTableExcerpt);
-			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader, 401 + 19, heightKader);
+			jPnlStatistics.setBounds(startx + REC_SPPLPNL.width + 5, 135, 420, heightStatistics);
+			jPnlTableExcerpt.setBounds(startx + REC_SPPLPNL.width + 5, 140 + heightStatistics, 420, heightTableExcerpt);
+			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 145 + heightStatistics + heightTableExcerpt, 401 + 19, dim.height - (startx + 145 + heightStatistics + heightTableExcerpt));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -539,8 +539,10 @@ public class Uebersicht extends JPanel {
 		mannschaftID = id;
 		mannschaft = mannschaften[mannschaftID - 1];
 		jLblMannschaftsname.setText(mannschaft.getName());
-		if (hasGrDatum) jLblGruendungsdatum.setText("Gegründet: " + mannschaft.getGruendungsdatum());
-		jLblGruendungsdatum.setVisible(hasGrDatum);
+		if (hasGrDatum) {
+			jLblGruendungsdatum.setText("Gegründet: " + mannschaft.getGruendungsdatum());
+			jLblGruendungsdatum.setVisible(true);
+		}
 		newKader();
 
 		labelsBefuellen();
