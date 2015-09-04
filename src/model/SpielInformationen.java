@@ -547,6 +547,7 @@ public class SpielInformationen extends JFrame {
 			jChBLeft = new JCheckBox();
 			jPnlEingabe.add(jChBLeft);
 			jChBLeft.setBounds(REC_CHBLEFT);
+			jChBLeft.setOpaque(false);
 			jChBLeft.setVisible(false);
 			jChBLeft.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -558,6 +559,7 @@ public class SpielInformationen extends JFrame {
 			jChBRight = new JCheckBox();
 			jPnlEingabe.add(jChBRight);
 			jChBRight.setBounds(REC_CHBRIGHT);
+			jChBRight.setOpaque(false);
 			jChBRight.setVisible(false);
 			jChBRight.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

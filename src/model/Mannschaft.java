@@ -199,6 +199,30 @@ public class Mannschaft {
 		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, booked, bookedTwice, redCards};
 	}
 	
+	public int[] getFairplayData() {
+		int booked = 0, bookedTwice = 0, redCards = 0;
+		
+		for (Spiel spiel : spiele) {
+			if (spiel != null) {
+				ArrayList<Karte> bookings = spiel.getBookings();
+				for (Karte booking : bookings) {
+					if (booking.isFirstTeam() == homeaway[spiel.getMatchday()]) {
+						if (booking.isSecondBooking()) {
+							booked--;
+							bookedTwice++;
+						}
+						else if (booking.isYellowCard())	booked++;
+						else {
+							redCards++;
+						}
+					}
+				}
+			}
+		}
+		
+		return new int[] {booked, bookedTwice, redCards};
+	}
+	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tabellenart) {
 		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tabellenart)	return;
 		

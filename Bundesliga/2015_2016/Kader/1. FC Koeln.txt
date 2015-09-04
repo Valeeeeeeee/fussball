@@ -11,7 +11,7 @@ Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;31
 Milos;Jojic;null;19920319;Serbien;Mittelfeld;8
 Matthias;Lehmann;null;19830528;Deutschland;Mittelfeld;33
 Kazuki;Nagasawa;null;19911216;Japan;Mittelfeld;25
-Slawomir;Peszko;null;19850219;Polen;Mittelfeld;17
+Slawomir;Peszko;null;19850219;Polen;Mittelfeld;17;-20150830
 Marcel;Risse;null;19891217;Deutschland;Mittelfeld;7
 Dusan;Svento;null;19850801;Slowakei;Mittelfeld;29
 Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;6

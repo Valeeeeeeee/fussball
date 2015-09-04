@@ -215,7 +215,8 @@ public class Gruppe implements Wettbewerb {
 		
 		if (today < getDate(0, 0)) {
 			matchday = 0;
-		} else if (today > getDate(this.getNumberOfMatchdays() - 1, 0) && !this.isSpielplanFullyEmpty(this.getNumberOfMatchdays() - 1)) {
+		} else if (today > getDate(this.getNumberOfMatchdays() - 1, 0) && getDate(this.getNumberOfMatchdays() - 1, 0) == 0) {
+			log("DEBUG -- date of first game of last matchday" + getDate(this.getNumberOfMatchdays() - 1, 0));
 			matchday = this.getNumberOfMatchdays() - 1;
 		} else {
 			matchday = 0;
