@@ -636,7 +636,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showTableExcerpt() {
-		// funktioniert, solange die Uebersicht nur aus der Tabelle aufrufbar ist
+		mannschaft.compareWithOtherTeams(mannschaften, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE);
 		int anzahlMannschaften = mannschaften.length;
 		int[] tabelle = new int[anzahlMannschaften];
 		
