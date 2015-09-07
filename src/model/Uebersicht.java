@@ -622,7 +622,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showStatistics() {
-		int matchday = wettbewerb.getCurrentMatchday();
+		int matchday = wettbewerb.getNewestStartedMatchday();
 		int[] fairplayData = mannschaft.getFairplayData();
 		jLblMatchesPlayedVal.setText("" + mannschaft.get(2, matchday, Tabellenart.COMPLETE));
 		jLblMatchesWonVal.setText("" + mannschaft.get(3, matchday, Tabellenart.COMPLETE));
@@ -636,7 +636,8 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showTableExcerpt() {
-		mannschaft.compareWithOtherTeams(mannschaften, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE);
+		int newestMatchday = wettbewerb.getNewestStartedMatchday();
+		mannschaft.compareWithOtherTeams(mannschaften, newestMatchday, Tabellenart.COMPLETE);
 		int anzahlMannschaften = mannschaften.length;
 		int[] tabelle = new int[anzahlMannschaften];
 		
@@ -665,10 +666,10 @@ public class Uebersicht extends JPanel {
 		int index = 0;
 		for (int i = firstShownTeam; i <= lastShownTeam; i++) {
 			boolean thisTeam = i == thisTeamsPlace;
-			jLblsTableExcerpt[index][0].setText("" + (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1));
+			jLblsTableExcerpt[index][0].setText("" + (mannschaften[tabelle[i] - 1].get(0, newestMatchday, Tabellenart.COMPLETE) + 1));
 			jLblsTableExcerpt[index][1].setText(mannschaften[tabelle[i] - 1].getName());
 			for (int j = 2; j < 10; j++) {
-				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE));
+				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, newestMatchday, Tabellenart.COMPLETE));
 			}
 			
 			for (int j = 0; j < 10; j++) {
@@ -681,7 +682,7 @@ public class Uebersicht extends JPanel {
 		
 		int[] places = new int[numberOfMatchdays];
 		int matchday = 0;
-		while (matchday <= wettbewerb.getCurrentMatchday()) {
+		while (matchday <= newestMatchday) {
 			mannschaft.compareWithOtherTeams(mannschaften, matchday, Tabellenart.COMPLETE);
 			int place = mannschaft.get(0, matchday, Tabellenart.COMPLETE) + 1;
 			places[matchday] = place;

@@ -5,6 +5,8 @@ import static util.Utilities.*;
 import java.io.File;
 import java.util.ArrayList;
 
+import util.Utilities;
+
 public class LigaSaison implements Wettbewerb {
 	
 	private Start start;
@@ -21,6 +23,11 @@ public class LigaSaison implements Wettbewerb {
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
+	private int currentMatchday;
+	private int cMatchdaySetForDate = -1;
+	private int newestMatchday;
+	private int nMatchdaySetForDate = -1;
+	private int nMatchdaySetUntilTime = -1;
 	
 	private int[] anzahl;
 	
@@ -160,24 +167,51 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		int matchday = -1;
 		int today = MyDate.verschoben(MyDate.newMyDate(), -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
-		if (today < getDate(0)) {
-			matchday = 0;
-		} else if (today > getDate(numberOfMatchdays - 1) && getDate(numberOfMatchdays - 1) != 0) {
-			matchday = numberOfMatchdays - 1;
-		} else {
-			matchday = 0;
-			while (today > getDate(matchday) && getDate(matchday) != 0) {
-				matchday++;
+		if (cMatchdaySetForDate != today) {
+			if (today < getDate(0)) {
+				currentMatchday = 0;
+			} else if (today >= getDate(numberOfMatchdays - 1) && getDate(numberOfMatchdays - 1) != 0) {
+				currentMatchday = numberOfMatchdays - 1;
+			} else {
+				currentMatchday = 0;
+				while (today >= getDate(currentMatchday) && getDate(currentMatchday) != 0) {
+					currentMatchday++;
+				}
+				if (currentMatchday != 0 && MyDate.difference(getDate(currentMatchday - 1), today) < MyDate.difference(today, getDate(currentMatchday))) {
+					currentMatchday--;
+				}
 			}
-			if (matchday != 0 && MyDate.difference(getDate(matchday - 1), today) < MyDate.difference(today, getDate(matchday))) {
-				matchday--;
-			}
+			cMatchdaySetForDate = today;
 		}
 		
-		return matchday;
+		return currentMatchday;
+	}
+	
+	public int getNewestStartedMatchday() {
+		int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+		
+		if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
+			nMatchdaySetUntilTime = 2400;
+			if (today < getDate(0, 0)) {
+				newestMatchday = 0;
+			} else if (today >= getDate(this.getNumberOfMatchdays() - 1, 0) && getDate(this.getNumberOfMatchdays() - 1, 0) != 0) {
+				newestMatchday = this.getNumberOfMatchdays() - 1;
+			} else {
+				newestMatchday = 0;
+				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+					newestMatchday++;
+				}
+				if (today == getDate(newestMatchday + 1, 0)) {
+					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
+				}
+			}
+			
+			nMatchdaySetForDate = today;
+		}
+		
+		return newestMatchday;
 	}
 	
 	// Date / Time
@@ -787,6 +821,8 @@ public class LigaSaison implements Wettbewerb {
 		tabelle = null;
 		statistik.setVisible(false);
 		statistik = null;
+		cMatchdaySetForDate = -1;
+		nMatchdaySetForDate = -1;
 		
 		geladen = false;
 	}

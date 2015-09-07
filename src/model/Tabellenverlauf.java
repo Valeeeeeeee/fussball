@@ -11,6 +11,9 @@ public class Tabellenverlauf extends JPanel {
 	
 	private static final long serialVersionUID = 6093575133596035653L;
 	
+	private static final int WIDTH = 400;
+	private static final int HEIGHT = 130;
+	
 	private static final Color background = new Color(255, 255, 255);
 	private static final Color linesBG = new Color(200, 200, 200);
 	private static final Color linesFG = new Color(50, 50, 0);
@@ -32,17 +35,16 @@ public class Tabellenverlauf extends JPanel {
 			}
 		}
 		
-		setSize(400, 130);
+		setSize(WIDTH, HEIGHT);
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		int pixelsPerRank = (130 - 5) / numberOfTeams;
-		int pixelsPerMatchday = (400 - 10) / rankings.length;
-		log(pixelsPerRank + "/" + pixelsPerMatchday);
-		int freeSpaceX = (400 - rankings.length * pixelsPerMatchday) / 2;
-		int freeSpaceY = (130 - numberOfTeams * pixelsPerRank) / 2;
+		int pixelsPerRank = (HEIGHT - 5) / numberOfTeams;
+		int pixelsPerMatchday = (WIDTH - 10) / rankings.length;
+		int freeSpaceX = (WIDTH - rankings.length * pixelsPerMatchday) / 2;
+		int freeSpaceY = (HEIGHT - numberOfTeams * pixelsPerRank) / 2;
 		
 		// Background - Lines
 		g.setColor(background);
