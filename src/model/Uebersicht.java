@@ -38,6 +38,7 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(290, 35, 110, 20);
 	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(260, 60, 25, 20);
 	private Rectangle REC_LBLREDCARDS = new Rectangle(290, 60, 80, 20);
+	private Rectangle REC_LBLMORESTATS = new Rectangle(340, 90, 80, 20);
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -69,6 +70,7 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblBookedTwice;
 	private JLabel jLblRedCardsVal;
 	private JLabel jLblRedCards;
+	private JLabel jLblMoreStatistics;
 	
 	private JPanel jPnlTableExcerpt;
 	private JLabel[] jLblsTableHeader;
@@ -115,7 +117,6 @@ public class Uebersicht extends JPanel {
 	
 	private int heightStatistics = 115;
 	private int heightTableExcerpt = 270;
-	private int heightKader = 220;
 	
 	private int kaderSTARTX = 20;
 	private int kaderSTARTY = 10;
@@ -133,6 +134,7 @@ public class Uebersicht extends JPanel {
 	private Mannschaft mannschaft;
 	private Mannschaft[] mannschaften;
 	private int[] opponents;
+	private boolean[] homeaway;
 	
 	private int numberOfMatchdays;
 	private int numberOfPlayers;
@@ -175,6 +177,7 @@ public class Uebersicht extends JPanel {
 			
 			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
+			homeaway = new boolean[numberOfMatchdays];
 			jLblsTableHeader = new JLabel[10];
 			jLblsTableExcerpt = new JLabel[5][10];
 			
@@ -231,12 +234,12 @@ public class Uebersicht extends JPanel {
 				
 				spieltage[i][TEAMHOME].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						showTeam(x);
+						showTeam(x, true);
 					}
 				});
 				spieltage[i][TEAMAWAY].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						showTeam(x);
+						showTeam(x, false);
 					}
 				});
 				spieltage[i][MATCHDAY].addMouseListener(new MouseAdapter() {
@@ -381,6 +384,18 @@ public class Uebersicht extends JPanel {
 				jPnlStatistics.add(jLblRedCards);
 				jLblRedCards.setBounds(REC_LBLREDCARDS);
 				jLblRedCards.setText("Rote Karten");
+			}
+			{
+				jLblMoreStatistics = new JLabel();
+				jPnlStatistics.add(jLblMoreStatistics);
+				jLblMoreStatistics.setBounds(REC_LBLMORESTATS);
+				jLblMoreStatistics.setText("Mehr dazu >");
+				jLblMoreStatistics.setCursor(handCursor);
+				jLblMoreStatistics.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						showMoreStatistics();
+					}
+				});
 			}
 			{
 				jPnlTableExcerpt = new JPanel();
@@ -550,12 +565,16 @@ public class Uebersicht extends JPanel {
 		showTableExcerpt();
 	}
 	
-	private void showTeam(int tableIndex) {
-		start.uebersichtAnzeigen(opponents[tableIndex]);
+	private void showTeam(int tableIndex, boolean home) {
+		if ((homeaway[tableIndex] ^ home) && opponents[tableIndex] != 0)	start.uebersichtAnzeigen(opponents[tableIndex]);
 	}
 	
 	private void spieltagAnzeigen(int matchday) {
 		start.spieltagAnzeigen(matchday);
+	}
+	
+	private void showMoreStatistics() {
+		
 	}
 	
 	public void labelsBefuellen() {
@@ -570,6 +589,7 @@ public class Uebersicht extends JPanel {
 			if (mannschaft.isSpielEntered(matchday)) {
 				if (match[1] != 0) {
 					opponents[matchday] = match[1];
+					homeaway[matchday] = match[0] == Mannschaft.HOME;
 					if (match[0] == Mannschaft.HOME) {
 						spieltage[matchday][TEAMHOME].setText(mannschaft.getName());
 						spieltage[matchday][TEAMAWAY].setText(mannschaften[match[1] - 1].getName());
