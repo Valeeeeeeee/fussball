@@ -196,8 +196,8 @@ public class LigaSaison implements Wettbewerb {
 			nMatchdaySetUntilTime = 2400;
 			if (today < getDate(0, 0)) {
 				newestMatchday = 0;
-			} else if (today >= getDate(this.getNumberOfMatchdays() - 1, 0) && getDate(this.getNumberOfMatchdays() - 1, 0) != 0) {
-				newestMatchday = this.getNumberOfMatchdays() - 1;
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
 				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
@@ -884,6 +884,7 @@ class AnstossZeit {
 	}
 	
 	public int getDate(int startDate) {
+		if (startDate == 0)	return 0;
 		return MyDate.verschoben(startDate, daysSince);
 	}
 	
