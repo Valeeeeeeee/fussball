@@ -888,7 +888,8 @@ public class Start extends JFrame {
 	public void uebersichtAnzeigen(int index) {
 		aktuelleTabelle.setVisible(false);
 		
-		uebersicht.add(jBtnZurueck);
+		getContentPane().add(jBtnZurueck);
+		jBtnZurueck.repaint();
 		uebersicht.setMannschaft(index);
 		uebersicht.setVisible(true);
 	}
@@ -1272,7 +1273,9 @@ public class Start extends JFrame {
 				LigaHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (uebersicht.isVisible()) {
+				jBtnZurueck.setVisible(false);
 				aktuelleTabelle.add(jBtnZurueck);
+				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
 			} else {
@@ -1354,7 +1357,9 @@ public class Start extends JFrame {
 				isCurrentlyInOverviewMode = false;
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {
+				jBtnZurueck.setVisible(false);
 				aktuelleTabelle.add(jBtnZurueck);
+				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
 			} else if (isCurrentlyInQualification) {

@@ -1,5 +1,6 @@
 Christian;Mathenia;null;19920331;Deutschland;Tor;31
 Patrick;Platins;null;19830419;Deutschland;Tor;1
+Lukasz;Zaluska;null;19820616;Polen;Tor;40;20150901-
 Luca;Caldirola;null;19910201;Italien;Abwehr;33
 György;Garics;null;19840308;Österreich, Ungarn;Abwehr;13
 Benjamin;Gorka;null;19840415;Deutschland;Abwehr;5
