@@ -888,6 +888,7 @@ public class Start extends JFrame {
 	public void uebersichtAnzeigen(int index) {
 		aktuelleTabelle.setVisible(false);
 		
+		aktuelleTabelle.remove(jBtnZurueck);
 		getContentPane().add(jBtnZurueck);
 		jBtnZurueck.repaint();
 		uebersicht.setMannschaft(index);
@@ -1274,6 +1275,7 @@ public class Start extends JFrame {
 				Homescreen.setVisible(true);
 			} else if (uebersicht.isVisible()) {
 				jBtnZurueck.setVisible(false);
+				getContentPane().remove(jBtnZurueck);
 				aktuelleTabelle.add(jBtnZurueck);
 				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
@@ -1358,6 +1360,7 @@ public class Start extends JFrame {
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {
 				jBtnZurueck.setVisible(false);
+				getContentPane().remove(jBtnZurueck);
 				aktuelleTabelle.add(jBtnZurueck);
 				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
