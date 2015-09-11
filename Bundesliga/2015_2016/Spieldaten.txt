@@ -25,7 +25,7 @@
 1:4+{3:0#true-m26-s25-a11#true-m60-s25-a23-p#true-m71-s10-a-p^#false-m6-ytrue-sfalse-p18#true-m9-ytrue-sfalse-p18#false-m18-ytrue-sfalse-p23#true-m19-ytrue-sfalse-p6#false-m72-ytrue-sfalse-p27}+{1,27,18,21,6,3,11,25,10,23,9#73:18>>4#78:10>>19#83:6>>20}+{1,13,5,4,18,8,10,23,38,11,14#46:14>>19#61:10>>27#78:18>>17}
 7:15+{3:1#true-m27-s15-a23#true-m51-s17-a28#false-m79-s8-a6#true-m90-s20-a10^#false-m45-ytrue-sfalse-p23#false-m50-ytrue-sfalse-p20}+{38,28,15,29,25,8,23,10,11,33,17#71:17>>7#79:8>>20#79:11>>26}+{1,25,15,28,2,21,23,6,24,3,14#46:14>>20#58:3>>9#71:23>>8}
 10:3+{2:1#true-m39-s9-a21-p#false-m45-s13-a10#true-m53-s7-a16^#false-m25-ytrue-sfalse-p34#true-m31-ytrue-sfalse-p2#true-m62-ytrue-sfalse-p20#false-m66-ytrue-sfalse-p6#false-m87-ytrue-strue-p34#true-m90-ytrue-sfalse-p42}+{42,8,2,20,23,5,7,44,16,9,21#70:9>>22#77:20>>18#86:16>>4}+{1,4,24,18,17,10,7,6,13,34,11#68:6>>8#72:7>>28#81:11>>9}
-3:16
+3:16+{0:3#false-m11-s10-a#false-m44-s10-a7#false-m52-s27-a1^#false-m35-ytrue-sfalse-p20#true-m58-ytrue-sfalse-p24#true-m88-ytrue-sfalse-p8}+{1,4,24,27,39,17,28,10,6,13,11#55:13>>16#55:4>>9#65:39>>8}+{1,2,5,22,20,8,14,7,40,27,10#81:14>>21#83:27>>23#88:5>>3}
 1:5
 4:18
 13:7
