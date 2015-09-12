@@ -43,6 +43,9 @@ public class Uebersicht extends JPanel {
 	
 	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 420, 270);
 	
+	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
+	private Rectangle REC_LBLKADMORELESS = new Rectangle(315, 5, 80, 25);
+	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
@@ -461,7 +464,7 @@ public class Uebersicht extends JPanel {
 			{
 				jLblNoData = new JLabel();
 				jPnlKader.add(jLblNoData);
-				jLblNoData.setBounds(20, 35, 360, 25);
+				jLblNoData.setBounds(REC_LBLNODATA);
 				jLblNoData.setText("Für diesen Verein wurden keine Spielerdaten bereitgestellt.");
 			}
 			{
@@ -469,7 +472,7 @@ public class Uebersicht extends JPanel {
 				jPnlKader.add(jLblKaderMoreLess);
 				jLblKaderMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
 				jLblKaderMoreLess.setText("Mehr dazu >");
-				jLblKaderMoreLess.setBounds(315, 5, 80, 25);
+				jLblKaderMoreLess.setBounds(REC_LBLKADMORELESS);
 				jLblKaderMoreLess.setCursor(handCursor);
 				jLblKaderMoreLess.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
@@ -577,8 +580,6 @@ public class Uebersicht extends JPanel {
 		jLblKaderMoreLess.setVisible(hasPlayers);
 		jLblNoData.setVisible(!hasPlayers);
 		
-		int height = jSPKader.getHeight();
-		log(height);
 		for (int i = 0; i < numberOfPositions; i++) {
 			jLblsPositionVal[i].setText("" + nOfPlayersByPosition[i]);
 			jLblsPositionVal[i].setBounds(20, 20 + i * 25, 20, 20);
