@@ -583,7 +583,7 @@ public class Uebersicht extends JPanel {
 		for (int i = 0; i < numberOfPositions; i++) {
 			jLblsPositionVal[i].setText("" + nOfPlayersByPosition[i]);
 			jLblsPositionVal[i].setBounds(20, 20 + i * 25, 20, 20);
-			jLblsPosition[i].setBounds(45, 20 + i * 25, 100, 20);
+			jLblsPosition[i].setBounds(45, 20 + i * 25, 110, 20);
 			jLblsPositionVal[i].setVisible(hasPlayers);
 			jLblsPosition[i].setVisible(hasPlayers);
 		}

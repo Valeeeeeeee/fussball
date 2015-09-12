@@ -100,7 +100,7 @@ public class SpielInformationen extends JFrame {
 	private int[] subBLbls = new int[] {140, 160, 506, 5, 14, 20};
 	private int[] luLbls = new int[] {155, 160, 375, 5, 115, 20};
 	private int[] bLbls = new int[] {275, 160, 236, 5, 14, 20};
-	private int[] gLbls = new int[] {305, 160, 40, 5, 150, 20};
+	private int[] gLbls = new int[] {305, 160, 30, 5, 160, 20};
 	
 	// Toreingabe
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
@@ -722,7 +722,8 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void displayGoal(Tor tor) {
-		String scorer = (tor.getScorer() != null ? tor.getScorer().getPseudonymOrLN() : "n/a"), minute = "(" + tor.getMinute() + "')";
+		String zusatz = tor.isPenalty() ? ", 11m" : (tor.isOwnGoal() ? ", ET" : "");
+		String scorer = (tor.getScorer() != null ? tor.getScorer().getPseudonymOrLN() : "n/a"), minute = "(" + tor.getMinute() + "'" + zusatz + ")";
 		final int i = jLblsGoals.size();
 		JLabel jLblNewGoal = new JLabel();
 		jPnlSpielInformationen.add(jLblNewGoal);
