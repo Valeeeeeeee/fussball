@@ -896,8 +896,10 @@ public class Start extends JFrame {
 	}
 	
 	public void spieltagAnzeigen(int matchday) {
+		jBtnZurueck.setVisible(false);
 		uebersicht.setVisible(false);
 		aktuellerSpieltag.add(jBtnZurueck);
+		jBtnZurueck.setVisible(true);
 		aktuellerSpieltag.setVisible(true);
 		aktuellerSpieltag.spieltagAnzeigen();
 		aktuellerSpieltag.showMatchday(matchday);

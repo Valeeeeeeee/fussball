@@ -16,6 +16,7 @@ Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11
 Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
 Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20
+Philipp;Klement;null;19920909;Deutschland;Mittelfeld;47
 Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;13;-20150830
 Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
 Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10

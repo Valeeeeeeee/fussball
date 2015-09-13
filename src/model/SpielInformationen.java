@@ -149,7 +149,7 @@ public class SpielInformationen extends JFrame {
 	private static final int PENALTY_IN = 1;
 	private static final int PENALTY_OUT = 2;
 
-	private int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
+	private int[] boundsLSP = new int[] {5, 5, 5, 1, 130, 20};
 	private int playersPerColumn = 15;
 	
 	private Spieltag spieltag;
