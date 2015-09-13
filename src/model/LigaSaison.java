@@ -531,6 +531,33 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
+	private void saveNextMatches() {
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && getDate(i, j) > 0) {
+					long match = 10000L * getDate(i, j) + getTime(i, j);
+					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
+						int index = nextMatches.size();
+						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+							if (match < nextMatches.get(k))	index = k;
+						}
+						nextMatches.add(index, match);
+					}
+				}
+			}
+		}
+		
+		if (nextMatches.size() > 0) {
+			String fileName = workspace + "nextMatches.txt";
+			ArrayList<String> nextMatchesString = new ArrayList<>();
+			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
+				nextMatchesString.add("" + nextMatches.get(i));
+			}
+			inDatei(fileName, nextMatchesString);
+		}
+	}
+	
 	private String getAnzahlRepresentation() {
 		String representation = "", sep = "";
 		
@@ -813,6 +840,7 @@ public class LigaSaison implements Wettbewerb {
 	public void speichern() {
 		if (!geladen)	return;
 		
+		saveNextMatches();
 		mannschaftenSpeichern();
 		spielplanSpeichern();
 		ergebnisseSpeichern();
