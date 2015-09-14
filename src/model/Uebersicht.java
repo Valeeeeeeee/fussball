@@ -41,6 +41,10 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLREDCARDS = new Rectangle(290, 60, 80, 20);
 	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(315, 90, 80, 20);
 	
+	private Rectangle REC_LBLSERIEN = new Rectangle(20, 130, 150, 25);
+	private int[] series = new int[] {30, 160, 0, 30, 110, 25};
+	private int[] seriesV = new int[] {150, 160, 0, 30, 280, 25};
+	
 	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 420, 270);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 120, 20);
@@ -53,6 +57,9 @@ public class Uebersicht extends JPanel {
 	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private String[] positions = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 	private String[] positionsPlayer = new String[] {"Torhüter", "Verteidiger", "Mittelfeldspieler", "Stürmer"};
+	
+	private static final int NUMBER_OF_SERIES = 9;
+	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
 	
 	private JPanel spiele;
 	private JLabel[][] spieltage;
@@ -81,6 +88,9 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblRedCardsVal;
 	private JLabel jLblRedCards;
 	private JLabel jLblStatisticsMoreLess;
+	private JLabel jLblsSerien;
+	private JLabel[] jLblsSeries;
+	private JLabel[] jLblsSeriesValues;
 	
 	private JPanel jPnlTableExcerpt;
 	private JLabel[] jLblsTableHeader;
@@ -195,6 +205,8 @@ public class Uebersicht extends JPanel {
 			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
 			homeaway = new boolean[numberOfMatchdays];
+			jLblsSeries = new JLabel[NUMBER_OF_SERIES];
+			jLblsSeriesValues = new JLabel[NUMBER_OF_SERIES];
 			jLblsTableHeader = new JLabel[10];
 			jLblsTableExcerpt = new JLabel[5][10];
 			jLblsPositionVal = new JLabel[numberOfPositions];
@@ -416,6 +428,23 @@ public class Uebersicht extends JPanel {
 						showMoreStatistics();
 					}
 				});
+			}
+			{
+				jLblsSerien = new JLabel();
+				jPnlStatistics.add(jLblsSerien);
+				jLblsSerien.setBounds(REC_LBLSERIEN);
+				jLblsSerien.setText("Meiste Spiele in Folge ...");
+			}
+			for (int i = 0; i < NUMBER_OF_SERIES; i++) {
+				jLblsSeries[i] = new JLabel();
+				jPnlStatistics.add(jLblsSeries[i]);
+				jLblsSeries[i].setBounds(series[STARTX], series[STARTY] + i * series[GAPY], series[SIZEX], series[SIZEY]);
+				jLblsSeries[i].setText("... " + seriesStrings[i]);
+				
+				jLblsSeriesValues[i] = new JLabel();
+				jPnlStatistics.add(jLblsSeriesValues[i]);
+				jLblsSeriesValues[i].setBounds(seriesV[STARTX], seriesV[STARTY] + i * seriesV[GAPY], seriesV[SIZEX], seriesV[SIZEY]);
+				jLblsSeriesValues[i].setText("n/a");
 			}
 			{
 				jPnlTableExcerpt = new JPanel();
@@ -759,6 +788,11 @@ public class Uebersicht extends JPanel {
 		jLblBookedVal.setText("" + fairplayData[0]);
 		jLblBookedTwiceVal.setText("" + fairplayData[1]);
 		jLblRedCardsVal.setText("" + fairplayData[2]);
+		
+		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
+			int maximum = mannschaft.getSeries(i + 1);
+			jLblsSeriesValues[i].setText(maximum + " Spiel" + (maximum != 1 ? "e" : ""));
+		}
 	}
 	
 	public void showTableExcerpt() {
