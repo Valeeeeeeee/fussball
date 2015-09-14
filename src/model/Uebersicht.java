@@ -45,7 +45,7 @@ public class Uebersicht extends JPanel {
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 120, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
-	private Rectangle REC_LBLNODATA = new Rectangle(20, 35, 360, 25);
+	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
 	private Rectangle REC_LBLKADERMORELESS = new Rectangle(315, 5, 80, 25);
 	
 	private Color cbackground = new Color(255, 128, 128);
@@ -604,7 +604,7 @@ public class Uebersicht extends JPanel {
 		for (int i = 0; i < numberOfPositions; i++) {
 			jLblsPositionVal[i].setText("" + nOfPlayersByPosition[i]);
 			jLblsPositionVal[i].setBounds(20, 20 + i * 25, 20, 20);
-			jLblsPosition[i].setBounds(45, 20 + i * 25, 100, 20);
+			jLblsPosition[i].setBounds(45, 20 + i * 25, 110, 20);
 			jLblsPositionVal[i].setVisible(hasPlayers);
 			jLblsPosition[i].setVisible(hasPlayers);
 		}
