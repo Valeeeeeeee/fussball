@@ -5,6 +5,8 @@ import static util.Utilities.*;
 import java.io.File;
 import java.util.ArrayList;
 
+import util.Utilities;
+
 public class LigaSaison implements Wettbewerb {
 	
 	private Start start;
@@ -21,6 +23,11 @@ public class LigaSaison implements Wettbewerb {
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
+	private int currentMatchday;
+	private int cMatchdaySetForDate = -1;
+	private int newestMatchday;
+	private int nMatchdaySetForDate = -1;
+	private int nMatchdaySetUntilTime = -1;
 	
 	private int[] anzahl;
 	
@@ -60,6 +67,7 @@ public class LigaSaison implements Wettbewerb {
 		this.liga = liga;
 		this.seasonIndex = seasonIndex;
 		fromString(data);
+		workspace = liga.getWorkspace() + getSeasonFull("_") + File.separator;
 	}
 	
 	public Liga getLiga() {
@@ -160,24 +168,51 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		int matchday = -1;
 		int today = MyDate.verschoben(MyDate.newMyDate(), -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
-		if (today < getDate(0)) {
-			matchday = 0;
-		} else if (today > getDate(numberOfMatchdays - 1) && getDate(numberOfMatchdays - 1) != 0) {
-			matchday = numberOfMatchdays - 1;
-		} else {
-			matchday = 0;
-			while (today > getDate(matchday) && getDate(matchday) != 0) {
-				matchday++;
+		if (cMatchdaySetForDate != today) {
+			if (today < getDate(0)) {
+				currentMatchday = 0;
+			} else if (today >= getDate(numberOfMatchdays - 1) && getDate(numberOfMatchdays - 1) != 0) {
+				currentMatchday = numberOfMatchdays - 1;
+			} else {
+				currentMatchday = 0;
+				while (today >= getDate(currentMatchday) && getDate(currentMatchday) != 0) {
+					currentMatchday++;
+				}
+				if (currentMatchday != 0 && MyDate.difference(getDate(currentMatchday - 1), today) < MyDate.difference(today, getDate(currentMatchday))) {
+					currentMatchday--;
+				}
 			}
-			if (matchday != 0 && MyDate.difference(getDate(matchday - 1), today) < MyDate.difference(today, getDate(matchday))) {
-				matchday--;
-			}
+			cMatchdaySetForDate = today;
 		}
 		
-		return matchday;
+		return currentMatchday;
+	}
+	
+	public int getNewestStartedMatchday() {
+		int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+		
+		if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
+			nMatchdaySetUntilTime = 2400;
+			if (today < getDate(0, 0)) {
+				newestMatchday = 0;
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+				newestMatchday = numberOfMatchdays - 1;
+			} else {
+				newestMatchday = 0;
+				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+					newestMatchday++;
+				}
+				if (today == getDate(newestMatchday + 1, 0)) {
+					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
+				}
+			}
+			
+			nMatchdaySetForDate = today;
+		}
+		
+		return newestMatchday;
 	}
 	
 	// Date / Time
@@ -479,17 +514,48 @@ public class LigaSaison implements Wettbewerb {
 		boolean[] oldErgebnisplanEingetragen = new boolean[numberOfMatchesPerMatchday];
 		int[] oldKOTindices = new int[numberOfMatchesPerMatchday];
 		
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	oldSpielplan[match] = getSpiel(matchday, match);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	oldErgebnisplan[match] = getErgebnis(matchday, match);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	oldSpielplanEingetragen[match] = isSpielplanEntered(matchday, match);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	oldErgebnisplanEingetragen[match] = isErgebnisplanEntered(matchday, match);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	oldKOTindices[match] = datesAndTimes[matchday][match + 1];
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			oldSpielplan[match] = getSpiel(matchday, match);
+			oldErgebnisplan[match] = getErgebnis(matchday, match);
+			oldSpielplanEingetragen[match] = isSpielplanEntered(matchday, match);
+			oldErgebnisplanEingetragen[match] = isErgebnisplanEntered(matchday, match);
+			oldKOTindices[match] = datesAndTimes[matchday][match + 1];
+		}
 		
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	setSpiel(matchday, match, oldSpielplan[oldIndicesInNewOrder[match]]);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	setErgebnis(matchday, match, oldErgebnisplan[oldIndicesInNewOrder[match]]);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	setSpielplanEntered(matchday, match, oldSpielplanEingetragen[oldIndicesInNewOrder[match]]);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	setErgebnisplanEntered(matchday, match, oldErgebnisplanEingetragen[oldIndicesInNewOrder[match]]);
-		for (int match = 0; match < numberOfMatchesPerMatchday; match++)	datesAndTimes[matchday][match + 1] = oldKOTindices[oldIndicesInNewOrder[match]];
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			setSpiel(matchday, match, oldSpielplan[oldIndicesInNewOrder[match]]);
+			setErgebnis(matchday, match, oldErgebnisplan[oldIndicesInNewOrder[match]]);
+			setSpielplanEntered(matchday, match, oldSpielplanEingetragen[oldIndicesInNewOrder[match]]);
+			setErgebnisplanEntered(matchday, match, oldErgebnisplanEingetragen[oldIndicesInNewOrder[match]]);
+			datesAndTimes[matchday][match + 1] = oldKOTindices[oldIndicesInNewOrder[match]];
+		}
+	}
+	
+	private void saveNextMatches() {
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && getDate(i, j) > 0) {
+					long match = 10000L * getDate(i, j) + getTime(i, j);
+					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
+						int index = nextMatches.size();
+						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+							if (match < nextMatches.get(k))	index = k;
+						}
+						nextMatches.add(index, match);
+					}
+				}
+			}
+		}
+		
+		if (nextMatches.size() > 0) {
+			String fileName = workspace + "nextMatches.txt";
+			ArrayList<String> nextMatchesString = new ArrayList<>();
+			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
+				nextMatchesString.add("" + nextMatches.get(i));
+			}
+			inDatei(fileName, nextMatchesString);
+		}
 	}
 	
 	private String getAnzahlRepresentation() {
@@ -738,8 +804,6 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public void laden() {
-		workspace = liga.getWorkspace() + getSeasonFull("_") + File.separator;
-		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiSpieldaten = workspace + "Spieldaten.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
@@ -776,6 +840,7 @@ public class LigaSaison implements Wettbewerb {
 	public void speichern() {
 		if (!geladen)	return;
 		
+		saveNextMatches();
 		mannschaftenSpeichern();
 		spielplanSpeichern();
 		ergebnisseSpeichern();
@@ -787,6 +852,8 @@ public class LigaSaison implements Wettbewerb {
 		tabelle = null;
 		statistik.setVisible(false);
 		statistik = null;
+		cMatchdaySetForDate = -1;
+		nMatchdaySetForDate = -1;
 		
 		geladen = false;
 	}
@@ -848,6 +915,7 @@ class AnstossZeit {
 	}
 	
 	public int getDate(int startDate) {
+		if (startDate == 0)	return 0;
 		return MyDate.verschoben(startDate, daysSince);
 	}
 	

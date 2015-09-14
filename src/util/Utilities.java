@@ -194,13 +194,19 @@ public class Utilities {
 	}
 	
 	public static ArrayList<String> ausDatei(String dateiname) {
+		return ausDatei(dateiname, true);
+	}
+	
+	public static ArrayList<String> ausDatei(String dateiname, boolean createIfNotExists) {
 		ArrayList<String> arraylist = new ArrayList<String>();
 		try {
 			File datei = new File(dateiname);
 			BufferedReader in = null;
 			if (!datei.exists()) {
-				datei.createNewFile();
-				log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
+				if (createIfNotExists) {
+					datei.createNewFile();
+					log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
+				}
 			} else {
 				String element;
 				try {

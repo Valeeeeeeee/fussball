@@ -5,6 +5,7 @@ public interface Wettbewerb {
 	public String getName();
 	public String getWorkspace();
 	public int getCurrentMatchday();
+	public int getNewestStartedMatchday();
 	public int getNumberOfMatchdays();
 	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);

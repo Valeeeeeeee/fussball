@@ -19,6 +19,11 @@ public class KORunde implements Wettbewerb {
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
+	private int currentMatchday;
+	private int cMatchdaySetForDate = -1;
+	private int newestMatchday;
+	private int nMatchdaySetForDate = -1;
+	private int nMatchdaySetUntilTime = -1;
 	private Mannschaft[] mannschaften;
 	private int numberOfTeamsPrequalified;
 	private int numberOfTeamsFromPreviousRound;
@@ -210,28 +215,59 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		int matchday = -1;
 		if (this.numberOfMatchdays == 2) {
 			int today = MyDate.newMyDate();
 			
-			if (getDate(0, 0) == startDate) {
-				matchday = 0;
-			} else if (today < getDate(0, 0)) {
-				matchday = 0;
-			} else if (today > getDate(1, 0) && !isSpielplanFullyEmpty(1)) {
-				matchday = 1;
-			} else {
-				matchday = 1;
-				
-				if (MyDate.difference(getDate(0, 0), today) < MyDate.difference(today, getDate(1, 0))) {
-					matchday--;
+			if (cMatchdaySetForDate != today) {
+				if (getDate(0, 0) == startDate) {
+					currentMatchday = 0;
+				} else if (today <= getDate(0, 0)) {
+					currentMatchday = 0;
+				} else if (today >= getDate(1, 0) && !isSpielplanFullyEmpty(1)) {
+					currentMatchday = 1;
+				} else {
+					currentMatchday = 1;
+					
+					if (MyDate.difference(getDate(0, 0), today) < MyDate.difference(today, getDate(1, 0))) {
+						currentMatchday--;
+					}
 				}
+				cMatchdaySetForDate = today;
 			}
 		} else if (this.numberOfMatchdays == 1) {
-			matchday = 0;
+			currentMatchday = 0;
 		}
 		
-		return matchday;
+		return currentMatchday;
+	}
+	
+	public int getNewestStartedMatchday() {
+		if (this.numberOfMatchdays == 2) {
+			int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+			
+			if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
+				nMatchdaySetUntilTime = 2400;
+				if (today <= getDate(0, 0)) {
+					newestMatchday = 0;
+				} else if (today >= getDate(this.getNumberOfMatchdays() - 1, 0) && getDate(this.getNumberOfMatchdays() - 1, 0) != 0) {
+					newestMatchday = this.getNumberOfMatchdays() - 1;
+				} else {
+					newestMatchday = 0;
+					while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+						newestMatchday++;
+					}
+					if (today == getDate(newestMatchday + 1, 0)) {
+						nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
+					}
+				}
+				
+				nMatchdaySetForDate = today;
+			}
+		} else if (this.numberOfMatchdays == 1) {
+			newestMatchday = 0;
+		}
+		
+		return newestMatchday;
 	}
 	
 	public String getDateAndTime(int matchday, int spiel) {

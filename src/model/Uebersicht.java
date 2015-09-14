@@ -15,33 +15,42 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_SPPLPNL;
 	
 	// Informationen
-	private Rectangle REC_INFPNL;
+	private Rectangle REC_INFPNL = new Rectangle(580, 20, 420, 80);
 	private Rectangle REC_LBLNAME = new Rectangle(50, 10, 320, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(140, 40, 140, 30);
+	private Rectangle REC_LBLGRDATUM = new Rectangle(135, 40, 150, 30);
 	
 	// Statistiken
+	private Rectangle REC_STATSPNL = new Rectangle(580, 105, 420, 115);
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
 	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
 	private Rectangle REC_LBLMATCHESWON = new Rectangle(40, 35, 70, 20);
 	private Rectangle REC_LBLMATCHESDRAWNVAL = new Rectangle(10, 60, 25, 20);
-	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 90, 20);
+	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 95, 20);
 	private Rectangle REC_LBLMATCHESLOSTVAL = new Rectangle(10, 85, 25, 20);
 	private Rectangle REC_LBLMATCHESLOST = new Rectangle(40, 85, 60, 20);
 	private Rectangle REC_LBLGOALSVAL = new Rectangle(150, 10, 25, 20);
 	private Rectangle REC_LBLGOALS = new Rectangle(180, 10, 40, 20);
 	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(150, 35, 25, 20);
 	private Rectangle REC_LBLGOALSCONC = new Rectangle(180, 35, 70, 20);
-	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(270, 10, 25, 20);
-	private Rectangle REC_LBLBOOKED = new Rectangle(300, 10, 85, 20);
-	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(270, 35, 25, 20);
-	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(300, 35, 105, 20);
-	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(270, 60, 25, 20);
-	private Rectangle REC_LBLREDCARDS = new Rectangle(300, 60, 80, 20);
+	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(260, 10, 25, 20);
+	private Rectangle REC_LBLBOOKED = new Rectangle(290, 10, 85, 20);
+	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(260, 35, 25, 20);
+	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(290, 35, 110, 20);
+	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(260, 60, 25, 20);
+	private Rectangle REC_LBLREDCARDS = new Rectangle(290, 60, 80, 20);
+	private Rectangle REC_LBLMORESTATS = new Rectangle(315, 90, 80, 20);
+	
+	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 420, 270);
+	
+	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
+	private Rectangle REC_LBLKADMORELESS = new Rectangle(315, 5, 80, 25);
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
+	private String[] positions = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
+	private String[] positionsPlayer = new String[] {"Torhüter", "Verteidiger", "Mittelfeldspieler", "Stürmer"};
 	
 	private JPanel spiele;
 	private JLabel[][] spieltage;
@@ -69,6 +78,7 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblBookedTwice;
 	private JLabel jLblRedCardsVal;
 	private JLabel jLblRedCards;
+	private JLabel jLblStatisticsMoreLess;
 	
 	private JPanel jPnlTableExcerpt;
 	private JLabel[] jLblsTableHeader;
@@ -79,6 +89,10 @@ public class Uebersicht extends JPanel {
 	private JPanel jPnlKader;
 	private JLabel[][] jLblsKader;
 	private JLabel[] jLblsKaderDescr;
+	private JLabel[] jLblsPositionVal;
+	private JLabel[] jLblsPosition;
+	private JLabel jLblNoData;
+	private JLabel jLblKaderMoreLess;
 
 	private SpielerInformationen spielerInformationen;
 	
@@ -97,9 +111,9 @@ public class Uebersicht extends JPanel {
 	private static final int NUMBEROFFIELDSKAD = 3;
 	
 	/** The left and right margin for spiele */
-	int nstartx = 05;
+	private int nstartx = 05;
 	private int startx = 20;
-	private int starty = 50;
+	private int starty = 20;
 	private int[] widthes = {20, 120, 175, 10, 5, 10, 175};
 	private int height = 15;
 	private int[] gapx = {5, 5, 10, 0, 0, 10, 0};
@@ -113,16 +127,14 @@ public class Uebersicht extends JPanel {
 	private int[] teGapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
 	private int teGapy = 5;
 	
-	private int heightStatistics = 255 - 140;
-	private int heightTableExcerpt = 130 + 140;
-	private int heightKader = 220;
-	
 	private int kaderSTARTX = 20;
 	private int kaderSTARTY = 10;
 	private int[] kaderWIDTHES = {20, 170, 75};
 	private int kaderHEIGHT = 15;
 	private int[] kaderGAPX = {5, 5, 0};
 	private int kaderGAPY = 3;
+	
+	private int standardHeightKader = 100;
 	
 	private Start start;
 	private Wettbewerb wettbewerb;
@@ -133,10 +145,12 @@ public class Uebersicht extends JPanel {
 	private Mannschaft mannschaft;
 	private Mannschaft[] mannschaften;
 	private int[] opponents;
+	private boolean[] homeaway;
 	
 	private int numberOfMatchdays;
 	private int numberOfPlayers;
 	private int numberOfPositions;
+	private boolean showingMore;
 
 	public Uebersicht(Start start, LigaSaison season/*, Mannschaft mannschaft*/) {
 		super();
@@ -175,8 +189,11 @@ public class Uebersicht extends JPanel {
 			
 			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
+			homeaway = new boolean[numberOfMatchdays];
 			jLblsTableHeader = new JLabel[10];
 			jLblsTableExcerpt = new JLabel[5][10];
+			jLblsPositionVal = new JLabel[numberOfPositions];
+			jLblsPosition = new JLabel[numberOfPositions];
 			
 
 			int sumofwidthes = 2 * nstartx;
@@ -187,7 +204,6 @@ public class Uebersicht extends JPanel {
 				sumofwidthes += gapx[i];
 			}
 			REC_SPPLPNL = new Rectangle(startx, starty, sumofwidthes, 2 * 5 + numberOfMatchdays * height + (numberOfMatchdays - 1) * gapy + middlegapy);
-			REC_INFPNL = new Rectangle(startx + REC_SPPLPNL.width + 5, starty, 420, 80);
 			
 			{
 				spielerInformationen = new SpielerInformationen(wettbewerb);
@@ -231,12 +247,12 @@ public class Uebersicht extends JPanel {
 				
 				spieltage[i][TEAMHOME].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						showTeam(x);
+						showTeam(x, true);
 					}
 				});
 				spieltage[i][TEAMAWAY].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						showTeam(x);
+						showTeam(x, false);
 					}
 				});
 				spieltage[i][MATCHDAY].addMouseListener(new MouseAdapter() {
@@ -273,6 +289,7 @@ public class Uebersicht extends JPanel {
 				jPnlStatistics.setLayout(null);
 				jPnlStatistics.setOpaque(true);
 				jPnlStatistics.setBackground(cbackground);
+				jPnlStatistics.setBounds(REC_STATSPNL);
 			}
 			{
 				jLblMatchesPlayedVal = new JLabel();
@@ -383,11 +400,25 @@ public class Uebersicht extends JPanel {
 				jLblRedCards.setText("Rote Karten");
 			}
 			{
+				jLblStatisticsMoreLess = new JLabel();
+				jPnlStatistics.add(jLblStatisticsMoreLess);
+				jLblStatisticsMoreLess.setBounds(REC_LBLMORESTATS);
+				jLblStatisticsMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
+				jLblStatisticsMoreLess.setText("Mehr dazu >");
+				jLblStatisticsMoreLess.setCursor(handCursor);
+				jLblStatisticsMoreLess.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						showMoreStatistics();
+					}
+				});
+			}
+			{
 				jPnlTableExcerpt = new JPanel();
 				this.add(jPnlTableExcerpt);
 				jPnlTableExcerpt.setLayout(null);
 				jPnlTableExcerpt.setOpaque(true);
 				jPnlTableExcerpt.setBackground(cbackground);
+				jPnlTableExcerpt.setBounds(REC_TABLEPNL);
 			}
 			sumofwidthes = 0;
 			for (int i = 0; i < 10; i++) {
@@ -416,25 +447,53 @@ public class Uebersicht extends JPanel {
 				jSPKader.setVisible(true);
 				jSPKader.getVerticalScrollBar().setUnitIncrement(20);
 			}
+			{
+				jPnlKader = new JPanel();
+				jPnlKader.setLayout(null);
+				jPnlKader.setOpaque(true);
+				jPnlKader.setBackground(cbackground);
+			}
+			for (int i = 0; i < numberOfPositions; i++) {
+				jLblsPositionVal[i] = new JLabel();
+				jPnlKader.add(jLblsPositionVal[i]);
+				
+				jLblsPosition[i] = new JLabel();
+				jPnlKader.add(jLblsPosition[i]);
+				jLblsPosition[i].setText(positionsPlayer[i]);
+			}
+			{
+				jLblNoData = new JLabel();
+				jPnlKader.add(jLblNoData);
+				jLblNoData.setBounds(REC_LBLNODATA);
+				jLblNoData.setText("Für diesen Verein wurden keine Spielerdaten bereitgestellt.");
+			}
+			{
+				jLblKaderMoreLess = new JLabel();
+				jPnlKader.add(jLblKaderMoreLess);
+				jLblKaderMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
+				jLblKaderMoreLess.setText("Mehr dazu >");
+				jLblKaderMoreLess.setBounds(REC_LBLKADMORELESS);
+				jLblKaderMoreLess.setCursor(handCursor);
+				jLblKaderMoreLess.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						showMoreLessFromKader();
+					}
+				});
+			}
 			
 			
-			
-			int minimumheight = 600;
+			int minimumheight = 620;
 			int maximumheight = 840;
 			Dimension dim = new Dimension();
 			dim.width = startx + spiele.getSize().width + 5 + jPnlInformationen.getSize().width + startx;
 			dim.height = starty + spiele.getSize().height + 20;
-			if (dim.height >= minimumheight && dim.height <= maximumheight) {
-				
-			} else if (dim.height < minimumheight) {
+			if (dim.height < minimumheight) {
 				dim.height = minimumheight;
-			} else {
+			} else if (dim.height > maximumheight) {
 				dim.height = maximumheight;
 			}
 			this.setSize(dim);
-			jPnlStatistics.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader - heightTableExcerpt - heightStatistics - 10, 420, heightStatistics);
-			jPnlTableExcerpt.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader - heightTableExcerpt - 5, 420, heightTableExcerpt);
-			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, dim.height - startx - heightKader, 401 + 19, heightKader);
+			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 500, 401 + 19, dim.height - (520));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -453,28 +512,23 @@ public class Uebersicht extends JPanel {
 	}
 	
 	private void newKader() {
-		String[] positionen = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
-		
-		if (jLblsKader == null) {
-			jPnlKader = new JPanel();
-			jPnlKader.setLayout(null);
-			jPnlKader.setOpaque(true);
-			jPnlKader.setBackground(cbackground);
-		} else {
-			jPnlKader.removeAll();
+		if (jLblsKader != null) {
 			for (int i = 0; i < jLblsKader.length; i++) {
 				for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
 					jLblsKader[i][j].setVisible(false);
+					jPnlKader.remove(jLblsKader[i][j]);
 				}
 			}
 			for (int i = 0; i < jLblsKaderDescr.length; i++) {
 				jLblsKaderDescr[i].setVisible(false);
+				jPnlKader.remove(jLblsKaderDescr[i]);
 			}
 			repaintImmediately(jPnlKader);
 		}
 		
 		ArrayList<Spieler> eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
 		numberOfPlayers = eligiblePlayers.size();
+		int[] nOfPlayersByPosition = new int[numberOfPositions];
 		
 		jLblsKader = new JLabel[numberOfPlayers][NUMBEROFFIELDSKAD];
 		jLblsKaderDescr = new JLabel[numberOfPlayers == 0 ? 0 : numberOfPositions];
@@ -486,8 +540,9 @@ public class Uebersicht extends JPanel {
 				jLblsKaderDescr[descrIndex] = new JLabel();
 				jPnlKader.add(jLblsKaderDescr[descrIndex]);
 				jLblsKaderDescr[descrIndex].setBounds(kaderSTARTX, kaderSTARTY + (i + descrIndex) * (kaderHEIGHT + kaderGAPY), 70, kaderHEIGHT);
-				jLblsKaderDescr[descrIndex].setText(positionen[descrIndex]);
+				jLblsKaderDescr[descrIndex].setText(positions[descrIndex]);
 				jLblsKaderDescr[descrIndex].setFont(getFont().deriveFont(Font.BOLD));
+				jLblsKaderDescr[descrIndex].setVisible(false);
 				descrIndex++;
 			}
 			
@@ -498,7 +553,7 @@ public class Uebersicht extends JPanel {
 				jPnlKader.add(jLblsKader[i][j]);
 				jLblsKader[i][j].setBounds(20 + kaderSTARTX + diff, kaderSTARTY + (i + descrIndex) * (kaderHEIGHT + kaderGAPY), kaderWIDTHES[j], kaderHEIGHT);
 				diff += kaderWIDTHES[j] + kaderGAPX[j];
-				jLblsKader[i][j].setVisible(true);
+				jLblsKader[i][j].setVisible(false);
 				jLblsKader[i][j].setCursor(handCursor);
 				jLblsKader[i][j].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
@@ -512,6 +567,7 @@ public class Uebersicht extends JPanel {
 			jLblsKader[i][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
 			
+			nOfPlayersByPosition[descrIndex - 1]++;
 			countSinceLastER++;
 			if (descrIndex == 1 && countSinceLastER == mannschaft.getCurrentNumberOf(Position.TOR) || 
 					descrIndex == 2 && countSinceLastER == mannschaft.getCurrentNumberOf(Position.ABWEHR) || 
@@ -519,8 +575,20 @@ public class Uebersicht extends JPanel {
 				countSinceLastER = 0;
 			}
 		}
-		int height = kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY);
-		jPnlKader.setPreferredSize(new Dimension(401, height));
+		
+		boolean hasPlayers = numberOfPlayers > 0;
+		jLblKaderMoreLess.setVisible(hasPlayers);
+		jLblNoData.setVisible(!hasPlayers);
+		
+		for (int i = 0; i < numberOfPositions; i++) {
+			jLblsPositionVal[i].setText("" + nOfPlayersByPosition[i]);
+			jLblsPositionVal[i].setBounds(20, 20 + i * 25, 20, 20);
+			jLblsPosition[i].setBounds(45, 20 + i * 25, 110, 20);
+			jLblsPositionVal[i].setVisible(hasPlayers);
+			jLblsPosition[i].setVisible(hasPlayers);
+		}
+		
+		jPnlKader.setPreferredSize(new Dimension(401, standardHeightKader));
 		jSPKader.setViewportView(jPnlKader);
 	}
 	
@@ -531,7 +599,6 @@ public class Uebersicht extends JPanel {
 		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
 		
 		spielerInformationen.setPlayer(player, url);
-		
 		spielerInformationen.setVisible(true);
 	}
 	
@@ -539,8 +606,10 @@ public class Uebersicht extends JPanel {
 		mannschaftID = id;
 		mannschaft = mannschaften[mannschaftID - 1];
 		jLblMannschaftsname.setText(mannschaft.getName());
-		if (hasGrDatum) jLblGruendungsdatum.setText("Gegründet: " + mannschaft.getGruendungsdatum());
-		jLblGruendungsdatum.setVisible(hasGrDatum);
+		if (hasGrDatum) {
+			jLblGruendungsdatum.setText("Gegründet: " + mannschaft.getGruendungsdatum());
+			jLblGruendungsdatum.setVisible(true);
+		}
 		newKader();
 
 		labelsBefuellen();
@@ -548,12 +617,44 @@ public class Uebersicht extends JPanel {
 		showTableExcerpt();
 	}
 	
-	private void showTeam(int tableIndex) {
-		start.uebersichtAnzeigen(opponents[tableIndex]);
+	private void showTeam(int tableIndex, boolean home) {
+		if ((homeaway[tableIndex] ^ home) && opponents[tableIndex] != 0)	start.uebersichtAnzeigen(opponents[tableIndex]);
 	}
 	
 	private void spieltagAnzeigen(int matchday) {
 		start.spieltagAnzeigen(matchday);
+	}
+	
+	private void showMoreStatistics() {
+		// TODO more statistics
+		showingMore = !showingMore;
+		
+		jLblStatisticsMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
+		jPnlStatistics.setBounds(580, 105, 420, showingMore ? getHeight() - 125 : 115);
+		jPnlTableExcerpt.setVisible(!showingMore);
+		jSPKader.setVisible(!showingMore);
+	}
+	
+	private void showMoreLessFromKader() {
+		showingMore = !showingMore;
+		for (int i = 0; i < jLblsKaderDescr.length; i++) {
+			jLblsKaderDescr[i].setVisible(showingMore);
+			jLblsPositionVal[i].setVisible(!showingMore);
+			jLblsPosition[i].setVisible(!showingMore);
+		}
+		for (int i = 0; i < jLblsKader.length; i++) {
+			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
+				jLblsKader[i][j].setVisible(showingMore);
+			}
+		}
+		
+		jLblKaderMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
+		int height = showingMore ? kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
+		jPnlKader.setPreferredSize(new Dimension(401, height));
+		jSPKader.setViewportView(jPnlKader);
+		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMore ? 105 : 500, 401 + 19, getHeight() - (showingMore ? 125 : 520));
+		jPnlStatistics.setVisible(!showingMore);
+		jPnlTableExcerpt.setVisible(!showingMore);
 	}
 	
 	public void labelsBefuellen() {
@@ -568,6 +669,7 @@ public class Uebersicht extends JPanel {
 			if (mannschaft.isSpielEntered(matchday)) {
 				if (match[1] != 0) {
 					opponents[matchday] = match[1];
+					homeaway[matchday] = match[0] == Mannschaft.HOME;
 					if (match[0] == Mannschaft.HOME) {
 						spieltage[matchday][TEAMHOME].setText(mannschaft.getName());
 						spieltage[matchday][TEAMAWAY].setText(mannschaften[match[1] - 1].getName());
@@ -620,7 +722,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showStatistics() {
-		int matchday = wettbewerb.getCurrentMatchday();
+		int matchday = wettbewerb.getNewestStartedMatchday();
 		int[] fairplayData = mannschaft.getFairplayData();
 		jLblMatchesPlayedVal.setText("" + mannschaft.get(2, matchday, Tabellenart.COMPLETE));
 		jLblMatchesWonVal.setText("" + mannschaft.get(3, matchday, Tabellenart.COMPLETE));
@@ -634,7 +736,8 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showTableExcerpt() {
-		// funktioniert, solange die Uebersicht nur aus der Tabelle aufrufbar ist
+		int newestMatchday = wettbewerb.getNewestStartedMatchday();
+		mannschaft.compareWithOtherTeams(mannschaften, newestMatchday, Tabellenart.COMPLETE);
 		int anzahlMannschaften = mannschaften.length;
 		int[] tabelle = new int[anzahlMannschaften];
 		
@@ -663,10 +766,10 @@ public class Uebersicht extends JPanel {
 		int index = 0;
 		for (int i = firstShownTeam; i <= lastShownTeam; i++) {
 			boolean thisTeam = i == thisTeamsPlace;
-			jLblsTableExcerpt[index][0].setText("" + (mannschaften[tabelle[i] - 1].get(0, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE) + 1));
+			jLblsTableExcerpt[index][0].setText("" + (mannschaften[tabelle[i] - 1].get(0, newestMatchday, Tabellenart.COMPLETE) + 1));
 			jLblsTableExcerpt[index][1].setText(mannschaften[tabelle[i] - 1].getName());
 			for (int j = 2; j < 10; j++) {
-				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, wettbewerb.getCurrentMatchday(), Tabellenart.COMPLETE));
+				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, newestMatchday, Tabellenart.COMPLETE));
 			}
 			
 			for (int j = 0; j < 10; j++) {
@@ -679,7 +782,7 @@ public class Uebersicht extends JPanel {
 		
 		int[] places = new int[numberOfMatchdays];
 		int matchday = 0;
-		while (matchday <= wettbewerb.getCurrentMatchday()) {
+		while (matchday <= newestMatchday) {
 			mannschaft.compareWithOtherTeams(mannschaften, matchday, Tabellenart.COMPLETE);
 			int place = mannschaft.get(0, matchday, Tabellenart.COMPLETE) + 1;
 			places[matchday] = place;

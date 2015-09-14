@@ -100,21 +100,21 @@ public class SpielInformationen extends JFrame {
 	private int[] subBLbls = new int[] {140, 160, 506, 5, 14, 20};
 	private int[] luLbls = new int[] {155, 160, 375, 5, 115, 20};
 	private int[] bLbls = new int[] {275, 160, 236, 5, 14, 20};
-	private int[] gLbls = new int[] {305, 160, 40, 5, 150, 20};
+	private int[] gLbls = new int[] {305, 160, 30, 5, 160, 20};
 	
 	// Toreingabe
-	private Point LOC_PNLEINGABEHOME = new Point(140, 150);
+	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
-	private Dimension DIM_PNLEINGABE = new Dimension(250, 130);
-	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(170, 5, 70, 30);
+	private Dimension DIM_PNLEINGABE = new Dimension(270, 130);
+	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(190, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
 	private Rectangle REC_CHBLEFT = new Rectangle(20, 40, 105, 20);
-	private Rectangle REC_CHBRIGHT = new Rectangle(135, 40, 95, 20);
+	private Rectangle REC_CHBRIGHT = new Rectangle(155, 40, 95, 20);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
-	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 135, 26);
+	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 155, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
-	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 135, 26);
+	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 155, 26);
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
@@ -149,7 +149,7 @@ public class SpielInformationen extends JFrame {
 	private static final int PENALTY_IN = 1;
 	private static final int PENALTY_OUT = 2;
 
-	private int[] boundsLSP = new int[] {5, 5, 5, 1, 120, 20};
+	private int[] boundsLSP = new int[] {5, 5, 5, 1, 130, 20};
 	private int playersPerColumn = 15;
 	
 	private Spieltag spieltag;
@@ -722,7 +722,8 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void displayGoal(Tor tor) {
-		String scorer = (tor.getScorer() != null ? tor.getScorer().getPseudonymOrLN() : "n/a"), minute = "(" + tor.getMinute() + "')";
+		String zusatz = tor.isPenalty() ? ", 11m" : (tor.isOwnGoal() ? ", ET" : "");
+		String scorer = (tor.getScorer() != null ? tor.getScorer().getPseudonymOrLN() : "n/a"), minute = "(" + tor.getMinute() + "'" + zusatz + ")";
 		final int i = jLblsGoals.size();
 		JLabel jLblNewGoal = new JLabel();
 		jPnlSpielInformationen.add(jLblNewGoal);

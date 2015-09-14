@@ -249,7 +249,7 @@ public class Spiel {
 	private int[] parseLineup(String lineupString, boolean firstTeam) {
 		int[] lineup = null;
 		
-		if (!lineupString.equals("null")) {
+		if (!lineupString.equals("{null}")) {
 			String[] hashSplit = lineupString.replace("{", "").replace("}", "").split("#");
 			String[] lineupSplit = hashSplit[0].split(",");
 			lineup = new int[lineupSplit.length];

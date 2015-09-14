@@ -35,6 +35,7 @@ public class Start extends JFrame {
 	private String[] koRFull = new String[] {"1. Runde", "2. Runde", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
 	private String[] koRShort = new String[] {"1R", "2R", "AF", "VF", "HF", "P3", "FI"};
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	private Font fontMissingResults = new Font("Lucida Grande", 1, 24);
 	
 	private int anzahlLigen;
 	private int anzahlTurniere;
@@ -61,6 +62,8 @@ public class Start extends JFrame {
 	private int start_btnsstarty = 120;
 	private static final int SIZEX_BTNS = 400;
 	private static final int SIZEY_BTNS = 90;
+	private static final int SIZEX_LBLS = 50;
+	private static final int SIZEY_LBLS = 50;
 	
 	private Rectangle REC_BTNZURUECK = new Rectangle(10, 10, 100, 30);
 	
@@ -78,6 +81,8 @@ public class Start extends JFrame {
 	// Homescreen
 	private JPanel Homescreen;
 	private JButton[] jBtnsLigen;
+	private JLabel[] jLblsLigenStillRunning;
+	private JLabel[] jLblsLigenCompleted;
 	private JButton[] jBtnsTurniere;
 	private JButton jBtnAddLeague;
 	private JButton jBtnAddTournament;
@@ -261,6 +266,8 @@ public class Start extends JFrame {
 		}
 		
 		jBtnsLigen = new JButton[anzahlLigen];
+		jLblsLigenStillRunning = new JLabel[anzahlLigen];
+		jLblsLigenCompleted = new JLabel[anzahlLigen];
 		jBtnsTurniere = new JButton[anzahlTurniere];
 		
 		for (int i = 0; i < anzahlLigen; i++) {
@@ -275,6 +282,29 @@ public class Start extends JFrame {
 					jBtnLigenPressed(x);
 				}
 			});
+			int[] missingResults = ligen.get(i).checkMissingResults();
+			
+			jLblsLigenCompleted[i] = new JLabel();
+			Homescreen.add(jLblsLigenCompleted[i]);
+			jLblsLigenCompleted[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsLigenCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsLigenCompleted[i].setFont(fontMissingResults);
+			jLblsLigenCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsLigenCompleted[i].setFocusable(false);
+			jLblsLigenCompleted[i].setBackground(colorCategory5);
+			jLblsLigenCompleted[i].setOpaque(true);
+			jLblsLigenCompleted[i].setVisible(missingResults[0] != 0);
+			
+			jLblsLigenStillRunning[i] = new JLabel();
+			Homescreen.add(jLblsLigenStillRunning[i]);
+			jLblsLigenStillRunning[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsLigenStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsLigenStillRunning[i].setFont(fontMissingResults);
+			jLblsLigenStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsLigenStillRunning[i].setFocusable(false);
+			jLblsLigenStillRunning[i].setBackground(colorCategory2);
+			jLblsLigenStillRunning[i].setOpaque(true);
+			jLblsLigenStillRunning[i].setVisible(missingResults[1] != 0);
 		}
 		for (int i = 0; i < anzahlTurniere; i++) {
 			final int x = i;
@@ -721,13 +751,13 @@ public class Start extends JFrame {
 				ctr++;
 			}
 			for (int i = 0; i < aktuelleTSaison.getNumberOfQKORounds(); i++) {
-				final int x = i;
-				qualificationButtons[x + ctr] = new JButton();
-				QualifikationHomescreen.add(qualificationButtons[x + ctr]);
-				qualificationButtons[x + ctr].setBounds(295 + (x % 2) * (SIZEX_BTNS + 50), 150 + (x / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[x + ctr].setText(aktuelleTSaison.getQKORunden()[x].getName());
-				qualificationButtons[x + ctr].setFocusable(false);
-				qualificationButtons[x + ctr].addActionListener(new ActionListener() {
+				final int x = i, position = i + ctr;
+				qualificationButtons[position] = new JButton();
+				QualifikationHomescreen.add(qualificationButtons[position]);
+				qualificationButtons[position].setBounds(295 + (position % 2) * (SIZEX_BTNS + 50), 150 + position / 2 * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+				qualificationButtons[position].setText(aktuelleTSaison.getQKORunden()[x].getName());
+				qualificationButtons[position].setFocusable(false);
+				qualificationButtons[position].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						jBtnKORundePressed(x);
 					}
@@ -888,14 +918,18 @@ public class Start extends JFrame {
 	public void uebersichtAnzeigen(int index) {
 		aktuelleTabelle.setVisible(false);
 		
-		uebersicht.add(jBtnZurueck);
+		aktuelleTabelle.remove(jBtnZurueck);
+		getContentPane().add(jBtnZurueck);
+		jBtnZurueck.repaint();
 		uebersicht.setMannschaft(index);
 		uebersicht.setVisible(true);
 	}
 	
 	public void spieltagAnzeigen(int matchday) {
+		jBtnZurueck.setVisible(false);
 		uebersicht.setVisible(false);
 		aktuellerSpieltag.add(jBtnZurueck);
+		jBtnZurueck.setVisible(true);
 		aktuellerSpieltag.setVisible(true);
 		aktuellerSpieltag.spieltagAnzeigen();
 		aktuellerSpieltag.showMatchday(matchday);
@@ -1269,10 +1303,20 @@ public class Start extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				int[] missingResults = aktuelleLiga.checkMissingResults();
+				int id = aktuelleLiga.getID();
+				jLblsLigenCompleted[id].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+				jLblsLigenCompleted[id].setVisible(missingResults[0] != 0);
+				jLblsLigenStillRunning[id].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+				jLblsLigenStillRunning[id].setVisible(missingResults[1] != 0);
+				
 				LigaHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (uebersicht.isVisible()) {
+				jBtnZurueck.setVisible(false);
+				getContentPane().remove(jBtnZurueck);
 				aktuelleTabelle.add(jBtnZurueck);
+				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
 			} else {
@@ -1354,11 +1398,14 @@ public class Start extends JFrame {
 				isCurrentlyInOverviewMode = false;
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {
+				jBtnZurueck.setVisible(false);
+				getContentPane().remove(jBtnZurueck);
 				aktuelleTabelle.add(jBtnZurueck);
+				jBtnZurueck.setVisible(true);
 				uebersicht.setVisible(false);
 				aktuelleTabelle.setVisible(true);
 			} else if (isCurrentlyInQualification) {
-				if (aktuelleTSaison.hasQGroupStage()) {
+				if (aktuelleTSaison.hasQGroupStage() && aktuelleTabelle != null) {
 					aktuelleTabelle.setVisible(false);
 					optionen.setVisible(false);
 				}

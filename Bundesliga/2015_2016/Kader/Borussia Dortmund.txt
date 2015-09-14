@@ -3,7 +3,7 @@ Roman;Weidenfeller;null;19800806;Deutschland;Tor;1
 Jeremy;Dudziak;null;19950828;Deutschland;Abwehr;40;-20150827
 Erik;Durm;null;19920512;Deutschland;Abwehr;37
 Matthias;Ginter;null;19940119;Deutschland;Abwehr;28
-Kevin;Großkreutz;null;19880719;Deutschland;Abwehr;19
+Kevin;Großkreutz;null;19880719;Deutschland;Abwehr;19;-20150901
 Mats;Hummels;null;19881216;Deutschland;Abwehr;15
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;3;20150829-
 Lukasz;Piszczek;null;19850603;Polen;Abwehr;26

@@ -25,4 +25,5 @@ Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;11
 Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17
 Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
 Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28
+Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14;20150907-
 Anthony;Ujah;null;19901014;Nigeria;Sturm;21
