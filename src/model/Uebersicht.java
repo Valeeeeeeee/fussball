@@ -39,9 +39,14 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(290, 35, 110, 20);
 	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(260, 60, 25, 20);
 	private Rectangle REC_LBLREDCARDS = new Rectangle(290, 60, 80, 20);
-	private Rectangle REC_LBLMORESTATS = new Rectangle(315, 90, 80, 20);
+	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(315, 90, 80, 20);
 	
 	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 420, 270);
+	
+	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 120, 20);
+	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
+	private Rectangle REC_LBLNODATA = new Rectangle(20, 35, 360, 25);
+	private Rectangle REC_LBLKADERMORELESS = new Rectangle(315, 5, 80, 25);
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -88,6 +93,8 @@ public class Uebersicht extends JPanel {
 	private JLabel[] jLblsKaderDescr;
 	private JLabel[] jLblsPositionVal;
 	private JLabel[] jLblsPosition;
+	private JLabel jLblAverageAge;
+	private JLabel jLblAverageAgeVal;
 	private JLabel jLblNoData;
 	private JLabel jLblKaderMoreLess;
 
@@ -131,7 +138,8 @@ public class Uebersicht extends JPanel {
 	private int[] kaderGAPX = {5, 5, 0};
 	private int kaderGAPY = 3;
 	
-	private int standardHeightKader = 100;
+	private int standardHeightKader = 190;
+	private int standardHeightKaderNoPlayers = 100;
 	
 	private Start start;
 	private Wettbewerb wettbewerb;
@@ -399,7 +407,7 @@ public class Uebersicht extends JPanel {
 			{
 				jLblStatisticsMoreLess = new JLabel();
 				jPnlStatistics.add(jLblStatisticsMoreLess);
-				jLblStatisticsMoreLess.setBounds(REC_LBLMORESTATS);
+				jLblStatisticsMoreLess.setBounds(REC_LBLSTATSMORELESS);
 				jLblStatisticsMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
 				jLblStatisticsMoreLess.setText("Mehr dazu >");
 				jLblStatisticsMoreLess.setCursor(handCursor);
@@ -459,9 +467,20 @@ public class Uebersicht extends JPanel {
 				jLblsPosition[i].setText(positionsPlayer[i]);
 			}
 			{
+				jLblAverageAge = new JLabel();
+				jPnlKader.add(jLblAverageAge);
+				jLblAverageAge.setBounds(REC_LBLAVERAGEAGE);
+				jLblAverageAge.setText("Durchschnittsalter:");
+			}
+			{
+				jLblAverageAgeVal = new JLabel();
+				jPnlKader.add(jLblAverageAgeVal);
+				jLblAverageAgeVal.setBounds(REC_LBLAVERAGEAGEVAL);
+			}
+			{
 				jLblNoData = new JLabel();
 				jPnlKader.add(jLblNoData);
-				jLblNoData.setBounds(20, 35, 360, 25);
+				jLblNoData.setBounds(REC_LBLNODATA);
 				jLblNoData.setText("Für diesen Verein wurden keine Spielerdaten bereitgestellt.");
 			}
 			{
@@ -469,7 +488,7 @@ public class Uebersicht extends JPanel {
 				jPnlKader.add(jLblKaderMoreLess);
 				jLblKaderMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
 				jLblKaderMoreLess.setText("Mehr dazu >");
-				jLblKaderMoreLess.setBounds(315, 5, 80, 25);
+				jLblKaderMoreLess.setBounds(REC_LBLKADERMORELESS);
 				jLblKaderMoreLess.setCursor(handCursor);
 				jLblKaderMoreLess.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
@@ -479,7 +498,7 @@ public class Uebersicht extends JPanel {
 			}
 			
 			
-			int minimumheight = 620;
+			int minimumheight = 625;
 			int maximumheight = 840;
 			Dimension dim = new Dimension();
 			dim.width = startx + spiele.getSize().width + 5 + jPnlInformationen.getSize().width + startx;
@@ -532,6 +551,7 @@ public class Uebersicht extends JPanel {
 		
 		int countSinceLastER = 0;
 		int descrIndex = 0;
+		int sumOfAges = 0;
 		for (int i = 0; i < numberOfPlayers; i++) {
 			if (countSinceLastER == 0) {
 				jLblsKaderDescr[descrIndex] = new JLabel();
@@ -563,6 +583,8 @@ public class Uebersicht extends JPanel {
 			jLblsKader[i][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsKader[i][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
+			int age = spieler.getAge();
+			sumOfAges += age;
 			
 			nOfPlayersByPosition[descrIndex - 1]++;
 			countSinceLastER++;
@@ -576,9 +598,9 @@ public class Uebersicht extends JPanel {
 		boolean hasPlayers = numberOfPlayers > 0;
 		jLblKaderMoreLess.setVisible(hasPlayers);
 		jLblNoData.setVisible(!hasPlayers);
+		jLblAverageAge.setVisible(hasPlayers);
+		jLblAverageAgeVal.setVisible(hasPlayers);
 		
-		int height = jSPKader.getHeight();
-		log(height);
 		for (int i = 0; i < numberOfPositions; i++) {
 			jLblsPositionVal[i].setText("" + nOfPlayersByPosition[i]);
 			jLblsPositionVal[i].setBounds(20, 20 + i * 25, 20, 20);
@@ -587,8 +609,11 @@ public class Uebersicht extends JPanel {
 			jLblsPosition[i].setVisible(hasPlayers);
 		}
 		
-		jPnlKader.setPreferredSize(new Dimension(401, standardHeightKader));
+		jPnlKader.setPreferredSize(new Dimension(401, hasPlayers ? standardHeightKader : standardHeightKaderNoPlayers));
 		jSPKader.setViewportView(jPnlKader);
+		if (hasPlayers) {
+			jLblAverageAgeVal.setText(String.format("%5.2f Jahre", (double) sumOfAges / numberOfPlayers / 365.24));
+		}
 	}
 	
 	private void showPlayerPhoto(int playerIndex) {
@@ -646,6 +671,8 @@ public class Uebersicht extends JPanel {
 				jLblsKader[i][j].setVisible(showingMore);
 			}
 		}
+		jLblAverageAge.setVisible(!showingMore);
+		jLblAverageAgeVal.setVisible(!showingMore);
 		
 		jLblKaderMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
 		int height = showingMore ? kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY) : standardHeightKader;

@@ -517,7 +517,7 @@ public class Start extends JFrame {
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			LigaHomescreen.add(jCBSaisonauswahl);
 			
-			if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
+			if (jCBSaisonauswahl.getModel().getSize() == 1) {
 				// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
 				aktuelleLiga.laden(0);
 				aktuelleLSaison = aktuelleLiga.getAktuelleSaison();
@@ -871,6 +871,10 @@ public class Start extends JFrame {
 	}
 	
 	public void jBtnStatistikActionPerformed() {
+		if (!isCurrentlyALeague) {
+			message("Statistiken für Gruppen werden aktuell nicht unterstützt.");
+			return;
+		}
 		aktuelleStatistik.aktualisieren();
 		LigaHomescreen.setVisible(false);
 		aktuelleStatistik.add(jBtnZurueck);

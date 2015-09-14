@@ -9,6 +9,7 @@ public class Spieler {
 	private String lastNameShort;
 	private String pseudonym;
 	private int birthDate;
+	private int age;
 	private String nationality;
 	
 	private Position position;
@@ -82,6 +83,11 @@ public class Spieler {
 
 	public int getBirthDate() {
 		return this.birthDate;
+	}
+
+	public int getAge() {
+		if (this.age == 0)	this.age = MyDate.difference(birthDate, Start.today());
+		return this.age;
 	}
 
 	public String getNationality() {
