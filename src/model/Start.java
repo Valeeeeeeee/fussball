@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.io.*; 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 import javax.swing.*; 
 
@@ -84,6 +83,8 @@ public class Start extends JFrame {
 	private JLabel[] jLblsLigenStillRunning;
 	private JLabel[] jLblsLigenCompleted;
 	private JButton[] jBtnsTurniere;
+	private JLabel[] jLblsTurniereStillRunning;
+	private JLabel[] jLblsTurniereCompleted;
 	private JButton jBtnAddLeague;
 	private JButton jBtnAddTournament;
 	private JButton jBtnBeenden;
@@ -269,6 +270,8 @@ public class Start extends JFrame {
 		jLblsLigenStillRunning = new JLabel[anzahlLigen];
 		jLblsLigenCompleted = new JLabel[anzahlLigen];
 		jBtnsTurniere = new JButton[anzahlTurniere];
+		jLblsTurniereStillRunning = new JLabel[anzahlTurniere];
+		jLblsTurniereCompleted = new JLabel[anzahlTurniere];
 		
 		for (int i = 0; i < anzahlLigen; i++) {
 			final int x = i;
@@ -318,6 +321,29 @@ public class Start extends JFrame {
 					jBtnTurnierePressed(x);
 				}
 			});
+			int[] missingResults = turniere.get(i).checkMissingResults();
+			
+			jLblsTurniereCompleted[i] = new JLabel();
+			Homescreen.add(jLblsTurniereCompleted[i]);
+			jLblsTurniereCompleted[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsTurniereCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsTurniereCompleted[i].setFont(fontMissingResults);
+			jLblsTurniereCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsTurniereCompleted[i].setFocusable(false);
+			jLblsTurniereCompleted[i].setBackground(colorCategory5);
+			jLblsTurniereCompleted[i].setOpaque(true);
+			jLblsTurniereCompleted[i].setVisible(missingResults[0] != 0);
+			
+			jLblsTurniereStillRunning[i] = new JLabel();
+			Homescreen.add(jLblsTurniereStillRunning[i]);
+			jLblsTurniereStillRunning[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsTurniereStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsTurniereStillRunning[i].setFont(fontMissingResults);
+			jLblsTurniereStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsTurniereStillRunning[i].setFocusable(false);
+			jLblsTurniereStillRunning[i].setBackground(colorCategory2);
+			jLblsTurniereStillRunning[i].setOpaque(true);
+			jLblsTurniereStillRunning[i].setVisible(missingResults[1] != 0);
 		}
 	}
 	
@@ -1368,6 +1394,13 @@ public class Start extends JFrame {
 			
 			if (TurnierHomescreen.isVisible()) {
 				aktuellesTurnier.speichern();
+				int id = aktuellesTurnier.getID();
+				int[] missingResults = aktuellesTurnier.checkMissingResults();
+				jLblsTurniereCompleted[id].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+				jLblsTurniereCompleted[id].setVisible(missingResults[0] != 0);
+				jLblsTurniereStillRunning[id].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+				jLblsTurniereStillRunning[id].setVisible(missingResults[1] != 0);
+				
 				TurnierHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (QualifikationHomescreen.isVisible() || GruppenphaseHomescreen.isVisible() || KORundeHomescreen.isVisible()) {

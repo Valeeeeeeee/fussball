@@ -473,6 +473,26 @@ public class Gruppe implements Wettbewerb {
 		}
 	}
 	
+	public ArrayList<Long> getNextMatches() {
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && (getDate(i, j) > startDate || getTime(i, j) > 0)) {
+					long match = 10000L * getDate(i, j) + getTime(i, j);
+					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
+						int index = nextMatches.size();
+						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+							if (match < nextMatches.get(k))	index = k;
+						}
+						nextMatches.add(index, match);
+					}
+				}
+			}
+		}
+		
+		return nextMatches;
+	}
+	
 	public void laden() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
 		workspace = season.getWorkspace() + isQuali + name + File.separator;

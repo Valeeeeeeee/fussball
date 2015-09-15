@@ -58,6 +58,7 @@ public class TurnierSaison {
 		this.turnier = turnier;
 		this.seasonIndex = seasonIndex;
 		fromString(data);
+		workspace = turnier.getWorkspace() + getSeasonFull("_") + File.separator;
 	}
 	
 	public Turnier getTurnier() {
@@ -648,6 +649,43 @@ public class TurnierSaison {
 		inDatei(dateiKORundenDaten, koRundenDatenFromFile);
 	}
 	
+	private void saveNextMatches() {
+		ArrayList<ArrayList<Long>> allNextMatches = new ArrayList<>();
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfQGroups; i++) {
+			allNextMatches.add(qGruppen[i].getNextMatches());
+		}
+		for (int i = 0; i < numberOfQKORounds; i++) {
+			allNextMatches.add(qKORunden[i].getNextMatches());
+		}
+		for (int i = 0; i < numberOfGroups; i++) {
+			allNextMatches.add(gruppen[i].getNextMatches());
+		}
+		for (int i = 0; i < numberOfKORounds; i++) {
+			allNextMatches.add(koRunden[i].getNextMatches());
+		}
+		for (int i = 0; i < allNextMatches.size(); i++) {
+			ArrayList<Long> list = allNextMatches.get(i);
+			for (int j = 0; j < list.size(); j++) {
+				if (nextMatches.size() >= 10 && list.get(j) > nextMatches.get(9))	break;
+				int index = nextMatches.size();
+				for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+					if (list.get(j) < nextMatches.get(k))	index = k;
+				}
+				nextMatches.add(index, list.get(j));
+			}
+		}
+		
+		if (nextMatches.size() > 0) {
+			String fileName = workspace + "nextMatches.txt";
+			ArrayList<String> nextMatchesString = new ArrayList<>();
+			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
+				nextMatchesString.add("" + nextMatches.get(i));
+			}
+			inDatei(fileName, nextMatchesString);
+		}
+	}
+	
 	private void saveRanks() {
 		ArrayList<String> allRanks = new ArrayList<>();
 		
@@ -688,7 +726,6 @@ public class TurnierSaison {
 	}
 	
 	public void laden() {
-		workspace = turnier.getWorkspace() + getSeasonFull("_") + File.separator;
 		dateiQualifikationDaten = workspace + "QualiConfig.txt";
 		dateiGruppenDaten = workspace + "GruppenConfig.txt";
 		dateiKORundenDaten = workspace + "KOconfig.txt";
@@ -704,6 +741,7 @@ public class TurnierSaison {
 	
 	public void speichern() {
 		if (!geladen)	return;
+		saveNextMatches();
 		saveRanks();
 		
 		qualifikationSpeichern();
