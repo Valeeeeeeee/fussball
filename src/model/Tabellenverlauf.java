@@ -18,7 +18,7 @@ public class Tabellenverlauf extends JPanel {
 	
 	private static final ToolTipManager ttManager = ToolTipManager.sharedInstance();
 	
-	private static final int WIDTH = 400;
+	private static final int WIDTH = 430;
 	private static final int HEIGHT = 130;
 	
 	private static final Color background = new Color(255, 255, 255);

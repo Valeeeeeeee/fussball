@@ -25,6 +25,7 @@ public class Mannschaft {
 	private Tabellenart valuesCorrectAsOf;
 	private int deductedPoints = 0;
 	
+	private int numberOfMatchdays;
 	private int[][] daten;
 	private Spiel[] spiele;
 	private Ergebnis[] ergebnisse;
@@ -94,7 +95,7 @@ public class Mannschaft {
 	}
 
 	private void initializeArrays() {
-		int numberOfMatchdays = 0;
+		numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
 		else					numberOfMatchdays = 0;
@@ -437,6 +438,34 @@ public class Mannschaft {
 		return null;
 	}
 	
+	public String[] getResultsAgainst(Mannschaft opponent) {
+		// TODO get results against
+		int halfNumberOfMatchesASO = wettbewerb.getNumberOfMatchesAgainstSameOpponent() / 2;
+		String[] results = new String[2 * halfNumberOfMatchesASO];
+		for (int i = 0; i < results.length; i++) {
+			results[i] = "2;-:-";
+		}
+		if (opponent == this) {
+			for (int i = 0; i < results.length; i++) {
+				results[i] = "2;n/a";
+			}
+		} else {
+			int counterH = 0, counterA = 0;
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				if (daten[i][OPPONENT] == opponent.getId()) {
+					String result = daten[i][GOALS] + ":" + daten[i][CGOALS];
+					if (ergebnisse[i] != null) {
+						result = daten[i][POINTS] + ";" + result;
+					} else	result = "2;-:-";
+					if (homeaway[i])	results[counterH++] = result;
+					else				results[halfNumberOfMatchesASO + counterA++] = result;
+				}
+			}
+		}
+		
+		return results;
+	}
+	
 	public String getDateAndTime(int matchday) {
 		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, id);
 		else if (playsInGroup)	return gruppe.getDateOfTeam(matchday, id);
@@ -492,8 +521,6 @@ public class Mannschaft {
 			return;
 		}
 		
-//		log(this.name + " empfaengt Infos zum Spiel am " + (matchday + 1) + ". Spieltag, Ergebnis ist " + tore + "-" + gegentore);
-
 		// "Entfernen" des alten Ergebnisses, wenn als Parameter -1:-1 kommt, wird das Ergebnis zurueckgesetzt
 		int oldtore = this.daten[matchday][GOALS];
 		int oldgegentore = this.daten[matchday][CGOALS];
@@ -576,7 +603,7 @@ public class Mannschaft {
 			else if (this.punkte < vergleich.punkte)	this.platz++;
 		}
 		
-		if (wettbewerb.useGoalDifference()) {
+		if (untilMatchday + 1 != numberOfMatchdays || wettbewerb.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
 				if (this.tdiff == otherTeams[id - 1].tdiff) {
 					if (this.anzahl_tplus < otherTeams[id - 1].anzahl_tplus)	this.platz++;
