@@ -12,7 +12,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private static final long serialVersionUID = -8974853216829127796L;
 
-	public static final int WIDTH = 850 + 6;
+	public static final int WIDTH = 900 + 6;
 	
 	public static final int HEIGHT = 830 + 28;
 	
@@ -89,20 +89,20 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblSquadnumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadnumber);
-			jLblSquadnumber.setBounds(530, 65, 70, 65);
+			jLblSquadnumber.setBounds(530, 65, 85, 65);
 			jLblSquadnumber.setHorizontalAlignment(SwingConstants.CENTER);
 			jLblSquadnumber.setFont(fontSquadnumber);
 		}
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(610, 60, 230, 30);
+			jLblFirstNames.setBounds(630, 60, 230, 35);
 			jLblFirstNames.setFont(fontNames);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(610, 100, 230, 30);
+			jLblLastNames.setBounds(630, 100, 230, 35);
 			jLblLastNames.setFont(fontNames);
 		}
 		{
@@ -114,27 +114,27 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblBirthDate = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDate);
-			jLblBirthDate.setBounds(530, 180, 105, 20);
+			jLblBirthDate.setBounds(530, 180, 110, 20);
 			jLblBirthDate.setFont(fontDescription);
 			jLblBirthDate.setText("Geburtsdatum:");
 		}
 		{
 			jLblBirthDateVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDateVal);
-			jLblBirthDateVal.setBounds(530, 200, 120, 30);
+			jLblBirthDateVal.setBounds(530, 200, 140, 30);
 			jLblBirthDateVal.setFont(fontBirthDate);
 		}
 		{
 			jLblPosition = new JLabel();
 			jPnlPlayerInformation.add(jLblPosition);
-			jLblPosition.setBounds(700, 180, 65, 20);
+			jLblPosition.setBounds(740, 180, 65, 20);
 			jLblPosition.setFont(fontDescription);
 			jLblPosition.setText("Position:");
 		}
 		{
 			jLblPositionVal = new JLabel();
 			jPnlPlayerInformation.add(jLblPositionVal);
-			jLblPositionVal.setBounds(700, 200, 110, 30);
+			jLblPositionVal.setBounds(740, 200, 110, 30);
 			jLblPositionVal.setFont(fontPosition);
 		}
 		{
@@ -142,7 +142,7 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblNationality);
 			jLblNationality.setBounds(530, 240, 120, 20);
 			jLblNationality.setFont(fontDescription);
-			jLblNationality.setText("Nationalitaet(en):");
+			jLblNationality.setText("Nationalität(en):");
 		}
 		{
 			jLblNationalityVal = new JLabel();
@@ -160,20 +160,20 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblAtClubSinceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSinceVal);
-			jLblAtClubSinceVal.setBounds(530, 320, 120, 30);
+			jLblAtClubSinceVal.setBounds(530, 320, 140, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
 		{
 			jLblPerformance = new JLabel();
 			jPnlPlayerInformation.add(jLblPerformance);
-			jLblPerformance.setBounds(530, 380, 120, 25);
+			jLblPerformance.setBounds(530, 380, 140, 25);
 			jLblPerformance.setFont(fontPerformance);
 			jLblPerformance.setText("Leistungsdaten");
 		}
 		{
 			jLblCompetition = new JLabel();
 			jPnlPlayerInformation.add(jLblCompetition);
-			jLblCompetition.setBounds(660, 380, 180, 25);
+			jLblCompetition.setBounds(680, 380, 200, 25);
 			jLblCompetition.setFont(fontCompetition);
 			jLblCompetition.setText(wettbewerb.getName());
 		}

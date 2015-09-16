@@ -15,12 +15,12 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_SPPLPNL;
 	
 	// Informationen
-	private Rectangle REC_INFPNL = new Rectangle(580, 20, 450, 80);
-	private Rectangle REC_LBLNAME = new Rectangle(65, 10, 320, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(150, 40, 150, 30);
+	private Rectangle REC_INFPNL = new Rectangle(580, 20, 500, 80);
+	private Rectangle REC_LBLNAME = new Rectangle(65, 10, 370, 30);
+	private Rectangle REC_LBLGRDATUM = new Rectangle(175, 40, 150, 30);
 	
 	// Statistiken
-	private Rectangle REC_STATSPNL = new Rectangle(580, 105, 450, 115);
+	private Rectangle REC_STATSPNL = new Rectangle(580, 105, 500, 115);
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
 	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
@@ -29,30 +29,30 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 95, 20);
 	private Rectangle REC_LBLMATCHESLOSTVAL = new Rectangle(10, 85, 25, 20);
 	private Rectangle REC_LBLMATCHESLOST = new Rectangle(40, 85, 60, 20);
-	private Rectangle REC_LBLGOALSVAL = new Rectangle(165, 10, 25, 20);
-	private Rectangle REC_LBLGOALS = new Rectangle(195, 10, 40, 20);
-	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(165, 35, 25, 20);
-	private Rectangle REC_LBLGOALSCONC = new Rectangle(195, 35, 70, 20);
-	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(290, 10, 25, 20);
-	private Rectangle REC_LBLBOOKED = new Rectangle(320, 10, 85, 20);
-	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(290, 35, 25, 20);
-	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(320, 35, 110, 20);
-	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(290, 60, 25, 20);
-	private Rectangle REC_LBLREDCARDS = new Rectangle(320, 60, 80, 20);
-	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(345, 90, 80, 20);
+	private Rectangle REC_LBLGOALSVAL = new Rectangle(190, 10, 25, 20);
+	private Rectangle REC_LBLGOALS = new Rectangle(220, 10, 40, 20);
+	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(190, 35, 25, 20);
+	private Rectangle REC_LBLGOALSCONC = new Rectangle(220, 35, 70, 20);
+	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(340, 10, 25, 20);
+	private Rectangle REC_LBLBOOKED = new Rectangle(370, 10, 85, 20);
+	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(340, 35, 25, 20);
+	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(370, 35, 110, 20);
+	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(340, 60, 25, 20);
+	private Rectangle REC_LBLREDCARDS = new Rectangle(370, 60, 80, 20);
+	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(395, 90, 80, 20);
 	
-	private int[] results = new int[] {15, 130, 0, 25, 170, 20};
-	private int[] resultsV = new int[] {190, 130, 25, 25, 20, 20};
-	private Rectangle REC_LBLSERIEN = new Rectangle(295, 130, 150, 25);
-	private int[] series = new int[] {305, 155, 0, 25, 110, 20};
-	private int[] seriesV = new int[] {415, 155, 0, 25, 20, 20};
+	private int[] results = new int[] {15, 130, 0, 25, 190, 20};
+	private int[] resultsV = new int[] {210, 130, 30, 25, 25, 20};
+	private Rectangle REC_LBLSERIEN = new Rectangle(335, 130, 150, 25);
+	private int[] series = new int[] {350, 155, 0, 25, 110, 20};
+	private int[] seriesV = new int[] {460, 155, 0, 25, 20, 20};
 	
-	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 450, 270);
+	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 500, 290);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 120, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
 	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
-	private Rectangle REC_LBLKADERMORELESS = new Rectangle(345, 5, 80, 25);
+	private Rectangle REC_LBLKADERMORELESS = new Rectangle(395, 5, 80, 25);
 	
 	private Color cbackground = new Color(255, 128, 128);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -140,7 +140,7 @@ public class Uebersicht extends JPanel {
 	
 	private int teStartx = 10;
 	private int teStarty = 5;
-	private int[] teWidthes = {20, 195, 20, 20, 20, 20, 25, 25, 25, 25};
+	private int[] teWidthes = {25, 200, 25, 25, 25, 25, 30, 30, 30, 30};
 	private int teHeight = 15;
 	private int[] teGapx = {10, 5, 5, 0, 0, 5, 0, 5, 5, 0};
 	private int teGapy = 5;
@@ -547,7 +547,7 @@ public class Uebersicht extends JPanel {
 			}
 			
 			
-			int minimumheight = 625;
+			int minimumheight = 645;
 			int maximumheight = 840;
 			Dimension dim = new Dimension();
 			dim.width = startx + spiele.getSize().width + 5 + jPnlInformationen.getSize().width + startx;
@@ -558,7 +558,7 @@ public class Uebersicht extends JPanel {
 				dim.height = maximumheight;
 			}
 			this.setSize(dim);
-			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 500, 431 + 19, dim.height - (520));
+			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 520, 481 + 19, dim.height - (540));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -703,7 +703,7 @@ public class Uebersicht extends JPanel {
 		showingMore = !showingMore;
 		
 		jLblStatisticsMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
-		jPnlStatistics.setBounds(580, 105, 450, showingMore ? getHeight() - 125 : 115);
+		jPnlStatistics.setBounds(580, 105, 500, showingMore ? getHeight() - 125 : 115);
 		jPnlTableExcerpt.setVisible(!showingMore);
 		jSPKader.setVisible(!showingMore);
 	}
@@ -727,7 +727,7 @@ public class Uebersicht extends JPanel {
 		int height = showingMore ? kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
 		jPnlKader.setPreferredSize(new Dimension(401, height));
 		jSPKader.setViewportView(jPnlKader);
-		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMore ? 105 : 500, 431 + 19, getHeight() - (showingMore ? 125 : 520));
+		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMore ? 105 : 520, 481 + 19, getHeight() - (showingMore ? 125 : 540));
 		jPnlStatistics.setVisible(!showingMore);
 		jPnlTableExcerpt.setVisible(!showingMore);
 	}
