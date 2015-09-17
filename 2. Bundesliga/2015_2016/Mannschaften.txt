@@ -10,7 +10,7 @@ Eintracht Braunschweig;01.01.1970
 1. FC Nürnberg;01.01.1970
 Fortuna Düsseldorf;01.01.1970
 VfL Bochum;01.01.1970
-SV Sandhausen;01.01.1970
+SV Sandhausen;01.01.1970;-3
 FSV Frankfurt;01.01.1970
 SpVgg Greuther Fürth;01.01.1970
 FC St. Pauli;01.01.1970

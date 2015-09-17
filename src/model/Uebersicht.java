@@ -169,7 +169,8 @@ public class Uebersicht extends JPanel {
 	private int numberOfMatchdays;
 	private int numberOfPlayers;
 	private int numberOfPositions;
-	private boolean showingMore;
+	private boolean showingMoreStats;
+	private boolean showingMoreKader;
 
 	public Uebersicht(Start start, LigaSaison season/*, Mannschaft mannschaft*/) {
 		super();
@@ -431,7 +432,7 @@ public class Uebersicht extends JPanel {
 				jLblStatisticsMoreLess.setCursor(handCursor);
 				jLblStatisticsMoreLess.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
-						showMoreStatistics();
+						showMoreLessStatistics();
 					}
 				});
 			}
@@ -676,6 +677,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void setMannschaft(int id) {
+		if (showingMoreKader)	showMoreLessFromKader();
 		mannschaftID = id;
 		mannschaft = mannschaften[mannschaftID - 1];
 		jLblMannschaftsname.setText(mannschaft.getName());
@@ -698,38 +700,37 @@ public class Uebersicht extends JPanel {
 		start.spieltagAnzeigen(matchday);
 	}
 	
-	private void showMoreStatistics() {
-		// TODO more statistics
-		showingMore = !showingMore;
+	private void showMoreLessStatistics() {
+		showingMoreStats = !showingMoreStats;
 		
-		jLblStatisticsMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
-		jPnlStatistics.setBounds(580, 105, 500, showingMore ? getHeight() - 125 : 115);
-		jPnlTableExcerpt.setVisible(!showingMore);
-		jSPKader.setVisible(!showingMore);
+		jLblStatisticsMoreLess.setText(showingMoreStats ? "< Weniger" : "Mehr dazu >");
+		jPnlStatistics.setBounds(580, 105, 500, showingMoreStats ? getHeight() - 125 : 115);
+		jPnlTableExcerpt.setVisible(!showingMoreStats);
+		jSPKader.setVisible(!showingMoreStats);
 	}
 	
 	private void showMoreLessFromKader() {
-		showingMore = !showingMore;
+		showingMoreKader = !showingMoreKader;
 		for (int i = 0; i < jLblsKaderDescr.length; i++) {
-			jLblsKaderDescr[i].setVisible(showingMore);
-			jLblsPositionVal[i].setVisible(!showingMore);
-			jLblsPosition[i].setVisible(!showingMore);
+			jLblsKaderDescr[i].setVisible(showingMoreKader);
+			jLblsPositionVal[i].setVisible(!showingMoreKader);
+			jLblsPosition[i].setVisible(!showingMoreKader);
 		}
 		for (int i = 0; i < jLblsKader.length; i++) {
 			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
-				jLblsKader[i][j].setVisible(showingMore);
+				jLblsKader[i][j].setVisible(showingMoreKader);
 			}
 		}
-		jLblAverageAge.setVisible(!showingMore);
-		jLblAverageAgeVal.setVisible(!showingMore);
+		jLblAverageAge.setVisible(!showingMoreKader);
+		jLblAverageAgeVal.setVisible(!showingMoreKader);
 		
-		jLblKaderMoreLess.setText(showingMore ? "< Weniger" : "Mehr dazu >");
-		int height = showingMore ? kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
+		jLblKaderMoreLess.setText(showingMoreKader ? "< Weniger" : "Mehr dazu >");
+		int height = showingMoreKader ? kaderSTARTY + (numberOfPlayers + 4) * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
 		jPnlKader.setPreferredSize(new Dimension(401, height));
 		jSPKader.setViewportView(jPnlKader);
-		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMore ? 105 : 520, 481 + 19, getHeight() - (showingMore ? 125 : 540));
-		jPnlStatistics.setVisible(!showingMore);
-		jPnlTableExcerpt.setVisible(!showingMore);
+		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMoreKader ? 105 : 520, 481 + 19, getHeight() - (showingMoreKader ? 125 : 540));
+		jPnlStatistics.setVisible(!showingMoreKader);
+		jPnlTableExcerpt.setVisible(!showingMoreKader);
 	}
 	
 	public void labelsBefuellen() {

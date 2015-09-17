@@ -25,7 +25,7 @@ public class Utilities {
 	public static final int GAPY = 3;
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
-	private static boolean osX = true;
+	private static boolean osX = !System.getProperty("os.name").startsWith("Windows");
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
@@ -130,6 +130,7 @@ public class Utilities {
 			else if (name.charAt(i) == 237)			name = name.substring(0, i) + "i" + name.substring(i + 1);
 			else if (name.charAt(i) == 241)			name = name.substring(0, i) + "n" + name.substring(i + 1);
 			else if (name.charAt(i) == 243)			name = name.substring(0, i) + "o" + name.substring(i + 1);
+			else if (name.charAt(i) == 231)			name = name.substring(0, i) + "c" + name.substring(i + 1);
 		}
 		
 		return name;
@@ -300,6 +301,7 @@ public class Utilities {
 	}
 	
 	public static int getWindowDecorationWidth() {
+		log("is " + (osX ? "not " : "") + "Windows: " + System.getProperty("os.name"));
 		if (osX)	return 0;
 		else		return 6;
 	}

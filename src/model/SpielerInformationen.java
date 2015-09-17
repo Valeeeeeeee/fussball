@@ -189,7 +189,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblGamesPlayedVal);
 			jLblGamesPlayedVal.setBounds(700, 410, 50, 25);
 			jLblGamesPlayedVal.setFont(fontCompetition);
-			jLblGamesPlayedVal.setText("Gespielte Spiele");
 		}
 		{
 			jLblGamesStarted = new JLabel();
@@ -203,7 +202,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblGamesStartedVal);
 			jLblGamesStartedVal.setBounds(700, 440, 50, 25);
 			jLblGamesStartedVal.setFont(fontCompetition);
-			jLblGamesStartedVal.setText("in der Startelf");
 		}
 		{
 			jLblSubstitutedOn = new JLabel();
@@ -217,7 +215,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblSubstitutedOnVal);
 			jLblSubstitutedOnVal.setBounds(700, 470, 50, 25);
 			jLblSubstitutedOnVal.setFont(fontCompetition);
-			jLblSubstitutedOnVal.setText("eingewechselt");
 		}
 		{
 			jLblSubstitutedOff = new JLabel();
@@ -231,7 +228,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblSubstitutedOffVal);
 			jLblSubstitutedOffVal.setBounds(700, 500, 50, 25);
 			jLblSubstitutedOffVal.setFont(fontCompetition);
-			jLblSubstitutedOffVal.setText("ausgewechselt");
 		}
 		{
 			jLblMinutesPlayed = new JLabel();
@@ -245,7 +241,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblMinutesPlayedVal);
 			jLblMinutesPlayedVal.setBounds(700, 530, 50, 25);
 			jLblMinutesPlayedVal.setFont(fontCompetition);
-			jLblMinutesPlayedVal.setText("Gespielte Minuten");
 		}
 		{
 			jLblGoalsScored = new JLabel();
@@ -259,7 +254,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblGoalsScoredVal);
 			jLblGoalsScoredVal.setBounds(700, 560, 50, 25);
 			jLblGoalsScoredVal.setFont(fontCompetition);
-			jLblGoalsScoredVal.setText("Tore");
 		}
 		{
 			jLblBooked = new JLabel();
@@ -273,7 +267,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblBookedVal);
 			jLblBookedVal.setBounds(700, 590, 50, 25);
 			jLblBookedVal.setFont(fontCompetition);
-			jLblBookedVal.setText("Gelbe Karten");
 		}
 		{
 			jLblBookedTwice = new JLabel();
@@ -287,7 +280,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblBookedTwiceVal);
 			jLblBookedTwiceVal.setBounds(700, 620, 50, 25);
 			jLblBookedTwiceVal.setFont(fontCompetition);
-			jLblBookedTwiceVal.setText("Gelb-Rote Karten");
 		}
 		{
 			jLblRedCards = new JLabel();
@@ -301,7 +293,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblRedCardsVal);
 			jLblRedCardsVal.setBounds(700, 650, 50, 25);
 			jLblRedCardsVal.setFont(fontCompetition);
-			jLblRedCardsVal.setText("Rote Karten");
 		}
 		
 		setSize(WIDTH, HEIGHT);
