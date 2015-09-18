@@ -140,7 +140,7 @@ public class Tabelle extends JPanel {
 							public void mouseClicked(MouseEvent evt) {
 								int index = teamIndices[x];
 								jBtnAndereTabellenart(Tabellenart.COMPLETE);
-								aktualisieren();
+								jCBSpieltage.setSelectedIndex(season.getCurrentMatchday());
 								start.uebersichtAnzeigen(index);
 							}
 						});

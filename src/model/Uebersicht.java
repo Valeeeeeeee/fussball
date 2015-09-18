@@ -686,7 +686,7 @@ public class Uebersicht extends JPanel {
 			jLblGruendungsdatum.setVisible(true);
 		}
 		newKader();
-
+		
 		labelsBefuellen();
 		showStatistics();
 		showTableExcerpt();
