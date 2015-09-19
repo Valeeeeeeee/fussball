@@ -49,7 +49,7 @@ public class Uebersicht extends JPanel {
 	
 	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 500, 290);
 	
-	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 120, 20);
+	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
 	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
 	private Rectangle REC_LBLKADERMORELESS = new Rectangle(395, 5, 80, 25);
@@ -682,7 +682,7 @@ public class Uebersicht extends JPanel {
 		mannschaft = mannschaften[mannschaftID - 1];
 		jLblMannschaftsname.setText(mannschaft.getName());
 		if (hasGrDatum) {
-			jLblGruendungsdatum.setText("Gegründet: " + mannschaft.getGruendungsdatum());
+			jLblGruendungsdatum.setText("Gegründet: " + (!mannschaft.getGruendungsdatum().equals("01.01.1970") ? mannschaft.getGruendungsdatum() : "n. a."));
 			jLblGruendungsdatum.setVisible(true);
 		}
 		newKader();

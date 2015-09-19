@@ -5,6 +5,7 @@ public class Spieler {
 	private String trennZeichen = ";";
 	
 	private String firstName;
+	private String firstNameShort;
 	private String lastName;
 	private String lastNameShort;
 	private String pseudonym;
@@ -24,7 +25,7 @@ public class Spieler {
 	}
 	
 	public Spieler(String firstName, String lastName, String pseudonym, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
-		this.firstName = firstName;
+		setFirstName(firstName);
 		setLastName(lastName);
 		this.pseudonym = pseudonym;
 		this.birthDate = birthDate;
@@ -36,6 +37,15 @@ public class Spieler {
 	
 	public String getFirstName() {
 		return this.firstName;
+	}
+	
+	public String getFirstNameShort() {
+		return this.firstNameShort;
+	}
+	
+	private void setFirstName(String firstName) {
+		this.firstName = firstName;
+		firstNameShort = firstName.split(" ")[0];
 	}
 
 	public String getLastName() {
@@ -78,7 +88,7 @@ public class Spieler {
 	}
 	
 	public String getFullNameShort() {
-		return this.pseudonym != null ? this.pseudonym : this.firstName + " " + lastNameShort;
+		return this.pseudonym != null ? this.pseudonym : this.firstNameShort + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
@@ -134,7 +144,7 @@ public class Spieler {
 	public void fromString(String data, Mannschaft team) {
 		String[] dataSplit = data.split(trennZeichen);
 		
-		this.firstName = dataSplit[0];
+		setFirstName(dataSplit[0]);
 		setLastName(dataSplit[1]);
 		this.pseudonym = (dataSplit[2].equals("null") ? null : dataSplit[2]);
 		this.birthDate = Integer.parseInt(dataSplit[3]);
@@ -146,6 +156,9 @@ public class Spieler {
 			String[] dates = dataSplit[7].split("\\-");
 			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
 			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
+		}
+		if (!firstNameShort.equals(this.firstName)) {
+			util.Utilities.log("Zwei Vornamen: " + this.firstName + " bei " + getFullNameShort());
 		}
 	}
 }

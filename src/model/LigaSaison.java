@@ -432,7 +432,7 @@ public class LigaSaison implements Wettbewerb {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldSpiel = getSpiel(matchdayOld, j);
 				if (oldSpiel != null) {
-					spieleInNewOrder[j] = new Spiel(this, matchdayNew, datesAndTimes[matchdayNew][0], 0, oldSpiel.away(), oldSpiel.home());
+					spieleInNewOrder[j] = new Spiel(this, matchdayNew, getDate(matchdayNew), 0, oldSpiel.away(), oldSpiel.home());
 				}
 			}
 			for (int j = 0; j < spieleInNewOrder.length; j++) {
@@ -641,15 +641,14 @@ public class LigaSaison implements Wettbewerb {
 		try {
 			spielplanFromFile = ausDatei(dateiSpielplan); 
 			
-			int counter = 0;
-			
 			// Anstosszeiten / Spieltermine
 			String allKickoffTimes = spielplanFromFile.get(0);
 			String[] kickoffs = allKickoffTimes.split(";");
 			numberOfKickoffTimes = Integer.parseInt(kickoffs[0]);
 			kickOffTimes = new ArrayList<>();
-			for (counter = 0; counter < numberOfKickoffTimes; counter++) {
-				kickOffTimes.add(new AnstossZeit(counter, kickoffs[counter + 1]));
+			kickOffTimes.add(new AnstossZeit(0, -1, -1));
+			for (int counter = 1; counter <= numberOfKickoffTimes; counter++) {
+				kickOffTimes.add(new AnstossZeit(counter, kickoffs[counter]));
 			}
 			
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -694,7 +693,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		String string = numberOfKickoffTimes + ";";
 		for (int i = 0; i < numberOfKickoffTimes; i++) {
-			string = string + kickOffTimes.get(i) + ";";
+			string = string + kickOffTimes.get(i + 1) + ";";
 		}
 		spielplanFromFile.add(string);
 		
@@ -910,8 +909,15 @@ class AnstossZeit {
 	}
 	
 	public String getDateAndTime(int startDate) {
-		int date = MyDate.verschoben(startDate, daysSince);
-		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+		String datum = "nicht", uhrzeit = "terminiert";
+		if (daysSince != -1) {
+			int date = MyDate.verschoben(startDate, daysSince);
+			datum = MyDate.datum(date);
+			if (time != -1)	uhrzeit = MyDate.uhrzeit(time);
+			else			uhrzeit = "n.a.";
+		}
+		
+		return datum + " " + uhrzeit;
 	}
 	
 	public int getDate(int startDate) {

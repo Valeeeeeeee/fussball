@@ -293,6 +293,7 @@ public class Start extends JFrame {
 			jLblsLigenCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsLigenCompleted[i].setFont(fontMissingResults);
 			jLblsLigenCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsLigenCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
 			jLblsLigenCompleted[i].setFocusable(false);
 			jLblsLigenCompleted[i].setBackground(colorCategory5);
 			jLblsLigenCompleted[i].setOpaque(true);
@@ -304,6 +305,7 @@ public class Start extends JFrame {
 			jLblsLigenStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsLigenStillRunning[i].setFont(fontMissingResults);
 			jLblsLigenStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsLigenStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
 			jLblsLigenStillRunning[i].setFocusable(false);
 			jLblsLigenStillRunning[i].setBackground(colorCategory2);
 			jLblsLigenStillRunning[i].setOpaque(true);
@@ -329,6 +331,7 @@ public class Start extends JFrame {
 			jLblsTurniereCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsTurniereCompleted[i].setFont(fontMissingResults);
 			jLblsTurniereCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsTurniereCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
 			jLblsTurniereCompleted[i].setFocusable(false);
 			jLblsTurniereCompleted[i].setBackground(colorCategory5);
 			jLblsTurniereCompleted[i].setOpaque(true);
@@ -340,6 +343,7 @@ public class Start extends JFrame {
 			jLblsTurniereStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsTurniereStillRunning[i].setFont(fontMissingResults);
 			jLblsTurniereStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsTurniereStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
 			jLblsTurniereStillRunning[i].setFocusable(false);
 			jLblsTurniereStillRunning[i].setBackground(colorCategory2);
 			jLblsTurniereStillRunning[i].setOpaque(true);
