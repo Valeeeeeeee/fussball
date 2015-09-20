@@ -126,7 +126,7 @@ public class Spieler {
 		
 		return true;
 	}
-
+	
 	public String toString() {
 		String stringRep = this.firstName + trennZeichen;
 		stringRep += this.lastName + trennZeichen;
