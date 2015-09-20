@@ -157,9 +157,6 @@ public class Spieler {
 			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
 			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
 		}
-		if (!firstNameShort.equals(this.firstName)) {
-			util.Utilities.log("Zwei Vornamen: " + this.firstName + " bei " + getFullNameShort());
-		}
 	}
 }
 

@@ -6,7 +6,7 @@ Holger;Badstuber;null;19890313;Deutschland;Abwehr;28
 Medhi;Benatia;null;19870417;Marokko;Abwehr;5
 Jerome;Boateng;null;19880903;Deutschland;Abwehr;17
 Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;4
-Javier;Martinez Aginaga;null;19880902;Spanien;Abwehr;8
+Javier;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13

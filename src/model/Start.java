@@ -22,7 +22,6 @@ public class Start extends JFrame {
 	 */
 	public final int HEIGHT = 874;
 	
-	private static int today;
 	
 	public String workspace;
 	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
@@ -142,7 +141,6 @@ public class Start extends JFrame {
 		super();
 		
 		checkOS();
-		today = MyDate.newMyDate();
 		
 		loadConfiguration();
 		initGUI();
@@ -1518,7 +1516,7 @@ public class Start extends JFrame {
 	}
 	
 	public static int today() {
-		return today;
+		return MyDate.newMyDate();
 	}
 	
 	public void checkOS() {

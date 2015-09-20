@@ -9,7 +9,7 @@ Jerome;Boateng;null;19880903;Deutschland;Abwehr;17
 Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;4;-20150829
 Jan;Kirchhoff;null;19901001;Deutshland;Abwehr;15
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
-Javier;Martinez Aginaga;null;19880902;Spanien;Abwehr;8
+Javier;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
 Thiago;Alcantara do Nascimento;null;19910411;Spanien;Mittelfeld;6
 Xabier;Alonso Olano;Xabi Alonso;19811125;Spanien;Mittelfeld;14
