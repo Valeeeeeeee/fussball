@@ -473,9 +473,9 @@ public class MyDateChooser extends JFrame {
 			String[] asz = new String[season.getNumberOfKickoffTimes() + 2];
 			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
 			asz[0] = "Keine Angabe";
-			for (int i = 0; i < (asz.length - 1); i++) {
+			for (int i = 1; i < (asz.length - 1); i++) {
 				// nach dem ersten % 7 liegen die Zahlen zwischen -6 und 6, dann plus 12 [5(weil Calendar.MONDAY == 2) waere zu wenig] und noch mal % 7
-				asz[i + 1] = wt_kurz[((dayofweek + kickOffTimes.get(i).getDaysSince()) % 7 + 12) % 7] + " " + MyDate.uhrzeit(kickOffTimes.get(i).getTime());
+				asz[i] = wt_kurz[((dayofweek + kickOffTimes.get(i).getDaysSince()) % 7 + 12) % 7] + " " + MyDate.uhrzeit(kickOffTimes.get(i).getTime());
 			}
 			asz[asz.length - 1] = "anderes";
 			ComboBoxModel<String> jCBAnstosszeitenModel = new DefaultComboBoxModel<>(asz);
