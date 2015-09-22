@@ -43,10 +43,10 @@
 14:6+{0:1#false-m53-s19-a5^#true-m21-ytrue-sfalse-p16#true-m44-ytrue-sfalse-p2#false-m49-ytrue-sfalse-p9#false-m52-ytrue-sfalse-p19#false-m61-ytrue-sfalse-p15#true-m75-ytrue-sfalse-p4}+{22,5,2,16,4,20,18,44,26,33,19#65:44>>10#74:19>>7#87:2>>8}+{1,15,3,32,5,8,7,33,9,25,19#62:19>>23#71:25>>13#88:7>>4}
 5:13+{2:0#true-m29-s11-a2#true-m32-s2-a13-p^#false-m23-ytrue-sfalse-p29#false-m31-ytrue-sfalse-p25#true-m34-ytrue-sfalse-p2#false-m71-ytrue-sfalse-p19#false-m89-ytrue-sfalse-p2}+{35,20,5,3,2,7,11,21,19,13,23#46:11>>8#69:13>>22#83:7>>18}+{1,3,25,4,5,19,29,2,10,7,9#44:7>>26#68:10>>39#68:29>>11}
 7:4+{3:0#true-m19-s7-a23#true-m58-s23-a10#true-m74-s17-a28-p^#false-m41-ytrue-sfalse-p44#true-m61-ytrue-sfalse-p25#false-m71-ytrue-sfalse-p5#false-m74-ytrue-sfalse-p18}+{38,28,15,29,25,8,7,23,10,33,17#63:7>>9#81:10>>20#87:17>>27}+{1,26,5,4,18,10,44,23,38,7,11#46:11>>14#46:23>>19#78:38>>39}
-1:2
-15:12
-17:16
-18:10
+1:2+{5:1#false-m26-s7-a10#true-m51-s9-a#true-m52-s9-a11#true-m55-s9-a#true-m57-s9-a11#true-m60-s9-a19^#false-m42-ytrue-sfalse-p7#false-m74-ytrue-sfalse-p34#true-m82-ytrue-sfalse-p23}+{1,27,18,17,21,6,14,11,19,25,23#46:18>>8#46:6>>9#78:14>>32}+{1,18,25,34,15,7,10,23,22,12,11#59:22>>27#78:12>>3#78:11>>17}
+15:12+{2:0#true-m43-s19-a21#true-m90-s19-a9^#true-m11-ytrue-sfalse-p3#false-m73-ytrue-sfalse-p15}+{22,28,21,5,6,24,3,14,20,19,8#67:14>>23#71:8>>9#90:24>>17}+{1,14,3,16,4,21,33,7,6,27,13#61:16>>11#64:6>>31#67:21>>15}
+17:16+{0:1#false-m87-s23-a^#false-m33-ytrue-sfalse-p10#true-m53-ytrue-sfalse-p16#true-m90-ytrue-sfalse-p8}+{1,5,28,34,29,10,14,6,8,16,7#71:16>>25#81:14>>23#89:29>>18}+{1,2,5,22,4,8,14,7,40,27,10#65:27>>23#65:7>>21#89:8>>3}
+18:10+{2:1#false-m19-s9-a23#true-m31-s14-a10-p#true-m84-s14-a20^#false-m10-ytrue-sfalse-p22#true-m28-ytrue-sfalse-p32#false-m30-ytrue-sfalse-p42#true-m40-ytrue-sfalse-p18#false-m88-ytrue-strue-p22#true-m88-ytrue-sfalse-p15}+{31,33,13,32,34,4,8,20,18,10,14#36:32>>15#64:34>>11#90:10>>9}+{42,8,4,2,23,5,37,7,22,9,21#72:4>>16#82:9>>14#89:37>>39}
 3:5
 4:11
 6:9
