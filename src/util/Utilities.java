@@ -111,6 +111,14 @@ public class Utilities {
 		log();
 	}
 	
+	public static String arrowDown() {
+		return osX ? "\u2b07" : "\u2193";
+	}
+	
+	public static String arrowUp() {
+		return osX ? "\u2b06" : "\u2191";
+	}
+	
 	public static String removeUmlaute(String name) {
 		for (int i = 0; i < name.length(); i++) {
 			if (name.charAt(i) == 196)				name = name.substring(0, i) + "Ae" + name.substring(i + 1);
