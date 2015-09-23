@@ -878,6 +878,8 @@ public class SpielInformationen extends JFrame {
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
 		
 		
+		jChBLeft.setText("Elfmeter");
+		jChBRight.setText("Eigentor");
 		jChBLeft.setVisible(true);
 		jChBRight.setVisible(true);
 		if (tor.isPenalty()) {

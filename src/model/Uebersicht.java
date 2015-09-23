@@ -15,12 +15,12 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_SPPLPNL;
 	
 	// Informationen
-	private Rectangle REC_INFPNL = new Rectangle(580, 20, 500, 80);
+	private Rectangle REC_INFPNL = new Rectangle(600, 20, 500, 80);
 	private Rectangle REC_LBLNAME = new Rectangle(65, 10, 370, 30);
 	private Rectangle REC_LBLGRDATUM = new Rectangle(175, 40, 150, 30);
 	
 	// Statistiken
-	private Rectangle REC_STATSPNL = new Rectangle(580, 105, 500, 115);
+	private Rectangle REC_STATSPNL = new Rectangle(600, 105, 500, 115);
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
 	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
@@ -47,7 +47,7 @@ public class Uebersicht extends JPanel {
 	private int[] series = new int[] {350, 155, 0, 25, 110, 20};
 	private int[] seriesV = new int[] {460, 155, 0, 25, 20, 20};
 	
-	private Rectangle REC_TABLEPNL = new Rectangle(580, 225, 500, 290);
+	private Rectangle REC_TABLEPNL = new Rectangle(600, 225, 500, 290);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
@@ -132,7 +132,7 @@ public class Uebersicht extends JPanel {
 	private int nstartx = 05;
 	private int startx = 20;
 	private int starty = 20;
-	private int[] widthes = {20, 120, 175, 10, 5, 10, 175};
+	private int[] widthes = {20, 120, 185, 10, 5, 10, 185};
 	private int height = 15;
 	private int[] gapx = {5, 5, 10, 0, 0, 10, 0};
 	private int gapy = 5;

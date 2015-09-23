@@ -18,54 +18,54 @@ public class NewLeagueDialog extends JFrame {
 	private Color background = new Color(78, 235, 78);
 	
 	// Bounds
-	private Dimension dim = new Dimension(390 + 6, 590 + 28);
-	private Rectangle REC_GO = new Rectangle(300, 540, 70, 30);
-	private Rectangle REC_CANCEL = new Rectangle(190, 540, 100, 30);
+	private Dimension dim = new Dimension(410 + 6, 590 + 28);
+	private Rectangle REC_GO = new Rectangle(320, 540, 70, 30);
+	private Rectangle REC_CANCEL = new Rectangle(210, 540, 100, 30);
 	
 	
 	// Allgemeine Informationen
-	private Rectangle REC_INFOPNL = new Rectangle(20, 20, 350, 120);
+	private Rectangle REC_INFOPNL = new Rectangle(20, 20, 370, 120);
 	
 	private Rectangle REC_NAMELBL = new Rectangle(5, 1, 90, 28);
-	private Rectangle REC_SEASLBL = new Rectangle(5, 31, 90, 28);
+	private Rectangle REC_SEASLBL = new Rectangle(5, 31, 100, 28);
 	private Rectangle REC_CALYEARLBL = new Rectangle(175, 31, 80, 28);
 	private Rectangle REC_SGDGLBL = new Rectangle(5, 61, 260, 28);
 	private Rectangle REC_GDIFFLBL = new Rectangle(5, 91, 80, 28);
-	private Rectangle REC_KADERLBL = new Rectangle(210, 91, 45, 28);
+	private Rectangle REC_KADERLBL = new Rectangle(220, 91, 45, 28);
 	
-	private Rectangle REC_NAMETF = new Rectangle(100, 1, 239, 28);
-	private Rectangle REC_SEASTF = new Rectangle(100, 31, 60, 28);
-	private Rectangle REC_CALYEARYRB = new Rectangle(255, 31, 40, 28);
-	private Rectangle REC_CALYEARNRB = new Rectangle(295, 31, 50, 28);
+	private Rectangle REC_NAMETF = new Rectangle(105, 1, 259, 28);
+	private Rectangle REC_SEASTF = new Rectangle(105, 31, 60, 28);
+	private Rectangle REC_CALYEARYRB = new Rectangle(260, 31, 45, 28);
+	private Rectangle REC_CALYEARNRB = new Rectangle(305, 31, 60, 28);
 	private Rectangle REC_SGDGTF = new Rectangle(270, 61, 60, 28);
-	private Rectangle REC_GDIFFYRB = new Rectangle(85, 91, 40, 28);
-	private Rectangle REC_GDIFFNRB = new Rectangle(125, 91, 50, 28);
-	private Rectangle REC_KADERYRB = new Rectangle(255, 91, 40, 28);
-	private Rectangle REC_KADERNRB = new Rectangle(295, 91, 50, 28);
+	private Rectangle REC_GDIFFYRB = new Rectangle(90, 91, 45, 28);
+	private Rectangle REC_GDIFFNRB = new Rectangle(135, 91, 60, 28);
+	private Rectangle REC_KADERYRB = new Rectangle(260, 91, 45, 28);
+	private Rectangle REC_KADERNRB = new Rectangle(305, 91, 60, 28);
 	
 	
 	// Mannschaften
-	private Rectangle REC_TEAMPNL = new Rectangle(20, 150, 180, 380);
+	private Rectangle REC_TEAMPNL = new Rectangle(20, 150, 190, 380);
 	private Rectangle REC_NOTEAMCB = new Rectangle(5, 6, 70, 28);
 	private Rectangle REC_TEAMLBL = new Rectangle(80, 5, 90, 30);
-	private Rectangle REC_TEAMSP = new Rectangle(5, 35, 170, 310);
-	private Rectangle REC_EDITBTN = new Rectangle(5, 346, 170, 28);
+	private Rectangle REC_TEAMSP = new Rectangle(5, 35, 180, 310);
+	private Rectangle REC_EDITBTN = new Rectangle(5, 346, 180, 28);
 	
 	
 	// Kick off times
-	private Rectangle REC_KOTPNL = new Rectangle(210, 310, 160, 220);
+	private Rectangle REC_KOTPNL = new Rectangle(220, 310, 170, 220);
 	private Rectangle REC_KOTLBL = new Rectangle(5, 0, 90, 30);
-	private Rectangle REC_KOTSP = new Rectangle(5, 30, 150, 105);
-	private Rectangle REC_AKOTBTN = new Rectangle(5, 140, 45, 30);
-	private Rectangle REC_EKOTBTN = new Rectangle(55, 140, 95, 30);
+	private Rectangle REC_KOTSP = new Rectangle(5, 30, 160, 105);
+	private Rectangle REC_AKOTBTN = new Rectangle(10, 140, 45, 30);
+	private Rectangle REC_EKOTBTN = new Rectangle(60, 140, 95, 30);
 	private Rectangle REC_DEFKOTLBL = new Rectangle(5, 165, 90, 30);
-	private Rectangle REC_DEFKOTTF = new Rectangle(1, 190, 158, 28);
+	private Rectangle REC_DEFKOTTF = new Rectangle(1, 190, 168, 28);
 	
 	
 	// Anzahlen
-	private Rectangle REC_ANZPNL = new Rectangle(210, 150, 160, 150);
+	private Rectangle REC_ANZPNL = new Rectangle(220, 150, 170, 150);
 	private int[] anzLbls = new int[] {5, 0, 0, 0, 100, 30};
-	private int[] anzTFs = new int[] {129, 1, 0, 2, 30, 28};
+	private int[] anzTFs = new int[] {139, 1, 0, 2, 30, 28};
 	
 	// View
 	private JButton go;
