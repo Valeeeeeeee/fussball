@@ -260,10 +260,10 @@ public class LigaSaison implements Wettbewerb {
 		return kickOffTimes.get(datesAndTimes[matchday][match + 1]).getTime();
 	}
 	
-	public int addNewKickoffTime(int tageseitstarttag, int kickofftime) {
-		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, tageseitstarttag, kickofftime));
+	public int addNewKickoffTime(int daysSince, int time) {
 		numberOfKickoffTimes++;
-		return numberOfKickoffTimes - 1;
+		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, daysSince, time));
+		return numberOfKickoffTimes;
 	}
 	
 	public int getIndexOfKOT(int diff, int timeOfNewKOT) {

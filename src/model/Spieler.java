@@ -120,6 +120,10 @@ public class Spieler {
 		return firstDate;
 	}
 	
+	public int getLastDate() {
+		return lastDate;
+	}
+	
 	public boolean isEligible(int date) {
 		if (date < firstDate)					return false;
 		if (lastDate != -1 && date > lastDate)	return false;

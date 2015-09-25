@@ -171,7 +171,7 @@ public class SpielInformationen extends JFrame {
 	private int[] lineupAway;
 	private ArrayList<Wechsel> substitutionsHome;
 	private ArrayList<Wechsel> substitutionsAway;
-	private ArrayList<Tor> tore;
+	private ArrayList<Tor> goals;
 	private ArrayList<Karte> bookings;
 	private boolean repaint;
 	private ArrayList<Integer> penaltiesHome;
@@ -189,7 +189,7 @@ public class SpielInformationen extends JFrame {
 		
 		this.spieltag = spieltag;
 		this.spiel = spiel;
-		this.tore = spiel.getTore();
+		this.goals = spiel.getTore();
 		this.substitutionsHome = spiel.getSubstitutions(true);
 		this.substitutionsAway = spiel.getSubstitutions(false);
 		this.bookings = spiel.getBookings();
@@ -677,25 +677,25 @@ public class SpielInformationen extends JFrame {
 		paintSubstitutions(false);
 		paintBookings();
 		
-		if (tore.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0 || 
+		if (goals.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0 || 
 				inThePast(spiel.getDate(), spiel.getTime()))	startGame();
 	}
 	
 	private void createPseudoGoals() {
 		// for matches without lineup, otherwise when modified later, all current goals would be lost
 		if (ergebnis != null) {
-			if (ergebnis.home(1) + ergebnis.away(1) != tore.size() || ergebnis.home(2) + ergebnis.away(2) != tore.size()) {
+			if (ergebnis.home(1) + ergebnis.away(1) != goals.size() && ergebnis.home(2) + ergebnis.away(2) != goals.size()) {
 				for (int i = 0; i < ergebnis.home(1); i++) {
-					tore.add(new Tor(spiel, true, false, false, 1));
+					goals.add(new Tor(spiel, true, false, false, 1));
 				}
 				for (int i = 0; i < ergebnis.away(1); i++) {
-					tore.add(new Tor(spiel, false, false, false, 1));
+					goals.add(new Tor(spiel, false, false, false, 1));
 				}
 				for (int i = ergebnis.home(1); i < ergebnis.home(2); i++) {
-					tore.add(new Tor(spiel, true, false, false, 91));
+					goals.add(new Tor(spiel, true, false, false, 91));
 				}
 				for (int i = ergebnis.away(1); i < ergebnis.away(2); i++) {
-					tore.add(new Tor(spiel, false, false, false, 91));
+					goals.add(new Tor(spiel, false, false, false, 91));
 				}
 			}
 			if (ergebnis.home(3) > ergebnis.home(2) || ergebnis.away(3) > ergebnis.away(2)) {
@@ -725,7 +725,7 @@ public class SpielInformationen extends JFrame {
 			}
 			jLblsGoals.clear();
 		}
-		for (Tor tor : tore) {
+		for (Tor tor : goals) {
 			displayGoal(tor);
 		}
 		repaint = false;
@@ -769,7 +769,7 @@ public class SpielInformationen extends JFrame {
 		});
 		jLblsGoals.add(jLblNewGoal);
 		Rectangle bds = jBtnPenaltyShootout.getBounds();
-		jBtnPenaltyShootout.setBounds(bds.x, bds.y + gLbls[SIZEY] + gLbls[GAPY], bds.width, bds.height);
+		jBtnPenaltyShootout.setBounds(bds.x, bds.y + gLbls[GAPY], bds.width, bds.height);
 	}
 	
 	private void displaySubstitution(Wechsel wechsel, final int index) {
@@ -862,7 +862,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void changeGoal(int index) {
-		Tor tor = tore.remove(index);
+		Tor tor = goals.remove(index);
 		this.repaint = true;
 		this.enteringGoal = true;
 		editingFirstTeam = tor.isFirstTeam();
@@ -1354,7 +1354,7 @@ public class SpielInformationen extends JFrame {
 			message("In diesem Spiel kann es keine Verlaengerung geben.");
 			return;
 		}
-		for (Tor tor : tore) {
+		for (Tor tor : goals) {
 			if (tor.getMinute() > minute) {
 				this.repaint = true;
 			}
