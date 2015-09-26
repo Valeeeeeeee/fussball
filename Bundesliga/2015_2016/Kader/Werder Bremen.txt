@@ -12,6 +12,7 @@ Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
 Mateo;Pavlovic;null;19900609;Kroatien;Abwehr;15
 Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7
+Luca-Milan;Zander;null;19950809;Deutschland;Abwehr;19
 Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;10
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
@@ -19,6 +20,7 @@ Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
 Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;39
 Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;27
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14;-20150829
+Marcel;Hilßner;null;19950130;Deutschland;Mittelfeld;33
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
 Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
 Cedrick;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6;-20150826

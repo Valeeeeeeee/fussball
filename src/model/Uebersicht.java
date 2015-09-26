@@ -685,10 +685,6 @@ public class Uebersicht extends JPanel {
 			jLblsKader[index][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsKader[index][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[index][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
-			int age = spieler.getAge();
-			sumOfAges += age;
-			
-			nOfPlayersByPosition[descrIndex - 1]++;
 		}
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;
@@ -779,7 +775,7 @@ public class Uebersicht extends JPanel {
 		
 		jLblKaderMoreLess.setText(showingMoreKader ? "< Weniger" : "Mehr dazu >");
 		int numberOfPlayers = numberOfEligiblePlayers + 4;
-		if (numberOfIneligiblePlayers > 0)	numberOfEligiblePlayers += numberOfIneligiblePlayers + 1;
+		if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;
 		int height = showingMoreKader ? kaderSTARTY + numberOfPlayers * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
 		jPnlKader.setPreferredSize(new Dimension(401, height));
 		jSPKader.setViewportView(jPnlKader);
