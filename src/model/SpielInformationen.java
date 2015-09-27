@@ -14,6 +14,7 @@ public class SpielInformationen extends JFrame {
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 550;
 	
+	private int matchIndex;
 	private Spiel spiel;
 	
 	private JPanel jPnlSpielInformationen;
@@ -184,16 +185,17 @@ public class SpielInformationen extends JFrame {
 
 	private Rectangle RECGO = new Rectangle(700, 10, 90, 40);
 	
-	public SpielInformationen(Spieltag spieltag, Spiel spiel, Ergebnis previous) {
+	public SpielInformationen(Spieltag spieltag, int matchIndex, Spiel spiel, Ergebnis ergebnis) {
 		super();
 		
 		this.spieltag = spieltag;
+		this.matchIndex = matchIndex;
 		this.spiel = spiel;
 		this.goals = spiel.getTore();
 		this.substitutionsHome = spiel.getSubstitutions(true);
 		this.substitutionsAway = spiel.getSubstitutions(false);
 		this.bookings = spiel.getBookings();
-		this.ergebnis = previous;
+		this.ergebnis = ergebnis;
 		this.isETpossible = spiel.getWettbewerb().isETPossible();
 		
 		initGUI();
@@ -1646,10 +1648,8 @@ public class SpielInformationen extends JFrame {
 		enteringLineup = false;
 	}
 	
-	private void goActionPerformed() {
-		Ergebnis ergebnis = this.ergebnis;
-		
+	public void goActionPerformed() {
 		this.setVisible(false);
-		spieltag.moreOptions(ergebnis);
+		spieltag.saveMatchInfos(this, ergebnis, matchIndex);
 	}
 }

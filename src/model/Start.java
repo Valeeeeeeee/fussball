@@ -283,31 +283,24 @@ public class Start extends JFrame {
 					jBtnLigenPressed(x);
 				}
 			});
-			int[] missingResults = ligen.get(i).checkMissingResults();
 			
 			jLblsLigenCompleted[i] = new JLabel();
 			Homescreen.add(jLblsLigenCompleted[i]);
 			jLblsLigenCompleted[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			jLblsLigenCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsLigenCompleted[i].setFont(fontMissingResults);
-			jLblsLigenCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsLigenCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
 			jLblsLigenCompleted[i].setFocusable(false);
 			jLblsLigenCompleted[i].setBackground(colorCategory5);
 			jLblsLigenCompleted[i].setOpaque(true);
-			jLblsLigenCompleted[i].setVisible(missingResults[0] != 0);
 			
 			jLblsLigenStillRunning[i] = new JLabel();
 			Homescreen.add(jLblsLigenStillRunning[i]);
 			jLblsLigenStillRunning[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			jLblsLigenStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsLigenStillRunning[i].setFont(fontMissingResults);
-			jLblsLigenStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsLigenStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
 			jLblsLigenStillRunning[i].setFocusable(false);
 			jLblsLigenStillRunning[i].setBackground(colorCategory2);
 			jLblsLigenStillRunning[i].setOpaque(true);
-			jLblsLigenStillRunning[i].setVisible(missingResults[1] != 0);
 		}
 		for (int i = 0; i < anzahlTurniere; i++) {
 			final int x = i;
@@ -321,32 +314,26 @@ public class Start extends JFrame {
 					jBtnTurnierePressed(x);
 				}
 			});
-			int[] missingResults = turniere.get(i).checkMissingResults();
 			
 			jLblsTurniereCompleted[i] = new JLabel();
 			Homescreen.add(jLblsTurniereCompleted[i]);
 			jLblsTurniereCompleted[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			jLblsTurniereCompleted[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsTurniereCompleted[i].setFont(fontMissingResults);
-			jLblsTurniereCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsTurniereCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
 			jLblsTurniereCompleted[i].setFocusable(false);
 			jLblsTurniereCompleted[i].setBackground(colorCategory5);
 			jLblsTurniereCompleted[i].setOpaque(true);
-			jLblsTurniereCompleted[i].setVisible(missingResults[0] != 0);
 			
 			jLblsTurniereStillRunning[i] = new JLabel();
 			Homescreen.add(jLblsTurniereStillRunning[i]);
 			jLblsTurniereStillRunning[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			jLblsTurniereStillRunning[i].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsTurniereStillRunning[i].setFont(fontMissingResults);
-			jLblsTurniereStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsTurniereStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
 			jLblsTurniereStillRunning[i].setFocusable(false);
 			jLblsTurniereStillRunning[i].setBackground(colorCategory2);
 			jLblsTurniereStillRunning[i].setOpaque(true);
-			jLblsTurniereStillRunning[i].setVisible(missingResults[1] != 0);
 		}
+		refreshRunningAndCompletedMatches();
 	}
 	
 	private void buildLigaHomescreen() {
@@ -555,6 +542,27 @@ public class Start extends JFrame {
 	
 	public boolean isCurrentlyInQualification() {
 		return isCurrentlyInQualification;
+	}
+	
+	private void refreshRunningAndCompletedMatches() {
+		for (int i = 0; i < anzahlLigen; i++) {
+			int[] missingResults = ligen.get(i).checkMissingResults();
+			jLblsLigenCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsLigenCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
+			jLblsLigenCompleted[i].setVisible(missingResults[0] != 0);
+			jLblsLigenStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsLigenStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
+			jLblsLigenStillRunning[i].setVisible(missingResults[1] != 0);
+		}
+		for (int i = 0; i < anzahlTurniere; i++) {
+			int[] missingResults = turniere.get(i).checkMissingResults();
+			jLblsTurniereCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
+			jLblsTurniereCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
+			jLblsTurniereCompleted[i].setVisible(missingResults[0] != 0);
+			jLblsTurniereStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
+			jLblsTurniereStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
+			jLblsTurniereStillRunning[i].setVisible(missingResults[1] != 0);
+		}
 	}
 	
 	public void jBtnLigenPressed(int index) {
@@ -1319,6 +1327,7 @@ public class Start extends JFrame {
 		if (isCurrentlyALeague) {
 			// is a league
 			if (aktuellerSpieltag.isVisible()) {
+				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleLSaison.ergebnisseSichern();
 				} else {
@@ -1330,18 +1339,8 @@ public class Start extends JFrame {
 			}
 			
 			if (LigaHomescreen.isVisible()) {
-				try {
-					aktuelleLiga.speichern();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				int[] missingResults = aktuelleLiga.checkMissingResults();
-				int id = aktuelleLiga.getID();
-				jLblsLigenCompleted[id].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-				jLblsLigenCompleted[id].setVisible(missingResults[0] != 0);
-				jLblsLigenStillRunning[id].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-				jLblsLigenStillRunning[id].setVisible(missingResults[1] != 0);
-				
+				aktuelleLiga.speichern();
+				refreshRunningAndCompletedMatches();
 				LigaHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (uebersicht.isVisible()) {
@@ -1362,6 +1361,7 @@ public class Start extends JFrame {
 		} else {
 			// is a tournament
 			if (aktuelleGruppe != null && isCurrentlyInMatchdayView) {
+				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleGruppe.ergebnisseSichern();
 				} else {
@@ -1373,6 +1373,7 @@ public class Start extends JFrame {
 			}
 			
 			if (aktuelleKORunde != null) {
+				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleKORunde.ergebnisseSichern();
 				} else {
@@ -1384,6 +1385,7 @@ public class Start extends JFrame {
 			}
 			
 			if (isCurrentlyInOverviewMode) {
+				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					aktuelleTSaison.ergebnisseSichern();
 				} else {
@@ -1396,13 +1398,7 @@ public class Start extends JFrame {
 			
 			if (TurnierHomescreen.isVisible()) {
 				aktuellesTurnier.speichern();
-				int id = aktuellesTurnier.getID();
-				int[] missingResults = aktuellesTurnier.checkMissingResults();
-				jLblsTurniereCompleted[id].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-				jLblsTurniereCompleted[id].setVisible(missingResults[0] != 0);
-				jLblsTurniereStillRunning[id].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-				jLblsTurniereStillRunning[id].setVisible(missingResults[1] != 0);
-				
+				refreshRunningAndCompletedMatches();
 				TurnierHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (QualifikationHomescreen.isVisible() || GruppenphaseHomescreen.isVisible() || KORundeHomescreen.isVisible()) {
