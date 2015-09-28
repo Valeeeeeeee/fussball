@@ -3,7 +3,7 @@ Thomas;Kraft;null;19880722;Deutschland;Tor;1
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
-Peter;Pekarik;null;19861030;Slowakei;Abwehr;2
+Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
 Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
 Niklas;Stark;null;19950414;Deutschland;Abwehr;5;20150824-
 Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;23
@@ -11,7 +11,7 @@ Alexander;Baumjohann;null;19870123;Deutschland;Mittelfeld;9
 Roy;Beerens;null;19871222;Niederlande;Mittelfeld;27
 Änis;Ben-Hatira;null;19880718;Deutschland, Tunesien;Mittelfeld;10
 Tolga;Cigerci;null;19920323;Deutschland;Mittelfeld;17
-Vladimir;Darida;null;19900808;Tschechien;Mittelfeld;6
+Vladimír;Darida;null;19900808;Tschechien;Mittelfeld;6
 Genki;Haraguchi;null;19910509;Japan;Mittelfeld;24
 Jens;Hegeler;null;19880122;Deutschland;Mittelfeld;13
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7;-20150825

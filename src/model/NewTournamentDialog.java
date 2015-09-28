@@ -270,7 +270,7 @@ public class NewTournamentDialog extends JFrame {
 			getContentPane().add(jLblWettbewerb);
 			jLblWettbewerb.setBounds(REC_WETTBLBL);
 			jLblWettbewerb.setFont(fontWettbewerb);
-			jLblWettbewerb.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblWettbewerb);
 			jLblWettbewerb.setVisible(false);
 		}
 		
@@ -832,7 +832,7 @@ public class NewTournamentDialog extends JFrame {
 		{
 			jLblPreviousRound = new JLabel();
 			koStagePnl.add(jLblPreviousRound);
-			jLblPreviousRound.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblPreviousRound);
 			jLblPreviousRound.setText("Vorherige Runde:");
 			jLblPreviousRound.setVisible(false);
 		}
@@ -876,7 +876,7 @@ public class NewTournamentDialog extends JFrame {
 			jLblNoPreviousRound = new JLabel();
 			koStagePnl.add(jLblNoPreviousRound);
 			jLblNoPreviousRound.setBounds(REC_NOPRLBL);
-			jLblNoPreviousRound.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblNoPreviousRound);
 			jLblNoPreviousRound.setText("Es gibt keine vorherige Runde!");
 			jLblNoPreviousRound.setVisible(false);
 		}
@@ -884,7 +884,7 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsPQVal = new JLabel();
 			koStagePnl.add(jLblTeamsPQVal);
 			jLblTeamsPQVal.setBounds(REC_NOTPQVALLBL);
-			jLblTeamsPQVal.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblTeamsPQVal);
 			jLblTeamsPQVal.setVisible(false);
 		}
 		{
@@ -911,7 +911,7 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsPRVal = new JLabel();
 			koStagePnl.add(jLblTeamsPRVal);
 			jLblTeamsPRVal.setBounds(REC_NOTPRVALLBL);
-			jLblTeamsPRVal.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblTeamsPRVal);
 			jLblTeamsPRVal.setVisible(false);
 		}
 		{
@@ -938,7 +938,7 @@ public class NewTournamentDialog extends JFrame {
 			jLblTeamsOCVal = new JLabel();
 			koStagePnl.add(jLblTeamsOCVal);
 			jLblTeamsOCVal.setBounds(REC_NOTOCVALLBL);
-			jLblTeamsOCVal.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblTeamsOCVal);
 			jLblTeamsOCVal.setVisible(false);
 		}
 		{
@@ -1088,7 +1088,7 @@ public class NewTournamentDialog extends JFrame {
 			groupStagePnl.add(label);
 			label.setText("X");
 			label.setBounds(rmvGroups[STARTX], rmvGroups[STARTY] + numberOfGroups * rmvGroups[GAPY], rmvGroups[SIZEX], rmvGroups[SIZEY]);
-			label.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(label);
 			label.setBackground(backgroundRemove);
 			label.setForeground(foregroundRemove);
 			label.setOpaque(true);

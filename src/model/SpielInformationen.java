@@ -231,14 +231,14 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblWettbewerb);
 			jLblWettbewerb.setBounds(REC_LBLWETTBW);
 			jLblWettbewerb.setText(spiel.getDescription());
-			jLblWettbewerb.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblWettbewerb);
 		}
 		{
 			jLblDatum = new JLabel();
 			jPnlSpielInformationen.add(jLblDatum);
 			jLblDatum.setBounds(REC_LBLDATUM);
 			jLblDatum.setText(spiel.getDateAndTime());
-			jLblDatum.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblDatum);
 		}
 		{
 			jLblHomeTeamName = new JLabel();
@@ -246,7 +246,7 @@ public class SpielInformationen extends JFrame {
 			jLblHomeTeamName.setBounds(REC_LBLHOMENAME);
 			jLblHomeTeamName.setFont(fontTeamNames);
 			jLblHomeTeamName.setText(spiel.getHomeTeam().getName());
-			jLblHomeTeamName.setHorizontalAlignment(SwingConstants.RIGHT);
+			alignRight(jLblHomeTeamName);
 		}
 		{
 			jLblResult = new JLabel();
@@ -254,14 +254,14 @@ public class SpielInformationen extends JFrame {
 			jLblResult.setBounds(REC_LBLRESULT);
 			jLblResult.setFont(fontTeamNames);
 			jLblResult.setText(ergebnis != null ? ergebnis.getResult() : "-:-");
-			jLblResult.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblResult);
 		}
 		{
 			jLblZusatz = new JLabel();
 			jPnlSpielInformationen.add(jLblZusatz);
 			jLblZusatz.setBounds(REC_LBLZUSATZ);
 			jLblZusatz.setText(ergebnis != null ? ergebnis.getMore() : "");
-			jLblZusatz.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblZusatz);
 		}
 		{
 			jLblAwayTeamName = new JLabel();
@@ -269,7 +269,7 @@ public class SpielInformationen extends JFrame {
 			jLblAwayTeamName.setBounds(REC_LBLAWAYNAME);
 			jLblAwayTeamName.setFont(fontTeamNames);
 			jLblAwayTeamName.setText(spiel.getAwayTeam().getName());
-			jLblAwayTeamName.setHorizontalAlignment(SwingConstants.LEFT);
+			alignLeft(jLblAwayTeamName);
 		}
 		
 		
@@ -458,14 +458,14 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsPlayersHome[i]);
 			jLblsPlayersHome[i].setLocation(luLbls[STARTX], luLbls[STARTY] + i * luLbls[GAPY]);
 			jLblsPlayersHome[i].setSize(luLbls[SIZEX], luLbls[SIZEY]);
-			jLblsPlayersHome[i].setHorizontalAlignment(SwingConstants.RIGHT);
+			alignRight(jLblsPlayersHome[i]);
 			jLblsPlayersHome[i].setVisible(false);
 			
 			jLblsPlayersAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsPlayersAway[i]);
 			jLblsPlayersAway[i].setLocation(luLbls[STARTX] + luLbls[GAPX], luLbls[STARTY] + i * luLbls[GAPY]);
 			jLblsPlayersAway[i].setSize(luLbls[SIZEX], luLbls[SIZEY]);
-			jLblsPlayersAway[i].setHorizontalAlignment(SwingConstants.LEFT);
+			alignLeft(jLblsPlayersAway[i]);
 			jLblsPlayersAway[i].setVisible(false);
 			
 			jLblsBookingsHome[i] = new JLabel();
@@ -483,7 +483,7 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesHome[i]);
 			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesHome[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
-			jLblsSubsOffMinutesHome[i].setHorizontalAlignment(SwingConstants.LEFT);
+			alignLeft(jLblsSubsOffMinutesHome[i]);
 			jLblsSubsOffMinutesHome[i].setCursor(handCursor);
 			jLblsSubsOffMinutesHome[i].setVisible(false);
 			jLblsSubsOffMinutesHome[i].setForeground(ausgSpielerColor);
@@ -492,7 +492,7 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesAway[i]);
 			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesAway[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
-			jLblsSubsOffMinutesAway[i].setHorizontalAlignment(SwingConstants.RIGHT);
+			alignRight(jLblsSubsOffMinutesAway[i]);
 			jLblsSubsOffMinutesAway[i].setCursor(handCursor);
 			jLblsSubsOffMinutesAway[i].setVisible(false);
 			jLblsSubsOffMinutesAway[i].setForeground(ausgSpielerColor);
@@ -502,7 +502,7 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsSubsOnMinutesHome[i]);
 			jLblsSubsOnMinutesHome[i].setLocation(subMinsLbls[STARTX], subMinsLbls[STARTY] + (numberOfPlayersInLineUp + i) * subMinsLbls[GAPY]);
 			jLblsSubsOnMinutesHome[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
-			jLblsSubsOnMinutesHome[i].setHorizontalAlignment(SwingConstants.LEFT);
+			alignLeft(jLblsSubsOnMinutesHome[i]);
 			jLblsSubsOnMinutesHome[i].setCursor(handCursor);
 			jLblsSubsOnMinutesHome[i].setVisible(false);
 			jLblsSubsOnMinutesHome[i].setForeground(eingSpielerColor);
@@ -511,7 +511,7 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsSubsOnMinutesAway[i]);
 			jLblsSubsOnMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX], subMinsLbls[STARTY] + (numberOfPlayersInLineUp + i) * subMinsLbls[GAPY]);
 			jLblsSubsOnMinutesAway[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
-			jLblsSubsOnMinutesAway[i].setHorizontalAlignment(SwingConstants.RIGHT);
+			alignRight(jLblsSubsOnMinutesAway[i]);
 			jLblsSubsOnMinutesAway[i].setCursor(handCursor);
 			jLblsSubsOnMinutesAway[i].setVisible(false);
 			jLblsSubsOnMinutesAway[i].setForeground(eingSpielerColor);
@@ -766,7 +766,8 @@ public class SpielInformationen extends JFrame {
 		jPnlSpielInformationen.add(jLblNewGoal);
 		jLblNewGoal.setLocation(gLbls[STARTX] + (tor.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + i * gLbls[GAPY]);
 		jLblNewGoal.setSize(gLbls[SIZEX], gLbls[SIZEY]);
-		jLblNewGoal.setHorizontalAlignment(tor.isFirstTeam() ? SwingConstants.LEFT : SwingConstants.RIGHT);
+		if (tor.isFirstTeam())	alignLeft(jLblNewGoal);
+		else					alignRight(jLblNewGoal);
 		jLblNewGoal.setText(tor.isFirstTeam() ? minute + " " + scorer + zusatz : scorer + zusatz + " " + minute);
 		jLblNewGoal.setCursor(handCursor);
 		jLblNewGoal.addMouseListener(new MouseAdapter() {
@@ -861,7 +862,7 @@ public class SpielInformationen extends JFrame {
 
 		if (yellow)	label.setBackground(colorYellowCard);
 		else		label.setBackground(colorRedCard);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
+		alignCenter(label);
 		label.setForeground(colorRedCard);
 		label.setFont(fontSecondBooking);
 		label.setText(second ? "2" : "");
@@ -997,7 +998,7 @@ public class SpielInformationen extends JFrame {
 			JLabel label = new JLabel();
 			jPnlPenalties.add(label);
 			label.setBounds(penaltyH[STARTX] + (i % 5) * penaltyH[GAPX], penaltyH[STARTY] + (i / 5) * penaltyH[GAPY], penaltyH[SIZEX], penaltyH[SIZEY]);
-			label.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(label);
 			label.setText("11");
 			label.setCursor(handCursor);
 			label.setBackground(penaltiesNoColor);
@@ -1013,7 +1014,7 @@ public class SpielInformationen extends JFrame {
 			label = new JLabel();
 			jPnlPenalties.add(label);
 			label.setBounds(penaltyA[STARTX] + (i % 5) * penaltyA[GAPX], penaltyA[STARTY] + (i / 5) * penaltyH[GAPY], penaltyA[SIZEX], penaltyA[SIZEY]);
-			label.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(label);
 			label.setText("11");
 			label.setCursor(handCursor);
 			label.setBackground(penaltiesNoColor);

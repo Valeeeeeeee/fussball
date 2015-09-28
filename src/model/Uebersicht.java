@@ -268,13 +268,13 @@ public class Uebersicht extends JPanel {
 				spieltage[i][TEAMAWAY].setCursor(handCursor);
 				spieltage[i][MATCHDAY].setCursor(handCursor);
 				
-				spieltage[i][MATCHDAY].setHorizontalAlignment(SwingConstants.CENTER);
-				spieltage[i][DATE].setHorizontalAlignment(SwingConstants.CENTER);
-				spieltage[i][TEAMHOME].setHorizontalAlignment(SwingConstants.RIGHT);
-				spieltage[i][GOALSHOME].setHorizontalAlignment(SwingConstants.RIGHT);
-				spieltage[i][TRENNZEICHEN].setHorizontalAlignment(SwingConstants.CENTER);
-				spieltage[i][GOALSAWAY].setHorizontalAlignment(SwingConstants.LEFT);
-				spieltage[i][TEAMAWAY].setHorizontalAlignment(SwingConstants.LEFT);
+				alignCenter(spieltage[i][MATCHDAY]);
+				alignCenter(spieltage[i][DATE]);
+				alignRight(spieltage[i][TEAMHOME]);
+				alignRight(spieltage[i][GOALSHOME]);
+				alignCenter(spieltage[i][TRENNZEICHEN]);
+				alignLeft(spieltage[i][GOALSAWAY]);
+				alignLeft(spieltage[i][TEAMAWAY]);
 				
 				spieltage[i][TEAMHOME].setBackground(Color.yellow);
 				spieltage[i][TEAMAWAY].setBackground(Color.yellow);
@@ -308,14 +308,14 @@ public class Uebersicht extends JPanel {
 				jPnlInformationen.add(jLblMannschaftsname);
 				jLblMannschaftsname.setBounds(REC_LBLNAME);
 				jLblMannschaftsname.setFont(new Font("Dialog", 0, 24));
-				jLblMannschaftsname.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblMannschaftsname);
 			}
 			if (hasGrDatum) {
 				jLblGruendungsdatum = new JLabel();
 				jPnlInformationen.add(jLblGruendungsdatum);
 				jLblGruendungsdatum.setBounds(REC_LBLGRDATUM);
 				jLblGruendungsdatum.setFont(new Font("Dialog", 0, 12));
-				jLblGruendungsdatum.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblGruendungsdatum);
 			}
 			{
 				jPnlStatistics = new JPanel();
@@ -329,7 +329,7 @@ public class Uebersicht extends JPanel {
 				jLblMatchesPlayedVal = new JLabel();
 				jPnlStatistics.add(jLblMatchesPlayedVal);
 				jLblMatchesPlayedVal.setBounds(REC_LBLMATCHESVAL);
-				jLblMatchesPlayedVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblMatchesPlayedVal);
 			}
 			{
 				jLblMatchesPlayed = new JLabel();
@@ -341,7 +341,7 @@ public class Uebersicht extends JPanel {
 				jLblMatchesWonVal = new JLabel();
 				jPnlStatistics.add(jLblMatchesWonVal);
 				jLblMatchesWonVal.setBounds(REC_LBLMATCHESWONVAL);
-				jLblMatchesWonVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblMatchesWonVal);
 			}
 			{
 				jLblMatchesWon = new JLabel();
@@ -353,7 +353,7 @@ public class Uebersicht extends JPanel {
 				jLblMatchesDrawnVal = new JLabel();
 				jPnlStatistics.add(jLblMatchesDrawnVal);
 				jLblMatchesDrawnVal.setBounds(REC_LBLMATCHESDRAWNVAL);
-				jLblMatchesDrawnVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblMatchesDrawnVal);
 			}
 			{
 				jLblMatchesDrawn = new JLabel();
@@ -365,7 +365,7 @@ public class Uebersicht extends JPanel {
 				jLblMatchesLostVal = new JLabel();
 				jPnlStatistics.add(jLblMatchesLostVal);
 				jLblMatchesLostVal.setBounds(REC_LBLMATCHESLOSTVAL);
-				jLblMatchesLostVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblMatchesLostVal);
 			}
 			{
 				jLblMatchesLost = new JLabel();
@@ -377,7 +377,7 @@ public class Uebersicht extends JPanel {
 				jLblGoalsScoredVal = new JLabel();
 				jPnlStatistics.add(jLblGoalsScoredVal);
 				jLblGoalsScoredVal.setBounds(REC_LBLGOALSVAL);
-				jLblGoalsScoredVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblGoalsScoredVal);
 			}
 			{
 				jLblGoalsScored = new JLabel();
@@ -389,7 +389,7 @@ public class Uebersicht extends JPanel {
 				jLblGoalsConcededVal = new JLabel();
 				jPnlStatistics.add(jLblGoalsConcededVal);
 				jLblGoalsConcededVal.setBounds(REC_LBLGOALSCONCVAL);
-				jLblGoalsConcededVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblGoalsConcededVal);
 			}
 			{
 				jLblGoalsConceded = new JLabel();
@@ -401,7 +401,7 @@ public class Uebersicht extends JPanel {
 				jLblBookedVal = new JLabel();
 				jPnlStatistics.add(jLblBookedVal);
 				jLblBookedVal.setBounds(REC_LBLBOOKEDVAL);
-				jLblBookedVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblBookedVal);
 			}
 			{
 				jLblBooked = new JLabel();
@@ -413,7 +413,7 @@ public class Uebersicht extends JPanel {
 				jLblBookedTwiceVal = new JLabel();
 				jPnlStatistics.add(jLblBookedTwiceVal);
 				jLblBookedTwiceVal.setBounds(REC_LBLBOOKEDTWICEVAL);
-				jLblBookedTwiceVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblBookedTwiceVal);
 			}
 			{
 				jLblBookedTwice = new JLabel();
@@ -425,7 +425,7 @@ public class Uebersicht extends JPanel {
 				jLblRedCardsVal = new JLabel();
 				jPnlStatistics.add(jLblRedCardsVal);
 				jLblRedCardsVal.setBounds(REC_LBLREDCARDSVAL);
-				jLblRedCardsVal.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblRedCardsVal);
 			}
 			{
 				jLblRedCards = new JLabel();
@@ -437,7 +437,7 @@ public class Uebersicht extends JPanel {
 				jLblStatisticsMoreLess = new JLabel();
 				jPnlStatistics.add(jLblStatisticsMoreLess);
 				jLblStatisticsMoreLess.setBounds(REC_LBLSTATSMORELESS);
-				jLblStatisticsMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
+				alignRight(jLblStatisticsMoreLess);
 				jLblStatisticsMoreLess.setText("Mehr dazu >");
 				jLblStatisticsMoreLess.setCursor(handCursor);
 				jLblStatisticsMoreLess.addMouseListener(new MouseAdapter() {
@@ -461,7 +461,7 @@ public class Uebersicht extends JPanel {
 				jLblsSeriesValues[i] = new JLabel();
 				jPnlStatistics.add(jLblsSeriesValues[i]);
 				jLblsSeriesValues[i].setBounds(seriesV[STARTX], seriesV[STARTY] + i * seriesV[GAPY], seriesV[SIZEX], seriesV[SIZEY]);
-				jLblsSeriesValues[i].setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblsSeriesValues[i]);
 				jLblsSeriesValues[i].setText("n/a");
 			}
 			for (int i = 0; i < jLblsResultsTeams.length; i++) {
@@ -473,7 +473,7 @@ public class Uebersicht extends JPanel {
 					jLblsResultsValues[i][j] = new JLabel();
 					jPnlStatistics.add(jLblsResultsValues[i][j]);
 					jLblsResultsValues[i][j].setBounds(resultsV[STARTX] + j * resultsV[GAPX], resultsV[STARTY] + i * resultsV[GAPY], resultsV[SIZEX], resultsV[SIZEY]);
-					jLblsResultsValues[i][j].setHorizontalAlignment(SwingConstants.CENTER);
+					alignCenter(jLblsResultsValues[i][j]);
 					jLblsResultsValues[i][j].setOpaque(true);
 				}
 			}
@@ -489,8 +489,8 @@ public class Uebersicht extends JPanel {
 			for (int i = 0; i < 10; i++) {
 				jLblsTableHeader[i] = new JLabel();
 				jPnlTableExcerpt.add(jLblsTableHeader[i]);
-				if (i == 1)	jLblsTableHeader[i].setHorizontalAlignment(SwingConstants.LEFT);
-				else		jLblsTableHeader[i].setHorizontalAlignment(SwingConstants.CENTER);
+				if (i == 1)	alignLeft(jLblsTableHeader[i]);
+				else		alignCenter(jLblsTableHeader[i]);
 				jLblsTableHeader[i].setBounds(teStartx + sumofwidthes, teStarty, teWidthes[i], teHeight);
 				jLblsTableHeader[i].setText(headerStrings[i]);
 				sumofwidthes += teWidthes[i] + teGapx[i];
@@ -500,8 +500,8 @@ public class Uebersicht extends JPanel {
 				for (int j = 0; j < 10; j++) {
 					jLblsTableExcerpt[i][j] = new JLabel();
 					jPnlTableExcerpt.add(jLblsTableExcerpt[i][j]);
-					if (j == 1)	jLblsTableExcerpt[i][j].setHorizontalAlignment(SwingConstants.LEFT);
-					else		jLblsTableExcerpt[i][j].setHorizontalAlignment(SwingConstants.CENTER);
+					if (j == 1)	alignLeft(jLblsTableExcerpt[i][j]);
+					else		alignCenter(jLblsTableExcerpt[i][j]);
 					jLblsTableExcerpt[i][j].setBounds(teStartx + sumofwidthes, teStarty + (i + 1) * (teHeight + teGapy), teWidthes[j], teHeight);
 					sumofwidthes += teWidthes[j] + teGapx[j];
 				}
@@ -556,7 +556,7 @@ public class Uebersicht extends JPanel {
 			{
 				jLblKaderMoreLess = new JLabel();
 				jPnlKader.add(jLblKaderMoreLess);
-				jLblKaderMoreLess.setHorizontalAlignment(SwingConstants.RIGHT);
+				alignRight(jLblKaderMoreLess);
 				jLblKaderMoreLess.setText("Mehr dazu >");
 				jLblKaderMoreLess.setBounds(REC_LBLKADERMORELESS);
 				jLblKaderMoreLess.setCursor(handCursor);
@@ -653,15 +653,15 @@ public class Uebersicht extends JPanel {
 			Spieler spieler = eligiblePlayers.get(i);
 			int[] performanceData = mannschaft.getPerformanceData(spieler);
 			jLblsKader[i][SQUADNUMBER].setText("" + spieler.getSquadNumber());
-			jLblsKader[i][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[i][SQUADNUMBER]);
 			jLblsKader[i][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
 			jLblsKader[i][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
-			jLblsKader[i][MATCHES].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[i][MATCHES]);
 			jLblsKader[i][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
-			jLblsKader[i][GOALS].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[i][GOALS]);
 			jLblsKader[i][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
-			jLblsKader[i][ASSISTS].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[i][ASSISTS]);
 			int age = spieler.getAge();
 			sumOfAges += age;
 			
@@ -693,15 +693,15 @@ public class Uebersicht extends JPanel {
 			Spieler spieler = ineligiblePlayers.get(i);
 			int[] performanceData = mannschaft.getPerformanceData(spieler);
 			jLblsKader[index][SQUADNUMBER].setText("" + spieler.getSquadNumber());
-			jLblsKader[index][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[index][SQUADNUMBER]);
 			jLblsKader[index][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[index][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
 			jLblsKader[index][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
-			jLblsKader[index][MATCHES].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[index][MATCHES]);
 			jLblsKader[index][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
-			jLblsKader[index][GOALS].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[index][GOALS]);
 			jLblsKader[index][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
-			jLblsKader[index][ASSISTS].setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblsKader[index][ASSISTS]);
 		}
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;

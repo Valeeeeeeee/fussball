@@ -1,5 +1,7 @@
 package model;
 
+import static util.Utilities.*;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -92,7 +94,7 @@ public class SpielerInformationen extends JFrame {
 			jLblSquadnumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadnumber);
 			jLblSquadnumber.setBounds(530, 65, 85, 65);
-			jLblSquadnumber.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblSquadnumber);
 			jLblSquadnumber.setFont(fontSquadnumber);
 		}
 		{

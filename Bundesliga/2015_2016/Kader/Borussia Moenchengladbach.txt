@@ -3,7 +3,7 @@ Tobias;Sippel;null;19880322;Deutschland;Tor;21
 Yann;Sommer;null;19881217;Schweiz;Tor;1
 Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
 Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
-Alvaro;Dominguez Soto;null;19890515;Spanien;Abwehr;15
+Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
@@ -15,7 +15,7 @@ Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;8
 André;Hahn;null;19900813;Deutschland;Mittelfeld;28
 Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;10
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
-Havard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
+Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
 Nico;Schulz;N. Schulz;19930401;Deutschland;Mittelfeld;14;20150818-
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16

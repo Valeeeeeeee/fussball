@@ -59,6 +59,30 @@ public class Utilities {
 		}
 	}
 	
+	public static void alignLeft(JLabel label) {
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+	}
+	
+	public static void alignCenter(JLabel label) {
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+	}
+	
+	public static void alignRight(JLabel label) {
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+	}
+	
+	public static void alignLeft(JTextField textField) {
+		textField.setHorizontalAlignment(SwingConstants.LEFT);
+	}
+	
+	public static void alignCenter(JTextField textField) {
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+	}
+	
+	public static void alignRight(JTextField textField) {
+		textField.setHorizontalAlignment(SwingConstants.RIGHT);
+	}
+	
 	public static void repaintImmediately(JComponent component) {
 		component.paintImmediately(0, 0, component.getWidth(), component.getHeight());
 	}
@@ -121,24 +145,29 @@ public class Utilities {
 	
 	public static String removeUmlaute(String name) {
 		for (int i = 0; i < name.length(); i++) {
-			if (name.charAt(i) == 196)				name = name.substring(0, i) + "Ae" + name.substring(i + 1);
-			else if (name.charAt(i) == 214)			name = name.substring(0, i) + "Oe" + name.substring(i + 1);
-			else if (name.charAt(i) == 220)			name = name.substring(0, i) + "Ue" + name.substring(i + 1);
-			else if (name.charAt(i) == 228)			name = name.substring(0, i) + "ae" + name.substring(i + 1);
-			else if (name.charAt(i) == 246)			name = name.substring(0, i) + "oe" + name.substring(i + 1);
-			else if (name.charAt(i) == 252)			name = name.substring(0, i) + "ue" + name.substring(i + 1);
-			else if (name.charAt(i) == 223)			name = name.substring(0, i) + "ss" + name.substring(i + 1);
-			else if (name.charAt(i) == 193)			name = name.substring(0, i) + "A" + name.substring(i + 1);
-			else if (name.charAt(i) == 201)			name = name.substring(0, i) + "E" + name.substring(i + 1);
-			else if (name.charAt(i) == 205)			name = name.substring(0, i) + "I" + name.substring(i + 1);
-			else if (name.charAt(i) == 209)			name = name.substring(0, i) + "N" + name.substring(i + 1);
-			else if (name.charAt(i) == 211)			name = name.substring(0, i) + "O" + name.substring(i + 1);
-			else if (name.charAt(i) == 225)			name = name.substring(0, i) + "a" + name.substring(i + 1);
-			else if (name.charAt(i) == 233)			name = name.substring(0, i) + "e" + name.substring(i + 1);
-			else if (name.charAt(i) == 237)			name = name.substring(0, i) + "i" + name.substring(i + 1);
-			else if (name.charAt(i) == 241)			name = name.substring(0, i) + "n" + name.substring(i + 1);
-			else if (name.charAt(i) == 243)			name = name.substring(0, i) + "o" + name.substring(i + 1);
-			else if (name.charAt(i) == 231)			name = name.substring(0, i) + "c" + name.substring(i + 1);
+			int chAt = name.charAt(i);
+			
+			if (chAt == 196 || chAt == 198)			name = name.substring(0, i) + "Ae" + name.substring(i + 1);
+			else if (192 <= chAt && chAt <= 197)	name = name.substring(0, i) + "A" + name.substring(i + 1);
+			else if (chAt == 199)					name = name.substring(0, i) + "C" + name.substring(i + 1);
+			else if (200 <= chAt && chAt <= 203)	name = name.substring(0, i) + "E" + name.substring(i + 1);
+			else if (204 <= chAt && chAt <= 207)	name = name.substring(0, i) + "I" + name.substring(i + 1);
+			else if (chAt == 209)					name = name.substring(0, i) + "N" + name.substring(i + 1);
+			else if (210 <= chAt && chAt <= 214)	name = name.substring(0, i) + "O" + name.substring(i + 1);
+			else if (chAt == 214 || chAt == 216)	name = name.substring(0, i) + "Oe" + name.substring(i + 1);
+			else if (217 <= chAt && chAt <= 219)	name = name.substring(0, i) + "U" + name.substring(i + 1);
+			else if (chAt == 220)					name = name.substring(0, i) + "Ue" + name.substring(i + 1);
+			else if (chAt == 223)					name = name.substring(0, i) + "ss" + name.substring(i + 1);
+			else if (chAt == 228 || chAt == 230)	name = name.substring(0, i) + "ae" + name.substring(i + 1);
+			else if (224 <= chAt && chAt <= 229)	name = name.substring(0, i) + "a" + name.substring(i + 1);
+			else if (chAt == 231)					name = name.substring(0, i) + "c" + name.substring(i + 1);
+			else if (232 <= chAt && chAt <= 235)	name = name.substring(0, i) + "e" + name.substring(i + 1);
+			else if (236 <= chAt && chAt <= 239)	name = name.substring(0, i) + "i" + name.substring(i + 1);
+			else if (chAt == 241)					name = name.substring(0, i) + "n" + name.substring(i + 1);
+			else if (242 <= chAt && chAt <= 245)	name = name.substring(0, i) + "o" + name.substring(i + 1);
+			else if (chAt == 246 || chAt == 248)	name = name.substring(0, i) + "oe" + name.substring(i + 1);
+			else if (249 <= chAt && chAt <= 251)	name = name.substring(0, i) + "u" + name.substring(i + 1);
+			else if (chAt == 252)					name = name.substring(0, i) + "ue" + name.substring(i + 1);
 		}
 		
 		return name;

@@ -340,7 +340,7 @@ public class Spieltag extends JPanel {
 					jLblsGruppen[i] = new JLabel();
 					this.add(jLblsGruppen[i]);
 					jLblsGruppen[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
-					jLblsGruppen[i].setHorizontalAlignment(SwingConstants.RIGHT);
+					alignRight(jLblsGruppen[i]);
 					jLblsGruppen[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
 					jLblsGruppen[i].addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent evt) {
@@ -359,8 +359,8 @@ public class Spieltag extends JPanel {
 				this.add(jLblsMannschaften[i]);
 				jLblsMannschaften[i].setBounds(labels[STARTX] + spalte * (labels[SIZEX] + labels[GAPX]), 
 						labels[STARTY] + zeile * (labels[SIZEY] + labels[GAPY]), labels[SIZEX], labels[SIZEY]);
-				if (spalte == 0)	jLblsMannschaften[i].setHorizontalAlignment(SwingConstants.RIGHT);
-				else				jLblsMannschaften[i].setHorizontalAlignment(SwingConstants.LEFT);
+				if (spalte == 0)	alignRight(jLblsMannschaften[i]);
+				else				alignLeft(jLblsMannschaften[i]);
 				jLblsMannschaften[i].setEnabled(false);
 				jLblsMannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
 				jLblsMannschaften[i].addMouseListener(new MouseAdapter() {
@@ -394,7 +394,7 @@ public class Spieltag extends JPanel {
 				this.add(jTFsTore[i]);
 				jTFsTore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[SIZEX] + textfields[GAPX]), 
 						textfields[STARTY] + (i % numberOfMatches) * (textfields[SIZEY] + textfields[GAPY]), textfields[SIZEX], textfields[SIZEY]);
-				jTFsTore[i].setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jTFsTore[i]);
 				jTFsTore[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
 						if (arg0.getKeyChar() == 8) {
@@ -547,7 +547,7 @@ public class Spieltag extends JPanel {
 				jLblsHinrunde[i] = new JLabel();
 				jPnlEnterRueckrunde.add(jLblsHinrunde[i]);
 				jLblsHinrunde[i].setBounds(rrLabels[STARTX] + i * rrLabels[GAPX], rrLabels[STARTY], rrLabels[SIZEX], rrLabels[SIZEY]);
-				jLblsHinrunde[i].setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblsHinrunde[i]);
 				jLblsHinrunde[i].setFont(fontRR);
 				jLblsHinrunde[i].setText("" + (i + 1));
 				jLblsHinrunde[i].setCursor(handCursor);
@@ -561,7 +561,7 @@ public class Spieltag extends JPanel {
 				jLblsRueckrunde[i] = new JLabel();
 				jPnlEnterRueckrunde.add(jLblsRueckrunde[i]);
 				jLblsRueckrunde[i].setBounds(rrLabels[STARTX] + i * rrLabels[GAPX], rrLabels[STARTY] + rrLabels[GAPY], rrLabels[SIZEX], rrLabels[SIZEY]);
-				jLblsRueckrunde[i].setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblsRueckrunde[i]);
 				jLblsRueckrunde[i].setFont(fontRR);
 				jLblsRueckrunde[i].setText("");
 				jLblsRueckrunde[i].setCursor(handCursor);

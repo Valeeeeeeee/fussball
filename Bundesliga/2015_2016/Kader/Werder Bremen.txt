@@ -3,9 +3,9 @@ Raphael;Wolf;null;19880606;Deutschland;Tor;1
 Michael;Zetterer;null;19950712;Deutschland;Tor;30
 Marnon;Busch;null;19941208;Deutschland;Abwehr;38
 Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
-Alejandro;Galvez;null;19890606;Spanien;Abwehr;4
-Santiago;Garcia;S. Garcia;19880708;Italien, Argentinien;Abwehr;2
-Ulisses;Garcia;U. Garcia;19960111;Schweiz;Abwehr;20
+Alejandro;Gálvez;null;19890606;Spanien;Abwehr;4
+Santiago;García;null;19880708;Italien, Argentinien;Abwehr;2
+Ulisses;Garcia;null;19960111;Schweiz;Abwehr;20
 Theodor;Gebre Selassie;null;19861224;Tschechien;Abwehr;23
 Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25
 Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5

@@ -151,7 +151,7 @@ public class MyDateChooser extends JFrame {
 	        else					jLblSpiel.setBounds(REC_LBLSPIELTOUR);
 			jLblSpiel.setOpaque(true);
 			jLblSpiel.setBackground(Color.yellow);
-			jLblSpiel.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblSpiel);
 		}
 		
 		if (belongsToLeague) {

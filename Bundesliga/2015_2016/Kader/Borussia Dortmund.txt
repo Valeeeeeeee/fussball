@@ -25,4 +25,4 @@ Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;18
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
-Adrian;Ramos;null;19860122;Kolumbien;Sturm;20
+Adrián;Ramos;null;19860122;Kolumbien;Sturm;20
