@@ -7,7 +7,7 @@ Timm;Klose;null;19880509;Deutschland, Schweiz;Abwehr;5
 Robin;Knoche;null;19920522;Deutschland;Abwehr;31
 Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;25
 Patrick;Ochs;null;19840514;Deutschland;Abwehr;2
-Ricardo;Rodriguez;null;19920825;Schweiz;Abwehr;34
+Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;34
 Marcel;Schäfer;null;19840607;Deutschland;Abwehr;4
 Christian;Träsch;null;19870901;Deutschland;Abwehr;15
 Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27

@@ -5,7 +5,7 @@ John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 John;Heitinga;null;19831115;Niederlande;Abwehr;5
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
-Peter;Pekarik;null;19861030;Slowakei;Abwehr;2
+Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
 Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
 Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;23
 Alexander;Baumjohann;null;19870123;Deutschland;Mittelfeld;9

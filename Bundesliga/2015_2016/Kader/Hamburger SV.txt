@@ -11,7 +11,7 @@ Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24
 Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;4
 Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;6;-20150824
-Marcelo;Diaz;null;19861230;Chile;Mittelfeld;21
+Marcelo;Díaz;null;19861230;Chile;Mittelfeld;21
 Albin;Ekdal;null;19890728;Schweden;Mittelfeld;20
 Mohamed;Gouaida;null;19930515;Frankreich, Tunesien;Mittelfeld;25;-20150825
 Lewis;Holtby;null;19900918;Deutschland;Mittelfeld;8

@@ -1,7 +1,7 @@
 Janis;Blaswich;null;19910502;Deutschland;Tor;21
 Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
 Yann;Sommer;null;19881217;Schweiz;Tor;1
-Alvaro;Dominguez Soto;null;19890515;Spanien;Abwehr;15
+Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
 Filip;Daems;null;19781031;Belgien;Abwehr;3
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
@@ -15,7 +15,7 @@ Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;26
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
 Thorben;Marx;null;19810601;Deutschland;Mittelfeld;14
-Havard;Nordtveit;null;19900621;Norwegen;Mittelfeld;16
+Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;16
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;8
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
 Branimir;Hrgota;null;19930112;Schweden;Sturm;31
