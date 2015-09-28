@@ -130,7 +130,10 @@ public class Uebersicht extends JPanel {
 	private static final int SQUADNUMBER = 0;
 	private static final int NAMES = 1;
 	private static final int BIRTHDATE = 2;
-	private static final int NUMBEROFFIELDSKAD = 3;
+	private static final int MATCHES = 3;
+	private static final int GOALS = 4;
+	private static final int ASSISTS = 5;
+	private static final int NUMBEROFFIELDSKAD = 6;
 	
 	/** The left and right margin for spiele */
 	private int nstartx = 05;
@@ -150,10 +153,10 @@ public class Uebersicht extends JPanel {
 	private int teGapy = 5;
 	
 	private int kaderSTARTX = 20;
-	private int kaderSTARTY = 10;
-	private int[] kaderWIDTHES = {20, 200, 75};
+	private int kaderSTARTY = 20;
+	private int[] kaderWIDTHES = {20, 200, 75, 25, 25, 25};
 	private int kaderHEIGHT = 15;
-	private int[] kaderGAPX = {5, 5, 0};
+	private int[] kaderGAPX = {5, 5, 25, 5, 5, 0};
 	private int kaderGAPY = 3;
 	
 	private int standardHeightKader = 190;
@@ -648,10 +651,17 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			Spieler spieler = eligiblePlayers.get(i);
+			int[] performanceData = mannschaft.getPerformanceData(spieler);
 			jLblsKader[i][SQUADNUMBER].setText("" + spieler.getSquadNumber());
 			jLblsKader[i][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsKader[i][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
+			jLblsKader[i][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
+			jLblsKader[i][MATCHES].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsKader[i][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
+			jLblsKader[i][GOALS].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsKader[i][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
+			jLblsKader[i][ASSISTS].setHorizontalAlignment(SwingConstants.CENTER);
 			int age = spieler.getAge();
 			sumOfAges += age;
 			
@@ -681,10 +691,17 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			Spieler spieler = ineligiblePlayers.get(i);
+			int[] performanceData = mannschaft.getPerformanceData(spieler);
 			jLblsKader[index][SQUADNUMBER].setText("" + spieler.getSquadNumber());
 			jLblsKader[index][SQUADNUMBER].setHorizontalAlignment(SwingConstants.CENTER);
 			jLblsKader[index][NAMES].setText(spieler.getFullNameShort());
 			jLblsKader[index][BIRTHDATE].setText(MyDate.datum(spieler.getBirthDate()));
+			jLblsKader[index][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
+			jLblsKader[index][MATCHES].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsKader[index][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
+			jLblsKader[index][GOALS].setHorizontalAlignment(SwingConstants.CENTER);
+			jLblsKader[index][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
+			jLblsKader[index][ASSISTS].setHorizontalAlignment(SwingConstants.CENTER);
 		}
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;
@@ -713,7 +730,9 @@ public class Uebersicht extends JPanel {
 	}
 	
 	private void showPlayerPhoto(int playerIndex) {
-		Spieler player = eligiblePlayers.get(playerIndex);
+		Spieler player = null;
+		if (playerIndex < numberOfEligiblePlayers)	player = eligiblePlayers.get(playerIndex);
+		else										player = ineligiblePlayers.get(playerIndex - numberOfEligiblePlayers);
 		String playerName = removeUmlaute(player.getFullNameShort());
 		playerName = playerName.toLowerCase().replace(' ', '-');
 		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";

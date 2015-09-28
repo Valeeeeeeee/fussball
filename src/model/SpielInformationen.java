@@ -687,17 +687,22 @@ public class SpielInformationen extends JFrame {
 		// for matches without lineup, otherwise when modified later, all current goals would be lost
 		if (ergebnis != null) {
 			if (ergebnis.home(1) + ergebnis.away(1) != goals.size() && ergebnis.home(2) + ergebnis.away(2) != goals.size()) {
-				for (int i = 0; i < ergebnis.home(1); i++) {
-					goals.add(new Tor(spiel, true, false, false, 1));
+				int home = 0, away = 0;
+				for (Tor tor : goals) {
+					if (tor.isFirstTeam())	home++;
+					else					away++;
 				}
-				for (int i = 0; i < ergebnis.away(1); i++) {
-					goals.add(new Tor(spiel, false, false, false, 1));
+				for (int i = home; i < ergebnis.home(1); i++) {
+					spiel.addGoal(new Tor(spiel, true, false, false, 1));
+				}
+				for (int i = away; i < ergebnis.away(1); i++) {
+					spiel.addGoal(new Tor(spiel, false, false, false, 1));
 				}
 				for (int i = ergebnis.home(1); i < ergebnis.home(2); i++) {
-					goals.add(new Tor(spiel, true, false, false, 91));
+					spiel.addGoal(new Tor(spiel, true, false, false, 91));
 				}
 				for (int i = ergebnis.away(1); i < ergebnis.away(2); i++) {
-					goals.add(new Tor(spiel, false, false, false, 91));
+					spiel.addGoal(new Tor(spiel, false, false, false, 91));
 				}
 			}
 			if (ergebnis.home(3) > ergebnis.home(2) || ergebnis.away(3) > ergebnis.away(2)) {

@@ -30,7 +30,6 @@ public class Mannschaft {
 	private Spiel[] spiele;
 	private Ergebnis[] ergebnisse;
 	private int[][] performanceData;
-	private boolean isPerformanceDataCorrect;
 	
 	public final static int OPPONENT = 0;
 	public final static int GOALS = 1;
@@ -40,6 +39,17 @@ public class Mannschaft {
 	private boolean[] homeaway;
 	public final static int HOME = 4;
 	public final static int AWAY = 5;
+	
+	public static final int MATCHES_PLAYED = 0;
+	public static final int MATCHES_STARTED = 1;
+	public static final int MATCHES_SUB_ON = 2;
+	public static final int MATCHES_SUB_OFF = 3;
+	public static final int MINUTES_PLAYED = 4;
+	public static final int GOALS_SCORED = 5;
+	public static final int GOALS_ASSISTED = 6;
+	public static final int BOOKED = 7;
+	public static final int BOOKED_TWICE = 8;
+	public static final int RED_CARDS = 9;
 	
 	private Wettbewerb wettbewerb;
 	private LigaSaison lSeason;
@@ -177,7 +187,7 @@ public class Mannschaft {
 		for (int i = 0; i < performanceData.length; i++) {
 			Spieler player = kader.get(i);
 			
-			int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, booked = 0, bookedTwice = 0, redCards = 0;
+			int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, assists = 0, booked = 0, bookedTwice = 0, redCards = 0;
 			int squadNumber = player.getSquadNumber();
 			
 			for (Spiel spiel : spiele) {
@@ -199,22 +209,24 @@ public class Mannschaft {
 						}
 					}
 					for (Wechsel wechsel : substitutions) {
-						if (wechsel.getEingewechselterSpieler().getSquadNumber() == squadNumber) {
+						if (wechsel.getEingewechselterSpieler() == player) {
 							gamesPlayed++;
 							subOn++;
 							firstMinute = wechsel.getMinute();
-						} else if (wechsel.getAusgewechselterSpieler().getSquadNumber() == squadNumber) {
+						} else if (wechsel.getAusgewechselterSpieler() == player) {
 							subOff++;
 							lastMinute = wechsel.getMinute();
 						}
 					}
 					for (Tor tor : tore) {
-						if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer().getSquadNumber() == squadNumber) {
+						if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer() == player) {
 							goals++;
+						} else if (homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+							assists++;
 						}
 					}
 					for (Karte booking : bookings) {
-						if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer().getSquadNumber() == squadNumber) {
+						if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer() == player) {
 							if (booking.isSecondBooking()) {
 								booked--;
 								bookedTwice++;
@@ -232,7 +244,7 @@ public class Mannschaft {
 				}
 			}
 			
-			performanceData[i] = new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, booked, bookedTwice, redCards};
+			performanceData[i] = new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, assists, booked, bookedTwice, redCards};
 		}
 	}
 	

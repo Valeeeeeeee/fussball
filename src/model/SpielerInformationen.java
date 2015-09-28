@@ -55,6 +55,8 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblMinutesPlayedVal;
 	private JLabel jLblGoalsScored;
 	private JLabel jLblGoalsScoredVal;
+	private JLabel jLblGoalsAssisted;
+	private JLabel jLblGoalsAssistedVal;
 	private JLabel jLblBooked;
 	private JLabel jLblBookedVal;
 	private JLabel jLblBookedTwice;
@@ -256,42 +258,55 @@ public class SpielerInformationen extends JFrame {
 			jLblGoalsScoredVal.setFont(fontCompetition);
 		}
 		{
+			jLblGoalsAssisted = new JLabel();
+			jPnlPlayerInformation.add(jLblGoalsAssisted);
+			jLblGoalsAssisted.setBounds(530, 590, 160, 25);
+			jLblGoalsAssisted.setFont(fontCompetition);
+			jLblGoalsAssisted.setText("Vorlagen");
+		}
+		{
+			jLblGoalsAssistedVal = new JLabel();
+			jPnlPlayerInformation.add(jLblGoalsAssistedVal);
+			jLblGoalsAssistedVal.setBounds(700, 590, 50, 25);
+			jLblGoalsAssistedVal.setFont(fontCompetition);
+		}
+		{
 			jLblBooked = new JLabel();
 			jPnlPlayerInformation.add(jLblBooked);
-			jLblBooked.setBounds(530, 590, 160, 25);
+			jLblBooked.setBounds(530, 620, 160, 25);
 			jLblBooked.setFont(fontCompetition);
 			jLblBooked.setText("Gelbe Karten");
 		}
 		{
 			jLblBookedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedVal);
-			jLblBookedVal.setBounds(700, 590, 50, 25);
+			jLblBookedVal.setBounds(700, 620, 50, 25);
 			jLblBookedVal.setFont(fontCompetition);
 		}
 		{
 			jLblBookedTwice = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedTwice);
-			jLblBookedTwice.setBounds(530, 620, 160, 25);
+			jLblBookedTwice.setBounds(530, 650, 160, 25);
 			jLblBookedTwice.setFont(fontCompetition);
 			jLblBookedTwice.setText("Gelb-Rote Karten");
 		}
 		{
 			jLblBookedTwiceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedTwiceVal);
-			jLblBookedTwiceVal.setBounds(700, 620, 50, 25);
+			jLblBookedTwiceVal.setBounds(700, 650, 50, 25);
 			jLblBookedTwiceVal.setFont(fontCompetition);
 		}
 		{
 			jLblRedCards = new JLabel();
 			jPnlPlayerInformation.add(jLblRedCards);
-			jLblRedCards.setBounds(530, 650, 160, 25);
+			jLblRedCards.setBounds(530, 680, 160, 25);
 			jLblRedCards.setFont(fontCompetition);
 			jLblRedCards.setText("Rote Karten");
 		}
 		{
 			jLblRedCardsVal = new JLabel();
 			jPnlPlayerInformation.add(jLblRedCardsVal);
-			jLblRedCardsVal.setBounds(700, 650, 50, 25);
+			jLblRedCardsVal.setBounds(700, 680, 50, 25);
 			jLblRedCardsVal.setFont(fontCompetition);
 		}
 		
@@ -318,15 +333,16 @@ public class SpielerInformationen extends JFrame {
 			jLblAtClubSinceVal.setVisible(false);
 		}
 		int[] performanceData = player.getTeam().getPerformanceData(player);
-		jLblGamesPlayedVal.setText("" + performanceData[0]);
-		jLblGamesStartedVal.setText("" + performanceData[1]);
-		jLblSubstitutedOnVal.setText("" + performanceData[2]);
-		jLblSubstitutedOffVal.setText("" + performanceData[3]);
-		jLblMinutesPlayedVal.setText("" + performanceData[4]);
-		jLblGoalsScoredVal.setText("" + performanceData[5]);
-		jLblBookedVal.setText("" + performanceData[6]);
-		jLblBookedTwiceVal.setText("" + performanceData[7]);
-		jLblRedCardsVal.setText("" + performanceData[8]);
+		jLblGamesPlayedVal.setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
+		jLblGamesStartedVal.setText("" + performanceData[Mannschaft.MATCHES_STARTED]);
+		jLblSubstitutedOnVal.setText("" + performanceData[Mannschaft.MATCHES_SUB_ON]);
+		jLblSubstitutedOffVal.setText("" + performanceData[Mannschaft.MATCHES_SUB_OFF]);
+		jLblMinutesPlayedVal.setText("" + performanceData[Mannschaft.MINUTES_PLAYED]);
+		jLblGoalsScoredVal.setText("" + performanceData[Mannschaft.GOALS_SCORED]);
+		jLblGoalsAssistedVal.setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
+		jLblBookedVal.setText("" + performanceData[Mannschaft.BOOKED]);
+		jLblBookedTwiceVal.setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
+		jLblRedCardsVal.setText("" + performanceData[Mannschaft.RED_CARDS]);
 		
 		Image image = null;
 		if (jLblImage != null) {
