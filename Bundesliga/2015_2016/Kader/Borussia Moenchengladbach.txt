@@ -8,7 +8,7 @@ Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;27
-Marvin;Schulz;M. Schulz;19950115;Deutschland;Abwehr;18
+Marvin;Schulz;null;19950115;Deutschland;Abwehr;18
 Martin;Stranzl;null;19800616;Österreich;Abwehr;39
 Oscar;Wendt;null;19851024;Schweden;Abwehr;17
 Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;8
@@ -16,7 +16,7 @@ André;Hahn;null;19900813;Deutschland;Mittelfeld;28
 Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;10
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
 Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
-Nico;Schulz;N. Schulz;19930401;Deutschland;Mittelfeld;14;20150818-
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14;20150818-
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34

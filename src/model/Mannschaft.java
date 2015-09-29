@@ -160,6 +160,7 @@ public class Mannschaft {
 			kader.add(new Spieler(spieler.get(i), this));
 			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
+		distinguishNames();
 	}
 	
 	public void saveKader() {
@@ -169,6 +170,36 @@ public class Mannschaft {
 			players.add(this.kader.get(i).toString());
 		}
 		inDatei(kaderFileName, players);
+	}
+	
+	private void distinguishNames() {
+		for (Spieler player : kader) {
+			player.resetDistinctName();
+		}
+		
+		boolean ensuredDN = false;
+		int distinctionLevel = 0;
+		while (!ensuredDN) {
+			distinctionLevel++;
+			boolean[] doubleNames = new boolean[kader.size()];
+			for (int i = 0; i < kader.size(); i++) {
+				Spieler player = kader.get(i);
+				for (int j = 0; j < kader.size() && !doubleNames[i]; j++) {
+					if (i == j)	continue;
+					if (player.getPseudonymOrLN().equals(kader.get(j).getPseudonymOrLN())) {
+						doubleNames[i] = true;
+						doubleNames[j] = true;
+					}
+				}
+			}
+			ensuredDN = true;
+			for (int i = 0; i < doubleNames.length; i++) {
+				if (doubleNames[i]) {
+					kader.get(i).setDistictionLevel(distinctionLevel);
+					ensuredDN = false;
+				}
+			}
+		}
 	}
 	
 	public int getCurrentNumberOf(Position position) {

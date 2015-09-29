@@ -8,7 +8,7 @@ Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
 Timm;Klose;null;19880509;Deutschland, Schweiz;Abwehr;5
 Robin;Knoche;null;19920522;Deutschland;Abwehr;31
 Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;25
-Ricardo;Rodríguez;R. Rodríguez;19920825;Schweiz;Abwehr;34
+Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;34
 Marcel;Schäfer;null;19840607;Deutschland;Abwehr;4
 Christian;Träsch;null;19870901;Deutschland;Abwehr;15
 Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
@@ -19,7 +19,7 @@ Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
 Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;10;-20150830
 Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
 Ivan;Perisic;null;19890202;Kroatien;Mittelfeld;9;-20150829
-Francisco;Rodríguez;F. Rodríguez;19950914;Schweiz;Mittelfeld;35
+Francisco;Rodríguez;null;19950914;Schweiz;Mittelfeld;35
 André;Schürrle;null;19901106;Deutschland;Mittelfeld;17;
 Adelino Andre;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
 Nicklas;Bendtner;null;19880116;Dänemark;Sturm;3

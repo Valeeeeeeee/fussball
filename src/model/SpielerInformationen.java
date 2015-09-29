@@ -14,9 +14,11 @@ public class SpielerInformationen extends JFrame {
 	
 	private static final long serialVersionUID = -8974853216829127796L;
 
-	public static final int WIDTH = 900 + 6;
+	public static final int WIDTH = 970;
 	
-	public static final int HEIGHT = 830 + 28;
+	public static final int HEIGHT = 830;
+	
+	private static final int maxNumberOfCharacters = 20;
 	
 	private Color background = new Color(255, 255, 255);
 	private Font fontAtClubSince = new Font("Calibri", 0, 24);
@@ -24,6 +26,7 @@ public class SpielerInformationen extends JFrame {
 	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
+	private Font fontNamesSmall = new Font("Calibri", 0, 26);
 	private Font fontNationality = new Font("Calibri", 0, 24);
 	private Font fontPerformance = new Font("Calibri", 0, 18);
 	private Font fontPosition = new Font("Calibri", 0, 24);
@@ -100,13 +103,13 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(630, 60, 230, 35);
+			jLblFirstNames.setBounds(630, 60, 320, 35);
 			jLblFirstNames.setFont(fontNames);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(630, 100, 230, 35);
+			jLblLastNames.setBounds(630, 100, 320, 35);
 			jLblLastNames.setFont(fontNames);
 		}
 		{
@@ -312,7 +315,7 @@ public class SpielerInformationen extends JFrame {
 			jLblRedCardsVal.setFont(fontCompetition);
 		}
 		
-		setSize(WIDTH, HEIGHT);
+		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
 		setResizable(false);
 	}
 	
@@ -320,6 +323,8 @@ public class SpielerInformationen extends JFrame {
 		jLblSquadnumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
+		jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
+		jLblLastNames.setFont(player.getLastName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
 		jLblPseudonym.setText(player.getPseudonym() != null ? player.getPseudonym() : "");
 		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
 		jLblPositionVal.setText(player.getPosition().getName());

@@ -8,6 +8,7 @@ public class Spieler {
 	private String firstNameShort;
 	private String lastName;
 	private String lastNameShort;
+	private String distinctName;
 	private String pseudonym;
 	private int birthDate;
 	private int age;
@@ -76,7 +77,18 @@ public class Spieler {
 	}
 	
 	public String getPseudonymOrLN() {
-		return this.pseudonym != null ? this.pseudonym : this.lastNameShort;
+		if (this.pseudonym != null)	return this.pseudonym;
+		if (this.distinctName != null)	return this.distinctName;
+		return this.lastNameShort;
+	}
+	
+	public void setDistictionLevel(int level) {
+		boolean fullFirstName = level >= firstName.length();
+		this.distinctName = (fullFirstName ? this.firstName : this.firstName.substring(0, level) + ".") + " " + this.lastNameShort;
+	}
+	
+	public void resetDistinctName() {
+		this.distinctName = null;
 	}
 	
 	public String getPseudonym() {
