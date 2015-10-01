@@ -1494,6 +1494,7 @@ public class NewTournamentDialog extends JFrame {
 			log(currentKORoundTeamsPR.get(i));
 		}
 		log();
+		jLblTeamsPRVal.setText("" + currentKORoundTeamsPR.size());
 	}
 	
 	private void saveOtherCompetition() {
