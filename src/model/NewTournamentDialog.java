@@ -22,6 +22,8 @@ public class NewTournamentDialog extends JFrame {
 	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
 	private String[] possibleKORoundsShort = new String[] {"1R", "2R", "3R", "ZR", "SF", "AF", "VF", "HF", "P3", "FI"};
 	private String[] posNumOfTeamsPerGroup;
+	private String[] prOptions = new String[] {"alle", "keine", "die besten"};
+	private String[] gruppenXte = new String[] {"Gruppenersten", "Gruppenzweiten", "Gruppendritten"};
 	
 	private final int minNumberOfTeamsPerGroup = 2;
 	private final int maxNumberOfTeamsPerGroup = 6;
@@ -80,9 +82,9 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_GRP2LEGYES = new Rectangle(100, 75, 45, 25); // checked
 	private Rectangle REC_GRP2LEGNO = new Rectangle(140, 75, 60, 25); // checked
 	
-	private int[] rmvGroups = new int[] {30, 70, 0, 25, 20, 20};
-	private int[] groups = new int[] {60, 70, 0, 25, 60, 20};
-	private int[] nOfTGrps = new int[] {130, 70, 0, 25, 45, 20};
+	private int[] rmvGroups = new int[] {20, 70, 0, 25, 20, 20};
+	private int[] groups = new int[] {50, 70, 0, 25, 60, 20};
+	private int[] nOfTGrps = new int[] {120, 69, 0, 25, 60, 22};
 	
 	// Knockout stage
 	private Rectangle REC_KOPNL;
@@ -109,6 +111,9 @@ public class NewTournamentDialog extends JFrame {
 	
 	private int heightOfDisplacement;
 	private int[] koRounds = new int[] {30, 40, 0, 25, 160, 20};
+	private int[] cbs = new int[] {50, 170, 0, 30, 115, 25};
+	private int[] grpXth = new int[] {175, 170, 0, 30, 60, 25};
+	private int[] lbls = new int[] {245, 170, 0, 30, 105, 25};
 	
 	// View
 	private JLabel jLblWettbewerb;
@@ -547,7 +552,7 @@ public class NewTournamentDialog extends JFrame {
 		{
 			jBtnAddGroup = new JButton();
 			groupStagePnl.add(jBtnAddGroup);
-			jBtnAddGroup.setText("Hinzufuegen");
+			jBtnAddGroup.setText("Hinzufügen");
 			jBtnAddGroup.setBounds(REC_BTNADDGRP);
 			jBtnAddGroup.setFocusable(false);
 			jBtnAddGroup.addActionListener(new ActionListener() {
@@ -610,12 +615,12 @@ public class NewTournamentDialog extends JFrame {
 			numberOfTeamsRBGrp.add(jRBSameNumberOfTeams);
 			numberOfTeamsRBGrp.add(jRBDifferentNumberOfTeams);
 		}
-		// Rueckspiel
+		// second leg
 		{
 			groupSecondLegLbl = new JLabel();
 			groupStagePnl.add(groupSecondLegLbl);
 			groupSecondLegLbl.setBounds(REC_GRP2LEGLBL);
-			groupSecondLegLbl.setText("Rueckspiel");
+			groupSecondLegLbl.setText("Rückspiel");
 			groupSecondLegLbl.setVisible(false);
 		}
 		{
@@ -761,12 +766,12 @@ public class NewTournamentDialog extends JFrame {
 			});
 		}
 		
-		// Rueckspiel
+		// second leg
 		{
 			koSecondLegLbl = new JLabel();
 			koStagePnl.add(koSecondLegLbl);
 			koSecondLegLbl.setBounds(REC_KO2LEGLBL);
-			koSecondLegLbl.setText("Rueckspiel");
+			koSecondLegLbl.setText("Rückspiel");
 			koSecondLegLbl.setVisible(false);
 		}
 		{
@@ -808,7 +813,7 @@ public class NewTournamentDialog extends JFrame {
 		{
 			jBtnAddTeam = new JButton();
 			koStagePnl.add(jBtnAddTeam);
-			jBtnAddTeam.setText("Hinzufuegen");
+			jBtnAddTeam.setText("Hinzufügen");
 			jBtnAddTeam.setVisible(false);
 			jBtnAddTeam.setFocusable(false);
 			jBtnAddTeam.addActionListener(new ActionListener() {
@@ -841,19 +846,13 @@ public class NewTournamentDialog extends JFrame {
 			koStagePnl.add(jCBPreviousRound);
 			jCBPreviousRound.setVisible(false);
 		}
-		// TODO textFields that appear when clicking best
-		String[] cbModel = new String[] {"alle", "keine", "die besten"};
-		String[] gruppenXte = new String[] {"Gruppenersten", "Gruppenzweiten", "Gruppendritten"};
-		int[] cbs = new int[] {60, 170, 0, 30, 90, 25};
-		int[] grpXth = new int[] {160, 170, 0, 30, 45, 25};
-		int[] lbls = new int[] {215, 170, 0, 30, 95, 25};
 		
 		for (int i = 0; i < jLblsPlatzierungen.length; i++) {
 			final int x = i;
 			jCBsPlatzierungen[i] = new JComboBox<>();
 			koStagePnl.add(jCBsPlatzierungen[i]);
 			jCBsPlatzierungen[i].setBounds(cbs[STARTX], cbs[STARTY] + i * cbs[GAPY], cbs[SIZEX], cbs[SIZEY]);
-			jCBsPlatzierungen[i].setModel(new DefaultComboBoxModel<>(cbModel));
+			jCBsPlatzierungen[i].setModel(new DefaultComboBoxModel<>(prOptions));
 			jCBsPlatzierungen[i].setVisible(false);
 			jCBsPlatzierungen[i].addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent evt) {
@@ -1326,6 +1325,22 @@ public class NewTournamentDialog extends JFrame {
 		jLblTeamsOCMore.setVisible(hasKO && !show);
 	}
 	
+	private void logTCF(String where) {
+		log("\n");
+		log(where);
+		for (int i = 0; i < teamsComingFrom.size(); i++) {
+			if (teamsComingFrom.get(i) != null) {
+				String tcf = "", sep = "";
+				for (int j = 0; j < teamsComingFrom.get(i).length; j++) {
+					tcf += sep + teamsComingFrom.get(i)[j];
+					sep = ", ";
+				}
+				log(tcf);
+			}
+		}
+		log("\n");
+	}
+	
 	private void saveDataForKORound(int index) {
 		jLblMoreClicked(showingMoreFrom);
 		ArrayList<String> thisList = allKORoundsTeams.get(selectedKORounds.get(index));
@@ -1356,12 +1371,10 @@ public class NewTournamentDialog extends JFrame {
 			currentKORoundTeamsPQ.add(thisList.remove(0));
 		}
 		
-		tcf[1] = currentKORoundTeamsPR.size();
 		for (int i = 0; i < tcf[1]; i++) {
 			currentKORoundTeamsPR.add(thisList.remove(0));
 		}
 		
-		tcf[2] = currentKORoundTeamsOC.size();
 		for (int i = 0; i < tcf[2]; i++) {
 			currentKORoundTeamsOC.add(thisList.remove(0));
 		}
@@ -1484,7 +1497,7 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void saveOtherCompetition() {
-		log("saving other competition");
+		log(" TODO saving other competition");
 //		currentKORoundTeamsOC.clear();
 //		for (int i = 0; i < jLTeamsModel.getSize(); i++) {
 //			currentKORoundTeamsOC.add(jLTeamsModel.getElementAt(i));
@@ -1720,8 +1733,8 @@ public class NewTournamentDialog extends JFrame {
 				for (int j = 0; j < teamsGrp[i].length; j++) {
 					teamsGrp[i][j] = teamsNamesGroupStage.get(i).get(j);
 					if (!ignored && teamsGrp[i][j].equals("Mannschaft " + (j + 1))) {
-						if (yesNoDialog("Es gibt noch Mannschaften, deren Namen nicht angegeben ist. Diese werden beim Speichern durch einen Platzhalter ersetzt."
-								+ "Die Namen koennen auch spaeter noch angegeben werden. Fortfahren?") == JOptionPane.NO_OPTION) {
+						if (yesNoDialog("Es gibt noch Mannschaften, deren Namen nicht angegeben ist. Diese werden beim Speichern durch einen Platzhalter ersetzt. "
+								+ "Die Namen können auch später noch angegeben werden. Fortfahren?") == JOptionPane.NO_OPTION) {
 							return false;
 						}
 						ignored = true;

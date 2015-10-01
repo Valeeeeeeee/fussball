@@ -60,8 +60,8 @@ public class Start extends JFrame {
 	private int start_btnsstarty = 120;
 	private static final int SIZEX_BTNS = 400;
 	private static final int SIZEY_BTNS = 90;
-	private static final int SIZEX_LBLS = 50;
-	private static final int SIZEY_LBLS = 50;
+	private static final int SIZEX_LBLS = 60;
+	private static final int SIZEY_LBLS = 60;
 	
 	private Rectangle REC_BTNZURUECK = new Rectangle(10, 10, 100, 30);
 	
@@ -286,7 +286,7 @@ public class Start extends JFrame {
 			
 			jLblsLigenCompleted[i] = new JLabel();
 			Homescreen.add(jLblsLigenCompleted[i]);
-			jLblsLigenCompleted[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsLigenCompleted[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsLigenCompleted[i]);
 			jLblsLigenCompleted[i].setFont(fontMissingResults);
 			jLblsLigenCompleted[i].setFocusable(false);
@@ -295,7 +295,7 @@ public class Start extends JFrame {
 			
 			jLblsLigenStillRunning[i] = new JLabel();
 			Homescreen.add(jLblsLigenStillRunning[i]);
-			jLblsLigenStillRunning[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsLigenStillRunning[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsLigenStillRunning[i]);
 			jLblsLigenStillRunning[i].setFont(fontMissingResults);
 			jLblsLigenStillRunning[i].setFocusable(false);
@@ -317,7 +317,7 @@ public class Start extends JFrame {
 			
 			jLblsTurniereCompleted[i] = new JLabel();
 			Homescreen.add(jLblsTurniereCompleted[i]);
-			jLblsTurniereCompleted[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsTurniereCompleted[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsTurniereCompleted[i]);
 			jLblsTurniereCompleted[i].setFont(fontMissingResults);
 			jLblsTurniereCompleted[i].setFocusable(false);
@@ -326,7 +326,7 @@ public class Start extends JFrame {
 			
 			jLblsTurniereStillRunning[i] = new JLabel();
 			Homescreen.add(jLblsTurniereStillRunning[i]);
-			jLblsTurniereStillRunning[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 20 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsTurniereStillRunning[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsTurniereStillRunning[i]);
 			jLblsTurniereStillRunning[i].setFont(fontMissingResults);
 			jLblsTurniereStillRunning[i].setFocusable(false);
