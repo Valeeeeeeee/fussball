@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import static util.Utilities.*;
 
 public class Turnier {
-	private Start start;
 	private int id;
 	private String name;
 	private String shortName;
@@ -20,8 +19,7 @@ public class Turnier {
 	private ArrayList<String> saisonsDatenFromFile;
 	
 	
-	public Turnier(int id, Start start, String daten) {
-		this.start = start;
+	public Turnier(int id, String daten) {
 		this.id = id;
 		fromString(daten);
 		saisonsLaden();
@@ -72,7 +70,7 @@ public class Turnier {
 	}
 	
 	public boolean addNewSeason(String toString, ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
-		TurnierSaison neueSaison = new TurnierSaison(start, this, saisons.size(), toString);
+		TurnierSaison neueSaison = new TurnierSaison(this, saisons.size(), toString);
 		for (int i = 0; i < saisons.size(); i++) {
 			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
@@ -228,7 +226,7 @@ public class Turnier {
 	}
 	
 	private void saisonsLaden() {
-		workspace = start.getWorkspace() + File.separator + name + File.separator;
+		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		// SaisonsConfig.txt
 		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
@@ -237,7 +235,7 @@ public class Turnier {
 		// TurnierSaisons erstellen
 		saisons = new ArrayList<>();
 		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
-			saisons.add(new TurnierSaison(start, this, i, saisonsDatenFromFile.get(i)));
+			saisons.add(new TurnierSaison(this, i, saisonsDatenFromFile.get(i)));
 		}
 	}
 	

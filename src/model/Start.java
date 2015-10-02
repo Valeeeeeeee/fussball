@@ -16,14 +16,16 @@ public class Start extends JFrame {
 	/**
 	 * The width of the frame.
 	 */
-	public final int WIDTH = 1440;
+	public static final int WIDTH = 1440;
 	/**
 	 * The height of the frame.
 	 */
-	public final int HEIGHT = 874;
+	public static final int HEIGHT = 874;
 	
 	
-	public String workspace;
+	private static Start singleton;
+	
+	private String workspace;
 	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
 	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
@@ -139,6 +141,8 @@ public class Start extends JFrame {
 	
 	public Start() {
 		super();
+
+		singleton = this;
 		
 		checkOS();
 		
@@ -211,12 +215,16 @@ public class Start extends JFrame {
 		}
 	}
 	
+	public static Start getInstance() {
+		return singleton;
+	}
+	
 	private void buildHomescreen() {
 		{
 			Homescreen = new JPanel();
 			getContentPane().add(Homescreen);
 			Homescreen.setLayout(null);
-			Homescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			Homescreen.setBounds(0, 0, WIDTH, HEIGHT);
 		}
 		
 		buildLeaguesButtons();
@@ -341,7 +349,7 @@ public class Start extends JFrame {
 			LigaHomescreen = new JPanel();
 			getContentPane().add(LigaHomescreen);
 			LigaHomescreen.setLayout(null);
-			LigaHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			LigaHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
 			LigaHomescreen.setVisible(false);
 		}
 		{
@@ -427,7 +435,7 @@ public class Start extends JFrame {
 			TurnierHomescreen = new JPanel();
 			getContentPane().add(TurnierHomescreen);
 			TurnierHomescreen.setLayout(null);
-			TurnierHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			TurnierHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
 			TurnierHomescreen.setVisible(false);
 		}
 		{ 
@@ -470,21 +478,21 @@ public class Start extends JFrame {
 			QualifikationHomescreen = new JPanel();
 			getContentPane().add(QualifikationHomescreen);
 			QualifikationHomescreen.setLayout(null);
-			QualifikationHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			QualifikationHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
 			QualifikationHomescreen.setVisible(false);
 		}
 		{
 			GruppenphaseHomescreen = new JPanel();
 			getContentPane().add(GruppenphaseHomescreen);
 			GruppenphaseHomescreen.setLayout(null);
-			GruppenphaseHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			GruppenphaseHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
 			GruppenphaseHomescreen.setVisible(false);
 		}
 		{
 			KORundeHomescreen = new JPanel();
 			getContentPane().add(KORundeHomescreen);
 			KORundeHomescreen.setLayout(null);
-			KORundeHomescreen.setBounds(0, 0, this.WIDTH, this.HEIGHT);
+			KORundeHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
 			KORundeHomescreen.setVisible(false);
 		}
 	}
@@ -494,7 +502,7 @@ public class Start extends JFrame {
 			optionen = new JPanel();
 			getContentPane().add(optionen);
 			optionen.setLayout(null);
-			optionen.setBounds(470, 0, 500, this.HEIGHT);
+			optionen.setBounds(470, 0, 500, HEIGHT);
 			optionen.setBackground(new Color(255, 255, 0));
 			optionen.setVisible(false);
 			
@@ -689,9 +697,9 @@ public class Start extends JFrame {
 		aktuelleTabelle = aktuelleGruppe.getTabelle();
 		getContentPane().add(aktuelleTabelle);
 		{
-			uebersicht = new Uebersicht(this, aktuelleGruppe);
+			uebersicht = new Uebersicht(aktuelleGruppe);
 			getContentPane().add(uebersicht);
-			uebersicht.setLocation((this.WIDTH - uebersicht.getSize().width) / 2, 5);
+			uebersicht.setLocation((WIDTH - uebersicht.getSize().width) / 2, 5);
 			uebersicht.setVisible(false);
 		}
 	}
@@ -731,9 +739,9 @@ public class Start extends JFrame {
 	
 	private void ligaspezifischesachenladen() {
 		{
-			uebersicht = new Uebersicht(this, aktuelleLSaison);
+			uebersicht = new Uebersicht(aktuelleLSaison);
 			getContentPane().add(uebersicht);
-			uebersicht.setLocation((this.WIDTH - uebersicht.getSize().width) / 2, 5);
+			uebersicht.setLocation((WIDTH - uebersicht.getSize().width) / 2, 5);
 			uebersicht.setVisible(false);
 		}
 		
@@ -871,7 +879,7 @@ public class Start extends JFrame {
 	private void jBtnNeueSaisonActionPerformed() {
 		addingNewSeason = true;
 		
-		NeueLigaSaisonDialog nlsd = new NeueLigaSaisonDialog(this);
+		NeueLigaSaisonDialog nlsd = new NeueLigaSaisonDialog();
 		nlsd.setLocationRelativeTo(null);
 		nlsd.setVisible(true);
 		nlsd.setConfigurationFromPreviousSeason(aktuelleLSaison);
@@ -1000,13 +1008,13 @@ public class Start extends JFrame {
 			if (turniere.get(index).getShortName().equals(shortName))		break;
 		}
 		if (index != turniere.size()) {
-			return this.turniere.get(index).getWorkspace(season);
+			return turniere.get(index).getWorkspace(season);
 		}
 		return null;
 	}
 	
 	private void jBtnAddLeagueActionPerformed() {
-		NewLeagueDialog nld = new NewLeagueDialog(this);
+		NewLeagueDialog nld = new NewLeagueDialog();
 		nld.setLocationRelativeTo(null);
 		nld.setVisible(true);
 
@@ -1016,7 +1024,7 @@ public class Start extends JFrame {
 	
 	private void jBtnAddTournamentActionPerformed() {
 //		testAddNewTournament();
-		NewTournamentDialog ntd = new NewTournamentDialog(this);
+		NewTournamentDialog ntd = new NewTournamentDialog();
 		ntd.setLocationRelativeTo(null);
 		ntd.setVisible(true);
 
@@ -1042,7 +1050,7 @@ public class Start extends JFrame {
 		}
 		
 		String toString = name + ";";
-		Liga neueLiga = new Liga(anzahlLigen, this, toString);
+		Liga neueLiga = new Liga(anzahlLigen, toString);
 		ligen.add(neueLiga);
 		anzahlLigen++;
 		
@@ -1112,7 +1120,7 @@ public class Start extends JFrame {
 		String toString = "NAME*" + name + ";";
 		toString += "SHN*" + shortName + ";";
 		
-		Turnier neuesTurnier = new Turnier(anzahlTurniere, this, toString);
+		Turnier neuesTurnier = new Turnier(anzahlTurniere, toString);
 		turniere.add(neuesTurnier);
 		anzahlTurniere++;
 		
@@ -1309,7 +1317,7 @@ public class Start extends JFrame {
 		
 		// Speicherung in config / turniere-Array
 		anzahlTurniere++;
-		turniere.add(new Turnier(turniere.size(), this, daten));
+		turniere.add(new Turnier(turniere.size(), daten));
 		
 		saveConfiguration();
 		loadConfiguration();
@@ -1469,7 +1477,7 @@ public class Start extends JFrame {
 	
 	private void loadConfiguration() {
 		config = workspace + File.separator + "config.txt";
-		this.configurationFromFile = ausDatei(config);
+		configurationFromFile = ausDatei(config);
 		
 		int counter = 0;
 		
@@ -1478,7 +1486,7 @@ public class Start extends JFrame {
 		counter++;
 		
 		for (int i = 0; i < anzahlLigen; i++) {
-			ligen.add(new Liga(i, this, (String) configurationFromFile.get(counter)));
+			ligen.add(new Liga(i, (String) configurationFromFile.get(counter)));
 			counter++;
 		}
 		
@@ -1487,13 +1495,13 @@ public class Start extends JFrame {
 		counter++;
 		
 		for (int i = 0; i < anzahlTurniere; i++) {
-			turniere.add(new Turnier(i, this, (String) configurationFromFile.get(counter)));
+			turniere.add(new Turnier(i, (String) configurationFromFile.get(counter)));
 			counter++;
 		}
 	}
 	
 	private void saveConfiguration() {
-		this.configurationFromFile = new ArrayList<>();
+		configurationFromFile = new ArrayList<>();
 		
 		
 		configurationFromFile.add("" + anzahlLigen);

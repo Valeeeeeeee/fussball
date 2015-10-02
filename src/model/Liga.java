@@ -7,7 +7,6 @@ import static util.Utilities.*;
 
 public class Liga {
 	private int id = -1;
-	private Start start;
 	private String name;
 	
 	private ArrayList<LigaSaison> saisons;
@@ -19,16 +18,14 @@ public class Liga {
 	private ArrayList<String> saisonsDatenFromFile;
 	
 	
-	public Liga(int id, Start start, String daten) {
-		this.start = start;
-		
+	public Liga(int id, String daten) {
 		this.id = id;
 		fromString(daten);
 		saisonsLaden();
 	}
 	
 	public boolean addSeason(String toString, ArrayList<String> teams, String KOTRepresentation) {
-		LigaSaison neueSaison = new LigaSaison(start, this, saisons.size(), toString);
+		LigaSaison neueSaison = new LigaSaison(this, saisons.size(), toString);
 		for (int i = 0; i < saisons.size(); i++) {
 			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
@@ -144,7 +141,7 @@ public class Liga {
 	}
 	
 	private void saisonsLaden() {
-		workspace = start.getWorkspace() + File.separator + name + File.separator;
+		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		// SaisonsConfig.txt
 		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
@@ -153,7 +150,7 @@ public class Liga {
 		// LigaSaisons erstellen
 		saisons = new ArrayList<>();
 		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
-			saisons.add(new LigaSaison(start, this, i, saisonsDatenFromFile.get(i)));
+			saisons.add(new LigaSaison(this, i, saisonsDatenFromFile.get(i)));
 		}
 	}
 	

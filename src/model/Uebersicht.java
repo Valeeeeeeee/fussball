@@ -162,7 +162,6 @@ public class Uebersicht extends JPanel {
 	private int standardHeightKader = 190;
 	private int standardHeightKaderNoPlayers = 100;
 	
-	private Start start;
 	private Wettbewerb wettbewerb;
 	
 	private boolean hasGrDatum;
@@ -182,27 +181,24 @@ public class Uebersicht extends JPanel {
 	private boolean showingMoreStats;
 	private boolean showingMoreKader;
 
-	public Uebersicht(Start start, LigaSaison season/*, Mannschaft mannschaft*/) {
+	public Uebersicht(LigaSaison season/*, Mannschaft mannschaft*/) {
 		super();
-		this.start = start;
 		this.wettbewerb = season;
 		this.hasGrDatum = true;
 //		this.mannschaft = mannschaft;
 		initGUI();
 	}
 	
-	public Uebersicht(Start start, Gruppe gruppe/*, Mannschaft mannschaft*/) {
+	public Uebersicht(Gruppe gruppe/*, Mannschaft mannschaft*/) {
 		super();
-		this.start = start;
 		this.wettbewerb = gruppe;
 		this.hasGrDatum = false;
 //		this.mannschaft = mannschaft;
 		initGUI();
 	}
 	
-	public Uebersicht(Start start, Turnier turnier/*, Mannschaft mannschaft*/) {
+	public Uebersicht(Turnier turnier/*, Mannschaft mannschaft*/) {
 		super();
-		this.start = start;
 		this.hasGrDatum = false;
 //		this.mannschaft = mannschaft;
 //		initGUI();
@@ -759,11 +755,11 @@ public class Uebersicht extends JPanel {
 	}
 	
 	private void showTeam(int tableIndex, boolean home) {
-		if ((homeaway[tableIndex] ^ home) && opponents[tableIndex] != 0)	start.uebersichtAnzeigen(opponents[tableIndex]);
+		if ((homeaway[tableIndex] ^ home) && opponents[tableIndex] != 0)	Start.getInstance().uebersichtAnzeigen(opponents[tableIndex]);
 	}
 	
 	private void spieltagAnzeigen(int matchday) {
-		start.spieltagAnzeigen(matchday);
+		Start.getInstance().spieltagAnzeigen(matchday);
 	}
 	
 	private void showMoreLessStatistics() {

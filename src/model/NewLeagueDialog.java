@@ -11,8 +11,6 @@ import static util.Utilities.*;
 public class NewLeagueDialog extends JFrame {
 	private static final long serialVersionUID = -4797487798345998331L;
 	
-	private Start start;
-	
 	private final int minNumOfTeams = 2;
 	private final int maxNumOfTeams = 24;
 	private Color background = new Color(78, 235, 78);
@@ -136,10 +134,8 @@ public class NewLeagueDialog extends JFrame {
 	private String defKOTsRep;
 	
 	
-	public NewLeagueDialog(Start start) {
+	public NewLeagueDialog() {
 		super();
-		
-		this.start = start;
 		
 		initGUI();
 	}
@@ -603,9 +599,9 @@ public class NewLeagueDialog extends JFrame {
     	KOTsRep = getKOTsRep();
     	defKOTsRep = getDefaultKOTsRep();
     	
-		start.addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
+    	Start.getInstance().addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
 		
 		this.setVisible(false);
-		start.toFront();
+		Start.getInstance().toFront();
 	}
 }

@@ -13,7 +13,6 @@ public class Spieltag extends JPanel {
 
 	private static final int WIDTH_BORDER = 2;
 	
-	private Start start;
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	private Color colorRand = new Color(0, 192, 0);
 	private Color colorSelection = new Color(16, 255, 16);
@@ -116,10 +115,9 @@ public class Spieltag extends JPanel {
 	private int[] oldOrder;
 	private int[] newOrder;
 
-	public Spieltag(Start start, LigaSaison season) {
+	public Spieltag(LigaSaison season) {
 		super();
 
-		this.start = start;
 		this.season = season;
 		this.wettbewerb = season;
 		this.belongsToALeague = true;
@@ -136,10 +134,9 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 
-	public Spieltag(Start start, Gruppe gruppe) {
+	public Spieltag(Gruppe gruppe) {
 		super();
 
-		this.start = start;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
 		this.belongsToALeague = false;
@@ -156,10 +153,9 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	public Spieltag(Start start, KORunde koRunde) {
+	public Spieltag(KORunde koRunde) {
 		super();
 		
-		this.start = start;
 		this.koRunde = koRunde;
 		this.wettbewerb = koRunde;
 		this.belongsToALeague = false;
@@ -176,10 +172,9 @@ public class Spieltag extends JPanel {
 		initGUI();
 	}
 	
-	public Spieltag(Start start, TurnierSaison tSeason, boolean isQ) {
+	public Spieltag(TurnierSaison tSeason, boolean isQ) {
 		super();
 		
-		this.start = start;
 		this.tSeason = tSeason;
 		this.tGruppen = isQ ? tSeason.getQGruppen() : tSeason.getGruppen();
 		this.belongsToALeague = false;
@@ -1309,9 +1304,9 @@ public class Spieltag extends JPanel {
 		if (oldIndex < 0) {
 			groupID--;
 		}
-		start.jBtnZurueckActionPerformed();
-		start.jBtnGruppePressed(groupID);
-		start.jBtnSpieltageActionPerformed();
+		Start.getInstance().jBtnZurueckActionPerformed();
+		Start.getInstance().jBtnGruppePressed(groupID);
+		Start.getInstance().jBtnSpieltageActionPerformed();
 	}
 	
 	public void datumsLabelClicked(int index) {
@@ -1331,7 +1326,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndKOTindex(season.getDate(currentMatchday), season.getKOTIndex(currentMatchday, editedDate));
 			mdc.setMatch(season, currentMatchday, editedDate);
 			
-			start.toFront();
+			Start.getInstance().toFront();
 			mdc.toFront();
 		} else if (belongsToGroup) {
 			MyDateChooser mdc = new MyDateChooser(gruppe, this);
@@ -1340,7 +1335,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(gruppe.getDate(currentMatchday, editedDate), gruppe.getTime(currentMatchday, editedDate));
 			mdc.setMatch(gruppe, currentMatchday, editedDate);
 
-			start.toFront();
+			Start.getInstance().toFront();
 			mdc.toFront();
 		} else if (belongsToKORound) {
 			MyDateChooser mdc = new MyDateChooser(koRunde, this);
@@ -1349,7 +1344,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(koRunde.getDate(currentMatchday, editedDate), koRunde.getTime(currentMatchday, editedDate));
 			mdc.setMatch(koRunde, currentMatchday, editedDate);
 
-			start.toFront();
+			Start.getInstance().toFront();
 			mdc.toFront();
 		} else {
 			// Bestimmung der Gruppe
@@ -1370,7 +1365,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(gruppe.getDate(currentMatchday, matchID), gruppe.getTime(currentMatchday, matchID));
 			mdc.setMatch(gruppe, currentMatchday, matchID);
 
-			start.toFront();
+			Start.getInstance().toFront();
 			mdc.toFront();
 		}
 	}
@@ -1442,7 +1437,7 @@ public class Spieltag extends JPanel {
 		spielInformationen.setVisible(true);
 		openedMatchInfos.add(spielInformationen);
 
-		start.toFront();
+		Start.getInstance().toFront();
 		spielInformationen.toFront();
 	}
 	

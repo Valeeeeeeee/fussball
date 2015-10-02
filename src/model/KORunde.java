@@ -7,8 +7,6 @@ import static util.Utilities.*;
 
 public class KORunde implements Wettbewerb {
 
-	private Start start;
-	private Turnier turnier;
 	private TurnierSaison season;
 	private int id;
 	private boolean isQ;
@@ -74,9 +72,7 @@ public class KORunde implements Wettbewerb {
     
     private Spieltag spieltag;
 	
-	public KORunde(Start start, TurnierSaison season, int id, boolean isQ, String daten) {
-		this.start = start;
-		
+	public KORunde(TurnierSaison season, int id, boolean isQ, String daten) {
 		this.season = season;
 		this.id = id;
 		this.isQ = isQ;
@@ -174,7 +170,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = start.getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
+		String fileName = Start.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
 		
 		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
 		for (String team : teams) {
@@ -640,8 +636,8 @@ public class KORunde implements Wettbewerb {
 		ergebnisseLaden();
 		
 		{
-            spieltag = new Spieltag(this.start, this);
-            spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+            spieltag = new Spieltag(this);
+            spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         }
 		
@@ -681,13 +677,13 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			mannschaften[i] = new Mannschaft(start, i, season, this, teamsOrigins[i]);
+			mannschaften[i] = new Mannschaft(i, season, this, teamsOrigins[i]);
 		}
 		
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
+			mannschaften[i] = new Mannschaft(i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		
 		mannschaftenAktualisieren();

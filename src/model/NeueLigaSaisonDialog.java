@@ -27,8 +27,6 @@ import javax.swing.JTextField;
 public class NeueLigaSaisonDialog extends JFrame {
 	private static final long serialVersionUID = -2949488695441610088L;
 
-	private Start start;
-	
 	private int WIDTH = 600 + 6;
 	private int HEIGHT = 800 + 28;
 	
@@ -79,10 +77,8 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private JButton jBtnChangeTeamCompleted;
 	private JButton jBtnFertig;
 	
-	public NeueLigaSaisonDialog(Start start) {
+	public NeueLigaSaisonDialog() {
 		super();
-		
-		this.start = start;
 		
 		initGUI();
 	}
@@ -360,7 +356,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
 		} else {
-			Mannschaft mannschaft = new Mannschaft(start, newSeasonTeamIndex, null, name + ";" + grDatum);
+			Mannschaft mannschaft = new Mannschaft(newSeasonTeamIndex, null, name + ";" + grDatum);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
 			newSeasonTeamsOrder.add(mannschaft);
@@ -467,7 +463,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		start.jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
+		Start.getInstance().jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

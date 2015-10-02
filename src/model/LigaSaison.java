@@ -9,7 +9,6 @@ import util.Utilities;
 
 public class LigaSaison implements Wettbewerb {
 	
-	private Start start;
 	private Liga liga;
 	private boolean isSummerToSpringSeason;
 	private int seasonIndex;
@@ -62,8 +61,7 @@ public class LigaSaison implements Wettbewerb {
 	private String dateiSpieldaten;
 	private ArrayList<String> spieldatenFromFile;
 	
-	public LigaSaison(Start start, Liga liga, int seasonIndex, String data) {
-		this.start = start;
+	public LigaSaison(Liga liga, int seasonIndex, String data) {
 		this.liga = liga;
 		this.seasonIndex = seasonIndex;
 		fromString(data);
@@ -620,7 +618,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		mannschaften = new Mannschaft[numberOfTeams];
 		for (int i = 0; i < numberOfTeams; i++) {
-			mannschaften[i] = new Mannschaft(start, i + 1, this, mannschaftenFromFile.get(i + 1));
+			mannschaften[i] = new Mannschaft(i + 1, this, mannschaftenFromFile.get(i + 1));
 		}
 	}
 	
@@ -816,18 +814,18 @@ public class LigaSaison implements Wettbewerb {
 		spieldatenLaden();
 		
 		if (spieltag == null) {
-			spieltag = new Spieltag(start, this);
-			spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			spieltag = new Spieltag(this);
+			spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			spieltag.setVisible(false);
 		}
 		if (tabelle == null) {
-			tabelle = new Tabelle(start, this);
-			tabelle.setLocation((start.WIDTH - tabelle.getSize().width) / 2, 50);
+			tabelle = new Tabelle(this);
+			tabelle.setLocation((Start.WIDTH - tabelle.getSize().width) / 2, 50);
 			tabelle.setVisible(false);
 		}
 		if (statistik == null) {
 			statistik = new LigaStatistik(this);
-			statistik.setLocation((start.WIDTH - statistik.getSize().width) / 2, 50);
+			statistik.setLocation((Start.WIDTH - statistik.getSize().width) / 2, 50);
 			statistik.setVisible(false);
 		}
 		spieltag.resetCurrentMatchday();

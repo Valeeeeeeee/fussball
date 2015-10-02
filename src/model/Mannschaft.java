@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Mannschaft {
 	private int id;
-	private Start start;
 	private String name;
 	private String nameForFileSearch;
 	private String gruendungsdatum;
@@ -70,9 +69,8 @@ public class Mannschaft {
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
 
-	public Mannschaft(Start start, int id, LigaSaison lSeason, String mannschaftsDaten) {
+	public Mannschaft(int id, LigaSaison lSeason, String mannschaftsDaten) {
 		this.id = id;
-		this.start = start;
 		this.lSeason = lSeason;
 		this.wettbewerb = lSeason;
 		this.playsInLeague = true;
@@ -85,9 +83,8 @@ public class Mannschaft {
 		}
 	}
 
-	public Mannschaft(Start start, int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
+	public Mannschaft(int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
 		this.id = id;
-		this.start = start;
 		this.tSeason = tSeason;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
@@ -97,9 +94,8 @@ public class Mannschaft {
 		initializeArrays();
 	}
 	
-	public Mannschaft(Start start, int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
+	public Mannschaft(int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
 		this.id = id;
-		this.start = start;
 		this.tSeason = tSeason;
 		this.startKORunde = koRunde;
 		this.wettbewerb = koRunde;

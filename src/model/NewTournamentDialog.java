@@ -11,8 +11,6 @@ import javax.swing.*;
 public class NewTournamentDialog extends JFrame {
 	private static final long serialVersionUID = -4797487798345998331L;
 
-	private Start start;
-
 	private Color background = new Color(78, 235, 78);
 	private Color backgroundRemove = new Color(235, 31, 31);
 	private Color foregroundRemove = new Color(255, 255, 255);
@@ -252,11 +250,9 @@ public class NewTournamentDialog extends JFrame {
 	private DefaultListModel<String> koTeamsModel;
 
 
-	public NewTournamentDialog(Start start) {
+	public NewTournamentDialog() {
 		super();
 		
-		this.start = start;
-
 		initGUI();
 		updateGUI();
 	}
@@ -1047,7 +1043,7 @@ public class NewTournamentDialog extends JFrame {
 	private void setDetailsGroupCBModel() {
 		String[] groupsNames = new String[numberOfGroups];
 		for (int i = 0; i < groupsNames.length; i++) {
-			groupsNames[i] = "Gruppe " + start.getAlphabet()[i];
+			groupsNames[i] = "Gruppe " + alphabet[i];
 		}
 		detailsGroupCB.setModel(new DefaultComboBoxModel<>(groupsNames));
 	}
@@ -1924,7 +1920,7 @@ public class NewTournamentDialog extends JFrame {
 			teamsGrp = getTeamsGrp();
 			teamsKO = getTeamsKO();
 
-			start.addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+			Start.getInstance().addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
 			this.setVisible(false);
 		}
 		updateGUI();

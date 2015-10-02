@@ -11,7 +11,6 @@ import static util.Utilities.*;
 public class Tabelle extends JPanel {
 	private static final long serialVersionUID = 2308780445852600421L;
 	
-	private Start start;
 	private Wettbewerb wettbewerb;
 	private LigaSaison season;
 	private Gruppe gruppe;
@@ -70,9 +69,8 @@ public class Tabelle extends JPanel {
 	private JTextField[] jTFPunktabzuege;
 	private JButton jBtnFertig;
 	
-	public Tabelle(Start start, Gruppe gruppe) {
+	public Tabelle(Gruppe gruppe) {
 		super();
-		this.start = start;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
 		this.belongsToALeague = false;
@@ -85,9 +83,8 @@ public class Tabelle extends JPanel {
 		initGUI();
 	}
 	
-	public Tabelle(Start start, LigaSaison season) {
+	public Tabelle(LigaSaison season) {
 		super();
-		this.start = start;
 		this.season = season;
 		this.wettbewerb = season;
 		this.belongsToALeague = true;
@@ -141,7 +138,7 @@ public class Tabelle extends JPanel {
 								int index = teamIndices[x];
 								jBtnAndereTabellenart(Tabellenart.COMPLETE);
 								if (belongsToALeague)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
-								start.uebersichtAnzeigen(index);
+								Start.getInstance().uebersichtAnzeigen(index);
 							}
 						});
 					} else {
@@ -420,7 +417,7 @@ public class Tabelle extends JPanel {
 	
 	private void jBtnTabelleSichernActionPerformed() {
 		String[] order = new String[tabelle.length];
-		String dateiname = start.workspace;
+		String dateiname = Start.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
 			if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
