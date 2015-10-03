@@ -152,23 +152,6 @@ public class Start extends JFrame {
 //		message("Fuer die Bounds ein Rectangle[win/mac][alle lbls, cbs, ...] mit den Bounds-Werten. \n"
 //					+ "Zum Aendern int macorwin", "Bounds", JOptionPane.INFORMATION_MESSAGE);
 		
-//		jBtnTurnierePressed(1);
-//		jBtnAlleGruppenPressed();
-//		jBtnZurueckActionPerformed();
-//		jBtnBeendenActionPerformed();
-		
-//		jBtnLigenPressed(0);
-//		jCBSaisonauswahl.setSelectedIndex(1);
-//		jBtnSpieltageActionPerformed();
-		
-//		jBtnTabelleActionPerformed();
-//		uebersichtAnzeigen("VfB Stuttgart");
-		
-//		jBtnAddLeagueActionPerformed();
-//		jBtnAddTournamentActionPerformed();
-//		jBtnBeendenActionPerformed();
-		
-		
 		testSomethingBeforeIntroducingItIntoTheRealCode();
 		
 		log("\nProgramm erfolgreich gestartet ...\n\n");

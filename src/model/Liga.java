@@ -84,7 +84,7 @@ public class Liga {
 				long now = 10000L * MyDate.newMyDate() + MyDate.newMyTime();
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
-					if (match < now) {
+					if (match <= now) {
 						boolean hourPassed = match % 100 >= now % 100;
 						int dayDiff = MyDate.difference((int) match / 10000, (int) now / 10000);
 						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);

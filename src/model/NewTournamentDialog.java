@@ -1123,7 +1123,7 @@ public class NewTournamentDialog extends JFrame {
 			if (!teamsNamesGroupStage.get(index).get(i).equals("Mannschaft " + (i + 1)))	hasData = true;
 		}
 		if (hasData) {
-			int cont = yesNoDialog("Es wurden fuer die geloeschte Gruppe " + alphabet[index] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
+			int cont = yesNoDialog("Es wurden für die gelöschte Gruppe " + alphabet[index] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
 			if (cont != JOptionPane.YES_OPTION)	return;
 		}
 		numberOfGroups--;
@@ -1163,7 +1163,7 @@ public class NewTournamentDialog extends JFrame {
 			}
 			
 			if (hasData) {
-				int cont = yesNoDialog("Es wurden fuer die geaenderte Gruppe " + alphabet[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
+				int cont = yesNoDialog("Es wurden für die geänderte Gruppe " + alphabet[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
 				if (cont != JOptionPane.YES_OPTION)	return;
 			}
 		}
@@ -1255,7 +1255,7 @@ public class NewTournamentDialog extends JFrame {
 			if (isKORoundSelected[i]) {
 				teamsCFrom[i] = teamsComingFrom.get(index++);
 				if (!jChBKORunden[i].isSelected() && (teamsCFrom[i][0] != 0 || teamsCFrom[i][1] != 0 || teamsCFrom[i][2] != 0)) {
-					int cont = yesNoDialog("Es wurden fuer die geloeschte KO-Runde " + possibleKORounds[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
+					int cont = yesNoDialog("Es wurden für die gelöschte KO-Runde " + possibleKORounds[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
 					if (cont != JOptionPane.YES_OPTION)	return;
 				}
 			} else {
@@ -1730,7 +1730,7 @@ public class NewTournamentDialog extends JFrame {
 				for (int j = 0; j < teamsGrp[i].length; j++) {
 					teamsGrp[i][j] = teamsNamesGroupStage.get(i).get(j);
 					if (!ignored && teamsGrp[i][j].equals("Mannschaft " + (j + 1))) {
-						if (yesNoDialog("Es gibt noch Mannschaften, deren Namen nicht angegeben ist. Diese werden beim Speichern durch einen Platzhalter ersetzt. "
+						if (yesNoDialog("Es gibt noch Mannschaften, deren Namen nicht angegeben ist. Diese werden beim Speichern durch einen Platzhalter ersetzt.\n"
 								+ "Die Namen können auch später noch angegeben werden. Fortfahren?") == JOptionPane.NO_OPTION) {
 							return false;
 						}

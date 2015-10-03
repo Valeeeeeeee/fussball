@@ -52,7 +52,6 @@ public class Mannschaft {
 	
 	private Wettbewerb wettbewerb;
 	private LigaSaison lSeason;
-	private TurnierSaison tSeason;
 	private Gruppe gruppe;
 	private KORunde startKORunde;
 	
@@ -69,12 +68,14 @@ public class Mannschaft {
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
 
-	public Mannschaft(int id, LigaSaison lSeason, String mannschaftsDaten) {
+	public Mannschaft(int id, Wettbewerb wettbewerb, String mannschaftsDaten) {
 		this.id = id;
-		this.lSeason = lSeason;
-		this.wettbewerb = lSeason;
-		this.playsInLeague = true;
-		this.playsInGroup = false;
+		if (wettbewerb instanceof LigaSaison)	this.lSeason = (LigaSaison) wettbewerb;
+		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+		else if (wettbewerb instanceof KORunde)	this.startKORunde = (KORunde) wettbewerb;
+		this.wettbewerb = wettbewerb;
+		this.playsInLeague = lSeason != null;
+		this.playsInGroup = gruppe != null;
 		
 		parseString(mannschaftsDaten);
 		if (wettbewerb != null) {
@@ -82,29 +83,7 @@ public class Mannschaft {
 			loadKader();
 		}
 	}
-
-	public Mannschaft(int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
-		this.id = id;
-		this.tSeason = tSeason;
-		this.gruppe = gruppe;
-		this.wettbewerb = gruppe;
-		this.playsInLeague = false;
-		this.playsInGroup = true;
-		parseString(mannschaftsDaten);
-		initializeArrays();
-	}
 	
-	public Mannschaft(int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
-		this.id = id;
-		this.tSeason = tSeason;
-		this.startKORunde = koRunde;
-		this.wettbewerb = koRunde;
-		this.playsInLeague = false;
-		this.playsInGroup = false;
-		parseString(mannschaftsDaten);
-		initializeArrays();
-	}
-
 	private void initializeArrays() {
 		numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
@@ -126,7 +105,8 @@ public class Mannschaft {
 	
 	public int getNumberOfPlayers(boolean onlyEligible) {
 		if (onlyEligible) {
-			// TODO
+			updateEligiblePlayers(Start.today());
+			return eligiblePlayers.size();
 		}
 		return kader.size();
 	}

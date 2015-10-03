@@ -181,26 +181,23 @@ public class Uebersicht extends JPanel {
 	private boolean showingMoreStats;
 	private boolean showingMoreKader;
 
-	public Uebersicht(LigaSaison season/*, Mannschaft mannschaft*/) {
+	public Uebersicht(LigaSaison season) {
 		super();
 		this.wettbewerb = season;
 		this.hasGrDatum = true;
-//		this.mannschaft = mannschaft;
 		initGUI();
 	}
 	
-	public Uebersicht(Gruppe gruppe/*, Mannschaft mannschaft*/) {
+	public Uebersicht(Gruppe gruppe) {
 		super();
 		this.wettbewerb = gruppe;
 		this.hasGrDatum = false;
-//		this.mannschaft = mannschaft;
 		initGUI();
 	}
 	
-	public Uebersicht(Turnier turnier/*, Mannschaft mannschaft*/) {
+	public Uebersicht(Turnier turnier) {
 		super();
 		this.hasGrDatum = false;
-//		this.mannschaft = mannschaft;
 //		initGUI();
 	}
 	

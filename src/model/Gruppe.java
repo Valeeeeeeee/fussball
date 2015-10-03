@@ -535,7 +535,7 @@ public class Gruppe implements Wettbewerb {
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(i + 1, season, this, teamsFromFile.get(i));
+			mannschaften[i] = new Mannschaft(i + 1, this, teamsFromFile.get(i));
 		}
 	}
 	

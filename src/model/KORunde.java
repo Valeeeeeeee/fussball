@@ -677,13 +677,13 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			mannschaften[i] = new Mannschaft(i, season, this, teamsOrigins[i]);
+			mannschaften[i] = new Mannschaft(i, this, teamsOrigins[i]);
 		}
 		
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			mannschaften[i] = new Mannschaft(i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
+			mannschaften[i] = new Mannschaft(i, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		
 		mannschaftenAktualisieren();
