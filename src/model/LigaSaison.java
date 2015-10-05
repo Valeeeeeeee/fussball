@@ -5,7 +5,6 @@ import static util.Utilities.*;
 import java.io.File;
 import java.util.ArrayList;
 
-import util.Utilities;
 
 public class LigaSaison implements Wettbewerb {
 	

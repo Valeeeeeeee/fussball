@@ -159,16 +159,6 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
-	private void testGNOTFOC() {
-		String[] otherComp = new String[] {"CL2014GA3"};
-		
-		log("Test:");
-		for (int i = 0; i < otherComp.length; i++) {
-			getNameOfTeamFromOtherCompetition(otherComp[i]);
-		}
-		log();
-	}
-	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
 		String fileName = Start.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
 		

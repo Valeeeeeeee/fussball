@@ -1,12 +1,15 @@
 package util;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
-import model.Ergebnis;
 import model.MyDate;
 import model.Spieler;
 import model.Start;
@@ -18,6 +21,7 @@ public class Utilities {
 	public static final Color colorCategory3 = new Color(255, 255, 0);
 	public static final Color colorCategory4 = new Color(255, 128, 0);
 	public static final Color colorCategory5 = new Color(255, 0, 0);
+	public static final Color colorHomescreen = new Color(255, 255, 255);
 	
 	public static final int STARTX = 0;
 	public static final int STARTY = 1;
@@ -28,36 +32,8 @@ public class Utilities {
 	private static boolean osX = System.getProperty("os.name").startsWith("Mac OS X");
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	public static String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	
-	
-	public static void main(String[] args) {
-		
-		boolean testing = false;
-		if (testing) {
-			testAusDatei();
-			testErgebnisse();
-		}
-	}
-	
-	private static void testErgebnisse() {
-		String[] ergebnisStrings = new String[] {"2:4", "3:1nV (1:1)", "6:4nE (:2,1:1)", "5:5nE (3:3)", "2:1nV", "6:5nE (2:4,1:2)", "6:5nE (1:2,1:2)"};
-		Ergebnis[] ergebnisse = new Ergebnis[ergebnisStrings.length];
-		
-		for (int i = 0; i < ergebnisStrings.length; i++) {
-			ergebnisse[i] = new Ergebnis(ergebnisStrings[i]);
-			log(ergebnisStrings[i] + " oder " + ergebnisse[i].toString());
-			log();
-		}
-	}
-	
-	private static void testAusDatei() {
-		ArrayList<String> strings = new ArrayList<>();
-		String dateiname = "/Users/valentinschraub/Documents/workspace/Fussball/config.txt";
-		strings = ausDatei(dateiname);
-		for (int i = 0; i < strings.size(); i++) {
-			log(strings.get(i));
-		}
-	}
 	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
@@ -81,6 +57,19 @@ public class Utilities {
 	
 	public static void alignRight(JTextField textField) {
 		textField.setHorizontalAlignment(SwingConstants.RIGHT);
+	}
+	
+	public static Image resizeImage(Image image, int width, int height) {
+	    BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D g = resizedImage.createGraphics();
+
+	    g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	    g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+	    
+	    g.drawImage(image, 0, 0, width, height, null);
+	    g.dispose();
+	    
+	    return resizedImage;
 	}
 	
 	public static void repaintImmediately(JComponent component) {

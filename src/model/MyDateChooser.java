@@ -80,8 +80,6 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_MINUTETOUR =		new Rectangle(90, 70, 70, 30);
 	private Rectangle REC_GOTOUR =			new Rectangle(260, 40, 70, 30);
 	
-	
-	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
 	public MyDateChooser(LigaSaison season, Spieltag spieltag) {

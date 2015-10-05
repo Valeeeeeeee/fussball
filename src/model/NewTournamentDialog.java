@@ -17,7 +17,8 @@ public class NewTournamentDialog extends JFrame {
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private Font fontWettbewerb = new Font("Dialog", 0, 25);
 	
-	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
+	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", 
+														"Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
 	private String[] possibleKORoundsShort = new String[] {"1R", "2R", "3R", "ZR", "SF", "AF", "VF", "HF", "P3", "FI"};
 	private String[] posNumOfTeamsPerGroup;
 	private String[] prOptions = new String[] {"alle", "keine", "die besten"};
@@ -47,26 +48,32 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_NAMETF = new Rectangle(60, 5, 180, 25);
 	private Rectangle REC_SHNLBL = new Rectangle(265, 5, 65, 25);
 	private Rectangle REC_SHNTF = new Rectangle(335, 5, 40, 25);
-	private Rectangle REC_STDLBL = new Rectangle(5, 35, 50, 25); // checked
-	private Rectangle REC_STDTF = new Rectangle(60, 35, 90, 25); // checked
-	private Rectangle REC_FIDLBL = new Rectangle(245, 35, 35, 25); // checked
-	private Rectangle REC_FIDTF = new Rectangle(285, 35, 90, 25); // checked
+	private Rectangle REC_STDLBL = new Rectangle(5, 35, 50, 25);
+	private Rectangle REC_STDTF = new Rectangle(60, 35, 90, 25);
+	private Rectangle REC_FIDLBL = new Rectangle(245, 35, 35, 25);
+	private Rectangle REC_FIDTF = new Rectangle(285, 35, 90, 25);
 	
 	// Qualification
 	private Rectangle REC_QPNL;
-	private Rectangle REC_QLBL = new Rectangle(5, 0, 90, 30);
-	private Rectangle REC_QYES = new Rectangle(100, 0, 45, 30); // checked
-	private Rectangle REC_QNO = new Rectangle(140, 0, 60, 30); // checked
-	private Rectangle REC_QSTDLBL = new Rectangle(5, 30, 50, 30); // checked
-	private Rectangle REC_QSTDTF = new Rectangle(60, 30, 120, 30); // checked
-	private Rectangle REC_QFIDLBL = new Rectangle(200, 30, 40, 30); // checked
-	private Rectangle REC_QFIDTF = new Rectangle(250, 30, 120, 30); // checked
+	private Rectangle REC_QLBL = new Rectangle(10, 5, 90, 25);
+	private Rectangle REC_QYES = new Rectangle(105, 5, 45, 25);
+	private Rectangle REC_QNO = new Rectangle(145, 5, 60, 25);
+	private Rectangle REC_QSTDLBL = new Rectangle(5, 30, 50, 25);
+	private Rectangle REC_QSTDTF = new Rectangle(60, 30, 120, 25);
+	private Rectangle REC_QFIDLBL = new Rectangle(200, 30, 40, 25);
+	private Rectangle REC_QFIDTF = new Rectangle(250, 30, 120, 25);
+	private Rectangle REC_QGRPLBL = new Rectangle(15, 65, 90, 25);
+	private Rectangle REC_QGRPYES = new Rectangle(110, 65, 45, 25);
+	private Rectangle REC_QGRPNO = new Rectangle(150, 65, 60, 25);
+	private Rectangle REC_QKOLBL = new Rectangle(15, 95, 70, 25);
+	private Rectangle REC_QKOYES = new Rectangle(110, 95, 45, 25);
+	private Rectangle REC_QKONO = new Rectangle(150, 95, 60, 25);
 	
 	// Group stage
 	private Rectangle REC_GRPPNL;
-	private Rectangle REC_GRPLBL = new Rectangle(5, 5, 90, 25);
-	private Rectangle REC_GRPYES = new Rectangle(100, 5, 45, 25); // checked
-	private Rectangle REC_GRPNO = new Rectangle(140, 5, 60, 25); // checked
+	private Rectangle REC_GRPLBL = new Rectangle(10, 5, 90, 25);
+	private Rectangle REC_GRPYES = new Rectangle(105, 5, 45, 25);
+	private Rectangle REC_GRPNO = new Rectangle(145, 5, 60, 25);
 	private Rectangle REC_NOFGRPLBL = new Rectangle(215, 5, 70, 25);
 	private Rectangle REC_BTNCHNOFGRP = new Rectangle(290, 5, 85, 25);
 	private Rectangle REC_BTNADDGRP = new Rectangle(30, 35, 110, 25);
@@ -75,10 +82,10 @@ public class NewTournamentDialog extends JFrame {
 	private Rectangle REC_SAMENOTGRPLBL = new Rectangle(200, 100, 80, 25);
 	private Rectangle REC_SAMENOTGRPCB = new Rectangle(280, 100, 60, 25);
 	private Rectangle REC_DIFFNOTGRPLBL = new Rectangle(200, 130, 130, 25);
-	private Rectangle REC_DETGRPCB = new Rectangle(90, 45, 120, 25); // checked
-	private Rectangle REC_GRP2LEGLBL = new Rectangle(25, 75, 70, 25); // checked
-	private Rectangle REC_GRP2LEGYES = new Rectangle(100, 75, 45, 25); // checked
-	private Rectangle REC_GRP2LEGNO = new Rectangle(140, 75, 60, 25); // checked
+	private Rectangle REC_DETGRPCB = new Rectangle(90, 45, 120, 25);
+	private Rectangle REC_GRP2LEGLBL = new Rectangle(25, 75, 70, 25);
+	private Rectangle REC_GRP2LEGYES = new Rectangle(100, 75, 45, 25);
+	private Rectangle REC_GRP2LEGNO = new Rectangle(140, 75, 60, 25);
 	
 	private int[] rmvGroups = new int[] {20, 70, 0, 25, 20, 20};
 	private int[] groups = new int[] {50, 70, 0, 25, 60, 20};
@@ -86,16 +93,16 @@ public class NewTournamentDialog extends JFrame {
 	
 	// Knockout stage
 	private Rectangle REC_KOPNL;
-	private Rectangle REC_KOLBL = new Rectangle(5, 5, 70, 25); // checked
-	private Rectangle REC_KOYES = new Rectangle(80, 5, 45, 25); // checked
-	private Rectangle REC_KONO = new Rectangle(120, 5, 60, 25); // checked
-	private Rectangle REC_NOFKOLBL = new Rectangle(200, 5, 85, 25); // checked
+	private Rectangle REC_KOLBL = new Rectangle(10, 5, 70, 25);
+	private Rectangle REC_KOYES = new Rectangle(85, 5, 45, 25);
+	private Rectangle REC_KONO = new Rectangle(125, 5, 60, 25);
+	private Rectangle REC_NOFKOLBL = new Rectangle(200, 5, 85, 25);
 	private Rectangle REC_BTNCHNOFKO = new Rectangle(290, 5, 85, 25);
 	private Rectangle REC_DETKOLBL = new Rectangle(20, 45, 65, 25);
 	private Rectangle REC_DETKOCB = new Rectangle(90, 45, 160, 25);
-	private Rectangle REC_KO2LEGLBL = new Rectangle(25, 75, 70, 25); // checked
-	private Rectangle REC_KO2LEGYES = new Rectangle(100, 75, 45, 25); // checked
-	private Rectangle REC_KO2LEGNO = new Rectangle(140, 75, 60, 25); // checked
+	private Rectangle REC_KO2LEGLBL = new Rectangle(25, 75, 70, 25);
+	private Rectangle REC_KO2LEGYES = new Rectangle(100, 75, 45, 25);
+	private Rectangle REC_KO2LEGNO = new Rectangle(140, 75, 60, 25);
 	private Rectangle REC_NOPRLBL = new Rectangle(75, 165, 200, 25);
 	private Rectangle REC_NOTPQVALLBL = new Rectangle(20, 105, 25, 25);
 	private Rectangle REC_NOTPQLBL = new Rectangle(50, 105, 180, 25);
@@ -144,6 +151,14 @@ public class NewTournamentDialog extends JFrame {
 	private JLabel qFinalDateLbl;
 	private JTextField qStartDateTF;
 	private JTextField qFinalDateTF;
+	private JLabel qGroupStageLbl;
+	private JRadioButton qGroupStageYesRB;
+	private JRadioButton qGroupStageNoRB;
+	private ButtonGroup qGroupStageRBGrp;
+	private JLabel qKoStageLbl;
+	private JRadioButton qKoStageYesRB;
+	private JRadioButton qKoStageNoRB;
+	private ButtonGroup qKoStageRBGrp;
 	
 	// Group stage
 	private JPanel groupStagePnl;
@@ -210,6 +225,8 @@ public class NewTournamentDialog extends JFrame {
 	private int fiDate;
 	private boolean isSTSS;
 	private boolean hasQ;
+	private boolean hasQGrp;
+	private boolean hasQKO;
 	private boolean hasGrp;
 	private boolean hasKO;
 	private boolean has3pl;
@@ -467,6 +484,82 @@ public class NewTournamentDialog extends JFrame {
 			qualificationPnl.add(qFinalDateTF);
 			qFinalDateTF.setBounds(REC_QFIDTF);
 			qFinalDateTF.setVisible(false);
+		}
+		// Qualification - Group Stage
+		{
+			qGroupStageLbl = new JLabel();
+			qualificationPnl.add(qGroupStageLbl);
+			qGroupStageLbl.setBounds(REC_QGRPLBL);
+			qGroupStageLbl.setText("Gruppenphase");
+		}
+		{
+			qGroupStageYesRB = new JRadioButton("ja");
+			qualificationPnl.add(qGroupStageYesRB);
+			qGroupStageYesRB.setBounds(REC_QGRPYES);
+			qGroupStageYesRB.setActionCommand("true");
+			qGroupStageYesRB.setOpaque(false);
+			qGroupStageYesRB.setFocusable(false);
+			qGroupStageYesRB.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					qGroupStageRBchanged(true);
+				}
+			});
+		}
+		{
+			qGroupStageNoRB = new JRadioButton("nein");
+			qualificationPnl.add(qGroupStageNoRB);
+			qGroupStageNoRB.setBounds(REC_QGRPNO);
+			qGroupStageNoRB.setActionCommand("false");
+			qGroupStageNoRB.setOpaque(false);
+			qGroupStageNoRB.setFocusable(false);
+			qGroupStageNoRB.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					qGroupStageRBchanged(false);
+				}
+			});
+		}
+		{
+			qGroupStageRBGrp = new ButtonGroup();
+			qGroupStageRBGrp.add(qGroupStageYesRB);
+			qGroupStageRBGrp.add(qGroupStageNoRB);
+		}
+		// Qualification - KO Stage
+		{
+			qKoStageLbl = new JLabel();
+			qualificationPnl.add(qKoStageLbl);
+			qKoStageLbl.setBounds(REC_QKOLBL);
+			qKoStageLbl.setText("KO-Phase");
+		}
+		{
+			qKoStageYesRB = new JRadioButton("ja");
+			qualificationPnl.add(qKoStageYesRB);
+			qKoStageYesRB.setBounds(REC_QKOYES);
+			qKoStageYesRB.setActionCommand("true");
+			qKoStageYesRB.setOpaque(false);
+			qKoStageYesRB.setFocusable(false);
+			qKoStageYesRB.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					qKoStageRBchanged(true);
+				}
+			});
+		}
+		{
+			qKoStageNoRB = new JRadioButton("nein");
+			qualificationPnl.add(qKoStageNoRB);
+			qKoStageNoRB.setBounds(REC_QKONO);
+			qKoStageNoRB.setActionCommand("false");
+			qKoStageNoRB.setOpaque(false);
+			qKoStageNoRB.setFocusable(false);
+			qKoStageNoRB.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					qKoStageRBchanged(false);
+				}
+			});
+		}
+		{
+			qKoStageRBGrp = new ButtonGroup();
+			qKoStageRBGrp.add(qKoStageYesRB);
+			qKoStageRBGrp.add(qKoStageNoRB);
 		}
 	}
 
@@ -965,6 +1058,8 @@ public class NewTournamentDialog extends JFrame {
 		finalDateTF.setText("04.07.2016");
 		
 		qualificationNoRB.setSelected(true);
+		qGroupStageNoRB.setSelected(true);
+		qKoStageYesRB.setSelected(true);
 		
 		groupStageYesRB.setSelected(true);
 		jRBSameNumberOfTeams.setSelected(true);
@@ -1015,11 +1110,26 @@ public class NewTournamentDialog extends JFrame {
 	
 	private void qualificationRBchanged(boolean hasQ) {
 		log("Qualification has been " + (hasQ ? "enabled." : "disabled."));
+		this.hasQ = hasQ;
 		
-		qStartDateLbl.setVisible(hasQ);
-		qStartDateTF.setVisible(hasQ);
-		qFinalDateLbl.setVisible(hasQ);
-		qFinalDateTF.setVisible(hasQ);
+		showQualificationConfiguration(true);
+		updateGUI();
+	}
+	
+	private void qGroupStageRBchanged(boolean hasQGrp) {
+		log("Qualification group stage has been " + (hasQGrp ? "enabled." : "disabled."));
+		this.hasQGrp = hasQGrp;
+		
+		showQGroupStageConfiguration(true);
+		updateGUI();
+	}
+	
+	private void qKoStageRBchanged(boolean hasQKO) {
+		log("Qualification knockout stage has been " + (hasQKO ? "enabled." : "disabled."));
+		this.hasQKO = hasQKO;
+		
+//		if (showingMoreFrom != 0)	jLblMoreClicked(showingMoreFrom);
+		showQKORoundConfiguration(true);
 		updateGUI();
 	}
 	
@@ -1038,6 +1148,33 @@ public class NewTournamentDialog extends JFrame {
 		if (showingMoreFrom != 0)	jLblMoreClicked(showingMoreFrom);
 		showKORoundConfiguration(true);
 		updateGUI();
+	}
+	
+	private void showQualificationConfiguration(boolean show) {
+		// TODO
+		qStartDateLbl.setVisible(hasQ && show);
+		qStartDateTF.setVisible(hasQ && show);
+		qFinalDateLbl.setVisible(hasQ && show);
+		qFinalDateTF.setVisible(hasQ && show);
+		
+		qGroupStageLbl.setVisible(hasQ && show);
+		qGroupStageYesRB.setVisible(hasQ && show);
+		qGroupStageNoRB.setVisible(hasQ && show);
+		
+		qKoStageLbl.setVisible(hasQ && show);
+		qKoStageYesRB.setVisible(hasQ && show);
+		qKoStageNoRB.setVisible(hasQ && show);
+		
+	}
+	
+	private void showQGroupStageConfiguration(boolean show) {
+		// TODO
+		
+	}
+	
+	private void showQKORoundConfiguration(boolean show) {
+		// TODO
+		
 	}
 	
 	private void setDetailsGroupCBModel() {
@@ -1661,7 +1798,8 @@ public class NewTournamentDialog extends JFrame {
 	private String[][] getTeamsKO() {
 		String[][] teams = null;
 		// In Start wird der Wert von teamsKO[index][team] abgefragt
-		teams = new String[][] {{"GA1#PR", "GA2#PR", "GB1#PR", "GB2#PR", "GC1#PR", "GC2#PR", "GB3#PR", "GC3#PR"}, {"VF1#PR", "VF2#PR", "VF3#PR", "VF4#PR"}, {"HF1#PR", "HF2#PR"}, {"HF1#PR", "HF2#PR"}};
+		teams = new String[][] {{"GA1#PR", "GA2#PR", "GB1#PR", "GB2#PR", "GC1#PR", "GC2#PR", "GB3#PR", "GC3#PR"}, 
+									{"VF1#PR", "VF2#PR", "VF3#PR", "VF4#PR"}, {"HF1#PR", "HF2#PR"}, {"HF1#PR", "HF2#PR"}};
 		
 		return teams;
 	}
@@ -1779,7 +1917,8 @@ public class NewTournamentDialog extends JFrame {
 						return false;
 					}
 					if (prevKORounds[prevKOIndex] && !(isKORoundSelected[8] && prevKOIndex == 7)) {
-						message("Es wurden in mehreren KO-Runden dieselbe vorangegangene KO-Runde angegeben. Das ist nicht erlaubt, da so nicht ermittelt werden kann, welche Mannschaften in welche KO-Runde einziehen.");
+						message("Es wurden in mehreren KO-Runden dieselbe vorangegangene KO-Runde angegeben. \n" + 
+									"Das ist nicht erlaubt, da so nicht ermittelt werden kann, welche Mannschaften in welche KO-Runde einziehen.");
 						return false;
 					}
 					prevKORounds[prevKOIndex] = true;

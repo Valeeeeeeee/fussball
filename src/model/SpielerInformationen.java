@@ -14,7 +14,8 @@ public class SpielerInformationen extends JFrame {
 	
 	private static final long serialVersionUID = -8974853216829127796L;
 
-	public static final int WIDTH = 970;
+	
+	public static final int WIDTH = 840;
 	
 	public static final int HEIGHT = 830;
 	
@@ -68,7 +69,6 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblBookedTwiceVal;
 	private JLabel jLblRedCards;
 	private JLabel jLblRedCardsVal;
-	private JScrollPane jSPImage;
 	private JLabel jLblImage;
 	
 	private Wettbewerb wettbewerb;
@@ -96,222 +96,222 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblSquadnumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadnumber);
-			jLblSquadnumber.setBounds(530, 65, 85, 65);
+			jLblSquadnumber.setBounds(400, 65, 85, 65);
 			alignCenter(jLblSquadnumber);
 			jLblSquadnumber.setFont(fontSquadnumber);
 		}
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(630, 60, 320, 35);
+			jLblFirstNames.setBounds(500, 60, 320, 35);
 			jLblFirstNames.setFont(fontNames);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(630, 100, 320, 35);
+			jLblLastNames.setBounds(500, 100, 320, 35);
 			jLblLastNames.setFont(fontNames);
 		}
 		{
 			jLblPseudonym = new JLabel();
 			jPnlPlayerInformation.add(jLblPseudonym);
-			jLblPseudonym.setBounds(530, 140, 220, 30);
+			jLblPseudonym.setBounds(500, 140, 220, 30);
 			jLblPseudonym.setFont(fontPseudonym);
 		}
 		{
 			jLblBirthDate = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDate);
-			jLblBirthDate.setBounds(540, 180, 110, 20);
+			jLblBirthDate.setBounds(410, 180, 110, 20);
 			jLblBirthDate.setFont(fontDescription);
 			jLblBirthDate.setText("Geburtsdatum:");
 		}
 		{
 			jLblBirthDateVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDateVal);
-			jLblBirthDateVal.setBounds(540, 200, 140, 30);
+			jLblBirthDateVal.setBounds(410, 200, 140, 30);
 			jLblBirthDateVal.setFont(fontBirthDate);
 		}
 		{
 			jLblPosition = new JLabel();
 			jPnlPlayerInformation.add(jLblPosition);
-			jLblPosition.setBounds(790, 180, 65, 20);
+			jLblPosition.setBounds(660, 180, 65, 20);
 			jLblPosition.setFont(fontDescription);
 			jLblPosition.setText("Position:");
 		}
 		{
 			jLblPositionVal = new JLabel();
 			jPnlPlayerInformation.add(jLblPositionVal);
-			jLblPositionVal.setBounds(790, 200, 110, 30);
+			jLblPositionVal.setBounds(660, 200, 110, 30);
 			jLblPositionVal.setFont(fontPosition);
 		}
 		{
 			jLblNationality = new JLabel();
 			jPnlPlayerInformation.add(jLblNationality);
-			jLblNationality.setBounds(540, 240, 120, 20);
+			jLblNationality.setBounds(410, 240, 120, 20);
 			jLblNationality.setFont(fontDescription);
 			jLblNationality.setText("Nationalität(en):");
 		}
 		{
 			jLblNationalityVal = new JLabel();
 			jPnlPlayerInformation.add(jLblNationalityVal);
-			jLblNationalityVal.setBounds(540, 260, 380, 30);
+			jLblNationalityVal.setBounds(410, 260, 380, 30);
 			jLblNationalityVal.setFont(fontNationality);
 		}
 		{
 			jLblAtClubSince = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSince);
-			jLblAtClubSince.setBounds(540, 300, 110, 20);
+			jLblAtClubSince.setBounds(410, 300, 110, 20);
 			jLblAtClubSince.setFont(fontDescription);
 			jLblAtClubSince.setText("Im Verein seit:");
 		}
 		{
 			jLblAtClubSinceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSinceVal);
-			jLblAtClubSinceVal.setBounds(540, 320, 140, 30);
+			jLblAtClubSinceVal.setBounds(410, 320, 140, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
 		{
 			jLblPerformance = new JLabel();
 			jPnlPlayerInformation.add(jLblPerformance);
-			jLblPerformance.setBounds(540, 380, 140, 25);
+			jLblPerformance.setBounds(410, 380, 140, 25);
 			jLblPerformance.setFont(fontPerformance);
 			jLblPerformance.setText("Leistungsdaten");
 		}
 		{
 			jLblCompetition = new JLabel();
 			jPnlPlayerInformation.add(jLblCompetition);
-			jLblCompetition.setBounds(700, 380, 200, 25);
+			jLblCompetition.setBounds(570, 380, 200, 25);
 			jLblCompetition.setFont(fontCompetition);
 			jLblCompetition.setText(wettbewerb.getName());
 		}
 		{
 			jLblGamesPlayed = new JLabel();
 			jPnlPlayerInformation.add(jLblGamesPlayed);
-			jLblGamesPlayed.setBounds(540, 410, 160, 25);
+			jLblGamesPlayed.setBounds(410, 410, 160, 25);
 			jLblGamesPlayed.setFont(fontCompetition);
 			jLblGamesPlayed.setText("Gespielte Spiele");
 		}
 		{
 			jLblGamesPlayedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblGamesPlayedVal);
-			jLblGamesPlayedVal.setBounds(750, 410, 50, 25);
+			jLblGamesPlayedVal.setBounds(620, 410, 50, 25);
 			jLblGamesPlayedVal.setFont(fontCompetition);
 		}
 		{
 			jLblGamesStarted = new JLabel();
 			jPnlPlayerInformation.add(jLblGamesStarted);
-			jLblGamesStarted.setBounds(570, 440, 130, 25);
+			jLblGamesStarted.setBounds(440, 440, 130, 25);
 			jLblGamesStarted.setFont(fontCompetition);
 			jLblGamesStarted.setText("in der Startelf");
 		}
 		{
 			jLblGamesStartedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblGamesStartedVal);
-			jLblGamesStartedVal.setBounds(750, 440, 50, 25);
+			jLblGamesStartedVal.setBounds(620, 440, 50, 25);
 			jLblGamesStartedVal.setFont(fontCompetition);
 		}
 		{
 			jLblSubstitutedOn = new JLabel();
 			jPnlPlayerInformation.add(jLblSubstitutedOn);
-			jLblSubstitutedOn.setBounds(570, 470, 130, 25);
+			jLblSubstitutedOn.setBounds(440, 470, 130, 25);
 			jLblSubstitutedOn.setFont(fontCompetition);
 			jLblSubstitutedOn.setText("eingewechselt");
 		}
 		{
 			jLblSubstitutedOnVal = new JLabel();
 			jPnlPlayerInformation.add(jLblSubstitutedOnVal);
-			jLblSubstitutedOnVal.setBounds(750, 470, 50, 25);
+			jLblSubstitutedOnVal.setBounds(620, 470, 50, 25);
 			jLblSubstitutedOnVal.setFont(fontCompetition);
 		}
 		{
 			jLblSubstitutedOff = new JLabel();
 			jPnlPlayerInformation.add(jLblSubstitutedOff);
-			jLblSubstitutedOff.setBounds(570, 500, 130, 25);
+			jLblSubstitutedOff.setBounds(440, 500, 130, 25);
 			jLblSubstitutedOff.setFont(fontCompetition);
 			jLblSubstitutedOff.setText("ausgewechselt");
 		}
 		{
 			jLblSubstitutedOffVal = new JLabel();
 			jPnlPlayerInformation.add(jLblSubstitutedOffVal);
-			jLblSubstitutedOffVal.setBounds(750, 500, 50, 25);
+			jLblSubstitutedOffVal.setBounds(620, 500, 50, 25);
 			jLblSubstitutedOffVal.setFont(fontCompetition);
 		}
 		{
 			jLblMinutesPlayed = new JLabel();
 			jPnlPlayerInformation.add(jLblMinutesPlayed);
-			jLblMinutesPlayed.setBounds(540, 530, 160, 25);
+			jLblMinutesPlayed.setBounds(410, 530, 160, 25);
 			jLblMinutesPlayed.setFont(fontCompetition);
 			jLblMinutesPlayed.setText("Gespielte Minuten");
 		}
 		{
 			jLblMinutesPlayedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblMinutesPlayedVal);
-			jLblMinutesPlayedVal.setBounds(750, 530, 50, 25);
+			jLblMinutesPlayedVal.setBounds(620, 530, 50, 25);
 			jLblMinutesPlayedVal.setFont(fontCompetition);
 		}
 		{
 			jLblGoalsScored = new JLabel();
 			jPnlPlayerInformation.add(jLblGoalsScored);
-			jLblGoalsScored.setBounds(540, 560, 160, 25);
+			jLblGoalsScored.setBounds(410, 560, 160, 25);
 			jLblGoalsScored.setFont(fontCompetition);
 			jLblGoalsScored.setText("Tore");
 		}
 		{
 			jLblGoalsScoredVal = new JLabel();
 			jPnlPlayerInformation.add(jLblGoalsScoredVal);
-			jLblGoalsScoredVal.setBounds(750, 560, 50, 25);
+			jLblGoalsScoredVal.setBounds(620, 560, 50, 25);
 			jLblGoalsScoredVal.setFont(fontCompetition);
 		}
 		{
 			jLblGoalsAssisted = new JLabel();
 			jPnlPlayerInformation.add(jLblGoalsAssisted);
-			jLblGoalsAssisted.setBounds(540, 590, 160, 25);
+			jLblGoalsAssisted.setBounds(410, 590, 160, 25);
 			jLblGoalsAssisted.setFont(fontCompetition);
 			jLblGoalsAssisted.setText("Vorlagen");
 		}
 		{
 			jLblGoalsAssistedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblGoalsAssistedVal);
-			jLblGoalsAssistedVal.setBounds(750, 590, 50, 25);
+			jLblGoalsAssistedVal.setBounds(620, 590, 50, 25);
 			jLblGoalsAssistedVal.setFont(fontCompetition);
 		}
 		{
 			jLblBooked = new JLabel();
 			jPnlPlayerInformation.add(jLblBooked);
-			jLblBooked.setBounds(540, 620, 160, 25);
+			jLblBooked.setBounds(410, 620, 160, 25);
 			jLblBooked.setFont(fontCompetition);
 			jLblBooked.setText("Gelbe Karten");
 		}
 		{
 			jLblBookedVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedVal);
-			jLblBookedVal.setBounds(750, 620, 50, 25);
+			jLblBookedVal.setBounds(620, 620, 50, 25);
 			jLblBookedVal.setFont(fontCompetition);
 		}
 		{
 			jLblBookedTwice = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedTwice);
-			jLblBookedTwice.setBounds(540, 650, 160, 25);
+			jLblBookedTwice.setBounds(410, 650, 160, 25);
 			jLblBookedTwice.setFont(fontCompetition);
 			jLblBookedTwice.setText("Gelb-Rote Karten");
 		}
 		{
 			jLblBookedTwiceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBookedTwiceVal);
-			jLblBookedTwiceVal.setBounds(750, 650, 50, 25);
+			jLblBookedTwiceVal.setBounds(620, 650, 50, 25);
 			jLblBookedTwiceVal.setFont(fontCompetition);
 		}
 		{
 			jLblRedCards = new JLabel();
 			jPnlPlayerInformation.add(jLblRedCards);
-			jLblRedCards.setBounds(540, 680, 160, 25);
+			jLblRedCards.setBounds(410, 680, 160, 25);
 			jLblRedCards.setFont(fontCompetition);
 			jLblRedCards.setText("Rote Karten");
 		}
 		{
 			jLblRedCardsVal = new JLabel();
 			jPnlPlayerInformation.add(jLblRedCardsVal);
-			jLblRedCardsVal.setBounds(750, 680, 50, 25);
+			jLblRedCardsVal.setBounds(620, 680, 50, 25);
 			jLblRedCardsVal.setFont(fontCompetition);
 		}
 		
@@ -354,20 +354,18 @@ public class SpielerInformationen extends JFrame {
 		Image image = null;
 		if (jLblImage != null) {
 			jLblImage.setVisible(false);
-			jSPImage.setVisible(false);
 		}
 		try {
 			image = ImageIO.read(new URL(url));
+			double factor = (double) 800 / image.getHeight(null);
+			image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
 			jLblImage = new JLabel(new ImageIcon(image));
 		} catch (Exception e) {
 			jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
 		}
-		jSPImage = new JScrollPane(jLblImage);
-		jSPImage.setBounds(10, 10, 487 + 19, 810);
-		jPnlPlayerInformation.add(jSPImage);
+		jLblImage.setBounds(20, 10, 350, 800);
+		jPnlPlayerInformation.add(jLblImage);
 		jLblImage.setVisible(true);
-		jSPImage.setVisible(true);
-		jSPImage.getVerticalScrollBar().setUnitIncrement(20);
 		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 }

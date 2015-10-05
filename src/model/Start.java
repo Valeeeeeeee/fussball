@@ -208,6 +208,7 @@ public class Start extends JFrame {
 			getContentPane().add(Homescreen);
 			Homescreen.setLayout(null);
 			Homescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			Homescreen.setBackground(colorHomescreen);
 		}
 		
 		buildLeaguesButtons();
@@ -333,6 +334,7 @@ public class Start extends JFrame {
 			getContentPane().add(LigaHomescreen);
 			LigaHomescreen.setLayout(null);
 			LigaHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			LigaHomescreen.setBackground(colorHomescreen);
 			LigaHomescreen.setVisible(false);
 		}
 		{
@@ -419,6 +421,7 @@ public class Start extends JFrame {
 			getContentPane().add(TurnierHomescreen);
 			TurnierHomescreen.setLayout(null);
 			TurnierHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			TurnierHomescreen.setBackground(colorHomescreen);
 			TurnierHomescreen.setVisible(false);
 		}
 		{ 
@@ -462,6 +465,7 @@ public class Start extends JFrame {
 			getContentPane().add(QualifikationHomescreen);
 			QualifikationHomescreen.setLayout(null);
 			QualifikationHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			QualifikationHomescreen.setBackground(colorHomescreen);
 			QualifikationHomescreen.setVisible(false);
 		}
 		{
@@ -469,6 +473,7 @@ public class Start extends JFrame {
 			getContentPane().add(GruppenphaseHomescreen);
 			GruppenphaseHomescreen.setLayout(null);
 			GruppenphaseHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			GruppenphaseHomescreen.setBackground(colorHomescreen);
 			GruppenphaseHomescreen.setVisible(false);
 		}
 		{
@@ -476,6 +481,7 @@ public class Start extends JFrame {
 			getContentPane().add(KORundeHomescreen);
 			KORundeHomescreen.setLayout(null);
 			KORundeHomescreen.setBounds(0, 0, WIDTH, HEIGHT);
+			KORundeHomescreen.setBackground(colorHomescreen);
 			KORundeHomescreen.setVisible(false);
 		}
 	}

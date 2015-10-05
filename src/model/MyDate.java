@@ -1,7 +1,7 @@
 package model;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import static util.Utilities.*;
 
 public class MyDate {
 	
