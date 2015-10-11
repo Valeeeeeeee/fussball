@@ -1,5 +1,5 @@
 Italien
-Kroatien
+Kroatien;null;-1
 Norwegen
 Bulgarien
 Aserbaidschan
