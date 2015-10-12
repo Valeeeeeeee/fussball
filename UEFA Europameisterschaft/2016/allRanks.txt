@@ -32,8 +32,8 @@ QGF1: Nordirland
 QGF2: Rumänien
 QGF3: Ungarn
 QGF4: Finnland
-QGF5: Griechenland
-QGF6: Färöer
+QGF5: Färöer
+QGF6: Griechenland
 QGG1: EM2016QGG1
 QGG2: EM2016QGG2
 QGG3: EM2016QGG3

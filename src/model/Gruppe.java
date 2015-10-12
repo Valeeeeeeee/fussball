@@ -22,7 +22,7 @@ public class Gruppe implements Wettbewerb {
 	private Mannschaft[] mannschaften;
 	private TurnierSaison season;
 	private boolean isETPossible = false;
-	private boolean goalDifference = true;
+	private boolean goalDifference;
 	private boolean teamsHaveKader = false;
 	
 	/**
@@ -54,7 +54,7 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(TurnierSaison season, int id, boolean isQ) {
+	public Gruppe(TurnierSaison season, int id, boolean isQ, boolean goalDifference) {
 		this.id = id;
 		this.isQ = isQ;
 		name = "Gruppe " + alphabet[id];
@@ -62,6 +62,7 @@ public class Gruppe implements Wettbewerb {
 		this.season = season;
 		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
 		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
+		this.goalDifference = goalDifference;
 		
 		this.laden();
 		

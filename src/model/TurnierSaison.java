@@ -20,6 +20,7 @@ public class TurnierSaison {
 	private boolean hasGroupStage;
 	private boolean hasKOStage;
 	private boolean hasSecondLegGroupStage;
+	private boolean goalDifferenceGroupStage;
 	private boolean matchForThirdPlace;
 	
 	private Spieltag overview;
@@ -29,6 +30,7 @@ public class TurnierSaison {
 	private boolean hasQGroupStage;
 	private boolean hasQKOStage;
 	private boolean hasSecondLegQGroupStage;
+	private boolean goalDifferenceQGroupStage;
 	
 	private Spieltag qOverview;
 	private Gruppe[] qGruppen;
@@ -555,9 +557,10 @@ public class TurnierSaison {
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
 			hasSecondLegQGroupStage = Boolean.parseBoolean(qualifikationDatenFromFile.remove(0));
+			goalDifferenceQGroupStage = Boolean.parseBoolean(qualifikationDatenFromFile.remove(0));
 			qGruppen = new Gruppe[numberOfQGroups];
 			for (int i = 0; i < numberOfQGroups; i++) {
-				qGruppen[i] = new Gruppe(this, i, true);
+				qGruppen[i] = new Gruppe(this, i, true, goalDifferenceQGroupStage);
 			}
 			{
 				qOverview = new Spieltag(this, true);
@@ -584,7 +587,10 @@ public class TurnierSaison {
 		qualifikationDatenFromFile.add("" + qStartDate);
 		qualifikationDatenFromFile.add("" + qFinalDate);
 		qualifikationDatenFromFile.add("" + numberOfQGroups);
-		if (hasQGroupStage)	qualifikationDatenFromFile.add("" + hasSecondLegQGroupStage);
+		if (hasQGroupStage) {
+			qualifikationDatenFromFile.add("" + hasSecondLegQGroupStage);
+			qualifikationDatenFromFile.add("" + goalDifferenceQGroupStage);
+		}
 		for (int i = 0; i < numberOfQGroups; i++) {
 			qGruppen[i].speichern();
 		}
@@ -604,8 +610,9 @@ public class TurnierSaison {
 		
 		numberOfGroups = Integer.parseInt(gruppenDatenFromFile.remove(0));
 		hasSecondLegGroupStage = Boolean.parseBoolean(gruppenDatenFromFile.remove(0));
+		goalDifferenceGroupStage = Boolean.parseBoolean(gruppenDatenFromFile.remove(0));
 		gruppen = new Gruppe[numberOfGroups];
-		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this, i, false);
+		for (int i = 0; i < gruppen.length; i++)	gruppen[i] = new Gruppe(this, i, false, goalDifferenceGroupStage);
 		{
     		overview = new Spieltag(this, false);
     		overview.setLocation((Start.WIDTH - overview.getSize().width) / 2, (Start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
@@ -621,6 +628,7 @@ public class TurnierSaison {
 		gruppenDatenFromFile.clear();
 		gruppenDatenFromFile.add("" + numberOfGroups);
 		gruppenDatenFromFile.add("" + hasSecondLegGroupStage);
+		gruppenDatenFromFile.add("" + goalDifferenceGroupStage);
 		
 		inDatei(dateiGruppenDaten, gruppenDatenFromFile);
 	}
