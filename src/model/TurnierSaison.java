@@ -413,11 +413,11 @@ public class TurnierSaison {
 					}
 				}
 				
-				groupindex = -1;
+				groupindex = (0 < placeindex && placeindex < 10 ? Integer.MAX_VALUE : -1);
 			}
 			
 			if (groupindex == -1) {
-				error("    ungueltiger Gruppenindex:  " + groupindex + " fuer Buchstabe  " + teamsorigin.charAt(1));
+				error("    ungültiger Gruppenindex:  " + groupindex + " für Zeichen  " + teamsorigin.charAt(1));
 				return null;
 			}
 			
