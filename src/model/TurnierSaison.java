@@ -367,30 +367,34 @@ public class TurnierSaison {
 			
 			if (groupindex == alphabet.length) {
 				// check for best x-th-placed team
+				int nOfGroups = isQ ? numberOfQGroups : numberOfGroups;
+				Gruppe[] grps = isQ ? qGruppen : gruppen;
 				int xBest = (int) teamsorigin.charAt(2) - 48;
 				int placeindex = (int) teamsorigin.charAt(1) - 48;
+				int untilRank = Integer.MAX_VALUE;
 				ArrayList<Mannschaft> groupXth = new ArrayList<>();
 				ArrayList<Integer> order = new ArrayList<>();
-				for (int i = 0; i < numberOfGroups; i++) {
+				for (int i = 0; i < nOfGroups; i++) {
 					groupXth.add(getTeamFromGroupstageOrigin(i, placeindex, isQ));
 					order.add(1);
+					untilRank = Math.min(untilRank, grps[i].getNumberOfTeams());
 				}
 				
-				for (int i = 0; i < numberOfGroups - 1; i++) {
-					for (int j = i + 1; j < numberOfGroups; j++) {
+				for (int i = 0; i < nOfGroups - 1; i++) {
+					for (int j = i + 1; j < nOfGroups; j++) {
 						if (groupXth.get(i) != null && groupXth.get(j) != null) {
-							int punkte1 = groupXth.get(i).get(9, 0, gruppen[i].getNumberOfMatchdays() - 1);
-							int punkte2 = groupXth.get(j).get(9, 0, gruppen[j].getNumberOfMatchdays() - 1);
+							int punkte1 = groupXth.get(i).get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+							int punkte2 = groupXth.get(j).get(9, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
 							if (punkte1 < punkte2)		order.set(i, order.get(i) + 1);
 							else if (punkte2 < punkte1)	order.set(j, order.get(j) + 1);
 							else {
-								int tdiff1 = groupXth.get(i).get(8, 0, gruppen[i].getNumberOfMatchdays() - 1);
-								int tdiff2 = groupXth.get(j).get(8, 0, gruppen[j].getNumberOfMatchdays() - 1);
+								int tdiff1 = groupXth.get(i).get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+								int tdiff2 = groupXth.get(j).get(8, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
 								if (tdiff1 < tdiff2)		order.set(i, order.get(i) + 1);
 								else if (tdiff2 < tdiff1)	order.set(j, order.get(j) + 1);
 								else {
-									int tplus1 = groupXth.get(i).get(6, 0, gruppen[i].getNumberOfMatchdays() - 1);
-									int tplus2 = groupXth.get(j).get(6, 0, gruppen[j].getNumberOfMatchdays() - 1);
+									int tplus1 = groupXth.get(i).get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+									int tplus2 = groupXth.get(j).get(6, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
 									if (tplus1 < tplus2)		order.set(i, order.get(i) + 1);
 									else if (tplus2 < tplus1)	order.set(j, order.get(j) + 1);
 								}

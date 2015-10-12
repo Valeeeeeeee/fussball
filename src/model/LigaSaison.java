@@ -79,7 +79,7 @@ public class LigaSaison implements Wettbewerb {
 		return workspace;
 	}
 	
-	public int getSeasonIndex() {
+	public int getID() {
 		return seasonIndex;
 	}
 	

@@ -162,6 +162,13 @@ public class Utilities {
 		return name;
 	}
 	
+	public static <E> boolean isElementOf(E obj, ArrayList<E> list) {
+		for (int i = 0; i < list.size(); i++) {
+			if (obj.equals(list.get(i)))	return true;
+		}
+		return false;
+	}
+	
 	public static boolean inThePast(int date, int time) {
 		if (date < Start.today())	return true;
 		if (date > Start.today())	return false;

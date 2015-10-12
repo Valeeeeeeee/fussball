@@ -303,9 +303,24 @@ public class Mannschaft {
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday) {
+		return get(index, firstMatchday, lastMatchday, wettbewerb.getMannschaften().length - 1);
+	}
+	
+	public int get(int index, int firstMatchday, int lastMatchday, int includingRank) {
+		ArrayList<Integer> excludedTeams = new ArrayList<>();
+		if (wettbewerb instanceof Gruppe) {
+			Gruppe gruppe = (Gruppe) wettbewerb;
+			while (includingRank < gruppe.getMannschaften().length) {
+				includingRank++;
+				Mannschaft team = gruppe.getTeamOnPlace(includingRank);
+				if (team != null)	excludedTeams.add(team.getId());
+			}
+		}
+		
 		if (index == 9 || (index >= 2 && index <= 5)) {
 			int anzG = 0, anzU = 0, anzV = 0;
 			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (isElementOf(daten[matchday][0], excludedTeams))	continue;
 				if (daten[matchday][3] == 3)		anzG++;
 				else if (daten[matchday][3] == 1)	anzU++;
 				else if (daten[matchday][1] < daten[matchday][2])	anzV++;
