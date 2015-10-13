@@ -380,23 +380,25 @@ public class TurnierSaison {
 					untilRank = Math.min(untilRank, grps[i].getNumberOfTeams());
 				}
 				
+				int[] points = new int[nOfGroups], tdiff = new int[nOfGroups], tplus = new int[nOfGroups];
+				for (int i = 0; i < nOfGroups; i++) {
+					if (groupXth.get(i) == null)	continue;
+					points[i] = groupXth.get(i).get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+					tdiff[i] = groupXth.get(i).get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+					tplus[i] = groupXth.get(i).get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+				}
+				
 				for (int i = 0; i < nOfGroups - 1; i++) {
 					for (int j = i + 1; j < nOfGroups; j++) {
 						if (groupXth.get(i) != null && groupXth.get(j) != null) {
-							int punkte1 = groupXth.get(i).get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-							int punkte2 = groupXth.get(j).get(9, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
-							if (punkte1 < punkte2)		order.set(i, order.get(i) + 1);
-							else if (punkte2 < punkte1)	order.set(j, order.get(j) + 1);
+							if (points[i] < points[j])		order.set(i, order.get(i) + 1);
+							else if (points[j] < points[i])	order.set(j, order.get(j) + 1);
 							else {
-								int tdiff1 = groupXth.get(i).get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-								int tdiff2 = groupXth.get(j).get(8, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
-								if (tdiff1 < tdiff2)		order.set(i, order.get(i) + 1);
-								else if (tdiff2 < tdiff1)	order.set(j, order.get(j) + 1);
+								if (tdiff[i] < tdiff[j])		order.set(i, order.get(i) + 1);
+								else if (tdiff[j] < tdiff[i])	order.set(j, order.get(j) + 1);
 								else {
-									int tplus1 = groupXth.get(i).get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-									int tplus2 = groupXth.get(j).get(6, 0, grps[j].getNumberOfMatchdays() - 1, untilRank);
-									if (tplus1 < tplus2)		order.set(i, order.get(i) + 1);
-									else if (tplus2 < tplus1)	order.set(j, order.get(j) + 1);
+									if (tplus[i] < tplus[j])		order.set(i, order.get(i) + 1);
+									else if (tplus[j] < tplus[i])	order.set(j, order.get(j) + 1);
 								}
 							}
 						} else if (groupXth.get(i) != null) {
