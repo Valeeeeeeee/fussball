@@ -688,13 +688,15 @@ public class TurnierSaison {
 			}
 		}
 		
+		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
-			String fileName = workspace + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = new ArrayList<>();
 			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
 			inDatei(fileName, nextMatchesString);
+		} else {
+			new File(fileName).delete();
 		}
 	}
 	
