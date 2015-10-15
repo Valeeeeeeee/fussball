@@ -3,7 +3,7 @@ Markus;Miller;null;19820408;Deutschland;Tor;14
 Ron-Robert;Zieler;null;19890212;Deutschland;Tor;1
 Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
-Andre;Hoffmann;null;19930228;Deutschland;Abwehr;15
+André;Hoffmann;null;19930228;Deutschland;Abwehr;15
 Joao Pedro;da Silva Pereira;Joao Pereira;19840225;Portugal;Abwehr;17;20150101-
 Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25
 Christian;Pander;null;19830828;Deutschland;Abwehr;24
@@ -22,7 +22,7 @@ Jan;Schlaudraff;null;19830718;Deutschland;Mittelfeld;13
 Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;10
 Jimmy;Briand;null;19850802;Frankreich;Sturm;21
-José Luis;Sanmartin Mato;Joselu;19900327;Spanien;Sturm;11
+José Luis;Sanmartín Mato;Joselu;19900327;Spanien;Sturm;11
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Artur;Sobiech;null;19900612;Polen;Sturm;9
 Didier;Ya Konan;Didier Ya Konan;19840522;Elfenbeinküste;Sturm;30;20150101-

@@ -132,9 +132,9 @@ public class Spiel {
 		}
 	}
 	
-	public void addSubstitution(Wechsel substitution) {
+	public int addSubstitution(Wechsel substitution) {
+		int index = 0;
 		if (substitution != null) {
-			int index = 0;
 			if (substitution.isFirstTeam()) {
 				for (int i = 0; i < substitutionsHome.size(); i++) {
 					if (substitutionsHome.get(i).getMinute() <= substitution.getMinute())	index++;
@@ -147,6 +147,7 @@ public class Spiel {
 				substitutionsAway.add(index, substitution);
 			}
 		}
+		return index;
 	}
 	
 	public void addBooking(Karte booking) {

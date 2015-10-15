@@ -35,7 +35,7 @@ public class LigaStatistik extends JPanel {
 	private int moreMin;
 	
 	private static final int NUMBER_OF_HOMEAWAY = 5;
-	private String[] homeAwayStrings = new String[] {"Heimsiege", "Unentschieden", "Auswaertssiege", "Heimtore", "Auswaertstore"};
+	private String[] homeAwayStrings = new String[] {"Heimsiege", "Unentschieden", "Auswärtssiege", "Heimtore", "Auswärtstore"};
 	
 	private static final int NUMBER_OF_RESULTS = 5;
 	
@@ -193,7 +193,6 @@ public class LigaStatistik extends JPanel {
 		jLblsSeries = new JLabel[NUMBER_OF_SERIES];
 		jLblsSeriesValues = new JLabel[NUMBER_OF_SERIES];
 		{
-			
 			jLblsSerien = new JLabel();
 			this.add(jLblsSerien);
 			jLblsSerien.setBounds(REC_LBLSERIEN);
@@ -335,14 +334,12 @@ public class LigaStatistik extends JPanel {
 		}
 		
 		orderLists();
-		log("Haeufigste Ergebnisse:");
 		if (numberOfResults == 0) numberOfResults = 1;
 		for (int i = 0; i < 5; i++) {
 			if (i < resultsHash.size()) {
 				jLblsResults[i].setText(resultsHash.get(i));
 				jLblsResultsPercentage[i].setText((100 * resultsFrequency.get(i) / numberOfResults) + "%");
 				jLblsResultsAbsolute[i].setText("" + resultsFrequency.get(i));
-				log(resultsHash.get(i) + ":  " + resultsFrequency.get(i) + " mal");
 			} else {
 				jLblsResults[i].setText("n/a");
 				jLblsResultsPercentage[i].setText("0%");

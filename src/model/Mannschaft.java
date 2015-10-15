@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Mannschaft {
 	private int id;
-	private Start start;
 	private String name;
 	private String nameForFileSearch;
 	private String gruendungsdatum;
@@ -25,9 +24,12 @@ public class Mannschaft {
 	private Tabellenart valuesCorrectAsOf;
 	private int deductedPoints = 0;
 	
+	private int numberOfMatchdays;
 	private int[][] daten;
 	private Spiel[] spiele;
 	private Ergebnis[] ergebnisse;
+	private int[][] performanceData;
+	
 	public final static int OPPONENT = 0;
 	public final static int GOALS = 1;
 	public final static int CGOALS = 2;
@@ -37,9 +39,19 @@ public class Mannschaft {
 	public final static int HOME = 4;
 	public final static int AWAY = 5;
 	
+	public static final int MATCHES_PLAYED = 0;
+	public static final int MATCHES_STARTED = 1;
+	public static final int MATCHES_SUB_ON = 2;
+	public static final int MATCHES_SUB_OFF = 3;
+	public static final int MINUTES_PLAYED = 4;
+	public static final int GOALS_SCORED = 5;
+	public static final int GOALS_ASSISTED = 6;
+	public static final int BOOKED = 7;
+	public static final int BOOKED_TWICE = 8;
+	public static final int RED_CARDS = 9;
+	
 	private Wettbewerb wettbewerb;
 	private LigaSaison lSeason;
-	private TurnierSaison tSeason;
 	private Gruppe gruppe;
 	private KORunde startKORunde;
 	
@@ -48,19 +60,22 @@ public class Mannschaft {
 	private ArrayList<Spieler> kader = new ArrayList<>();
 	private int[] numberOfPlayersByPosition;
 	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
-	private int lastUpdatedForDate = -1;
+	private ArrayList<Spieler> ineligiblePlayers = new ArrayList<Spieler>();
+	private int lastUpdatedEligibleForDate = -1;
+	private int lastUpdatedIneligibleForDate = -1;
 	private int[] currentNumberOfPlayersByPosition;
 
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
 
-	public Mannschaft(Start start, int id, LigaSaison lSeason, String mannschaftsDaten) {
+	public Mannschaft(int id, Wettbewerb wettbewerb, String mannschaftsDaten) {
 		this.id = id;
-		this.start = start;
-		this.lSeason = lSeason;
-		this.wettbewerb = lSeason;
-		this.playsInLeague = true;
-		this.playsInGroup = false;
+		if (wettbewerb instanceof LigaSaison)	this.lSeason = (LigaSaison) wettbewerb;
+		else if (wettbewerb instanceof Gruppe)	this.gruppe = (Gruppe) wettbewerb;
+		else if (wettbewerb instanceof KORunde)	this.startKORunde = (KORunde) wettbewerb;
+		this.wettbewerb = wettbewerb;
+		this.playsInLeague = lSeason != null;
+		this.playsInGroup = gruppe != null;
 		
 		parseString(mannschaftsDaten);
 		if (wettbewerb != null) {
@@ -68,33 +83,9 @@ public class Mannschaft {
 			loadKader();
 		}
 	}
-
-	public Mannschaft(Start start, int id, TurnierSaison tSeason, Gruppe gruppe, String mannschaftsDaten) {
-		this.id = id;
-		this.start = start;
-		this.tSeason = tSeason;
-		this.gruppe = gruppe;
-		this.wettbewerb = gruppe;
-		this.playsInLeague = false;
-		this.playsInGroup = true;
-		parseString(mannschaftsDaten);
-		initializeArrays();
-	}
 	
-	public Mannschaft(Start start, int id, TurnierSaison tSeason, KORunde koRunde, String mannschaftsDaten) {
-		this.id = id;
-		this.start = start;
-		this.tSeason = tSeason;
-		this.startKORunde = koRunde;
-		this.wettbewerb = koRunde;
-		this.playsInLeague = false;
-		this.playsInGroup = false;
-		parseString(mannschaftsDaten);
-		initializeArrays();
-	}
-
 	private void initializeArrays() {
-		int numberOfMatchdays = 0;
+		numberOfMatchdays = 0;
 		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
 		else if (playsInGroup)	numberOfMatchdays = gruppe.getNumberOfMatchdays();
 		else					numberOfMatchdays = 0;
@@ -112,6 +103,24 @@ public class Mannschaft {
 		return wettbewerb.getWorkspace() + "Bilder" + File.separator + nameForFileSearch + File.separator;
 	}
 	
+	public int getNumberOfPlayers(boolean onlyEligible) {
+		if (onlyEligible) {
+			updateEligiblePlayers(Start.today());
+			return eligiblePlayers.size();
+		}
+		return kader.size();
+	}
+	
+	public int getNumberOfUsedPlayers() {
+		int numberOfUsedPlayers = 0;
+		
+		for (int i = 0; i < performanceData.length; i++) {
+			if (performanceData[i][0] != 0)	numberOfUsedPlayers++;
+		}
+		
+		return numberOfUsedPlayers;
+	}
+	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
@@ -127,6 +136,7 @@ public class Mannschaft {
 			kader.add(new Spieler(spieler.get(i), this));
 			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
+		distinguishNames();
 	}
 	
 	public void saveKader() {
@@ -138,65 +148,111 @@ public class Mannschaft {
 		inDatei(kaderFileName, players);
 	}
 	
+	private void distinguishNames() {
+		for (Spieler player : kader) {
+			player.resetDistinctName();
+		}
+		
+		boolean ensuredDN = false;
+		int distinctionLevel = 0;
+		while (!ensuredDN) {
+			distinctionLevel++;
+			boolean[] doubleNames = new boolean[kader.size()];
+			for (int i = 0; i < kader.size(); i++) {
+				Spieler player = kader.get(i);
+				for (int j = 0; j < kader.size() && !doubleNames[i]; j++) {
+					if (i == j)	continue;
+					if (player.getPseudonymOrLN().equals(kader.get(j).getPseudonymOrLN())) {
+						doubleNames[i] = true;
+						doubleNames[j] = true;
+					}
+				}
+			}
+			ensuredDN = true;
+			for (int i = 0; i < doubleNames.length; i++) {
+				if (doubleNames[i]) {
+					kader.get(i).setDistictionLevel(distinctionLevel);
+					ensuredDN = false;
+				}
+			}
+		}
+	}
+	
 	public int getCurrentNumberOf(Position position) {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
 	public int[] getPerformanceData(Spieler player) {
-		int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, booked = 0, bookedTwice = 0, redCards = 0;
-		int squadNumber = player.getSquadNumber();
-		
-		for (Spiel spiel : spiele) {
-			if (spiel != null) {
-				int[] lineup = homeaway[spiel.getMatchday()] ? spiel.getLineupHome() : spiel.getLineupAway();
-				if (lineup == null)	continue;
-				int firstMinute = 91, lastMinute = 91;
-				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
-				ArrayList<Tor> tore = spiel.getTore();
-				ArrayList<Karte> bookings = spiel.getBookings();
-				
-				for (int i = 0; i < lineup.length; i++) {
-					if (lineup[i] == squadNumber) {
-						gamesPlayed++;
-						gamesStarted++;
-						firstMinute = 1;
-					}
-				}
-				for (Wechsel wechsel : substitutions) {
-					if (wechsel.getEingewechselterSpieler().getSquadNumber() == squadNumber) {
-						gamesPlayed++;
-						subOn++;
-						firstMinute = wechsel.getMinute();
-					} else if (wechsel.getAusgewechselterSpieler().getSquadNumber() == squadNumber) {
-						subOff++;
-						lastMinute = wechsel.getMinute();
-					}
-				}
-				for (Tor tor : tore) {
-					if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer().getSquadNumber() == squadNumber) {
-						goals++;
-					}
-				}
-				for (Karte booking : bookings) {
-					if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer().getSquadNumber() == squadNumber) {
-						if (booking.isSecondBooking()) {
-							booked--;
-							bookedTwice++;
-							lastMinute = booking.getMinute();
-						}
-						else if (booking.isYellowCard())	booked++;
-						else {
-							redCards++;
-							lastMinute = booking.getMinute();
-						}
-					}
-				}
-				
-				minutesPlayed += lastMinute - firstMinute;
-			}
+		for (int i = 0; i < kader.size(); i++) {
+			if (kader.get(i) == player)	return performanceData[i];
 		}
-		
-		return new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, booked, bookedTwice, redCards};
+		return null;
+	}
+	
+	public void retrievePerformanceData() {
+		performanceData = new int[numberOfPlayers][];
+		for (int i = 0; i < performanceData.length; i++) {
+			Spieler player = kader.get(i);
+			
+			int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, assists = 0, booked = 0, bookedTwice = 0, redCards = 0;
+			int squadNumber = player.getSquadNumber();
+			
+			for (Spiel spiel : spiele) {
+				if (player.getLastDate() != -1 && player.getLastDate() < spiel.getDate())	continue;
+				if (player.getFirstDate() != -1 && player.getFirstDate() > spiel.getDate())	continue;
+				if (spiel != null) {
+					int[] lineup = homeaway[spiel.getMatchday()] ? spiel.getLineupHome() : spiel.getLineupAway();
+					if (lineup == null)	continue;
+					int firstMinute = 91, lastMinute = 91;
+					ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
+					ArrayList<Tor> tore = spiel.getTore();
+					ArrayList<Karte> bookings = spiel.getBookings();
+					
+					for (int j = 0; j < lineup.length; j++) {
+						if (lineup[j] == squadNumber) {
+							gamesPlayed++;
+							gamesStarted++;
+							firstMinute = 1;
+						}
+					}
+					for (Wechsel wechsel : substitutions) {
+						if (wechsel.getEingewechselterSpieler() == player) {
+							gamesPlayed++;
+							subOn++;
+							firstMinute = wechsel.getMinute();
+						} else if (wechsel.getAusgewechselterSpieler() == player) {
+							subOff++;
+							lastMinute = wechsel.getMinute();
+						}
+					}
+					for (Tor tor : tore) {
+						if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer() == player) {
+							goals++;
+						} else if (homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+							assists++;
+						}
+					}
+					for (Karte booking : bookings) {
+						if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer() == player) {
+							if (booking.isSecondBooking()) {
+								booked--;
+								bookedTwice++;
+								lastMinute = booking.getMinute();
+							}
+							else if (booking.isYellowCard())	booked++;
+							else {
+								redCards++;
+								lastMinute = booking.getMinute();
+							}
+						}
+					}
+					
+					minutesPlayed += lastMinute - firstMinute;
+				}
+			}
+			
+			performanceData[i] = new int[] {gamesPlayed, gamesStarted, subOn, subOff, minutesPlayed, goals, assists, booked, bookedTwice, redCards};
+		}
 	}
 	
 	public int[] getFairplayData() {
@@ -247,9 +303,24 @@ public class Mannschaft {
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday) {
+		return get(index, firstMatchday, lastMatchday, wettbewerb.getMannschaften().length - 1);
+	}
+	
+	public int get(int index, int firstMatchday, int lastMatchday, int includingRank) {
+		ArrayList<Integer> excludedTeams = new ArrayList<>();
+		if (wettbewerb instanceof Gruppe) {
+			Gruppe gruppe = (Gruppe) wettbewerb;
+			while (includingRank < gruppe.getMannschaften().length) {
+				includingRank++;
+				Mannschaft team = gruppe.getTeamOnPlace(includingRank);
+				if (team != null)	excludedTeams.add(team.getId());
+			}
+		}
+		
 		if (index == 9 || (index >= 2 && index <= 5)) {
 			int anzG = 0, anzU = 0, anzV = 0;
 			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (isElementOf(daten[matchday][0], excludedTeams))	continue;
 				if (daten[matchday][3] == 3)		anzG++;
 				else if (daten[matchday][3] == 1)	anzU++;
 				else if (daten[matchday][1] < daten[matchday][2])	anzV++;
@@ -404,7 +475,7 @@ public class Mannschaft {
 	}
 	
 	private void updateEligiblePlayers(int date) {
-		if (lastUpdatedForDate == date)	return;
+		if (lastUpdatedEligibleForDate == date)	return;
 		
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
@@ -416,7 +487,21 @@ public class Mannschaft {
 			}
 		}
 		
-		lastUpdatedForDate = date;
+		lastUpdatedEligibleForDate = date;
+	}
+	
+	private void updateIneligiblePlayers(int date) {
+		if (lastUpdatedIneligibleForDate == date)	return;
+		
+		ineligiblePlayers.clear();
+		
+		for (Spieler spieler : kader) {
+			if (!spieler.isEligible(date)) {
+				ineligiblePlayers.add(spieler);
+			}
+		}
+		
+		lastUpdatedIneligibleForDate = date;
 	}
 	
 	public int getCurrentNumberOfPlayers(int date) {
@@ -429,12 +514,44 @@ public class Mannschaft {
 		return eligiblePlayers;
 	}
 	
+	public ArrayList<Spieler> getIneligiblePlayers(int date) {
+		updateIneligiblePlayers(date);
+		return ineligiblePlayers;
+	}
+	
 	public Spieler getSpieler(int squadNumber, int date) {
 		for (Spieler spieler : kader) {
 			if (spieler.getSquadNumber() == squadNumber && spieler.isEligible(date))	return spieler;
 		}
 		
 		return null;
+	}
+	
+	public String[] getResultsAgainst(Mannschaft opponent) {
+		int halfNumberOfMatchesASO = wettbewerb.getNumberOfMatchesAgainstSameOpponent() / 2;
+		String[] results = new String[2 * halfNumberOfMatchesASO];
+		for (int i = 0; i < results.length; i++) {
+			results[i] = "2;-:-";
+		}
+		if (opponent == this) {
+			for (int i = 0; i < results.length; i++) {
+				results[i] = "2;n/a";
+			}
+		} else {
+			int counterH = 0, counterA = 0;
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				if (daten[i][OPPONENT] == opponent.getId()) {
+					String result = daten[i][GOALS] + ":" + daten[i][CGOALS];
+					if (ergebnisse[i] != null) {
+						result = daten[i][POINTS] + ";" + result;
+					} else	result = "2;-:-";
+					if (homeaway[i])	results[counterH++] = result;
+					else				results[halfNumberOfMatchesASO + counterA++] = result;
+				}
+			}
+		}
+		
+		return results;
 	}
 	
 	public String getDateAndTime(int matchday) {
@@ -492,8 +609,6 @@ public class Mannschaft {
 			return;
 		}
 		
-//		log(this.name + " empfaengt Infos zum Spiel am " + (matchday + 1) + ". Spieltag, Ergebnis ist " + tore + "-" + gegentore);
-
 		// "Entfernen" des alten Ergebnisses, wenn als Parameter -1:-1 kommt, wird das Ergebnis zurueckgesetzt
 		int oldtore = this.daten[matchday][GOALS];
 		int oldgegentore = this.daten[matchday][CGOALS];
@@ -576,7 +691,7 @@ public class Mannschaft {
 			else if (this.punkte < vergleich.punkte)	this.platz++;
 		}
 		
-		if (wettbewerb.useGoalDifference()) {
+		if (untilMatchday + 1 != numberOfMatchdays || wettbewerb.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
 				if (this.tdiff == otherTeams[id - 1].tdiff) {
 					if (this.anzahl_tplus < otherTeams[id - 1].anzahl_tplus)	this.platz++;

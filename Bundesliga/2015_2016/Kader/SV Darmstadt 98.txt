@@ -6,11 +6,12 @@ György;Garics;null;19840308;Österreich, Ungarn;Abwehr;13
 Benjamin;Gorka;null;19840415;Deutschland;Abwehr;5
 Fabian;Holland;null;19900711;Deutschland;Abwehr;32
 Florian;Jungwirth;null;19890127;Deutschland;Mittelfeld;23
-Junior Enrique;Diaz Campbell;Junior Diaz;19830912;Costa Rica;Abwehr;15
+Júnior Enrique;Díaz Campbell;Junior Díaz;19830912;Costa Rica;Abwehr;15
+Slobodan;Rajkovic;null;19890203;Serbien;Abwehr;35;20150929-
 Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
 Sandro;Sirigu;null;19881007;Deutschland, Italien;Abwehr;21
 Michael;Stegmayer;null;19850112;Deutschland;Abwehr;3
-Aytac;Sulu;null;19851211;Türkei, Deutschland;Abwehr;4
+Aytaç;Sulu;null;19851211;Türkei, Deutschland;Abwehr;4
 Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
 Marcel;Heller;null;19860212;Deutschland;Mittelfeld;20
 Milan;Ivana;null;19831126;Slowakei;Mittelfeld;27

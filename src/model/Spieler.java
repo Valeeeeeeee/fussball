@@ -5,10 +5,13 @@ public class Spieler {
 	private String trennZeichen = ";";
 	
 	private String firstName;
+	private String firstNameShort;
 	private String lastName;
 	private String lastNameShort;
+	private String distinctName;
 	private String pseudonym;
 	private int birthDate;
+	private int age;
 	private String nationality;
 	
 	private Position position;
@@ -23,7 +26,7 @@ public class Spieler {
 	}
 	
 	public Spieler(String firstName, String lastName, String pseudonym, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
-		this.firstName = firstName;
+		setFirstName(firstName);
 		setLastName(lastName);
 		this.pseudonym = pseudonym;
 		this.birthDate = birthDate;
@@ -35,6 +38,15 @@ public class Spieler {
 	
 	public String getFirstName() {
 		return this.firstName;
+	}
+	
+	public String getFirstNameShort() {
+		return this.firstNameShort;
+	}
+	
+	private void setFirstName(String firstName) {
+		this.firstName = firstName;
+		firstNameShort = firstName.split(" ")[0];
 	}
 
 	public String getLastName() {
@@ -65,7 +77,18 @@ public class Spieler {
 	}
 	
 	public String getPseudonymOrLN() {
-		return this.pseudonym != null ? this.pseudonym : this.lastNameShort;
+		if (this.pseudonym != null)	return this.pseudonym;
+		if (this.distinctName != null)	return this.distinctName;
+		return this.lastNameShort;
+	}
+	
+	public void setDistictionLevel(int level) {
+		boolean fullFirstName = level >= firstName.length();
+		this.distinctName = (fullFirstName ? this.firstName : this.firstName.substring(0, level) + ".") + " " + this.lastNameShort;
+	}
+	
+	public void resetDistinctName() {
+		this.distinctName = null;
 	}
 	
 	public String getPseudonym() {
@@ -77,11 +100,16 @@ public class Spieler {
 	}
 	
 	public String getFullNameShort() {
-		return this.pseudonym != null ? this.pseudonym : this.firstName + " " + lastNameShort;
+		return this.pseudonym != null ? this.pseudonym : this.firstNameShort + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
 		return this.birthDate;
+	}
+
+	public int getAge() {
+		if (this.age == 0)	this.age = MyDate.difference(birthDate, Start.today());
+		return this.age;
 	}
 
 	public String getNationality() {
@@ -104,13 +132,17 @@ public class Spieler {
 		return firstDate;
 	}
 	
+	public int getLastDate() {
+		return lastDate;
+	}
+	
 	public boolean isEligible(int date) {
 		if (date < firstDate)					return false;
 		if (lastDate != -1 && date > lastDate)	return false;
 		
 		return true;
 	}
-
+	
 	public String toString() {
 		String stringRep = this.firstName + trennZeichen;
 		stringRep += this.lastName + trennZeichen;
@@ -128,7 +160,7 @@ public class Spieler {
 	public void fromString(String data, Mannschaft team) {
 		String[] dataSplit = data.split(trennZeichen);
 		
-		this.firstName = dataSplit[0];
+		setFirstName(dataSplit[0]);
 		setLastName(dataSplit[1]);
 		this.pseudonym = (dataSplit[2].equals("null") ? null : dataSplit[2]);
 		this.birthDate = Integer.parseInt(dataSplit[3]);

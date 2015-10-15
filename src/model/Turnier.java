@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import static util.Utilities.*;
 
 public class Turnier {
-	private Start start;
 	private int id;
 	private String name;
 	private String shortName;
@@ -20,8 +19,7 @@ public class Turnier {
 	private ArrayList<String> saisonsDatenFromFile;
 	
 	
-	public Turnier(int id, Start start, String daten) {
-		this.start = start;
+	public Turnier(int id, String daten) {
 		this.id = id;
 		fromString(daten);
 		saisonsLaden();
@@ -72,7 +70,7 @@ public class Turnier {
 	}
 	
 	public boolean addNewSeason(String toString, ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
-		TurnierSaison neueSaison = new TurnierSaison(start, this, saisons.size(), toString);
+		TurnierSaison neueSaison = new TurnierSaison(this, saisons.size(), toString);
 		for (int i = 0; i < saisons.size(); i++) {
 			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
@@ -228,7 +226,7 @@ public class Turnier {
 	}
 	
 	private void saisonsLaden() {
-		workspace = start.getWorkspace() + File.separator + name + File.separator;
+		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		// SaisonsConfig.txt
 		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
@@ -237,7 +235,7 @@ public class Turnier {
 		// TurnierSaisons erstellen
 		saisons = new ArrayList<>();
 		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
-			saisons.add(new TurnierSaison(start, this, i, saisonsDatenFromFile.get(i)));
+			saisons.add(new TurnierSaison(this, i, saisonsDatenFromFile.get(i)));
 		}
 	}
 	
@@ -249,6 +247,30 @@ public class Turnier {
 		}
 		
 		inDatei(dateiSaisonsDaten, saisonsDatenFromFile);
+	}
+	
+	public int[] checkMissingResults() {
+		int countCompleted = 0, countStillRunning = 0;
+		for (TurnierSaison season : saisons) {
+			String fileName = season.getWorkspace() + "nextMatches.txt";
+			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
+			if (nextMatchesString.size() > 0) {
+				long now = 10000L * MyDate.newMyDate() + MyDate.newMyTime();
+				for (int i = 0; i < nextMatchesString.size(); i++) {
+					long match = Long.parseLong(nextMatchesString.get(i));
+					if (match < now) {
+						boolean hourPassed = match % 100 >= now % 100;
+						int dayDiff = MyDate.difference((int) match / 10000, (int) now / 10000);
+						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);
+						diff = (diff / 100) * 60 + diff % 100;
+						if (diff < 105)	countStillRunning++;
+						else			countCompleted++;
+					}
+				}
+			}
+		}
+		
+		return new int[] {countCompleted, countStillRunning};
 	}
 	
 	public void laden(int index) {

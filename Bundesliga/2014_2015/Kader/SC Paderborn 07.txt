@@ -6,7 +6,7 @@ Thomas;Bertels;null;19861105;Deutschland;Abwehr;14
 Florian;Hartherz;null;19930529;Deutschland;Abwehr;26
 Michael;Heinloth;null;19920209;Deutschland;Abwehr;22
 Uwe;Hünemeier;null;19860109;Deutschland;Abwehr;2
-Rafael;Lopez Gomez;null;19850409;Spanien;Abwehr;3
+Rafael;López Gómez;null;19850409;Spanien;Abwehr;3
 Christian;Strohdiek;null;19880122;Deutschland;Abwehr;13
 Jens;Wemmer;null;19851031;Deutschland;Abwehr;7
 Patrick;Ziegler;null;19900209;Deutschland;Abwehr;5

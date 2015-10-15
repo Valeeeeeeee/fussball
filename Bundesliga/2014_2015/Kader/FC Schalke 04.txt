@@ -21,9 +21,9 @@ Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
-Eric Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
+Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Jefferson;Farfan;null;19841026;Peru;Sturm;17
-Klaas Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
+Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
 Chinedu;Obasi;null;19860601;Nigeria;Sturm;20
 Felix;Platte;null;19960211;Deutschland;Sturm;36
 Sidney;Sam;null;19880131;Deutschland;Sturm;18

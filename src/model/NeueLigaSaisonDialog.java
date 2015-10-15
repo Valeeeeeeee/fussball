@@ -27,9 +27,7 @@ import javax.swing.JTextField;
 public class NeueLigaSaisonDialog extends JFrame {
 	private static final long serialVersionUID = -2949488695441610088L;
 
-	private Start start;
-	
-	private int WIDTH = 500 + 6;
+	private int WIDTH = 600 + 6;
 	private int HEIGHT = 800 + 28;
 	
 	private Color colorBackground = new Color(16, 255, 16);
@@ -57,12 +55,12 @@ public class NeueLigaSaisonDialog extends JFrame {
 
 	private Rectangle REC_LBLSAISON = new Rectangle(30, 15, 50, 25);
 	private Rectangle REC_TFSAISON = new Rectangle(90, 15, 50, 25);
-	private Rectangle REC_CBNOFTEAMS = new Rectangle(30, 45, 45, 25);
-	private Rectangle REC_LBLNOFTEAMS = new Rectangle(80, 45, 90, 25);
-	private Rectangle REC_LBLBEARBEITEN = new Rectangle(170, 45, 70, 25);
-	private Rectangle REC_BTNFERTIG = new Rectangle(400, 750, 80, 30);
+	private Rectangle REC_CBNOFTEAMS = new Rectangle(30, 45, 75, 25);
+	private Rectangle REC_LBLNOFTEAMS = new Rectangle(110, 45, 90, 25);
+	private Rectangle REC_LBLBEARBEITEN = new Rectangle(220, 45, 70, 25);
+	private Rectangle REC_BTNFERTIG = new Rectangle(500, 750, 80, 30);
 	
-	private int[] labels = new int[] {30, 80, 250, 25, 180, 20};
+	private int[] labels = new int[] {30, 80, 300, 25, 200, 20};
 	
 	private JPanel jPnlBackground;
 	private JLabel jLblSaison;
@@ -77,12 +75,10 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private JLabel jLblDatum;
 	private JTextField jTFDatum;
 	private JButton jBtnChangeTeamCompleted;
-	private JButton jBtnthisFertig;
+	private JButton jBtnFertig;
 	
-	public NeueLigaSaisonDialog(Start start) {
+	public NeueLigaSaisonDialog() {
 		super();
-		
-		this.start = start;
 		
 		initGUI();
 	}
@@ -222,12 +218,12 @@ public class NeueLigaSaisonDialog extends JFrame {
 			});
 		}
 		{
-			jBtnthisFertig = new JButton();
-			jPnlBackground.add(jBtnthisFertig);
-			jBtnthisFertig.setBounds(REC_BTNFERTIG);
-			jBtnthisFertig.setText("Fertig");
-			jBtnthisFertig.setFocusable(false);
-			jBtnthisFertig.addActionListener(new ActionListener() {
+			jBtnFertig = new JButton();
+			jPnlBackground.add(jBtnFertig);
+			jBtnFertig.setBounds(REC_BTNFERTIG);
+			jBtnFertig.setText("Fertig");
+			jBtnFertig.setFocusable(false);
+			jBtnFertig.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
 					jBtnFertigActionPerformed();
 				}
@@ -245,10 +241,10 @@ public class NeueLigaSaisonDialog extends JFrame {
 			
 			int starty = labels[STARTY] + numberOfTeams * labels[GAPY];
 			Rectangle REC_LBLNAME = new Rectangle(30, starty + 10, 80, 25);
-			Rectangle REC_TFNAME = new Rectangle(150, starty + 10, 100, 25);
-			Rectangle REC_LBLDATUM = new Rectangle(30, starty + 40, 110, 25);
-			Rectangle REC_TFDATUM = new Rectangle(150, starty + 40, 100, 25);
-			Rectangle REC_BTNCTFERTIG = new Rectangle(30, starty + 70, 80, 25);
+			Rectangle REC_TFNAME = new Rectangle(160, starty + 10, 100, 25);
+			Rectangle REC_LBLDATUM = new Rectangle(30, starty + 40, 120, 25);
+			Rectangle REC_TFDATUM = new Rectangle(160, starty + 40, 100, 25);
+			Rectangle REC_BTNCTFERTIG = new Rectangle(180, starty + 75, 80, 25);
 			
 			jLblName.setBounds(REC_LBLNAME);
 			jTFName.setBounds(REC_TFNAME);
@@ -360,7 +356,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
 		} else {
-			Mannschaft mannschaft = new Mannschaft(start, newSeasonTeamIndex, null, name + ";" + grDatum);
+			Mannschaft mannschaft = new Mannschaft(newSeasonTeamIndex, null, name + ";" + grDatum);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
 			newSeasonTeamsOrder.add(mannschaft);
@@ -467,7 +463,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		start.jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
+		Start.getInstance().jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

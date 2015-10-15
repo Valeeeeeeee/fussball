@@ -10,17 +10,18 @@ Sead;Kolasinac;null;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;6
 Joel;Matip;null;19910808;Deutschland, Kamerun;Abwehr;32
 Matija;Nastasic;null;19930328;Serbien;Abwehr;31
 Sascha;Riether;null;19830323;Deutschland;Abwehr;27
+Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;28
 Atsuto;Uchida;null;19880327;Japan;Abwehr;22
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10;-20150830
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;5
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
-Pierre-Emile;Höjbjerg;null;19950805;Dänemark;Mittelfeld;23;20150828-
+Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;23;20150828-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
-Eric Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
+Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
-Klaas Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
+Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
 Felix;Platte;null;19960211;Deutschland;Sturm;36
 Sidney;Sam;null;19880131;Deutschland;Sturm;18
 Leroy;Sané;null;19960111;Deutschland;Sturm;19

@@ -9,7 +9,6 @@ public class Gruppe implements Wettbewerb {
 	private int id;
 	private boolean isQ;
 	private String name;
-	private Start start;
 	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
@@ -21,10 +20,9 @@ public class Gruppe implements Wettbewerb {
 	private int nMatchdaySetForDate = -1;
 	private int nMatchdaySetUntilTime = -1;
 	private Mannschaft[] mannschaften;
-	private Turnier turnier;
 	private TurnierSaison season;
 	private boolean isETPossible = false;
-	private boolean goalDifference = true;
+	private boolean goalDifference;
 	private boolean teamsHaveKader = false;
 	
 	/**
@@ -56,17 +54,15 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(Start start, TurnierSaison season, int id, boolean isQ) {
-		this.start = start;
-		
+	public Gruppe(TurnierSaison season, int id, boolean isQ, boolean goalDifference) {
 		this.id = id;
 		this.isQ = isQ;
-		name = "Gruppe " + start.getAlphabet()[id];
+		name = "Gruppe " + alphabet[id];
 		
 		this.season = season;
-		this.turnier = season.getTurnier();
 		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
 		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
+		this.goalDifference = goalDifference;
 		
 		this.laden();
 		
@@ -95,7 +91,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public String getTournamentName() {
-		return turnier.getName();
+		return season.getTurnier().getName();
 	}
 	
 	public int getNumberOfMatchesPerMatchday() {
@@ -473,6 +469,26 @@ public class Gruppe implements Wettbewerb {
 		}
 	}
 	
+	public ArrayList<Long> getNextMatches() {
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && (getDate(i, j) > startDate || getTime(i, j) > 0)) {
+					long match = 10000L * getDate(i, j) + getTime(i, j);
+					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
+						int index = nextMatches.size();
+						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+							if (match < nextMatches.get(k))	index = k;
+						}
+						nextMatches.add(index, match);
+					}
+				}
+			}
+		}
+		
+		return nextMatches;
+	}
+	
 	public void laden() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
 		workspace = season.getWorkspace() + isQuali + name + File.separator;
@@ -489,12 +505,12 @@ public class Gruppe implements Wettbewerb {
 		ergebnisseLaden();
 
 		{
-            spieltag = new Spieltag(this.start, this);
-            spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+            spieltag = new Spieltag(this);
+            spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         }
 		{
-            tabelle = new Tabelle(start, this);
+            tabelle = new Tabelle(this);
             tabelle.setLocation((1440 - tabelle.getSize().width) / 2, 50);
             tabelle.setVisible(false);
         }
@@ -520,7 +536,7 @@ public class Gruppe implements Wettbewerb {
 		mannschaften = new Mannschaft[numberOfTeams];
     	
     	for (int i = 0; i < mannschaften.length; i++) {
-			mannschaften[i] = new Mannschaft(start, i + 1, season, this, teamsFromFile.get(i));
+			mannschaften[i] = new Mannschaft(i + 1, this, teamsFromFile.get(i));
 		}
 	}
 	
@@ -540,7 +556,7 @@ public class Gruppe implements Wettbewerb {
 			try {
 				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
 			} catch (NullPointerException npe) {
-				ranks[i] = id + ": " + turnier.getShortName() + turnier.getCurrentSeason() + id;
+				ranks[i] = id + ": " + season.getTurnier().getShortName() + season.getSeason() + id;
 			}
 		}
 		

@@ -4,8 +4,8 @@ Raphael;Wolf;null;19880606;Deutschland;Tor;1
 Marnon;Busch;null;19941208;Deutschland;Abwehr;38
 Luca;Caldirola;null;19910201;Italien;Abwehr;3
 Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
-Alejandro;Galvez;null;19890606;Spanien;Abwehr;4
-Santiago;Garcia;null;19880708;Italien, Argentinien;Abwehr;2
+Alejandro;Gálvez;null;19890606;Spanien;Abwehr;4
+Santiago;García;null;19880708;Italien, Argentinien;Abwehr;2
 Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25;-20141231
 Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
 Sebastian;Prödl;null;19870621;Österreich;Abwehr;15

@@ -10,8 +10,8 @@ Stefan;Mitrovic;null;19900522;Serbien;Abwehr;15
 Mensur;Mujdza;null;19840328;Kroatien, Bosnien-Herzegowina;Abwehr;24
 Sascha;Riether;null;19830323;Deutschland;Abwehr;22
 Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
-Marc;Torrejon;null;19860218;Spanien;Abwehr;3
-Vladimir;Darida;null;19900808;Tschechien;Mittelfeld;7
+Marc;Torrejón;null;19860218;Spanien;Abwehr;3
+Vladimír;Darida;null;19900808;Tschechien;Mittelfeld;7
 Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
 Nicolas;Höfler;null;19900309;Deutschland;Mittelfeld;27
 Florian;Kath;null;19941021;Deutschland;Mittelfeld;51
@@ -22,7 +22,7 @@ Maximilian;Philipp;null;19940301;Deutschland;Mittelfeld;26
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;17
 Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
 Sebastian;Freis;null;19850423;Deutschland;Sturm;35;-20141231
-Karim;Guedé;null;19850107;Togo, Slowakei;Sturm;31
+Karim;Guédé;null;19850107;Togo, Slowakei;Sturm;31
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
 Nils;Petersen;null;19881206;Deutschland;Sturm;18;20150101-
 Dani;Schahin;null;19890709;Deutschland;Sturm;11

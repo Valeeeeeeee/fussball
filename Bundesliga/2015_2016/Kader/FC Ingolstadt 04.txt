@@ -1,7 +1,7 @@
-Örjan;Nyland;null;19900910;Norwegen;Tor;26
+Ørjan;Nyland;null;19900910;Norwegen;Tor;26
 Christian;Ortag;null;19950114;Deutschland;Tor;39
 Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;1
-Romain;Bregerie;null;19860809;Frankreich;Abwehr;18
+Romain;Brégerie;null;19860809;Frankreich;Abwehr;18
 Danny;da Costa;null;19930713;Deutschland;Abwehr;21
 Danilo Teodoro;Soares;Danilo;19911029;Brasilien;Abwehr;15
 Konstantin;Engel;null;19880727;Kasachstan, Deutschland;Abwehr;20
@@ -15,7 +15,7 @@ Almog;Cohen;null;19880901;Israel;Mittelfeld;36
 Pascal;Groß;null;19910615;Deutschland;Mittelfeld;10
 Stefan;Lex;null;19891127;Deutschland;Mittelfeld;14
 Alfredo;Morales;null;19900512;USA, Deutschland;Mittelfeld;6
-Maurice;Multhaup;null;19961215;Deutschland;Mittelfeld;0;20150831-
+Maurice;Multhaup;null;19961215;Deutschland;Mittelfeld;31;20150831-
 Thomas;Pledl;null;19940523;Deutschland;Mittelfeld;30
 Roger;de Oliveira Bernardo;Roger;19850810;Brasilien;Mittelfeld;8
 Stefan;Wannenwetsch;null;19920119;Deutschland;Mittelfeld;22

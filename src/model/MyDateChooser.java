@@ -80,8 +80,6 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_MINUTETOUR =		new Rectangle(90, 70, 70, 30);
 	private Rectangle REC_GOTOUR =			new Rectangle(260, 40, 70, 30);
 	
-	
-	private String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
 	public MyDateChooser(LigaSaison season, Spieltag spieltag) {
@@ -151,7 +149,7 @@ public class MyDateChooser extends JFrame {
 	        else					jLblSpiel.setBounds(REC_LBLSPIELTOUR);
 			jLblSpiel.setOpaque(true);
 			jLblSpiel.setBackground(Color.yellow);
-			jLblSpiel.setHorizontalAlignment(SwingConstants.CENTER);
+			alignCenter(jLblSpiel);
 		}
 		
 		if (belongsToLeague) {
@@ -470,9 +468,10 @@ public class MyDateChooser extends JFrame {
 			
 			int dayofweek = greg.get(Calendar.DAY_OF_WEEK);
 			
-			String[] asz = new String[season.getNumberOfKickoffTimes() + 1];
+			String[] asz = new String[season.getNumberOfKickoffTimes() + 2];
 			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
-			for (int i = 0; i < (asz.length - 1); i++) {
+			asz[0] = "Keine Angabe";
+			for (int i = 1; i < (asz.length - 1); i++) {
 				// nach dem ersten % 7 liegen die Zahlen zwischen -6 und 6, dann plus 12 [5(weil Calendar.MONDAY == 2) waere zu wenig] und noch mal % 7
 				asz[i] = wt_kurz[((dayofweek + kickOffTimes.get(i).getDaysSince()) % 7 + 12) % 7] + " " + MyDate.uhrzeit(kickOffTimes.get(i).getTime());
 			}

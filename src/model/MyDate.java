@@ -1,7 +1,7 @@
 package model;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import static util.Utilities.*;
 
 public class MyDate {
 	
@@ -63,7 +63,6 @@ public class MyDate {
 		return datum;
 	}
 	
-	// needed in liga/koRunde.getCurentMatchday()
 	public static int difference(int firstDate, int secondDate) {
 		int dd = firstDate % 100;
 		int mm = (firstDate % 10000) / 100;
@@ -76,17 +75,52 @@ public class MyDate {
 		yyyy = secondDate / 10000;
 		
 		GregorianCalendar greg2 = new GregorianCalendar(yyyy, mm - 1, dd);
-
-		int difference = 0;
+		
+		int difference = 0, nextLeapYearCandidate, yearType;
+		boolean includesLeapYear;
 		if (firstDate < secondDate) {
+			yearType = greg.get(Calendar.YEAR) % 4;
+			if (greg.get(Calendar.MONTH) > 2)	yearType = (yearType + 1) % 4;
+			
 			while (greg.compareTo(greg2) == -1) {
-				greg.add(Calendar.DAY_OF_MONTH, 1);
-				difference++;
+				if (greg2.get(Calendar.YEAR) - greg.get(Calendar.YEAR) > 4) {
+					nextLeapYearCandidate = (greg.get(Calendar.YEAR) / 4 + 1) * 4;
+					if (nextLeapYearCandidate % 4 == 0 && greg.get(Calendar.MONTH) < 2)	nextLeapYearCandidate -= 4;
+					includesLeapYear = nextLeapYearCandidate % 100 != 0 || nextLeapYearCandidate % 400 == 0;
+					
+					greg.add(Calendar.YEAR, 4);
+					difference += includesLeapYear ? 1461 : 1460;
+				} else if (greg2.get(Calendar.YEAR) - greg.get(Calendar.YEAR) > 1) {
+					greg.add(Calendar.YEAR, 1);
+					difference += 365;
+					if (yearType == 0)	difference++;
+					yearType = (yearType + 1) % 4;
+				} else {
+					greg.add(Calendar.DAY_OF_MONTH, 1);
+					difference++;
+				}
 			}
 		} else {
+			yearType = greg2.get(Calendar.YEAR) % 4;
+			if (greg2.get(Calendar.MONTH) > 2)	yearType = (yearType + 1) % 4;
+			
 			while (greg.compareTo(greg2) == 1) {
-				greg2.add(Calendar.DAY_OF_MONTH, 1);
-				difference++;
+				if (greg.get(Calendar.YEAR) - greg2.get(Calendar.YEAR) > 4) {
+					nextLeapYearCandidate = (greg2.get(Calendar.YEAR) / 4 + 1) * 4;
+					if (nextLeapYearCandidate % 4 == 0 && greg2.get(Calendar.MONTH) < 2)	nextLeapYearCandidate -= 4;
+					includesLeapYear = nextLeapYearCandidate % 100 != 0 || nextLeapYearCandidate % 400 == 0;
+					
+					greg2.add(Calendar.YEAR, 4);
+					difference += includesLeapYear ? 1461 : 1460;
+				} else if (greg.get(Calendar.YEAR) - greg2.get(Calendar.YEAR) > 1) {
+					greg2.add(Calendar.YEAR, 1);
+					difference += 365;
+					if (yearType == 0)	difference++;
+					yearType = (yearType + 1) % 4;
+				} else {
+					greg2.add(Calendar.DAY_OF_MONTH, 1);
+					difference++;
+				}
 			}
 		}
 		

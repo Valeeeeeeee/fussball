@@ -4,25 +4,21 @@ Odisseas;Vlachodimos;null;19940426;Deutschland;Tor;17
 Timo;Baumgartl;null;19960304;Deutschland;Abwehr;5
 Philip;Heise;null;19910620;Deutschland;Abwehr;14
 Adam;Hlousek;null;19881220;Tschechien;Abwehr;21
-Emiliano;Insua;null;19890107;Argentinien;Abwehr;2
+Emiliano;Insúa;null;19890107;Argentinien;Abwehr;2
 Florian;Klein;null;19861117;Österreich;Abwehr;16
 Georg;Niedermeier;null;19860226;Deutschland;Abwehr;6
 Antonio;Rüdiger;null;19930303;Deutschland, Sierra Leone;Abwehr;24;-20150818
-Stephen;Sama;null;19930305;Deutschland;Abwehr;41
 Daniel;Schwaab;null;19880823;Deutschland;Abwehr;3
 Toni;Sunjic;null;19881215;Bosnien-Herzegowina;Abwehr;4;20150827-
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
 Arianit;Ferati;null;19970907;Deutschland;Mittelfeld;31
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11
-Jerome;Kiesewetter;null;19930209;Deutschland, USA;Mittelfeld;42
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
-Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;8
 Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26;
-Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23
-Marvin;Wanitzek;null;19920507;Deutschland;Mittelfeld;28
+Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23;-20150824
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829

@@ -7,8 +7,6 @@ import static util.Utilities.*;
 
 public class KORunde implements Wettbewerb {
 
-	private Start start;
-	private Turnier turnier;
 	private TurnierSaison season;
 	private int id;
 	private boolean isQ;
@@ -74,9 +72,7 @@ public class KORunde implements Wettbewerb {
     
     private Spieltag spieltag;
 	
-	public KORunde(Start start, TurnierSaison season, int id, boolean isQ, String daten) {
-		this.start = start;
-		
+	public KORunde(TurnierSaison season, int id, boolean isQ, String daten) {
 		this.season = season;
 		this.id = id;
 		this.isQ = isQ;
@@ -163,18 +159,8 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
-	private void testGNOTFOC() {
-		String[] otherComp = new String[] {"CL2014GA3"};
-		
-		log("Test:");
-		for (int i = 0; i < otherComp.length; i++) {
-			getNameOfTeamFromOtherCompetition(otherComp[i]);
-		}
-		log();
-	}
-	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = start.getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
+		String fileName = Start.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
 		
 		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
 		for (String team : teams) {
@@ -602,6 +588,26 @@ public class KORunde implements Wettbewerb {
 		return ranks;
 	}
 	
+	public ArrayList<Long> getNextMatches() {
+		ArrayList<Long> nextMatches = new ArrayList<>();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && (getDate(i, j) > startDate || getTime(i, j) > 0)) {
+					long match = 10000L * getDate(i, j) + getTime(i, j);
+					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
+						int index = nextMatches.size();
+						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
+							if (match < nextMatches.get(k))	index = k;
+						}
+						nextMatches.add(index, match);
+					}
+				}
+			}
+		}
+		
+		return nextMatches;
+	}
+	
 	private void laden() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
 		workspace = season.getWorkspace() + isQuali + name + File.separator;
@@ -620,8 +626,8 @@ public class KORunde implements Wettbewerb {
 		ergebnisseLaden();
 		
 		{
-            spieltag = new Spieltag(this.start, this);
-            spieltag.setLocation((start.WIDTH - spieltag.getSize().width) / 2, (start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+            spieltag = new Spieltag(this);
+            spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         }
 		
@@ -661,13 +667,13 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			mannschaften[i] = new Mannschaft(start, i, season, this, teamsOrigins[i]);
+			mannschaften[i] = new Mannschaft(i, this, teamsOrigins[i]);
 		}
 		
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			mannschaften[i] = new Mannschaft(start, i, season, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
+			mannschaften[i] = new Mannschaft(i, this, getNameOfTeamFromOtherCompetition(teamsOrigins[i]));
 		}
 		
 		mannschaftenAktualisieren();

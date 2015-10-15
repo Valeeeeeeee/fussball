@@ -11,7 +11,6 @@ import static util.Utilities.*;
 public class Tabelle extends JPanel {
 	private static final long serialVersionUID = 2308780445852600421L;
 	
-	private Start start;
 	private Wettbewerb wettbewerb;
 	private LigaSaison season;
 	private Gruppe gruppe;
@@ -70,9 +69,8 @@ public class Tabelle extends JPanel {
 	private JTextField[] jTFPunktabzuege;
 	private JButton jBtnFertig;
 	
-	public Tabelle(Start start, Gruppe gruppe) {
+	public Tabelle(Gruppe gruppe) {
 		super();
-		this.start = start;
 		this.gruppe = gruppe;
 		this.wettbewerb = gruppe;
 		this.belongsToALeague = false;
@@ -85,9 +83,8 @@ public class Tabelle extends JPanel {
 		initGUI();
 	}
 	
-	public Tabelle(Start start, LigaSaison season) {
+	public Tabelle(LigaSaison season) {
 		super();
-		this.start = start;
 		this.season = season;
 		this.wettbewerb = season;
 		this.belongsToALeague = true;
@@ -117,10 +114,10 @@ public class Tabelle extends JPanel {
 				titelleiste[j] = new JLabel();
 				this.add(titelleiste[j]);
 				if (j == 1) {
-					titelleiste[j].setHorizontalAlignment(SwingConstants.LEFT);
+					alignLeft(titelleiste[j]);
 					titelleiste[j].setCursor(new Cursor(Cursor.HAND_CURSOR));
 				} else {
-					titelleiste[j].setHorizontalAlignment(SwingConstants.CENTER);
+					alignCenter(titelleiste[j]);
 				}
 				titelleiste[j].setBounds(startx + sumofwidthes, starty - (height + gapy), widthes[j], height);
 				titelleiste[j].setText(titelleist[j]);
@@ -134,18 +131,18 @@ public class Tabelle extends JPanel {
 					this.add(tabelle[i][j]);
 					if (j == 1) {
 						final int x = i;
-						tabelle[i][j].setHorizontalAlignment(SwingConstants.LEFT);
+						alignLeft(tabelle[i][j]);
 						tabelle[i][j].setCursor(handCursor);
 						tabelle[i][j].addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent evt) {
 								int index = teamIndices[x];
 								jBtnAndereTabellenart(Tabellenart.COMPLETE);
-								aktualisieren();
-								start.uebersichtAnzeigen(index);
+								if (belongsToALeague)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
+								Start.getInstance().uebersichtAnzeigen(index);
 							}
 						});
 					} else {
-						tabelle[i][j].setHorizontalAlignment(SwingConstants.CENTER);
+						alignCenter(tabelle[i][j]);
 					}
 					tabelle[i][j].setBounds(startx + sumofwidthes, starty + i * (height + gapy), widthes[j], height);
 					sumofwidthes += widthes[j] + gapx[j];
@@ -194,7 +191,7 @@ public class Tabelle extends JPanel {
 				this.add(jLblHeimtabelle);
 				jLblHeimtabelle.setBounds(REC_HOMETABLE);
 				jLblHeimtabelle.setText("Heimtabelle");
-				jLblHeimtabelle.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblHeimtabelle);
 				jLblHeimtabelle.setCursor(handCursor);
 				jLblHeimtabelle.setBackground(colorTabellenart);
 				jLblHeimtabelle.addMouseListener(new MouseAdapter() {
@@ -208,7 +205,7 @@ public class Tabelle extends JPanel {
 				this.add(jLblGesamttabelle);
 				jLblGesamttabelle.setBounds(REC_COMPLETETABLE);
 				jLblGesamttabelle.setText("Gesamttabelle");
-				jLblGesamttabelle.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblGesamttabelle);
 				jLblGesamttabelle.setCursor(handCursor);
 				jLblGesamttabelle.setBackground(colorTabellenart);
 				jLblGesamttabelle.setOpaque(true);
@@ -223,7 +220,7 @@ public class Tabelle extends JPanel {
 				this.add(jLblAuswaertstabelle);
 				jLblAuswaertstabelle.setBounds(REC_AWAYTABLE);
 				jLblAuswaertstabelle.setText("Auswaertstabelle");
-				jLblAuswaertstabelle.setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jLblAuswaertstabelle);
 				jLblAuswaertstabelle.setCursor(handCursor);
 				jLblAuswaertstabelle.setBackground(colorTabellenart);
 				jLblAuswaertstabelle.addMouseListener(new MouseAdapter() {
@@ -394,7 +391,7 @@ public class Tabelle extends JPanel {
 				jTFPunktabzuege[i] = new JTextField();
 				this.add(jTFPunktabzuege[i]);
 				jTFPunktabzuege[i].setBounds(startx + offset, starty + i * (height + gapy) - 3, widthPAtf, height + 6);
-				jTFPunktabzuege[i].setHorizontalAlignment(SwingConstants.CENTER);
+				alignCenter(jTFPunktabzuege[i]);
 				jTFPunktabzuege[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
 						if ((jTFPunktabzuege[x].getText().length() >= 2 && !jTFPunktabzuege[x].getText().equals("-1"))
@@ -420,7 +417,7 @@ public class Tabelle extends JPanel {
 	
 	private void jBtnTabelleSichernActionPerformed() {
 		String[] order = new String[tabelle.length];
-		String dateiname = start.workspace;
+		String dateiname = Start.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
 			if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
