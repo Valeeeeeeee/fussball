@@ -27,3 +27,4 @@ Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;20
 Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
 Sinan;Kurt;null;19960723;Deutschland;Sturm;24
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
+Milos;Pantovic;null;19960707;Serbien;Sturm;41
