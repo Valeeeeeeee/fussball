@@ -56,6 +56,7 @@ public class SpielInformationen extends JFrame {
 	private ArrayList<JLabel> jLblsGoals = new ArrayList<>();
 	
 	private JPanel jPnlEingabe;
+	private JButton jBtnEingabeCancelled;
 	private JButton jBtnEingabeCompleted;
 	private JLabel jLblMinute;
 	private JTextField jTFMinute;
@@ -106,6 +107,7 @@ public class SpielInformationen extends JFrame {
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
 	private Dimension DIM_PNLEINGABE = new Dimension(270, 130);
+	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(145, 5, 40, 30);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(190, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
@@ -174,6 +176,7 @@ public class SpielInformationen extends JFrame {
 	private ArrayList<Wechsel> substitutionsAway;
 	private ArrayList<Tor> goals;
 	private ArrayList<Karte> bookings;
+	private int changedElement = -1;
 	private boolean repaint;
 	private ArrayList<Integer> penaltiesHome;
 	private ArrayList<Integer> penaltiesAway;
@@ -557,6 +560,17 @@ public class SpielInformationen extends JFrame {
 			jPnlEingabe.setVisible(false);
 		}
 		{
+			jBtnEingabeCancelled = new JButton();
+			jPnlEingabe.add(jBtnEingabeCancelled);
+			jBtnEingabeCancelled.setBounds(REC_BTNTOREINGCANCL);
+			jBtnEingabeCancelled.setText("X");
+			jBtnEingabeCancelled.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnEingabeCancelledActionPerformed();
+				}
+			});
+		}
+		{
 			jBtnEingabeCompleted = new JButton();
 			jPnlEingabe.add(jBtnEingabeCompleted);
 			jBtnEingabeCompleted.setBounds(REC_BTNTOREINGCOMPL);
@@ -565,7 +579,7 @@ public class SpielInformationen extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					if (enteringSubstitution)	jBtnWechseleingabeCompletedActionPerformed();
 					else if (enteringGoal)		jBtnToreingabeCompletedActionPerformed();
-					else if (enteringBooking)		jBtnKarteneingabeCompletedActionPerformed();
+					else if (enteringBooking)	jBtnKarteneingabeCompletedActionPerformed();
 				}
 			});
 		}
@@ -870,7 +884,8 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void changeGoal(int index) {
-		Tor tor = goals.remove(index);
+		changedElement = index;
+		Tor tor = goals.get(index);
 		this.repaint = true;
 		this.enteringGoal = true;
 		editingFirstTeam = tor.isFirstTeam();
@@ -880,7 +895,7 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
 		
-		jLblOben.setText("Torschuetze");
+		jLblOben.setText("Torschütze");
 		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 		jLblUnten.setText("Vorbereiter");
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
@@ -911,7 +926,8 @@ public class SpielInformationen extends JFrame {
 	private void changeSubstitution(boolean firstTeam, int index) {
 		if (enteringGoal || enteringSubstitution)	return;
 		
-		Wechsel wechsel = (firstTeam ? substitutionsHome : substitutionsAway).remove(index);
+		changedElement = index;
+		Wechsel wechsel = (firstTeam ? substitutionsHome : substitutionsAway).get(index);
 		this.repaint = true;
 		this.enteringSubstitution = true;
 		this.editingFirstTeam = firstTeam;
@@ -1140,6 +1156,19 @@ public class SpielInformationen extends JFrame {
 		}
 	}
 	
+	private void jBtnEingabeCancelledActionPerformed() {
+		enteringSubstitution = false;
+		enteringBooking = false;
+		enteringGoal = false;
+		repaint = false;
+		changedElement = -1;
+		
+		jPnlEingabe.setVisible(false);
+		jTFMinute.setText("");
+		setLabelsVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
+	}
+	
 	private void enterNewSubstitution(boolean firstTeam) {
 		if (enteringLineup || enteringGoal || enteringSubstitution || enteringBooking)	return;
 		if ((firstTeam && lineupHome == null) || (!firstTeam && lineupAway == null))	return;
@@ -1149,8 +1178,8 @@ public class SpielInformationen extends JFrame {
 			return;
 		}
 		
-		this.enteringSubstitution = true;
-		this.editingFirstTeam = firstTeam;
+		enteringSubstitution = true;
+		editingFirstTeam = firstTeam;
 		
 		// hide lineup labels
 		setLabelsVisible(false);
@@ -1222,9 +1251,11 @@ public class SpielInformationen extends JFrame {
 			message("In diesem Spiel kann es keine Verlaengerung geben.");
 			return;
 		}
+		if (changedElement != -1)	(editingFirstTeam ? substitutionsHome : substitutionsAway).get(changedElement);
+		changedElement = -1;
 		for (Wechsel wechsel : spiel.getSubstitutions(editingFirstTeam)) {
 			if (wechsel.getMinute() > minute) {
-				this.repaint = true;
+				repaint = true;
 			}
 		}
 		Spieler ausgSpieler = eligiblePlayersListUpper.get(jCBOben.getSelectedIndex());
@@ -1364,7 +1395,7 @@ public class SpielInformationen extends JFrame {
 		}
 		for (Tor tor : goals) {
 			if (tor.getMinute() > minute) {
-				this.repaint = true;
+				repaint = true;
 			}
 		}
 		
@@ -1393,6 +1424,9 @@ public class SpielInformationen extends JFrame {
 				}
 			}
 		}
+		
+		if (changedElement != -1)	goals.remove(changedElement);
+		changedElement = -1;
 		
 		Tor tor = null;
 		if (scorer == null)				tor = new Tor(spiel, editingFirstTeam, penalty, ownGoal, minute);
