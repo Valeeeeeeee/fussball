@@ -1,9 +1,11 @@
 package util;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -70,6 +72,13 @@ public class Utilities {
 	    g.dispose();
 	    
 	    return resizedImage;
+	}
+	
+	public static void removeAllMouseListeners(Component comp) {
+		MouseListener[] mls = comp.getMouseListeners();
+		for (int i = 0; i < mls.length; i++) {
+			comp.removeMouseListener(mls[0]);
+		}
 	}
 	
 	public static void repaintImmediately(JComponent component) {

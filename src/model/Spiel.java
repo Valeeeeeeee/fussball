@@ -132,6 +132,13 @@ public class Spiel {
 		}
 	}
 	
+	public void removeGoal(Tor goal) {
+		if (goal != null) {
+			goals.remove(goal);
+			ergebnis = new Ergebnis(goals);
+		}
+	}
+	
 	public int addSubstitution(Wechsel substitution) {
 		int index = 0;
 		if (substitution != null) {
@@ -150,6 +157,10 @@ public class Spiel {
 		return index;
 	}
 	
+	public void removeSubstitution(Wechsel substitution) {
+		(substitution.isFirstTeam() ? substitutionsHome : substitutionsAway).remove(substitution);
+	}
+	
 	public void addBooking(Karte booking) {
 		if (booking != null) {
 			int index = 0;
@@ -158,6 +169,10 @@ public class Spiel {
 			}
 			bookings.add(index, booking);
 		}
+	}
+	
+	public void removeBooking(Karte booking) {
+		if (booking != null)	bookings.remove(booking);
 	}
 	
 	public String getSchiedsrichter() {

@@ -49,6 +49,8 @@ public class SpielInformationen extends JFrame {
 	private JLabel[] jLblsPlayersAway;
 	private JLabel[] jLblsBookingsHome;
 	private JLabel[] jLblsBookingsAway;
+	private JLabel[] jLblsSecBookingsHome;
+	private JLabel[] jLblsSecBookingsAway;
 	private JLabel[] jLblsSubsOffMinutesHome;
 	private JLabel[] jLblsSubsOffMinutesAway;
 	private JLabel[] jLblsSubsOnMinutesHome;
@@ -98,10 +100,13 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNPENALTIES = new Rectangle(325, 170, 150, 25);
 	
 	// Labels Aufstellung, Wechsel, Tore
-	private int[] subMinsLbls = new int[] {90, 160, 580, 25, 40, 20};
-	private int[] luLbls = new int[] {135, 160, 405, 25, 125, 20};
-	private int[] bLbls = new int[] {265, 160, 256, 25, 14, 20};
+	private int[] subMinsLbls = new int[] {75, 160, 610, 25, 40, 20};
+	private int[] luLbls = new int[] {120, 160, 435, 25, 125, 20};
+	private int[] bLbls = new int[] {250, 161, 286, 25, 14, 19};
 	private int[] gLbls = new int[] {305, 160, 30, 25, 160, 20};
+
+	private int bDeltaX = 10;
+	private int bDeltaY = 2;
 	
 	// Toreingabe
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
@@ -145,7 +150,6 @@ public class SpielInformationen extends JFrame {
 	private Color colorYellowCard = new Color(224, 224, 0);
 	private Color colorRedCard = new Color(255, 0, 0);
 	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
-	private Font fontSecondBooking = new Font("Calibri", Font.BOLD, 15);
 	private Font fontTeamNames = new Font("Verdana", Font.PLAIN, 24);
 	private static final int PENALTY_NO = 0;
 	private static final int PENALTY_IN = 1;
@@ -213,6 +217,8 @@ public class SpielInformationen extends JFrame {
 		jLblsPlayersAway = new JLabel[maxNumOfPlayers];
 		jLblsBookingsHome = new JLabel[maxNumOfPlayers];
 		jLblsBookingsAway = new JLabel[maxNumOfPlayers];
+		jLblsSecBookingsHome = new JLabel[maxNumOfPlayers];
+		jLblsSecBookingsAway = new JLabel[maxNumOfPlayers];
 		jLblsSubsOffMinutesHome = new JLabel[maxNumOfPlayers];
 		jLblsSubsOffMinutesAway = new JLabel[maxNumOfPlayers];
 		jLblsSubsOnMinutesHome = new JLabel[maximumNumberOfSubstitutions];
@@ -480,6 +486,16 @@ public class SpielInformationen extends JFrame {
 			jPnlSpielInformationen.add(jLblsBookingsAway[i]);
 			jLblsBookingsAway[i].setLocation(bLbls[STARTX] + bLbls[GAPX], bLbls[STARTY] + i * bLbls[GAPY]);
 			jLblsBookingsAway[i].setSize(bLbls[SIZEX], bLbls[SIZEY]);
+			
+			jLblsSecBookingsHome[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsSecBookingsHome[i]);
+			jLblsSecBookingsHome[i].setLocation(bLbls[STARTX] + bLbls[SIZEX] + 1 - bDeltaX, bLbls[STARTY] + i * bLbls[GAPY] - bDeltaY);
+			jLblsSecBookingsHome[i].setSize(bLbls[SIZEX], bLbls[SIZEY]);
+			
+			jLblsSecBookingsAway[i] = new JLabel();
+			jPnlSpielInformationen.add(jLblsSecBookingsAway[i]);
+			jLblsSecBookingsAway[i].setLocation(bLbls[STARTX] + bLbls[GAPX] - bLbls[SIZEX] - 1 + bDeltaX, bLbls[STARTY] + i * bLbls[GAPY] - bDeltaY);
+			jLblsSecBookingsAway[i].setSize(bLbls[SIZEX], bLbls[SIZEY]);
 		}
 		for (int i = 0; i < maxNumOfPlayers; i++) {
 			jLblsSubsOffMinutesHome[i] = new JLabel();
@@ -755,10 +771,34 @@ public class SpielInformationen extends JFrame {
 	private void paintSubstitutions(boolean firstTeam) {
 		int index = 0;
 		if (firstTeam) {
+			for (int i = 0; i < numberOfPlayersInLineUp + maximumNumberOfSubstitutions; i++) {
+				removeAllMouseListeners(jLblsSubsOffMinutesHome[i]);
+				jLblsSubsOffMinutesHome[i].setText("");
+				jLblsSubsOffMinutesHome[i].setVisible(false);
+			}
+			for (int i = 0; i < maximumNumberOfSubstitutions; i++) {
+				removeAllMouseListeners(jLblsSubsOnMinutesHome[i]);
+				jLblsSubsOnMinutesHome[i].setText("");
+				jLblsSubsOnMinutesHome[i].setVisible(false);
+				jLblsPlayersHome[numberOfPlayersInLineUp + i].setText("");
+				jLblsPlayersHome[numberOfPlayersInLineUp + i].setVisible(false);
+			}
 			for (Wechsel wechsel : substitutionsHome) {
 				displaySubstitution(wechsel, index++);
 			}
 		} else {
+			for (int i = 0; i < numberOfPlayersInLineUp + maximumNumberOfSubstitutions; i++) {
+				removeAllMouseListeners(jLblsSubsOffMinutesAway[i]);
+				jLblsSubsOffMinutesAway[i].setText("");
+				jLblsSubsOffMinutesAway[i].setVisible(false);
+			}
+			for (int i = 0; i < maximumNumberOfSubstitutions; i++) {
+				removeAllMouseListeners(jLblsSubsOnMinutesAway[i]);
+				jLblsSubsOnMinutesAway[i].setText("");
+				jLblsSubsOnMinutesAway[i].setVisible(false);
+				jLblsPlayersAway[numberOfPlayersInLineUp + i].setText("");
+				jLblsPlayersAway[numberOfPlayersInLineUp + i].setVisible(false);
+			}
 			for (Wechsel wechsel : substitutionsAway) {
 				displaySubstitution(wechsel, index++);
 			}
@@ -767,9 +807,22 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void paintBookings() {
+		for (int i = 0; i < numberOfPlayersInLineUp + maximumNumberOfSubstitutions; i++) {
+			removeAllMouseListeners(jLblsBookingsHome[i]);
+			removeAllMouseListeners(jLblsBookingsAway[i]);
+			removeAllMouseListeners(jLblsSecBookingsHome[i]);
+			removeAllMouseListeners(jLblsSecBookingsAway[i]);
+			jLblsBookingsHome[i].setOpaque(false);
+			jLblsBookingsAway[i].setOpaque(false);
+			jLblsSecBookingsHome[i].setOpaque(false);
+			jLblsSecBookingsAway[i].setOpaque(false);
+			jLblsSecBookingsHome[i].setLocation(bLbls[STARTX] + bLbls[SIZEX] + 1 - bDeltaX, bLbls[STARTY] + i * bLbls[GAPY] - bDeltaY);
+			jLblsSecBookingsAway[i].setLocation(bLbls[STARTX] + bLbls[GAPX] - bLbls[SIZEX] - 1 + bDeltaX, bLbls[STARTY] + i * bLbls[GAPY] - bDeltaY);
+		}
 		for (Karte booking: bookings) {
 			displayBooking(booking);
 		}
+		repaint = false;
 	}
 	
 	private void displayGoal(Tor tor) {
@@ -815,13 +868,13 @@ public class SpielInformationen extends JFrame {
 		});
 		
 		int playerPos = -1;
-		for (int j = 0; j < numberOfPlayersInLineUp && playerPos == -1; j++) {
-			if (firstTeam && lineupHome[j] == squadNumberOff)		playerPos = j;
-			else if (!firstTeam && lineupAway[j] == squadNumberOff)	playerPos = j;
+		for (int i = 0; i < numberOfPlayersInLineUp && playerPos == -1; i++) {
+			if (firstTeam && lineupHome[i] == squadNumberOff)		playerPos = i;
+			else if (!firstTeam && lineupAway[i] == squadNumberOff)	playerPos = i;
 		}
 		if (playerPos == -1) {
-			for (int j = 0; j < numberOfPlayersInLineUp && playerPos == -1; j++) {
-				if (spiel.getSubstitutions(firstTeam).get(j).getEingewechselterSpieler().getSquadNumber() == squadNumberOff)	playerPos = numberOfPlayersInLineUp + j;
+			for (int i = 0; i < maximumNumberOfSubstitutions && playerPos == -1; i++) {
+				if (spiel.getSubstitutions(firstTeam).get(i).getEingewechselterSpieler().getSquadNumber() == squadNumberOff)	playerPos = numberOfPlayersInLineUp + i;
 			}
 		}
 		String arrowdown = arrowDown();
@@ -841,7 +894,7 @@ public class SpielInformationen extends JFrame {
 		if (booking.isFirstTeam()) {
 			for (int i = 0; i < lineupHome.length && !found; i++) {
 				if (lineupHome[i] == squadNumber) {
-					label = jLblsBookingsHome[i];
+					label = (second ? jLblsSecBookingsHome : jLblsBookingsHome)[i];
 					found = true;
 				}
 			}
@@ -849,16 +902,20 @@ public class SpielInformationen extends JFrame {
 				int index = 0;
 				for (Wechsel wechsel : substitutionsHome) {
 					if (wechsel.getEingewechselterSpieler().getSquadNumber() == squadNumber) {
-						label = jLblsBookingsHome[numberOfPlayersInLineUp + index];
+						label = (second ? jLblsSecBookingsHome : jLblsBookingsHome)[numberOfPlayersInLineUp + index];
 						break;
 					}
 					index++;
 				}
 			}
+			if (second && !yellow) {
+				Point loc = label.getLocation();
+				label.setLocation(loc.x + bDeltaX, loc.y + bDeltaY);
+			}
 		} else {
 			for (int i = 0; i < lineupAway.length && !found; i++) {
 				if (lineupAway[i] == squadNumber) {
-					label = jLblsBookingsAway[i];
+					label = (second ? jLblsSecBookingsAway : jLblsBookingsAway)[i];
 					found = true;
 				}
 			}
@@ -866,20 +923,21 @@ public class SpielInformationen extends JFrame {
 				int index = 0;
 				for (Wechsel wechsel : substitutionsAway) {
 					if (wechsel.getEingewechselterSpieler().getSquadNumber() == squadNumber) {
-						label = jLblsBookingsAway[numberOfPlayersInLineUp + index];
+						label = (second ? jLblsSecBookingsAway : jLblsBookingsAway)[numberOfPlayersInLineUp + index];
 						break;
 					}
 					index++;
 				}
 			}
+			if (second && !yellow) {
+				Point loc = label.getLocation();
+				label.setLocation(loc.x - bDeltaX, loc.y + bDeltaY);
+			}
 		}
-
-		if (yellow)	label.setBackground(colorYellowCard);
-		else		label.setBackground(colorRedCard);
+		
+		if (second)	label.setBackground(colorRedCard);
+		else		label.setBackground(colorYellowCard);
 		alignCenter(label);
-		label.setForeground(colorRedCard);
-		label.setFont(fontSecondBooking);
-		label.setText(second ? "2" : "");
 		label.setOpaque(true);
 	}
 	
@@ -965,6 +1023,10 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlEingabe.setVisible(true);
 		jTFMinute.requestFocus();
+	}
+	
+	private void changeBooking() {
+		
 	}
 	
 	private void setAmGruenenTisch(boolean isHomeTeam) {
@@ -1131,6 +1193,9 @@ public class SpielInformationen extends JFrame {
 			for (JLabel label : jLblsBookingsHome) {
 				label.setVisible(value);
 			}
+			for (JLabel label : jLblsSecBookingsHome) {
+				label.setVisible(value);
+			}
 			for (JLabel label : jLblsSubsOffMinutesHome) {
 				label.setVisible(value && !label.getText().equals(""));
 			}
@@ -1142,6 +1207,9 @@ public class SpielInformationen extends JFrame {
 				label.setVisible(value && label.getText() != "");
 			}
 			for (JLabel label : jLblsBookingsAway) {
+				label.setVisible(value);
+			}
+			for (JLabel label : jLblsSecBookingsAway) {
 				label.setVisible(value);
 			}
 			for (JLabel label : jLblsSubsOffMinutesAway) {
@@ -1649,7 +1717,113 @@ public class SpielInformationen extends JFrame {
 				}
 			}
 		}
-		for (Karte booking : bookings) {
+		validateMatchDataOnLineupChange();
+		
+		spiel.setLineupHome(lineupHome);
+		spiel.setLineupAway(lineupAway);
+		
+		// hiding lineup selection labels -> will be replaced next time
+		for (JLabel label : jLblsLineupSelectionPlayers) {
+			label.setVisible(false);
+		}
+		
+		// show hidden lineup labels
+		setLabelsVisible(true);
+		
+		jPnlLineupSelection.setVisible(false);
+		enteringLineup = false;
+	}
+	
+	private void validateMatchDataOnLineupChange() {
+		// Goals
+		for (int index = 0; index < goals.size(); index++) {
+			Tor goal = goals.get(index);
+			boolean scorerOnPitch = false, assistantOnPitch = false;
+			if (goal.getScorer() != null) {
+				boolean firstTeam = goal.isFirstTeam() ^ goal.isOwnGoal();
+				int sqN = goal.getScorer().getSquadNumber();
+				if (firstTeam) {
+					for (int i = 0; i < lineupHome.length; i++) {
+						if (lineupHome[i] == sqN)	scorerOnPitch = true;
+					}
+					for (Wechsel wechsel : substitutionsHome) {
+						if (wechsel.getEingewechselterSpieler().getSquadNumber() == sqN) scorerOnPitch = true;
+					}
+				} else {
+					for (int i = 0; i < lineupAway.length; i++) {
+						if (lineupAway[i] == sqN)	scorerOnPitch = true;
+					}
+					for (Wechsel wechsel : substitutionsAway) {
+						if (wechsel.getEingewechselterSpieler().getSquadNumber() == sqN) scorerOnPitch = true;
+					}
+				}
+			}
+			else	scorerOnPitch = true;
+			if (goal.getAssistgeber() != null) {
+				boolean firstTeam = goal.isFirstTeam();
+				int sqN = goal.getAssistgeber().getSquadNumber();
+				if (firstTeam) {
+					for (int i = 0; i < lineupHome.length; i++) {
+						if (lineupHome[i] == sqN)	assistantOnPitch = true;
+					}
+					for (Wechsel wechsel : substitutionsHome) {
+						if (wechsel.getEingewechselterSpieler().getSquadNumber() == sqN) assistantOnPitch = true;
+					}
+				} else {
+					for (int i = 0; i < lineupAway.length; i++) {
+						if (lineupAway[i] == sqN)	assistantOnPitch = true;
+					}
+					for (Wechsel wechsel : substitutionsAway) {
+						if (wechsel.getEingewechselterSpieler().getSquadNumber() == sqN) assistantOnPitch = true;
+					}
+				}
+			}
+			else	assistantOnPitch = true;
+			if (!scorerOnPitch || !assistantOnPitch) {
+				spiel.removeGoal(goal);
+				index--;
+			}
+		}
+		// Substituitons
+		for (int index = 0; index < substitutionsHome.size(); index++) {
+			Wechsel substitution = substitutionsHome.get(index);
+			int sqNumberOff = substitution.getAusgewechselterSpieler().getSquadNumber();
+			int sqNumberOn = substitution.getEingewechselterSpieler().getSquadNumber();
+			boolean subOffOnPitch = false, subOnInLineup = false;
+			for (int i = 0; i < lineupHome.length; i++) {
+				if (lineupHome[i] == sqNumberOff)	subOffOnPitch = true;
+				if (lineupHome[i] == sqNumberOn)	subOnInLineup = true;
+			}
+			for (int i = 0; i < index; i++) {
+				if (substitutionsHome.get(i).getEingewechselterSpieler().getSquadNumber() == sqNumberOff) subOffOnPitch = true;
+			}
+			
+			if (!subOffOnPitch || subOnInLineup) {
+				spiel.removeSubstitution(substitution);
+				index--;
+			}
+		}
+		for (int index = 0; index < substitutionsAway.size(); index++) {
+			Wechsel substitution = substitutionsAway.get(index);
+			int sqNumberOff = substitution.getAusgewechselterSpieler().getSquadNumber();
+			int sqNumberOn = substitution.getEingewechselterSpieler().getSquadNumber();
+			boolean subOffOnPitch = false, subOnInLineup = false;
+			for (int i = 0; i < lineupAway.length; i++) {
+				if (lineupAway[i] == sqNumberOff)	subOffOnPitch = true;
+				if (lineupAway[i] == sqNumberOn)	subOnInLineup = true;
+			}
+			for (int i = 0; i < index; i++) {
+				if (substitutionsAway.get(i).getEingewechselterSpieler().getSquadNumber() == sqNumberOff) subOffOnPitch = true;
+			}
+			
+			if (!subOffOnPitch || subOnInLineup) {
+				spiel.removeSubstitution(substitution);
+				index--;
+			}
+		}
+		// Bookings
+		for (int index = 0; index < bookings.size(); index++) {
+			Karte booking = bookings.get(index);
 			int sqNumber = booking.getBookedPlayer().getSquadNumber();
 			boolean found = false;
 			if (booking.isFirstTeam()) {
@@ -1668,24 +1842,16 @@ public class SpielInformationen extends JFrame {
 				}
 			}
 			if (!found) {
-				bookings.remove(booking);
+				spiel.removeBooking(booking);
+				index--;
 			}
 		}
-		
-		spiel.setLineupHome(lineupHome);
-		spiel.setLineupAway(lineupAway);
-		spiel.toString();
-		
-		// hiding lineup selection labels -> will be replaced next time
-		for (JLabel label : jLblsLineupSelectionPlayers) {
-			label.setVisible(false);
-		}
-		
-		// show hidden lineup labels
-		setLabelsVisible(true);
-		
-		jPnlLineupSelection.setVisible(false);
-		enteringLineup = false;
+		paintGoals();
+		paintSubstitutions(true);
+		paintSubstitutions(false);
+		paintBookings();
+		ergebnis = spiel.getErgebnis();
+		setErgebnis();
 	}
 	
 	public void goActionPerformed() {
