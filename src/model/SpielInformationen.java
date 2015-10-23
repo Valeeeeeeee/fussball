@@ -1009,10 +1009,12 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
 		
+		spiel.removeSubstitution(wechsel);
 		jLblOben.setText("ausgewechselt");
 		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayersSub(true)));
 		jLblUnten.setText("eingewechselt");
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayersSub(false)));
+		spiel.addSubstitution(wechsel);
 		
 		jCBOben.setSelectedItem(wechsel.getAusgewechselterSpieler().getPseudonymOrLN());
 		jCBUnten.setSelectedItem(wechsel.getEingewechselterSpieler().getPseudonymOrLN());
@@ -1319,7 +1321,7 @@ public class SpielInformationen extends JFrame {
 			message("In diesem Spiel kann es keine Verlaengerung geben.");
 			return;
 		}
-		if (changedElement != -1)	(editingFirstTeam ? substitutionsHome : substitutionsAway).get(changedElement);
+		if (changedElement != -1)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedElement);
 		changedElement = -1;
 		for (Wechsel wechsel : spiel.getSubstitutions(editingFirstTeam)) {
 			if (wechsel.getMinute() > minute) {
@@ -1334,6 +1336,7 @@ public class SpielInformationen extends JFrame {
 		if (repaint)	paintSubstitutions(editingFirstTeam);
 		else			displaySubstitution(substitution, index);
 		enteringSubstitution = false;
+		validateMatchDataOnLineupChange();
 		
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
