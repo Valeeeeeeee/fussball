@@ -1854,7 +1854,7 @@ public class SpielInformationen extends JFrame {
 		paintSubstitutions(false);
 		paintBookings();
 		ergebnis = spiel.getErgebnis();
-		setErgebnis();
+		if (ergebnis != null)	setErgebnis();
 	}
 	
 	public void goActionPerformed() {
