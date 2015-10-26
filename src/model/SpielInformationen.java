@@ -935,8 +935,8 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		if (second)	label.setBackground(colorRedCard);
-		else		label.setBackground(colorYellowCard);
+		if (second || !yellow)	label.setBackground(colorRedCard);
+		else					label.setBackground(colorYellowCard);
 		alignCenter(label);
 		label.setOpaque(true);
 	}
