@@ -5,6 +5,7 @@ Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
 Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
 Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
+Yanni;Regäsel;null;19960113;Deutschland;Abwehr;39
 Niklas;Stark;null;19950414;Deutschland;Abwehr;5;20150824-
 Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;23
 Alexander;Baumjohann;null;19870123;Deutschland;Mittelfeld;9
