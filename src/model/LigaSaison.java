@@ -532,8 +532,9 @@ public class LigaSaison implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && getDate(i, j) > 0) {
-					long match = 10000L * getDate(i, j) + getTime(i, j);
+				int date = getDate(i, j), time = getTime(i, j);
+				if (isSpielplanEntered(i, j) && date > 0 && (!inThePast(date, time, 145) || !isErgebnisplanEntered(i, j))) {
+					long match = 10000L * date + time;
 					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {

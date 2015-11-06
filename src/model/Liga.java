@@ -77,11 +77,11 @@ public class Liga {
 	
 	public int[] checkMissingResults() {
 		int countCompleted = 0, countStillRunning = 0;
+		long now = 10000L * MyDate.newMyDate() + MyDate.newMyTime();
 		for (LigaSaison season : saisons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
 			if (nextMatchesString.size() > 0) {
-				long now = 10000L * MyDate.newMyDate() + MyDate.newMyTime();
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
 					if (match <= now) {

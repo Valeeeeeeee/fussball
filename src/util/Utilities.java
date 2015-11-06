@@ -178,6 +178,15 @@ public class Utilities {
 		return false;
 	}
 	
+	public static boolean inThePast(int date, int time, int timeDifference) {
+		time += timeDifference + (time % 100 < 15 ? 0 : 40);
+		if (time > 2359) {
+			date = MyDate.verschoben(date, 1);
+			time -= 2400;
+		}
+		return inThePast(date, time);
+	}
+	
 	public static boolean inThePast(int date, int time) {
 		if (date < Start.today())	return true;
 		if (date > Start.today())	return false;
