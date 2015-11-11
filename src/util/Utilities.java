@@ -171,6 +171,13 @@ public class Utilities {
 		return name;
 	}
 	
+	public static <E> boolean isIn(E obj, E[] array) {
+		for (int i = 0; i < array.length; i++) {
+			if (obj.equals(array[i]))	return true;
+		}
+		return false;
+	}
+	
 	public static <E> boolean isElementOf(E obj, ArrayList<E> list) {
 		for (int i = 0; i < list.size(); i++) {
 			if (obj.equals(list.get(i)))	return true;

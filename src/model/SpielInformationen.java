@@ -185,6 +185,7 @@ public class SpielInformationen extends JFrame {
 	private ArrayList<Integer> penaltiesHome;
 	private ArrayList<Integer> penaltiesAway;
 	private int latestPenalty;
+	private int typed = -1;
 	
 	private boolean isETpossible = false;
 	
@@ -686,6 +687,32 @@ public class SpielInformationen extends JFrame {
 		
 		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
 		setResizable(false);
+		addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				typed(e.getKeyChar());
+			}
+		});
+	}
+	
+	private void typed(int keyChar) {
+		if (typed == -1) {
+			if (keyChar == 8)	typed = -1;
+			else if (isIn(keyChar, new Integer[] {66, 71, 76, 83, 98, 103, 108, 115}))	typed = keyChar;
+		} else {
+			if (keyChar == 72 || keyChar == 104) {
+				if (typed % 32 == 2)	jBtnBookingHome.doClick();
+				if (typed % 32 == 7)	jBtnGoalHome.doClick();
+				if (typed % 32 == 12)	jBtnLineupHome.doClick();
+				if (typed % 32 == 19)	jBtnSubstitutionHome.doClick();
+				typed = -1;
+			} else if (keyChar == 65 || keyChar == 97) {
+				if (typed % 32 == 2)	jBtnBookingAway.doClick();
+				if (typed % 32 == 7)	jBtnGoalAway.doClick();
+				if (typed % 32 == 12)	jBtnLineupAway.doClick();
+				if (typed % 32 == 19)	jBtnSubstitutionAway.doClick();
+				typed = -1;
+			}
+		}
 	}
 	
 	private void displayGivenValues() {
@@ -1274,6 +1301,7 @@ public class SpielInformationen extends JFrame {
 		jTFMinute.setText("");
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
+		requestFocus();
 	}
 	
 	private void enterNewSubstitution(boolean firstTeam) {
@@ -1381,6 +1409,7 @@ public class SpielInformationen extends JFrame {
 		// show hidden lineup labels
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
+		requestFocus();
 	}
 	
 	private void enterNewGoal(boolean firstTeam) {
@@ -1557,6 +1586,7 @@ public class SpielInformationen extends JFrame {
 		// show hidden lineup labels
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
+		requestFocus();
 	}
 	
 	private void enterNewBooking(boolean firstTeam) {
@@ -1656,6 +1686,7 @@ public class SpielInformationen extends JFrame {
 		// show hidden lineup labels
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
+		requestFocus();
 	}
 	
 	private void enterNewLineup(boolean firstTeam) {
@@ -1723,6 +1754,7 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;
+		requestFocus();
 	}
 	
 	private void playerSelected(int index) {
@@ -1775,6 +1807,7 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;
+		requestFocus();
 	}
 	
 	private void validateMatchDataOnLineupChange() {
