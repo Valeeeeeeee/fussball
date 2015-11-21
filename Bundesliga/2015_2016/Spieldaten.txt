@@ -106,7 +106,7 @@
 18:16+{1:1#false-m29-s10-a23-p#true-m47-s20-a8^#true-m25-ytrue-sfalse-p14#true-m45-ytrue-sfalse-p8#true-m52-ytrue-sfalse-p18#true-m56-ytrue-sfalse-p13#false-m57-ytrue-sfalse-p5#false-m85-ytrue-sfalse-p23}+{31,33,13,15,34,4,8,20,18,10,14#73:34>>11#85:10>>7#90:20>>35}+{15,5,22,24,4,21,8,27,23,10,9#65:9>>7#90:21>>28#90:27>>17}
 7:6+{3:2#true-m30-s23-a28#false-m33-s25-a19#true-m43-s28-a10#true-m48-s17-a27#false-m71-s25-a8^#false-m38-ytrue-sfalse-p8#false-m46-ytrue-sfalse-p3#true-m49-ytrue-sfalse-p17#false-m61-ytrue-sfalse-p9#true-m82-ytrue-sfalse-p29#true-m89-ytrue-sfalse-p33#false-m90-ytrue-sfalse-p36}+{38,28,15,29,25,27,8,23,10,33,17#87:27>>6#90:17>>20}+{1,15,3,6,32,8,7,33,9,25,19#56:7>>13#70:6>>23#90:33>>36}
 5:10+{1:2#false-m58-s14-a2#false-m69-s22-a16#true-m90-s2-a-p^#true-m3-ytrue-sfalse-p21#false-m11-ytrue-sfalse-p2#false-m77-ytrue-sfalse-p7#false-m90-ytrue-sfalse-p16#false-m90-ytrue-sfalse-p42}+{35,18,5,31,2,10,30,21,19,25,22#55:21>>14#64:19>>11#75:22>>13}+{42,4,2,20,23,7,44,22,16,11,21#46:21>>14#64:11>>18#81:23>>5}
-16:7
+16:7+{3:1#true-m19-s10-a7-p#true-m41-s8-a27#true-m55-s15-a8-og#false-m86-s17-a9^#false-m19-ytrue-sfalse-p38}+{15,5,28,22,24,4,8,7,40,27,10#29:4>>3#71:40>>23#82:8>>21}+{38,28,15,29,25,8,23,10,11,33,17#46:28>>26#46:23>>27#69:11>>9}
 2:10
 3:13
 9:4
