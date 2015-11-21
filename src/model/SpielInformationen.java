@@ -158,7 +158,7 @@ public class SpielInformationen extends JFrame {
 	private static final int numberOfPlayersInLineUp = 11;
 	private static final int maximumNumberOfSubstitutions = 3;
 
-	private int[] boundsLSP = new int[] {5, 5, 5, 1, 130, 20};
+	private int[] boundsLSP = new int[] {5, 5, 135, 21, 130, 20};
 	private int playersPerColumn = 15;
 	
 	private Spieltag spieltag;
@@ -1710,8 +1710,8 @@ public class SpielInformationen extends JFrame {
 			jLblsLineupSelectionPlayers[i] = new JLabel();
 			jPnlLineupSelection.add(jLblsLineupSelectionPlayers[i]);
 			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[SIZEX], boundsLSP[SIZEY]);
-			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * (boundsLSP[SIZEX] + boundsLSP[GAPX]), 
-														boundsLSP[STARTY] + (i % playersPerColumn) * (boundsLSP[SIZEY] + boundsLSP[GAPY]));
+			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * boundsLSP[GAPX], 
+														boundsLSP[STARTY] + (i % playersPerColumn) * boundsLSP[GAPY]);
 			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPseudonymOrLN());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);

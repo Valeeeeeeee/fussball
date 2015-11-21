@@ -23,5 +23,6 @@ Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
 Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
 Felix;Platte;null;19960211;Deutschland;Sturm;36
+Fabian;Reese;null;19971129;Deutschland;Sturm;16
 Sidney;Sam;null;19880131;Deutschland;Sturm;18
 Leroy;Sané;null;19960111;Deutschland;Sturm;19

@@ -12,6 +12,7 @@ Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;34
 Marcel;Schäfer;null;19840607;Deutschland;Abwehr;4
 Christian;Träsch;null;19870901;Deutschland;Abwehr;15
 Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
+Ismail;Azzaoui;null;19980106;Belgien;Mittelfeld;38
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7
 Kevin;de Bruyne;null;19910628;Belgien;Mittelfeld;14;-20150829
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10;20150831
