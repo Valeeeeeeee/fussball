@@ -125,10 +125,10 @@ public class SpielInformationen extends JFrame {
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
-	private Point LOC_PNLLINEUPAWAYSEL = new Point(490, 150);
-	private Dimension DIM_PNLLINEUPSEL = new Dimension(280, 370);
-	private Rectangle REC_BTNLUSCANCEL = new Rectangle(100, 330, 90, 30);
-	private Rectangle REC_BTNLUSCOMPL = new Rectangle(200, 330, 70, 30);
+	private Point LOC_PNLLINEUPAWAYSEL = new Point(360, 150);
+	private Dimension DIM_PNLLINEUPSEL = new Dimension(410, 370);
+	private Rectangle REC_BTNLUSCANCEL = new Rectangle(230, 330, 90, 30);
+	private Rectangle REC_BTNLUSCOMPL = new Rectangle(330, 330, 70, 30);
 	
 	// Penalties
 	private Rectangle REC_PNLPENALTIES = new Rectangle(170, 120, 460, 120);
