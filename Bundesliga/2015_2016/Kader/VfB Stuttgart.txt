@@ -20,9 +20,11 @@ Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;8
 Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26;
 Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23;-20150824
+Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
 Robbie;Kruse;null;19881005;Australien;Sturm;9;20150831-
+Borys;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
 Timo;Werner;null;19960306;Deutschland;Sturm;19
