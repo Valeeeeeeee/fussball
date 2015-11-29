@@ -10,6 +10,7 @@ Ronny;Marcos;null;19931001;Mosambik, Deutschland;Abwehr;31
 Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24
 Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;4
+Ahmet;Arslan;null;19940330;Türkei;Mittelfeld;12
 Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;6;-20150824
 Marcelo;Díaz;null;19861230;Chile;Mittelfeld;21
 Albin;Ekdal;null;19890728;Schweden;Mittelfeld;20
