@@ -703,7 +703,7 @@ public class Spieltag extends JPanel {
 	
 	public void ensureNoOpenedMatchInfos() {
 		while (openedMatchInfos.size() > 0) {
-			openedMatchInfos.get(0).goActionPerformed();
+			openedMatchInfos.get(0).jBtnGoActionPerformed();
 		}
 	}
 

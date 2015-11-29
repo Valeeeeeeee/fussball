@@ -189,7 +189,7 @@ public class SpielInformationen extends JFrame {
 	
 	private boolean isETpossible = false;
 	
-	private JButton go;
+	private JButton jBtnGo;
 
 	private Rectangle RECGO = new Rectangle(700, 10, 90, 40);
 	
@@ -673,14 +673,14 @@ public class SpielInformationen extends JFrame {
 		
 		
 		{
-			go = new JButton();
-			jPnlSpielInformationen.add(go);
-			go.setBounds(RECGO);
-			go.setText("fertig");
-			go.setFocusable(false);
-			go.addActionListener(new ActionListener() {
+			jBtnGo = new JButton();
+			jPnlSpielInformationen.add(jBtnGo);
+			jBtnGo.setBounds(RECGO);
+			jBtnGo.setText("fertig");
+			jBtnGo.setFocusable(false);
+			jBtnGo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-			        goActionPerformed();
+			        jBtnGoActionPerformed();
 				}
 			});
 		}
@@ -698,6 +698,9 @@ public class SpielInformationen extends JFrame {
 		if (typed == -1) {
 			if (keyChar == 8)	typed = -1;
 			else if (isIn(keyChar, new Integer[] {66, 71, 76, 83, 98, 103, 108, 115}))	typed = keyChar;
+			else if (keyChar == 120) {
+				jBtnGoActionPerformed();
+			}
 		} else {
 			if (keyChar == 72 || keyChar == 104) {
 				if (typed % 32 == 2)	jBtnBookingHome.doClick();
@@ -1935,7 +1938,10 @@ public class SpielInformationen extends JFrame {
 		if (ergebnis != null)	setErgebnis();
 	}
 	
-	public void goActionPerformed() {
+	public void jBtnGoActionPerformed() {
+		if (enteringBooking || enteringGoal || enteringLineup || enteringSubstitution) {
+			if (yesNoDialog("Es werden gerade Daten verändert, die beim Verlassen des Fensters nicht gespeichert werden. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
+		}
 		this.setVisible(false);
 		spieltag.saveMatchInfos(this, ergebnis, matchIndex);
 	}
