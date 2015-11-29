@@ -1299,6 +1299,11 @@ public class SpielInformationen extends JFrame {
 		
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
+		jLblUnten.setVisible(true);
+		jCBUnten.setVisible(true);
+		jChBLeft.setVisible(false);
+		jChBRight.setVisible(false);
+		buttonGroupDetails.clearSelection();
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		requestFocus();
