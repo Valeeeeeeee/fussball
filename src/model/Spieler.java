@@ -143,6 +143,16 @@ public class Spieler {
 		return true;
 	}
 	
+	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber) {
+		setFirstName(firstName);
+		setLastName(lastName);
+		this.pseudonym = pseudonym;
+		this.birthDate = birthDate;
+		this.nationality = nationality;
+		this.position = Position.getPositionFromString(position);
+		this.squadNumber = squadNumber;
+	}
+	
 	public String toString() {
 		String stringRep = this.firstName + trennZeichen;
 		stringRep += this.lastName + trennZeichen;

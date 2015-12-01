@@ -5,6 +5,8 @@ import static util.Utilities.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -35,6 +37,7 @@ public class SpielerInformationen extends JFrame {
 	private Font fontSquadnumber = new Font("Calibri", 0, 65);
 	
 	private JPanel jPnlPlayerInformation;
+	private JButton jBtnChangeInformation;
 	private JLabel jLblSquadnumber;
 	private JLabel jLblFirstNames;
 	private JLabel jLblLastNames;
@@ -47,6 +50,13 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblNationalityVal;
 	private JLabel jLblAtClubSince;
 	private JLabel jLblAtClubSinceVal;
+	
+	private JComboBox<String> jCBPositions;
+	private JTextField jTFFirstNames;
+	private JTextField jTFLastNames;
+	private JTextField jTFPseudonym;
+	private JTextField jTFNationality;
+	
 	private JLabel jLblPerformance;
 	private JLabel jLblCompetition;
 	private JLabel jLblGamesPlayed;
@@ -71,7 +81,10 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblRedCardsVal;
 	private JLabel jLblImage;
 	
+	private Spieler player;
 	private Wettbewerb wettbewerb;
+	
+	private boolean changingInformation;
 	
 	public SpielerInformationen(Wettbewerb wettbewerb) {
 		super();
@@ -85,6 +98,11 @@ public class SpielerInformationen extends JFrame {
 		setLayout(null);
 		setForeground(background);
 		
+		String[] positionen = new String[Position.values().length];
+		for (int i = 0; i < positionen.length; i++) {
+			positionen[i] = Position.values()[i].getName();
+		}
+		
 		// TODO Name & Co. veraenderbar
 		{
 			jPnlPlayerInformation = new JPanel();
@@ -92,6 +110,17 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.setLayout(null);
 			jPnlPlayerInformation.setBounds(0, 0, WIDTH, HEIGHT);
 			jPnlPlayerInformation.setBackground(background);
+		}
+		{
+			jBtnChangeInformation = new JButton();
+			jPnlPlayerInformation.add(jBtnChangeInformation);
+			jBtnChangeInformation.setBounds(390, 140, 100, 30);
+			jBtnChangeInformation.setText("ändern");
+			jBtnChangeInformation.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jBtnChangeInformationActionPerformed();
+				}
+			});
 		}
 		{
 			jLblSquadnumber = new JLabel();
@@ -170,6 +199,43 @@ public class SpielerInformationen extends JFrame {
 			jLblAtClubSinceVal.setBounds(410, 320, 140, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
+		// Change information
+		{
+			jCBPositions = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBPositions);
+			jCBPositions.setBounds(660, 200, 110, 30);
+			jCBPositions.setModel(new DefaultComboBoxModel<>(positionen));
+			jCBPositions.setVisible(false);
+		}
+		{
+			jTFFirstNames = new JTextField();
+			jPnlPlayerInformation.add(jTFFirstNames);
+			jTFFirstNames.setBounds(500, 60, 320, 35);
+			jTFFirstNames.setFont(fontNames);
+			jTFFirstNames.setVisible(false);
+		}
+		{
+			jTFLastNames = new JTextField();
+			jPnlPlayerInformation.add(jTFLastNames);
+			jTFLastNames.setBounds(500, 100, 320, 35);
+			jTFLastNames.setFont(fontNames);
+			jTFLastNames.setVisible(false);
+		}
+		{
+			jTFPseudonym = new JTextField();
+			jPnlPlayerInformation.add(jTFPseudonym);
+			jTFPseudonym.setBounds(500, 140, 220, 30);
+			jTFPseudonym.setFont(fontPseudonym);
+			jTFPseudonym.setVisible(false);
+		}
+		{
+			jTFNationality = new JTextField();
+			jPnlPlayerInformation.add(jTFNationality);
+			jTFNationality.setBounds(410, 260, 380, 30);
+			jTFNationality.setFont(fontNationality);
+			jTFNationality.setVisible(false);
+		}
+		// Performance data
 		{
 			jLblPerformance = new JLabel();
 			jPnlPlayerInformation.add(jLblPerformance);
@@ -319,7 +385,45 @@ public class SpielerInformationen extends JFrame {
 		setResizable(false);
 	}
 	
+	private void jBtnChangeInformationActionPerformed() {
+		changingInformation = !changingInformation;
+		if (changingInformation) {
+			jBtnChangeInformation.setText("speichern");
+			jTFFirstNames.setText(jLblFirstNames.getText());
+			jTFLastNames.setText(jLblLastNames.getText());
+			jTFPseudonym.setText(jLblPseudonym.getText());
+			jCBPositions.setSelectedItem(jLblPositionVal.getText());
+			jTFNationality.setText(jLblNationalityVal.getText());
+		} else {
+			jBtnChangeInformation.setText("ändern");
+			String firstName = jTFFirstNames.getText();
+			String lastName = jTFLastNames.getText();
+			String pseudonym = jTFPseudonym.getText();
+			int birthDate = player.getBirthDate();
+			String nationality = jTFNationality.getText();
+			String position = (String) jCBPositions.getSelectedItem();
+			int squadNumber = player.getSquadNumber();
+			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber);
+			jLblFirstNames.setText(firstName);
+			jLblLastNames.setText(lastName);
+			jLblPseudonym.setText(pseudonym);
+			jLblPositionVal.setText(position);
+			jLblNationalityVal.setText(nationality);
+		}
+		jLblPositionVal.setVisible(!changingInformation);
+		jLblFirstNames.setVisible(!changingInformation);
+		jLblLastNames.setVisible(!changingInformation);
+		jLblPseudonym.setVisible(!changingInformation);
+		jLblNationalityVal.setVisible(!changingInformation);
+		jCBPositions.setVisible(changingInformation);
+		jTFFirstNames.setVisible(changingInformation);
+		jTFLastNames.setVisible(changingInformation);
+		jTFPseudonym.setVisible(changingInformation);
+		jTFNationality.setVisible(changingInformation);
+	}
+	
 	public void setPlayer(Spieler player, String url, String urlKlein) {
+		this.player = player;
 		jLblSquadnumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
