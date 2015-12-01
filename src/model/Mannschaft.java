@@ -139,7 +139,11 @@ public class Mannschaft {
 		distinguishNames();
 	}
 	
-	public void saveKader() {
+	public void save() {
+		saveKader();
+	}
+	
+	private void saveKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {

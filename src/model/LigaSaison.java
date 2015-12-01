@@ -627,6 +627,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		mannschaftenFromFile.add("" + numberOfTeams);
 		for (int i = 0; i < mannschaften.length; i++) {
+			mannschaften[i].save();
 			mannschaftenFromFile.add(mannschaften[i].toString());
 		}
 		

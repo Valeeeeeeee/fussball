@@ -655,13 +655,13 @@ public class KORunde implements Wettbewerb {
 	private void mannschaftenLaden() {
 		teamsFromFile = ausDatei(dateiMannschaft);
 		
-		this.numberOfTeams = teamsFromFile.size();
+		numberOfTeams = teamsFromFile.size();
 		mannschaften = new Mannschaft[numberOfTeams];
-		this.numberOfMatchesAgainstSameOpponent = this.hasSecondLeg ? 2 : 1;
-		this.numberOfMatchdays = this.hasSecondLeg ? 2 : 1;
-		this.numberOfMatchesPerMatchday = numberOfTeams / 2;
+		numberOfMatchesAgainstSameOpponent = hasSecondLeg ? 2 : 1;
+		numberOfMatchdays = hasSecondLeg ? 2 : 1;
+		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		
-		teamsOrigins = new String[this.numberOfTeams];
+		teamsOrigins = new String[numberOfTeams];
 		for (int i = 0; i < teamsOrigins.length; i++) {
 			teamsOrigins[i] = teamsFromFile.get(i);
 		}
@@ -680,11 +680,12 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new ArrayList<>();
-		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile.add(this.teamsOrigins[i]); //.toString());
+		teamsFromFile = new ArrayList<>();
+		for (int i = 0; i < numberOfTeams; i++) {
+			mannschaften[i].save();
+			teamsFromFile.add(teamsOrigins[i]); //.toString());
 		}
-		inDatei(this.dateiMannschaft, this.teamsFromFile);
+		inDatei(this.dateiMannschaft, teamsFromFile);
 	}
 	
 	private void spielplanLaden() {

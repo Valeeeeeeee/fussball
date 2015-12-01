@@ -526,9 +526,9 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void mannschaftenLaden() {
-		this.teamsFromFile = ausDatei(this.dateiMannschaft);
+		teamsFromFile = ausDatei(this.dateiMannschaft);
 		
-		numberOfTeams = this.teamsFromFile.size();
+		numberOfTeams = teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		numberOfMatchesAgainstSameOpponent = (isQ ? season.hasSecondLegQGroupStage() : season.hasSecondLegGroupStage()) ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
@@ -541,15 +541,16 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new ArrayList<>();
-		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile.add(this.mannschaften[i].toString());
+		teamsFromFile = new ArrayList<>();
+		for (int i = 0; i < numberOfTeams; i++) {
+			mannschaften[i].save();
+			teamsFromFile.add(mannschaften[i].toString());
 		}
-		inDatei(this.dateiMannschaft, this.teamsFromFile);
+		inDatei(dateiMannschaft, teamsFromFile);
 	}
 	
 	public String[] getRanks() {
-		String[] ranks = new String[this.numberOfTeams];
+		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
 			String id = (isQ ? "Q" :  "") + "G" + alphabet[this.id] + (i + 1);
