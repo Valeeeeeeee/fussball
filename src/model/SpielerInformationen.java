@@ -319,7 +319,7 @@ public class SpielerInformationen extends JFrame {
 		setResizable(false);
 	}
 	
-	public void setPlayer(Spieler player, String url) {
+	public void setPlayer(Spieler player, String url, String urlKlein) {
 		jLblSquadnumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
@@ -357,12 +357,20 @@ public class SpielerInformationen extends JFrame {
 		}
 		try {
 			image = ImageIO.read(new URL(url));
-			double factor = (double) 800 / image.getHeight(null);
+			double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
 			image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
 			jLblImage = new JLabel(new ImageIcon(image));
 		} catch (Exception e) {
-			jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
+			try {
+				image = ImageIO.read(new URL(urlKlein));
+				double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
+				image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
+				jLblImage = new JLabel(new ImageIcon(image));
+			} catch (Exception e2) {
+				jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
+			}
 		}
+		
 		jLblImage.setBounds(20, 10, 350, 800);
 		jPnlPlayerInformation.add(jLblImage);
 		jLblImage.setVisible(true);

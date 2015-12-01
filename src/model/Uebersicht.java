@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -729,8 +730,9 @@ public class Uebersicht extends JPanel {
 		String playerName = removeUmlaute(player.getFullNameShort());
 		playerName = playerName.toLowerCase().replace(' ', '-');
 		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
+		String urlKlein = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
 		
-		spielerInformationen.setPlayer(player, url);
+		spielerInformationen.setPlayer(player, url, urlKlein);
 		spielerInformationen.setVisible(true);
 	}
 	

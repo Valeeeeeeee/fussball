@@ -151,7 +151,7 @@ public class Utilities {
 			else if (200 <= chAt && chAt <= 203)	name = name.substring(0, i) + "E" + name.substring(i + 1);
 			else if (204 <= chAt && chAt <= 207)	name = name.substring(0, i) + "I" + name.substring(i + 1);
 			else if (chAt == 209)					name = name.substring(0, i) + "N" + name.substring(i + 1);
-			else if (210 <= chAt && chAt <= 214)	name = name.substring(0, i) + "O" + name.substring(i + 1);
+			else if (210 <= chAt && chAt <= 213)	name = name.substring(0, i) + "O" + name.substring(i + 1);
 			else if (chAt == 214 || chAt == 216)	name = name.substring(0, i) + "Oe" + name.substring(i + 1);
 			else if (217 <= chAt && chAt <= 219)	name = name.substring(0, i) + "U" + name.substring(i + 1);
 			else if (chAt == 220)					name = name.substring(0, i) + "Ue" + name.substring(i + 1);
