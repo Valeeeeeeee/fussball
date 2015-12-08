@@ -910,7 +910,7 @@ class AnstossZeit {
 	public String getDateAndTime(int startDate) {
 		String datum, uhrzeit = " k. A.";
 		
-		int date = MyDate.verschoben(startDate, daysSince != -1 ? daysSince : 0);
+		int date = MyDate.verschoben(startDate, time != -1 || daysSince != -1 ? daysSince : 0);
 		datum = MyDate.datum(date);
 		if (time != -1)	uhrzeit = MyDate.uhrzeit(time);
 		
