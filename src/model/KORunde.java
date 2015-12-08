@@ -635,6 +635,7 @@ public class KORunde implements Wettbewerb {
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
 		loadReferees();
     	mannschaftenLaden();

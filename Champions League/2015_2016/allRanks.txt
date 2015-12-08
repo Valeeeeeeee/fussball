@@ -90,22 +90,22 @@ PO09W: Malmö FF
 PO09L: Celtic Glasgow
 PO10W: Schachtar Donezk
 PO10L: SK Rapid Wien
-GA1: CL2015GA1
-GA2: CL2015GA2
-GA3: CL2015GA3
-GA4: CL2015GA4
-GB1: CL2015GB1
-GB2: CL2015GB2
-GB3: CL2015GB3
-GB4: CL2015GB4
-GC1: CL2015GC1
-GC2: CL2015GC2
-GC3: CL2015GC3
-GC4: CL2015GC4
-GD1: CL2015GD1
-GD2: CL2015GD2
-GD3: CL2015GD3
-GD4: CL2015GD4
+GA1: Real Madrid
+GA2: Paris Saint-Germain
+GA3: Schachtar Donezk
+GA4: Malmö FF
+GB1: VfL Wolfsburg
+GB2: PSV Eindhoven
+GB3: Manchester United
+GB4: ZSKA Moskau
+GC1: Atlético Madrid
+GC2: Benfica Lissabon
+GC3: Galatasaray Istanbul
+GC4: FK Astana
+GD1: Manchester City
+GD2: Juventus Turin
+GD3: FC Sevilla
+GD4: Borussia Mönchengladbach
 GE1: CL2015GE1
 GE2: CL2015GE2
 GE3: CL2015GE3

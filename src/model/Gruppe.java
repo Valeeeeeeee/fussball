@@ -516,6 +516,7 @@ public class Gruppe implements Wettbewerb {
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
 		loadReferees();
     	mannschaftenLaden();
