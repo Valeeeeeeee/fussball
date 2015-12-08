@@ -18,7 +18,7 @@ public class Spiel {
 	private int[] lineupHome;
 	private int[] lineupAway;
 	
-	private String schiedsrichter;
+	private Schiedsrichter referee;
 	private Ergebnis ergebnis;
 	private ArrayList<Tor> goals = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
@@ -175,12 +175,16 @@ public class Spiel {
 		if (booking != null)	bookings.remove(booking);
 	}
 	
-	public String getSchiedsrichter() {
-		return this.schiedsrichter;
+	public Schiedsrichter getReferee() {
+		return referee;
 	}
 	
-	public void setSchiedsrichter(String schiedsrichter) {
-		this.schiedsrichter = schiedsrichter;
+	public void setSchiedsrichter(int refereeID) {
+		setSchiedsrichter(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
+	}
+	
+	public void setSchiedsrichter(Schiedsrichter referee) {
+		this.referee = referee;
 	}
 	
 	public void setRemainder(String matchData) {
@@ -199,17 +203,22 @@ public class Spiel {
 		String remainder = "";
 		
 		if (lineupHome != null || lineupAway != null) {
-			remainder = "+{" + matchDataToString() + "}";
+			remainder += "+{" + matchDataToString() + "}";
 			remainder += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
 		} else if (ergebnis != null) {
-			remainder = "+{" + matchDataToString() + "}";
+			remainder += "+{" + matchDataToString() + "}";
+		} else if (referee != null) {
+			remainder += "+{" + referee.getID() + "}";
 		}
 		
 		return remainder;
 	}
 	
 	private String matchDataToString() {
-		String matchData = "" + ergebnis;
+		String matchData = "";
+		
+		if (referee != null)	matchData += referee.getID() + "_";
+		matchData += ergebnis;
 		
 		for (Tor tor : goals) {
 			matchData += "#" + tor;
@@ -244,6 +253,14 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
+		if (matchData.indexOf("_") != -1) {
+			referee = wettbewerb.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1);
+		}
+		matchData = matchData.substring(matchData.indexOf("_") + 1);
+		if (matchData.indexOf(":") == -1) {
+			referee = wettbewerb.getReferees().get(Integer.parseInt(matchData) - 1);
+			return;
+		}
 		String[] matchDataSplit = matchData.split("\\^");
 		String allGoals = matchDataSplit[0];
 		String[] goalsSplit = allGoals.split("#");

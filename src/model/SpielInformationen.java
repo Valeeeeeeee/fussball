@@ -26,6 +26,8 @@ public class SpielInformationen extends JFrame {
 	private JLabel jLblResult;
 	private JLabel jLblZusatz;
 	private JLabel jLblAwayTeamName;
+	private JLabel jLblReferee;
+	private JComboBox<String> jCBReferees;
 	
 	private JButton jBtnStartGame;
 	private JButton jBtnLineupHome;
@@ -83,6 +85,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLHOMENAME = new Rectangle(25, 60, 330, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(360, 60, 80, 40);
 	private Rectangle REC_LBLZUSATZ = new Rectangle(370, 90, 60, 20);
+	private Rectangle REC_LBLREFEREE = new Rectangle(350, 485, 100, 20);
+	private Rectangle REC_CBREFEREES = new Rectangle(310, 510, 180, 25);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(445, 60, 330, 40);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(260, 35, 70, 25);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(470, 35, 70, 25);
@@ -280,6 +284,25 @@ public class SpielInformationen extends JFrame {
 			jLblAwayTeamName.setFont(fontTeamNames);
 			jLblAwayTeamName.setText(spiel.getAwayTeam().getName());
 			alignLeft(jLblAwayTeamName);
+		}
+		{
+			jLblReferee = new JLabel();
+			jPnlSpielInformationen.add(jLblReferee);
+			jLblReferee.setBounds(REC_LBLREFEREE);
+			jLblReferee.setText("Schiedsrichter:");
+			alignCenter(jLblReferee);
+		}
+		{
+			jCBReferees = new JComboBox<>();
+			jPnlSpielInformationen.add(jCBReferees);
+	        jCBReferees.setBounds(REC_CBREFEREES);
+	        jCBReferees.setFocusable(false);
+	        jCBReferees.setModel(new DefaultComboBoxModel<>(spiel.getWettbewerb().getAllReferees()));
+	        jCBReferees.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					jCBRefereesItemStateChanged(e);
+				}
+			});
 		}
 		
 		
@@ -732,6 +755,8 @@ public class SpielInformationen extends JFrame {
 				jLblsPlayersAway[i].setVisible(true);
 			}
 		}
+		
+		if (spiel.getReferee() != null)	jCBReferees.setSelectedIndex(spiel.getReferee().getID());
 		
 		createPseudoGoals();
 		paintGoals();
@@ -1238,6 +1263,12 @@ public class SpielInformationen extends JFrame {
 		setErgebnis();
 		
 		showPenalties(false);
+	}
+	
+	private void jCBRefereesItemStateChanged(ItemEvent e) {
+		if (e.getStateChange() == ItemEvent.SELECTED) {
+			spiel.setSchiedsrichter(jCBReferees.getSelectedIndex());
+		}
 	}
 	
 	private void startGame() {

@@ -15,8 +15,10 @@ public class LigaSaison implements Wettbewerb {
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	
-	private Mannschaft[] mannschaften;
+	private int numberOfReferees;
+	private ArrayList<Schiedsrichter> referees;
 	private int numberOfTeams;
+	private Mannschaft[] mannschaften;
 	private int halbeAnzMSAuf;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
@@ -47,6 +49,9 @@ public class LigaSaison implements Wettbewerb {
 	
 	private boolean geladen;
 	private String workspace;
+	
+	private String fileReferees;
+	private ArrayList<String> refereesFromFile;
 	
 	private String dateiMannschaften;
 	private ArrayList<String> mannschaftenFromFile;
@@ -141,6 +146,21 @@ public class LigaSaison implements Wettbewerb {
 	
 	public LigaStatistik getLigaStatistik() {
 		return statistik;
+	}
+	
+	public ArrayList<Schiedsrichter> getReferees() {
+		return referees;
+	}
+	
+	public String[] getAllReferees() {
+		String[] allReferees = new String[referees.size() + 1];
+		
+		allReferees[0] = "Bitte wählen";
+		for (int i = 1; i < allReferees.length; i++) {
+			allReferees[i] = referees.get(i - 1).getFullName();
+		}
+		
+		return allReferees;
 	}
 	
 	public Mannschaft[] getMannschaften() {
@@ -610,6 +630,26 @@ public class LigaSaison implements Wettbewerb {
 		ergebnisplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 	}
 	
+	public void loadReferees() {
+		refereesFromFile = ausDatei(fileReferees, false);
+		
+		numberOfReferees = refereesFromFile.size();
+		referees = new ArrayList<>();
+		for (int i = 0; i < numberOfReferees; i++) {
+			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
+		}
+	}
+	
+	public void saveReferees() {
+		refereesFromFile.clear();
+		
+		for (int i = 0; i < referees.size(); i++) {
+			refereesFromFile.add(referees.get(i).toString());
+		}
+		
+		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+	}
+	
 	public void mannschaftenLaden() {
 		mannschaftenFromFile = ausDatei(dateiMannschaften);
 		
@@ -796,7 +836,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				spieldatenFromFile.add((getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null"));
+				spieldatenFromFile.add(getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null");
 			}
 		}
 		
@@ -808,7 +848,9 @@ public class LigaSaison implements Wettbewerb {
 		dateiSpieldaten = workspace + "Spieldaten.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
 		dateiMannschaften = workspace + "Mannschaften.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
+		loadReferees();
 		mannschaftenLaden();
 		initializeArrays();
 		
@@ -841,6 +883,7 @@ public class LigaSaison implements Wettbewerb {
 		if (!geladen)	return;
 		
 		saveNextMatches();
+		saveReferees();
 		mannschaftenSpeichern();
 		spielplanSpeichern();
 		ergebnisseSpeichern();

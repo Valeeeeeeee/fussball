@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public interface Wettbewerb {
 
 	public int getID();
@@ -21,6 +23,9 @@ public interface Wettbewerb {
 	
 	public int getDate(int matchday, int match);
 	public int getTime(int matchday, int match);
+	
+	public ArrayList<Schiedsrichter> getReferees();
+	public String[] getAllReferees();
 	
 	public Mannschaft[] getMannschaften();
 	
