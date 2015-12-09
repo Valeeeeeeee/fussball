@@ -106,22 +106,22 @@ GD1: Manchester City
 GD2: Juventus Turin
 GD3: FC Sevilla
 GD4: Borussia Mönchengladbach
-GE1: CL2015GE1
-GE2: CL2015GE2
-GE3: CL2015GE3
-GE4: CL2015GE4
-GF1: CL2015GF1
-GF2: CL2015GF2
-GF3: CL2015GF3
-GF4: CL2015GF4
-GG1: CL2015GG1
-GG2: CL2015GG2
-GG3: CL2015GG3
-GG4: CL2015GG4
-GH1: CL2015GH1
-GH2: CL2015GH2
-GH3: CL2015GH3
-GH4: CL2015GH4
+GE1: FC Barcelona
+GE2: AS Rom
+GE3: Bayer 04 Leverkusen
+GE4: BATE Baryssau
+GF1: Bayern München
+GF2: FC Arsenal
+GF3: Olympiakos Piräus
+GF4: Dinamo Zagreb
+GG1: FC Chelsea
+GG2: Dynamo Kiew
+GG3: FC Porto
+GG4: Maccabi Tel Aviv
+GH1: Zenit Sankt Petersburg
+GH2: KAA Gent
+GH3: FC Valencia
+GH4: Olympique Lyon
 AF01W: CL2015AF01W
 AF01L: CL2015AF01L
 AF02W: CL2015AF02W

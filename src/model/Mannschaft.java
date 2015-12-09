@@ -728,7 +728,7 @@ public class Mannschaft {
 				for (int j = 0; j < teamsSamePoints.size(); j++) {
 					if (i == j)	continue;
 					Mannschaft team2 = otherTeams[teamsSamePoints.get(j) - 1];
-					for (int k = 0; k < untilMatchday; k++) {
+					for (int k = 0; k <= untilMatchday; k++) {
 						if (team1.daten[k][OPPONENT] == team2.id) {
 							goals[i] += team1.daten[k][GOALS];
 							goalsOpp[i] += team1.daten[k][CGOALS];
