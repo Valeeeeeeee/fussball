@@ -34,11 +34,11 @@ public class SpielerInformationen extends JFrame {
 	private Font fontPerformance = new Font("Calibri", 0, 18);
 	private Font fontPosition = new Font("Calibri", 0, 24);
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
-	private Font fontSquadnumber = new Font("Calibri", 0, 65);
+	private Font fontSquadNumber = new Font("Calibri", 0, 65);
 	
 	private JPanel jPnlPlayerInformation;
 	private JButton jBtnChangeInformation;
-	private JLabel jLblSquadnumber;
+	private JLabel jLblSquadNumber;
 	private JLabel jLblFirstNames;
 	private JLabel jLblLastNames;
 	private JLabel jLblPseudonym;
@@ -52,6 +52,7 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblAtClubSinceVal;
 	
 	private JComboBox<String> jCBPositions;
+	private JTextField jTFSquadNumber;
 	private JTextField jTFFirstNames;
 	private JTextField jTFLastNames;
 	private JTextField jTFPseudonym;
@@ -123,11 +124,11 @@ public class SpielerInformationen extends JFrame {
 			});
 		}
 		{
-			jLblSquadnumber = new JLabel();
-			jPnlPlayerInformation.add(jLblSquadnumber);
-			jLblSquadnumber.setBounds(400, 65, 85, 65);
-			alignCenter(jLblSquadnumber);
-			jLblSquadnumber.setFont(fontSquadnumber);
+			jLblSquadNumber = new JLabel();
+			jPnlPlayerInformation.add(jLblSquadNumber);
+			jLblSquadNumber.setBounds(395, 65, 95, 65);
+			alignCenter(jLblSquadNumber);
+			jLblSquadNumber.setFont(fontSquadNumber);
 		}
 		{
 			jLblFirstNames = new JLabel();
@@ -206,6 +207,14 @@ public class SpielerInformationen extends JFrame {
 			jCBPositions.setBounds(660, 200, 110, 30);
 			jCBPositions.setModel(new DefaultComboBoxModel<>(positionen));
 			jCBPositions.setVisible(false);
+		}
+		{
+			jTFSquadNumber = new JTextField();
+			jPnlPlayerInformation.add(jTFSquadNumber);
+			jTFSquadNumber.setBounds(395, 65, 95, 65);
+			alignCenter(jTFSquadNumber);
+			jTFSquadNumber.setFont(fontSquadNumber);
+			jTFSquadNumber.setVisible(false);
 		}
 		{
 			jTFFirstNames = new JTextField();
@@ -386,36 +395,51 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	private void jBtnChangeInformationActionPerformed() {
-		changingInformation = !changingInformation;
-		if (changingInformation) {
-			jBtnChangeInformation.setText("speichern");
+		if (!changingInformation) {
+			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(jLblFirstNames.getText());
 			jTFLastNames.setText(jLblLastNames.getText());
 			jTFPseudonym.setText(jLblPseudonym.getText());
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
+			jBtnChangeInformation.setText("speichern");
 		} else {
-			jBtnChangeInformation.setText("ändern");
 			String firstName = jTFFirstNames.getText();
 			String lastName = jTFLastNames.getText();
 			String pseudonym = jTFPseudonym.getText();
+			if (pseudonym.isEmpty())	pseudonym = null;	
 			int birthDate = player.getBirthDate();
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
-			int squadNumber = player.getSquadNumber();
+			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
+			// check if squad number is unique
+			for (Spieler player : player.getTeam().getPlayers()) {
+				if (player == this.player)	continue;
+				if (player.getSquadNumber() == squadNumber) {
+					if (player.playedAtTheSameTimeAs(this.player)) {
+						message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
+						return;
+					}
+				}
+			}
 			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber);
+			jLblSquadNumber.setText("" + squadNumber);
 			jLblFirstNames.setText(firstName);
 			jLblLastNames.setText(lastName);
 			jLblPseudonym.setText(pseudonym);
 			jLblPositionVal.setText(position);
 			jLblNationalityVal.setText(nationality);
+			jBtnChangeInformation.setText("ändern");
 		}
+		changingInformation = !changingInformation;
 		jLblPositionVal.setVisible(!changingInformation);
+		jLblSquadNumber.setVisible(!changingInformation);
 		jLblFirstNames.setVisible(!changingInformation);
 		jLblLastNames.setVisible(!changingInformation);
 		jLblPseudonym.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
 		jCBPositions.setVisible(changingInformation);
+		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
 		jTFLastNames.setVisible(changingInformation);
 		jTFPseudonym.setVisible(changingInformation);
@@ -424,7 +448,7 @@ public class SpielerInformationen extends JFrame {
 	
 	public void setPlayer(Spieler player, String url, String urlKlein) {
 		this.player = player;
-		jLblSquadnumber.setText("" + player.getSquadNumber());
+		jLblSquadNumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
 		jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);

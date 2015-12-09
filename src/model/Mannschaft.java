@@ -121,6 +121,20 @@ public class Mannschaft {
 		return numberOfUsedPlayers;
 	}
 	
+	public ArrayList<Spieler> getPlayers() {
+		return kader;
+	}
+	
+	public void changeSquadNumber(Spieler player, int newSquadNumber) {
+		int oldSquadNumber = player.getSquadNumber();
+		int firstDate = player.getFirstDate();
+		int lastDate = player.getLastDate();
+		for (int i = 0; i < spiele.length; i++) {
+			if (spiele[i] == null || !player.isEligible(spiele[i].getDate())) continue;
+			spiele[i].changeSquadNumberInLineup(spiele[i].getHomeTeam() == this, oldSquadNumber, newSquadNumber);
+		}
+	}
+	
 	private void loadKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;

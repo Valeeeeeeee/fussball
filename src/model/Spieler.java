@@ -143,7 +143,14 @@ public class Spieler {
 		return true;
 	}
 	
+	public boolean playedAtTheSameTimeAs(Spieler player) {
+		if (lastDate < player.firstDate && lastDate != -1)	return false;
+		if (firstDate > player.lastDate && player.lastDate != -1)	return false;
+		return true;
+	}
+	
 	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber) {
+		team.changeSquadNumber(this, squadNumber);
 		setFirstName(firstName);
 		setLastName(lastName);
 		this.pseudonym = pseudonym;

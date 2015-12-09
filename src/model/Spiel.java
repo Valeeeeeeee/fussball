@@ -179,6 +179,14 @@ public class Spiel {
 		return referee;
 	}
 	
+	public void changeSquadNumberInLineup(boolean firstTeam, int oldSquadNumber, int newSquadNumber) {
+		int[] lineup = firstTeam ? lineupHome : lineupAway;
+		if (lineup == null)	return;
+		for (int i = 0; i < lineup.length; i++) {
+			if (lineup[i] == oldSquadNumber)	lineup[i] = newSquadNumber;
+		}
+	}
+	
 	public void setSchiedsrichter(int refereeID) {
 		setSchiedsrichter(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
 	}
