@@ -4,7 +4,6 @@ import static util.Utilities.log;
 
 public class Karte {
 	private String id;
-	private String toString;
 	private Spiel spiel;
 	private boolean firstTeam;
 	private boolean isYellowCard;
@@ -20,8 +19,7 @@ public class Karte {
 		this.isSecondBooking = isSecondBooking;
 		this.bookedPlayer = bookedPlayer;
 		
-		this.toString = firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber();
-		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber();
 		log("Booking for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 				" in the " + minute + ". minute: " + bookedPlayer.getPseudonymOrLN());
 	}
@@ -65,13 +63,12 @@ public class Karte {
 		isYellowCard = Boolean.parseBoolean(data.substring(data.indexOf("-y") + 2, data.indexOf("-s")));
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
 		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2));
-		bookedPlayer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(squadNumber, spiel.getDate());;
+		bookedPlayer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(squadNumber, spiel.getDate());
 		
-		toString = data;
-		id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		id = spiel.home() + "v" + spiel.away() + "-h" + data;
 	}
 	
 	public String toString() {
-		return toString;
+		return firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber();
 	}
 }

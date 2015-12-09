@@ -5,7 +5,6 @@ import static util.Utilities.*;
 public class Tor {
 
 	private String id;
-	private String toString;
 	private Spiel spiel;
 	private boolean firstTeam;
 	private boolean penalty;
@@ -21,8 +20,7 @@ public class Tor {
 		this.ownGoal = ownGoal;
 		this.minute = minute;
 		
-		this.toString = firstTeam + "-m" + minute + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + firstTeam + "-m" + minute + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute");
 	}
@@ -35,8 +33,7 @@ public class Tor {
 		this.minute = minute;
 		this.scorer = scorer;
 		
-		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN());
 	}
@@ -50,8 +47,8 @@ public class Tor {
 		this.scorer = scorer;
 		this.assistgeber = assistgeber;
 		
-		this.toString = firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber() + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		this.id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		this.id = spiel.home() + "v" + spiel.away() + "-h" + firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assistgeber.getSquadNumber()
+					+ (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN() + 
 			" and assisted by " + assistgeber.getPseudonymOrLN());
@@ -111,11 +108,11 @@ public class Tor {
 			assistgeber = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAssist, spiel.getDate());
 		}
 		
-		toString = daten + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		id = spiel.home() + "v" + spiel.away() + "-h" + toString;
+		id = spiel.home() + "v" + spiel.away() + "-h" + daten + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 	}
 	
 	public String toString() {
-		return toString;
+		return firstTeam + "-m" + minute + "-s" + (scorer != null ? scorer.getSquadNumber() : "")
+					+ "-a" + (assistgeber != null ? assistgeber.getSquadNumber() : "") + (ownGoal ? "-og" : (penalty ? "-p" : ""));
 	}
 }
