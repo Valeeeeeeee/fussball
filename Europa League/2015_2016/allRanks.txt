@@ -268,54 +268,54 @@ PO21W: FC Midtjylland
 PO21L: FC Southampton
 PO22W: Lech Posen
 PO22L: Videoton Szekesfehervar
-GA1: CL2015GA1
-GA2: CL2015GA2
-GA3: CL2015GA3
-GA4: CL2015GA4
-GB1: CL2015GB1
-GB2: CL2015GB2
-GB3: CL2015GB3
-GB4: CL2015GB4
-GC1: CL2015GC1
-GC2: CL2015GC2
-GC3: CL2015GC3
-GC4: CL2015GC4
-GD1: CL2015GD1
-GD2: CL2015GD2
-GD3: CL2015GD3
-GD4: CL2015GD4
-GE1: CL2015GE1
-GE2: CL2015GE2
-GE3: CL2015GE3
-GE4: CL2015GE4
-GF1: CL2015GF1
-GF2: CL2015GF2
-GF3: CL2015GF3
-GF4: CL2015GF4
-GG1: CL2015GG1
-GG2: CL2015GG2
-GG3: CL2015GG3
-GG4: CL2015GG4
-GH1: CL2015GH1
-GH2: CL2015GH2
-GH3: CL2015GH3
-GH4: CL2015GH4
-GI1: CL2015GI1
-GI2: CL2015GI2
-GI3: CL2015GI3
-GI4: CL2015GI4
-GJ1: CL2015GJ1
-GJ2: CL2015GJ2
-GJ3: CL2015GJ3
-GJ4: CL2015GJ4
-GK1: CL2015GK1
-GK2: CL2015GK2
-GK3: CL2015GK3
-GK4: CL2015GK4
-GL1: CL2015GL1
-GL2: CL2015GL2
-GL3: CL2015GL3
-GL4: CL2015GL4
+GA1: Molde FK
+GA2: Fenerbahce Istanbul
+GA3: Ajax Amsterdam
+GA4: Celtic Glasgow
+GB1: FC Liverpool
+GB2: FC Sion
+GB3: Rubin Kasan
+GB4: Girondins Bordeaux
+GC1: FK Krasnodar
+GC2: Borussia Dortmund
+GC3: PAOK Thessaloniki
+GC4: FK Qäbälä
+GD1: SSC Neapel
+GD2: FC Midtjylland
+GD3: FC Brügge
+GD4: Legia Warschau
+GE1: SK Rapid Wien
+GE2: FC Villarreal
+GE3: Viktoria Pilsen
+GE4: Dinamo Minsk
+GF1: SC Braga
+GF2: Olympique Marseille
+GF3: Slovan Liberec
+GF4: FC Groningen
+GG1: Lazio Rom
+GG2: AS Saint-Étienne
+GG3: Dnipro Dnipropetrowsk
+GG4: Rosenborg Trondheim
+GH1: Lokomotive Moskau
+GH2: Sporting Lissabon
+GH3: Besiktas Istanbul
+GH4: KF Skenderbeu Korça
+GI1: FC Basel
+GI2: AC Florenz
+GI3: Lech Posen
+GI4: Belenenses Lissabon
+GJ1: Tottenham Hotspurs
+GJ2: RSC Anderlecht
+GJ3: AS Monaco
+GJ4: FK Qarabag Agdam
+GK1: FC Schalke 04
+GK2: Sparta Prag
+GK3: Asteras Tripolis
+GK4: APOEL Nikosia
+GL1: Athletic Bilbao
+GL2: FC Augsburg
+GL3: FK Partizan Belgrad
+GL4: AZ Alkmaar
 SF01W: CL2015SF01W
 SF01L: CL2015SF01L
 SF02W: CL2015SF02W
