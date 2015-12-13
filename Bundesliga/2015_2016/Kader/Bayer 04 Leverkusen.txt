@@ -14,6 +14,7 @@ Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
 Charles;Aránguiz;null;19890417;Chile;Mittelfeld;20
 Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
 Hakan;Çalhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
+Marlon;Frey;null;19960324;Deutschland;Mittelfeld;37
 Benjamin;Henrichs;null;19970223;Deutschland;Mittelfeld;39
 Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;20150828-
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
