@@ -130,9 +130,9 @@ public class SpielInformationen extends JFrame {
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(360, 150);
-	private Dimension DIM_PNLLINEUPSEL = new Dimension(410, 370);
-	private Rectangle REC_BTNLUSCANCEL = new Rectangle(230, 330, 90, 30);
-	private Rectangle REC_BTNLUSCOMPL = new Rectangle(330, 330, 70, 30);
+	private Dimension DIM_PNLLINEUPSEL = new Dimension(410, 330);
+	private Rectangle REC_BTNLUSCANCEL = new Rectangle(230, 290, 90, 30);
+	private Rectangle REC_BTNLUSCOMPL = new Rectangle(330, 290, 70, 30);
 	
 	// Penalties
 	private Rectangle REC_PNLPENALTIES = new Rectangle(170, 120, 460, 120);
@@ -163,7 +163,7 @@ public class SpielInformationen extends JFrame {
 	private static final int maximumNumberOfSubstitutions = 3;
 
 	private int[] boundsLSP = new int[] {5, 5, 135, 21, 130, 20};
-	private int playersPerColumn = 15;
+	private int playersPerColumn = 13;
 	
 	private Spieltag spieltag;
 	private Ergebnis ergebnis;
