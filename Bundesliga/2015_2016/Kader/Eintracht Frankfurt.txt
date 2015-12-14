@@ -18,6 +18,7 @@ Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
 Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
 Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;7
+Nico;Rinderknecht;null;19971011;Deutschland;Mittelfeld;35
 Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Luc;Castaignos;null;19920927;Niederlande, Kapverdische Inseln;Sturm;30
