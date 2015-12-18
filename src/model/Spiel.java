@@ -225,8 +225,9 @@ public class Spiel {
 	private String matchDataToString() {
 		String matchData = "";
 		
-		if (referee != null)	matchData += referee.getID() + "_";
-		matchData += ergebnis;
+		if (referee != null)						matchData += referee.getID();
+		if (referee != null && ergebnis != null)	matchData += "_";
+		if (ergebnis != null)						matchData += ergebnis;
 		
 		for (Tor tor : goals) {
 			matchData += "#" + tor;
