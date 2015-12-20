@@ -67,6 +67,7 @@ public class SpielInformationen extends JFrame {
 	private JCheckBox jChBLeft;
 	private JCheckBox jChBRight;
 	private ButtonGroup buttonGroupDetails;
+	private JCheckBox jChBBench;
 	private JLabel jLblOben;
 	private JComboBox<String> jCBOben;
 	private JLabel jLblUnten;
@@ -122,6 +123,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
 	private Rectangle REC_CHBLEFT = new Rectangle(20, 40, 105, 20);
 	private Rectangle REC_CHBRIGHT = new Rectangle(155, 40, 95, 20);
+	private Rectangle REC_CHBBENCH = new Rectangle(10, 70, 95, 20);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
 	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 155, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
@@ -636,7 +638,8 @@ public class SpielInformationen extends JFrame {
 			jTFMinute.setText("");
 			jTFMinute.addKeyListener(new KeyAdapter() {
 				public void keyTyped(KeyEvent ke) {
-					if (ke.getKeyChar() <= 47 || ke.getKeyChar() >= 58) {
+					if (ke.getKeyChar() == 10)	jBtnEingabeCompleted.doClick();
+					else if (ke.getKeyChar() <= 47 || ke.getKeyChar() >= 58) {
 						ke.consume();
 					}
 				}
@@ -670,6 +673,13 @@ public class SpielInformationen extends JFrame {
 			buttonGroupDetails = new ButtonGroup();
 			buttonGroupDetails.add(jChBLeft);
 			buttonGroupDetails.add(jChBRight);
+		}
+		{
+			jChBBench = new JCheckBox();
+			jPnlEingabe.add(jChBBench);
+			jChBBench.setBounds(REC_CHBBENCH);
+			jChBBench.setOpaque(false);
+			jChBBench.setVisible(false);
 		}
 		{
 			jLblOben = new JLabel();
@@ -944,6 +954,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void displayBooking(Karte booking, final int index) {
+		if (booking.isOnTheBench())	return;
 		int squadNumber = booking.getBookedPlayer().getSquadNumber();
 		boolean found = false, yellow = booking.isYellowCard(), second = booking.isSecondBooking();
 		JLabel label = null;
@@ -1684,6 +1695,7 @@ public class SpielInformationen extends JFrame {
 		
 		boolean yellowCard = jChBLeft.isSelected();
 		boolean isSecondBooking = false;
+		boolean onTheBench = jChBBench.isSelected();
 		
 		int index = jCBOben.getSelectedIndex();
 		Spieler bookedPlayer = eligiblePlayersListUpper.get(index - 1);
@@ -1707,7 +1719,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		Karte booking = new Karte(spiel, editingFirstTeam, minute, yellowCard, isSecondBooking, bookedPlayer);
+		Karte booking = new Karte(spiel, editingFirstTeam, minute, yellowCard, isSecondBooking, onTheBench, bookedPlayer);
 		spiel.addBooking(booking);
 		if (repaint)	paintBookings();
 		else			displayBooking(booking, bookings.size() - 1);
