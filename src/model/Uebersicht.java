@@ -16,12 +16,12 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_SPPLPNL;
 	
 	// Informationen
-	private Rectangle REC_INFPNL = new Rectangle(600, 20, 500, 80);
+	private Rectangle REC_INFPNL = new Rectangle(610, 20, 500, 80);
 	private Rectangle REC_LBLNAME = new Rectangle(65, 10, 370, 30);
 	private Rectangle REC_LBLGRDATUM = new Rectangle(175, 40, 150, 30);
 	
 	// Statistiken
-	private Rectangle REC_STATSPNL = new Rectangle(600, 105, 500, 115);
+	private Rectangle REC_STATSPNL = new Rectangle(610, 105, 500, 115);
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
 	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
@@ -48,7 +48,7 @@ public class Uebersicht extends JPanel {
 	private int[] series = new int[] {350, 155, 0, 25, 110, 20};
 	private int[] seriesV = new int[] {460, 155, 0, 25, 20, 20};
 	
-	private Rectangle REC_TABLEPNL = new Rectangle(600, 225, 500, 290);
+	private Rectangle REC_TABLEPNL = new Rectangle(610, 225, 500, 290);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
@@ -140,9 +140,9 @@ public class Uebersicht extends JPanel {
 	private int nstartx = 05;
 	private int startx = 20;
 	private int starty = 20;
-	private int[] widthes = {20, 120, 185, 10, 5, 10, 185};
+	private int[] widthes = {20, 120, 185, 16, 5, 16, 185};
 	private int height = 15;
-	private int[] gapx = {5, 5, 10, 0, 0, 10, 0};
+	private int[] gapx = {5, 5, 9, 0, 0, 9, 0};
 	private int gapy = 5;
 	private int middlegapy = 15;
 	
@@ -265,9 +265,11 @@ public class Uebersicht extends JPanel {
 				alignCenter(spieltage[i][MATCHDAY]);
 				alignCenter(spieltage[i][DATE]);
 				alignRight(spieltage[i][TEAMHOME]);
-				alignRight(spieltage[i][GOALSHOME]);
+//				alignRight(spieltage[i][GOALSHOME]);
+				alignCenter(spieltage[i][GOALSHOME]);
 				alignCenter(spieltage[i][TRENNZEICHEN]);
-				alignLeft(spieltage[i][GOALSAWAY]);
+//				alignLeft(spieltage[i][GOALSAWAY]);
+				alignCenter(spieltage[i][GOALSAWAY]);
 				alignLeft(spieltage[i][TEAMAWAY]);
 				
 				spieltage[i][TEAMHOME].setBackground(Color.yellow);
@@ -765,7 +767,7 @@ public class Uebersicht extends JPanel {
 		showingMoreStats = !showingMoreStats;
 		
 		jLblStatisticsMoreLess.setText(showingMoreStats ? "< Weniger" : "Mehr dazu >");
-		jPnlStatistics.setBounds(600, 105, 500, showingMoreStats ? getHeight() - 125 : 115);
+		jPnlStatistics.setBounds(610, 105, 500, showingMoreStats ? getHeight() - 125 : 115);
 		jPnlTableExcerpt.setVisible(!showingMoreStats);
 		jSPKader.setVisible(!showingMoreStats);
 	}
