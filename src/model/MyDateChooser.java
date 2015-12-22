@@ -111,7 +111,7 @@ public class MyDateChooser extends JFrame {
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		if (belongsToLeague) {
-			startjahr = season.getSeason();
+			startjahr = season.getYear();
 			numberOfYears = season.isSTSS() ? 2 : 1;
 		} else if (belongsToGroup) {
 			startjahr = gruppe.getStartDate() / 10000;

@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -22,6 +24,8 @@ public class SpielerInformationen extends JFrame {
 	public static final int HEIGHT = 830;
 	
 	private static final int maxNumberOfCharacters = 20;
+	private static final int minimumAge = 14;
+	private static final int maximumAge = 50;
 	
 	private Color background = new Color(255, 255, 255);
 	private Font fontAtClubSince = new Font("Calibri", 0, 24);
@@ -56,6 +60,9 @@ public class SpielerInformationen extends JFrame {
 	private JTextField jTFFirstNames;
 	private JTextField jTFLastNames;
 	private JTextField jTFPseudonym;
+	private JComboBox<String> jCBBirthDay;
+	private JComboBox<String> jCBBirthMonth;
+	private JComboBox<String> jCBBirthYear;
 	private JTextField jTFNationality;
 	
 	private JLabel jLblPerformance;
@@ -103,8 +110,11 @@ public class SpielerInformationen extends JFrame {
 		for (int i = 0; i < positionen.length; i++) {
 			positionen[i] = Position.values()[i].getName();
 		}
+		String[] monate = new String[12];
+		for (int i = 0; i < monate.length; i++) {
+			monate[i] = i + 1 + ".";
+		}
 		
-		// TODO Name & Co. veraenderbar
 		{
 			jPnlPlayerInformation = new JPanel();
 			getContentPane().add(jPnlPlayerInformation);
@@ -236,6 +246,39 @@ public class SpielerInformationen extends JFrame {
 			jTFPseudonym.setBounds(500, 140, 220, 30);
 			jTFPseudonym.setFont(fontPseudonym);
 			jTFPseudonym.setVisible(false);
+		}
+		{
+			jCBBirthDay = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBBirthDay);
+			jCBBirthDay.setBounds(410, 200, 70, 30);
+			jCBBirthDay.setVisible(false);
+		}
+		{
+			jCBBirthMonth = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBBirthMonth);
+			jCBBirthMonth.setBounds(480, 200, 70, 30);
+			jCBBirthMonth.setModel(new DefaultComboBoxModel<>(monate));
+			jCBBirthMonth.setVisible(false);
+			jCBBirthMonth.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBDayModel();
+					}
+				}
+			});
+		}
+		{
+			jCBBirthYear = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBBirthYear);
+			jCBBirthYear.setBounds(550, 200, 90, 30);
+			jCBBirthYear.setVisible(false);
+			jCBBirthYear.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBDayModel();
+					}
+				}
+			});
 		}
 		{
 			jTFNationality = new JTextField();
@@ -400,6 +443,9 @@ public class SpielerInformationen extends JFrame {
 			jTFFirstNames.setText(jLblFirstNames.getText());
 			jTFLastNames.setText(jLblLastNames.getText());
 			jTFPseudonym.setText(jLblPseudonym.getText());
+			jCBBirthYear.setSelectedItem(player.getBirthDate() / 10000 + "");
+			jCBBirthMonth.setSelectedIndex((player.getBirthDate() % 10000) / 100 - 1);
+			jCBBirthDay.setSelectedIndex(player.getBirthDate() % 100 - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
 			jBtnChangeInformation.setText("speichern");
@@ -407,8 +453,8 @@ public class SpielerInformationen extends JFrame {
 			String firstName = jTFFirstNames.getText();
 			String lastName = jTFLastNames.getText();
 			String pseudonym = jTFPseudonym.getText();
-			if (pseudonym.isEmpty())	pseudonym = null;	
-			int birthDate = player.getBirthDate();
+			if (pseudonym.isEmpty())	pseudonym = null;
+			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
 			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
@@ -427,6 +473,7 @@ public class SpielerInformationen extends JFrame {
 			jLblFirstNames.setText(firstName);
 			jLblLastNames.setText(lastName);
 			jLblPseudonym.setText(pseudonym);
+			jLblBirthDateVal.setText(MyDate.datum(birthDate));
 			jLblPositionVal.setText(position);
 			jLblNationalityVal.setText(nationality);
 			jBtnChangeInformation.setText("ändern");
@@ -437,17 +484,41 @@ public class SpielerInformationen extends JFrame {
 		jLblFirstNames.setVisible(!changingInformation);
 		jLblLastNames.setVisible(!changingInformation);
 		jLblPseudonym.setVisible(!changingInformation);
+		jLblBirthDateVal.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
 		jCBPositions.setVisible(changingInformation);
 		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
 		jTFLastNames.setVisible(changingInformation);
 		jTFPseudonym.setVisible(changingInformation);
+		jCBBirthDay.setVisible(changingInformation);
+		jCBBirthMonth.setVisible(changingInformation);
+		jCBBirthYear.setVisible(changingInformation);
 		jTFNationality.setVisible(changingInformation);
+	}
+	
+	private void refreshCBDayModel() {
+		int month = jCBBirthMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBBirthYear.getSelectedItem());
+		int daysInMonth = numberOfDaysInMonth(month, year);
+		String[] days = new String[daysInMonth];
+		for (int i = 0; i < days.length; i++) {
+			days[i] = (i + 1) + ".";
+		}
+		int day = jCBBirthDay.getSelectedIndex();
+		jCBBirthDay.setModel(new DefaultComboBoxModel<>(days));
+		jCBBirthDay.setSelectedIndex(Math.min(day, days.length - 1));
 	}
 	
 	public void setPlayer(Spieler player, String url, String urlKlein) {
 		this.player = player;
+		
+		int firstYear = player.getTeam().getWettbewerb().getYear() - maximumAge;
+		String[] jahre = new String[maximumAge - minimumAge + 1];
+		for (int i = 0; i < jahre.length; i++) {
+			jahre[i] = firstYear + i + "";
+		}
+		jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
+		
 		jLblSquadNumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());

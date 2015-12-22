@@ -82,6 +82,10 @@ public class Gruppe implements Wettbewerb {
 		return this.id;
 	}
 	
+	public int getYear() {
+		return season.getSeason();
+	}
+	
 	public boolean isQualification() {
 		return isQ;
 	}

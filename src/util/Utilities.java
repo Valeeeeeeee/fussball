@@ -141,6 +141,30 @@ public class Utilities {
 		return osX ? "\u2b06" : "\u2191";
 	}
 	
+	public static int numberOfDaysInMonth(int month, int year) {
+		switch (month) {
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				return 31;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				return 30;
+			case 2:
+				if (year % 4 != 0)	return 28;
+				if (year % 100 == 0 && year % 400 != 0)	return 28;
+				return 29;
+			default:
+				return 0;
+		}
+	}
+	
 	public static String removeUmlaute(String name) {
 		for (int i = 0; i < name.length(); i++) {
 			int chAt = name.charAt(i);

@@ -88,7 +88,7 @@ public class LigaSaison implements Wettbewerb {
 		return seasonIndex;
 	}
 	
-	public int getSeason() {
+	public int getYear() {
 		return season;
 	}
 	

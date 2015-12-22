@@ -559,7 +559,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	}
 	
 	public void setConfigurationFromPreviousSeason(LigaSaison lSeason) {
-		season = (lSeason.getSeason() + 1);
+		season = (lSeason.getYear() + 1);
 		isSummerToSpringSeason = lSeason.isSTSS();
 		setOldMannschaften(lSeason.getMannschaften());
 		numberOfMatchesAgainstSameOpponent = lSeason.getNumberOfMatchesAgainstSameOpponent();

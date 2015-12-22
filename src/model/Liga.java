@@ -27,7 +27,7 @@ public class Liga {
 	public boolean addSeason(String toString, ArrayList<String> teams, String KOTRepresentation) {
 		LigaSaison neueSaison = new LigaSaison(this, saisons.size(), toString);
 		for (int i = 0; i < saisons.size(); i++) {
-			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
+			if (saisons.get(i).getYear() == neueSaison.getYear()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
 				return false;
 			}
@@ -125,7 +125,7 @@ public class Liga {
 	}
 	
 	public int getAktuelleSeason() {
-		return this.saisons.get(this.aktuelleSaison).getSeason();
+		return this.saisons.get(this.aktuelleSaison).getYear();
 	}
 	
 	public LigaSaison getAktuelleSaison() {
