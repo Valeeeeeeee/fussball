@@ -54,6 +54,8 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblNationalityVal;
 	private JLabel jLblAtClubSince;
 	private JLabel jLblAtClubSinceVal;
+	private JLabel jLblAtClubUntil;
+	private JLabel jLblAtClubUntilVal;
 	
 	private JComboBox<String> jCBPositions;
 	private JTextField jTFSquadNumber;
@@ -209,6 +211,19 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblAtClubSinceVal);
 			jLblAtClubSinceVal.setBounds(410, 320, 140, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
+		}
+		{
+			jLblAtClubUntil = new JLabel();
+			jPnlPlayerInformation.add(jLblAtClubUntil);
+			jLblAtClubUntil.setBounds(610, 300, 110, 20);
+			jLblAtClubUntil.setFont(fontDescription);
+			jLblAtClubUntil.setText("Im Verein bis:");
+		}
+		{
+			jLblAtClubUntilVal = new JLabel();
+			jPnlPlayerInformation.add(jLblAtClubUntilVal);
+			jLblAtClubUntilVal.setBounds(610, 320, 140, 30);
+			jLblAtClubUntilVal.setFont(fontAtClubSince);
 		}
 		// Change information
 		{
@@ -495,6 +510,10 @@ public class SpielerInformationen extends JFrame {
 		jCBBirthMonth.setVisible(changingInformation);
 		jCBBirthYear.setVisible(changingInformation);
 		jTFNationality.setVisible(changingInformation);
+		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
+		jLblAtClubSinceVal.setVisible(changingInformation || player.getFirstDate() != -1);
+		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
+		jLblAtClubUntilVal.setVisible(changingInformation || player.getLastDate() != -1);
 	}
 	
 	private void refreshCBDayModel() {
@@ -528,16 +547,17 @@ public class SpielerInformationen extends JFrame {
 		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
 		jLblPositionVal.setText(player.getPosition().getName());
 		jLblNationalityVal.setText(player.getNationality());
+		
 		int atClubSince = player.getFirstDate();
-		if (atClubSince != -1) {
-			jLblAtClubSinceVal.setText(MyDate.datum(atClubSince));
-			jLblAtClubSince.setVisible(true);
-			jLblAtClubSinceVal.setVisible(true);
-		} else {
-			jLblAtClubSinceVal.setText("");
-			jLblAtClubSince.setVisible(false);
-			jLblAtClubSinceVal.setVisible(false);
-		}
+		int atClubUntil = player.getLastDate();
+		boolean sinceSet = atClubSince != -1, untilSet = atClubUntil != -1;
+		jLblAtClubSinceVal.setText(sinceSet ? MyDate.datum(atClubSince) : "");
+		jLblAtClubSince.setVisible(sinceSet);
+		jLblAtClubSinceVal.setVisible(sinceSet);
+		jLblAtClubUntilVal.setText(untilSet ? MyDate.datum(atClubUntil) : "");
+		jLblAtClubUntil.setVisible(untilSet);
+		jLblAtClubUntilVal.setVisible(untilSet);
+		
 		int[] performanceData = player.getTeam().getPerformanceData(player);
 		jLblGamesPlayedVal.setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
 		jLblGamesStartedVal.setText("" + performanceData[Mannschaft.MATCHES_STARTED]);
