@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.File;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -97,14 +98,16 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblRedCardsVal;
 	private JLabel jLblImage;
 	
+	private Uebersicht uebersicht;
 	private Spieler player;
 	private Wettbewerb wettbewerb;
 	
 	private boolean changingInformation;
 	
-	public SpielerInformationen(Wettbewerb wettbewerb) {
+	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb wettbewerb) {
 		super();
 		
+		this.uebersicht = uebersicht;
 		this.wettbewerb = wettbewerb;
 		
 		initGUI();
@@ -121,6 +124,11 @@ public class SpielerInformationen extends JFrame {
 		String[] monate = new String[12];
 		for (int i = 1; i <= monate.length; i++) {
 			monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
+		}
+		int firstYear = wettbewerb.getYear() - maximumAge;
+		String[] jahre = new String[maximumAge - minimumAge + 1];
+		for (int i = 0; i < jahre.length; i++) {
+			jahre[i] = firstYear + i + "";
 		}
 		
 		{
@@ -292,6 +300,7 @@ public class SpielerInformationen extends JFrame {
 			jCBBirthYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthYear);
 			jCBBirthYear.setBounds(530, 200, 85, 30);
+			jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
 			jCBBirthYear.setVisible(false);
 			jCBBirthYear.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
@@ -490,13 +499,9 @@ public class SpielerInformationen extends JFrame {
 				}
 			}
 			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber);
-			jLblSquadNumber.setText("" + squadNumber);
-			jLblFirstNames.setText(firstName);
-			jLblLastNames.setText(lastName);
-			jLblPseudonym.setText(pseudonym);
-			jLblBirthDateVal.setText(MyDate.datum(birthDate));
-			jLblPositionVal.setText(position);
-			jLblNationalityVal.setText(nationality);
+			uebersicht.showKader();
+			setPlayerInformation();
+			showPhoto();
 			jBtnChangeInformation.setText("ändern");
 		}
 		changingInformation = !changingInformation;
@@ -534,16 +539,17 @@ public class SpielerInformationen extends JFrame {
 		jCBBirthDay.setSelectedIndex(Math.min(day, days.length - 1));
 	}
 	
-	public void setPlayer(Spieler player, String url, String urlKlein) {
+	public void setPlayer(Spieler player) {
 		this.player = player;
 		
-		int firstYear = player.getTeam().getWettbewerb().getYear() - maximumAge;
-		String[] jahre = new String[maximumAge - minimumAge + 1];
-		for (int i = 0; i < jahre.length; i++) {
-			jahre[i] = firstYear + i + "";
-		}
-		jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
+		setPlayerInformation();
+		setPerformance();
+		showPhoto();
 		
+		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
+	}
+	
+	private void setPlayerInformation() {
 		jLblSquadNumber.setText("" + player.getSquadNumber());
 		jLblFirstNames.setText(player.getFirstName());
 		jLblLastNames.setText(player.getLastName());
@@ -563,7 +569,9 @@ public class SpielerInformationen extends JFrame {
 		jLblAtClubUntilVal.setText(untilSet ? MyDate.datum(atClubUntil) : "");
 		jLblAtClubUntil.setVisible(untilSet);
 		jLblAtClubUntilVal.setVisible(untilSet);
-		
+	}
+	
+	private void setPerformance() {
 		int[] performanceData = player.getTeam().getPerformanceData(player);
 		jLblGamesPlayedVal.setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
 		jLblGamesStartedVal.setText("" + performanceData[Mannschaft.MATCHES_STARTED]);
@@ -575,6 +583,14 @@ public class SpielerInformationen extends JFrame {
 		jLblBookedVal.setText("" + performanceData[Mannschaft.BOOKED]);
 		jLblBookedTwiceVal.setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
 		jLblRedCardsVal.setText("" + performanceData[Mannschaft.RED_CARDS]);
+	}
+	
+	private void showPhoto() {
+		String playerName = removeUmlaute(player.getFullNameShort());
+		playerName = playerName.toLowerCase().replace(' ', '-');
+		Mannschaft mannschaft = player.getTeam();
+		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
+		String urlKlein = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
 		
 		Image image = null;
 		if (jLblImage != null) {
@@ -599,6 +615,5 @@ public class SpielerInformationen extends JFrame {
 		jLblImage.setBounds(20, 10, 350, 800);
 		jPnlPlayerInformation.add(jLblImage);
 		jLblImage.setVisible(true);
-		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 }
