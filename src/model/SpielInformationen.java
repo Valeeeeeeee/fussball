@@ -680,6 +680,11 @@ public class SpielInformationen extends JFrame {
 			jChBBench.setBounds(REC_CHBBENCH);
 			jChBBench.setOpaque(false);
 			jChBBench.setVisible(false);
+			jChBBench.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jChBBenchSelectionChanged();
+				}
+			});
 		}
 		{
 			jLblOben = new JLabel();
@@ -1484,6 +1489,10 @@ public class SpielInformationen extends JFrame {
 		else					jPnlEingabe.setLocation(LOC_PNLEINGABEAWAY);
 		jPnlEingabe.setVisible(true);
 		jTFMinute.requestFocus();
+	}
+	
+	private void jChBBenchSelectionChanged() {
+		
 	}
 	
 	private void jChBLeftSelectionChanged() {

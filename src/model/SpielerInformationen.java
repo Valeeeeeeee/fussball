@@ -66,6 +66,12 @@ public class SpielerInformationen extends JFrame {
 	private JComboBox<String> jCBBirthMonth;
 	private JComboBox<String> jCBBirthYear;
 	private JTextField jTFNationality;
+	private JComboBox<String> jCBAtClubSinceDay;
+	private JComboBox<String> jCBAtClubSinceMonth;
+	private JComboBox<String> jCBAtClubSinceYear;
+	private JComboBox<String> jCBAtClubUntilDay;
+	private JComboBox<String> jCBAtClubUntilMonth;
+	private JComboBox<String> jCBAtClubUntilYear;
 	
 	private JLabel jLblPerformance;
 	private JLabel jLblCompetition;
@@ -113,8 +119,8 @@ public class SpielerInformationen extends JFrame {
 			positionen[i] = Position.values()[i].getName();
 		}
 		String[] monate = new String[12];
-		for (int i = 0; i < monate.length; i++) {
-			monate[i] = i + 1 + ".";
+		for (int i = 1; i <= monate.length; i++) {
+			monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
 		}
 		
 		{
@@ -138,7 +144,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblSquadNumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadNumber);
-			jLblSquadNumber.setBounds(395, 65, 95, 65);
+			jLblSquadNumber.setBounds(390, 65, 100, 65);
 			alignCenter(jLblSquadNumber);
 			jLblSquadNumber.setFont(fontSquadNumber);
 		}
@@ -163,80 +169,80 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblBirthDate = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDate);
-			jLblBirthDate.setBounds(410, 180, 110, 20);
+			jLblBirthDate.setBounds(390, 180, 110, 20);
 			jLblBirthDate.setFont(fontDescription);
 			jLblBirthDate.setText("Geburtsdatum:");
 		}
 		{
 			jLblBirthDateVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDateVal);
-			jLblBirthDateVal.setBounds(410, 200, 140, 30);
+			jLblBirthDateVal.setBounds(390, 200, 140, 30);
 			jLblBirthDateVal.setFont(fontBirthDate);
 		}
 		{
 			jLblPosition = new JLabel();
 			jPnlPlayerInformation.add(jLblPosition);
-			jLblPosition.setBounds(660, 180, 65, 20);
+			jLblPosition.setBounds(640, 180, 65, 20);
 			jLblPosition.setFont(fontDescription);
 			jLblPosition.setText("Position:");
 		}
 		{
 			jLblPositionVal = new JLabel();
 			jPnlPlayerInformation.add(jLblPositionVal);
-			jLblPositionVal.setBounds(660, 200, 110, 30);
+			jLblPositionVal.setBounds(640, 200, 110, 30);
 			jLblPositionVal.setFont(fontPosition);
 		}
 		{
 			jLblNationality = new JLabel();
 			jPnlPlayerInformation.add(jLblNationality);
-			jLblNationality.setBounds(410, 240, 120, 20);
+			jLblNationality.setBounds(390, 240, 120, 20);
 			jLblNationality.setFont(fontDescription);
 			jLblNationality.setText("Nationalität(en):");
 		}
 		{
 			jLblNationalityVal = new JLabel();
 			jPnlPlayerInformation.add(jLblNationalityVal);
-			jLblNationalityVal.setBounds(410, 260, 380, 30);
+			jLblNationalityVal.setBounds(390, 260, 380, 30);
 			jLblNationalityVal.setFont(fontNationality);
 		}
 		{
 			jLblAtClubSince = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSince);
-			jLblAtClubSince.setBounds(410, 300, 110, 20);
+			jLblAtClubSince.setBounds(390, 300, 110, 20);
 			jLblAtClubSince.setFont(fontDescription);
 			jLblAtClubSince.setText("Im Verein seit:");
 		}
 		{
 			jLblAtClubSinceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSinceVal);
-			jLblAtClubSinceVal.setBounds(410, 320, 140, 30);
+			jLblAtClubSinceVal.setBounds(390, 320, 140, 30);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
 		{
 			jLblAtClubUntil = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntil);
-			jLblAtClubUntil.setBounds(610, 300, 110, 20);
+			jLblAtClubUntil.setBounds(590, 300, 110, 20);
 			jLblAtClubUntil.setFont(fontDescription);
 			jLblAtClubUntil.setText("Im Verein bis:");
 		}
 		{
 			jLblAtClubUntilVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntilVal);
-			jLblAtClubUntilVal.setBounds(610, 320, 140, 30);
+			jLblAtClubUntilVal.setBounds(590, 320, 140, 30);
 			jLblAtClubUntilVal.setFont(fontAtClubSince);
 		}
 		// Change information
 		{
 			jCBPositions = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBPositions);
-			jCBPositions.setBounds(660, 200, 110, 30);
+			jCBPositions.setBounds(640, 200, 110, 30);
 			jCBPositions.setModel(new DefaultComboBoxModel<>(positionen));
 			jCBPositions.setVisible(false);
 		}
 		{
 			jTFSquadNumber = new JTextField();
 			jPnlPlayerInformation.add(jTFSquadNumber);
-			jTFSquadNumber.setBounds(395, 65, 95, 65);
+			jTFSquadNumber.setBounds(390, 65, 100, 65);
 			alignCenter(jTFSquadNumber);
 			jTFSquadNumber.setFont(fontSquadNumber);
 			jTFSquadNumber.setVisible(false);
@@ -265,13 +271,13 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBBirthDay = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthDay);
-			jCBBirthDay.setBounds(410, 200, 70, 30);
+			jCBBirthDay.setBounds(390, 200, 70, 30);
 			jCBBirthDay.setVisible(false);
 		}
 		{
 			jCBBirthMonth = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthMonth);
-			jCBBirthMonth.setBounds(480, 200, 70, 30);
+			jCBBirthMonth.setBounds(460, 200, 70, 30);
 			jCBBirthMonth.setModel(new DefaultComboBoxModel<>(monate));
 			jCBBirthMonth.setVisible(false);
 			jCBBirthMonth.addItemListener(new ItemListener() {
@@ -285,7 +291,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBBirthYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthYear);
-			jCBBirthYear.setBounds(550, 200, 90, 30);
+			jCBBirthYear.setBounds(530, 200, 85, 30);
 			jCBBirthYear.setVisible(false);
 			jCBBirthYear.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
@@ -298,7 +304,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jTFNationality = new JTextField();
 			jPnlPlayerInformation.add(jTFNationality);
-			jTFNationality.setBounds(410, 260, 380, 30);
+			jTFNationality.setBounds(390, 260, 380, 30);
 			jTFNationality.setFont(fontNationality);
 			jTFNationality.setVisible(false);
 		}
@@ -520,8 +526,8 @@ public class SpielerInformationen extends JFrame {
 		int month = jCBBirthMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBBirthYear.getSelectedItem());
 		int daysInMonth = numberOfDaysInMonth(month, year);
 		String[] days = new String[daysInMonth];
-		for (int i = 0; i < days.length; i++) {
-			days[i] = (i + 1) + ".";
+		for (int i = 1; i <= days.length; i++) {
+			days[i - 1] = (i / 10) + "" + (i % 10) + ".";
 		}
 		int day = jCBBirthDay.getSelectedIndex();
 		jCBBirthDay.setModel(new DefaultComboBoxModel<>(days));
