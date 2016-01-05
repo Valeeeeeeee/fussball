@@ -1409,7 +1409,7 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPseudonymOrLN();
 			}
 		} else {
-			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(spiel.getDate()));
+			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(spiel.getDate(), false));
 			for (int i = 0; i < lineup.length; i++) {
 				eligiblePlayersListLower.remove(team.getSpieler(lineup[i], spiel.getDate()));
 			}
@@ -1755,8 +1755,8 @@ public class SpielInformationen extends JFrame {
 		this.enteringLineup = true;
 		this.editingFirstTeam = firstTeam;
 		int[] lineup = editingFirstTeam ? lineupHome : lineupAway;
-		if (editingFirstTeam)	kader = kaderHome = spiel.getHomeTeam().getEligiblePlayers(spiel.getDate());
-		else					kader = kaderAway = spiel.getAwayTeam().getEligiblePlayers(spiel.getDate());
+		if (editingFirstTeam)	kader = kaderHome = spiel.getHomeTeam().getEligiblePlayers(spiel.getDate(), false);
+		else					kader = kaderAway = spiel.getAwayTeam().getEligiblePlayers(spiel.getDate(), false);
 		
 		// hide lineup labels
 		setLabelsVisible(false);

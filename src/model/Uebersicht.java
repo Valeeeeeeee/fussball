@@ -607,9 +607,9 @@ public class Uebersicht extends JPanel {
 			repaintImmediately(jPnlKader);
 		}
 		
-		eligiblePlayers = mannschaft.getEligiblePlayers(Start.today());
+		eligiblePlayers = mannschaft.getEligiblePlayers(Start.today(), true);
 		numberOfEligiblePlayers = eligiblePlayers.size();
-		ineligiblePlayers = mannschaft.getIneligiblePlayers(Start.today());
+		ineligiblePlayers = mannschaft.getIneligiblePlayers(Start.today(), true);
 		numberOfIneligiblePlayers = ineligiblePlayers.size();
 		int[] nOfPlayersByPosition = new int[numberOfPositions];
 		
@@ -714,7 +714,7 @@ public class Uebersicht extends JPanel {
 			jLblsPositionVal[i].setVisible(!showingMoreKader && hasPlayers);
 			jLblsPosition[i].setVisible(!showingMoreKader && hasPlayers);
 		}
-		jLblNumberOfPlayers.setText(mannschaft.getNumberOfPlayers(false) + " Spieler");
+		jLblNumberOfPlayers.setText(mannschaft.getNumberOfPlayers(false, false) + " Spieler");
 		jLblNumberOfUsedPlayers.setText("davon " + mannschaft.getNumberOfUsedPlayers() + " eingesetzt");
 		
 		jPnlKader.setPreferredSize(new Dimension(401, hasPlayers ? standardHeightKader : standardHeightKaderNoPlayers));

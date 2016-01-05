@@ -103,9 +103,9 @@ public class Mannschaft {
 		return wettbewerb.getWorkspace() + "Bilder" + File.separator + nameForFileSearch + File.separator;
 	}
 	
-	public int getNumberOfPlayers(boolean onlyEligible) {
+	public int getNumberOfPlayers(boolean onlyEligible, boolean forceUpdate) {
 		if (onlyEligible) {
-			updateEligiblePlayers(Start.today());
+			updateEligiblePlayers(Start.today(), forceUpdate);
 			return eligiblePlayers.size();
 		}
 		return kader.size();
@@ -492,8 +492,8 @@ public class Mannschaft {
 		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
 	}
 	
-	private void updateEligiblePlayers(int date) {
-		if (lastUpdatedEligibleForDate == date)	return;
+	private void updateEligiblePlayers(int date, boolean forceUpdate) {
+		if (!forceUpdate && lastUpdatedEligibleForDate == date)	return;
 		
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
@@ -508,8 +508,8 @@ public class Mannschaft {
 		lastUpdatedEligibleForDate = date;
 	}
 	
-	private void updateIneligiblePlayers(int date) {
-		if (lastUpdatedIneligibleForDate == date)	return;
+	private void updateIneligiblePlayers(int date, boolean forceUpdate) {
+		if (!forceUpdate && lastUpdatedIneligibleForDate == date)	return;
 		
 		ineligiblePlayers.clear();
 		
@@ -522,18 +522,18 @@ public class Mannschaft {
 		lastUpdatedIneligibleForDate = date;
 	}
 	
-	public int getCurrentNumberOfPlayers(int date) {
-		updateEligiblePlayers(date);
+	public int getCurrentNumberOfPlayers(int date, boolean forceUpdate) {
+		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers.size();
 	}
 	
-	public ArrayList<Spieler> getEligiblePlayers(int date) {
-		updateEligiblePlayers(date);
+	public ArrayList<Spieler> getEligiblePlayers(int date, boolean forceUpdate) {
+		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers;
 	}
 	
-	public ArrayList<Spieler> getIneligiblePlayers(int date) {
-		updateIneligiblePlayers(date);
+	public ArrayList<Spieler> getIneligiblePlayers(int date, boolean forceUpdate) {
+		updateIneligiblePlayers(date, forceUpdate);
 		return ineligiblePlayers;
 	}
 	
