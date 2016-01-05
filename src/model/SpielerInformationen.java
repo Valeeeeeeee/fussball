@@ -67,9 +67,11 @@ public class SpielerInformationen extends JFrame {
 	private JComboBox<String> jCBBirthMonth;
 	private JComboBox<String> jCBBirthYear;
 	private JTextField jTFNationality;
+	private JCheckBox jChBAtClubSinceEver;
 	private JComboBox<String> jCBAtClubSinceDay;
 	private JComboBox<String> jCBAtClubSinceMonth;
 	private JComboBox<String> jCBAtClubSinceYear;
+	private JCheckBox jChBAtClubUntilEver;
 	private JComboBox<String> jCBAtClubUntilDay;
 	private JComboBox<String> jCBAtClubUntilMonth;
 	private JComboBox<String> jCBAtClubUntilYear;
@@ -103,6 +105,8 @@ public class SpielerInformationen extends JFrame {
 	private Wettbewerb wettbewerb;
 	
 	private boolean changingInformation;
+	private boolean atClubSinceEver;
+	private boolean atClubUntilEver;
 	
 	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb wettbewerb) {
 		super();
@@ -322,6 +326,19 @@ public class SpielerInformationen extends JFrame {
 			jTFNationality.setVisible(false);
 		}
 		{
+			jChBAtClubSinceEver = new JCheckBox();
+			jPnlPlayerInformation.add(jChBAtClubSinceEver);
+			jChBAtClubSinceEver.setBounds(510, 300, 70, 20);
+			jChBAtClubSinceEver.setText("Anfang");
+			jChBAtClubSinceEver.setOpaque(false);
+			jChBAtClubSinceEver.setVisible(false);
+			jChBAtClubSinceEver.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					changeAtClubSinceEver();
+				}
+			});
+		}
+		{
 			jCBAtClubSinceDay = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubSinceDay);
 			jCBAtClubSinceDay.setBounds(390, 320, 70, 30);
@@ -352,6 +369,19 @@ public class SpielerInformationen extends JFrame {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
 						refreshCBACSinceDayModel();
 					}
+				}
+			});
+		}
+		{
+			jChBAtClubUntilEver = new JCheckBox();
+			jPnlPlayerInformation.add(jChBAtClubUntilEver);
+			jChBAtClubUntilEver.setBounds(745, 300, 70, 20);
+			jChBAtClubUntilEver.setText("Ende");
+			jChBAtClubUntilEver.setOpaque(false);
+			jChBAtClubUntilEver.setVisible(false);
+			jChBAtClubUntilEver.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					changeAtClubUntilEver();
 				}
 			});
 		}
@@ -553,9 +583,11 @@ public class SpielerInformationen extends JFrame {
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
 			boolean sinceSet = player.getFirstDate() != -1, untilSet = player.getLastDate() != -1;
+			if (sinceSet == atClubSinceEver)	jChBAtClubSinceEver.doClick();
 			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate() / 10000 + "" : "");
 			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate() / 100 % 100 - 1 : 0);
 			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate() % 100 - 1 : 0);
+			if (untilSet == atClubUntilEver)	jChBAtClubUntilEver.doClick();
 			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate() / 10000 + "" : "");
 			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate() / 100 % 100 - 1 : 0);
 			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate() % 100 - 1 : 0);
@@ -568,17 +600,9 @@ public class SpielerInformationen extends JFrame {
 			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
-			int firstDate = -1, lastDate = -1; // TODO include first, last date
-			if (true) {
-				firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
-			}
-			if (true) {
-				lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
-			}
-			log(firstDate);
-			log(lastDate);
-			firstDate = player.getFirstDate();
-			lastDate = player.getLastDate();
+			int firstDate = -1, lastDate = -1;
+			if (!atClubSinceEver)	firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
+			if (!atClubUntilEver)	lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
 			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
 			// check if squad number is unique
 			for (Spieler player : player.getTeam().getPlayers()) {
@@ -615,15 +639,31 @@ public class SpielerInformationen extends JFrame {
 		jCBBirthMonth.setVisible(changingInformation);
 		jCBBirthYear.setVisible(changingInformation);
 		jTFNationality.setVisible(changingInformation);
-		jCBAtClubSinceDay.setVisible(changingInformation);
-		jCBAtClubSinceMonth.setVisible(changingInformation);
-		jCBAtClubSinceYear.setVisible(changingInformation);
-		jCBAtClubUntilDay.setVisible(changingInformation);
-		jCBAtClubUntilMonth.setVisible(changingInformation);
-		jCBAtClubUntilYear.setVisible(changingInformation);
+		jChBAtClubSinceEver.setVisible(changingInformation);
+		jCBAtClubSinceDay.setVisible(changingInformation && !atClubSinceEver);
+		jCBAtClubSinceMonth.setVisible(changingInformation && !atClubSinceEver);
+		jCBAtClubSinceYear.setVisible(changingInformation && !atClubSinceEver);
+		jChBAtClubUntilEver.setVisible(changingInformation);
+		jCBAtClubUntilDay.setVisible(changingInformation && !atClubUntilEver);
+		jCBAtClubUntilMonth.setVisible(changingInformation && !atClubUntilEver);
+		jCBAtClubUntilYear.setVisible(changingInformation && !atClubUntilEver);
 		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
 		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
 		return true;
+	}
+	
+	private void changeAtClubSinceEver() {
+		atClubSinceEver = !atClubSinceEver;
+		jCBAtClubSinceDay.setVisible(!atClubSinceEver);
+		jCBAtClubSinceMonth.setVisible(!atClubSinceEver);
+		jCBAtClubSinceYear.setVisible(!atClubSinceEver);
+	}
+	
+	private void changeAtClubUntilEver() {
+		atClubUntilEver = !atClubUntilEver;
+		jCBAtClubUntilDay.setVisible(!atClubUntilEver);
+		jCBAtClubUntilMonth.setVisible(!atClubUntilEver);
+		jCBAtClubUntilYear.setVisible(!atClubUntilEver);
 	}
 	
 	private void refreshCBACSinceDayModel() {
