@@ -20,7 +20,7 @@ public class SpielerInformationen extends JFrame {
 	private static final long serialVersionUID = -8974853216829127796L;
 
 	
-	public static final int WIDTH = 840;
+	public static final int WIDTH = 860;
 	
 	public static final int HEIGHT = 830;
 	
@@ -130,6 +130,10 @@ public class SpielerInformationen extends JFrame {
 		for (int i = 0; i < jahre.length; i++) {
 			jahre[i] = firstYear + i + "";
 		}
+		String[] beimVereinJahre = new String[wettbewerb.isSTSS() ? 2 : 1];
+		for (int i = 0; i < beimVereinJahre.length; i++) {
+			beimVereinJahre[i] = wettbewerb.getYear() + i + "";
+		}
 		
 		{
 			jPnlPlayerInformation = new JPanel();
@@ -159,19 +163,19 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(500, 60, 320, 35);
+			jLblFirstNames.setBounds(500, 60, 340, 35);
 			jLblFirstNames.setFont(fontNames);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(500, 100, 320, 35);
+			jLblLastNames.setBounds(500, 100, 340, 35);
 			jLblLastNames.setFont(fontNames);
 		}
 		{
 			jLblPseudonym = new JLabel();
 			jPnlPlayerInformation.add(jLblPseudonym);
-			jLblPseudonym.setBounds(500, 140, 220, 30);
+			jLblPseudonym.setBounds(500, 140, 240, 30);
 			jLblPseudonym.setFont(fontPseudonym);
 		}
 		{
@@ -210,7 +214,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblNationalityVal = new JLabel();
 			jPnlPlayerInformation.add(jLblNationalityVal);
-			jLblNationalityVal.setBounds(390, 260, 380, 30);
+			jLblNationalityVal.setBounds(390, 260, 410, 30);
 			jLblNationalityVal.setFont(fontNationality);
 		}
 		{
@@ -229,14 +233,14 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblAtClubUntil = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntil);
-			jLblAtClubUntil.setBounds(590, 300, 110, 20);
+			jLblAtClubUntil.setBounds(625, 300, 110, 20);
 			jLblAtClubUntil.setFont(fontDescription);
 			jLblAtClubUntil.setText("Im Verein bis:");
 		}
 		{
 			jLblAtClubUntilVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntilVal);
-			jLblAtClubUntilVal.setBounds(590, 320, 140, 30);
+			jLblAtClubUntilVal.setBounds(625, 320, 140, 30);
 			jLblAtClubUntilVal.setFont(fontAtClubSince);
 		}
 		// Change information
@@ -258,21 +262,21 @@ public class SpielerInformationen extends JFrame {
 		{
 			jTFFirstNames = new JTextField();
 			jPnlPlayerInformation.add(jTFFirstNames);
-			jTFFirstNames.setBounds(500, 60, 320, 35);
+			jTFFirstNames.setBounds(500, 60, 340, 35);
 			jTFFirstNames.setFont(fontNames);
 			jTFFirstNames.setVisible(false);
 		}
 		{
 			jTFLastNames = new JTextField();
 			jPnlPlayerInformation.add(jTFLastNames);
-			jTFLastNames.setBounds(500, 100, 320, 35);
+			jTFLastNames.setBounds(500, 100, 340, 35);
 			jTFLastNames.setFont(fontNames);
 			jTFLastNames.setVisible(false);
 		}
 		{
 			jTFPseudonym = new JTextField();
 			jPnlPlayerInformation.add(jTFPseudonym);
-			jTFPseudonym.setBounds(500, 140, 220, 30);
+			jTFPseudonym.setBounds(500, 140, 240, 30);
 			jTFPseudonym.setFont(fontPseudonym);
 			jTFPseudonym.setVisible(false);
 		}
@@ -313,9 +317,77 @@ public class SpielerInformationen extends JFrame {
 		{
 			jTFNationality = new JTextField();
 			jPnlPlayerInformation.add(jTFNationality);
-			jTFNationality.setBounds(390, 260, 380, 30);
+			jTFNationality.setBounds(390, 260, 410, 30);
 			jTFNationality.setFont(fontNationality);
 			jTFNationality.setVisible(false);
+		}
+		{
+			jCBAtClubSinceDay = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubSinceDay);
+			jCBAtClubSinceDay.setBounds(390, 320, 70, 30);
+			jCBAtClubSinceDay.setVisible(false);
+		}
+		{
+			jCBAtClubSinceMonth = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubSinceMonth);
+			jCBAtClubSinceMonth.setBounds(460, 320, 70, 30);
+			jCBAtClubSinceMonth.setModel(new DefaultComboBoxModel<>(monate));
+			jCBAtClubSinceMonth.setVisible(false);
+			jCBAtClubSinceMonth.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBACSinceDayModel();
+					}
+				}
+			});
+		}
+		{
+			jCBAtClubSinceYear = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubSinceYear);
+			jCBAtClubSinceYear.setBounds(530, 320, 85, 30);
+			jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
+			jCBAtClubSinceYear.setVisible(false);
+			jCBAtClubSinceYear.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBACSinceDayModel();
+					}
+				}
+			});
+		}
+		{
+			jCBAtClubUntilDay = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubUntilDay);
+			jCBAtClubUntilDay.setBounds(625, 320, 70, 30);
+			jCBAtClubUntilDay.setVisible(false);
+		}
+		{
+			jCBAtClubUntilMonth = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubUntilMonth);
+			jCBAtClubUntilMonth.setBounds(695, 320, 70, 30);
+			jCBAtClubUntilMonth.setModel(new DefaultComboBoxModel<>(monate));
+			jCBAtClubUntilMonth.setVisible(false);
+			jCBAtClubUntilMonth.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBACUntilDayModel();
+					}
+				}
+			});
+		}
+		{
+			jCBAtClubUntilYear = new JComboBox<>();
+			jPnlPlayerInformation.add(jCBAtClubUntilYear);
+			jCBAtClubUntilYear.setBounds(765, 320, 85, 30);
+			jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
+			jCBAtClubUntilYear.setVisible(false);
+			jCBAtClubUntilYear.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						refreshCBACUntilDayModel();
+					}
+				}
+			});
 		}
 		// Performance data
 		{
@@ -467,8 +539,10 @@ public class SpielerInformationen extends JFrame {
 		setResizable(false);
 	}
 	
-	private void jBtnChangeInformationActionPerformed() {
+	private boolean jBtnChangeInformationActionPerformed() {
 		if (!changingInformation) {
+			refreshCBACSinceDayModel();
+			refreshCBACUntilDayModel();
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(jLblFirstNames.getText());
 			jTFLastNames.setText(jLblLastNames.getText());
@@ -478,6 +552,13 @@ public class SpielerInformationen extends JFrame {
 			jCBBirthDay.setSelectedIndex(player.getBirthDate() % 100 - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
+			boolean sinceSet = player.getFirstDate() != -1, untilSet = player.getLastDate() != -1;
+			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate() / 10000 + "" : "");
+			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate() / 100 % 100 - 1 : 0);
+			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate() % 100 - 1 : 0);
+			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate() / 10000 + "" : "");
+			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate() / 100 % 100 - 1 : 0);
+			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate() % 100 - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
 		} else {
 			String firstName = jTFFirstNames.getText();
@@ -487,6 +568,17 @@ public class SpielerInformationen extends JFrame {
 			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
+			int firstDate = -1, lastDate = -1; // TODO include first, last date
+			if (true) {
+				firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
+			}
+			if (true) {
+				lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
+			}
+			log(firstDate);
+			log(lastDate);
+			firstDate = player.getFirstDate();
+			lastDate = player.getLastDate();
 			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
 			// check if squad number is unique
 			for (Spieler player : player.getTeam().getPlayers()) {
@@ -494,11 +586,11 @@ public class SpielerInformationen extends JFrame {
 				if (player.getSquadNumber() == squadNumber) {
 					if (player.playedAtTheSameTimeAs(this.player)) {
 						message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
-						return;
+						return false;
 					}
 				}
 			}
-			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber);
+			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber, firstDate, lastDate);
 			uebersicht.showKader();
 			setPlayerInformation();
 			showPhoto();
@@ -512,6 +604,8 @@ public class SpielerInformationen extends JFrame {
 		jLblPseudonym.setVisible(!changingInformation);
 		jLblBirthDateVal.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
+		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != -1);
+		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != -1);
 		jCBPositions.setVisible(changingInformation);
 		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
@@ -521,10 +615,39 @@ public class SpielerInformationen extends JFrame {
 		jCBBirthMonth.setVisible(changingInformation);
 		jCBBirthYear.setVisible(changingInformation);
 		jTFNationality.setVisible(changingInformation);
+		jCBAtClubSinceDay.setVisible(changingInformation);
+		jCBAtClubSinceMonth.setVisible(changingInformation);
+		jCBAtClubSinceYear.setVisible(changingInformation);
+		jCBAtClubUntilDay.setVisible(changingInformation);
+		jCBAtClubUntilMonth.setVisible(changingInformation);
+		jCBAtClubUntilYear.setVisible(changingInformation);
 		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
-		jLblAtClubSinceVal.setVisible(changingInformation || player.getFirstDate() != -1);
 		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
-		jLblAtClubUntilVal.setVisible(changingInformation || player.getLastDate() != -1);
+		return true;
+	}
+	
+	private void refreshCBACSinceDayModel() {
+		int month = jCBAtClubSinceMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem());
+		int daysInMonth = numberOfDaysInMonth(month, year);
+		String[] days = new String[daysInMonth];
+		for (int i = 1; i <= days.length; i++) {
+			days[i - 1] = (i / 10) + "" + (i % 10) + ".";
+		}
+		int day = jCBAtClubSinceDay.getSelectedIndex();
+		jCBAtClubSinceDay.setModel(new DefaultComboBoxModel<>(days));
+		jCBAtClubSinceDay.setSelectedIndex(Math.min(day, days.length - 1));
+	}
+	
+	private void refreshCBACUntilDayModel() {
+		int month = jCBAtClubUntilMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem());
+		int daysInMonth = numberOfDaysInMonth(month, year);
+		String[] days = new String[daysInMonth];
+		for (int i = 1; i <= days.length; i++) {
+			days[i - 1] = (i / 10) + "" + (i % 10) + ".";
+		}
+		int day = jCBAtClubUntilDay.getSelectedIndex();
+		jCBAtClubUntilDay.setModel(new DefaultComboBoxModel<>(days));
+		jCBAtClubUntilDay.setSelectedIndex(Math.min(day, days.length - 1));
 	}
 	
 	private void refreshCBDayModel() {
@@ -540,6 +663,7 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	public void setPlayer(Spieler player) {
+		if (changingInformation && !jBtnChangeInformationActionPerformed())	return;
 		this.player = player;
 		
 		setPlayerInformation();

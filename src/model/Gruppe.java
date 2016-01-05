@@ -99,6 +99,10 @@ public class Gruppe implements Wettbewerb {
 		return this.name;
 	}
 	
+	public boolean isSTSS() {
+		return season.isSTSS();
+	}
+	
 	public String getTournamentName() {
 		return season.getTurnier().getName();
 	}

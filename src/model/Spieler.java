@@ -149,7 +149,7 @@ public class Spieler {
 		return true;
 	}
 	
-	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber) {
+	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate) {
 		team.changeSquadNumber(this, squadNumber);
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -158,6 +158,8 @@ public class Spieler {
 		this.nationality = nationality;
 		this.position = Position.getPositionFromString(position);
 		this.squadNumber = squadNumber;
+		this.firstDate = firstDate;
+		this.lastDate = lastDate;
 	}
 	
 	public String toString() {

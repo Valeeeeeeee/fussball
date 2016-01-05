@@ -106,6 +106,10 @@ public class KORunde implements Wettbewerb {
 		return this.name;
 	}
 	
+	public boolean isSTSS() {
+		return season.isSTSS();
+	}
+	
 	public String getWorkspace() {
 		return workspace;
 	}
