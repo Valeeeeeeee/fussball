@@ -52,6 +52,7 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
 	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
+	private Rectangle REC_BTNADDPLAYER = new Rectangle(235, 5, 120, 25);
 	private Rectangle REC_LBLKADERMORELESS = new Rectangle(395, 5, 80, 25);
 	private Rectangle REC_LBLPLAYERS = new Rectangle(280, 45, 80, 20);
 	private Rectangle REC_LBLUSEDPLAYERS = new Rectangle(280, 70, 140, 20);
@@ -114,6 +115,7 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblNoData;
 	private JLabel jLblNumberOfPlayers;
 	private JLabel jLblNumberOfUsedPlayers;
+	private JButton jBtnAddPlayer;
 	private JLabel jLblKaderMoreLess;
 
 	private SpielerInformationen spielerInformationen;
@@ -549,6 +551,19 @@ public class Uebersicht extends JPanel {
 				jLblNumberOfUsedPlayers.setBounds(REC_LBLUSEDPLAYERS);
 			}
 			{
+				jBtnAddPlayer = new JButton();
+				jPnlKader.add(jBtnAddPlayer);
+				jBtnAddPlayer.setText("Neuer Spieler");
+				jBtnAddPlayer.setBounds(REC_BTNADDPLAYER);
+				jBtnAddPlayer.setFocusable(false);
+				jBtnAddPlayer.setVisible(false);
+				jBtnAddPlayer.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						addPlayer();
+					}
+				});
+			}
+			{
 				jLblKaderMoreLess = new JLabel();
 				jPnlKader.add(jLblKaderMoreLess);
 				alignRight(jLblKaderMoreLess);
@@ -791,6 +806,7 @@ public class Uebersicht extends JPanel {
 		jLblNumberOfUsedPlayers.setVisible(!showingMoreKader);
 		
 		jLblKaderMoreLess.setText(showingMoreKader ? "< Weniger" : "Mehr dazu >");
+		jBtnAddPlayer.setVisible(showingMoreKader);
 		int numberOfPlayers = numberOfEligiblePlayers + 4;
 		if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;
 		int height = showingMoreKader ? kaderSTARTY + numberOfPlayers * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
@@ -799,6 +815,10 @@ public class Uebersicht extends JPanel {
 		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMoreKader ? 105 : 520, 481 + 19, getHeight() - (showingMoreKader ? 125 : 540));
 		jPnlStatistics.setVisible(!showingMoreKader);
 		jPnlTableExcerpt.setVisible(!showingMoreKader);
+	}
+	
+	private void addPlayer() {
+		
 	}
 	
 	public void labelsBefuellen() {
