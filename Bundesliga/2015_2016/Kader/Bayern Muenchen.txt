@@ -12,7 +12,7 @@ Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
 Javier;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
 Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-Xabier;Alonso Olano;Xabi Alonso;19811125;Spanien;Mittelfeld;14
+Xabier;Alonso Olano;null;19811125;Spanien;Mittelfeld;14
 Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29;20150830-
 Douglas Costa;de Souza;Douglas Costa;19900914;Brasilien;Mittelfeld;11
 Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16
