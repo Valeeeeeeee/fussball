@@ -329,7 +329,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jChBAtClubSinceEver = new JCheckBox();
 			jPnlPlayerInformation.add(jChBAtClubSinceEver);
-			jChBAtClubSinceEver.setBounds(510, 300, 70, 20);
+			jChBAtClubSinceEver.setBounds(510, 300, 80, 20);
 			jChBAtClubSinceEver.setText("Anfang");
 			jChBAtClubSinceEver.setOpaque(false);
 			jChBAtClubSinceEver.setVisible(false);
@@ -609,7 +609,7 @@ public class SpielerInformationen extends JFrame {
 			for (Spieler player : player.getTeam().getPlayers()) {
 				if (player == this.player)	continue;
 				if (player.getSquadNumber() == squadNumber) {
-					if (player.playedAtTheSameTimeAs(this.player)) {
+					if (player.playedAtTheSameTimeAs(firstDate, lastDate)) {
 						message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
 						return false;
 					}
