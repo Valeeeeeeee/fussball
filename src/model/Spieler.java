@@ -1,5 +1,7 @@
 package model;
 
+import static util.Utilities.*;
+
 public class Spieler {
 
 	private String trennZeichen = ";";
@@ -160,6 +162,16 @@ public class Spieler {
 		this.squadNumber = squadNumber;
 		this.firstDate = firstDate;
 		this.lastDate = lastDate;
+		team.playerUpdated();
+	}
+	
+	public boolean inOrderBefore(Spieler other) {
+		if (position.getID() < other.position.getID())	return true;
+		if (position.getID() > other.position.getID())	return false;
+		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastName);
+		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastName);
+		if (myName.equals(otherName))	return firstName.compareTo(other.firstName) < 0;
+		else return						myName.compareTo(otherName) < 0;
 	}
 	
 	public String toString() {

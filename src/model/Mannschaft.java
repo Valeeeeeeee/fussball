@@ -125,10 +125,39 @@ public class Mannschaft {
 		return kader;
 	}
 	
+	private void sortPlayers() {
+		ArrayList<Spieler> unsorted = new ArrayList<>();
+		for (Spieler spieler : kader) {
+			unsorted.add(spieler);
+		}
+		kader.clear();
+		int index;
+		for (int i = 0; i < unsorted.size(); i++) {
+			Spieler player = unsorted.get(i);
+			index = 0;
+			for (int j = 0; j < kader.size(); j++) {
+				if (player.inOrderBefore(kader.get(j)))	break;
+				index++;
+			}
+			kader.add(index, player);
+		}
+	}
+	
+	public void addPlayer(Spieler player) {
+		kader.add(player);
+		sortPlayers();
+		distinguishNames();
+		updateEligiblePlayers(Start.today(), true);
+		updateIneligiblePlayers(Start.today(), true);
+	}
+	
+	public void playerUpdated() {
+		sortPlayers();
+		distinguishNames();
+	}
+	
 	public void changeSquadNumber(Spieler player, int newSquadNumber) {
 		int oldSquadNumber = player.getSquadNumber();
-		int firstDate = player.getFirstDate();
-		int lastDate = player.getLastDate();
 		for (int i = 0; i < spiele.length; i++) {
 			if (spiele[i] == null || !player.isEligible(spiele[i].getDate())) continue;
 			spiele[i].changeSquadNumberInLineup(spiele[i].getHomeTeam() == this, oldSquadNumber, newSquadNumber);
@@ -150,6 +179,7 @@ public class Mannschaft {
 			kader.add(new Spieler(spieler.get(i), this));
 			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
+		sortPlayers();
 		distinguishNames();
 	}
 	
