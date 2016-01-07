@@ -104,6 +104,7 @@ public class SpielerInformationen extends JFrame {
 	private Spieler player;
 	private Wettbewerb wettbewerb;
 	
+	private boolean addingNewPlayer;
 	private boolean changingInformation;
 	private boolean atClubSinceEver;
 	private boolean atClubUntilEver;
@@ -615,6 +616,10 @@ public class SpielerInformationen extends JFrame {
 				}
 			}
 			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber, firstDate, lastDate);
+			if (addingNewPlayer) {
+				player.getTeam().addPlayer(player);
+				addingNewPlayer = false;
+			}
 			uebersicht.showKader();
 			setPlayerInformation();
 			showPhoto();
@@ -702,12 +707,28 @@ public class SpielerInformationen extends JFrame {
 		jCBBirthDay.setSelectedIndex(Math.min(day, days.length - 1));
 	}
 	
+	public void addPlayer(Mannschaft team) {
+		if (addingNewPlayer)  {
+			message("Sie fügen bereits einen neuen Spieler hinzu.");
+			return;
+		}
+		addingNewPlayer = true;
+		String firstName = "Vorname";
+		String lastName = "Nachname";
+		int birthDate = (wettbewerb.getYear() - 25) * 10000 + 101;
+		String nationality = "Deutschland";
+		int squadNumber = team.getNextFreeSquadNumber();
+		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
+		setPlayer(newPlayer);
+		jBtnChangeInformation.doClick();
+	}
+	
 	public void setPlayer(Spieler player) {
 		if (changingInformation && !jBtnChangeInformationActionPerformed())	return;
 		this.player = player;
 		
 		setPlayerInformation();
-		setPerformance();
+		if (!addingNewPlayer)	setPerformance();
 		showPhoto();
 		
 		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");

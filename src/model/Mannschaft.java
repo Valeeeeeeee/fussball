@@ -143,8 +143,26 @@ public class Mannschaft {
 		}
 	}
 	
+	public int getNextFreeSquadNumber() {
+		int squadNumber = 1;
+		boolean collision;
+		
+		for (int i = 0; i < 100; i++) {
+			collision = false;
+			for (int j = 0; j < kader.size() && !collision; j++) {
+				collision = kader.get(j).getSquadNumber() == squadNumber;
+			}
+			if (!collision)	return squadNumber;
+			squadNumber++;
+		}
+		
+		return squadNumber;
+	}
+	
 	public void addPlayer(Spieler player) {
 		kader.add(player);
+		numberOfPlayersByPosition[player.getPosition().getID()]++;
+		numberOfPlayers++;
 		sortPlayers();
 		distinguishNames();
 		updateEligiblePlayers(Start.today(), true);

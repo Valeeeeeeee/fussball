@@ -818,7 +818,8 @@ public class Uebersicht extends JPanel {
 	}
 	
 	private void addPlayer() {
-		
+		spielerInformationen.addPlayer(mannschaft);
+		spielerInformationen.setVisible(true);
 	}
 	
 	public void labelsBefuellen() {
