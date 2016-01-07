@@ -608,6 +608,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showKader() {
+		mannschaft.retrievePerformanceData();
 		if (jLblsKader != null) {
 			for (int i = 0; i < jLblsKader.length; i++) {
 				for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
@@ -763,7 +764,6 @@ public class Uebersicht extends JPanel {
 			jLblGruendungsdatum.setText("Gegründet: " + (!mannschaft.getGruendungsdatum().equals("01.01.1970") ? mannschaft.getGruendungsdatum() : "n. a."));
 			jLblGruendungsdatum.setVisible(true);
 		}
-		mannschaft.retrievePerformanceData();
 		showKader();
 		
 		labelsBefuellen();
