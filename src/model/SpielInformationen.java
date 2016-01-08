@@ -133,7 +133,7 @@ public class SpielInformationen extends JFrame {
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
 	private Point LOC_PNLLINEUPAWAYSEL = new Point(360, 150);
 	private Dimension DIM_PNLLINEUPSEL = new Dimension(410, 330);
-	private Rectangle REC_BTNLUSCANCEL = new Rectangle(230, 290, 90, 30);
+	private Rectangle REC_BTNLUSCANCEL = new Rectangle(220, 290, 100, 30);
 	private Rectangle REC_BTNLUSCOMPL = new Rectangle(330, 290, 70, 30);
 	
 	// Penalties

@@ -5,6 +5,7 @@ Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
 Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
 Jin-Su;Kim;null;19920613;Südkorea;Abwehr;20
 Fabian;Schär;null;19911220;Schweiz;Abwehr;5
+Tobias;Strobl;null;19900512;Deutschland;Abwehr;12
 Niklas;Süle;null;19950903;Deutschland;Abwehr;25
 Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
 Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
@@ -15,7 +16,6 @@ Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
 Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;6
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;10
 Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;16
-Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;12
 Eduardo;Vargas;null;19891120;Chile;Mittelfeld;9;20150824-
 Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
 Joelinton Cassio;Apolinaro de Lira;Joelinton;19960814;Brasilien;Sturm;40
