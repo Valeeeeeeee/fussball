@@ -5,6 +5,7 @@ import static util.Utilities.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -40,6 +41,34 @@ public class SpielerInformationen extends JFrame {
 	private Font fontPosition = new Font("Calibri", 0, 24);
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
 	private Font fontSquadNumber = new Font("Calibri", 0, 65);
+	
+	private Rectangle REC_CHANGEINFO = new Rectangle(390, 140, 100, 30);
+	
+	private Rectangle REC_SQUADNUMBER = new Rectangle(390, 65, 100, 65);
+	private Rectangle REC_FIRSTNAMES = new Rectangle(500, 60, 340, 35);
+	private Rectangle REC_LASTNAMES = new Rectangle(500, 100, 340, 35);
+	private Rectangle REC_PSEUDONYM = new Rectangle(500, 140, 240, 30);
+	private Rectangle REC_BIRTHDATE = new Rectangle(390, 180, 110, 20);
+	private Rectangle REC_BIRTHDATEVAL = new Rectangle(390, 200, 140, 30);
+	private Rectangle REC_POSITION = new Rectangle(640, 180, 65, 20);
+	private Rectangle REC_POSITIONVAL = new Rectangle(640, 200, 110, 30);
+	private Rectangle REC_NATIONALITY = new Rectangle(390, 240, 120, 20);
+	private Rectangle REC_NATIONALITYVAL = new Rectangle(390, 260, 410, 30);
+	private Rectangle REC_ATCLUBSINCE = new Rectangle(390, 300, 110, 20);
+	private Rectangle REC_ATCLUBSINCEVAL = new Rectangle(390, 320, 140, 30);
+	private Rectangle REC_ATCLUBUNTIL = new Rectangle(625, 300, 110, 20);
+	private Rectangle REC_ATCLUBUNTILVAL = new Rectangle(625, 320, 140, 30);
+	private Rectangle REC_BIRTHDAY = new Rectangle(390, 200, 70, 30);
+	private Rectangle REC_BIRTHMONTH = new Rectangle(460, 200, 70, 30);
+	private Rectangle REC_BIRTHYEAR = new Rectangle(530, 200, 85, 30);
+	private Rectangle REC_ATCLUBSINCEEVER = new Rectangle(510, 300, 80, 20);
+	private Rectangle REC_ATCLUBSINCEDAY = new Rectangle(390, 320, 70, 30);
+	private Rectangle REC_ATCLUBSINCEMONTH = new Rectangle(460, 320, 70, 30);
+	private Rectangle REC_ATCLUBSINCEYEAR = new Rectangle(530, 320, 85, 30);
+	private Rectangle REC_ATCLUBUNTILEVER = new Rectangle(745, 300, 70, 20);
+	private Rectangle REC_ATCLUBUNTILDAY = new Rectangle(625, 320, 70, 30);
+	private Rectangle REC_ATCLUBUNTILMONTH = new Rectangle(695, 320, 70, 30);
+	private Rectangle REC_ATCLUBUNTILYEAR = new Rectangle(765, 320, 85, 30);
 	
 	private JPanel jPnlPlayerInformation;
 	private JButton jBtnChangeInformation;
@@ -150,7 +179,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jBtnChangeInformation = new JButton();
 			jPnlPlayerInformation.add(jBtnChangeInformation);
-			jBtnChangeInformation.setBounds(390, 140, 100, 30);
+			jBtnChangeInformation.setBounds(REC_CHANGEINFO);
 			jBtnChangeInformation.setText("ändern");
 			jBtnChangeInformation.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -161,105 +190,105 @@ public class SpielerInformationen extends JFrame {
 		{
 			jLblSquadNumber = new JLabel();
 			jPnlPlayerInformation.add(jLblSquadNumber);
-			jLblSquadNumber.setBounds(390, 65, 100, 65);
+			jLblSquadNumber.setBounds(REC_SQUADNUMBER);
 			alignCenter(jLblSquadNumber);
 			jLblSquadNumber.setFont(fontSquadNumber);
 		}
 		{
 			jLblFirstNames = new JLabel();
 			jPnlPlayerInformation.add(jLblFirstNames);
-			jLblFirstNames.setBounds(500, 60, 340, 35);
+			jLblFirstNames.setBounds(REC_FIRSTNAMES);
 			jLblFirstNames.setFont(fontNames);
 		}
 		{
 			jLblLastNames = new JLabel();
 			jPnlPlayerInformation.add(jLblLastNames);
-			jLblLastNames.setBounds(500, 100, 340, 35);
+			jLblLastNames.setBounds(REC_LASTNAMES);
 			jLblLastNames.setFont(fontNames);
 		}
 		{
 			jLblPseudonym = new JLabel();
 			jPnlPlayerInformation.add(jLblPseudonym);
-			jLblPseudonym.setBounds(500, 140, 240, 30);
+			jLblPseudonym.setBounds(REC_PSEUDONYM);
 			jLblPseudonym.setFont(fontPseudonym);
 		}
 		{
 			jLblBirthDate = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDate);
-			jLblBirthDate.setBounds(390, 180, 110, 20);
+			jLblBirthDate.setBounds(REC_BIRTHDATE);
 			jLblBirthDate.setFont(fontDescription);
 			jLblBirthDate.setText("Geburtsdatum:");
 		}
 		{
 			jLblBirthDateVal = new JLabel();
 			jPnlPlayerInformation.add(jLblBirthDateVal);
-			jLblBirthDateVal.setBounds(390, 200, 140, 30);
+			jLblBirthDateVal.setBounds(REC_BIRTHDATEVAL);
 			jLblBirthDateVal.setFont(fontBirthDate);
 		}
 		{
 			jLblPosition = new JLabel();
 			jPnlPlayerInformation.add(jLblPosition);
-			jLblPosition.setBounds(640, 180, 65, 20);
+			jLblPosition.setBounds(REC_POSITION);
 			jLblPosition.setFont(fontDescription);
 			jLblPosition.setText("Position:");
 		}
 		{
 			jLblPositionVal = new JLabel();
 			jPnlPlayerInformation.add(jLblPositionVal);
-			jLblPositionVal.setBounds(640, 200, 110, 30);
+			jLblPositionVal.setBounds(REC_POSITIONVAL);
 			jLblPositionVal.setFont(fontPosition);
 		}
 		{
 			jLblNationality = new JLabel();
 			jPnlPlayerInformation.add(jLblNationality);
-			jLblNationality.setBounds(390, 240, 120, 20);
+			jLblNationality.setBounds(REC_NATIONALITY);
 			jLblNationality.setFont(fontDescription);
 			jLblNationality.setText("Nationalität(en):");
 		}
 		{
 			jLblNationalityVal = new JLabel();
 			jPnlPlayerInformation.add(jLblNationalityVal);
-			jLblNationalityVal.setBounds(390, 260, 410, 30);
+			jLblNationalityVal.setBounds(REC_NATIONALITYVAL);
 			jLblNationalityVal.setFont(fontNationality);
 		}
 		{
 			jLblAtClubSince = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSince);
-			jLblAtClubSince.setBounds(390, 300, 110, 20);
+			jLblAtClubSince.setBounds(REC_ATCLUBSINCE);
 			jLblAtClubSince.setFont(fontDescription);
 			jLblAtClubSince.setText("Im Verein seit:");
 		}
 		{
 			jLblAtClubSinceVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubSinceVal);
-			jLblAtClubSinceVal.setBounds(390, 320, 140, 30);
+			jLblAtClubSinceVal.setBounds(REC_ATCLUBSINCEVAL);
 			jLblAtClubSinceVal.setFont(fontAtClubSince);
 		}
 		{
 			jLblAtClubUntil = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntil);
-			jLblAtClubUntil.setBounds(625, 300, 110, 20);
+			jLblAtClubUntil.setBounds(REC_ATCLUBUNTIL);
 			jLblAtClubUntil.setFont(fontDescription);
 			jLblAtClubUntil.setText("Im Verein bis:");
 		}
 		{
 			jLblAtClubUntilVal = new JLabel();
 			jPnlPlayerInformation.add(jLblAtClubUntilVal);
-			jLblAtClubUntilVal.setBounds(625, 320, 140, 30);
+			jLblAtClubUntilVal.setBounds(REC_ATCLUBUNTILVAL);
 			jLblAtClubUntilVal.setFont(fontAtClubSince);
 		}
 		// Change information
 		{
 			jCBPositions = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBPositions);
-			jCBPositions.setBounds(640, 200, 110, 30);
+			jCBPositions.setBounds(REC_POSITIONVAL);
 			jCBPositions.setModel(new DefaultComboBoxModel<>(positionen));
 			jCBPositions.setVisible(false);
 		}
 		{
 			jTFSquadNumber = new JTextField();
 			jPnlPlayerInformation.add(jTFSquadNumber);
-			jTFSquadNumber.setBounds(390, 65, 100, 65);
+			jTFSquadNumber.setBounds(REC_SQUADNUMBER);
 			alignCenter(jTFSquadNumber);
 			jTFSquadNumber.setFont(fontSquadNumber);
 			jTFSquadNumber.setVisible(false);
@@ -267,34 +296,34 @@ public class SpielerInformationen extends JFrame {
 		{
 			jTFFirstNames = new JTextField();
 			jPnlPlayerInformation.add(jTFFirstNames);
-			jTFFirstNames.setBounds(500, 60, 340, 35);
+			jTFFirstNames.setBounds(REC_FIRSTNAMES);
 			jTFFirstNames.setFont(fontNames);
 			jTFFirstNames.setVisible(false);
 		}
 		{
 			jTFLastNames = new JTextField();
 			jPnlPlayerInformation.add(jTFLastNames);
-			jTFLastNames.setBounds(500, 100, 340, 35);
+			jTFLastNames.setBounds(REC_LASTNAMES);
 			jTFLastNames.setFont(fontNames);
 			jTFLastNames.setVisible(false);
 		}
 		{
 			jTFPseudonym = new JTextField();
 			jPnlPlayerInformation.add(jTFPseudonym);
-			jTFPseudonym.setBounds(500, 140, 240, 30);
+			jTFPseudonym.setBounds(REC_PSEUDONYM);
 			jTFPseudonym.setFont(fontPseudonym);
 			jTFPseudonym.setVisible(false);
 		}
 		{
 			jCBBirthDay = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthDay);
-			jCBBirthDay.setBounds(390, 200, 70, 30);
+			jCBBirthDay.setBounds(REC_BIRTHDAY);
 			jCBBirthDay.setVisible(false);
 		}
 		{
 			jCBBirthMonth = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthMonth);
-			jCBBirthMonth.setBounds(460, 200, 70, 30);
+			jCBBirthMonth.setBounds(REC_BIRTHMONTH);
 			jCBBirthMonth.setModel(new DefaultComboBoxModel<>(monate));
 			jCBBirthMonth.setVisible(false);
 			jCBBirthMonth.addItemListener(new ItemListener() {
@@ -308,7 +337,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBBirthYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthYear);
-			jCBBirthYear.setBounds(530, 200, 85, 30);
+			jCBBirthYear.setBounds(REC_BIRTHYEAR);
 			jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
 			jCBBirthYear.setVisible(false);
 			jCBBirthYear.addItemListener(new ItemListener() {
@@ -322,14 +351,14 @@ public class SpielerInformationen extends JFrame {
 		{
 			jTFNationality = new JTextField();
 			jPnlPlayerInformation.add(jTFNationality);
-			jTFNationality.setBounds(390, 260, 410, 30);
+			jTFNationality.setBounds(REC_NATIONALITYVAL);
 			jTFNationality.setFont(fontNationality);
 			jTFNationality.setVisible(false);
 		}
 		{
 			jChBAtClubSinceEver = new JCheckBox();
 			jPnlPlayerInformation.add(jChBAtClubSinceEver);
-			jChBAtClubSinceEver.setBounds(510, 300, 80, 20);
+			jChBAtClubSinceEver.setBounds(REC_ATCLUBSINCEEVER);
 			jChBAtClubSinceEver.setText("Anfang");
 			jChBAtClubSinceEver.setOpaque(false);
 			jChBAtClubSinceEver.setVisible(false);
@@ -342,13 +371,13 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBAtClubSinceDay = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubSinceDay);
-			jCBAtClubSinceDay.setBounds(390, 320, 70, 30);
+			jCBAtClubSinceDay.setBounds(REC_ATCLUBSINCEDAY);
 			jCBAtClubSinceDay.setVisible(false);
 		}
 		{
 			jCBAtClubSinceMonth = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubSinceMonth);
-			jCBAtClubSinceMonth.setBounds(460, 320, 70, 30);
+			jCBAtClubSinceMonth.setBounds(REC_ATCLUBSINCEMONTH);
 			jCBAtClubSinceMonth.setModel(new DefaultComboBoxModel<>(monate));
 			jCBAtClubSinceMonth.setVisible(false);
 			jCBAtClubSinceMonth.addItemListener(new ItemListener() {
@@ -362,7 +391,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBAtClubSinceYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubSinceYear);
-			jCBAtClubSinceYear.setBounds(530, 320, 85, 30);
+			jCBAtClubSinceYear.setBounds(REC_ATCLUBSINCEYEAR);
 			jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 			jCBAtClubSinceYear.setVisible(false);
 			jCBAtClubSinceYear.addItemListener(new ItemListener() {
@@ -376,7 +405,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jChBAtClubUntilEver = new JCheckBox();
 			jPnlPlayerInformation.add(jChBAtClubUntilEver);
-			jChBAtClubUntilEver.setBounds(745, 300, 70, 20);
+			jChBAtClubUntilEver.setBounds(REC_ATCLUBUNTILEVER);
 			jChBAtClubUntilEver.setText("Ende");
 			jChBAtClubUntilEver.setOpaque(false);
 			jChBAtClubUntilEver.setVisible(false);
@@ -389,13 +418,13 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBAtClubUntilDay = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubUntilDay);
-			jCBAtClubUntilDay.setBounds(625, 320, 70, 30);
+			jCBAtClubUntilDay.setBounds(REC_ATCLUBUNTILDAY);
 			jCBAtClubUntilDay.setVisible(false);
 		}
 		{
 			jCBAtClubUntilMonth = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubUntilMonth);
-			jCBAtClubUntilMonth.setBounds(695, 320, 70, 30);
+			jCBAtClubUntilMonth.setBounds(REC_ATCLUBUNTILMONTH);
 			jCBAtClubUntilMonth.setModel(new DefaultComboBoxModel<>(monate));
 			jCBAtClubUntilMonth.setVisible(false);
 			jCBAtClubUntilMonth.addItemListener(new ItemListener() {
@@ -409,7 +438,7 @@ public class SpielerInformationen extends JFrame {
 		{
 			jCBAtClubUntilYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubUntilYear);
-			jCBAtClubUntilYear.setBounds(765, 320, 85, 30);
+			jCBAtClubUntilYear.setBounds(REC_ATCLUBUNTILYEAR);
 			jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 			jCBAtClubUntilYear.setVisible(false);
 			jCBAtClubUntilYear.addItemListener(new ItemListener() {
