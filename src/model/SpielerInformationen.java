@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.*;
+import static model.Mannschaft.*;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -27,6 +28,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private static final int maxNumberOfCharacters = 20;
 	private static final int minimumAge = 14;
+	private static final int averageAge = 25;
 	private static final int maximumAge = 50;
 	
 	private Color background = new Color(255, 255, 255);
@@ -70,6 +72,8 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_ATCLUBUNTILMONTH = new Rectangle(695, 320, 70, 30);
 	private Rectangle REC_ATCLUBUNTILYEAR = new Rectangle(765, 320, 85, 30);
 	
+	private JLabel jLblImage;
+	
 	private JPanel jPnlPlayerInformation;
 	private JButton jBtnChangeInformation;
 	private JLabel jLblSquadNumber;
@@ -107,27 +111,8 @@ public class SpielerInformationen extends JFrame {
 	
 	private JLabel jLblPerformance;
 	private JLabel jLblCompetition;
-	private JLabel jLblGamesPlayed;
-	private JLabel jLblGamesPlayedVal;
-	private JLabel jLblGamesStarted;
-	private JLabel jLblGamesStartedVal;
-	private JLabel jLblSubstitutedOn;
-	private JLabel jLblSubstitutedOnVal;
-	private JLabel jLblSubstitutedOff;
-	private JLabel jLblSubstitutedOffVal;
-	private JLabel jLblMinutesPlayed;
-	private JLabel jLblMinutesPlayedVal;
-	private JLabel jLblGoalsScored;
-	private JLabel jLblGoalsScoredVal;
-	private JLabel jLblGoalsAssisted;
-	private JLabel jLblGoalsAssistedVal;
-	private JLabel jLblBooked;
-	private JLabel jLblBookedVal;
-	private JLabel jLblBookedTwice;
-	private JLabel jLblBookedTwiceVal;
-	private JLabel jLblRedCards;
-	private JLabel jLblRedCardsVal;
-	private JLabel jLblImage;
+	private JLabel[] jLblsPerformance;
+	private JLabel[] jLblsPerformanceValues;
 	
 	private Uebersicht uebersicht;
 	private Spieler player;
@@ -150,6 +135,9 @@ public class SpielerInformationen extends JFrame {
 	private void initGUI() {
 		setLayout(null);
 		setForeground(background);
+		
+		jLblsPerformance = new JLabel[NUMBEROFPERFORMANCEDATA];
+		jLblsPerformanceValues = new JLabel[NUMBEROFPERFORMANCEDATA];
 		
 		String[] positionen = new String[Position.values().length];
 		for (int i = 0; i < positionen.length; i++) {
@@ -464,136 +452,28 @@ public class SpielerInformationen extends JFrame {
 			jLblCompetition.setFont(fontCompetition);
 			jLblCompetition.setText(wettbewerb.getName());
 		}
-		{
-			jLblGamesPlayed = new JLabel();
-			jPnlPlayerInformation.add(jLblGamesPlayed);
-			jLblGamesPlayed.setBounds(410, 410, 160, 25);
-			jLblGamesPlayed.setFont(fontCompetition);
-			jLblGamesPlayed.setText("Gespielte Spiele");
+		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
+			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? 30 : 0;
+			jLblsPerformance[i] = new JLabel();
+			jPnlPlayerInformation.add(jLblsPerformance[i]);
+			jLblsPerformance[i].setBounds(410 + offset, 410 + i * 30, 160 - offset, 25);
+			jLblsPerformance[i].setFont(fontCompetition);
+			
+			jLblsPerformanceValues[i] = new JLabel();
+			jPnlPlayerInformation.add(jLblsPerformanceValues[i]);
+			jLblsPerformanceValues[i].setBounds(620, 410 + i * 30, 50, 25);
+			jLblsPerformanceValues[i].setFont(fontCompetition);
 		}
-		{
-			jLblGamesPlayedVal = new JLabel();
-			jPnlPlayerInformation.add(jLblGamesPlayedVal);
-			jLblGamesPlayedVal.setBounds(620, 410, 50, 25);
-			jLblGamesPlayedVal.setFont(fontCompetition);
-		}
-		{
-			jLblGamesStarted = new JLabel();
-			jPnlPlayerInformation.add(jLblGamesStarted);
-			jLblGamesStarted.setBounds(440, 440, 130, 25);
-			jLblGamesStarted.setFont(fontCompetition);
-			jLblGamesStarted.setText("in der Startelf");
-		}
-		{
-			jLblGamesStartedVal = new JLabel();
-			jPnlPlayerInformation.add(jLblGamesStartedVal);
-			jLblGamesStartedVal.setBounds(620, 440, 50, 25);
-			jLblGamesStartedVal.setFont(fontCompetition);
-		}
-		{
-			jLblSubstitutedOn = new JLabel();
-			jPnlPlayerInformation.add(jLblSubstitutedOn);
-			jLblSubstitutedOn.setBounds(440, 470, 130, 25);
-			jLblSubstitutedOn.setFont(fontCompetition);
-			jLblSubstitutedOn.setText("eingewechselt");
-		}
-		{
-			jLblSubstitutedOnVal = new JLabel();
-			jPnlPlayerInformation.add(jLblSubstitutedOnVal);
-			jLblSubstitutedOnVal.setBounds(620, 470, 50, 25);
-			jLblSubstitutedOnVal.setFont(fontCompetition);
-		}
-		{
-			jLblSubstitutedOff = new JLabel();
-			jPnlPlayerInformation.add(jLblSubstitutedOff);
-			jLblSubstitutedOff.setBounds(440, 500, 130, 25);
-			jLblSubstitutedOff.setFont(fontCompetition);
-			jLblSubstitutedOff.setText("ausgewechselt");
-		}
-		{
-			jLblSubstitutedOffVal = new JLabel();
-			jPnlPlayerInformation.add(jLblSubstitutedOffVal);
-			jLblSubstitutedOffVal.setBounds(620, 500, 50, 25);
-			jLblSubstitutedOffVal.setFont(fontCompetition);
-		}
-		{
-			jLblMinutesPlayed = new JLabel();
-			jPnlPlayerInformation.add(jLblMinutesPlayed);
-			jLblMinutesPlayed.setBounds(410, 530, 160, 25);
-			jLblMinutesPlayed.setFont(fontCompetition);
-			jLblMinutesPlayed.setText("Gespielte Minuten");
-		}
-		{
-			jLblMinutesPlayedVal = new JLabel();
-			jPnlPlayerInformation.add(jLblMinutesPlayedVal);
-			jLblMinutesPlayedVal.setBounds(620, 530, 50, 25);
-			jLblMinutesPlayedVal.setFont(fontCompetition);
-		}
-		{
-			jLblGoalsScored = new JLabel();
-			jPnlPlayerInformation.add(jLblGoalsScored);
-			jLblGoalsScored.setBounds(410, 560, 160, 25);
-			jLblGoalsScored.setFont(fontCompetition);
-			jLblGoalsScored.setText("Tore");
-		}
-		{
-			jLblGoalsScoredVal = new JLabel();
-			jPnlPlayerInformation.add(jLblGoalsScoredVal);
-			jLblGoalsScoredVal.setBounds(620, 560, 50, 25);
-			jLblGoalsScoredVal.setFont(fontCompetition);
-		}
-		{
-			jLblGoalsAssisted = new JLabel();
-			jPnlPlayerInformation.add(jLblGoalsAssisted);
-			jLblGoalsAssisted.setBounds(410, 590, 160, 25);
-			jLblGoalsAssisted.setFont(fontCompetition);
-			jLblGoalsAssisted.setText("Vorlagen");
-		}
-		{
-			jLblGoalsAssistedVal = new JLabel();
-			jPnlPlayerInformation.add(jLblGoalsAssistedVal);
-			jLblGoalsAssistedVal.setBounds(620, 590, 50, 25);
-			jLblGoalsAssistedVal.setFont(fontCompetition);
-		}
-		{
-			jLblBooked = new JLabel();
-			jPnlPlayerInformation.add(jLblBooked);
-			jLblBooked.setBounds(410, 620, 160, 25);
-			jLblBooked.setFont(fontCompetition);
-			jLblBooked.setText("Gelbe Karten");
-		}
-		{
-			jLblBookedVal = new JLabel();
-			jPnlPlayerInformation.add(jLblBookedVal);
-			jLblBookedVal.setBounds(620, 620, 50, 25);
-			jLblBookedVal.setFont(fontCompetition);
-		}
-		{
-			jLblBookedTwice = new JLabel();
-			jPnlPlayerInformation.add(jLblBookedTwice);
-			jLblBookedTwice.setBounds(410, 650, 160, 25);
-			jLblBookedTwice.setFont(fontCompetition);
-			jLblBookedTwice.setText("Gelb-Rote Karten");
-		}
-		{
-			jLblBookedTwiceVal = new JLabel();
-			jPnlPlayerInformation.add(jLblBookedTwiceVal);
-			jLblBookedTwiceVal.setBounds(620, 650, 50, 25);
-			jLblBookedTwiceVal.setFont(fontCompetition);
-		}
-		{
-			jLblRedCards = new JLabel();
-			jPnlPlayerInformation.add(jLblRedCards);
-			jLblRedCards.setBounds(410, 680, 160, 25);
-			jLblRedCards.setFont(fontCompetition);
-			jLblRedCards.setText("Rote Karten");
-		}
-		{
-			jLblRedCardsVal = new JLabel();
-			jPnlPlayerInformation.add(jLblRedCardsVal);
-			jLblRedCardsVal.setBounds(620, 680, 50, 25);
-			jLblRedCardsVal.setFont(fontCompetition);
-		}
+		jLblsPerformance[MATCHES_PLAYED].setText("Gespielte Spiele");
+		jLblsPerformance[MATCHES_STARTED].setText("in der Startelf");
+		jLblsPerformance[MATCHES_SUB_ON].setText("eingewechselt");
+		jLblsPerformance[MATCHES_SUB_OFF].setText("ausgewechselt");
+		jLblsPerformance[MINUTES_PLAYED].setText("Gespielte Minuten");
+		jLblsPerformance[GOALS_SCORED].setText("Tore");
+		jLblsPerformance[GOALS_ASSISTED].setText("Vorlagen");
+		jLblsPerformance[BOOKED].setText("Gelbe Karten");
+		jLblsPerformance[BOOKED_TWICE].setText("Gelb-Rote Karten");
+		jLblsPerformance[RED_CARDS].setText("Rote Karten");
 		
 		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
 		setResizable(false);
@@ -744,7 +624,7 @@ public class SpielerInformationen extends JFrame {
 		addingNewPlayer = true;
 		String firstName = "Vorname";
 		String lastName = "Nachname";
-		int birthDate = (wettbewerb.getYear() - 25) * 10000 + 101;
+		int birthDate = (wettbewerb.getYear() - averageAge) * 10000 + 101;
 		String nationality = "Deutschland";
 		int squadNumber = team.getNextFreeSquadNumber();
 		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
@@ -787,16 +667,16 @@ public class SpielerInformationen extends JFrame {
 	
 	private void setPerformance() {
 		int[] performanceData = player.getTeam().getPerformanceData(player);
-		jLblGamesPlayedVal.setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
-		jLblGamesStartedVal.setText("" + performanceData[Mannschaft.MATCHES_STARTED]);
-		jLblSubstitutedOnVal.setText("" + performanceData[Mannschaft.MATCHES_SUB_ON]);
-		jLblSubstitutedOffVal.setText("" + performanceData[Mannschaft.MATCHES_SUB_OFF]);
-		jLblMinutesPlayedVal.setText("" + performanceData[Mannschaft.MINUTES_PLAYED]);
-		jLblGoalsScoredVal.setText("" + performanceData[Mannschaft.GOALS_SCORED]);
-		jLblGoalsAssistedVal.setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
-		jLblBookedVal.setText("" + performanceData[Mannschaft.BOOKED]);
-		jLblBookedTwiceVal.setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
-		jLblRedCardsVal.setText("" + performanceData[Mannschaft.RED_CARDS]);
+		jLblsPerformanceValues[MATCHES_PLAYED].setText("" + performanceData[MATCHES_PLAYED]);
+		jLblsPerformanceValues[MATCHES_STARTED].setText("" + performanceData[MATCHES_STARTED]);
+		jLblsPerformanceValues[MATCHES_SUB_ON].setText("" + performanceData[MATCHES_SUB_ON]);
+		jLblsPerformanceValues[MATCHES_SUB_OFF].setText("" + performanceData[MATCHES_SUB_OFF]);
+		jLblsPerformanceValues[MINUTES_PLAYED].setText("" + performanceData[MINUTES_PLAYED]);
+		jLblsPerformanceValues[GOALS_SCORED].setText("" + performanceData[GOALS_SCORED]);
+		jLblsPerformanceValues[GOALS_ASSISTED].setText("" + performanceData[GOALS_ASSISTED]);
+		jLblsPerformanceValues[BOOKED].setText("" + performanceData[BOOKED]);
+		jLblsPerformanceValues[BOOKED_TWICE].setText("" + performanceData[BOOKED_TWICE]);
+		jLblsPerformanceValues[RED_CARDS].setText("" + performanceData[RED_CARDS]);
 	}
 	
 	private void showPhoto() {

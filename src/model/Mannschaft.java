@@ -39,6 +39,7 @@ public class Mannschaft {
 	public final static int HOME = 4;
 	public final static int AWAY = 5;
 	
+	public static final int NUMBEROFPERFORMANCEDATA = 10;
 	public static final int MATCHES_PLAYED = 0;
 	public static final int MATCHES_STARTED = 1;
 	public static final int MATCHES_SUB_ON = 2;
