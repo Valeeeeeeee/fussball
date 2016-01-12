@@ -484,8 +484,8 @@ public class SpielerInformationen extends JFrame {
 			refreshCBACSinceDayModel();
 			refreshCBACUntilDayModel();
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
-			jTFFirstNames.setText(jLblFirstNames.getText());
-			jTFLastNames.setText(jLblLastNames.getText());
+			jTFFirstNames.setText(player.getFirstNameFile());
+			jTFLastNames.setText(player.getLastNameFile());
 			jTFPseudonym.setText(jLblPseudonym.getText());
 			jCBBirthYear.setSelectedItem(player.getBirthDate() / 10000 + "");
 			jCBBirthMonth.setSelectedIndex((player.getBirthDate() % 10000) / 100 - 1);

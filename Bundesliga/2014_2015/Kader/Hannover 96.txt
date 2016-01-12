@@ -25,4 +25,4 @@ Jimmy;Briand;null;19850802;Frankreich;Sturm;21
 José Luis;Sanmartín Mato;Joselu;19900327;Spanien;Sturm;11
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Artur;Sobiech;null;19900612;Polen;Sturm;9
-Didier;Ya Konan;Didier Ya Konan;19840522;Elfenbeinküste;Sturm;30;20150101-
+Didier;'Ya Konan';null;19840522;Elfenbeinküste;Sturm;30;20150101-

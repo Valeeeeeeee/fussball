@@ -1,9 +1,9 @@
 Janis;Blaswich;null;19910502;Deutschland;Tor;21
 Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
 Yann;Sommer;null;19881217;Schweiz;Tor;1
-Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
 Filip;Daems;null;19781031;Belgien;Abwehr;3
+Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;27

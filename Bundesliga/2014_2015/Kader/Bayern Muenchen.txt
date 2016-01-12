@@ -4,14 +4,14 @@ Tom;Starke;null;19810318;Deutschland;Tor;22
 David;Alaba;null;19920624;Österreich;Abwehr;27
 Holger;Badstuber;null;19890313;Deutschland;Abwehr;28
 Medhi;Benatia;null;19870417;Marokko;Abwehr;5
+Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
 Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
 Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;4
-Javier;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
-Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
+'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
 Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-Xabier;Alonso Olano;Xabi Alonso;19811125;Spanien;Mittelfeld;3
+'Xabi'er;Alonso Olano;null;19811125;Spanien;Mittelfeld;3
 Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16
 Mario;Götze;null;19920603;Deutschland;Mittelfeld;19
 Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;34;-20141231

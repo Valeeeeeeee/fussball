@@ -8,8 +8,10 @@ public class Spieler {
 	
 	private String firstName;
 	private String firstNameShort;
+	private String firstNameFile;
 	private String lastName;
 	private String lastNameShort;
+	private String lastNameFile;
 	private String distinctName;
 	private String pseudonym;
 	private int birthDate;
@@ -46,9 +48,18 @@ public class Spieler {
 		return this.firstNameShort;
 	}
 	
-	private void setFirstName(String firstName) {
-		this.firstName = firstName;
-		firstNameShort = firstName.split(" ")[0];
+	public String getFirstNameFile() {
+		return this.firstNameFile;
+	}
+	
+	private void setFirstName(String firstNameFile) {
+		this.firstNameFile = firstNameFile;
+		this.firstName = firstNameFile.replace("'", "");
+		if (firstNameFile.contains("'") && firstNameFile.indexOf("'") < firstNameFile.lastIndexOf("'")) {
+			firstNameShort = firstNameFile.substring(firstNameFile.indexOf("'") + 1, firstNameFile.lastIndexOf("'"));
+		} else {
+			firstNameShort = firstNameFile.split(" ")[0];
+		}
 	}
 
 	public String getLastName() {
@@ -59,11 +70,18 @@ public class Spieler {
 		return this.lastNameShort;
 	}
 	
-	private void setLastName(String lastName) {
-		this.lastName = lastName;
+	public String getLastNameFile() {
+		return this.lastNameFile;
+	}
+	
+	private void setLastName(String lastNameFile) {
+		this.lastNameFile = lastNameFile;
+		this.lastName = lastNameFile.replace("'", "");
 		
-		String[] lastNameSplit = lastName.split(" ");
-		if (lastNameSplit.length > 1) {
+		String[] lastNameSplit = lastNameFile.split(" ");
+		if (lastNameFile.contains("'") && lastNameFile.indexOf("'") < lastNameFile.lastIndexOf("'")) {
+			lastNameShort = lastNameFile.substring(lastNameFile.indexOf("'") + 1, lastNameFile.lastIndexOf("'"));
+		} else if (lastNameSplit.length > 1) {
 			int countUpperCaseLastNames = 0;
 			for (int i = 0; i < lastNameSplit.length; i++) {
 				if (lastNameSplit[i].charAt(0) != lastNameSplit[i].toLowerCase().charAt(0))	countUpperCaseLastNames++;
@@ -71,10 +89,10 @@ public class Spieler {
 			if (countUpperCaseLastNames > 1) {
 				lastNameShort = lastNameSplit[0];
 			} else {
-				lastNameShort = lastName;
+				lastNameShort = lastNameFile;
 			}
 		} else {
-			lastNameShort = lastName;
+			lastNameShort = lastNameFile;
 		}
 	}
 	
@@ -175,8 +193,8 @@ public class Spieler {
 	}
 	
 	public String toString() {
-		String stringRep = this.firstName + trennZeichen;
-		stringRep += this.lastName + trennZeichen;
+		String stringRep = this.firstNameFile + trennZeichen;
+		stringRep += this.lastNameFile + trennZeichen;
 		stringRep += this.pseudonym + trennZeichen;
 		stringRep += this.birthDate + trennZeichen;
 		stringRep += this.nationality + trennZeichen;
