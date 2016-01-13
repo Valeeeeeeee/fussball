@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 
@@ -36,6 +38,7 @@ public class SpielerInformationen extends JFrame {
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
 	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
+	private Font fontDetails = new Font("Calibri", 1, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
 	private Font fontNamesSmall = new Font("Calibri", 0, 26);
 	private Font fontNationality = new Font("Calibri", 0, 24);
@@ -71,6 +74,12 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_ATCLUBUNTILDAY = new Rectangle(625, 320, 70, 30);
 	private Rectangle REC_ATCLUBUNTILMONTH = new Rectangle(695, 320, 70, 30);
 	private Rectangle REC_ATCLUBUNTILYEAR = new Rectangle(765, 320, 85, 30);
+	
+	private Rectangle REC_DETAILS = new Rectangle(390, 375, 70, 25);
+	private Rectangle REC_PERFORMANCE = new Rectangle(390, 400, 140, 25);
+	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
+	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
+	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
 	
 	private JLabel jLblImage;
 	
@@ -109,6 +118,7 @@ public class SpielerInformationen extends JFrame {
 	private JComboBox<String> jCBAtClubUntilMonth;
 	private JComboBox<String> jCBAtClubUntilYear;
 	
+	private JLabel jLblMoreDetails;
 	private JLabel jLblPerformance;
 	private JLabel jLblCompetition;
 	private JLabel[] jLblsPerformance;
@@ -122,6 +132,7 @@ public class SpielerInformationen extends JFrame {
 	private boolean changingInformation;
 	private boolean atClubSinceEver;
 	private boolean atClubUntilEver;
+	private boolean moreDetails;
 	
 	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb wettbewerb) {
 		super();
@@ -439,29 +450,42 @@ public class SpielerInformationen extends JFrame {
 		}
 		// Performance data
 		{
+			jLblMoreDetails = new JLabel();
+			jPnlPlayerInformation.add(jLblMoreDetails);
+			jLblMoreDetails.setBounds(REC_DETAILS);
+			jLblMoreDetails.setFont(fontDetails);
+			jLblMoreDetails.setText("mehr >");
+			jLblMoreDetails.setCursor(handCursor);
+			jLblMoreDetails.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					changeMoreDetails();
+				}
+			});
+		}
+		{
 			jLblPerformance = new JLabel();
 			jPnlPlayerInformation.add(jLblPerformance);
-			jLblPerformance.setBounds(410, 380, 140, 25);
+			jLblPerformance.setBounds(REC_PERFORMANCE);
 			jLblPerformance.setFont(fontPerformance);
 			jLblPerformance.setText("Leistungsdaten");
 		}
 		{
 			jLblCompetition = new JLabel();
 			jPnlPlayerInformation.add(jLblCompetition);
-			jLblCompetition.setBounds(570, 380, 200, 25);
+			jLblCompetition.setBounds(REC_COMPETITION);
 			jLblCompetition.setFont(fontCompetition);
 			jLblCompetition.setText(wettbewerb.getName());
 		}
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
-			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? 30 : 0;
+			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? bndsPerf[GAPX] : 0;
 			jLblsPerformance[i] = new JLabel();
 			jPnlPlayerInformation.add(jLblsPerformance[i]);
-			jLblsPerformance[i].setBounds(410 + offset, 410 + i * 30, 160 - offset, 25);
+			jLblsPerformance[i].setBounds(bndsPerf[STARTX] + offset, bndsPerf[STARTY] + i * bndsPerf[GAPY], bndsPerf[SIZEX] - offset, bndsPerf[SIZEY]);
 			jLblsPerformance[i].setFont(fontCompetition);
 			
 			jLblsPerformanceValues[i] = new JLabel();
 			jPnlPlayerInformation.add(jLblsPerformanceValues[i]);
-			jLblsPerformanceValues[i].setBounds(620, 410 + i * 30, 50, 25);
+			jLblsPerformanceValues[i].setBounds(bndsPerfV[STARTX], bndsPerfV[STARTY] + i * bndsPerfV[GAPY], bndsPerfV[SIZEX], bndsPerfV[SIZEY]);
 			jLblsPerformanceValues[i].setFont(fontCompetition);
 		}
 		jLblsPerformance[MATCHES_PLAYED].setText("Gespielte Spiele");
@@ -580,6 +604,18 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilYear.setVisible(!atClubUntilEver);
 	}
 	
+	private void changeMoreDetails() {
+		moreDetails = !moreDetails;
+		jLblMoreDetails.setText(moreDetails ? "< weniger" : "mehr >");
+		
+		jLblPerformance.setVisible(!moreDetails);
+		jLblCompetition.setVisible(!moreDetails);
+		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
+			jLblsPerformance[i].setVisible(!moreDetails);
+			jLblsPerformanceValues[i].setVisible(!moreDetails);
+		}
+	}
+	
 	private void refreshCBACSinceDayModel() {
 		int month = jCBAtClubSinceMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem());
 		int daysInMonth = numberOfDaysInMonth(month, year);
@@ -677,6 +713,7 @@ public class SpielerInformationen extends JFrame {
 		jLblsPerformanceValues[BOOKED].setText("" + performanceData[BOOKED]);
 		jLblsPerformanceValues[BOOKED_TWICE].setText("" + performanceData[BOOKED_TWICE]);
 		jLblsPerformanceValues[RED_CARDS].setText("" + performanceData[RED_CARDS]);
+		jLblMoreDetails.setVisible(performanceData[MATCHES_PLAYED] != 0);
 	}
 	
 	private void showPhoto() {

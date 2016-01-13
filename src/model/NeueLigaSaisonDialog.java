@@ -34,7 +34,6 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private Color colorBackground = new Color(16, 255, 16);
 	private Color colorHighlighted = new Color(255, 255, 0);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private static final int minNumberOfTeams = 2;
 	private static final int maxNumberOfTeams = 24;
 	

@@ -58,7 +58,6 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLUSEDPLAYERS = new Rectangle(280, 70, 140, 20);
 	
 	private Color cbackground = new Color(255, 128, 128);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private String[] positions = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 	private String[] positionsPlayer = new String[] {"Torhüter", "Verteidiger", "Mittelfeldspieler", "Stürmer"};
@@ -435,7 +434,7 @@ public class Uebersicht extends JPanel {
 				jPnlStatistics.add(jLblStatisticsMoreLess);
 				jLblStatisticsMoreLess.setBounds(REC_LBLSTATSMORELESS);
 				alignRight(jLblStatisticsMoreLess);
-				jLblStatisticsMoreLess.setText("Mehr dazu >");
+				jLblStatisticsMoreLess.setText("mehr dazu >");
 				jLblStatisticsMoreLess.setCursor(handCursor);
 				jLblStatisticsMoreLess.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
@@ -567,7 +566,7 @@ public class Uebersicht extends JPanel {
 				jLblKaderMoreLess = new JLabel();
 				jPnlKader.add(jLblKaderMoreLess);
 				alignRight(jLblKaderMoreLess);
-				jLblKaderMoreLess.setText("Mehr dazu >");
+				jLblKaderMoreLess.setText("mehr dazu >");
 				jLblKaderMoreLess.setBounds(REC_LBLKADERMORELESS);
 				jLblKaderMoreLess.setCursor(handCursor);
 				jLblKaderMoreLess.addMouseListener(new MouseAdapter() {
@@ -782,7 +781,7 @@ public class Uebersicht extends JPanel {
 	private void showMoreLessStatistics() {
 		showingMoreStats = !showingMoreStats;
 		
-		jLblStatisticsMoreLess.setText(showingMoreStats ? "< Weniger" : "Mehr dazu >");
+		jLblStatisticsMoreLess.setText(showingMoreStats ? "< weniger" : "mehr dazu >");
 		jPnlStatistics.setBounds(610, 105, 500, showingMoreStats ? getHeight() - 125 : 115);
 		jPnlTableExcerpt.setVisible(!showingMoreStats);
 		jSPKader.setVisible(!showingMoreStats);
@@ -805,7 +804,7 @@ public class Uebersicht extends JPanel {
 		jLblNumberOfPlayers.setVisible(!showingMoreKader);
 		jLblNumberOfUsedPlayers.setVisible(!showingMoreKader);
 		
-		jLblKaderMoreLess.setText(showingMoreKader ? "< Weniger" : "Mehr dazu >");
+		jLblKaderMoreLess.setText(showingMoreKader ? "< weniger" : "mehr dazu >");
 		jBtnAddPlayer.setVisible(showingMoreKader);
 		int numberOfPlayers = numberOfEligiblePlayers + 4;
 		if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;

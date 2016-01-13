@@ -155,7 +155,6 @@ public class SpielInformationen extends JFrame {
 	private Color eingSpielerColor = new Color(0, 224, 0);
 	private Color colorYellowCard = new Color(224, 224, 0);
 	private Color colorRedCard = new Color(255, 0, 0);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private Font fontTeamNames = new Font("Verdana", Font.PLAIN, 24);
 	private static final int PENALTY_NO = 0;
 	private static final int PENALTY_IN = 1;

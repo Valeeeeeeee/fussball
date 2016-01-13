@@ -2,6 +2,7 @@ package util;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -24,6 +25,8 @@ public class Utilities {
 	public static final Color colorCategory4 = new Color(255, 128, 0);
 	public static final Color colorCategory5 = new Color(255, 0, 0);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
+	
+	public static Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
 	public static final int STARTX = 0;
 	public static final int STARTY = 1;

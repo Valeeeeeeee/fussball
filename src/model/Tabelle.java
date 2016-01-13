@@ -38,7 +38,6 @@ public class Tabelle extends JPanel {
 	
 	private String[] titelleist = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private Color colorTabellenart = new Color(255, 255, 128);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
 	private int startx = 10;
 	private int starty = 110;
@@ -115,7 +114,7 @@ public class Tabelle extends JPanel {
 				this.add(titelleiste[j]);
 				if (j == 1) {
 					alignLeft(titelleiste[j]);
-					titelleiste[j].setCursor(new Cursor(Cursor.HAND_CURSOR));
+					titelleiste[j].setCursor(handCursor);
 				} else {
 					alignCenter(titelleiste[j]);
 				}

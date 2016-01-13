@@ -14,7 +14,6 @@ public class NewTournamentDialog extends JFrame {
 	private Color background = new Color(78, 235, 78);
 	private Color backgroundRemove = new Color(235, 31, 31);
 	private Color foregroundRemove = new Color(255, 255, 255);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private Font fontWettbewerb = new Font("Dialog", 0, 25);
 	
 	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", 
