@@ -249,6 +249,59 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
+	public ArrayList<int[]> getPerformanceDataMatchByMatch(Spieler player) {
+		int squadNumber = player.getSquadNumber();
+		ArrayList<int[]> performanceData = new ArrayList<>();
+		
+		for (Spiel spiel : spiele) {
+			if (spiel != null) {
+				if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
+				if (!player.isEligible(spiel.getDate()))	continue;
+				boolean played = false, home = homeaway[spiel.getMatchday()];
+				int[] lineup = home ? spiel.getLineupHome() : spiel.getLineupAway();
+				if (lineup == null)	continue;
+				int otherTeam = home ? spiel.away() : spiel.home();
+				int firstMinute = 91, lastMinute = 91, goals = 0, assists = 0, booked = 0, bookedTwice = 0, redCard = 0;
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(home);
+				ArrayList<Tor> tore = spiel.getTore();
+				ArrayList<Karte> bookings = spiel.getBookings();
+				
+				for (int j = 0; j < lineup.length; j++) {
+					if (lineup[j] == squadNumber) {
+						played = true;
+						firstMinute = 1;
+					}
+				}
+				for (Wechsel wechsel : substitutions) {
+					if (wechsel.getEingewechselterSpieler() == player) {
+						played = true;
+						firstMinute = wechsel.getMinute();
+					} else if (wechsel.getAusgewechselterSpieler() == player) {
+						lastMinute = wechsel.getMinute();
+					}
+				}
+				for (Tor tor : tore) {
+					if (!tor.isOwnGoal() && home == tor.isFirstTeam() && tor.getScorer() == player) {
+						goals++;
+					} else if (home == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+						assists++;
+					}
+				}
+				for (Karte booking : bookings) {
+					if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
+						if (booking.isSecondBooking())		bookedTwice = booking.getMinute();
+						else if (booking.isYellowCard())	booked = booking.getMinute();
+						else								redCard = booking.getMinute();
+					}
+				}
+				
+				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(new int[] {spiel.getMatchday(), otherTeam, firstMinute, lastMinute, goals, assists, booked, bookedTwice, redCard});
+			}
+		}
+		
+		return performanceData;
+	}
+	
 	public int[] getPerformanceData(Spieler player) {
 		for (int i = 0; i < kader.size(); i++) {
 			if (kader.get(i) == player)	return performanceData[i];
@@ -265,13 +318,14 @@ public class Mannschaft {
 			int squadNumber = player.getSquadNumber();
 			
 			for (Spiel spiel : spiele) {
-				if (player.getLastDate() != -1 && player.getLastDate() < spiel.getDate())	continue;
-				if (player.getFirstDate() != -1 && player.getFirstDate() > spiel.getDate())	continue;
 				if (spiel != null) {
-					int[] lineup = homeaway[spiel.getMatchday()] ? spiel.getLineupHome() : spiel.getLineupAway();
+					if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
+					if (!player.isEligible(spiel.getDate()))	continue;
+					boolean home = homeaway[spiel.getMatchday()];
+					int[] lineup = home ? spiel.getLineupHome() : spiel.getLineupAway();
 					if (lineup == null)	continue;
 					int firstMinute = 91, lastMinute = 91;
-					ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
+					ArrayList<Wechsel> substitutions = spiel.getSubstitutions(home);
 					ArrayList<Tor> tore = spiel.getTore();
 					ArrayList<Karte> bookings = spiel.getBookings();
 					
@@ -293,14 +347,14 @@ public class Mannschaft {
 						}
 					}
 					for (Tor tor : tore) {
-						if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer() == player) {
+						if (!tor.isOwnGoal() && home == tor.isFirstTeam() && tor.getScorer() == player) {
 							goals++;
-						} else if (homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+						} else if (home == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
 							assists++;
 						}
 					}
 					for (Karte booking : bookings) {
-						if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer() == player) {
+						if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
 							if (booking.isSecondBooking()) {
 								booked--;
 								bookedTwice++;

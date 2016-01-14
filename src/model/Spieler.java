@@ -157,6 +157,7 @@ public class Spieler {
 	}
 	
 	public boolean isEligible(int date) {
+		if (date == 0)							return false;
 		if (date < firstDate)					return false;
 		if (lastDate != -1 && date > lastDate)	return false;
 		

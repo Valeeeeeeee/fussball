@@ -15,6 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -38,7 +39,9 @@ public class SpielerInformationen extends JFrame {
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
 	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
-	private Font fontDetails = new Font("Calibri", 1, 15);
+	private Font fontDetails = new Font("Calibri", 0, 14);
+	private Font fontDetailsHeadline = new Font("Calibri", 1, 14);
+	private Font fontMoreDetails = new Font("Calibri", 1, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
 	private Font fontNamesSmall = new Font("Calibri", 0, 26);
 	private Font fontNationality = new Font("Calibri", 0, 24);
@@ -80,6 +83,15 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
+	private int[] bndsPMbMMD = new int[] {390, 410, 0, 20, 20, 20};
+	private int[] bndsPMbMO = new int[] {420, 410, 0, 20, 180, 20};
+	private int[] bndsPMbMOn = new int[] {600, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMOff = new int[] {630, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMG = new int[] {660, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMA = new int[] {690, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMB = new int[] {720, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMBT = new int[] {750, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMR = new int[] {780, 410, 0, 20, 30, 20};
 	
 	private JLabel jLblImage;
 	
@@ -123,6 +135,15 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblCompetition;
 	private JLabel[] jLblsPerformance;
 	private JLabel[] jLblsPerformanceValues;
+	private ArrayList<JLabel> jLblsPerformanceMbMMatchday;
+	private ArrayList<JLabel> jLblsPerformanceMbMOpponent;
+	private ArrayList<JLabel> jLblsPerformanceMbMSubOn;
+	private ArrayList<JLabel> jLblsPerformanceMbMSubOff;
+	private ArrayList<JLabel> jLblsPerformanceMbMGoals;
+	private ArrayList<JLabel> jLblsPerformanceMbMAssists;
+	private ArrayList<JLabel> jLblsPerformanceMbMBooked;
+	private ArrayList<JLabel> jLblsPerformanceMbMBookedTwice;
+	private ArrayList<JLabel> jLblsPerformanceMbMRedCard;
 	
 	private Uebersicht uebersicht;
 	private Spieler player;
@@ -149,6 +170,15 @@ public class SpielerInformationen extends JFrame {
 		
 		jLblsPerformance = new JLabel[NUMBEROFPERFORMANCEDATA];
 		jLblsPerformanceValues = new JLabel[NUMBEROFPERFORMANCEDATA];
+		jLblsPerformanceMbMMatchday = new ArrayList<>();
+		jLblsPerformanceMbMOpponent = new ArrayList<>();
+		jLblsPerformanceMbMSubOn = new ArrayList<>();
+		jLblsPerformanceMbMSubOff = new ArrayList<>();
+		jLblsPerformanceMbMGoals = new ArrayList<>();
+		jLblsPerformanceMbMAssists = new ArrayList<>();
+		jLblsPerformanceMbMBooked = new ArrayList<>();
+		jLblsPerformanceMbMBookedTwice = new ArrayList<>();
+		jLblsPerformanceMbMRedCard = new ArrayList<>();
 		
 		String[] positionen = new String[Position.values().length];
 		for (int i = 0; i < positionen.length; i++) {
@@ -180,6 +210,7 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jBtnChangeInformation);
 			jBtnChangeInformation.setBounds(REC_CHANGEINFO);
 			jBtnChangeInformation.setText("ändern");
+			jBtnChangeInformation.setFocusable(false);
 			jBtnChangeInformation.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					jBtnChangeInformationActionPerformed();
@@ -453,7 +484,7 @@ public class SpielerInformationen extends JFrame {
 			jLblMoreDetails = new JLabel();
 			jPnlPlayerInformation.add(jLblMoreDetails);
 			jLblMoreDetails.setBounds(REC_DETAILS);
-			jLblMoreDetails.setFont(fontDetails);
+			jLblMoreDetails.setFont(fontMoreDetails);
 			jLblMoreDetails.setText("mehr >");
 			jLblMoreDetails.setCursor(handCursor);
 			jLblMoreDetails.addMouseListener(new MouseAdapter() {
@@ -614,6 +645,124 @@ public class SpielerInformationen extends JFrame {
 			jLblsPerformance[i].setVisible(!moreDetails);
 			jLblsPerformanceValues[i].setVisible(!moreDetails);
 		}
+		for (int i = 0; i < jLblsPerformanceMbMMatchday.size(); i++) {
+			jLblsPerformanceMbMMatchday.get(i).setVisible(false);
+			jLblsPerformanceMbMOpponent.get(i).setVisible(false);
+			jLblsPerformanceMbMSubOn.get(i).setVisible(false);
+			jLblsPerformanceMbMSubOff.get(i).setVisible(false);
+			jLblsPerformanceMbMGoals.get(i).setVisible(false);
+			jLblsPerformanceMbMAssists.get(i).setVisible(false);
+			jLblsPerformanceMbMBooked.get(i).setVisible(false);
+			jLblsPerformanceMbMBookedTwice.get(i).setVisible(false);
+			jLblsPerformanceMbMRedCard.get(i).setVisible(false);
+		}
+		if (moreDetails) {
+			ArrayList<int[]> performanceMbM = player.getTeam().getPerformanceDataMatchByMatch(player);
+			createLabels(performanceMbM.size());
+			int index = 0;
+			for (int[] performance : performanceMbM) {
+				index++;
+				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
+				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getWettbewerb().getMannschaften()[performance[1] - 1].getName());
+				jLblsPerformanceMbMSubOn.get(index).setText(performance[2] != 1 ? performance[2] + "." : "-");
+				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : "-");
+				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : "-");
+				jLblsPerformanceMbMAssists.get(index).setText(performance[5] != 0 ? performance[5] + "" : "-");
+				jLblsPerformanceMbMBooked.get(index).setText(performance[6] != 0 ? performance[6] + "." : "-");
+				jLblsPerformanceMbMBookedTwice.get(index).setText(performance[7] != 0 ? performance[7] + "." : "-");
+				jLblsPerformanceMbMRedCard.get(index).setText(performance[8] != 0 ? performance[8] + "." : "-");
+			}
+			for (int i = 0; i <= performanceMbM.size(); i++) {
+				jLblsPerformanceMbMMatchday.get(i).setVisible(true);
+				jLblsPerformanceMbMOpponent.get(i).setVisible(true);
+				jLblsPerformanceMbMSubOn.get(i).setVisible(true);
+				jLblsPerformanceMbMSubOff.get(i).setVisible(true);
+				jLblsPerformanceMbMGoals.get(i).setVisible(true);
+				jLblsPerformanceMbMAssists.get(i).setVisible(true);
+				jLblsPerformanceMbMBooked.get(i).setVisible(true);
+				jLblsPerformanceMbMBookedTwice.get(i).setVisible(true);
+				jLblsPerformanceMbMRedCard.get(i).setVisible(true);
+			}
+		}
+	}
+	
+	private void createLabels(int totalNumber) {
+		int size = jLblsPerformanceMbMMatchday.size();
+		while (size <= totalNumber) {
+			JLabel label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignRight(label);
+			label.setBounds(bndsPMbMMD[STARTX], bndsPMbMMD[STARTY] + size * bndsPMbMMD[GAPY], bndsPMbMMD[SIZEX], bndsPMbMMD[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("Sp.");
+			jLblsPerformanceMbMMatchday.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignLeft(label);
+			label.setBounds(bndsPMbMO[STARTX], bndsPMbMO[STARTY] + size * bndsPMbMO[GAPY], bndsPMbMO[SIZEX], bndsPMbMO[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("Gegner");
+			jLblsPerformanceMbMOpponent.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMOn[STARTX], bndsPMbMOn[STARTY] + size * bndsPMbMOn[GAPY], bndsPMbMOn[SIZEX], bndsPMbMOn[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("E");
+			jLblsPerformanceMbMSubOn.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMOff[STARTX], bndsPMbMOff[STARTY] + size * bndsPMbMOff[GAPY], bndsPMbMOff[SIZEX], bndsPMbMOff[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("A");
+			jLblsPerformanceMbMSubOff.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMG[STARTX], bndsPMbMG[STARTY] + size * bndsPMbMG[GAPY], bndsPMbMG[SIZEX], bndsPMbMG[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("T");
+			jLblsPerformanceMbMGoals.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMA[STARTX], bndsPMbMA[STARTY] + size * bndsPMbMA[GAPY], bndsPMbMA[SIZEX], bndsPMbMA[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("V");
+			jLblsPerformanceMbMAssists.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMB[STARTX], bndsPMbMB[STARTY] + size * bndsPMbMB[GAPY], bndsPMbMB[SIZEX], bndsPMbMB[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("G");
+			jLblsPerformanceMbMBooked.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMBT[STARTX], bndsPMbMBT[STARTY] + size * bndsPMbMBT[GAPY], bndsPMbMBT[SIZEX], bndsPMbMBT[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("GR");
+			jLblsPerformanceMbMBookedTwice.add(label);
+			
+			label = new JLabel();
+			jPnlPlayerInformation.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMR[STARTX], bndsPMbMR[STARTY] + size * bndsPMbMR[GAPY], bndsPMbMR[SIZEX], bndsPMbMR[SIZEY]);
+			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
+			if (size == 0)	label.setText("R");
+			jLblsPerformanceMbMRedCard.add(label);
+			
+			size++;
+		}
 	}
 	
 	private void refreshCBACSinceDayModel() {
@@ -669,6 +818,7 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	public void setPlayer(Spieler player) {
+		if (moreDetails)	changeMoreDetails();
 		if (changingInformation && !jBtnChangeInformationActionPerformed())	return;
 		this.player = player;
 		
