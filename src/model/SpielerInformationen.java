@@ -78,20 +78,20 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_ATCLUBUNTILMONTH = new Rectangle(695, 320, 70, 30);
 	private Rectangle REC_ATCLUBUNTILYEAR = new Rectangle(765, 320, 85, 30);
 	
-	private Rectangle REC_DETAILS = new Rectangle(390, 375, 70, 25);
+	private Rectangle REC_DETAILS = new Rectangle(390, 375, 80, 25);
 	private Rectangle REC_PERFORMANCE = new Rectangle(390, 400, 140, 25);
 	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
-	private int[] bndsPMbMMD = new int[] {390, 410, 0, 20, 20, 20};
-	private int[] bndsPMbMO = new int[] {420, 410, 0, 20, 180, 20};
-	private int[] bndsPMbMOn = new int[] {600, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMOff = new int[] {630, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMG = new int[] {660, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMA = new int[] {690, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMB = new int[] {720, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMBT = new int[] {750, 410, 0, 20, 30, 20};
-	private int[] bndsPMbMR = new int[] {780, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMMD = new int[] {390, 410, 0, 20, 25, 20};
+	private int[] bndsPMbMO = new int[] {430, 410, 0, 20, 190, 20};
+	private int[] bndsPMbMOn = new int[] {630, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMOff = new int[] {660, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMG = new int[] {690, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMA = new int[] {720, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMB = new int[] {750, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMBT = new int[] {780, 410, 0, 20, 30, 20};
+	private int[] bndsPMbMR = new int[] {810, 410, 0, 20, 30, 20};
 	
 	private JLabel jLblImage;
 	
@@ -662,15 +662,16 @@ public class SpielerInformationen extends JFrame {
 			int index = 0;
 			for (int[] performance : performanceMbM) {
 				index++;
+				String nothing = performance[2] != 91 ? "." : "X";
 				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
 				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getWettbewerb().getMannschaften()[performance[1] - 1].getName());
-				jLblsPerformanceMbMSubOn.get(index).setText(performance[2] != 1 ? performance[2] + "." : "-");
-				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : "-");
-				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : "-");
-				jLblsPerformanceMbMAssists.get(index).setText(performance[5] != 0 ? performance[5] + "" : "-");
-				jLblsPerformanceMbMBooked.get(index).setText(performance[6] != 0 ? performance[6] + "." : "-");
-				jLblsPerformanceMbMBookedTwice.get(index).setText(performance[7] != 0 ? performance[7] + "." : "-");
-				jLblsPerformanceMbMRedCard.get(index).setText(performance[8] != 0 ? performance[8] + "." : "-");
+				jLblsPerformanceMbMSubOn.get(index).setText((performance[2] - 1) % 90 != 0 ? performance[2] + "." : nothing);
+				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : nothing);
+				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : nothing);
+				jLblsPerformanceMbMAssists.get(index).setText(performance[5] != 0 ? performance[5] + "" : nothing);
+				jLblsPerformanceMbMBooked.get(index).setText(performance[6] != 0 ? performance[6] + "." : nothing);
+				jLblsPerformanceMbMBookedTwice.get(index).setText(performance[7] != 0 ? performance[7] + "." : nothing);
+				jLblsPerformanceMbMRedCard.get(index).setText(performance[8] != 0 ? performance[8] + "." : nothing);
 			}
 			for (int i = 0; i <= performanceMbM.size(); i++) {
 				jLblsPerformanceMbMMatchday.get(i).setVisible(true);
