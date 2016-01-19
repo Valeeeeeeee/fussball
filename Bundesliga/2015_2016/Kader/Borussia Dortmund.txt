@@ -14,8 +14,8 @@ Sven;Bender;null;19890427;Deutschland;Mittelfeld;6
 Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;16;-20150830
 Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
 Ilkay;Gündogan;null;19901024;Deutschland;Mittelfeld;8
-Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;7
-Adnan;Januzaj;null;19950205;Belgien;Mittelfeld;9;20150831-
+Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;7;-20151231
+Adnan;Januzaj;null;19950205;Belgien;Mittelfeld;9;20150831-20151231
 Shinji;Kagawa;null;19890317;Japan;Mittelfeld;23
 Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;-20150827
 Oliver;Kirch;null;19820821;Deutschland;Mittelfeld;21;-20150829

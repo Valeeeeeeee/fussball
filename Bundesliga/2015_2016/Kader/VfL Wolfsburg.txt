@@ -5,7 +5,7 @@ Carlos;Ascues;null;19920606;Peru;Abwehr;6
 Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;18;20150830-
 Felipe;Aliste Lopes;Felipe;19870807;Brasilien;Abwehr;26
 Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
-Timm;Klose;null;19880509;Deutschland, Schweiz;Abwehr;5
+Timm;Klose;null;19880509;Deutschland, Schweiz;Abwehr;5;-20151231
 Robin;Knoche;null;19920522;Deutschland;Abwehr;31
 Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;25
 Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;34

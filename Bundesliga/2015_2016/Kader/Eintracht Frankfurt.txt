@@ -22,6 +22,6 @@ Nico;Rinderknecht;null;19971011;Deutschland;Mittelfeld;35
 Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Luc;Castaignos;null;19920927;Niederlande, Kapverdische Inseln;Sturm;30
-Václav;Kadlec;null;19920520;Tschechien;Sturm;10
+Václav;Kadlec;null;19920520;Tschechien;Sturm;10;-20151231
 Haris;Seferovic;null;19920222;Schweiz;Sturm;9
 Luca;Waldschmidt;null;19960519;Deutschland;Sturm;24
