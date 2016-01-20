@@ -7,6 +7,7 @@ Jochen;Dr. Drees;19700315;
 Marco;Fritz;19771003;
 Manuel;Gräfe;19730921;
 Robert;Hartmann;19790908;
+Patrick;Ittrich;19790103;
 Knut;Kircher;19690202;
 Florian;Meyer;19681121;
 Günter;Perl;19691223;
