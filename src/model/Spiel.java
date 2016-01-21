@@ -187,12 +187,13 @@ public class Spiel {
 		}
 	}
 	
-	public void setSchiedsrichter(int refereeID) {
-		setSchiedsrichter(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
+	public void setReferee(int refereeID) {
+		setReferee(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
 	}
 	
-	public void setSchiedsrichter(Schiedsrichter referee) {
+	public void setReferee(Schiedsrichter referee) {
 		this.referee = referee;
+		referee.addMatch(this);
 	}
 	
 	public void setRemainder(String matchData) {
@@ -263,11 +264,11 @@ public class Spiel {
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
 		if (matchData.indexOf("_") != -1) {
-			referee = wettbewerb.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1);
+			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
 		}
 		matchData = matchData.substring(matchData.indexOf("_") + 1);
 		if (matchData.indexOf(":") == -1) {
-			referee = wettbewerb.getReferees().get(Integer.parseInt(matchData) - 1);
+			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData) - 1));
 			return;
 		}
 		String[] matchDataSplit = matchData.split("\\^");

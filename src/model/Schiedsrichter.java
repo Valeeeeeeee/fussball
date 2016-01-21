@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Schiedsrichter {
 
 	private String trennZeichen = ";";
@@ -9,6 +11,7 @@ public class Schiedsrichter {
 	private String firstName;
 	private String lastName;
 	private int birthDate;
+	private ArrayList<Spiel> matches = new ArrayList<>();
 	
 	public Schiedsrichter(int id, String firstName, String lastName, int birthDate) {
 		this.id = id;
@@ -40,6 +43,25 @@ public class Schiedsrichter {
 	
 	public int getBirthDate() {
 		return birthDate;
+	}
+	
+	public void addMatch(Spiel match) {
+		int index = 0;
+		for (int i = 0; i < matches.size(); i++) {
+			if (matches.get(i).getDate() < match.getDate() || match.getDate() == 0)	index++;
+		}
+		matches.add(index, match);
+	}
+	
+	public void sortMatches() {
+		ArrayList<Spiel> copy = new ArrayList<>();
+		for (Spiel spiel : matches) {
+			copy.add(spiel);
+		}
+		matches.clear();
+		for (Spiel spiel : copy) {
+			addMatch(spiel);
+		}
 	}
 	
 	private void fromString(String data) {

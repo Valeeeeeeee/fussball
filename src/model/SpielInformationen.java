@@ -1282,7 +1282,7 @@ public class SpielInformationen extends JFrame {
 	
 	private void jCBRefereesItemStateChanged(ItemEvent e) {
 		if (e.getStateChange() == ItemEvent.SELECTED) {
-			spiel.setSchiedsrichter(jCBReferees.getSelectedIndex());
+			spiel.setReferee(jCBReferees.getSelectedIndex());
 		}
 	}
 	
