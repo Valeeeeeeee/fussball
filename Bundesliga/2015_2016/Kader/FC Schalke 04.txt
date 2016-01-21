@@ -19,6 +19,7 @@ Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
 Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;23;20150828-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
+Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;21;20160101-
 Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
 Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25

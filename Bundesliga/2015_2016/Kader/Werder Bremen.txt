@@ -2,13 +2,14 @@ Felix;Wiedwald;null;19900315;Deutschland;Tor;42
 Raphael;Wolf;null;19880606;Deutschland;Tor;1
 Michael;Zetterer;null;19950712;Deutschland;Tor;30
 Marnon;Busch;null;19941208;Deutschland;Abwehr;38
+Papy;Djilobodji;null;19881201;Senegal;Abwehr;3;20160101-
 Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
 Alejandro;Gálvez;null;19890606;Spanien;Abwehr;4
 Santiago;García;null;19880708;Italien, Argentinien;Abwehr;2
 Ulisses;Garcia;null;19960111;Schweiz;Abwehr;20
 Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
 Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25
-Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
+Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5;-20151231
 Mateo;Pavlovic;null;19900609;Kroatien;Abwehr;15
 Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7
@@ -22,9 +23,11 @@ Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;27
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14;-20150829
 Marcel;Hilßner;null;19950130;Deutschland;Mittelfeld;33
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
+Laszlo;Kleinheisler;null;19940408;Ungarn;Mittelfeld;6;20160101-
 Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
 Cedrick;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6;-20150826
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;11
+Thanos;Petsos;null;19910605;Deutschland, Griechenland;Mittelfeld;5;20160101-
 Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17
 Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
 Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28

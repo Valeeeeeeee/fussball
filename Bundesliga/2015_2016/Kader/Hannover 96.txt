@@ -19,8 +19,10 @@ Hiroshi;Kiyotake;null;19891112;Japan;Mittelfeld;10
 Felix;Klaus;null;19920913;Deutschland;Mittelfeld;11
 Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
 Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
+Hugo Miguel;Almeida;null;19840523;Portugal;Sturm;22;20160101-
 Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Mevlüt;Erdinç;null;19870225;Türkei, Frankreich;Sturm;39;-20151231
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Allan;Saint-Maximin;null;19970312;Frankreich;Sturm;14
 Artur;Sobiech;null;19900612;Polen;Sturm;9
+Ádám;Szalai;null;19871209;Ungarn;Sturm;28;20160101-

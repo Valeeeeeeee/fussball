@@ -23,4 +23,5 @@ Moritz;Hartmann;null;19860620;Deutschland;Sturm;9
 Lukas;Hinterseer;null;19910328;Österreich;Sturm;16
 Elias;Kachunga;null;19920422;Deutschland;Sturm;25
 Mathew;Leckie;null;19910204;Australien;Sturm;7
+Darío;Lezcano;null;19900630;Paraguay;Sturm;37;20160101-
 Tomás;Pekhart;null;19890526;Tschechien;Sturm;11

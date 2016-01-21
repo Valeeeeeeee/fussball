@@ -13,6 +13,7 @@ Toni;Sunjic;null;19881215;Bosnien-Herzegowina;Abwehr;4;20150827-
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
 Arianit;Ferati;null;19970907;Deutschland;Mittelfeld;31
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
+Kevin;Großkreutz;null;19880719;Deutschland;Mittelfeld;15;20160101-
 Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
@@ -25,6 +26,7 @@ Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
+Artem;Kravets;null;19890603;Ukraine;Sturm;23;20160101-
 Robbie;Kruse;null;19881005;Australien;Sturm;9;20150831-
 Borys;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
 Timo;Werner;null;19960306;Deutschland;Sturm;19
