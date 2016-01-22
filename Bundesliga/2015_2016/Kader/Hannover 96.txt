@@ -13,12 +13,14 @@ Oliver;Sorg;null;19900529;Deutschland;Abwehr;29
 Leon;Andreasen;null;19830423;Dänemark;Mittelfeld;2
 Mike-Steven;Bähre;null;19950810;Deutschland;Mittelfeld;33
 Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17
+Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18;20160101-
 Ceyhun;Gülselam;null;19871225;Türkei;Mittelfeld;6
 Maurice;Hirsch;null;19930530;Deutschland;Mittelfeld;23;-20151231
 Hiroshi;Kiyotake;null;19891112;Japan;Mittelfeld;10
 Felix;Klaus;null;19920913;Deutschland;Mittelfeld;11
 Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
 Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
+Hotaru;Yamaguchi;null;19901006;Japan;Mittelfeld;16;20160101-
 Hugo Miguel;Almeida;null;19840523;Portugal;Sturm;22;20160101-
 Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Mevlüt;Erdinç;null;19870225;Türkei, Frankreich;Sturm;39;-20151231
@@ -26,3 +28,4 @@ Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Allan;Saint-Maximin;null;19970312;Frankreich;Sturm;14
 Artur;Sobiech;null;19900612;Polen;Sturm;9
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28;20160101-
+Marius;Wolf;null;19950527;Deutschland;Sturm;21;20160101-

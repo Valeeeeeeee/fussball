@@ -5,6 +5,7 @@ Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
 Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
 Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
+Martin;Hinteregger;null;19920907;Österreich;Abwehr;5;20160101-
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;27

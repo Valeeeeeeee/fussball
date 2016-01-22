@@ -11,9 +11,11 @@ David;Kinsombi;null;19951212;Deutschland;Abwehr;31
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
 Carlos;Zambrano;null;19890710;Peru;Abwehr;5
 Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;16
+Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;10;20160101-
 Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
 Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
 Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
+Szabolcs;Huszti;null;19830418;Ungarn;Mittelfeld;8;20160101-
 Takashi;Inui;null;19880602;Japan;Mittelfeld;8;-20150825
 Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25

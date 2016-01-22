@@ -9,6 +9,9 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
@@ -329,6 +332,11 @@ public class SpielerInformationen extends JFrame {
 			jTFFirstNames.setBounds(REC_FIRSTNAMES);
 			jTFFirstNames.setFont(fontNames);
 			jTFFirstNames.setVisible(false);
+			jTFFirstNames.addFocusListener(new FocusAdapter() {
+				public void focusGained(FocusEvent e) {
+					jTFFirstNames.selectAll();
+				}
+			});
 		}
 		{
 			jTFLastNames = new JTextField();
@@ -336,6 +344,11 @@ public class SpielerInformationen extends JFrame {
 			jTFLastNames.setBounds(REC_LASTNAMES);
 			jTFLastNames.setFont(fontNames);
 			jTFLastNames.setVisible(false);
+			jTFLastNames.addFocusListener(new FocusAdapter() {
+				public void focusGained(FocusEvent e) {
+					jTFLastNames.selectAll();
+				}
+			});
 		}
 		{
 			jTFPseudonym = new JTextField();
@@ -343,6 +356,11 @@ public class SpielerInformationen extends JFrame {
 			jTFPseudonym.setBounds(REC_PSEUDONYM);
 			jTFPseudonym.setFont(fontPseudonym);
 			jTFPseudonym.setVisible(false);
+			jTFPseudonym.addFocusListener(new FocusAdapter() {
+				public void focusGained(FocusEvent e) {
+					jTFPseudonym.selectAll();
+				}
+			});
 		}
 		{
 			jCBBirthDay = new JComboBox<>();
@@ -536,6 +554,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private boolean jBtnChangeInformationActionPerformed() {
 		if (!changingInformation) {
+			if (moreDetails)	changeMoreDetails();
 			refreshCBACSinceDayModel();
 			refreshCBACUntilDayModel();
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
@@ -557,6 +576,7 @@ public class SpielerInformationen extends JFrame {
 			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate() / 100 % 100 - 1 : 0);
 			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate() % 100 - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
+			jLblMoreDetails.setVisible(false);
 		} else {
 			String firstName = jTFFirstNames.getText();
 			String lastName = jTFLastNames.getText();
@@ -586,6 +606,7 @@ public class SpielerInformationen extends JFrame {
 			}
 			uebersicht.showKader();
 			setPlayerInformation();
+			setPerformance();
 			showPhoto();
 			jBtnChangeInformation.setText("ändern");
 		}
@@ -618,6 +639,13 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilYear.setVisible(changingInformation && !atClubUntilEver);
 		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
 		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
+		
+		jLblPerformance.setVisible(!changingInformation);
+		jLblCompetition.setVisible(!changingInformation);
+		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
+			jLblsPerformance[i].setVisible(!changingInformation);
+			jLblsPerformanceValues[i].setVisible(!changingInformation);
+		}
 		return true;
 	}
 	
@@ -850,8 +878,6 @@ public class SpielerInformationen extends JFrame {
 		setPlayerInformation();
 		if (!addingNewPlayer)	setPerformance();
 		showPhoto();
-		
-		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 	
 	private void setPlayerInformation() {
@@ -874,6 +900,7 @@ public class SpielerInformationen extends JFrame {
 		jLblAtClubUntilVal.setText(untilSet ? MyDate.datum(atClubUntil) : "");
 		jLblAtClubUntil.setVisible(untilSet);
 		jLblAtClubUntilVal.setVisible(untilSet);
+		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 	
 	private void setPerformance() {
