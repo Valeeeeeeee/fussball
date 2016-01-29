@@ -1,6 +1,6 @@
 Mitchell;Langerak;null;19880822;Australien;Tor;1
 Przemyslaw;Tyton;null;19870104;Polen;Tor;22
-Odisseas;Vlachodimos;null;19940426;Deutschland;Tor;17
+Odisseas;Vlachodimos;null;19940426;Deutschland;Tor;17;-20160125
 Timo;Baumgartl;null;19960304;Deutschland;Abwehr;5
 Philip;Heise;null;19910620;Deutschland;Abwehr;14
 Adam;Hlousek;null;19881220;Tschechien;Abwehr;21
@@ -14,7 +14,7 @@ Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
 Arianit;Ferati;null;19970907;Deutschland;Mittelfeld;31
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 Kevin;Großkreutz;null;19880719;Deutschland;Mittelfeld;15;20160101-
-Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11
+Carlos;Gruezo;null;19950419;Ecuador;Mittelfeld;11;-20151231
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27

@@ -2,7 +2,7 @@ Dario;Kresic;null;19840111;Kroatien;Tor;25
 Bernd;Leno;null;19920304;Deutschland;Tor;1
 David;Yelldell;null;19811001;Deutschland, USA;Tor;22
 Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;17
-Giulio;Donati;null;19900205;Italien;Abwehr;26
+Giulio;Donati;null;19900205;Italien;Abwehr;26;-20160124
 Roberto;Hilbert;null;19841016;Deutschland;Abwehr;13
 Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
 Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;5
