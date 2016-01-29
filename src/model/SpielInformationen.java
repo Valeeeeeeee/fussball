@@ -117,13 +117,13 @@ public class SpielInformationen extends JFrame {
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
 	private Dimension DIM_PNLEINGABE = new Dimension(270, 130);
-	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(145, 5, 40, 30);
+	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(140, 5, 45, 30);
 	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(190, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
 	private Rectangle REC_CHBLEFT = new Rectangle(20, 40, 105, 20);
 	private Rectangle REC_CHBRIGHT = new Rectangle(155, 40, 95, 20);
-	private Rectangle REC_CHBBENCH = new Rectangle(10, 70, 95, 20);
+	private Rectangle REC_CHBBENCH = new Rectangle(20, 70, 110, 20);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
 	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 155, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
@@ -178,6 +178,7 @@ public class SpielInformationen extends JFrame {
 	private boolean enteringGoal;
 	private boolean enteringSubstitution;
 	private boolean enteringBooking;
+	private boolean bookedOnTheBench;
 	private int goalDetails;
 	private int[] lineupHome;
 	private int[] lineupAway;
@@ -677,6 +678,7 @@ public class SpielInformationen extends JFrame {
 			jChBBench = new JCheckBox();
 			jPnlEingabe.add(jChBBench);
 			jChBBench.setBounds(REC_CHBBENCH);
+			jChBBench.setText("auf der Bank");
 			jChBBench.setOpaque(false);
 			jChBBench.setVisible(false);
 			jChBBench.addActionListener(new ActionListener() {
@@ -1116,11 +1118,13 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
 		
-		jLblOben.setText("Spieler");
-		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
-		jCBOben.setSelectedItem(booking.getBookedPlayer().getPseudonymOrLN());
-		jLblUnten.setVisible(false);
-		jCBUnten.setVisible(false);
+		jLblOben.setVisible(false);
+		jCBOben.setVisible(false);
+		jChBBench.setVisible(true);
+		bookedOnTheBench = booking.isOnTheBench();
+		jLblUnten.setText("Spieler");
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
+		jCBUnten.setSelectedItem(booking.getBookedPlayer().getPseudonymOrLN());
 		
 		jChBLeft.setText("gelbe Karte");
 		jChBRight.setText("rote Karte");
@@ -1343,13 +1347,16 @@ public class SpielInformationen extends JFrame {
 		enteringSubstitution = false;
 		enteringBooking = false;
 		enteringGoal = false;
+		bookedOnTheBench = false;
 		repaint = false;
 		changedElement = -1;
 		
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
-		jLblUnten.setVisible(true);
-		jCBUnten.setVisible(true);
+		jLblOben.setVisible(true);
+		jCBOben.setVisible(true);
+		jChBBench.setSelected(false);
+		jChBBench.setVisible(false);
 		jChBLeft.setVisible(false);
 		jChBRight.setVisible(false);
 		buttonGroupDetails.clearSelection();
@@ -1491,7 +1498,10 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void jChBBenchSelectionChanged() {
-		
+		bookedOnTheBench = !bookedOnTheBench;
+		String selectedItem = (String) jCBUnten.getSelectedItem();
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
+		jCBUnten.setSelectedItem(selectedItem);
 	}
 	
 	private void jChBLeftSelectionChanged() {
@@ -1520,6 +1530,45 @@ public class SpielInformationen extends JFrame {
 			jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 			jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
 		}
+	}
+	
+	private String[] getEligiblePlayersBooking() {
+		String[] eligiblePlayers;
+		
+		boolean firstTeam = editingFirstTeam;
+		if ((firstTeam && lineupHome != null) || (!firstTeam && lineupAway != null)) {
+			Mannschaft bookedTeam = firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam();
+			eligiblePlayersListLower.clear();
+			
+			if (bookedOnTheBench) {
+				ArrayList<Spieler> eligPlayers = bookedTeam.getEligiblePlayers(spiel.getDate(), false);
+				eligiblePlayers = new String[1 + eligPlayers.size()];
+				int count = 1;
+				for (Spieler spieler : eligPlayers) {
+					eligiblePlayersListLower.add(spieler);
+					eligiblePlayers[count++] = spieler.getPseudonymOrLN();
+				}
+			} else {
+				int[] bookedTeamLineup = firstTeam ? lineupHome : lineupAway;
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(firstTeam);
+				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
+			
+				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
+					eligiblePlayersListLower.add(bookedTeam.getSpieler(bookedTeamLineup[i], spiel.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPseudonymOrLN();
+				}
+				for (int i = 0; i < substitutions.size(); i++) {
+					eligiblePlayersListLower.add(substitutions.get(i).getEingewechselterSpieler());
+					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListLower.get(numberOfPlayersInLineUp + i).getPseudonymOrLN();
+				}
+			}
+		} else {
+			eligiblePlayers = new String[1];
+		}
+		
+		eligiblePlayers[0] = "Bitte waehlen";
+		
+		return eligiblePlayers;
 	}
 	
 	private String[] getEligiblePlayers(boolean upper) {
@@ -1657,10 +1706,11 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
 		
-		jLblOben.setText("Spieler");
-		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
-		jLblUnten.setVisible(false);
-		jCBUnten.setVisible(false);
+		jLblOben.setVisible(false);
+		jCBOben.setVisible(false);
+		jChBBench.setVisible(true);
+		jLblUnten.setText("Spieler");
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
 		
 		jChBLeft.setText("gelbe Karte");
 		jChBRight.setText("rote Karte");
@@ -1705,8 +1755,8 @@ public class SpielInformationen extends JFrame {
 		boolean isSecondBooking = false;
 		boolean onTheBench = jChBBench.isSelected();
 		
-		int index = jCBOben.getSelectedIndex();
-		Spieler bookedPlayer = eligiblePlayersListUpper.get(index - 1);
+		int index = jCBUnten.getSelectedIndex();
+		Spieler bookedPlayer = eligiblePlayersListLower.get(index - 1);
 		for (Wechsel wechsel : spiel.getSubstitutions(editingFirstTeam)) {
 			if (wechsel.getAusgewechselterSpieler() == bookedPlayer && minute > wechsel.getMinute() || 
 					wechsel.getEingewechselterSpieler() == bookedPlayer && minute < wechsel.getMinute()) {
@@ -1732,13 +1782,16 @@ public class SpielInformationen extends JFrame {
 		if (repaint)	paintBookings();
 		else			displayBooking(booking, bookings.size() - 1);
 		enteringBooking = false;
+		bookedOnTheBench = false;
 		
 		buttonGroupDetails.clearSelection();
 		jChBLeft.setVisible(false);
 		jChBRight.setVisible(false);
 		
-		jLblUnten.setVisible(true);
-		jCBUnten.setVisible(true);
+		jChBBench.setSelected(false);
+		jChBBench.setVisible(false);
+		jLblOben.setVisible(true);
+		jCBOben.setVisible(true);
 		jPnlEingabe.setVisible(false);
 		jTFMinute.setText("");
 		

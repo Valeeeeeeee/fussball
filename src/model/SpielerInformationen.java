@@ -31,7 +31,7 @@ public class SpielerInformationen extends JFrame {
 	
 	public static final int HEIGHT = 830;
 	
-	private static final int maxNumberOfCharacters = 20;
+	private static final int maxNumberOfCharacters = 24;
 	private static final int minimumAge = 14;
 	private static final int averageAge = 25;
 	private static final int maximumAge = 50;
