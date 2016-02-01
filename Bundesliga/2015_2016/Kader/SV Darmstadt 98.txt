@@ -20,6 +20,7 @@ Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
 Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;10
 Yannick;Stark;null;19901028;Deutschland;Mittelfeld;25
 Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
+Felix;Platte;null;19960211;Deutschland;Sturm;19;20160201-
 Marco;Sailer;null;19851116;Deutschland;Sturm;7
 Dominik;Stroh-Engel;null;19851127;Deutschland;Sturm;9
 Sandro;Wagner;null;19871129;Deutschland;Sturm;14

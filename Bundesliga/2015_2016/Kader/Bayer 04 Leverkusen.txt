@@ -18,7 +18,7 @@ Marlon;Frey;null;19960324;Deutschland;Mittelfeld;37
 Benjamin;Henrichs;null;19970223;Deutschland;Mittelfeld;39
 Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;20150828-
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
-Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24
+Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24;-20160131
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
 Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
 Julian;Brandt;null;19960502;Deutschland;Sturm;19

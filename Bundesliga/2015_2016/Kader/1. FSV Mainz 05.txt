@@ -14,7 +14,7 @@ Gonzalo;Jara;null;19850829;Chile;Abwehr;2;-20151231
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;24;-20150828
 Henrique;Sereno;null;19850518;Portugal;Abwehr;5
 Julian;Baumgartlinger;null;19880102;Österreich;Mittelfeld;14
-Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11
+Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11;-20160131
 Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
 Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20

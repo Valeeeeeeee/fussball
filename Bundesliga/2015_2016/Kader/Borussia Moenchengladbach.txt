@@ -22,6 +22,6 @@ Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14;20150818-
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
-Josip;Drmic;null;19920808;Schweiz;Sturm;9
+Josip;Drmic;null;19920808;Schweiz;Sturm;9;-20160131
 Branimir;Hrgota;null;19930112;Schweden;Sturm;31
 Rafael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11

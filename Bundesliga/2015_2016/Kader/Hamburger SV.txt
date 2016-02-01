@@ -22,6 +22,7 @@ Petr;Jiracek;null;19860302;Tschechien;Mittelfeld;19;-20150824
 Gojko;Kacar;null;19870126;Serbien;Mittelfeld;40
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;17;-20151231
+Josip;Drmic;null;19920808;Schweiz;Sturm;18;20160201-
 Michael;Gregoritsch;null;19940418;Österreich;Sturm;23
 Pierre-Michel;Lasogga;null;19911215;Deutschland;Sturm;10
 Ivica;Olic;null;19790914;Kroatien;Sturm;11

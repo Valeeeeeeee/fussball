@@ -5,6 +5,7 @@ Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
 André;Hoffmann;null;19930228;Deutschland;Abwehr;15
 Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25
+Alexander;Milosevic;null;19920130;Schweden;Abwehr;24;20160201-
 Vladimir;Rankovic;null;19930627;Deutschland;Abwehr;27
 Hiroki;Sakai;null;19900412;Japan;Abwehr;4
 Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;5
