@@ -31,6 +31,6 @@ Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
 Niki;Zimling;null;19850419;Dänemark;Mittelfeld;25
 Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15;20150815-
 Yoshinori;Muto;null;19920715;Japan;Sturm;9
-Florian;Niederlechner;null;19901024;Deutschland;Sturm;31
+Florian;Niederlechner;null;19901024;Deutschland;Sturm;31;-20160130
 Karim;Onisiwo;null;19920317;Österreich;Sturm;21;20160101-
 Devante;Parker;null;19960316;Deutschland;Sturm;29

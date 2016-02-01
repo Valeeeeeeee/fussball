@@ -1,3 +1,4 @@
+Gerhard;Tremmel;null;19781116;Deutschland;Tor;18;20160128-
 Felix;Wiedwald;null;19900315;Deutschland;Tor;42
 Raphael;Wolf;null;19880606;Deutschland;Tor;1
 Michael;Zetterer;null;19950712;Deutschland;Tor;30
@@ -24,10 +25,10 @@ Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14;-20150829
 Marcel;Hilßner;null;19950130;Deutschland;Mittelfeld;33
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
 Laszlo;Kleinheisler;null;19940408;Ungarn;Mittelfeld;6;20160101-
-Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18;-20160128
+Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18;-20160127
 Cedrick;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6;-20150826
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;11
-Thanos;Petsos;null;19910605;Deutschland, Griechenland;Mittelfeld;5;20160101-
+Sambou;Yatabaré;null;19890302;Mali;Mittelfeld;5;20160128-
 Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17
 Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
 Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28
