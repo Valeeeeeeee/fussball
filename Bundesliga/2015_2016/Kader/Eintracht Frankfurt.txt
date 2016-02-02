@@ -9,8 +9,10 @@ Joel;Gerezgiher;null;19951009;Deutschland;Abwehr;32;-20151231
 Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
 David;Kinsombi;null;19951212;Deutschland;Abwehr;31;-20160126
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
+Yanni;Regäsel;null;19960113;Deutschland;Abwehr;2;20160201-
 Carlos;Zambrano;null;19890710;Peru;Abwehr;5
 Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;16
+Änis;Ben-Hatira;null;19880718;Deutschland, Tunesien;Mittelfeld;32;20160201-
 Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;10;20160101-
 Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
 Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11

@@ -18,10 +18,10 @@ Alfredo;Morales;null;19900512;USA, Deutschland;Mittelfeld;6
 Maurice;Multhaup;null;19961215;Deutschland;Mittelfeld;31;20150831-
 Thomas;Pledl;null;19940523;Deutschland;Mittelfeld;30;-20151231
 Roger;de Oliveira Bernardo;Roger;19850810;Brasilien;Mittelfeld;8
-Stefan;Wannenwetsch;null;19920119;Deutschland;Mittelfeld;22
+Stefan;Wannenwetsch;null;19920119;Deutschland;Mittelfeld;22;-20160131
 Moritz;Hartmann;null;19860620;Deutschland;Sturm;9
 Lukas;Hinterseer;null;19910328;Österreich;Sturm;16
 Elias;Kachunga;null;19920422;Deutschland;Sturm;25
 Mathew;Leckie;null;19910204;Australien;Sturm;7
 Darío;Lezcano;null;19900630;Paraguay;Sturm;37;20160101-
-Tomás;Pekhart;null;19890526;Tschechien;Sturm;11
+Tomás;Pekhart;null;19890526;Tschechien;Sturm;11;-20160131

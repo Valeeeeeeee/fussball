@@ -11,6 +11,7 @@ Jan;Kirchhoff;null;19901001;Deutshland;Abwehr;15;-20151231
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
 'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
+Serdar;Tasci;null;19870424;Deutschland;Abwehr;4;20160201-
 Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
 'Xabi'er;Alonso Olano;null;19811125;Spanien;Mittelfeld;14
 Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29;20150830-

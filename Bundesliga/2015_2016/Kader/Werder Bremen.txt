@@ -13,6 +13,7 @@ Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25
 Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5;-20151231
 Mateo;Pavlovic;null;19900609;Kroatien;Abwehr;15
 Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
+Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13;20160201-
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7
 Luca-Milan;Zander;null;19950809;Deutschland;Abwehr;19
 Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;10;-20151231
