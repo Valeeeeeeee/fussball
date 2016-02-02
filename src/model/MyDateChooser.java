@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20160225;
-	private int defaultMyTime = 1900;
+	private int defaultMyDate = 20160710;
+	private int defaultMyTime = 2100;
 	private int date;
 	private int time;
 	private int aszindex;
@@ -331,8 +331,9 @@ public class MyDateChooser extends JFrame {
 	public void setMatch(Wettbewerb wettbewerb, int matchday, int matchID) {
 		Spiel spiel = wettbewerb.getSpiel(matchday, matchID);
 		String match = "";
-		if (spiel != null)	match = spiel.getHomeTeam().getName() + " gegen " + spiel.getAwayTeam().getName();
-		else				match = "n/a gegen n/a";
+		match += spiel != null && spiel.getHomeTeam() != null ? spiel.getHomeTeam().getName() : "n/a";
+		match += " gegen ";
+		match += spiel != null && spiel.getAwayTeam() != null ? spiel.getAwayTeam().getName() : "n/a";
 		
 		jLblSpiel.setText(match);
 	}
