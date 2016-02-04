@@ -584,21 +584,22 @@ public class SpielerInformationen extends JFrame {
 			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
-			int firstDate = -1, lastDate = -1;
+			int firstDate = -1, lastDate = -1, secondFDate = -1;
 			if (!atClubSinceEver)	firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
 			if (!atClubUntilEver)	lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
+			secondFDate = player.getSecondFirstDate();
 			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
 			// check if squad number is unique
 			for (Spieler player : player.getTeam().getPlayers()) {
 				if (player == this.player)	continue;
 				if (player.getSquadNumber() == squadNumber) {
-					if (player.playedAtTheSameTimeAs(firstDate, lastDate)) {
+					if (player.playedAtTheSameTimeAs(firstDate, lastDate, secondFDate)) {
 						message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
 						return false;
 					}
 				}
 			}
-			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber, firstDate, lastDate);
+			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber, firstDate, lastDate, secondFDate);
 			if (addingNewPlayer) {
 				player.getTeam().addPlayer(player);
 				addingNewPlayer = false;

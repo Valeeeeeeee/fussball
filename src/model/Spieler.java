@@ -24,6 +24,7 @@ public class Spieler {
 	
 	private int firstDate = -1;
 	private int lastDate = -1;
+	private int secondFDate = -1;
 	
 	public Spieler(String data, Mannschaft team) {
 		fromString(data, team);
@@ -156,21 +157,30 @@ public class Spieler {
 		return lastDate;
 	}
 	
+	public int getSecondFirstDate() {
+		return secondFDate;
+	}
+	
 	public boolean isEligible(int date) {
-		if (date == 0)							return false;
-		if (date < firstDate)					return false;
-		if (lastDate != -1 && date > lastDate)	return false;
+		if (date == 0)									return false;
+		if (date < firstDate)							return false;
+		if (secondFDate != -1 && date >= secondFDate)	return true;
+		if (lastDate != -1 && date > lastDate)			return false;
 		
 		return true;
 	}
 	
-	public boolean playedAtTheSameTimeAs(int otherFirstDate, int otherLastDate) {
-		if (lastDate < otherFirstDate && lastDate != -1)	return false;
-		if (firstDate > otherLastDate && otherLastDate != -1)	return false;
-		return true;
+	public boolean playedAtTheSameTimeAs(int otherFirstDate, int otherLastDate, int otherSecondFDate) {
+		boolean this2FD = secondFDate != -1, other2FD = otherSecondFDate != -1;
+		if (this2FD && other2FD || firstDate == otherFirstDate || lastDate == otherLastDate)	return true;
+		int fDate = firstDate == -1 ? 101 : firstDate, lDate = lastDate == -1 ? 99991231 : lastDate;
+		int oFDate = otherFirstDate == -1 ? 101 : otherFirstDate, oLDate = otherLastDate == -1 ? 99991231 : otherLastDate;
+		if (other2FD)		return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate);
+		else if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate);
+		else				return (oFDate <= lDate && fDate <= oLDate);
 	}
 	
-	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate) {
+	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
 		team.changeSquadNumber(this, squadNumber);
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -181,6 +191,7 @@ public class Spieler {
 		this.squadNumber = squadNumber;
 		this.firstDate = firstDate;
 		this.lastDate = lastDate;
+		this.secondFDate = secondFDate;
 		team.playerUpdated();
 	}
 	
@@ -203,6 +214,7 @@ public class Spieler {
 		stringRep += this.squadNumber;
 		if (this.firstDate + this.lastDate != -2) {
 			stringRep += trennZeichen + (this.firstDate != -1 ? this.firstDate : "") + "-" + (this.lastDate != -1 ? this.lastDate : "");
+			if (secondFDate != -1)	stringRep += "," + this.secondFDate + "-";
 		}
 		return stringRep;
 	}
@@ -219,9 +231,11 @@ public class Spieler {
 		this.team = team;
 		this.squadNumber = Integer.parseInt(dataSplit[6]);
 		if (dataSplit.length >= 8) {
-			String[] dates = dataSplit[7].split("\\-");
+			String[] allDates = dataSplit[7].split(",");
+			String[] dates = allDates[0].split("\\-");
 			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
 			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
+			if (allDates.length > 1)						secondFDate = Integer.parseInt(allDates[1].substring(0, allDates[1].indexOf("-")));
 		}
 	}
 }

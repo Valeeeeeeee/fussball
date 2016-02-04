@@ -18,6 +18,7 @@ Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
 Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19;20150831-
 Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14
 Shawn;Parker;null;19930307;Deutschland;Mittelfeld;9
+Erik;Thommy;null;19940820;Deutschland;Mittelfeld;36;20160131-
 Piotr;Trochowski;null;19840322;Deutschland;Mittelfeld;15
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;13
 Albian;Ajeti;null;19970226;Schweiz, Albanien;Sturm;17;20160101-

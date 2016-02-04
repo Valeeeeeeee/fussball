@@ -24,6 +24,6 @@ Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
 Julian;Brandt;null;19960502;Deutschland;Sturm;19
 Javier;Hernández;null;19880601;Mexiko;Sturm;7;20150831-
 Stefan;Kießling;null;19840125;Deutschland;Sturm;11
-Robbie;Kruse;null;19881005;Australien;Sturm;27;-20150830
+Robbie;Kruse;null;19881005;Australien;Sturm;27;-20150830,20160201-
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
 Heung-Min;Son;null;19920708;Südkorea;Sturm;7;-20150827
