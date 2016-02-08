@@ -6,6 +6,7 @@ Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24;-20151231
 Marvin;Friedrich;null;19951213;Deutschland;Abwehr;2
 Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4
 Uilson;de Souza Paula Junior;Junior Caiçara;19890427;Brasilien;Abwehr;3
+Thilo;Kehrer;null;19960921;Deutschland;Abwehr;20
 Sead;Kolasinac;null;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;6
 Joel;Matip;null;19910808;Deutschland, Kamerun;Abwehr;32
 Matija;Nastasic;null;19930328;Serbien;Abwehr;31
