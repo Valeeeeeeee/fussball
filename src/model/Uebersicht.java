@@ -507,6 +507,7 @@ public class Uebersicht extends JPanel {
 				this.add(jSPKader);
 				jSPKader.setVisible(true);
 				jSPKader.getVerticalScrollBar().setUnitIncrement(20);
+				jSPKader.setBorder(null);
 			}
 			{
 				jPnlKader = new JPanel();

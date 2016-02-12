@@ -4,6 +4,7 @@ import static util.Utilities.*;
 import static model.Mannschaft.*;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -29,7 +30,7 @@ public class SpielerInformationen extends JFrame {
 	
 	public static final int WIDTH = 870;
 	
-	public static final int HEIGHT = 840;
+	public static final int HEIGHT = 830;
 	
 	private static final int maxNumberOfCharacters = 24;
 	private static final int minimumAge = 14;
@@ -85,7 +86,7 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
-	private Rectangle REC_PNLPERFMBM = new Rectangle(390, 410, 470, 420);
+	private Rectangle REC_PNLPERFMBM = new Rectangle(390, 410, 470, 410);
 	private int[] bndsPMbMMD = new int[] {0, 0, 0, 20, 25, 20};
 	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 190, 20};
 	private int[] bndsPMbMOn = new int[] {240, 0, 0, 20, 30, 20};
@@ -138,6 +139,7 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblCompetition;
 	private JLabel[] jLblsPerformance;
 	private JLabel[] jLblsPerformanceValues;
+	private JScrollPane jSPPerformanceMbM;
 	private JPanel jPnlPerformanceMbM;
 	private ArrayList<JLabel> jLblsPerformanceMbMMatchday;
 	private ArrayList<JLabel> jLblsPerformanceMbMOpponent;
@@ -549,12 +551,16 @@ public class SpielerInformationen extends JFrame {
 		jLblsPerformance[BOOKED_TWICE].setText("Gelb-Rote Karten");
 		jLblsPerformance[RED_CARDS].setText("Rote Karten");
 		{
+			jSPPerformanceMbM = new JScrollPane();
+			jPnlPlayerInformation.add(jSPPerformanceMbM);
+			jSPPerformanceMbM.setVisible(false);
+			jSPPerformanceMbM.getVerticalScrollBar().setUnitIncrement(20);
+			jSPPerformanceMbM.setBorder(null);
+		}
+		{
 			jPnlPerformanceMbM = new JPanel();
-			jPnlPlayerInformation.add(jPnlPerformanceMbM);
-			jPnlPerformanceMbM.setBounds(REC_PNLPERFMBM);
 			jPnlPerformanceMbM.setLayout(null);
-			jPnlPerformanceMbM.setBackground(new Color(255, 255, 0));
-			jPnlPerformanceMbM.setVisible(false);
+			jPnlPerformanceMbM.setBackground(Color.WHITE);
 		}
 		
 		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
@@ -679,7 +685,7 @@ public class SpielerInformationen extends JFrame {
 		
 		jLblPerformance.setVisible(!moreDetails);
 		jLblCompetition.setVisible(!moreDetails);
-		jPnlPerformanceMbM.setVisible(moreDetails);
+		jSPPerformanceMbM.setVisible(moreDetails);
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
 			jLblsPerformance[i].setVisible(!moreDetails);
 			jLblsPerformanceValues[i].setVisible(!moreDetails);
@@ -713,7 +719,9 @@ public class SpielerInformationen extends JFrame {
 				jLblsPerformanceMbMBookedTwice.get(i).setVisible(showRow);
 				jLblsPerformanceMbMRedCard.get(i).setVisible(showRow);
 			}
-			jPnlPerformanceMbM.setSize(470, (performanceMbM.size() + 1) * 20);
+			jPnlPerformanceMbM.setPreferredSize(new Dimension(450, (performanceMbM.size() + 1) * 20));
+			jSPPerformanceMbM.setViewportView(jPnlPerformanceMbM);
+			jSPPerformanceMbM.setBounds(REC_PNLPERFMBM);
 		}
 	}
 	
