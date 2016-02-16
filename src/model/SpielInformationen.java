@@ -650,6 +650,7 @@ public class SpielInformationen extends JFrame {
 			jPnlEingabe.add(jChBLeft);
 			jChBLeft.setBounds(REC_CHBLEFT);
 			jChBLeft.setOpaque(false);
+			jChBLeft.setFocusable(false);
 			jChBLeft.setVisible(false);
 			jChBLeft.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -662,6 +663,7 @@ public class SpielInformationen extends JFrame {
 			jPnlEingabe.add(jChBRight);
 			jChBRight.setBounds(REC_CHBRIGHT);
 			jChBRight.setOpaque(false);
+			jChBRight.setFocusable(false);
 			jChBRight.setVisible(false);
 			jChBRight.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -680,6 +682,7 @@ public class SpielInformationen extends JFrame {
 			jChBBench.setBounds(REC_CHBBENCH);
 			jChBBench.setText("auf der Bank");
 			jChBBench.setOpaque(false);
+			jChBBench.setFocusable(false);
 			jChBBench.setVisible(false);
 			jChBBench.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
