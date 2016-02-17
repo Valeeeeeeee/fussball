@@ -86,7 +86,7 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
-	private Rectangle REC_PNLPERFMBM = new Rectangle(390, 410, 470, 410);
+	private Rectangle REC_SPPERFMBM = new Rectangle(390, 410, 470, 400);
 	private int[] bndsPMbMMD = new int[] {0, 0, 0, 20, 25, 20};
 	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 190, 20};
 	private int[] bndsPMbMOn = new int[] {240, 0, 0, 20, 30, 20};
@@ -721,7 +721,7 @@ public class SpielerInformationen extends JFrame {
 			}
 			jPnlPerformanceMbM.setPreferredSize(new Dimension(450, (performanceMbM.size() + 1) * 20));
 			jSPPerformanceMbM.setViewportView(jPnlPerformanceMbM);
-			jSPPerformanceMbM.setBounds(REC_PNLPERFMBM);
+			jSPPerformanceMbM.setBounds(REC_SPPERFMBM);
 		}
 	}
 	

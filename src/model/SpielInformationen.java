@@ -1116,7 +1116,7 @@ public class SpielInformationen extends JFrame {
 		this.enteringBooking = true;
 		editingFirstTeam = booking.isFirstTeam();
 		
-		log("You want to change the booking of " + booking.getBookedPlayer() + "(" + booking.getMinute() + ")");
+		log("You want to change the booking of " + booking.getBookedPlayer().getPseudonymOrLN() + "(" + booking.getMinute() + ")");
 		
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
