@@ -7,15 +7,16 @@ Medhi;Benatia;null;19870417;Marokko;Abwehr;5
 Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
 Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
 Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;4;-20150829
-Jan;Kirchhoff;null;19901001;Deutshland;Abwehr;15
+Jan;Kirchhoff;null;19901001;Deutshland;Abwehr;15;-20151231
 Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
-Javier;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
+'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
+Serdar;Tasci;null;19870424;Deutschland;Abwehr;4;20160201-
 Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-Xabier;Alonso Olano;Xabi Alonso;19811125;Spanien;Mittelfeld;14
+'Xabi'er;Alonso Olano;null;19811125;Spanien;Mittelfeld;14
 Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29;20150830-
 Douglas Costa;de Souza;Douglas Costa;19900914;Brasilien;Mittelfeld;11
-Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16
+Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16;-20151231
 Mario;Götze;null;19920603;Deutschland;Mittelfeld;19
 Julian;Green;null;19950606;Deutschland, USA;Mittelfeld;37
 Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;34;-20150827
@@ -25,5 +26,6 @@ Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
 Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
 Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;20
 Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
-Sinan;Kurt;null;19960723;Deutschland;Sturm;24
+Sinan;Kurt;null;19960723;Deutschland;Sturm;24;-20151231
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
+Milos;Pantovic;null;19960707;Serbien;Sturm;41

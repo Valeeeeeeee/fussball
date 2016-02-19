@@ -10,6 +10,9 @@ public class Gruppe implements Wettbewerb {
 	private boolean isQ;
 	private String name;
 	
+	private int numberOfReferees;
+	private ArrayList<Schiedsrichter> referees;
+	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
@@ -42,9 +45,11 @@ public class Gruppe implements Wettbewerb {
 	private String dateiMannschaft;
 	private String dateiSpielplan;
 	private String dateiErgebnisse;
+	private String fileReferees;
 	private ArrayList<String> teamsFromFile;
 	private ArrayList<String> spielplanFromFile;
 	private ArrayList<String> ergebnisseFromFile;
+	private ArrayList<String> refereesFromFile;
 	
 	private int startDate;
 	private int finalDate;
@@ -77,6 +82,10 @@ public class Gruppe implements Wettbewerb {
 		return this.id;
 	}
 	
+	public int getYear() {
+		return season.getSeason();
+	}
+	
 	public boolean isQualification() {
 		return isQ;
 	}
@@ -88,6 +97,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public boolean isSTSS() {
+		return season.isSTSS();
 	}
 	
 	public String getTournamentName() {
@@ -128,6 +141,21 @@ public class Gruppe implements Wettbewerb {
 	
 	public Tabelle getTabelle() {
 		return this.tabelle;
+	}
+	
+	public ArrayList<Schiedsrichter> getReferees() {
+		return referees;
+	}
+	
+	public String[] getAllReferees() {
+		String[] allReferees = new String[referees.size() + 1];
+		
+		allReferees[0] = "Bitte wählen";
+		for (int i = 1; i < allReferees.length; i++) {
+			allReferees[i] = referees.get(i - 1).getFullName();
+		}
+		
+		return allReferees;
 	}
 	
 	public Mannschaft[] getMannschaften() {
@@ -496,9 +524,10 @@ public class Gruppe implements Wettbewerb {
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
+		loadReferees();
     	mannschaftenLaden();
-    	
     	initializeArrays();
     	
     	spielplanLaden();
@@ -514,21 +543,19 @@ public class Gruppe implements Wettbewerb {
             tabelle.setLocation((1440 - tabelle.getSize().width) / 2, 50);
             tabelle.setVisible(false);
         }
-		
-//		testIsSpielplanEntered();
-//		testIsErgebnisplanEntered();
 	}
 	
 	public void speichern() {
+		saveReferees();
 		this.spielplanSpeichern();
 		this.ergebnisseSpeichern();
 		this.mannschaftenSpeichern();
 	}
 	
 	public void mannschaftenLaden() {
-		this.teamsFromFile = ausDatei(this.dateiMannschaft);
+		teamsFromFile = ausDatei(this.dateiMannschaft);
 		
-		numberOfTeams = this.teamsFromFile.size();
+		numberOfTeams = teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		numberOfMatchesAgainstSameOpponent = (isQ ? season.hasSecondLegQGroupStage() : season.hasSecondLegGroupStage()) ? 2 : 1;
 		numberOfMatchdays = 2 * ((numberOfTeams + 1) / 2) - 1;
@@ -541,15 +568,16 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new ArrayList<>();
-		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile.add(this.mannschaften[i].toString());
+		teamsFromFile = new ArrayList<>();
+		for (int i = 0; i < numberOfTeams; i++) {
+			mannschaften[i].save();
+			teamsFromFile.add(mannschaften[i].toString());
 		}
-		inDatei(this.dateiMannschaft, this.teamsFromFile);
+		inDatei(dateiMannschaft, teamsFromFile);
 	}
 	
 	public String[] getRanks() {
-		String[] ranks = new String[this.numberOfTeams];
+		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
 			String id = (isQ ? "Q" :  "") + "G" + alphabet[this.id] + (i + 1);
@@ -574,6 +602,26 @@ public class Gruppe implements Wettbewerb {
 		this.spielplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 		this.ergebnisplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
     }
+	
+	public void loadReferees() {
+		refereesFromFile = ausDatei(fileReferees, false);
+		
+		numberOfReferees = refereesFromFile.size();
+		referees = new ArrayList<>();
+		for (int i = 0; i < numberOfReferees; i++) {
+			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
+		}
+	}
+	
+	public void saveReferees() {
+		refereesFromFile.clear();
+		
+		for (int i = 0; i < referees.size(); i++) {
+			refereesFromFile.add(referees.get(i).toString());
+		}
+		
+		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+	}
 	
 	private void spielplanLaden() {
 		try {

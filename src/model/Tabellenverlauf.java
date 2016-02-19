@@ -18,13 +18,12 @@ public class Tabellenverlauf extends JPanel {
 	
 	private static final ToolTipManager ttManager = ToolTipManager.sharedInstance();
 	
-	private static final int WIDTH = 480;
+	private static final int WIDTH = 530;
 	private static final int HEIGHT = 150;
 	
 	private static final Color background = new Color(255, 255, 255);
 	private static final Color linesBG = new Color(200, 200, 200);
 	private static final Color linesFG = new Color(50, 50, 0);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
 	private int numberOfTeams;
 	private int[] rankings;

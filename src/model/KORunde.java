@@ -13,6 +13,9 @@ public class KORunde implements Wettbewerb {
 	private String name;
 	private String shortName;
 	
+	private int numberOfReferees;
+	private ArrayList<Schiedsrichter> referees;
+	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
@@ -53,10 +56,12 @@ public class KORunde implements Wettbewerb {
 	private String dateiErgebnisse;
 	private String dateiSpielplan;
 	private String dateiMannschaft;
+	private String fileReferees;
 	
 	private ArrayList<String> teamsFromFile;
 	private ArrayList<String> spielplanFromFile;
 	private ArrayList<String> ergebnisseFromFile;
+	private ArrayList<String> refereesFromFile;
 	
 	/**
 	 * [Spieltag][spielIndex]
@@ -89,12 +94,20 @@ public class KORunde implements Wettbewerb {
 		return this.id;
 	}
 	
+	public int getYear() {
+		return season.getSeason();
+	}
+	
 	public boolean isQualification() {
 		return isQ;
 	}
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public boolean isSTSS() {
+		return season.isSTSS();
 	}
 	
 	public String getWorkspace() {
@@ -131,6 +144,21 @@ public class KORunde implements Wettbewerb {
 	
 	public void setCheckTeamsFromPreviousRound(boolean check) {
 		this.checkTeamsFromPreviousRound = check;
+	}
+	
+	public ArrayList<Schiedsrichter> getReferees() {
+		return referees;
+	}
+	
+	public String[] getAllReferees() {
+		String[] allReferees = new String[referees.size() + 1];
+		
+		allReferees[0] = "Bitte wählen";
+		for (int i = 1; i < allReferees.length; i++) {
+			allReferees[i] = referees.get(i - 1).getFullName();
+		}
+		
+		return allReferees;
 	}
 
 	public Mannschaft[] getMannschaften() {
@@ -615,9 +643,10 @@ public class KORunde implements Wettbewerb {
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
+		loadReferees();
     	mannschaftenLaden();
-    	
     	initializeArrays();
     	
     	setCheckTeamsFromPreviousRound(false);
@@ -630,12 +659,10 @@ public class KORunde implements Wettbewerb {
             spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
             spieltag.setVisible(false);
         }
-		
-//		testIsSpielplanEntered();
-//		testIsErgebnisplanEntered();
 	}
 	
 	public void speichern() {
+		saveReferees();
 		this.spielplanSpeichern();
 		this.ergebnisseSpeichern();
 		this.mannschaftenSpeichern();
@@ -652,16 +679,36 @@ public class KORunde implements Wettbewerb {
     	this.ergebnisplanEingetragen = new boolean[this.numberOfMatchdays][this.numberOfMatchesPerMatchday];
 	}
 	
+	public void loadReferees() {
+		refereesFromFile = ausDatei(fileReferees, false);
+		
+		numberOfReferees = refereesFromFile.size();
+		referees = new ArrayList<>();
+		for (int i = 0; i < numberOfReferees; i++) {
+			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
+		}
+	}
+	
+	public void saveReferees() {
+		refereesFromFile.clear();
+		
+		for (int i = 0; i < referees.size(); i++) {
+			refereesFromFile.add(referees.get(i).toString());
+		}
+		
+		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+	}
+	
 	private void mannschaftenLaden() {
 		teamsFromFile = ausDatei(dateiMannschaft);
 		
-		this.numberOfTeams = teamsFromFile.size();
+		numberOfTeams = teamsFromFile.size();
 		mannschaften = new Mannschaft[numberOfTeams];
-		this.numberOfMatchesAgainstSameOpponent = this.hasSecondLeg ? 2 : 1;
-		this.numberOfMatchdays = this.hasSecondLeg ? 2 : 1;
-		this.numberOfMatchesPerMatchday = numberOfTeams / 2;
+		numberOfMatchesAgainstSameOpponent = hasSecondLeg ? 2 : 1;
+		numberOfMatchdays = hasSecondLeg ? 2 : 1;
+		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		
-		teamsOrigins = new String[this.numberOfTeams];
+		teamsOrigins = new String[numberOfTeams];
 		for (int i = 0; i < teamsOrigins.length; i++) {
 			teamsOrigins[i] = teamsFromFile.get(i);
 		}
@@ -680,11 +727,12 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void mannschaftenSpeichern() {
-		this.teamsFromFile = new ArrayList<>();
-		for (int i = 0; i < this.numberOfTeams; i++) {
-			this.teamsFromFile.add(this.teamsOrigins[i]); //.toString());
+		teamsFromFile = new ArrayList<>();
+		for (int i = 0; i < numberOfTeams; i++) {
+			if (mannschaften[i] != null)	mannschaften[i].save();
+			teamsFromFile.add(teamsOrigins[i]); //.toString());
 		}
-		inDatei(this.dateiMannschaft, this.teamsFromFile);
+		inDatei(this.dateiMannschaft, teamsFromFile);
 	}
 	
 	private void spielplanLaden() {

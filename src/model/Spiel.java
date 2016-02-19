@@ -18,7 +18,7 @@ public class Spiel {
 	private int[] lineupHome;
 	private int[] lineupAway;
 	
-	private String schiedsrichter;
+	private Schiedsrichter referee;
 	private Ergebnis ergebnis;
 	private ArrayList<Tor> goals = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
@@ -132,6 +132,13 @@ public class Spiel {
 		}
 	}
 	
+	public void removeGoal(Tor goal) {
+		if (goal != null) {
+			goals.remove(goal);
+			ergebnis = new Ergebnis(goals);
+		}
+	}
+	
 	public int addSubstitution(Wechsel substitution) {
 		int index = 0;
 		if (substitution != null) {
@@ -150,6 +157,10 @@ public class Spiel {
 		return index;
 	}
 	
+	public void removeSubstitution(Wechsel substitution) {
+		(substitution.isFirstTeam() ? substitutionsHome : substitutionsAway).remove(substitution);
+	}
+	
 	public void addBooking(Karte booking) {
 		if (booking != null) {
 			int index = 0;
@@ -160,12 +171,29 @@ public class Spiel {
 		}
 	}
 	
-	public String getSchiedsrichter() {
-		return this.schiedsrichter;
+	public void removeBooking(Karte booking) {
+		if (booking != null)	bookings.remove(booking);
 	}
 	
-	public void setSchiedsrichter(String schiedsrichter) {
-		this.schiedsrichter = schiedsrichter;
+	public Schiedsrichter getReferee() {
+		return referee;
+	}
+	
+	public void changeSquadNumberInLineup(boolean firstTeam, int oldSquadNumber, int newSquadNumber) {
+		int[] lineup = firstTeam ? lineupHome : lineupAway;
+		if (lineup == null)	return;
+		for (int i = 0; i < lineup.length; i++) {
+			if (lineup[i] == oldSquadNumber)	lineup[i] = newSquadNumber;
+		}
+	}
+	
+	public void setReferee(int refereeID) {
+		setReferee(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
+	}
+	
+	public void setReferee(Schiedsrichter referee) {
+		this.referee = referee;
+		referee.addMatch(this);
 	}
 	
 	public void setRemainder(String matchData) {
@@ -184,17 +212,23 @@ public class Spiel {
 		String remainder = "";
 		
 		if (lineupHome != null || lineupAway != null) {
-			remainder = "+{" + matchDataToString() + "}";
+			remainder += "+{" + matchDataToString() + "}";
 			remainder += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
 		} else if (ergebnis != null) {
-			remainder = "+{" + matchDataToString() + "}";
+			remainder += "+{" + matchDataToString() + "}";
+		} else if (referee != null) {
+			remainder += "+{" + referee.getID() + "}";
 		}
 		
 		return remainder;
 	}
 	
 	private String matchDataToString() {
-		String matchData = "" + ergebnis;
+		String matchData = "";
+		
+		if (referee != null)						matchData += referee.getID();
+		if (referee != null && ergebnis != null)	matchData += "_";
+		if (ergebnis != null)						matchData += ergebnis;
 		
 		for (Tor tor : goals) {
 			matchData += "#" + tor;
@@ -229,6 +263,14 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
+		if (matchData.indexOf("_") != -1) {
+			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
+		}
+		matchData = matchData.substring(matchData.indexOf("_") + 1);
+		if (matchData.indexOf(":") == -1) {
+			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData) - 1));
+			return;
+		}
 		String[] matchDataSplit = matchData.split("\\^");
 		String allGoals = matchDataSplit[0];
 		String[] goalsSplit = allGoals.split("#");

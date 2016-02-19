@@ -8,11 +8,13 @@ Pierre;Bengtsson;null;19880412;Schweden;Abwehr;7
 Daniel;Brosinski;null;19880717;Deutschland;Abwehr;18
 Niko;Bungert;null;19861024;Deutschland;Abwehr;26
 Gaëtan;Bussmann;null;19910202;Frankreich;Abwehr;24;20150830-
-Gonzalo;Jara;null;19850829;Chile;Abwehr;2
+Giulio;Donati;null;19900205;Italien;Abwehr;2;20160125-
+Alexander;Hack;null;19930908;Deutschland;Abwehr;42
+Gonzalo;Jara;null;19850829;Chile;Abwehr;2;-20151231
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;24;-20150828
 Henrique;Sereno;null;19850518;Portugal;Abwehr;5
 Julian;Baumgartlinger;null;19880102;Österreich;Mittelfeld;14
-Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11
+Maximilian;Beister;null;19900906;Deutschland;Mittelfeld;11;-20160130
 Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
 Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20
@@ -21,13 +23,15 @@ Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;13;-20150830
 Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
 Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10
 Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;8
-Todor;Nedelev;null;19930207;Bulgarien;Mittelfeld;28
+Todor;Nedelev;null;19930207;Bulgarien;Mittelfeld;28;-20151231
 Patrick;Pflücke;null;19961130;Deutschland;Mittelfeld;30
 Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
 Suat;Serdar;null;19970411;Deutschland;Mittelfeld;22
 Elkin;Soto;null;19800804;Kolumbien;Mittelfeld;19
-Niki;Zimling;null;19850419;Dänemark;Mittelfeld;25
+Niki;Zimling;null;19850419;Dänemark;Mittelfeld;25;-20160131
+Emil;Berggreen;null;19930510;Dänemark;Sturm;11;20160131-
 Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15;20150815-
 Yoshinori;Muto;null;19920715;Japan;Sturm;9
-Florian;Niederlechner;null;19901024;Deutschland;Sturm;31
+Florian;Niederlechner;null;19901024;Deutschland;Sturm;31;-20160130
+Karim;Onisiwo;null;19920317;Österreich;Sturm;21;20160101-
 Devante;Parker;null;19960316;Deutschland;Sturm;29

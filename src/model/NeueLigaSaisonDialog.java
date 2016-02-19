@@ -15,6 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,17 +23,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class NeueLigaSaisonDialog extends JFrame {
 	private static final long serialVersionUID = -2949488695441610088L;
-
+	
 	private int WIDTH = 600 + 6;
 	private int HEIGHT = 800 + 28;
 	
 	private Color colorBackground = new Color(16, 255, 16);
 	private Color colorHighlighted = new Color(255, 255, 0);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private static final int minNumberOfTeams = 2;
 	private static final int maxNumberOfTeams = 24;
 	
@@ -43,7 +44,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private int numberOfTeams;
 	private int numberOfTeamsOld;
 	
-	
+	private boolean changingConfiguration;
 	private int season;
 	private boolean isSummerToSpringSeason;
 	private int numberOfMatchesAgainstSameOpponent;
@@ -52,9 +53,23 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	private int[] anzahl;
-
-	private Rectangle REC_LBLSAISON = new Rectangle(30, 15, 50, 25);
+	
+	private Rectangle REC_LBLSAISON = new Rectangle(25, 15, 85, 25);
 	private Rectangle REC_TFSAISON = new Rectangle(90, 15, 50, 25);
+	
+	private Rectangle REC_LBLCONFIG = new Rectangle(200, 15, 160, 25);
+	private Rectangle REC_CALYEARLBL = new Rectangle(25, 45, 80, 25);
+	private Rectangle REC_CALYEARYRB = new Rectangle(110, 45, 45, 25);
+	private Rectangle REC_CALYEARNRB = new Rectangle(155, 45, 60, 25);
+	private Rectangle REC_SGDGLBL = new Rectangle(25, 75, 260, 25);
+	private Rectangle REC_SGDGTF = new Rectangle(290, 75, 40, 25);
+	private Rectangle REC_GDIFFLBL = new Rectangle(25, 105, 80, 25);
+	private Rectangle REC_GDIFFYRB = new Rectangle(110, 105, 45, 25);
+	private Rectangle REC_GDIFFNRB = new Rectangle(155, 105, 60, 25);
+	private Rectangle REC_KADERLBL = new Rectangle(25, 135, 45, 25);
+	private Rectangle REC_KADERYRB = new Rectangle(110, 135, 45, 25);
+	private Rectangle REC_KADERNRB = new Rectangle(155, 135, 60, 25);
+	
 	private Rectangle REC_CBNOFTEAMS = new Rectangle(30, 45, 75, 25);
 	private Rectangle REC_LBLNOFTEAMS = new Rectangle(110, 45, 90, 25);
 	private Rectangle REC_LBLBEARBEITEN = new Rectangle(220, 45, 70, 25);
@@ -65,6 +80,22 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private JPanel jPnlBackground;
 	private JLabel jLblSaison;
 	private JTextField jTFSaison;
+	private JLabel jLblConfiguration;
+	private JLabel jLblCalendarYear;
+	private JRadioButton jRBCalendarYearYes;
+	private JRadioButton jRBCalendarYearNo;
+	private ButtonGroup calendarYearRBGrp;
+	private JLabel jLblSameOpponent;
+	private JTextField jTFSameOpponent;
+	private JLabel jLblGoalDifference;
+	private JRadioButton jRBGoalDifferenceYes;
+	private JRadioButton jRBGoalDifferenceNo;
+	private ButtonGroup goalDifferenceRBGrp;
+	private JLabel jLblTeamsHaveKader;
+	private JRadioButton jRBTeamsHaveKaderYes;
+	private JRadioButton jRBTeamsHaveKaderNo;
+	private ButtonGroup teamsHaveKaderRBGrp;
+	
 	private JComboBox<String> jCBNumberOfTeams;
 	private JLabel jLblNumberOfTeams;
 	private JLabel jLblBearbeiten;
@@ -105,14 +136,128 @@ public class NeueLigaSaisonDialog extends JFrame {
 			jLblSaison = new JLabel();
 			jPnlBackground.add(jLblSaison);
 			jLblSaison.setBounds(REC_LBLSAISON);
-			jLblSaison.setText("Saison");
 		}
 		{
 			jTFSaison = new JTextField();
 			jPnlBackground.add(jTFSaison);
 			jTFSaison.setBounds(REC_TFSAISON);
 			jTFSaison.setOpaque(true);
+			jTFSaison.setVisible(false);
 		}
+		// Configuration
+		{
+			jLblConfiguration = new JLabel();
+			jPnlBackground.add(jLblConfiguration);
+			jLblConfiguration.setBounds(REC_LBLCONFIG);
+			jLblConfiguration.setText("Konfiguration ändern");
+			jLblConfiguration.setCursor(handCursor);
+			jLblConfiguration.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent evt) {
+					changeOrSaveConfiguration();
+				}
+			});
+		}
+		{
+			jLblCalendarYear = new JLabel();
+			jPnlBackground.add(jLblCalendarYear);
+			jLblCalendarYear.setBounds(REC_CALYEARLBL);
+			jLblCalendarYear.setText("Kalenderjahr");
+			jLblCalendarYear.setVisible(false);
+		}
+		{
+			jRBCalendarYearYes = new JRadioButton("ja");
+			jPnlBackground.add(jRBCalendarYearYes);
+			jRBCalendarYearYes.setBounds(REC_CALYEARYRB);
+			jRBCalendarYearYes.setActionCommand("false");
+			jRBCalendarYearYes.setOpaque(false);
+			jRBCalendarYearYes.setVisible(false);
+		}
+		{
+			jRBCalendarYearNo = new JRadioButton("nein");
+			jPnlBackground.add(jRBCalendarYearNo);
+			jRBCalendarYearNo.setBounds(REC_CALYEARNRB);
+			jRBCalendarYearNo.setActionCommand("true");
+			jRBCalendarYearNo.setOpaque(false);
+			jRBCalendarYearNo.setVisible(false);
+		}
+		{
+			calendarYearRBGrp = new ButtonGroup();
+			calendarYearRBGrp.add(jRBCalendarYearYes);
+			calendarYearRBGrp.add(jRBCalendarYearNo);
+		}
+		{
+			jLblSameOpponent = new JLabel();
+			jPnlBackground.add(jLblSameOpponent);
+			jLblSameOpponent.setBounds(REC_SGDGLBL);
+			jLblSameOpponent.setText("Anzahl Spiele gegen denselben Gegner:");
+			jLblSameOpponent.setVisible(false);
+		}
+		{
+			jTFSameOpponent = new JTextField();
+			jPnlBackground.add(jTFSameOpponent);
+			jTFSameOpponent.setBounds(REC_SGDGTF);
+			jTFSameOpponent.setVisible(false);
+		}
+		{
+			jLblGoalDifference = new JLabel();
+			jPnlBackground.add(jLblGoalDifference);
+			jLblGoalDifference.setBounds(REC_GDIFFLBL);
+			jLblGoalDifference.setText("Tordifferenz");
+			jLblGoalDifference.setVisible(false);
+		}
+		{
+			jRBGoalDifferenceYes = new JRadioButton("ja");
+			jPnlBackground.add(jRBGoalDifferenceYes);
+			jRBGoalDifferenceYes.setBounds(REC_GDIFFYRB);
+			jRBGoalDifferenceYes.setActionCommand("true");
+			jRBGoalDifferenceYes.setOpaque(false);
+			jRBGoalDifferenceYes.setVisible(false);
+		}
+		{
+			jRBGoalDifferenceNo = new JRadioButton("nein");
+			jPnlBackground.add(jRBGoalDifferenceNo);
+			jRBGoalDifferenceNo.setBounds(REC_GDIFFNRB);
+			jRBGoalDifferenceNo.setActionCommand("false");
+			jRBGoalDifferenceNo.setOpaque(false);
+			jRBGoalDifferenceNo.setVisible(false);
+		}
+		{
+			goalDifferenceRBGrp = new ButtonGroup();
+			goalDifferenceRBGrp.add(jRBGoalDifferenceYes);
+			goalDifferenceRBGrp.add(jRBGoalDifferenceNo);
+		}
+		{
+			jLblTeamsHaveKader = new JLabel();
+			jPnlBackground.add(jLblTeamsHaveKader);
+			jLblTeamsHaveKader.setBounds(REC_KADERLBL);
+			jLblTeamsHaveKader.setText("Kader");
+			jLblTeamsHaveKader.setVisible(false);
+		}
+		{
+			jRBTeamsHaveKaderYes = new JRadioButton("ja");
+			jPnlBackground.add(jRBTeamsHaveKaderYes);
+			jRBTeamsHaveKaderYes.setBounds(REC_KADERYRB);
+			jRBTeamsHaveKaderYes.setActionCommand("true");
+			jRBTeamsHaveKaderYes.setOpaque(false);
+			jRBTeamsHaveKaderYes.setVisible(false);
+		}
+		{
+			jRBTeamsHaveKaderNo = new JRadioButton("nein");
+			jPnlBackground.add(jRBTeamsHaveKaderNo);
+			jRBTeamsHaveKaderNo.setBounds(REC_KADERNRB);
+			jRBTeamsHaveKaderNo.setActionCommand("false");
+			jRBTeamsHaveKaderNo.setOpaque(false);
+			jRBTeamsHaveKaderNo.setVisible(false);
+		}
+		{
+			teamsHaveKaderRBGrp = new ButtonGroup();
+			teamsHaveKaderRBGrp.add(jRBTeamsHaveKaderYes);
+			teamsHaveKaderRBGrp.add(jRBTeamsHaveKaderNo);
+		}
+		{
+			// TODO
+		}
+		// Data
 		{
 			jCBNumberOfTeams = new JComboBox<>();
 			jPnlBackground.add(jCBNumberOfTeams);
@@ -192,7 +337,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		{
 			jLblDatum = new JLabel();
 			jPnlBackground.add(jLblDatum);
-			jLblDatum.setText("Gruendungsdatum");
+			jLblDatum.setText("Gründungsdatum");
 			jLblDatum.setVisible(false);
 		}
 		{
@@ -230,9 +375,48 @@ public class NeueLigaSaisonDialog extends JFrame {
 			});
 		}
 		
-		setTitle("Neue Liga erstellen");
+		setTitle("Neue Liga-Saison erstellen");
 		setSize(WIDTH, HEIGHT);
 		setResizable(false);
+	}
+	
+	private void changeOrSaveConfiguration() {
+		if (teamChangeMode)	changeMode();
+		if (changingConfiguration) {
+			season = Integer.parseInt(jTFSaison.getText());
+			isSummerToSpringSeason = jRBCalendarYearNo.isSelected();
+			numberOfMatchesAgainstSameOpponent = Integer.parseInt(jTFSameOpponent.getText());
+			goalDifference = jRBGoalDifferenceYes.isSelected();
+			teamsHaveKader = jRBTeamsHaveKaderYes.isSelected();
+			jLblConfiguration.setText("Konfiguration ändern");
+			jLblSaison.setText("Saison " + season);
+			
+		} else {
+			jLblConfiguration.setText("Konfiguration speichern");
+			jLblSaison.setText("Saison");
+		}
+		
+		changingConfiguration = !changingConfiguration;
+		jCBNumberOfTeams.setVisible(!changingConfiguration);
+		jLblNumberOfTeams.setVisible(!changingConfiguration);
+		jLblBearbeiten.setVisible(!changingConfiguration);
+		for (int i = 0; i < jLblsMannschaftenAlteSaison.length; i++) {
+			jLblsMannschaftenAlteSaison[i].setVisible(!changingConfiguration && !jLblsMannschaftenAlteSaison[i].getText().equals(""));
+			jLblsMannschaftenNeueSaison[i].setVisible(!changingConfiguration && !jLblsMannschaftenNeueSaison[i].getText().equals("n/a"));
+		}
+		
+		jTFSaison.setVisible(changingConfiguration);
+		jLblCalendarYear.setVisible(changingConfiguration);
+		jRBCalendarYearYes.setVisible(changingConfiguration);
+		jRBCalendarYearNo.setVisible(changingConfiguration);
+		jLblSameOpponent.setVisible(changingConfiguration);
+		jTFSameOpponent.setVisible(changingConfiguration);
+		jLblGoalDifference.setVisible(changingConfiguration);
+		jRBGoalDifferenceYes.setVisible(changingConfiguration);
+		jRBGoalDifferenceNo.setVisible(changingConfiguration);
+		jLblTeamsHaveKader.setVisible(changingConfiguration);
+		jRBTeamsHaveKaderYes.setVisible(changingConfiguration);
+		jRBTeamsHaveKaderNo.setVisible(changingConfiguration);
 	}
 	
 	private void jCBNumberOfTeamsItemStateChanged(ItemEvent evt) {
@@ -271,7 +455,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private void putOldTeamToNextFreePosition(int index) {
 		if (oldSeasonTeamsOrder.size() <= anzahl[4]) {
-			if(yesNoDialog("Laut Konfiguration muessen " + anzahl[4] + " Mannschaften absteigen. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
+			if(yesNoDialog("Laut Konfiguration müssen " + anzahl[4] + " Mannschaften absteigen. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
 		}
 		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
 		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(oldSeasonTeamsOrder.get(index).getName());
@@ -280,7 +464,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = index; i < oldSeasonTeamsOrder.size(); i++) {
 			jLblsMannschaftenAlteSaison[i].setText(oldSeasonTeamsOrder.get(i).getName());
 		}
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText("n/a");
+		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText("");
 	}
 	
 	private void changeMode() {
@@ -346,7 +530,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		
 		String grDatum = jTFDatum.getText();
 		if (name.isEmpty()) {
-			message("Bitte Gruendungsdatum angeben!");
+			message("Bitte Gründungsdatum angeben!");
 			return;
 		}
 		int datum = MyDate.getDate(grDatum);
@@ -374,7 +558,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	}
 	
 	public void setConfigurationFromPreviousSeason(LigaSaison lSeason) {
-		season = (lSeason.getSeason() + 1);
+		season = (lSeason.getYear() + 1);
 		isSummerToSpringSeason = lSeason.isSTSS();
 		setOldMannschaften(lSeason.getMannschaften());
 		numberOfMatchesAgainstSameOpponent = lSeason.getNumberOfMatchesAgainstSameOpponent();
@@ -384,7 +568,12 @@ public class NeueLigaSaisonDialog extends JFrame {
 		setAnzahlen(lSeason);
 		
 		// TODO create more textfields, radiobuttons etc. to enable changing the config
+		jLblSaison.setText("Saison " + season);
 		jTFSaison.setText("" + season);
+		(isSummerToSpringSeason ? jRBCalendarYearNo : jRBCalendarYearYes).setSelected(true);
+		jTFSameOpponent.setText("" + numberOfMatchesAgainstSameOpponent);
+		(goalDifference ? jRBGoalDifferenceYes : jRBGoalDifferenceNo).setSelected(true);
+		(teamsHaveKader ? jRBTeamsHaveKaderYes : jRBTeamsHaveKaderNo).setSelected(true);
 	}
 	
 	private void setOldMannschaften(Mannschaft[] mannschaften) {

@@ -15,8 +15,10 @@ public class LigaSaison implements Wettbewerb {
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	
-	private Mannschaft[] mannschaften;
+	private int numberOfReferees;
+	private ArrayList<Schiedsrichter> referees;
 	private int numberOfTeams;
+	private Mannschaft[] mannschaften;
 	private int halbeAnzMSAuf;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
@@ -47,6 +49,9 @@ public class LigaSaison implements Wettbewerb {
 	
 	private boolean geladen;
 	private String workspace;
+	
+	private String fileReferees;
+	private ArrayList<String> refereesFromFile;
 	
 	private String dateiMannschaften;
 	private ArrayList<String> mannschaftenFromFile;
@@ -83,7 +88,7 @@ public class LigaSaison implements Wettbewerb {
 		return seasonIndex;
 	}
 	
-	public int getSeason() {
+	public int getYear() {
 		return season;
 	}
 	
@@ -141,6 +146,21 @@ public class LigaSaison implements Wettbewerb {
 	
 	public LigaStatistik getLigaStatistik() {
 		return statistik;
+	}
+	
+	public ArrayList<Schiedsrichter> getReferees() {
+		return referees;
+	}
+	
+	public String[] getAllReferees() {
+		String[] allReferees = new String[referees.size() + 1];
+		
+		allReferees[0] = "Bitte wählen";
+		for (int i = 1; i < allReferees.length; i++) {
+			allReferees[i] = referees.get(i - 1).getFullName();
+		}
+		
+		return allReferees;
 	}
 	
 	public Mannschaft[] getMannschaften() {
@@ -461,7 +481,9 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (dates[m2] > dates[m])		hilfsarray[m2]++;
+				if (times[m] == -1)				hilfsarray[m2]++;
+				else if (times[m2] == -1)		hilfsarray[m]++;
+				else if (dates[m2] > dates[m])	hilfsarray[m2]++;
 				else if (dates[m2] < dates[m])	hilfsarray[m]++;
 				else if (times[m2] > times[m])	hilfsarray[m2]++;
 				else if (times[m2] < times[m])	hilfsarray[m]++;
@@ -532,8 +554,9 @@ public class LigaSaison implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				if (isSpielplanEntered(i, j) && !isErgebnisplanEntered(i, j) && getDate(i, j) > 0) {
-					long match = 10000L * getDate(i, j) + getTime(i, j);
+				int date = getDate(i, j), time = getTime(i, j);
+				if (isSpielplanEntered(i, j) && date > 0 && (!inThePast(date, time, 145) || !isErgebnisplanEntered(i, j))) {
+					long match = 10000L * date + time;
 					if (nextMatches.size() < 10 || match < nextMatches.get(9)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
@@ -607,6 +630,26 @@ public class LigaSaison implements Wettbewerb {
 		ergebnisplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 	}
 	
+	public void loadReferees() {
+		refereesFromFile = ausDatei(fileReferees, false);
+		
+		numberOfReferees = refereesFromFile.size();
+		referees = new ArrayList<>();
+		for (int i = 0; i < numberOfReferees; i++) {
+			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
+		}
+	}
+	
+	public void saveReferees() {
+		refereesFromFile.clear();
+		
+		for (int i = 0; i < referees.size(); i++) {
+			refereesFromFile.add(referees.get(i).toString());
+		}
+		
+		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+	}
+	
 	public void mannschaftenLaden() {
 		mannschaftenFromFile = ausDatei(dateiMannschaften);
 		
@@ -626,6 +669,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		mannschaftenFromFile.add("" + numberOfTeams);
 		for (int i = 0; i < mannschaften.length; i++) {
+			mannschaften[i].save();
 			mannschaftenFromFile.add(mannschaften[i].toString());
 		}
 		
@@ -792,7 +836,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				spieldatenFromFile.add((getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null"));
+				spieldatenFromFile.add(getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null");
 			}
 		}
 		
@@ -804,7 +848,9 @@ public class LigaSaison implements Wettbewerb {
 		dateiSpieldaten = workspace + "Spieldaten.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
 		dateiMannschaften = workspace + "Mannschaften.txt";
+		fileReferees = workspace + "Schiedsrichter.txt";
 		
+		loadReferees();
 		mannschaftenLaden();
 		initializeArrays();
 		
@@ -837,6 +883,7 @@ public class LigaSaison implements Wettbewerb {
 		if (!geladen)	return;
 		
 		saveNextMatches();
+		saveReferees();
 		mannschaftenSpeichern();
 		spielplanSpeichern();
 		ergebnisseSpeichern();
@@ -908,7 +955,7 @@ class AnstossZeit {
 	public String getDateAndTime(int startDate) {
 		String datum, uhrzeit = " k. A.";
 		
-		int date = MyDate.verschoben(startDate, daysSince != -1 ? daysSince : 0);
+		int date = MyDate.verschoben(startDate, time != -1 || daysSince != -1 ? daysSince : 0);
 		datum = MyDate.datum(date);
 		if (time != -1)	uhrzeit = MyDate.uhrzeit(time);
 		

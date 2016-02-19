@@ -1,9 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+
 public interface Wettbewerb {
 
 	public int getID();
+	public int getYear();
 	public String getName();
+	public boolean isSTSS();
 	public String getWorkspace();
 	public int getCurrentMatchday();
 	public int getNewestStartedMatchday();
@@ -21,6 +25,9 @@ public interface Wettbewerb {
 	
 	public int getDate(int matchday, int match);
 	public int getTime(int matchday, int match);
+	
+	public ArrayList<Schiedsrichter> getReferees();
+	public String[] getAllReferees();
 	
 	public Mannschaft[] getMannschaften();
 	

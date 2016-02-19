@@ -73,6 +73,10 @@ public class TurnierSaison {
 		return season;
 	}
 	
+	public boolean isSTSS() {
+		return isSummerToSpringSeason;
+	}
+	
 	public String getSeasonFull(String trennzeichen) {
 		return season + (isSummerToSpringSeason ? trennzeichen + (season + 1) : "");
 	}

@@ -10,8 +10,6 @@ public class Wechsel {
 	private Spieler ausgewechselterSpieler;
 	private Spieler eingewechselterSpieler;
 	
-	private String toString;
-	
 	public Wechsel(Spiel spiel, boolean firstTeam, int minute, Spieler ausgSpieler, Spieler eingSpieler) {
 		this.spiel = spiel;
 		this.firstTeam = firstTeam;
@@ -19,7 +17,6 @@ public class Wechsel {
 		this.ausgewechselterSpieler = ausgSpieler;
 		this.eingewechselterSpieler = eingSpieler;
 		
-		toString = minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
 		log("Substitution by " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
 				", in the " + minute + ". minute " + ausgewechselterSpieler.getPseudonymOrLN() + 
 				" leaves the pitch and is replaced by " + eingewechselterSpieler.getPseudonymOrLN());
@@ -57,11 +54,9 @@ public class Wechsel {
 		ausgewechselterSpieler = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAusg, spiel.getDate());
 		int sqEing = Integer.parseInt(daten.substring(daten.indexOf(">>") + 2));
 		eingewechselterSpieler = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqEing, spiel.getDate());
-		
-		toString = minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
 	}
 	
 	public String toString() {
-		return toString;
+		return minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
 	}
 }

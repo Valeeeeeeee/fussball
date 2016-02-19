@@ -1,9 +1,12 @@
 package util;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -22,6 +25,8 @@ public class Utilities {
 	public static final Color colorCategory4 = new Color(255, 128, 0);
 	public static final Color colorCategory5 = new Color(255, 0, 0);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
+	
+	public static Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
 	public static final int STARTX = 0;
 	public static final int STARTY = 1;
@@ -70,6 +75,13 @@ public class Utilities {
 	    g.dispose();
 	    
 	    return resizedImage;
+	}
+	
+	public static void removeAllMouseListeners(Component comp) {
+		MouseListener[] mls = comp.getMouseListeners();
+		for (int i = 0; i < mls.length; i++) {
+			comp.removeMouseListener(mls[0]);
+		}
 	}
 	
 	public static void repaintImmediately(JComponent component) {
@@ -132,6 +144,30 @@ public class Utilities {
 		return osX ? "\u2b06" : "\u2191";
 	}
 	
+	public static int numberOfDaysInMonth(int month, int year) {
+		switch (month) {
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				return 31;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				return 30;
+			case 2:
+				if (year % 4 != 0)	return 28;
+				if (year % 100 == 0 && year % 400 != 0)	return 28;
+				return 29;
+			default:
+				return 0;
+		}
+	}
+	
 	public static String removeUmlaute(String name) {
 		for (int i = 0; i < name.length(); i++) {
 			int chAt = name.charAt(i);
@@ -142,7 +178,7 @@ public class Utilities {
 			else if (200 <= chAt && chAt <= 203)	name = name.substring(0, i) + "E" + name.substring(i + 1);
 			else if (204 <= chAt && chAt <= 207)	name = name.substring(0, i) + "I" + name.substring(i + 1);
 			else if (chAt == 209)					name = name.substring(0, i) + "N" + name.substring(i + 1);
-			else if (210 <= chAt && chAt <= 214)	name = name.substring(0, i) + "O" + name.substring(i + 1);
+			else if (210 <= chAt && chAt <= 213)	name = name.substring(0, i) + "O" + name.substring(i + 1);
 			else if (chAt == 214 || chAt == 216)	name = name.substring(0, i) + "Oe" + name.substring(i + 1);
 			else if (217 <= chAt && chAt <= 219)	name = name.substring(0, i) + "U" + name.substring(i + 1);
 			else if (chAt == 220)					name = name.substring(0, i) + "Ue" + name.substring(i + 1);
@@ -162,11 +198,27 @@ public class Utilities {
 		return name;
 	}
 	
+	public static <E> boolean isIn(E obj, E[] array) {
+		for (int i = 0; i < array.length; i++) {
+			if (obj.equals(array[i]))	return true;
+		}
+		return false;
+	}
+	
 	public static <E> boolean isElementOf(E obj, ArrayList<E> list) {
 		for (int i = 0; i < list.size(); i++) {
 			if (obj.equals(list.get(i)))	return true;
 		}
 		return false;
+	}
+	
+	public static boolean inThePast(int date, int time, int timeDifference) {
+		time += timeDifference + (time % 100 < 15 ? 0 : 40);
+		if (time > 2359) {
+			date = MyDate.verschoben(date, 1);
+			time -= 2400;
+		}
+		return inThePast(date, time);
 	}
 	
 	public static boolean inThePast(int date, int time) {

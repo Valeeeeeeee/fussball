@@ -2,16 +2,18 @@ Ralf;Fährmann;null;19880927;Deutschland;Tor;1
 Fabian;Giefer;null;19900517;Deutschland;Tor;34
 Michael;Gspurning;null;19810502;Österreich;Tor;30
 Dennis;Aogo;null;19870114;Deutschland;Abwehr;15
-Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24
+Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24;-20151231
 Marvin;Friedrich;null;19951213;Deutschland;Abwehr;2
 Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4
 Uilson;de Souza Paula Junior;Junior Caiçara;19890427;Brasilien;Abwehr;3
+Thilo;Kehrer;null;19960921;Deutschland;Abwehr;20
 Sead;Kolasinac;null;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;6
 Joel;Matip;null;19910808;Deutschland, Kamerun;Abwehr;32
 Matija;Nastasic;null;19930328;Serbien;Abwehr;31
 Sascha;Riether;null;19830323;Deutschland;Abwehr;27
-Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;28
+Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;28;-20151231
 Atsuto;Uchida;null;19880327;Japan;Abwehr;22
+Younes;Belhanda;null;19900225;Frankreich, Marokko;Mittelfeld;11;20160101-
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10;-20150830
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;5
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
@@ -19,9 +21,11 @@ Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
 Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;23;20150828-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
+Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;21;20160101-
 Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
 Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
-Felix;Platte;null;19960211;Deutschland;Sturm;36
+Felix;Platte;null;19960211;Deutschland;Sturm;36;-20160131
+Fabian;Reese;null;19971129;Deutschland;Sturm;16
 Sidney;Sam;null;19880131;Deutschland;Sturm;18
 Leroy;Sané;null;19960111;Deutschland;Sturm;19

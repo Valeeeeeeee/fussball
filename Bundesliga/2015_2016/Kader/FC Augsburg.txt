@@ -1,6 +1,7 @@
 Marwin;Hitz;null;19870918;Schweiz;Tor;35
 Alexander;Manninger;null;19770604;Österreich;Tor;1
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
+Jeffrey;Gouweleeuw;null;19910710;Niederlande;Abwehr;6;20160101-
 Jeong-Ho;Hong;null;19890812;Südkorea;Abwehr;20
 Christoph;Janker;null;19850214;Deutschland;Abwehr;16
 Ragnar;Klavan;null;19851030;Estland;Abwehr;5
@@ -17,9 +18,13 @@ Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
 Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19;20150831-
 Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14
 Shawn;Parker;null;19930307;Deutschland;Mittelfeld;9
+Erik;Thommy;null;19940820;Deutschland;Mittelfeld;36;20160131-
 Piotr;Trochowski;null;19840322;Deutschland;Mittelfeld;15
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;13
+Albian;Ajeti;null;19970226;Schweiz, Albanien;Sturm;17;20160101-
 Raúl;Bobadilla;null;19870618;Argentinien;Sturm;25
+Nikola;Djurdjic;null;19860401;Serbien;Sturm;34;20160101-20160131
+Alfred;Finnbogason;null;19890201;Island;Sturm;27;20160201-
 Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
-Tim;Matavz;null;19890113;Slowenien;Sturm;23
-Sascha;Mölders;null;19850320;Deutschland;Sturm;33
+Tim;Matavz;null;19890113;Slowenien;Sturm;23;-20160131
+Sascha;Mölders;null;19850320;Deutschland;Sturm;33;-20151231

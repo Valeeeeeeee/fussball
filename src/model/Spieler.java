@@ -1,13 +1,17 @@
 package model;
 
+import static util.Utilities.*;
+
 public class Spieler {
 
 	private String trennZeichen = ";";
 	
 	private String firstName;
 	private String firstNameShort;
+	private String firstNameFile;
 	private String lastName;
 	private String lastNameShort;
+	private String lastNameFile;
 	private String distinctName;
 	private String pseudonym;
 	private int birthDate;
@@ -20,6 +24,7 @@ public class Spieler {
 	
 	private int firstDate = -1;
 	private int lastDate = -1;
+	private int secondFDate = -1;
 	
 	public Spieler(String data, Mannschaft team) {
 		fromString(data, team);
@@ -44,9 +49,18 @@ public class Spieler {
 		return this.firstNameShort;
 	}
 	
-	private void setFirstName(String firstName) {
-		this.firstName = firstName;
-		firstNameShort = firstName.split(" ")[0];
+	public String getFirstNameFile() {
+		return this.firstNameFile;
+	}
+	
+	private void setFirstName(String firstNameFile) {
+		this.firstNameFile = firstNameFile;
+		this.firstName = firstNameFile.replace("'", "");
+		if (firstNameFile.contains("'") && firstNameFile.indexOf("'") < firstNameFile.lastIndexOf("'")) {
+			firstNameShort = firstNameFile.substring(firstNameFile.indexOf("'") + 1, firstNameFile.lastIndexOf("'"));
+		} else {
+			firstNameShort = firstNameFile.split(" ")[0];
+		}
 	}
 
 	public String getLastName() {
@@ -57,11 +71,18 @@ public class Spieler {
 		return this.lastNameShort;
 	}
 	
-	private void setLastName(String lastName) {
-		this.lastName = lastName;
+	public String getLastNameFile() {
+		return this.lastNameFile;
+	}
+	
+	private void setLastName(String lastNameFile) {
+		this.lastNameFile = lastNameFile;
+		this.lastName = lastNameFile.replace("'", "");
 		
-		String[] lastNameSplit = lastName.split(" ");
-		if (lastNameSplit.length > 1) {
+		String[] lastNameSplit = lastNameFile.split(" ");
+		if (lastNameFile.contains("'") && lastNameFile.indexOf("'") < lastNameFile.lastIndexOf("'")) {
+			lastNameShort = lastNameFile.substring(lastNameFile.indexOf("'") + 1, lastNameFile.lastIndexOf("'"));
+		} else if (lastNameSplit.length > 1) {
 			int countUpperCaseLastNames = 0;
 			for (int i = 0; i < lastNameSplit.length; i++) {
 				if (lastNameSplit[i].charAt(0) != lastNameSplit[i].toLowerCase().charAt(0))	countUpperCaseLastNames++;
@@ -69,10 +90,10 @@ public class Spieler {
 			if (countUpperCaseLastNames > 1) {
 				lastNameShort = lastNameSplit[0];
 			} else {
-				lastNameShort = lastName;
+				lastNameShort = lastNameFile;
 			}
 		} else {
-			lastNameShort = lastName;
+			lastNameShort = lastNameFile;
 		}
 	}
 	
@@ -136,16 +157,56 @@ public class Spieler {
 		return lastDate;
 	}
 	
+	public int getSecondFirstDate() {
+		return secondFDate;
+	}
+	
 	public boolean isEligible(int date) {
-		if (date < firstDate)					return false;
-		if (lastDate != -1 && date > lastDate)	return false;
+		if (date == 0)									return false;
+		if (date < firstDate)							return false;
+		if (secondFDate != -1 && date >= secondFDate)	return true;
+		if (lastDate != -1 && date > lastDate)			return false;
 		
 		return true;
 	}
 	
+	public boolean playedAtTheSameTimeAs(int otherFirstDate, int otherLastDate, int otherSecondFDate) {
+		boolean this2FD = secondFDate != -1, other2FD = otherSecondFDate != -1;
+		if (this2FD && other2FD || firstDate == otherFirstDate || lastDate == otherLastDate)	return true;
+		int fDate = firstDate == -1 ? 101 : firstDate, lDate = lastDate == -1 ? 99991231 : lastDate;
+		int oFDate = otherFirstDate == -1 ? 101 : otherFirstDate, oLDate = otherLastDate == -1 ? 99991231 : otherLastDate;
+		if (other2FD)		return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate);
+		else if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate);
+		else				return (oFDate <= lDate && fDate <= oLDate);
+	}
+	
+	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
+		team.changeSquadNumber(this, squadNumber);
+		setFirstName(firstName);
+		setLastName(lastName);
+		this.pseudonym = pseudonym;
+		this.birthDate = birthDate;
+		this.nationality = nationality;
+		this.position = Position.getPositionFromString(position);
+		this.squadNumber = squadNumber;
+		this.firstDate = firstDate;
+		this.lastDate = lastDate;
+		this.secondFDate = secondFDate;
+		team.playerUpdated();
+	}
+	
+	public boolean inOrderBefore(Spieler other) {
+		if (position.getID() < other.position.getID())	return true;
+		if (position.getID() > other.position.getID())	return false;
+		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastName).toLowerCase();
+		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastName).toLowerCase();
+		if (myName.equals(otherName))	return firstName.compareTo(other.firstName) < 0;
+		else return						myName.compareTo(otherName) < 0;
+	}
+	
 	public String toString() {
-		String stringRep = this.firstName + trennZeichen;
-		stringRep += this.lastName + trennZeichen;
+		String stringRep = this.firstNameFile + trennZeichen;
+		stringRep += this.lastNameFile + trennZeichen;
 		stringRep += this.pseudonym + trennZeichen;
 		stringRep += this.birthDate + trennZeichen;
 		stringRep += this.nationality + trennZeichen;
@@ -153,6 +214,7 @@ public class Spieler {
 		stringRep += this.squadNumber;
 		if (this.firstDate + this.lastDate != -2) {
 			stringRep += trennZeichen + (this.firstDate != -1 ? this.firstDate : "") + "-" + (this.lastDate != -1 ? this.lastDate : "");
+			if (secondFDate != -1)	stringRep += "," + this.secondFDate + "-";
 		}
 		return stringRep;
 	}
@@ -169,9 +231,11 @@ public class Spieler {
 		this.team = team;
 		this.squadNumber = Integer.parseInt(dataSplit[6]);
 		if (dataSplit.length >= 8) {
-			String[] dates = dataSplit[7].split("\\-");
+			String[] allDates = dataSplit[7].split(",");
+			String[] dates = allDates[0].split("\\-");
 			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
 			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
+			if (allDates.length > 1)						secondFDate = Integer.parseInt(allDates[1].substring(0, allDates[1].indexOf("-")));
 		}
 	}
 }

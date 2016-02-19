@@ -4,18 +4,19 @@ Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Dominique;Heintz;null;19930815;Deutschland;Abwehr;3
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
 Mergim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
+Filip;Mladenovic;null;19910815;Serbien;Abwehr;25;20160101-
 Pawel;Olkowski;null;19900213;Polen;Abwehr;16
 Frederik;Sørensen;null;19920414;Dänemark;Abwehr;4
 Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;21
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;31
 Milos;Jojic;null;19920319;Serbien;Mittelfeld;8
 Matthias;Lehmann;null;19830528;Deutschland;Mittelfeld;33
-Kazuki;Nagasawa;null;19911216;Japan;Mittelfeld;25
+Kazuki;Nagasawa;null;19911216;Japan;Mittelfeld;25;-20151231
 Slawomir;Peszko;null;19850219;Polen;Mittelfeld;17;-20150830
 Marcel;Risse;null;19891217;Deutschland;Mittelfeld;7
 Dusan;Svento;null;19850801;Slowakei;Mittelfeld;29
 Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;6
-Bård;Finne;null;19950213;Norwegen;Sturm;26
+Bård;Finne;null;19950213;Norwegen;Sturm;26;-20151231
 Philipp;Hosiner;null;19890515;Österreich;Sturm;15
 Anthony;Modeste;null;19880414;Frankreich;Sturm;27
 Yuya;Osako;null;19900518;Japan;Sturm;13

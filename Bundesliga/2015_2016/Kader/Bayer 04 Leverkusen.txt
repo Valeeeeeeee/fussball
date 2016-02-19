@@ -2,7 +2,7 @@ Dario;Kresic;null;19840111;Kroatien;Tor;25
 Bernd;Leno;null;19920304;Deutschland;Tor;1
 David;Yelldell;null;19811001;Deutschland, USA;Tor;22
 Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;17
-Giulio;Donati;null;19900205;Italien;Abwehr;26
+Giulio;Donati;null;19900205;Italien;Abwehr;26;-20160124
 Roberto;Hilbert;null;19841016;Deutschland;Abwehr;13
 Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
 Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;5
@@ -14,15 +14,16 @@ Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
 Charles;Aránguiz;null;19890417;Chile;Mittelfeld;20
 Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
 Hakan;Çalhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
+Marlon;Frey;null;19960324;Deutschland;Mittelfeld;37
 Benjamin;Henrichs;null;19970223;Deutschland;Mittelfeld;39
 Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;20150828-
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
-Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24
+Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24;-20160131
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
 Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
 Julian;Brandt;null;19960502;Deutschland;Sturm;19
 Javier;Hernández;null;19880601;Mexiko;Sturm;7;20150831-
 Stefan;Kießling;null;19840125;Deutschland;Sturm;11
-Robbie;Kruse;null;19881005;Australien;Sturm;27;-20150830
+Robbie;Kruse;null;19881005;Australien;Sturm;27;-20150830,20160201-
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
 Heung-Min;Son;null;19920708;Südkorea;Sturm;7;-20150827

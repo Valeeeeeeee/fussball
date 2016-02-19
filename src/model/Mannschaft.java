@@ -39,6 +39,7 @@ public class Mannschaft {
 	public final static int HOME = 4;
 	public final static int AWAY = 5;
 	
+	public static final int NUMBEROFPERFORMANCEDATA = 10;
 	public static final int MATCHES_PLAYED = 0;
 	public static final int MATCHES_STARTED = 1;
 	public static final int MATCHES_SUB_ON = 2;
@@ -103,9 +104,9 @@ public class Mannschaft {
 		return wettbewerb.getWorkspace() + "Bilder" + File.separator + nameForFileSearch + File.separator;
 	}
 	
-	public int getNumberOfPlayers(boolean onlyEligible) {
+	public int getNumberOfPlayers(boolean onlyEligible, boolean forceUpdate) {
 		if (onlyEligible) {
-			updateEligiblePlayers(Start.today());
+			updateEligiblePlayers(Start.today(), forceUpdate);
 			return eligiblePlayers.size();
 		}
 		return kader.size();
@@ -119,6 +120,67 @@ public class Mannschaft {
 		}
 		
 		return numberOfUsedPlayers;
+	}
+	
+	public ArrayList<Spieler> getPlayers() {
+		return kader;
+	}
+	
+	private void sortPlayers() {
+		ArrayList<Spieler> unsorted = new ArrayList<>();
+		for (Spieler spieler : kader) {
+			unsorted.add(spieler);
+		}
+		kader.clear();
+		int index;
+		for (int i = 0; i < unsorted.size(); i++) {
+			Spieler player = unsorted.get(i);
+			index = 0;
+			for (int j = 0; j < kader.size(); j++) {
+				if (player.inOrderBefore(kader.get(j)))	break;
+				index++;
+			}
+			kader.add(index, player);
+		}
+	}
+	
+	public int getNextFreeSquadNumber() {
+		int squadNumber = 1;
+		boolean collision;
+		
+		for (int i = 0; i < 100; i++) {
+			collision = false;
+			for (int j = 0; j < kader.size() && !collision; j++) {
+				collision = kader.get(j).getSquadNumber() == squadNumber;
+			}
+			if (!collision)	return squadNumber;
+			squadNumber++;
+		}
+		
+		return squadNumber;
+	}
+	
+	public void addPlayer(Spieler player) {
+		kader.add(player);
+		numberOfPlayersByPosition[player.getPosition().getID()]++;
+		numberOfPlayers++;
+		sortPlayers();
+		distinguishNames();
+		updateEligiblePlayers(Start.today(), true);
+		updateIneligiblePlayers(Start.today(), true);
+	}
+	
+	public void playerUpdated() {
+		sortPlayers();
+		distinguishNames();
+	}
+	
+	public void changeSquadNumber(Spieler player, int newSquadNumber) {
+		int oldSquadNumber = player.getSquadNumber();
+		for (int i = 0; i < spiele.length; i++) {
+			if (spiele[i] == null || !player.isEligible(spiele[i].getDate())) continue;
+			spiele[i].changeSquadNumberInLineup(spiele[i].getHomeTeam() == this, oldSquadNumber, newSquadNumber);
+		}
 	}
 	
 	private void loadKader() {
@@ -136,10 +198,15 @@ public class Mannschaft {
 			kader.add(new Spieler(spieler.get(i), this));
 			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
 		}
+		sortPlayers();
 		distinguishNames();
 	}
 	
-	public void saveKader() {
+	public void save() {
+		saveKader();
+	}
+	
+	private void saveKader() {
 		if (!wettbewerb.teamsHaveKader())	return;
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
@@ -182,6 +249,59 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
+	public ArrayList<int[]> getPerformanceDataMatchByMatch(Spieler player) {
+		int squadNumber = player.getSquadNumber();
+		ArrayList<int[]> performanceData = new ArrayList<>();
+		
+		for (Spiel spiel : spiele) {
+			if (spiel != null) {
+				if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
+				if (!player.isEligible(spiel.getDate()))	continue;
+				boolean played = false, home = homeaway[spiel.getMatchday()];
+				int[] lineup = home ? spiel.getLineupHome() : spiel.getLineupAway();
+				if (lineup == null)	continue;
+				int otherTeam = home ? spiel.away() : spiel.home();
+				int firstMinute = 91, lastMinute = 91, goals = 0, assists = 0, booked = 0, bookedTwice = 0, redCard = 0;
+				ArrayList<Wechsel> substitutions = spiel.getSubstitutions(home);
+				ArrayList<Tor> tore = spiel.getTore();
+				ArrayList<Karte> bookings = spiel.getBookings();
+				
+				for (int j = 0; j < lineup.length; j++) {
+					if (lineup[j] == squadNumber) {
+						played = true;
+						firstMinute = 1;
+					}
+				}
+				for (Wechsel wechsel : substitutions) {
+					if (wechsel.getEingewechselterSpieler() == player) {
+						played = true;
+						firstMinute = wechsel.getMinute();
+					} else if (wechsel.getAusgewechselterSpieler() == player) {
+						lastMinute = wechsel.getMinute();
+					}
+				}
+				for (Tor tor : tore) {
+					if (!tor.isOwnGoal() && home == tor.isFirstTeam() && tor.getScorer() == player) {
+						goals++;
+					} else if (home == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+						assists++;
+					}
+				}
+				for (Karte booking : bookings) {
+					if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
+						if (booking.isSecondBooking())		bookedTwice = booking.getMinute();
+						else if (booking.isYellowCard())	booked = booking.getMinute();
+						else								redCard = booking.getMinute();
+					}
+				}
+				
+				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(new int[] {spiel.getMatchday(), otherTeam, firstMinute, lastMinute, goals, assists, booked, bookedTwice, redCard});
+			}
+		}
+		
+		return performanceData;
+	}
+	
 	public int[] getPerformanceData(Spieler player) {
 		for (int i = 0; i < kader.size(); i++) {
 			if (kader.get(i) == player)	return performanceData[i];
@@ -198,13 +318,14 @@ public class Mannschaft {
 			int squadNumber = player.getSquadNumber();
 			
 			for (Spiel spiel : spiele) {
-				if (player.getLastDate() != -1 && player.getLastDate() < spiel.getDate())	continue;
-				if (player.getFirstDate() != -1 && player.getFirstDate() > spiel.getDate())	continue;
 				if (spiel != null) {
-					int[] lineup = homeaway[spiel.getMatchday()] ? spiel.getLineupHome() : spiel.getLineupAway();
+					if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
+					if (!player.isEligible(spiel.getDate()))	continue;
+					boolean home = homeaway[spiel.getMatchday()];
+					int[] lineup = home ? spiel.getLineupHome() : spiel.getLineupAway();
 					if (lineup == null)	continue;
 					int firstMinute = 91, lastMinute = 91;
-					ArrayList<Wechsel> substitutions = spiel.getSubstitutions(homeaway[spiel.getMatchday()]);
+					ArrayList<Wechsel> substitutions = spiel.getSubstitutions(home);
 					ArrayList<Tor> tore = spiel.getTore();
 					ArrayList<Karte> bookings = spiel.getBookings();
 					
@@ -226,14 +347,14 @@ public class Mannschaft {
 						}
 					}
 					for (Tor tor : tore) {
-						if (!tor.isOwnGoal() && homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getScorer() == player) {
+						if (!tor.isOwnGoal() && home == tor.isFirstTeam() && tor.getScorer() == player) {
 							goals++;
-						} else if (homeaway[spiel.getMatchday()] == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
+						} else if (home == tor.isFirstTeam() && tor.getAssistgeber() != null && tor.getAssistgeber() == player) {
 							assists++;
 						}
 					}
 					for (Karte booking : bookings) {
-						if (booking.isFirstTeam() == homeaway[spiel.getMatchday()] && booking.getBookedPlayer() == player) {
+						if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
 							if (booking.isSecondBooking()) {
 								booked--;
 								bookedTwice++;
@@ -474,8 +595,8 @@ public class Mannschaft {
 		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
 	}
 	
-	private void updateEligiblePlayers(int date) {
-		if (lastUpdatedEligibleForDate == date)	return;
+	private void updateEligiblePlayers(int date, boolean forceUpdate) {
+		if (!forceUpdate && lastUpdatedEligibleForDate == date)	return;
 		
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
@@ -490,8 +611,8 @@ public class Mannschaft {
 		lastUpdatedEligibleForDate = date;
 	}
 	
-	private void updateIneligiblePlayers(int date) {
-		if (lastUpdatedIneligibleForDate == date)	return;
+	private void updateIneligiblePlayers(int date, boolean forceUpdate) {
+		if (!forceUpdate && lastUpdatedIneligibleForDate == date)	return;
 		
 		ineligiblePlayers.clear();
 		
@@ -504,18 +625,18 @@ public class Mannschaft {
 		lastUpdatedIneligibleForDate = date;
 	}
 	
-	public int getCurrentNumberOfPlayers(int date) {
-		updateEligiblePlayers(date);
+	public int getCurrentNumberOfPlayers(int date, boolean forceUpdate) {
+		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers.size();
 	}
 	
-	public ArrayList<Spieler> getEligiblePlayers(int date) {
-		updateEligiblePlayers(date);
+	public ArrayList<Spieler> getEligiblePlayers(int date, boolean forceUpdate) {
+		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers;
 	}
 	
-	public ArrayList<Spieler> getIneligiblePlayers(int date) {
-		updateIneligiblePlayers(date);
+	public ArrayList<Spieler> getIneligiblePlayers(int date, boolean forceUpdate) {
+		updateIneligiblePlayers(date, forceUpdate);
 		return ineligiblePlayers;
 	}
 	
@@ -710,7 +831,7 @@ public class Mannschaft {
 				for (int j = 0; j < teamsSamePoints.size(); j++) {
 					if (i == j)	continue;
 					Mannschaft team2 = otherTeams[teamsSamePoints.get(j) - 1];
-					for (int k = 0; k < untilMatchday; k++) {
+					for (int k = 0; k <= untilMatchday; k++) {
 						if (team1.daten[k][OPPONENT] == team2.id) {
 							goals[i] += team1.daten[k][GOALS];
 							goalsOpp[i] += team1.daten[k][CGOALS];

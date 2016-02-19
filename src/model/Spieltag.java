@@ -21,7 +21,6 @@ public class Spieltag extends JPanel {
 	private Color colorUp = new Color(224, 255, 224);
 	private Color colorDown = new Color(96, 255, 96);
 	private Color colorDatum = new Color(255, 191, 31);
-	private Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	private Font fontRR = new Font("Dialog", 1, 18);
 	
 	private JComboBox<String> jCBSpieltage;
@@ -298,7 +297,7 @@ public class Spieltag extends JPanel {
 				jLblsSpieltagsdaten[i] = new JLabel();
 				this.add(jLblsSpieltagsdaten[i]);
 				jLblsSpieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
-				jLblsSpieltagsdaten[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+				jLblsSpieltagsdaten[i].setCursor(handCursor);
 				jLblsSpieltagsdaten[i].setBackground(colorDatum);
 				jLblsSpieltagsdaten[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
@@ -336,7 +335,7 @@ public class Spieltag extends JPanel {
 					this.add(jLblsGruppen[i]);
 					jLblsGruppen[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
 					alignRight(jLblsGruppen[i]);
-					jLblsGruppen[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+					jLblsGruppen[i].setCursor(handCursor);
 					jLblsGruppen[i].addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent evt) {
 							gruppeClicked(x);
@@ -357,7 +356,7 @@ public class Spieltag extends JPanel {
 				if (spalte == 0)	alignRight(jLblsMannschaften[i]);
 				else				alignLeft(jLblsMannschaften[i]);
 				jLblsMannschaften[i].setEnabled(false);
-				jLblsMannschaften[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+				jLblsMannschaften[i].setCursor(handCursor);
 				jLblsMannschaften[i].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						if (editingMatches) {
@@ -703,7 +702,7 @@ public class Spieltag extends JPanel {
 	
 	public void ensureNoOpenedMatchInfos() {
 		while (openedMatchInfos.size() > 0) {
-			openedMatchInfos.get(0).goActionPerformed();
+			openedMatchInfos.get(0).jBtnGoActionPerformed();
 		}
 	}
 

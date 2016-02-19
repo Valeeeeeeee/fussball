@@ -5,6 +5,7 @@ Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
 Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
 Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
 Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
+Martin;Hinteregger;null;19920907;Österreich;Abwehr;5;20160101-
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;27
@@ -15,11 +16,12 @@ Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;8
 André;Hahn;null;19900813;Deutschland;Mittelfeld;28
 Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;10
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
+Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;23;20160101-
 Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
 Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14;20150818-
 Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
-Josip;Drmic;null;19920808;Schweiz;Sturm;9
+Josip;Drmic;null;19920808;Schweiz;Sturm;9;-20160131
 Branimir;Hrgota;null;19930112;Schweden;Sturm;31
 Rafael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11

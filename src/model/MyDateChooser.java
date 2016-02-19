@@ -13,7 +13,7 @@ public class MyDateChooser extends JFrame {
 	/**
 	 * The width of this window for leaague
 	 */
-	public final int WIDTH_LG = 460;
+	public final int WIDTH_LG = 400;
 	/**
 	 * The height of this window for league
 	 */
@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20151210;
-	private int defaultMyTime = 1900;
+	private int defaultMyDate = 20160710;
+	private int defaultMyTime = 2100;
 	private int date;
 	private int time;
 	private int aszindex;
@@ -59,26 +59,26 @@ public class MyDateChooser extends JFrame {
 	private JComboBox<String> jCBMinute;
 	private JButton jBtnGo;
 	
-	private Rectangle REC_LBLSPIEL =	new Rectangle(55, 10, 340, 20);
-	private Rectangle REC_LBLSTARTTAG =	new Rectangle(20, 45, 60, 20);
-	private Rectangle REC_STDAY =		new Rectangle(20, 70, 70, 30);
-	private Rectangle REC_STMONTH =		new Rectangle(90, 70, 70, 30);
-	private Rectangle REC_STYEAR =		new Rectangle(160, 70, 85, 30);
-	private Rectangle REC_DAY =			new Rectangle(20, 110, 70, 30);
-	private Rectangle REC_MONTH =		new Rectangle(90, 110, 70, 30);
-	private Rectangle REC_YEAR =		new Rectangle(160, 110, 85, 30);
-	private Rectangle REC_ANSTOSS =		new Rectangle(250, 70, 110, 30);
-	private Rectangle REC_HOUR =		new Rectangle(20, 140, 70, 30);
-	private Rectangle REC_MINUTE =		new Rectangle(90, 140, 70, 30);
-	private Rectangle REC_GO =			new Rectangle(370, 70, 70, 30);
+	private Rectangle REC_LBLSPIEL =	new Rectangle(20, 10, 360, 20);
+	private Rectangle REC_LBLSTARTTAG =	new Rectangle(15, 45, 60, 20);
+	private Rectangle REC_STDAY =		new Rectangle(15, 70, 70, 30);
+	private Rectangle REC_STMONTH =		new Rectangle(85, 70, 70, 30);
+	private Rectangle REC_STYEAR =		new Rectangle(155, 70, 85, 30);
+	private Rectangle REC_DAY =			new Rectangle(15, 110, 70, 30);
+	private Rectangle REC_MONTH =		new Rectangle(85, 110, 70, 30);
+	private Rectangle REC_YEAR =		new Rectangle(155, 110, 85, 30);
+	private Rectangle REC_ANSTOSS =		new Rectangle(245, 70, 140, 30);
+	private Rectangle REC_HOUR =		new Rectangle(15, 140, 70, 30);
+	private Rectangle REC_MINUTE =		new Rectangle(85, 140, 70, 30);
+	private Rectangle REC_GO =			new Rectangle(315, 40, 70, 25);
 
-	private Rectangle REC_LBLSPIELTOUR =	new Rectangle(10, 10, 340, 20);
-	private Rectangle REC_DAYTOUR =			new Rectangle(20, 40, 70, 30);
-	private Rectangle REC_MONTHTOUR =		new Rectangle(90, 40, 70, 30);
-	private Rectangle REC_YEARTOUR =		new Rectangle(160, 40, 85, 30);
-	private Rectangle REC_HOURTOUR =		new Rectangle(20, 70, 70, 30);
-	private Rectangle REC_MINUTETOUR =		new Rectangle(90, 70, 70, 30);
-	private Rectangle REC_GOTOUR =			new Rectangle(260, 40, 70, 30);
+	private Rectangle REC_LBLSPIELTOUR =	new Rectangle(10, 10, 360, 20);
+	private Rectangle REC_DAYTOUR =			new Rectangle(15, 40, 70, 30);
+	private Rectangle REC_MONTHTOUR =		new Rectangle(85, 40, 70, 30);
+	private Rectangle REC_YEARTOUR =		new Rectangle(155, 40, 85, 30);
+	private Rectangle REC_HOURTOUR =		new Rectangle(15, 70, 70, 30);
+	private Rectangle REC_MINUTETOUR =		new Rectangle(85, 70, 70, 30);
+	private Rectangle REC_GOTOUR =			new Rectangle(255, 40, 70, 30);
 	
 	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
@@ -111,7 +111,7 @@ public class MyDateChooser extends JFrame {
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		if (belongsToLeague) {
-			startjahr = season.getSeason();
+			startjahr = season.getYear();
 			numberOfYears = season.isSTSS() ? 2 : 1;
 		} else if (belongsToGroup) {
 			startjahr = gruppe.getStartDate() / 10000;
@@ -331,8 +331,9 @@ public class MyDateChooser extends JFrame {
 	public void setMatch(Wettbewerb wettbewerb, int matchday, int matchID) {
 		Spiel spiel = wettbewerb.getSpiel(matchday, matchID);
 		String match = "";
-		if (spiel != null)	match = spiel.getHomeTeam().getName() + " gegen " + spiel.getAwayTeam().getName();
-		else				match = "n/a gegen n/a";
+		match += spiel != null && spiel.getHomeTeam() != null ? spiel.getHomeTeam().getName() : "n/a";
+		match += " gegen ";
+		match += spiel != null && spiel.getAwayTeam() != null ? spiel.getAwayTeam().getName() : "n/a";
 		
 		jLblSpiel.setText(match);
 	}
