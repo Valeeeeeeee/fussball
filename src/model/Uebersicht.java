@@ -15,12 +15,12 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_SPPLPNL;
 	
 	// Informationen
-	private Rectangle REC_INFPNL = new Rectangle(610, 20, 500, 80);
-	private Rectangle REC_LBLNAME = new Rectangle(65, 10, 370, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(175, 40, 150, 30);
+	private Rectangle REC_INFPNL = new Rectangle(610, 20, 550, 80);
+	private Rectangle REC_LBLNAME = new Rectangle(90, 10, 370, 30);
+	private Rectangle REC_LBLGRDATUM = new Rectangle(200, 40, 150, 30);
 	
 	// Statistiken
-	private Rectangle REC_STATSPNL = new Rectangle(610, 105, 500, 115);
+	private Rectangle REC_STATSPNL = new Rectangle(610, 105, 550, 115);
 	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
 	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
 	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
@@ -29,31 +29,31 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 95, 20);
 	private Rectangle REC_LBLMATCHESLOSTVAL = new Rectangle(10, 85, 25, 20);
 	private Rectangle REC_LBLMATCHESLOST = new Rectangle(40, 85, 60, 20);
-	private Rectangle REC_LBLGOALSVAL = new Rectangle(190, 10, 25, 20);
-	private Rectangle REC_LBLGOALS = new Rectangle(220, 10, 40, 20);
-	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(190, 35, 25, 20);
-	private Rectangle REC_LBLGOALSCONC = new Rectangle(220, 35, 70, 20);
-	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(340, 10, 25, 20);
-	private Rectangle REC_LBLBOOKED = new Rectangle(370, 10, 85, 20);
-	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(340, 35, 25, 20);
-	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(370, 35, 110, 20);
-	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(340, 60, 25, 20);
-	private Rectangle REC_LBLREDCARDS = new Rectangle(370, 60, 80, 20);
-	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(395, 90, 80, 20);
+	private Rectangle REC_LBLGOALSVAL = new Rectangle(215, 10, 25, 20);
+	private Rectangle REC_LBLGOALS = new Rectangle(245, 10, 40, 20);
+	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(215, 35, 25, 20);
+	private Rectangle REC_LBLGOALSCONC = new Rectangle(245, 35, 70, 20);
+	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(390, 10, 25, 20);
+	private Rectangle REC_LBLBOOKED = new Rectangle(420, 10, 85, 20);
+	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(390, 35, 25, 20);
+	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(420, 35, 110, 20);
+	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(390, 60, 25, 20);
+	private Rectangle REC_LBLREDCARDS = new Rectangle(420, 60, 80, 20);
+	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(445, 90, 80, 20);
 	
 	private int[] results = new int[] {15, 130, 0, 25, 190, 20};
 	private int[] resultsV = new int[] {210, 130, 30, 25, 25, 20};
-	private Rectangle REC_LBLSERIEN = new Rectangle(335, 130, 150, 25);
-	private int[] series = new int[] {350, 155, 0, 25, 110, 20};
-	private int[] seriesV = new int[] {460, 155, 0, 25, 20, 20};
+	private Rectangle REC_LBLSERIEN = new Rectangle(360, 130, 150, 25);
+	private int[] series = new int[] {375, 155, 0, 25, 110, 20};
+	private int[] seriesV = new int[] {500, 155, 0, 25, 20, 20};
 	
-	private Rectangle REC_TABLEPNL = new Rectangle(610, 225, 500, 290);
+	private Rectangle REC_TABLEPNL = new Rectangle(610, 225, 550, 290);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
 	private Rectangle REC_LBLNODATA = new Rectangle(25, 35, 370, 25);
 	private Rectangle REC_BTNADDPLAYER = new Rectangle(235, 5, 120, 25);
-	private Rectangle REC_LBLKADERMORELESS = new Rectangle(395, 5, 80, 25);
+	private Rectangle REC_LBLKADERMORELESS = new Rectangle(445, 5, 80, 25);
 	private Rectangle REC_LBLPLAYERS = new Rectangle(280, 45, 80, 20);
 	private Rectangle REC_LBLUSEDPLAYERS = new Rectangle(280, 70, 140, 20);
 	
@@ -101,6 +101,7 @@ public class Uebersicht extends JPanel {
 	private JPanel jPnlTableExcerpt;
 	private JLabel[] jLblsTableHeader;
 	private JLabel[][] jLblsTableExcerpt;
+	private JLabel jLblBackground;
 	private Tabellenverlauf rankingHistory;
 	
 	private JScrollPane jSPKader;
@@ -134,7 +135,10 @@ public class Uebersicht extends JPanel {
 	private static final int MATCHES = 3;
 	private static final int GOALS = 4;
 	private static final int ASSISTS = 5;
-	private static final int NUMBEROFFIELDSKAD = 6;
+	private static final int BOOKINGS = 6;
+	private static final int BOOKEDTWICE = 7;
+	private static final int REDCARDS = 8;
+	private static final int NUMBEROFFIELDSKAD = 9;
 	
 	/** The left and right margin for spiele */
 	private int nstartx = 05;
@@ -148,17 +152,18 @@ public class Uebersicht extends JPanel {
 	
 	private int teStartx = 10;
 	private int teStarty = 5;
-	private int[] teWidthes = {25, 200, 25, 25, 25, 25, 30, 30, 30, 30};
+	private int[] teWidthes = {25, 210, 25, 25, 25, 25, 30, 30, 30, 30};
 	private int teHeight = 15;
-	private int[] teGapx = {10, 5, 5, 0, 0, 5, 0, 5, 5, 0};
+	private int[] teGapx = {10, 10, 10, 5, 5, 10, 5, 10, 10, 0};
 	private int teGapy = 5;
 	
 	private int kaderSTARTX = 20;
 	private int kaderSTARTY = 20;
-	private int[] kaderWIDTHES = {20, 200, 75, 25, 25, 25};
+	private int[] kaderWIDTHES = {20, 200, 75, 25, 25, 25, 25, 25, 25};
 	private int kaderHEIGHT = 15;
-	private int[] kaderGAPX = {5, 5, 25, 5, 5, 0};
+	private int[] kaderGAPX = {5, 5, 25, 5, 0, 0, 0, 0, 0};
 	private int kaderGAPY = 3;
+	private int kaderWidth = 531; // scroll bar width: 19
 	
 	private int standardHeightKader = 190;
 	private int standardHeightKaderNoPlayers = 100;
@@ -265,10 +270,8 @@ public class Uebersicht extends JPanel {
 				alignCenter(spieltage[i][MATCHDAY]);
 				alignCenter(spieltage[i][DATE]);
 				alignRight(spieltage[i][TEAMHOME]);
-//				alignRight(spieltage[i][GOALSHOME]);
 				alignCenter(spieltage[i][GOALSHOME]);
 				alignCenter(spieltage[i][TRENNZEICHEN]);
-//				alignLeft(spieltage[i][GOALSAWAY]);
 				alignCenter(spieltage[i][GOALSAWAY]);
 				alignLeft(spieltage[i][TEAMAWAY]);
 				
@@ -503,6 +506,12 @@ public class Uebersicht extends JPanel {
 				}
 			}
 			{
+				jLblBackground = new JLabel();
+				jPnlTableExcerpt.add(jLblBackground);
+				jLblBackground.setOpaque(true);
+				jLblBackground.setBackground(colorCategory3);
+			}
+			{
 				jSPKader = new JScrollPane();
 				this.add(jSPKader);
 				jSPKader.setVisible(true);
@@ -589,7 +598,7 @@ public class Uebersicht extends JPanel {
 				dim.height = maximumheight;
 			}
 			this.setSize(dim);
-			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 520, 481 + 19, dim.height - (540));
+			jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, 520, 550, dim.height - (540));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -673,6 +682,12 @@ public class Uebersicht extends JPanel {
 			alignCenter(jLblsKader[i][GOALS]);
 			jLblsKader[i][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
 			alignCenter(jLblsKader[i][ASSISTS]);
+			jLblsKader[i][BOOKINGS].setText("" + performanceData[Mannschaft.BOOKED]);
+			alignCenter(jLblsKader[i][BOOKINGS]);
+			jLblsKader[i][BOOKEDTWICE].setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
+			alignCenter(jLblsKader[i][BOOKEDTWICE]);
+			jLblsKader[i][REDCARDS].setText("" + performanceData[Mannschaft.RED_CARDS]);
+			alignCenter(jLblsKader[i][REDCARDS]);
 			int age = spieler.getAge();
 			sumOfAges += age;
 			
@@ -713,6 +728,12 @@ public class Uebersicht extends JPanel {
 			alignCenter(jLblsKader[index][GOALS]);
 			jLblsKader[index][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
 			alignCenter(jLblsKader[index][ASSISTS]);
+			jLblsKader[index][BOOKINGS].setText("" + performanceData[Mannschaft.BOOKED]);
+			alignCenter(jLblsKader[index][BOOKINGS]);
+			jLblsKader[index][BOOKEDTWICE].setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
+			alignCenter(jLblsKader[index][BOOKEDTWICE]);
+			jLblsKader[index][REDCARDS].setText("" + performanceData[Mannschaft.RED_CARDS]);
+			alignCenter(jLblsKader[index][REDCARDS]);
 		}
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;
@@ -733,12 +754,12 @@ public class Uebersicht extends JPanel {
 		jLblNumberOfPlayers.setText(mannschaft.getNumberOfPlayers(false, false) + " Spieler");
 		jLblNumberOfUsedPlayers.setText("davon " + mannschaft.getNumberOfUsedPlayers() + " eingesetzt");
 		
-		jPnlKader.setPreferredSize(new Dimension(401, hasPlayers ? standardHeightKader : standardHeightKaderNoPlayers));
+		jPnlKader.setPreferredSize(new Dimension(kaderWidth, hasPlayers ? standardHeightKader : standardHeightKaderNoPlayers));
 		if (showingMoreKader) {
 			int numberOfPlayers = numberOfEligiblePlayers + 4;
 			if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;
 			int height = showingMoreKader ? kaderSTARTY + numberOfPlayers * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
-			jPnlKader.setPreferredSize(new Dimension(401, height));
+			jPnlKader.setPreferredSize(new Dimension(kaderWidth, height));
 		}
 		jSPKader.setViewportView(jPnlKader);
 		if (hasPlayers) {
@@ -783,7 +804,7 @@ public class Uebersicht extends JPanel {
 		showingMoreStats = !showingMoreStats;
 		
 		jLblStatisticsMoreLess.setText(showingMoreStats ? "< weniger" : "mehr dazu >");
-		jPnlStatistics.setBounds(610, 105, 500, showingMoreStats ? getHeight() - 125 : 115);
+		jPnlStatistics.setBounds(610, 105, 550, showingMoreStats ? getHeight() - 125 : 115);
 		jPnlTableExcerpt.setVisible(!showingMoreStats);
 		jSPKader.setVisible(!showingMoreStats);
 	}
@@ -810,9 +831,9 @@ public class Uebersicht extends JPanel {
 		int numberOfPlayers = numberOfEligiblePlayers + 4;
 		if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;
 		int height = showingMoreKader ? kaderSTARTY + numberOfPlayers * (kaderHEIGHT + kaderGAPY) : standardHeightKader;
-		jPnlKader.setPreferredSize(new Dimension(401, height));
+		jPnlKader.setPreferredSize(new Dimension(kaderWidth, height));
 		jSPKader.setViewportView(jPnlKader);
-		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMoreKader ? 105 : 520, 481 + 19, getHeight() - (showingMoreKader ? 125 : 540));
+		jSPKader.setBounds(startx + REC_SPPLPNL.width + 5, showingMoreKader ? 105 : 520, 550, getHeight() - (showingMoreKader ? 125 : 540));
 		jPnlStatistics.setVisible(!showingMoreKader);
 		jPnlTableExcerpt.setVisible(!showingMoreKader);
 	}
@@ -964,11 +985,7 @@ public class Uebersicht extends JPanel {
 				jLblsTableExcerpt[index][j].setText("" + mannschaften[tabelle[i] - 1].get(j, newestMatchday, Tabellenart.COMPLETE));
 			}
 			
-			for (int j = 0; j < 10; j++) {
-				if (thisTeam)	jLblsTableExcerpt[index][j].setBackground(colorCategory3);
-				jLblsTableExcerpt[index][j].setOpaque(thisTeam);
-				repaintImmediately(jLblsTableExcerpt[index][j]);
-			}
+			if (thisTeam)	jLblBackground.setBounds(teStartx, teStarty + (index + 1) * (teHeight + teGapy), 530, teHeight);
 			index++;
 		}
 		
