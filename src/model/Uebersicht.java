@@ -929,6 +929,7 @@ public class Uebersicht extends JPanel {
 			jLblsResultsTeams[i].setText("");
 		}
 		for (int i = 0; i < mannschaften.length; i++) {
+			mannschaften[i].compareWithOtherTeams(mannschaften, matchday, Tabellenart.COMPLETE);
 			int place = mannschaften[i].getPlace();
 			while (!jLblsResultsTeams[place].getText().equals("")) {
 				place++;
