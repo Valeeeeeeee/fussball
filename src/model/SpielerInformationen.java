@@ -42,8 +42,8 @@ public class SpielerInformationen extends JFrame {
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
 	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
-	private Font fontDetails = new Font("Calibri", 0, 14);
-	private Font fontDetailsHeadline = new Font("Calibri", 1, 14);
+	private Font fontDetails = new Font("Calibri", 0, 12);
+	private Font fontDetailsHeadline = new Font("Calibri", 1, 13);
 	private Font fontMoreDetails = new Font("Calibri", 1, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
 	private Font fontNamesSmall = new Font("Calibri", 0, 26);
@@ -53,9 +53,9 @@ public class SpielerInformationen extends JFrame {
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
 	private Font fontSquadNumber = new Font("Calibri", 0, 65);
 	
-	private static final int NUMBEROFFIELDSPMBM = 9;
-	private String[] headerTexts = new String[] {"Sp.", "Gegner", "E", "A", "T", "V", "G", "GR", "R"};
-	private String[] tooltipTexts = new String[] {"Spieltag", "", "eingewechselt", "ausgewechselt", "Tore", "Vorlagen", "Gelbe Karte", "Gelb-Rote Karte", "Rote Karte"};
+	private static final int NUMBEROFFIELDSPMBM = 10;
+	private String[] headerTexts = new String[] {"Sp.", "Gegner", "Erg", "E", "A", "T", "V", "G", "GR", "R"};
+	private String[] tooltipTexts = new String[] {"Spieltag", "", "Ergebnis", "eingewechselt", "ausgewechselt", "Tore", "Vorlagen", "Gelbe Karte", "Gelb-Rote Karte", "Rote Karte"};
 	
 	private Rectangle REC_CHANGEINFO = new Rectangle(390, 140, 100, 30);
 	
@@ -92,7 +92,8 @@ public class SpielerInformationen extends JFrame {
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
 	private Rectangle REC_SPPERFMBM = new Rectangle(390, 430, 470, 380);
 	private int[] bndsPMbMMD = new int[] {0, 0, 0, 20, 25, 20};
-	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 190, 20};
+	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 170, 20};
+	private int[] bndsPMbMRes = new int[] {210, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMOn = new int[] {240, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMOff = new int[] {270, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMG = new int[] {300, 0, 0, 20, 30, 20};
@@ -143,11 +144,12 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblCompetition;
 	private JLabel[] jLblsPerformance;
 	private JLabel[] jLblsPerformanceValues;
-	private JLabel[] jLblsPMbMHeaders = new JLabel[9];
+	private JLabel[] jLblsPMbMHeaders;
 	private JScrollPane jSPPerformanceMbM;
 	private JPanel jPnlPerformanceMbM;
 	private ArrayList<JLabel> jLblsPerformanceMbMMatchday;
 	private ArrayList<JLabel> jLblsPerformanceMbMOpponent;
+	private ArrayList<JLabel> jLblsPerformanceMbMResult;
 	private ArrayList<JLabel> jLblsPerformanceMbMSubOn;
 	private ArrayList<JLabel> jLblsPerformanceMbMSubOff;
 	private ArrayList<JLabel> jLblsPerformanceMbMGoals;
@@ -181,8 +183,10 @@ public class SpielerInformationen extends JFrame {
 		
 		jLblsPerformance = new JLabel[NUMBEROFPERFORMANCEDATA];
 		jLblsPerformanceValues = new JLabel[NUMBEROFPERFORMANCEDATA];
+		jLblsPMbMHeaders = new JLabel[NUMBEROFFIELDSPMBM];
 		jLblsPerformanceMbMMatchday = new ArrayList<>();
 		jLblsPerformanceMbMOpponent = new ArrayList<>();
+		jLblsPerformanceMbMResult = new ArrayList<>();
 		jLblsPerformanceMbMSubOn = new ArrayList<>();
 		jLblsPerformanceMbMSubOff = new ArrayList<>();
 		jLblsPerformanceMbMGoals = new ArrayList<>();
@@ -581,13 +585,14 @@ public class SpielerInformationen extends JFrame {
 		
 		jLblsPMbMHeaders[0].setBounds(390 + bndsPMbMMD[STARTX], 410, bndsPMbMMD[SIZEX], bndsPMbMMD[SIZEY]);
 		jLblsPMbMHeaders[1].setBounds(390 + bndsPMbMO[STARTX], 410, bndsPMbMO[SIZEX], bndsPMbMO[SIZEY]);
-		jLblsPMbMHeaders[2].setBounds(390 + bndsPMbMOn[STARTX], 410, bndsPMbMOn[SIZEX], bndsPMbMOn[SIZEY]);
-		jLblsPMbMHeaders[3].setBounds(390 + bndsPMbMOff[STARTX], 410, bndsPMbMOff[SIZEX], bndsPMbMOff[SIZEY]);
-		jLblsPMbMHeaders[4].setBounds(390 + bndsPMbMG[STARTX], 410, bndsPMbMG[SIZEX], bndsPMbMG[SIZEY]);
-		jLblsPMbMHeaders[5].setBounds(390 + bndsPMbMA[STARTX], 410, bndsPMbMA[SIZEX], bndsPMbMA[SIZEY]);
-		jLblsPMbMHeaders[6].setBounds(390 + bndsPMbMB[STARTX], 410, bndsPMbMB[SIZEX], bndsPMbMB[SIZEY]);
-		jLblsPMbMHeaders[7].setBounds(390 + bndsPMbMBT[STARTX], 410, bndsPMbMBT[SIZEX], bndsPMbMBT[SIZEY]);
-		jLblsPMbMHeaders[8].setBounds(390 + bndsPMbMR[STARTX], 410, bndsPMbMR[SIZEX], bndsPMbMR[SIZEY]);
+		jLblsPMbMHeaders[2].setBounds(390 + bndsPMbMRes[STARTX], 410, bndsPMbMRes[SIZEX], bndsPMbMRes[SIZEY]);
+		jLblsPMbMHeaders[3].setBounds(390 + bndsPMbMOn[STARTX], 410, bndsPMbMOn[SIZEX], bndsPMbMOn[SIZEY]);
+		jLblsPMbMHeaders[4].setBounds(390 + bndsPMbMOff[STARTX], 410, bndsPMbMOff[SIZEX], bndsPMbMOff[SIZEY]);
+		jLblsPMbMHeaders[5].setBounds(390 + bndsPMbMG[STARTX], 410, bndsPMbMG[SIZEX], bndsPMbMG[SIZEY]);
+		jLblsPMbMHeaders[6].setBounds(390 + bndsPMbMA[STARTX], 410, bndsPMbMA[SIZEX], bndsPMbMA[SIZEY]);
+		jLblsPMbMHeaders[7].setBounds(390 + bndsPMbMB[STARTX], 410, bndsPMbMB[SIZEX], bndsPMbMB[SIZEY]);
+		jLblsPMbMHeaders[8].setBounds(390 + bndsPMbMBT[STARTX], 410, bndsPMbMBT[SIZEX], bndsPMbMBT[SIZEY]);
+		jLblsPMbMHeaders[9].setBounds(390 + bndsPMbMR[STARTX], 410, bndsPMbMR[SIZEX], bndsPMbMR[SIZEY]);
 		
 		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
 		setResizable(false);
@@ -727,6 +732,7 @@ public class SpielerInformationen extends JFrame {
 				String nothing = performance[2] != 91 ? "." : "X";
 				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
 				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getWettbewerb().getMannschaften()[performance[1] - 1].getName());
+				jLblsPerformanceMbMResult.get(index).setText(player.getTeam().getResultOfMatch(performance[0]));
 				jLblsPerformanceMbMSubOn.get(index).setText((performance[2] - 1) % 90 != 0 ? performance[2] + "." : nothing);
 				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : nothing);
 				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : nothing);
@@ -740,6 +746,7 @@ public class SpielerInformationen extends JFrame {
 				boolean showRow = i < performanceMbM.size();
 				jLblsPerformanceMbMMatchday.get(i).setVisible(showRow);
 				jLblsPerformanceMbMOpponent.get(i).setVisible(showRow);
+				jLblsPerformanceMbMResult.get(i).setVisible(showRow);
 				jLblsPerformanceMbMSubOn.get(i).setVisible(showRow);
 				jLblsPerformanceMbMSubOff.get(i).setVisible(showRow);
 				jLblsPerformanceMbMGoals.get(i).setVisible(showRow);
@@ -770,6 +777,13 @@ public class SpielerInformationen extends JFrame {
 			label.setBounds(bndsPMbMO[STARTX], bndsPMbMO[STARTY] + size * bndsPMbMO[GAPY], bndsPMbMO[SIZEX], bndsPMbMO[SIZEY]);
 			label.setFont(fontDetails);
 			jLblsPerformanceMbMOpponent.add(label);
+			
+			label = new JLabel();
+			jPnlPerformanceMbM.add(label);
+			alignCenter(label);
+			label.setBounds(bndsPMbMRes[STARTX], bndsPMbMRes[STARTY] + size * bndsPMbMRes[GAPY], bndsPMbMRes[SIZEX], bndsPMbMRes[SIZEY]);
+			label.setFont(fontDetails);
+			jLblsPerformanceMbMResult.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
