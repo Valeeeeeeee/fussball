@@ -208,7 +208,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+		int today = MyDate.newMyDate(), time = MyDate.newMyTime(), nextDate;
 		
 		if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
 			nMatchdaySetUntilTime = 2400;
@@ -218,8 +218,10 @@ public class LigaSaison implements Wettbewerb {
 				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
-				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+				nextDate = getDate(newestMatchday + 1, 0);
+				while (nextDate != 0 && (today > nextDate || (today == nextDate && time >= getTime(newestMatchday + 1, 0)))) {
 					newestMatchday++;
+					nextDate = getDate(newestMatchday + 1, 0);
 				}
 				if (today == getDate(newestMatchday + 1, 0)) {
 					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
