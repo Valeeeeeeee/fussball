@@ -3,6 +3,7 @@ Thomas;Kraft;null;19880722;Deutschland;Tor;1
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
+Maximilian;Mittelstädt;null;19970318;Deutschland;Abwehr;34
 Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
 Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
 Yanni;Regäsel;null;19960113;Deutschland;Abwehr;39;-20160131
