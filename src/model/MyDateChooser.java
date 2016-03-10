@@ -11,7 +11,7 @@ public class MyDateChooser extends JFrame {
 	private static final long serialVersionUID = -2889713010836842244L;
 	
 	/**
-	 * The width of this window for leaague
+	 * The width of this window for league
 	 */
 	public final int WIDTH_LG = 400;
 	/**
@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20160710;
-	private int defaultMyTime = 2100;
+	private int defaultMyDate = 20160310;
+	private int defaultMyTime = 1900;
 	private int date;
 	private int time;
 	private int aszindex;
