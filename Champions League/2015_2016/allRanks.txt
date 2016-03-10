@@ -122,10 +122,10 @@ GH1: Zenit Sankt Petersburg
 GH2: KAA Gent
 GH3: FC Valencia
 GH4: Olympique Lyon
-AF01W: CL2015AF01W
-AF01L: CL2015AF01L
-AF02W: CL2015AF02W
-AF02L: CL2015AF02L
+AF01W: Paris Saint-Germain
+AF01L: FC Chelsea
+AF02W: Benfica Lissabon
+AF02L: Zenit Sankt Petersburg
 AF03W: Real Madrid
 AF03L: AS Rom
 AF04W: VfL Wolfsburg
