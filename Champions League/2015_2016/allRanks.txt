@@ -130,10 +130,10 @@ AF03W: Real Madrid
 AF03L: AS Rom
 AF04W: VfL Wolfsburg
 AF04L: KAA Gent
-AF05W: CL2015AF05W
-AF05L: CL2015AF05L
-AF06W: CL2015AF06W
-AF06L: CL2015AF06L
+AF05W: Bayern München
+AF05L: Juventus Turin
+AF06W: FC Barcelona
+AF06L: FC Arsenal
 AF07W: Atlético Madrid
 AF07L: PSV Eindhoven
 AF08W: Manchester City
