@@ -8,7 +8,7 @@ Fabian;Holland;null;19900711;Deutschland;Abwehr;32
 Júnior Enrique;Díaz Campbell;Junior Díaz;19830912;Costa Rica;Abwehr;15
 Slobodan;Rajkovic;null;19890203;Serbien;Abwehr;35;20150929-
 Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
-Sandro;Sirigu;null;19881007;Deutschland, Italien;Abwehr;21
+Sandro;Sirigu;null;19881007;Deutschland, Italien;Abwehr;17
 Michael;Stegmayer;null;19850112;Deutschland;Abwehr;3
 Aytaç;Sulu;null;19851211;Türkei, Deutschland;Abwehr;4
 Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
