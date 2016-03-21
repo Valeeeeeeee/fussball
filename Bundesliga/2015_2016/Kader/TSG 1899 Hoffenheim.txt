@@ -9,6 +9,7 @@ Tobias;Strobl;null;19900512;Deutschland;Abwehr;12
 Niklas;Süle;null;19950903;Deutschland;Abwehr;25
 Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
 Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
+Russell;Canouse;null;19950611;USA;Mittelfeld;35
 Tarik;Elyounoussi;null;19880223;Norwegen;Mittelfeld;14
 Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11
 Kai;Herdling;null;19840627;Deutschland;Mittelfeld;38
