@@ -2,6 +2,7 @@ Timo;Horn;null;19930512;Deutschland;Tor;1
 Thomas;Kessler;null;19860120;Deutschland;Tor;18
 Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Dominique;Heintz;null;19930815;Deutschland;Abwehr;3
+Lukas;Klünter;null;19960526;Deutschland;Abwehr;24
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
 Mergim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
 Filip;Mladenovic;null;19910815;Serbien;Abwehr;25;20160101-
