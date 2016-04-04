@@ -18,6 +18,7 @@ public class Tabelle extends JPanel {
 	private int currentMatchday = -1;
 	private Tabellenart aktuelleTabellenart;
 	
+	private boolean saveTableWithData = true;
 	private boolean belongsToALeague = false;
 	
 	private int[] teamIndices;
@@ -419,12 +420,16 @@ public class Tabelle extends JPanel {
 		String dateiname = Start.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
-			if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
-			else					order[i] = gruppe.getTeamWithName(tabelle[i][1].getText()).toString();
+			if (saveTableWithData) {
+				order[i] = tabelle[i][1].getText() + ";" + tabelle[i][9].getText() + ";" + tabelle[i][6].getText() + ";" + tabelle[i][7].getText() + ";";
+			} else {
+				if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
+				else					order[i] = gruppe.getTeamWithName(tabelle[i][1].getText()).toString();
+			}
 			log((i + 1) + ". " + order[i]);
 		}
 		if (belongsToALeague) {
-			dateiname = season.getWorkspace() + File.separator + "Tabelle.txt";
+			dateiname = season.getWorkspace() + "Tabelle.txt";
 		} else {
 			dateiname += gruppe.getWorkspace() + "Tabelle.txt";
 		}
