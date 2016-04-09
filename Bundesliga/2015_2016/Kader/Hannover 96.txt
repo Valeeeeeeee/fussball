@@ -28,6 +28,7 @@ Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Mevlüt;Erdinç;null;19870225;Türkei, Frankreich;Sturm;39;-20151231
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Allan;Saint-Maximin;null;19970312;Frankreich;Sturm;14
+Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
 Artur;Sobiech;null;19900612;Polen;Sturm;9
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28;20160101-
 Marius;Wolf;null;19950527;Deutschland;Sturm;21;20160101-
