@@ -138,10 +138,10 @@ AF07W: Atlético Madrid
 AF07L: PSV Eindhoven
 AF08W: Manchester City
 AF08L: Dynamo Kiew
-VF01W: CL2015VF01W
-VF01L: CL2015VF01L
-VF02W: CL2015VF02W
-VF02L: CL2015VF02L
+VF01W: Bayern München
+VF01L: Benfica Lissabon
+VF02W: Atlético Madrid
+VF02L: FC Barcelona
 VF03W: Manchester City
 VF03L: Paris Saint-Germain
 VF04W: Real Madrid
