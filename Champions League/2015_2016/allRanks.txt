@@ -146,9 +146,9 @@ VF03W: Manchester City
 VF03L: Paris Saint-Germain
 VF04W: Real Madrid
 VF04L: VfL Wolfsburg
-HF01W: CL2015HF01W
-HF01L: CL2015HF01L
-HF02W: CL2015HF02W
-HF02L: CL2015HF02L
+HF01W: Real Madrid
+HF01L: Manchester City
+HF02W: Atlético Madrid
+HF02L: Bayern München
 FI01W: CL2015FI01W
 FI01L: CL2015FI01L
