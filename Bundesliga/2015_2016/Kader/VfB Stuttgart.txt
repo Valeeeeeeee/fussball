@@ -20,9 +20,10 @@ Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;8
-Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26
+Geoffroy;'Serey Dié';null;19841107;Elfenbeinküste;Mittelfeld;26
 Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23;-20150824
 Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
+Matthias;Zimmermann;null;19920616;Deutschland;Mittelfeld;37
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829

@@ -249,6 +249,11 @@ public class Mannschaft {
 		return this.currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
+	public String getResultOfMatch(int matchday) {
+		if (matchday < 0 || matchday > numberOfMatchdays || daten[matchday][OPPONENT] == 0)	return null;
+		return daten[matchday][GOALS] + ":" + daten[matchday][CGOALS];
+	}
+	
 	public ArrayList<int[]> getPerformanceDataMatchByMatch(Spieler player) {
 		int squadNumber = player.getSquadNumber();
 		ArrayList<int[]> performanceData = new ArrayList<>();

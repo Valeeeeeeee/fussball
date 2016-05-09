@@ -23,6 +23,7 @@ Ivan;Perisic;null;19890202;Kroatien;Mittelfeld;9;-20150829
 Leandro;Putaro;null;19970107;Deutschland, Italien;Mittelfeld;32
 Francisco;Rodríguez;null;19950914;Schweiz;Mittelfeld;35;-20151231
 André;Schürrle;null;19901106;Deutschland;Mittelfeld;17
+Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
 Adelino Andre;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
 Nicklas;Bendtner;null;19880116;Dänemark;Sturm;3
 Bruno Henrique;Pinto;Bruno Henrique;19901230;Brasilien;Sturm;16;20160129-

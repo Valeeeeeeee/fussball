@@ -21,6 +21,7 @@ Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44;-20150827
 Oliver;Kirch;null;19820821;Deutschland;Mittelfeld;21;-20150829
 Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;14
 Henrikh;Mkhitaryan;null;19890121;Armenien;Mittelfeld;10
+Felix;Passlack;null;19980528;Deutschland;Mittelfeld;30
 Christian;Pulisic;null;19980918;USA;Mittelfeld;22
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;18

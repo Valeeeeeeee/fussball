@@ -1035,12 +1035,6 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
 		
-		jLblOben.setText("Torschütze");
-		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
-		jLblUnten.setText("Vorbereiter");
-		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
-		
-		
 		jChBLeft.setText("Elfmeter");
 		jChBRight.setText("Eigentor");
 		jChBLeft.setVisible(true);
@@ -1052,6 +1046,12 @@ public class SpielInformationen extends JFrame {
 			jChBRight.setSelected(true);
 			goalDetails = 2;
 		}
+		
+		jLblOben.setText("Torschütze");
+		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
+		jLblUnten.setText("Vorbereiter");
+		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
+		
 		if (tor.getScorer() != null)		jCBOben.setSelectedItem(tor.getScorer().getPseudonymOrLN());
 		if (tor.getAssistgeber() != null)	jCBUnten.setSelectedItem(tor.getAssistgeber().getPseudonymOrLN());
 		jTFMinute.setText("" + tor.getMinute());

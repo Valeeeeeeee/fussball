@@ -545,7 +545,7 @@ public class Start extends JFrame {
 		for (int i = 0; i < anzahlLigen; i++) {
 			int[] missingResults = ligen.get(i).checkMissingResults();
 			jLblsLigenCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsLigenCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
+			jLblsLigenCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
 			jLblsLigenCompleted[i].setVisible(missingResults[0] != 0);
 			jLblsLigenStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
 			jLblsLigenStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
@@ -554,7 +554,7 @@ public class Start extends JFrame {
 		for (int i = 0; i < anzahlTurniere; i++) {
 			int[] missingResults = turniere.get(i).checkMissingResults();
 			jLblsTurniereCompleted[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsTurniereCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished matches");
+			jLblsTurniereCompleted[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
 			jLblsTurniereCompleted[i].setVisible(missingResults[0] != 0);
 			jLblsTurniereStillRunning[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
 			jLblsTurniereStillRunning[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");

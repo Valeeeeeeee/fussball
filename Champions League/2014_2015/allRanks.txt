@@ -34,22 +34,22 @@ AF01W: Paris Saint-Germain
 AF01L: FC Chelsea
 AF02W: Bayern München
 AF02L: Schachtar Donezk
-AF03W: Real Madrid
-AF03L: FC Schalke 04
-AF04W: FC Porto
-AF04L: FC Basel
-AF05W: FC Barcelona
-AF05L: Manchester City
-AF06W: Juventus Turin
-AF06L: Borussia Dortmund
+AF03W: FC Porto
+AF03L: FC Basel
+AF04W: Real Madrid
+AF04L: FC Schalke 04
+AF05W: Juventus Turin
+AF05L: Borussia Dortmund
+AF06W: FC Barcelona
+AF06L: Manchester City
 AF07W: Atletico Madrid
 AF07L: Bayer 04 Leverkusen
 AF08W: AS Monaco
 AF08L: FC Arsenal
-VF01W: Real Madrid
-VF01L: Atletico Madrid
-VF02W: Juventus Turin
-VF02L: AS Monaco
+VF01W: Juventus Turin
+VF01L: AS Monaco
+VF02W: Real Madrid
+VF02L: Atletico Madrid
 VF03W: FC Barcelona
 VF03L: Paris Saint-Germain
 VF04W: Bayern München

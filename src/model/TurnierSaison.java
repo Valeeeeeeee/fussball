@@ -2,6 +2,8 @@ package model;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static util.Utilities.*;
 
@@ -22,6 +24,8 @@ public class TurnierSaison {
 	private boolean hasSecondLegGroupStage;
 	private boolean goalDifferenceGroupStage;
 	private boolean matchForThirdPlace;
+	
+	private Map<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
 	private Spieltag overview;
 	private Gruppe[] gruppen;
@@ -284,6 +288,38 @@ public class TurnierSaison {
 		return newOrder;
 	}
 	
+	public Mannschaft getTeamFromOtherCompetition(String origin) {
+		if (teamsFromOtherCompetition.containsKey(origin)) {
+			return teamsFromOtherCompetition.get(origin);
+		}
+		return null;
+	}
+	
+	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, String origin) {
+		Mannschaft team = null;
+		
+		if (teamsFromOtherCompetition.containsKey(origin)) {
+			return teamsFromOtherCompetition.get(origin);
+		}
+		team = new Mannschaft(id, competition, getNameOfTeamFromOtherCompetition(origin));
+		teamsFromOtherCompetition.put(origin, team);
+		
+		return team;
+	}
+	
+	private String getNameOfTeamFromOtherCompetition(String origin) {
+		String fileName = Start.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
+		
+		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		for (String team : teams) {
+			if (origin.substring(6).equals(team.split(": ")[0])) {
+				return team.split(": ")[1];
+			}
+		}
+		
+		return origin;
+	}
+	
 	public Mannschaft[] getMannschaftenInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
@@ -362,7 +398,10 @@ public class TurnierSaison {
 	public Mannschaft getTeamFromGroupstageOrigin(String teamsorigin, boolean isQ) {
 		Mannschaft mannschaft = null;
 		
-		if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
+		if (teamsorigin != null && teamsorigin.length() > 8) {
+			// aus anderem Wettbewerb
+			mannschaft = getTeamFromOtherCompetition(teamsorigin);
+		} else if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
 			// Bestimmen des Indexes der Gruppe
 			int groupindex;
 			for (groupindex = 0; groupindex < alphabet.length; groupindex++) {

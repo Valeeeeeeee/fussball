@@ -19,7 +19,7 @@ Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;8
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Oriol;Romeu Vidal;null;19910924;Spanien;Mittelfeld;13
 Sercan;Sararer;null;19891127;Spanien, Türkei;Mittelfeld;23
-Geoffroy;Serey Dié;Serey Dié;19841107;Elfenbeinküste;Mittelfeld;26;20150201-
+Geoffroy;'Serey Dié';null;19841107;Elfenbeinküste;Mittelfeld;26;20150201-
 Mohammed;Abdellaoue;null;19851023;Norwegen;Sturm;25
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7

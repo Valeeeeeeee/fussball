@@ -42,8 +42,8 @@ public class SpielerInformationen extends JFrame {
 	private Font fontBirthDate = new Font("Calibri", 0, 24);
 	private Font fontCompetition = new Font("Calibri", 0, 18);
 	private Font fontDescription = new Font("Calibri", 0, 15);
-	private Font fontDetails = new Font("Calibri", 0, 14);
-	private Font fontDetailsHeadline = new Font("Calibri", 1, 14);
+	private Font fontDetails = new Font("Calibri", 0, 12);
+	private Font fontDetailsHeadline = new Font("Calibri", 1, 13);
 	private Font fontMoreDetails = new Font("Calibri", 1, 15);
 	private Font fontNames = new Font("Calibri", 0, 30);
 	private Font fontNamesSmall = new Font("Calibri", 0, 26);
@@ -52,6 +52,10 @@ public class SpielerInformationen extends JFrame {
 	private Font fontPosition = new Font("Calibri", 0, 24);
 	private Font fontPseudonym = new Font("Calibri", 0, 18);
 	private Font fontSquadNumber = new Font("Calibri", 0, 65);
+	
+	private static final int NUMBEROFFIELDSPMBM = 10;
+	private String[] headerTexts = new String[] {"Sp.", "Gegner", "Erg", "E", "A", "T", "V", "G", "GR", "R"};
+	private String[] tooltipTexts = new String[] {"Spieltag", "", "Ergebnis", "eingewechselt", "ausgewechselt", "Tore", "Vorlagen", "Gelbe Karte", "Gelb-Rote Karte", "Rote Karte"};
 	
 	private Rectangle REC_CHANGEINFO = new Rectangle(390, 140, 100, 30);
 	
@@ -86,9 +90,10 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
-	private Rectangle REC_SPPERFMBM = new Rectangle(390, 410, 470, 400);
+	private Rectangle REC_SPPERFMBM = new Rectangle(390, 430, 470, 380);
 	private int[] bndsPMbMMD = new int[] {0, 0, 0, 20, 25, 20};
-	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 190, 20};
+	private int[] bndsPMbMO = new int[] {40, 0, 0, 20, 170, 20};
+	private int[] bndsPMbMRes = new int[] {210, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMOn = new int[] {240, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMOff = new int[] {270, 0, 0, 20, 30, 20};
 	private int[] bndsPMbMG = new int[] {300, 0, 0, 20, 30, 20};
@@ -139,10 +144,12 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblCompetition;
 	private JLabel[] jLblsPerformance;
 	private JLabel[] jLblsPerformanceValues;
+	private JLabel[] jLblsPMbMHeaders;
 	private JScrollPane jSPPerformanceMbM;
 	private JPanel jPnlPerformanceMbM;
 	private ArrayList<JLabel> jLblsPerformanceMbMMatchday;
 	private ArrayList<JLabel> jLblsPerformanceMbMOpponent;
+	private ArrayList<JLabel> jLblsPerformanceMbMResult;
 	private ArrayList<JLabel> jLblsPerformanceMbMSubOn;
 	private ArrayList<JLabel> jLblsPerformanceMbMSubOff;
 	private ArrayList<JLabel> jLblsPerformanceMbMGoals;
@@ -176,8 +183,10 @@ public class SpielerInformationen extends JFrame {
 		
 		jLblsPerformance = new JLabel[NUMBEROFPERFORMANCEDATA];
 		jLblsPerformanceValues = new JLabel[NUMBEROFPERFORMANCEDATA];
+		jLblsPMbMHeaders = new JLabel[NUMBEROFFIELDSPMBM];
 		jLblsPerformanceMbMMatchday = new ArrayList<>();
 		jLblsPerformanceMbMOpponent = new ArrayList<>();
+		jLblsPerformanceMbMResult = new ArrayList<>();
 		jLblsPerformanceMbMSubOn = new ArrayList<>();
 		jLblsPerformanceMbMSubOff = new ArrayList<>();
 		jLblsPerformanceMbMGoals = new ArrayList<>();
@@ -562,6 +571,28 @@ public class SpielerInformationen extends JFrame {
 			jPnlPerformanceMbM.setLayout(null);
 			jPnlPerformanceMbM.setBackground(Color.WHITE);
 		}
+		for (int i = 0; i < NUMBEROFFIELDSPMBM; i++) {
+			jLblsPMbMHeaders[i] = new JLabel();
+			jPnlPlayerInformation.add(jLblsPMbMHeaders[i]);
+			if (i == 0)			alignRight(jLblsPMbMHeaders[0]);
+			else if (i == 1)	alignLeft(jLblsPMbMHeaders[1]);
+			else				alignCenter(jLblsPMbMHeaders[i]);
+			jLblsPMbMHeaders[i].setFont(fontDetailsHeadline);
+			jLblsPMbMHeaders[i].setText(headerTexts[i]);
+			jLblsPMbMHeaders[i].setToolTipText(tooltipTexts[i]);
+			jLblsPMbMHeaders[i].setVisible(false);
+		}
+		
+		jLblsPMbMHeaders[0].setBounds(390 + bndsPMbMMD[STARTX], 410, bndsPMbMMD[SIZEX], bndsPMbMMD[SIZEY]);
+		jLblsPMbMHeaders[1].setBounds(390 + bndsPMbMO[STARTX], 410, bndsPMbMO[SIZEX], bndsPMbMO[SIZEY]);
+		jLblsPMbMHeaders[2].setBounds(390 + bndsPMbMRes[STARTX], 410, bndsPMbMRes[SIZEX], bndsPMbMRes[SIZEY]);
+		jLblsPMbMHeaders[3].setBounds(390 + bndsPMbMOn[STARTX], 410, bndsPMbMOn[SIZEX], bndsPMbMOn[SIZEY]);
+		jLblsPMbMHeaders[4].setBounds(390 + bndsPMbMOff[STARTX], 410, bndsPMbMOff[SIZEX], bndsPMbMOff[SIZEY]);
+		jLblsPMbMHeaders[5].setBounds(390 + bndsPMbMG[STARTX], 410, bndsPMbMG[SIZEX], bndsPMbMG[SIZEY]);
+		jLblsPMbMHeaders[6].setBounds(390 + bndsPMbMA[STARTX], 410, bndsPMbMA[SIZEX], bndsPMbMA[SIZEY]);
+		jLblsPMbMHeaders[7].setBounds(390 + bndsPMbMB[STARTX], 410, bndsPMbMB[SIZEX], bndsPMbMB[SIZEY]);
+		jLblsPMbMHeaders[8].setBounds(390 + bndsPMbMBT[STARTX], 410, bndsPMbMBT[SIZEX], bndsPMbMBT[SIZEY]);
+		jLblsPMbMHeaders[9].setBounds(390 + bndsPMbMR[STARTX], 410, bndsPMbMR[SIZEX], bndsPMbMR[SIZEY]);
 		
 		setSize(WIDTH + getWindowDecorationWidth(), HEIGHT + getWindowDecorationHeight());
 		setResizable(false);
@@ -604,7 +635,13 @@ public class SpielerInformationen extends JFrame {
 			if (!atClubSinceEver)	firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
 			if (!atClubUntilEver)	lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
 			secondFDate = player.getSecondFirstDate();
-			int squadNumber = Integer.parseInt(jTFSquadNumber.getText());
+			int squadNumber = 0;
+			try {
+				squadNumber = Integer.parseInt(jTFSquadNumber.getText());
+			} catch(NumberFormatException nfe) {
+				message("Bitte eine gültige Rückennummer angeben.");
+				return false;
+			}
 			// check if squad number is unique
 			for (Spieler player : player.getTeam().getPlayers()) {
 				if (player == this.player)	continue;
@@ -690,15 +727,18 @@ public class SpielerInformationen extends JFrame {
 			jLblsPerformance[i].setVisible(!moreDetails);
 			jLblsPerformanceValues[i].setVisible(!moreDetails);
 		}
+		for (int i = 0; i < NUMBEROFFIELDSPMBM; i++) {
+			jLblsPMbMHeaders[i].setVisible(moreDetails);
+		}
 		if (moreDetails) {
 			ArrayList<int[]> performanceMbM = player.getTeam().getPerformanceDataMatchByMatch(player);
 			createLabels(performanceMbM.size());
 			int index = 0;
 			for (int[] performance : performanceMbM) {
-				index++;
 				String nothing = performance[2] != 91 ? "." : "X";
 				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
 				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getWettbewerb().getMannschaften()[performance[1] - 1].getName());
+				jLblsPerformanceMbMResult.get(index).setText(player.getTeam().getResultOfMatch(performance[0]));
 				jLblsPerformanceMbMSubOn.get(index).setText((performance[2] - 1) % 90 != 0 ? performance[2] + "." : nothing);
 				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : nothing);
 				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : nothing);
@@ -706,11 +746,13 @@ public class SpielerInformationen extends JFrame {
 				jLblsPerformanceMbMBooked.get(index).setText(performance[6] != 0 ? performance[6] + "." : nothing);
 				jLblsPerformanceMbMBookedTwice.get(index).setText(performance[7] != 0 ? performance[7] + "." : nothing);
 				jLblsPerformanceMbMRedCard.get(index).setText(performance[8] != 0 ? performance[8] + "." : nothing);
+				index++;
 			}
 			for (int i = 0; i < jLblsPerformanceMbMMatchday.size(); i++) {
-				boolean showRow = i <= performanceMbM.size();
+				boolean showRow = i < performanceMbM.size();
 				jLblsPerformanceMbMMatchday.get(i).setVisible(showRow);
 				jLblsPerformanceMbMOpponent.get(i).setVisible(showRow);
+				jLblsPerformanceMbMResult.get(i).setVisible(showRow);
 				jLblsPerformanceMbMSubOn.get(i).setVisible(showRow);
 				jLblsPerformanceMbMSubOff.get(i).setVisible(showRow);
 				jLblsPerformanceMbMGoals.get(i).setVisible(showRow);
@@ -719,7 +761,7 @@ public class SpielerInformationen extends JFrame {
 				jLblsPerformanceMbMBookedTwice.get(i).setVisible(showRow);
 				jLblsPerformanceMbMRedCard.get(i).setVisible(showRow);
 			}
-			jPnlPerformanceMbM.setPreferredSize(new Dimension(450, (performanceMbM.size() + 1) * 20));
+			jPnlPerformanceMbM.setPreferredSize(new Dimension(450, performanceMbM.size() * 20));
 			jSPPerformanceMbM.setViewportView(jPnlPerformanceMbM);
 			jSPPerformanceMbM.setBounds(REC_SPPERFMBM);
 		}
@@ -727,101 +769,75 @@ public class SpielerInformationen extends JFrame {
 	
 	private void createLabels(int totalNumber) {
 		int size = jLblsPerformanceMbMMatchday.size();
-		while (size <= totalNumber) {
+		while (size < totalNumber) {
 			JLabel label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignRight(label);
 			label.setBounds(bndsPMbMMD[STARTX], bndsPMbMMD[STARTY] + size * bndsPMbMMD[GAPY], bndsPMbMMD[SIZEX], bndsPMbMMD[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("Sp.");
-				label.setToolTipText("Spieltag");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMMatchday.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignLeft(label);
 			label.setBounds(bndsPMbMO[STARTX], bndsPMbMO[STARTY] + size * bndsPMbMO[GAPY], bndsPMbMO[SIZEX], bndsPMbMO[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0)	label.setText("Gegner");
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMOpponent.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
+			label.setBounds(bndsPMbMRes[STARTX], bndsPMbMRes[STARTY] + size * bndsPMbMRes[GAPY], bndsPMbMRes[SIZEX], bndsPMbMRes[SIZEY]);
+			label.setFont(fontDetails);
+			jLblsPerformanceMbMResult.add(label);
+			
+			label = new JLabel();
+			jPnlPerformanceMbM.add(label);
+			alignCenter(label);
 			label.setBounds(bndsPMbMOn[STARTX], bndsPMbMOn[STARTY] + size * bndsPMbMOn[GAPY], bndsPMbMOn[SIZEX], bndsPMbMOn[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("E");
-				label.setToolTipText("eingewechselt");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMSubOn.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMOff[STARTX], bndsPMbMOff[STARTY] + size * bndsPMbMOff[GAPY], bndsPMbMOff[SIZEX], bndsPMbMOff[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("A");
-				label.setToolTipText("ausgewechselt");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMSubOff.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMG[STARTX], bndsPMbMG[STARTY] + size * bndsPMbMG[GAPY], bndsPMbMG[SIZEX], bndsPMbMG[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("T");
-				label.setToolTipText("Tore");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMGoals.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMA[STARTX], bndsPMbMA[STARTY] + size * bndsPMbMA[GAPY], bndsPMbMA[SIZEX], bndsPMbMA[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("V");
-				label.setToolTipText("Vorlagen");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMAssists.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMB[STARTX], bndsPMbMB[STARTY] + size * bndsPMbMB[GAPY], bndsPMbMB[SIZEX], bndsPMbMB[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("G");
-				label.setToolTipText("Gelbe Karte");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMBooked.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMBT[STARTX], bndsPMbMBT[STARTY] + size * bndsPMbMBT[GAPY], bndsPMbMBT[SIZEX], bndsPMbMBT[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("GR");
-				label.setToolTipText("Gelb-Rote Karte");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMBookedTwice.add(label);
 			
 			label = new JLabel();
 			jPnlPerformanceMbM.add(label);
 			alignCenter(label);
 			label.setBounds(bndsPMbMR[STARTX], bndsPMbMR[STARTY] + size * bndsPMbMR[GAPY], bndsPMbMR[SIZEX], bndsPMbMR[SIZEY]);
-			label.setFont(size != 0 ? fontDetails : fontDetailsHeadline);
-			if (size == 0) {
-				label.setText("R");
-				label.setToolTipText("Rote Karte");
-			}
+			label.setFont(fontDetails);
 			jLblsPerformanceMbMRedCard.add(label);
 			
 			size++;

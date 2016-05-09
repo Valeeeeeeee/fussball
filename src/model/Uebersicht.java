@@ -16,8 +16,11 @@ public class Uebersicht extends JPanel {
 	
 	// Informationen
 	private Rectangle REC_INFPNL = new Rectangle(610, 20, 550, 80);
-	private Rectangle REC_LBLNAME = new Rectangle(90, 10, 370, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(200, 40, 150, 30);
+	private Rectangle REC_LBLHOME = new Rectangle(10, 10, 105, 15);
+	private Rectangle REC_LBLAWAY = new Rectangle(10, 30, 130, 15);
+	private Rectangle REC_LBLSORTBYDATE = new Rectangle(10, 50, 145, 15);
+	private Rectangle REC_LBLNAME = new Rectangle(170, 10, 370, 30);
+	private Rectangle REC_LBLGRDATUM = new Rectangle(280, 40, 150, 30);
 	
 	// Statistiken
 	private Rectangle REC_STATSPNL = new Rectangle(610, 105, 550, 115);
@@ -58,6 +61,8 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLUSEDPLAYERS = new Rectangle(280, 70, 140, 20);
 	
 	private Color cbackground = new Color(255, 128, 128);
+	private Color cgreyedout = new Color(128, 128, 128);
+	private Color coptions = new Color(0, 192, 255);
 	private String[] headerStrings = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private String[] positions = new String[] {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 	private String[] positionsPlayer = new String[] {"Torhüter", "Verteidiger", "Mittelfeldspieler", "Stürmer"};
@@ -65,8 +70,11 @@ public class Uebersicht extends JPanel {
 	private static final int NUMBER_OF_SERIES = 9;
 	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
 	
-	private JPanel spiele;
-	private JLabel[][] spieltage;
+	private JPanel jPnlMatches;
+	private JLabel jLblShowOnlyHome;
+	private JLabel jLblShowOnlyAway;
+	private JLabel jLblSortByDate;
+	private JLabel[][] jLblsMatches;
 	
 	private JPanel jPnlInformationen;
 	private JLabel jLblMannschaftsname;
@@ -177,6 +185,7 @@ public class Uebersicht extends JPanel {
 	private Mannschaft[] mannschaften;
 	private int[] opponents;
 	private boolean[] homeaway;
+	private ArrayList<Integer> matchdayOrder = new ArrayList<>();
 	
 	private ArrayList<Spieler> eligiblePlayers;
 	private ArrayList<Spieler> ineligiblePlayers;
@@ -216,7 +225,7 @@ public class Uebersicht extends JPanel {
 			numberOfPositions = 4;
 			if (wettbewerb.getNumberOfMatchesAgainstSameOpponent() == 1)	middlegapy = 0;
 			
-			spieltage = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
+			jLblsMatches = new JLabel[numberOfMatchdays][NUMBEROFFIELDSSPPL];
 			opponents = new int[numberOfMatchdays];
 			homeaway = new boolean[numberOfMatchdays];
 			jLblsSeries = new JLabel[NUMBER_OF_SERIES];
@@ -228,6 +237,9 @@ public class Uebersicht extends JPanel {
 			jLblsPositionVal = new JLabel[numberOfPositions];
 			jLblsPosition = new JLabel[numberOfPositions];
 			
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				matchdayOrder.add(i);
+			}
 
 			int sumofwidthes = 2 * nstartx;
 			for (int i = 0; i < widthes.length; i++) {
@@ -244,51 +256,48 @@ public class Uebersicht extends JPanel {
 			}
 			
 			{
-				spiele = new JPanel();
-				this.add(spiele);
-				spiele.setLayout(null);
-				spiele.setBounds(REC_SPPLPNL);
-				spiele.setOpaque(true);
-				spiele.setBackground(cbackground);
+				jPnlMatches = new JPanel();
+				this.add(jPnlMatches);
+				jPnlMatches.setLayout(null);
+				jPnlMatches.setBounds(REC_SPPLPNL);
+				jPnlMatches.setOpaque(true);
+				jPnlMatches.setBackground(cbackground);
 			}
 			
-			for (int i = 0; i < spieltage.length; i++) {
+			for (int i = 0; i < jLblsMatches.length; i++) {
 				final int x = i;
 				int diff = 0;
 				
-				for (int j = 0; j < spieltage[i].length; j++) {
-					spieltage[i][j] = new JLabel();
-					spiele.add(spieltage[i][j]);
-					spieltage[i][j].setBounds(nstartx + diff, 5 + i * (height + gapy) + (i / (spieltage.length / 2)) * middlegapy, widthes[j], height);
+				for (int j = 0; j < jLblsMatches[i].length; j++) {
+					jLblsMatches[i][j] = new JLabel();
+					jPnlMatches.add(jLblsMatches[i][j]);
+					jLblsMatches[i][j].setBounds(nstartx + diff, 5 + i * (height + gapy) + (i / (jLblsMatches.length / 2)) * middlegapy, widthes[j], height);
 					
 					diff += widthes[j] + gapx[j];
 				}
-				spieltage[i][TEAMHOME].setCursor(handCursor);
-				spieltage[i][TEAMAWAY].setCursor(handCursor);
-				spieltage[i][MATCHDAY].setCursor(handCursor);
+				jLblsMatches[i][TEAMHOME].setCursor(handCursor);
+				jLblsMatches[i][TEAMAWAY].setCursor(handCursor);
+				jLblsMatches[i][MATCHDAY].setCursor(handCursor);
 				
-				alignCenter(spieltage[i][MATCHDAY]);
-				alignCenter(spieltage[i][DATE]);
-				alignRight(spieltage[i][TEAMHOME]);
-				alignCenter(spieltage[i][GOALSHOME]);
-				alignCenter(spieltage[i][TRENNZEICHEN]);
-				alignCenter(spieltage[i][GOALSAWAY]);
-				alignLeft(spieltage[i][TEAMAWAY]);
+				alignCenter(jLblsMatches[i][MATCHDAY]);
+				alignCenter(jLblsMatches[i][DATE]);
+				alignRight(jLblsMatches[i][TEAMHOME]);
+				alignCenter(jLblsMatches[i][GOALSHOME]);
+				alignCenter(jLblsMatches[i][TRENNZEICHEN]);
+				alignCenter(jLblsMatches[i][GOALSAWAY]);
+				alignLeft(jLblsMatches[i][TEAMAWAY]);
 				
-				spieltage[i][TEAMHOME].setBackground(Color.yellow);
-				spieltage[i][TEAMAWAY].setBackground(Color.yellow);
-				
-				spieltage[i][TEAMHOME].addMouseListener(new MouseAdapter() {
+				jLblsMatches[i][TEAMHOME].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						showTeam(x, true);
 					}
 				});
-				spieltage[i][TEAMAWAY].addMouseListener(new MouseAdapter() {
+				jLblsMatches[i][TEAMAWAY].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						showTeam(x, false);
 					}
 				});
-				spieltage[i][MATCHDAY].addMouseListener(new MouseAdapter() {
+				jLblsMatches[i][MATCHDAY].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						spieltagAnzeigen(x);
 					}
@@ -301,6 +310,63 @@ public class Uebersicht extends JPanel {
 				jPnlInformationen.setBounds(REC_INFPNL);
 				jPnlInformationen.setOpaque(true);
 				jPnlInformationen.setBackground(cbackground);
+			}
+			{
+				jLblShowOnlyHome = new JLabel();
+				jPnlInformationen.add(jLblShowOnlyHome);
+				alignCenter(jLblShowOnlyHome);
+				jLblShowOnlyHome.setBounds(REC_LBLHOME);
+				jLblShowOnlyHome.setCursor(handCursor);
+				jLblShowOnlyHome.setText("nur Heimspiele");
+				jLblShowOnlyHome.setOpaque(true);
+				jLblShowOnlyHome.setBackground(coptions);
+				jLblShowOnlyHome.addMouseListener(new MouseAdapter() {
+					public void mouseEntered(MouseEvent evt) {
+						showOnlyHomeMatches();
+					}
+					
+					public void mouseExited(MouseEvent evt) {
+						showAllMatches();
+					}
+				});
+			}
+			{
+				jLblShowOnlyAway = new JLabel();
+				jPnlInformationen.add(jLblShowOnlyAway);
+				alignCenter(jLblShowOnlyAway);
+				jLblShowOnlyAway.setBounds(REC_LBLAWAY);
+				jLblShowOnlyAway.setCursor(handCursor);
+				jLblShowOnlyAway.setText("nur Auswärtsspiele");
+				jLblShowOnlyAway.setOpaque(true);
+				jLblShowOnlyAway.setBackground(coptions);
+				jLblShowOnlyAway.addMouseListener(new MouseAdapter() {
+					public void mouseEntered(MouseEvent evt) {
+						showOnlyAwayMatches();
+					}
+					
+					public void mouseExited(MouseEvent evt) {
+						showAllMatches();
+					}
+				});
+			}
+			{
+				jLblSortByDate = new JLabel();
+				jPnlInformationen.add(jLblSortByDate);
+				alignCenter(jLblSortByDate);
+				jLblSortByDate.setBounds(REC_LBLSORTBYDATE);
+				jLblSortByDate.setCursor(handCursor);
+				jLblSortByDate.setText("nach Datum sortieren");
+				jLblSortByDate.setOpaque(true);
+				jLblSortByDate.setBackground(coptions);
+				jLblSortByDate.addMouseListener(new MouseAdapter() {
+					public void mouseEntered(MouseEvent evt) {
+						sortByDate();
+					}
+					
+					public void mouseExited(MouseEvent evt) {
+						sortByMatchday();
+					}
+				});
 			}
 			{
 				jLblMannschaftsname = new JLabel();
@@ -590,8 +656,8 @@ public class Uebersicht extends JPanel {
 			int minimumheight = 645;
 			int maximumheight = 840;
 			Dimension dim = new Dimension();
-			dim.width = startx + spiele.getSize().width + 5 + jPnlInformationen.getSize().width + startx;
-			dim.height = starty + spiele.getSize().height + 20;
+			dim.width = startx + jPnlMatches.getSize().width + 5 + jPnlInformationen.getSize().width + startx;
+			dim.height = starty + jPnlMatches.getSize().height + 20;
 			if (dim.height < minimumheight) {
 				dim.height = minimumheight;
 			} else if (dim.height > maximumheight) {
@@ -792,6 +858,69 @@ public class Uebersicht extends JPanel {
 		showTableExcerpt();
 	}
 	
+	private void showOnlyHomeMatches() {
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			if (!jLblsMatches[i][TEAMHOME].getText().equals(mannschaft.getName())) {
+				for (int j = 0; j < jLblsMatches[i].length; j++) {
+					jLblsMatches[i][j].setOpaque(true);
+					jLblsMatches[i][j].setBackground(cgreyedout);
+					repaintImmediately(jLblsMatches[i][j]);
+				}
+			}
+		}
+	}
+	
+	private void showOnlyAwayMatches() {
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			if (!jLblsMatches[i][TEAMAWAY].getText().equals(mannschaft.getName())) {
+				for (int j = 0; j < jLblsMatches[i].length; j++) {
+					jLblsMatches[i][j].setOpaque(true);
+					jLblsMatches[i][j].setBackground(cgreyedout);
+					repaintImmediately(jLblsMatches[i][j]);
+				}
+			}
+		}
+	}
+	
+	private void showAllMatches() {
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < jLblsMatches[i].length; j++) {
+				jLblsMatches[i][j].setOpaque(false);
+			}
+		}
+		labelsBefuellen();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < jLblsMatches[i].length; j++) {
+				repaintImmediately(jLblsMatches[i][j]);
+			}
+		}
+	}
+	
+	private void sortByDate() {
+		// make matchday order chronological
+		ArrayList<Integer> dates = new ArrayList<>();
+		matchdayOrder.clear();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			String dateString = mannschaft.getDateAndTime(i);
+			int index = 0, date = MyDate.getDate(dateString.substring(0, dateString.indexOf(" ")));
+			for (Integer itg : dates) {
+				if (date > itg)	index++;
+			}
+			dates.add(index, date);
+			matchdayOrder.add(index, i);
+		}
+		labelsBefuellen();
+	}
+	
+	private void sortByMatchday() {
+		// reset matchday order
+		matchdayOrder.clear();
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdayOrder.add(i);
+		}
+		labelsBefuellen();
+	}
+	
 	private void showTeam(int tableIndex, boolean home) {
 		if ((homeaway[tableIndex] ^ home) && opponents[tableIndex] != 0)	Start.getInstance().uebersichtAnzeigen(opponents[tableIndex]);
 	}
@@ -844,65 +973,72 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void labelsBefuellen() {
+		int[] indices = new int[numberOfMatchdays];
+		for (int i = 0; i < indices.length; i++) {
+			indices[matchdayOrder.get(i)] = i;
+		}
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			int[] match = mannschaft.getMatch(matchday);
+			int index = indices[matchday];
 			
-			spieltage[matchday][MATCHDAY].setText("" + (matchday + 1));
-			spieltage[matchday][TRENNZEICHEN].setText(":");
+			jLblsMatches[index][MATCHDAY].setText("" + (matchday + 1));
+			jLblsMatches[index][TRENNZEICHEN].setText(":");
 			
-			spieltage[matchday][DATE].setText(mannschaft.getDateAndTime(matchday));
+			jLblsMatches[index][DATE].setText(mannschaft.getDateAndTime(matchday));
+			jLblsMatches[index][TEAMHOME].setBackground(Color.yellow);
+			jLblsMatches[index][TEAMAWAY].setBackground(Color.yellow);
 			
 			if (mannschaft.isSpielEntered(matchday)) {
 				if (match[1] != 0) {
-					opponents[matchday] = match[1];
-					homeaway[matchday] = match[0] == Mannschaft.HOME;
+					opponents[index] = match[1];
+					homeaway[index] = match[0] == Mannschaft.HOME;
 					if (match[0] == Mannschaft.HOME) {
-						spieltage[matchday][TEAMHOME].setText(mannschaft.getName());
-						spieltage[matchday][TEAMAWAY].setText(mannschaften[match[1] - 1].getName());
-						spieltage[matchday][TEAMHOME].setOpaque(true);
-						spieltage[matchday][TEAMAWAY].setOpaque(false);
+						jLblsMatches[index][TEAMHOME].setText(mannschaft.getName());
+						jLblsMatches[index][TEAMAWAY].setText(mannschaften[match[1] - 1].getName());
+						jLblsMatches[index][TEAMHOME].setOpaque(true);
+						jLblsMatches[index][TEAMAWAY].setOpaque(false);
 					} else if (match[0] == Mannschaft.AWAY){
-						spieltage[matchday][TEAMHOME].setText(mannschaften[match[1] - 1].getName());
-						spieltage[matchday][TEAMAWAY].setText(mannschaft.getName());
-						spieltage[matchday][TEAMHOME].setOpaque(false);
-						spieltage[matchday][TEAMAWAY].setOpaque(true);
+						jLblsMatches[index][TEAMHOME].setText(mannschaften[match[1] - 1].getName());
+						jLblsMatches[index][TEAMAWAY].setText(mannschaft.getName());
+						jLblsMatches[index][TEAMHOME].setOpaque(false);
+						jLblsMatches[index][TEAMAWAY].setOpaque(true);
 					}
 				} else {
-					spieltage[matchday][TEAMHOME].setText("spielfrei");
-					spieltage[matchday][TEAMAWAY].setText("spielfrei");
+					jLblsMatches[index][TEAMHOME].setText("spielfrei");
+					jLblsMatches[index][TEAMAWAY].setText("spielfrei");
 				}
 			} else {
-				spieltage[matchday][TEAMHOME].setText("n.a.");
-				spieltage[matchday][TEAMAWAY].setText("n.a.");
+				jLblsMatches[index][TEAMHOME].setText("n.a.");
+				jLblsMatches[index][TEAMAWAY].setText("n.a.");
 			}
 			
-			spieltage[matchday][TEAMHOME].repaint();
-			spieltage[matchday][TEAMAWAY].repaint();
+			jLblsMatches[index][TEAMHOME].repaint();
+			jLblsMatches[index][TEAMAWAY].repaint();
 			
 			if (mannschaft.isErgebnisEntered(matchday)) {
 				if (match[0] == Mannschaft.HOME) {
-					spieltage[matchday][GOALSHOME].setText("" + match[2]);
-					spieltage[matchday][GOALSAWAY].setText("" + match[3]);
+					jLblsMatches[index][GOALSHOME].setText("" + match[2]);
+					jLblsMatches[index][GOALSAWAY].setText("" + match[3]);
 				} else if (match[0] == Mannschaft.AWAY){
-					spieltage[matchday][GOALSHOME].setText("" + match[3]);
-					spieltage[matchday][GOALSAWAY].setText("" + match[2]);
+					jLblsMatches[index][GOALSHOME].setText("" + match[3]);
+					jLblsMatches[index][GOALSAWAY].setText("" + match[2]);
 				}
 				Color color = (match[2] == match[3] ? Color.white : (match[2] > match[3] ? Color.green : Color.red));
-				spieltage[matchday][GOALSHOME].setBackground(color);
-				spieltage[matchday][TRENNZEICHEN].setBackground(color);
-				spieltage[matchday][GOALSAWAY].setBackground(color);
-				spieltage[matchday][GOALSHOME].setOpaque(true);
-				spieltage[matchday][TRENNZEICHEN].setOpaque(true);
-				spieltage[matchday][GOALSAWAY].setOpaque(true);
+				jLblsMatches[index][GOALSHOME].setBackground(color);
+				jLblsMatches[index][TRENNZEICHEN].setBackground(color);
+				jLblsMatches[index][GOALSAWAY].setBackground(color);
+				jLblsMatches[index][GOALSHOME].setOpaque(true);
+				jLblsMatches[index][TRENNZEICHEN].setOpaque(true);
+				jLblsMatches[index][GOALSAWAY].setOpaque(true);
 			} else {
-				spieltage[matchday][GOALSHOME].setText("-");
-				spieltage[matchday][GOALSAWAY].setText("-");
-				spieltage[matchday][GOALSHOME].setBackground(null);
-				spieltage[matchday][TRENNZEICHEN].setBackground(null);
-				spieltage[matchday][GOALSAWAY].setBackground(null);
-				spieltage[matchday][GOALSHOME].setOpaque(false);
-				spieltage[matchday][TRENNZEICHEN].setOpaque(false);
-				spieltage[matchday][GOALSAWAY].setOpaque(false);
+				jLblsMatches[index][GOALSHOME].setText("-");
+				jLblsMatches[index][GOALSAWAY].setText("-");
+				jLblsMatches[index][GOALSHOME].setBackground(null);
+				jLblsMatches[index][TRENNZEICHEN].setBackground(null);
+				jLblsMatches[index][GOALSAWAY].setBackground(null);
+				jLblsMatches[index][GOALSHOME].setOpaque(false);
+				jLblsMatches[index][TRENNZEICHEN].setOpaque(false);
+				jLblsMatches[index][GOALSAWAY].setOpaque(false);
 			}
 		}
 	}
