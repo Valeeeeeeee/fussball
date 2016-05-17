@@ -578,7 +578,6 @@ public class LigaSaison implements Wettbewerb {
 			}
 			inDatei(fileName, nextMatchesString);
 		} else {
-			log("Deleting "+ fileName);
 			new File(fileName).delete();
 		}
 	}

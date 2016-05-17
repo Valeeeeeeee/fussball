@@ -1,6 +1,7 @@
 René;Adler;null;19850115;Deutschland;Tor;15
 Jaroslav;Drobny;null;19791018;Tschechien;Tor;1
 Andreas;Hirzel;null;19930325;Schweiz;Tor;30
+Tom;Mickel;null;19890419;Deutschland;Tor;36
 Cléber Janderson;Pereira Reis;Cléber;19901205;Brasilien;Abwehr;3
 Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Johan;Djourou;null;19870118;Schweiz;Abwehr;5
@@ -23,6 +24,7 @@ Petr;Jiracek;null;19860302;Tschechien;Mittelfeld;19;-20150824
 Gojko;Kacar;null;19870126;Serbien;Mittelfeld;40
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;17;-20151231
+Batuhan;Altintas;null;19960314;Türkei;Sturm;33
 Josip;Drmic;null;19920808;Schweiz;Sturm;18;20160201-
 Michael;Gregoritsch;null;19940418;Österreich;Sturm;23
 Pierre-Michel;Lasogga;null;19911215;Deutschland;Sturm;10
