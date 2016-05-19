@@ -376,5 +376,5 @@ HF01W: FC Sevilla
 HF01L: Schachtar Donezk
 HF02W: FC Liverpool
 HF02L: FC Villarreal
-FI01W: CL2015FI01W
-FI01L: CL2015FI01L
+FI01W: FC Sevilla
+FI01L: FC Liverpool
