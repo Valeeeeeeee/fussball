@@ -655,7 +655,7 @@ public class Mannschaft {
 	
 	public String[] getResultsAgainst(Mannschaft opponent) {
 		int halfNumberOfMatchesASO = wettbewerb.getNumberOfMatchesAgainstSameOpponent() / 2;
-		String[] results = new String[2 * halfNumberOfMatchesASO];
+		String[] results = new String[wettbewerb.getNumberOfMatchesAgainstSameOpponent()];
 		for (int i = 0; i < results.length; i++) {
 			results[i] = "2;-:-";
 		}
