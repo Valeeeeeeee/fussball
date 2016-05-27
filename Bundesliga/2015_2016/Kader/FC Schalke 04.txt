@@ -1,6 +1,7 @@
 Ralf;Fährmann;null;19880927;Deutschland;Tor;1
 Fabian;Giefer;null;19900517;Deutschland;Tor;34
 Michael;Gspurning;null;19810502;Österreich;Tor;30
+Alexander;Nübel;null;19960930;Deutschland;Tor;35
 Dennis;Aogo;null;19870114;Deutschland;Abwehr;15
 Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24;-20151231
 Marvin;Friedrich;null;19951213;Deutschland;Abwehr;2

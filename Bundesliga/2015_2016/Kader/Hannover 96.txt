@@ -3,6 +3,7 @@ Philipp;Tschauner;null;19851103;Deutschland;Tor;13
 Ron-Robert;Zieler;null;19890212;Deutschland;Tor;1
 Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
+Fynn;Arkenberg;null;19960304;Deutschland;Abwehr;33;20160201-
 Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
 André;Hoffmann;null;19930228;Deutschland;Abwehr;15
 Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25;-20160131
@@ -15,6 +16,7 @@ Oliver;Sorg;null;19900529;Deutschland;Abwehr;29
 Leon;Andreasen;null;19830423;Dänemark;Mittelfeld;2
 Mike-Steven;Bähre;null;19950810;Deutschland;Mittelfeld;33;-20160128
 Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17
+Tim;Dierßen;null;19960115;Deutschland;Mittelfeld;34
 Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18;20160101-
 Ceyhun;Gülselam;null;19871225;Türkei;Mittelfeld;6
 Maurice;Hirsch;null;19930530;Deutschland;Mittelfeld;23;-20151231

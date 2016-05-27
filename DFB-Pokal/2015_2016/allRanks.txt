@@ -122,5 +122,5 @@ HF01W: Bayern München
 HF01L: Werder Bremen
 HF02W: Borussia Dortmund
 HF02L: Hertha BSC
-FI01W: DP2015FI01W
-FI01L: DP2015FI01L
+FI01W: Bayern München
+FI01L: Borussia Dortmund
