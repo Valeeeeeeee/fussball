@@ -149,8 +149,6 @@ public class Start extends JFrame {
 		loadConfiguration();
 		initGUI();
 //		message("Den Spieltag fuer zu viele Spiele mit ScrollPane ausstatten. --> DFB-Pokal");
-//		message("Fuer die Bounds ein Rectangle[win/mac][alle lbls, cbs, ...] mit den Bounds-Werten. \n"
-//					+ "Zum Aendern int macorwin", "Bounds", JOptionPane.INFORMATION_MESSAGE);
 		
 		testSomethingBeforeIntroducingItIntoTheRealCode();
 		
