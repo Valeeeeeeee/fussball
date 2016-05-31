@@ -588,7 +588,11 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private void setKickoffTimes(LigaSaison lSeason) {
 		defaultKickoffTimes = lSeason.getDefaultKickoffTimes();
-		kickOffTimes = lSeason.getKickOffTimes();
+		kickOffTimes = new ArrayList<>();
+		for (AnstossZeit asz : lSeason.getKickOffTimes()) {
+			kickOffTimes.add(asz);
+		}
+		kickOffTimes.remove(0);
 		int lastKOT = defaultKickoffTimes[defaultKickoffTimes.length - 1];
 		while (lastKOT + 1 < kickOffTimes.size()) {
 			kickOffTimes.remove(lastKOT);
