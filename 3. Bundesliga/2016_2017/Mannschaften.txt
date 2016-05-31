@@ -1,0 +1,21 @@
+20
+MSV Duisburg;01.01.1970
+FSV Frankfurt;01.01.1970
+SC Paderborn;01.01.1970
+1. FC Magdeburg;01.01.1970
+VfL Osnabrück;01.01.1970
+Chemnitzer FC;01.01.1970
+SG Sonnenhof Großaspach;01.01.1970
+Rot-Weiß Erfurt;01.01.1970
+Preußen Münster;01.01.1970
+Hansa Rostock;01.01.1970
+Fortuna Köln;01.01.1970
+1. FSV Mainz 05 II;01.01.1970
+Hallescher FC;01.01.1970
+Holstein Kiel;01.01.1970
+VfR Aalen;01.01.1970
+SV Wehen Wiesbaden;01.01.1970
+Werder Bremen II;01.01.1970
+FSV Zwickau;01.01.1970
+Sportfreunde Lotte;01.01.1970
+SSV Jahn Regensburg;01.01.1970
