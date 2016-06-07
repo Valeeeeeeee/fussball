@@ -11,7 +11,7 @@ SpVgg Greuther Fürth;23.09.1903
 1. FC Kaiserlautern;02.06.1900
 1. FC Heidenheim;01.01.2007
 Arminia Bielefeld;03.05.1905
-SV Sandhausen;01.08.1916;
+SV Sandhausen;01.08.1916
 Fortuna Düsseldorf;05.05.1895
 1860 München;17.05.1860
 Dynamo Dresden;12.04.1953
