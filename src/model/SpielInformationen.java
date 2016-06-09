@@ -1770,6 +1770,7 @@ public class SpielInformationen extends JFrame {
 		if (changedElement != -1)	bookings.remove(changedElement);
 		changedElement = -1;
 		for (Karte booking : bookings) {
+			if (booking.getMinute() > minute)	continue;
 			if (booking.getBookedPlayer() == bookedPlayer) {
 				if (!isSecondBooking && booking.isYellowCard()) {
 					isSecondBooking = true;
