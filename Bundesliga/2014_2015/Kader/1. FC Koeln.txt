@@ -4,7 +4,7 @@ Miso;Brecko;null;19840501;Slowenien;Abwehr;2
 Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Tomas;Kalas;null;19930515;Tschechien;Abwehr;3
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
-Mergim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
+Mërgim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
 Pawel;Olkowski;null;19900213;Polen;Abwehr;16
 Kevin;Wimmer;null;19921115;Österreich;Abwehr;28
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;31

@@ -52,6 +52,10 @@ public class Karte {
 		return isSecondBooking;
 	}
 	
+	public void setSecondBooking(boolean isSecond) {
+		isSecondBooking = isSecond;
+	}
+	
 	public boolean isOnTheBench() {
 		return onTheBench;
 	}

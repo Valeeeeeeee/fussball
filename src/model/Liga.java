@@ -49,17 +49,18 @@ public class Liga {
 		int numberOfMatchdays = neueSaison.getNumberOfMatchesAgainstSameOpponent() * (2 * ((teams.size() + 1) / 2) - 1);
 		int numberOfMatchesPerMatchday = teams.size() / 2;
 		
-		String allF = "", allNull = "";
+		String allF = "";
 		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
 			allF += "f";
-			allNull += "null;";
 		}
 		
 		spielplan.add(KOTRepresentation);
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			ergebnisplan.add(allF);
 			spielplan.add(allF);
-			spieldaten.add(allNull);
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				spieldaten.add("null");
+			}
 		}
 		
 		teamsNames.add("" + teams.size());

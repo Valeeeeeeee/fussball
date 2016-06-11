@@ -890,6 +890,8 @@ public class Mannschaft {
 			if (deductedPoints != 0) {
 				data += ";null;" + this.deductedPoints;
 			}
+		} else if (this.gruendungsdatum != null) {
+			data += ";" + this.gruendungsdatum;
 		}
 
 		return data;

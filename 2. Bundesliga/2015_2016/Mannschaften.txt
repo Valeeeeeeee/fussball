@@ -1,19 +1,19 @@
 18
-SC Freiburg;01.01.1970
-SC Paderborn;01.01.1970
-Karlsruher SC;01.01.1970
-1. FC Kaiserlautern;01.01.1970
-RasenBallsport Leipzig;01.01.1970
-Eintracht Braunschweig;01.01.1970
-1. FC Union Berlin;01.01.1970
-1. FC Heidenheim;01.01.1970
-1. FC Nürnberg;01.01.1970
-Fortuna Düsseldorf;01.01.1970
-VfL Bochum;01.01.1970
-SV Sandhausen;01.01.1970;-3
-FSV Frankfurt;01.01.1970
-SpVgg Greuther Fürth;01.01.1970
-FC St. Pauli;01.01.1970
-1860 München;01.01.1970
-Arminia Bielefeld;01.01.1970
-MSV Duisburg;01.01.1970
+SC Freiburg;30.05.1904
+SC Paderborn;14.08.1907
+Karlsruher SC;06.06.1894
+1. FC Kaiserlautern;02.06.1900
+RasenBallsport Leipzig;19.05.2009
+Eintracht Braunschweig;15.12.1895
+1. FC Union Berlin;20.01.1966
+1. FC Heidenheim;01.01.2007
+1. FC Nürnberg;04.05.1900
+Fortuna Düsseldorf;05.05.1895
+VfL Bochum;14.04.1938
+SV Sandhausen;01.08.1916;-3
+FSV Frankfurt;20.08.1899
+SpVgg Greuther Fürth;23.09.1903
+FC St. Pauli;15.05.1910
+1860 München;17.05.1860
+Arminia Bielefeld;03.05.1905
+MSV Duisburg;17.09.1902

@@ -1740,7 +1740,7 @@ public class SpielInformationen extends JFrame {
 			return;
 		}
 		
-		if (jCBOben.getSelectedIndex() == 0) {
+		if (jCBUnten.getSelectedIndex() == 0) {
 			message("Bitte einen Spieler auswaehlen.");
 			return;
 		}
@@ -1755,35 +1755,20 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		boolean yellowCard = jChBLeft.isSelected();
-		boolean isSecondBooking = false;
 		boolean onTheBench = jChBBench.isSelected();
 		
 		int index = jCBUnten.getSelectedIndex();
 		Spieler bookedPlayer = eligiblePlayersListLower.get(index - 1);
-		for (Wechsel wechsel : spiel.getSubstitutions(editingFirstTeam)) {
-			if (wechsel.getAusgewechselterSpieler() == bookedPlayer && minute > wechsel.getMinute() || 
-					wechsel.getEingewechselterSpieler() == bookedPlayer && minute < wechsel.getMinute()) {
-				message("Der Spieler " + bookedPlayer.getPseudonymOrLN() + " war in der angegebenen Minute noch nicht auf dem Spielfeld.");
-				return;
-			}
-		}
-		if (changedElement != -1)	bookings.remove(changedElement);
-		changedElement = -1;
-		for (Karte booking : bookings) {
-			if (booking.getBookedPlayer() == bookedPlayer) {
-				if (!isSecondBooking && booking.isYellowCard()) {
-					isSecondBooking = true;
-				} else {
-					message("Der Spieler " + bookedPlayer.getPseudonymOrLN() + " wurde bereits vom Platz gestellt.");
-					return;
-				}
-			}
+		boolean onThePitch = checkPlayerOnPitch(bookedPlayer, minute);
+		if (onThePitch && onTheBench) {
+			message("Der Spieler " + bookedPlayer.getPseudonymOrLN() + " war in der angegebenen Minute auf dem Spielfeld, kann also nicht auf der Bank sitzen.");
+			return;
+		} else if (!onThePitch && !onTheBench) {
+			message("Der Spieler " + bookedPlayer.getPseudonymOrLN() + " war in der angegebenen Minute nicht auf dem Spielfeld.");
+			return;
 		}
 		
-		Karte booking = new Karte(spiel, editingFirstTeam, minute, yellowCard, isSecondBooking, onTheBench, bookedPlayer);
-		spiel.addBooking(booking);
-		if (repaint)	paintBookings();
-		else			displayBooking(booking, bookings.size() - 1);
+		if (!addBooking(minute, yellowCard, onTheBench, bookedPlayer)) return;
 		enteringBooking = false;
 		bookedOnTheBench = false;
 		
@@ -1802,6 +1787,65 @@ public class SpielInformationen extends JFrame {
 		setLabelsVisible(true);
 		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		requestFocus();
+	}
+	
+	private boolean checkPlayerOnPitch(Spieler player, int minute) {
+		for (Wechsel wechsel : spiel.getSubstitutions(editingFirstTeam)) {
+			if (wechsel.getAusgewechselterSpieler() == player && minute > wechsel.getMinute() || 
+					wechsel.getEingewechselterSpieler() == player && minute < wechsel.getMinute()) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	private boolean addBooking(int minute, boolean yellowCard, boolean onTheBench, Spieler bookedPlayer) {
+		boolean isSecondBooking = false;
+		ArrayList<Karte> playersBookings = new ArrayList<>();
+		ArrayList<Karte> otherBookings = new ArrayList<>();
+		for (Karte booking : bookings) {
+			if (changedElement != -1 && bookings.get(changedElement) == booking)	continue;
+			if (booking.getBookedPlayer() == bookedPlayer)	playersBookings.add(booking);
+			else											otherBookings.add(booking);
+		}
+		
+		if (playersBookings.size() >= 2) {
+			message("Dem ausgewählten Spieler sind bereits zu viele Karten zugeteilt!");
+			return false;
+		} else if (playersBookings.size() == 1) {
+			Karte previous = playersBookings.get(0);
+			boolean prvYellow = previous.isYellowCard();
+			boolean prvFirst = previous.getMinute() <= minute;
+			
+			if (!yellowCard && !prvFirst) {
+				message("Der Spieler kann nicht vom Platz gestellt werden, da er später noch eine Karte sieht.");
+				return false;
+			} else if (!prvYellow && prvFirst) {
+				message("Der Spieler wurde bereits vom Platz gestellt!");
+				return false;
+			}
+			previous.setSecondBooking(!prvFirst);
+			isSecondBooking = prvFirst;
+			repaint = true;
+		}
+
+		for (Karte booking : otherBookings) {
+			booking.setSecondBooking(false);
+			for (Karte previous : otherBookings) {
+				if (previous == booking)	break;
+				else if (previous.getBookedPlayer() == booking.getBookedPlayer())	booking.setSecondBooking(true);
+			}
+		}
+		
+		Karte booking = new Karte(spiel, editingFirstTeam, minute, yellowCard, isSecondBooking, onTheBench, bookedPlayer);
+		if (changedElement != -1)	bookings.remove(changedElement);
+		changedElement = -1;
+		spiel.addBooking(booking);
+		if (repaint)	paintBookings();
+		else			displayBooking(booking, bookings.size() - 1);
+		
+		return true;
 	}
 	
 	private void enterNewLineup(boolean firstTeam) {
