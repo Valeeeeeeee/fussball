@@ -34,7 +34,7 @@ public class KORunde implements Wettbewerb {
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
 	private boolean goalDifference = true;
-	private boolean teamsHaveKader = false;
+	private boolean teamsHaveKader;
 	
 	private boolean teamsAreWinners;
 	private String[] teamsOrigins;
@@ -82,8 +82,9 @@ public class KORunde implements Wettbewerb {
 		this.id = id;
 		this.isQ = isQ;
 		
-		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
-		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
+		startDate = season.getStartDate(isQ);
+		finalDate = season.getFinalDate(isQ);
+		teamsHaveKader = season.teamsHaveKader(isQ);
 		
 		fromString(daten);
 		
@@ -846,7 +847,6 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void fromString(String daten) {
-		// TODO fromString
 		String[] dataSplit = daten.split(";");
 		this.name = dataSplit[0];
 		this.shortName = dataSplit[1];

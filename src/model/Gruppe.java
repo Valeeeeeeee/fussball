@@ -26,7 +26,7 @@ public class Gruppe implements Wettbewerb {
 	private TurnierSaison season;
 	private boolean isETPossible = false;
 	private boolean goalDifference;
-	private boolean teamsHaveKader = false;
+	private boolean teamsHaveKader;
 	
 	/**
 	 * [Spieltag][Spiel]
@@ -65,11 +65,12 @@ public class Gruppe implements Wettbewerb {
 		name = "Gruppe " + alphabet[id];
 		
 		this.season = season;
-		this.startDate = isQ ? season.getQStartDate() : season.getStartDate();
-		this.finalDate = isQ ? season.getQFinalDate() : season.getFinalDate();
+		startDate = season.getStartDate(isQ);
+		finalDate = season.getFinalDate(isQ);
 		this.goalDifference = goalDifference;
+		teamsHaveKader = season.teamsHaveKader(isQ);
 		
-		this.laden();
+		laden();
 		
 		if (debug)	testAusgabePlatzierungen();
 	}

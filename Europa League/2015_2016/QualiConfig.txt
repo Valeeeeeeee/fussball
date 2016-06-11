@@ -1,5 +1,6 @@
 20150630
 20150827
+false
 0
 4
 1. Qualifikationsrunde;Q1;true;true;102;0;0;

@@ -24,6 +24,8 @@ public class TurnierSaison {
 	private boolean hasSecondLegGroupStage;
 	private boolean goalDifferenceGroupStage;
 	private boolean matchForThirdPlace;
+	private boolean teamsHaveKader;
+	private boolean qTeamsHaveKader;
 	
 	private Map<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
@@ -89,20 +91,12 @@ public class TurnierSaison {
 		return turnier.getName() + " " + getSeasonFull("/");
 	}
 	
-	public int getStartDate() {
-		return startDate;
+	public int getStartDate(boolean isQ) {
+		return isQ ? qStartDate : startDate;
 	}
 	
-	public int getFinalDate() {
-		return finalDate;
-	}
-	
-	public int getQStartDate() {
-		return qStartDate;
-	}
-	
-	public int getQFinalDate() {
-		return qFinalDate;
+	public int getFinalDate(boolean isQ) {
+		return isQ ? qFinalDate : finalDate;
 	}
 	
 	public boolean hasQualification() {
@@ -151,6 +145,10 @@ public class TurnierSaison {
 	
 	public boolean hasMatchForThirdPlace() {
 		return matchForThirdPlace;
+	}
+	
+	public boolean teamsHaveKader(boolean isQ) {
+		return isQ ? qTeamsHaveKader : teamsHaveKader;
 	}
 	
 	public boolean isETPossible() {
@@ -602,6 +600,7 @@ public class TurnierSaison {
 		
 		qStartDate = Integer.parseInt(qualifikationDatenFromFile.remove(0));
 		qFinalDate = Integer.parseInt(qualifikationDatenFromFile.remove(0));
+		qTeamsHaveKader = Boolean.parseBoolean(qualifikationDatenFromFile.remove(0));
 		numberOfQGroups = Integer.parseInt(qualifikationDatenFromFile.remove(0));
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
@@ -635,6 +634,7 @@ public class TurnierSaison {
 		
 		qualifikationDatenFromFile.add("" + qStartDate);
 		qualifikationDatenFromFile.add("" + qFinalDate);
+		qualifikationDatenFromFile.add("" + qTeamsHaveKader);
 		qualifikationDatenFromFile.add("" + numberOfQGroups);
 		if (hasQGroupStage) {
 			qualifikationDatenFromFile.add("" + hasSecondLegQGroupStage);
@@ -818,6 +818,7 @@ public class TurnierSaison {
 		toString += hasGroupStage + ";";
 		toString += hasKOStage + ";";
 		toString += matchForThirdPlace + ";";
+		toString += teamsHaveKader + ";";
 		
 		return toString;
 	}
@@ -834,5 +835,6 @@ public class TurnierSaison {
 		hasGroupStage = Boolean.parseBoolean(split[index++]);
 		hasKOStage = Boolean.parseBoolean(split[index++]);
 		matchForThirdPlace = Boolean.parseBoolean(split[index++]);
+		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 	}
 }
