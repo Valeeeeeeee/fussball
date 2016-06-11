@@ -33,6 +33,9 @@ public class TurnierSaison {
 	private Gruppe[] gruppen;
 	private KORunde[] koRunden;
 	
+	private int numberOfReferees;
+	private ArrayList<Schiedsrichter> referees;
+	
 	private boolean hasQGroupStage;
 	private boolean hasQKOStage;
 	private boolean hasSecondLegQGroupStage;
@@ -59,6 +62,9 @@ public class TurnierSaison {
 	
 	private String dateiKORundenDaten;
 	private ArrayList<String> koRundenDatenFromFile;
+	
+	private String fileReferees;
+	private ArrayList<String> refereesFromFile;
 	
 	public TurnierSaison(Turnier turnier, int seasonIndex, String data) {
 		this.turnier = turnier;
@@ -184,6 +190,21 @@ public class TurnierSaison {
 	}
 	
 	// Saison-spezifische Methoden
+	
+	public ArrayList<Schiedsrichter> getReferees() {
+		return referees;
+	}
+	
+	public String[] getAllReferees() {
+		String[] allReferees = new String[referees.size() + 1];
+		
+		allReferees[0] = "Bitte wählen";
+		for (int i = 1; i < allReferees.length; i++) {
+			allReferees[i] = referees.get(i - 1).getFullName();
+		}
+		
+		return allReferees;
+	}
 	
 	public int getCurrentMatchday() {
 		int matchday = 0, altMD = -1;
@@ -594,6 +615,26 @@ public class TurnierSaison {
 	
 	// Laden / Speichern
 	
+	public void loadReferees() {
+		refereesFromFile = ausDatei(fileReferees, false);
+		
+		numberOfReferees = refereesFromFile.size();
+		referees = new ArrayList<>();
+		for (int i = 0; i < numberOfReferees; i++) {
+			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
+		}
+	}
+	
+	public void saveReferees() {
+		refereesFromFile.clear();
+		
+		for (int i = 0; i < referees.size(); i++) {
+			refereesFromFile.add(referees.get(i).toString());
+		}
+		
+		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+	}
+	
 	public void qualifikationLaden() {
 		if (!hasQualification)	return;
 		qualifikationDatenFromFile = ausDatei(dateiQualifikationDaten);
@@ -786,7 +827,9 @@ public class TurnierSaison {
 		dateiQualifikationDaten = workspace + "QualiConfig.txt";
 		dateiGruppenDaten = workspace + "GruppenConfig.txt";
 		dateiKORundenDaten = workspace + "KOconfig.txt";
-		
+		fileReferees = workspace + "Schiedsrichter.txt";
+
+		loadReferees();
 		qualifikationLaden();
 		gruppenLaden();
 		koRundenLaden();
@@ -804,6 +847,7 @@ public class TurnierSaison {
 		qualifikationSpeichern();
 		gruppenSpeichern();
 		koRundenSpeichern();
+		saveReferees();
 		geladen = false;
 	}
 	

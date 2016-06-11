@@ -229,6 +229,7 @@ public class Spiel {
 		if (referee != null)						matchData += referee.getID();
 		if (referee != null && ergebnis != null)	matchData += "_";
 		if (ergebnis != null)						matchData += ergebnis;
+		if (!wettbewerb.teamsHaveKader())	return matchData;
 		
 		for (Tor tor : goals) {
 			matchData += "#" + tor;

@@ -10,8 +10,6 @@ public class Gruppe implements Wettbewerb {
 	private boolean isQ;
 	private String name;
 	
-	private int numberOfReferees;
-	private ArrayList<Schiedsrichter> referees;
 	
 	private int numberOfTeams;
 	private int numberOfMatchesPerMatchday;
@@ -45,11 +43,11 @@ public class Gruppe implements Wettbewerb {
 	private String dateiMannschaft;
 	private String dateiSpielplan;
 	private String dateiErgebnisse;
-	private String fileReferees;
+	private String dateiSpieldaten;
 	private ArrayList<String> teamsFromFile;
 	private ArrayList<String> spielplanFromFile;
 	private ArrayList<String> ergebnisseFromFile;
-	private ArrayList<String> refereesFromFile;
+	private ArrayList<String> spieldatenFromFile;
 	
 	private int startDate;
 	private int finalDate;
@@ -145,18 +143,11 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public ArrayList<Schiedsrichter> getReferees() {
-		return referees;
+		return season.getReferees();
 	}
 	
 	public String[] getAllReferees() {
-		String[] allReferees = new String[referees.size() + 1];
-		
-		allReferees[0] = "Bitte wählen";
-		for (int i = 1; i < allReferees.length; i++) {
-			allReferees[i] = referees.get(i - 1).getFullName();
-		}
-		
-		return allReferees;
+		return season.getAllReferees();
 	}
 	
 	public Mannschaft[] getMannschaften() {
@@ -523,16 +514,16 @@ public class Gruppe implements Wettbewerb {
 		workspace = season.getWorkspace() + isQuali + name + File.separator;
 		
 		dateiErgebnisse = workspace + "Ergebnisse.txt";
+		dateiSpieldaten = workspace + "Spieldaten.txt";
 		dateiSpielplan = workspace + "Spielplan.txt";
 		dateiMannschaft = workspace + "Mannschaften.txt";
-		fileReferees = workspace + "Schiedsrichter.txt";
 		
-		loadReferees();
     	mannschaftenLaden();
     	initializeArrays();
     	
     	spielplanLaden();
 		ergebnisseLaden();
+		spieldatenLaden();
 
 		{
             spieltag = new Spieltag(this);
@@ -547,10 +538,10 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void speichern() {
-		saveReferees();
-		this.spielplanSpeichern();
-		this.ergebnisseSpeichern();
-		this.mannschaftenSpeichern();
+		spielplanSpeichern();
+		ergebnisseSpeichern();
+		spieldatenSpeichern();
+		mannschaftenSpeichern();
 	}
 	
 	public void mannschaftenLaden() {
@@ -603,26 +594,6 @@ public class Gruppe implements Wettbewerb {
 		this.spielplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 		this.ergebnisplanEingetragen = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
     }
-	
-	public void loadReferees() {
-		refereesFromFile = ausDatei(fileReferees, false);
-		
-		numberOfReferees = refereesFromFile.size();
-		referees = new ArrayList<>();
-		for (int i = 0; i < numberOfReferees; i++) {
-			referees.add(new Schiedsrichter(i + 1, refereesFromFile.get(i)));
-		}
-	}
-	
-	public void saveReferees() {
-		refereesFromFile.clear();
-		
-		for (int i = 0; i < referees.size(); i++) {
-			refereesFromFile.add(referees.get(i).toString());
-		}
-		
-		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
-	}
 	
 	private void spielplanLaden() {
 		try {
@@ -737,4 +708,35 @@ public class Gruppe implements Wettbewerb {
 		inDatei(this.dateiErgebnisse, this.ergebnisseFromFile);
 	}
 	
+	private void spieldatenLaden() {
+		if (!teamsHaveKader)	return;
+		try {
+			spieldatenFromFile = ausDatei(dateiSpieldaten);
+			
+			for (int matchday = 0; matchday < numberOfMatchdays && matchday < spieldatenFromFile.size(); matchday++) {
+				for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+					String inhalt = spieldatenFromFile.get(matchday * numberOfMatchesPerMatchday + match);
+					if (isSpielplanEntered(matchday, match)) {
+						getSpiel(matchday, match).setRemainder(inhalt);
+					}
+				}
+			}
+		} catch (Exception e) {
+			errorMessage("Keine Spieldaten: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	private void spieldatenSpeichern() {
+		if (!teamsHaveKader)	return;
+		spieldatenFromFile.clear();
+		
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				spieldatenFromFile.add(getSpiel(i, j) != null ? getSpiel(i, j).fullString() : "null");
+			}
+		}
+		
+		inDatei(dateiSpieldaten, spieldatenFromFile);
+	}
 }

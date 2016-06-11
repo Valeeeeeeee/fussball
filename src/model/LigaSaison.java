@@ -815,9 +815,7 @@ public class LigaSaison implements Wettbewerb {
 		inDatei(dateiErgebnisse, ergebnisseFromFile);
 	}
 	
-	public void spieldatenLaden() {
-		spieldatenFromFile = ausDatei(dateiSpieldaten);
-		
+	private void spieldatenLaden() {
 		try {
 			spieldatenFromFile = ausDatei(dateiSpieldaten);
 			
@@ -835,7 +833,7 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	public void spieldatenSpeichern() {
+	private void spieldatenSpeichern() {
 		spieldatenFromFile.clear();
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
