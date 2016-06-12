@@ -828,7 +828,7 @@ public class TurnierSaison {
 		dateiGruppenDaten = workspace + "GruppenConfig.txt";
 		dateiKORundenDaten = workspace + "KOconfig.txt";
 		fileReferees = workspace + "Schiedsrichter.txt";
-
+		
 		loadReferees();
 		qualifikationLaden();
 		gruppenLaden();
