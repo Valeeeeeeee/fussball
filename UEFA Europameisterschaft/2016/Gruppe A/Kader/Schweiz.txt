@@ -1,0 +1,23 @@
+Roman;Bürki;null;19901114;Schweiz;Tor;21
+Marwin;Hitz;null;19870918;Schweiz;Tor;12
+Yann;Sommer;null;19881217;Schweiz;Tor;1
+Johan;Djourou;null;19870118;Schweiz;Abwehr;20
+Nico;Elvedi;null;19960930;Schweiz;Abwehr;4
+Michael;Lang;null;19910208;Schweiz;Abwehr;6
+Stephan;Lichtsteiner;null;19840116;Schweiz;Abwehr;2
+François;Moubandje;null;19900621;Schweiz;Abwehr;3
+Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;13
+Fabian;Schär;null;19911220;Schweiz;Abwehr;22
+Steve;von Bergen;null;19830610;Schweiz;Abwehr;5
+Valon;Behrami;null;19850419;Schweiz;Mittelfeld;11
+Blerim;Dzemaili;null;19860412;Schweiz;Mittelfeld;15
+Gelson;Fernandes;null;19860902;Schweiz;Mittelfeld;16
+Fabian;Frei;null;19890108;Schweiz;Mittelfeld;8
+Xherdan;Shaqiri;null;19911010;Schweiz;Mittelfeld;23
+Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;10
+Denis;Zakaria;null;19961120;Schweiz;Mittelfeld;14
+Eren;Derdiyok;null;19880612;Schweiz;Sturm;19
+Breel;Embolo;null;19970214;Schweiz;Sturm;7
+Admir;Mehmedi;null;19910316;Schweiz;Sturm;18
+Haris;Seferovic;null;19920222;Schweiz;Sturm;9
+Shani;Tarashaj;null;19950207;Schweiz;Sturm;17

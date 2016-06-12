@@ -1,0 +1,23 @@
+Hannes;Halldórsson;null;19840427;Island;Tor;1
+Ingvar;Jónsson;null;19891018;Island;Tor;13
+Ögmundur;Kristinsson;null;19890619;Island;Tor;12
+Haukur;Hauksson;null;19910901;Island;Abwehr;3
+Hjörtur;Hermannsson;null;19950208;Island;Abwehr;4
+Sverrir Ingi;Ingason;null;19930805;Island;Abwehr;5
+Hörður;Magnússon;null;19930211;Island;Abwehr;19
+Birkir Már;Sævarsson;null;19841111;Island;Abwehr;2
+Ragnar;Sigurðsson;null;19860619;Island;Abwehr;6
+Ari;Skúlason;null;19870514;Island;Abwehr;23
+Kári;Árnason;null;19821013;Island;Mittelfeld;14
+Birkir;Bjarnason;null;19880527;Island;Mittelfeld;8
+Teddy;Bjarnason;null;19870304;Island;Mittelfeld;18
+Jóhann;Guðmundsson;null;19901027;Island;Mittelfeld;7
+Aron;Gunnarsson;null;19890422;Island;Mittelfeld;17
+Emil;Hallfreðsson;null;19840626;Island;Mittelfeld;20
+Rúnar;Már Sigurjónsson;null;19891130;Island;Mittelfeld;16
+Gylfi;Sigurðsson;null;19890908;Island;Mittelfeld;10
+Arnór Ingvi;Traustason;null;19930430;Island;Mittelfeld;21
+Jón Daði;Böðvarsson;null;19920525;Island;Sturm;15
+Alfreð;Finnbogason;null;19890201;Island;Sturm;11
+Eiður;Guðjohnsen;null;19780915;Island;Sturm;22
+Kolbeinn;Sigþórsson;null;19900314;Island;Sturm;9

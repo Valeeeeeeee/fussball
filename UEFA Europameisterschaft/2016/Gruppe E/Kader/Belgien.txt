@@ -1,0 +1,23 @@
+Thibaut;Courtois;null;19920511;Belgien;Tor;1
+Jean-François;Gillet;null;19790531;Belgien;Tor;13
+Simon;Mignolet;null;19880306;Belgien;Tor;12
+Toby;Alderweireld;null;19890302;Belgien;Abwehr;2
+Laurent;Ciman;null;19850805;Belgien;Abwehr;23
+Jason;Denayer;null;19950628;Belgien;Abwehr;15
+Christian;Kabasele;null;19910224;Belgien;Abwehr;18
+Jordan;Lukaku;null;19940725;Belgien;Abwehr;21
+Thomas;Meunier;null;19910912;Belgien;Abwehr;16
+Thomas;Vermaelen;null;19851114;Belgien;Abwehr;3
+Jan;Vertonghen;null;19870424;Belgien;Abwehr;5
+Kevin;de Bruyne;null;19910628;Belgien;Mittelfeld;7
+Mousa;Dembélé;null;19870717;Belgien;Mittelfeld;19
+Marouane;Fellaini;null;19871122;Belgien;Mittelfeld;8
+Yannick;Ferreira Carrasco;null;19930904;Belgien;Mittelfeld;11
+Eden;Hazard;null;19910107;Belgien;Mittelfeld;10
+Radja;Nainggolan;null;19880504;Belgien;Mittelfeld;4
+Axel;Witsel;null;19890112;Belgien;Mittelfeld;6
+Michy;Batshuayi;null;19931002;Belgien;Sturm;22
+Christian;Benteke;null;19901203;Belgien;Sturm;20
+Romelu;Lukaku;null;19930513;Belgien;Sturm;9
+Dries;Mertens;null;19870506;Belgien;Sturm;14
+Divock;Origi;null;19950418;Belgien;Sturm;17

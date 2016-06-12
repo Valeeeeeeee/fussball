@@ -1,0 +1,23 @@
+Petr;Cech;null;19820520;Tschechien;Tor;1
+Tomás;Koubek;null;19920826;Tschechien;Tor;23
+Tomás;Vaclík;null;19890329;Tschechien;Tor;16
+Theodor;Gebre Selassie;null;19861224;Tschechien;Abwehr;4
+Roman;Hubník;null;19840606;Tschechien;Abwehr;5
+Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;2
+Michal;Kadlec;null;19841213;Tschechien;Abwehr;3
+David;Limberský;null;19831006;Tschechien;Abwehr;8
+Tomás;Sivok;null;19830915;Tschechien;Abwehr;6
+Marek;Suchý;null;19880329;Tschechien;Abwehr;17
+Vladimír;Darida;null;19900808;Tschechien;Mittelfeld;22
+Borek;Dockal;null;19880930;Tschechien;Mittelfeld;9
+Daniel;Kolár;null;19851027;Tschechien;Mittelfeld;14
+Ladislav;Krejcí;null;19920705;Tschechien;Mittelfeld;19
+David;Pavelka;null;19910518;Tschechien;Mittelfeld;15
+Jaroslav;Plasil;null;19820105;Tschechien;Mittelfeld;13
+Daniel;Pudil;null;19850927;Tschechien;Mittelfeld;11
+Tomás;Rosický;null;19801004;Tschechien;Mittelfeld;10
+David;Lafata;null;19810918;Tschechien;Sturm;21
+Tomás;Necid;null;19890813;Tschechien;Sturm;7
+Jirí;Skalák;null;19920312;Tschechien;Sturm;20
+Milan;Skoda;null;19860116;Tschechien;Sturm;12
+Josef;Sural;null;19900530;Tschechien;Sturm;18
