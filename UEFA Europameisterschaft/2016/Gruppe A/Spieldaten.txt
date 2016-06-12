@@ -1,5 +1,5 @@
-1:2
-3:4
+1:2+{9_2:1#true-m57-s9-a8#false-m65-s19-a10-p#true-m89-s8-a5^#false-m32-ytrue-sfalse-p6#false-m45-ytrue-sfalse-p3#true-m69-ytrue-sfalse-p9#false-m78-ytrue-sfalse-p20}+{1,3,21,4,19,5,14,8,15,9,7#66:7>>20#77:15>>11#90:8>>18}+{12,6,21,3,22,5,8,20,10,14,19#61:14>>9#72:10>>7#82:20>>11}
+3:4+{18_0:1#false-m5-s22-a23^#false-m14-ytrue-sfalse-p22#true-m23-ytrue-sfalse-p5#true-m36-ytrue-strue-p5#true-m63-ytrue-sfalse-p20#false-m66-ytrue-sfalse-p11#true-m89-ytrue-sfalse-p13#true-m90-ytrue-sfalse-p15}+{1,7,5,4,3,15,22,13,21,14,10#61:14>>20#73:21>>16#82:10>>11}+{1,20,2,13,22,11,15,23,10,18,9#61:18>>7#75:15>>8#88:23>>16}
 2:4
 1:3
 4:1
