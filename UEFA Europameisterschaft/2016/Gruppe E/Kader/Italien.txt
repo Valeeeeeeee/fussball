@@ -16,7 +16,7 @@ Marco;Parolo;null;19850125;Italien;Mittelfeld;18
 Stefano;Sturaro;null;19930309;Italien;Mittelfeld;14
 Federico;Bernardeschi;null;19940216;Italien;Sturm;21
 Éder;Citadin Martins;Éder;19861115;Italien;Sturm;17
-Stephan;El Shaarawy;null;19921027;Italien;Sturm;22
+Stephan;'El Shaarawy';null;19921027;Italien;Sturm;22
 Ciro;Immobile;null;19900220;Italien;Sturm;11
 Lorenzo;Insigne;null;19910604;Italien;Sturm;20
 Graziano;Pellè;null;19850715;Italien;Sturm;9

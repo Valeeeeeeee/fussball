@@ -1,7 +1,7 @@
 Petr;Cech;null;19820520;Tschechien;Tor;1
 Tomás;Koubek;null;19920826;Tschechien;Tor;23
 Tomás;Vaclík;null;19890329;Tschechien;Tor;16
-Theodor;Gebre Selassie;null;19861224;Tschechien;Abwehr;4
+Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;4
 Roman;Hubník;null;19840606;Tschechien;Abwehr;5
 Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;2
 Michal;Kadlec;null;19841213;Tschechien;Abwehr;3

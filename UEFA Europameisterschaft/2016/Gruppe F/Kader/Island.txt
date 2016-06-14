@@ -10,7 +10,7 @@ Ragnar;Sigurðsson;null;19860619;Island;Abwehr;6
 Ari;Skúlason;null;19870514;Island;Abwehr;23
 Kári;Árnason;null;19821013;Island;Mittelfeld;14
 Birkir;Bjarnason;null;19880527;Island;Mittelfeld;8
-Teddy;Bjarnason;null;19870304;Island;Mittelfeld;18
+Theódór 'Elmar';Bjarnason;null;19870304;Island;Mittelfeld;18
 Jóhann;Guðmundsson;null;19901027;Island;Mittelfeld;7
 Aron;Gunnarsson;null;19890422;Island;Mittelfeld;17
 Emil;Hallfreðsson;null;19840626;Island;Mittelfeld;20
