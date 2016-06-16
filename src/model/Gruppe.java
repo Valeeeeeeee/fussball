@@ -17,6 +17,7 @@ public class Gruppe implements Wettbewerb {
 	private int numberOfMatchdays;
 	private int currentMatchday;
 	private int cMatchdaySetForDate = -1;
+	private boolean cMatchdaySetForOverview;
 	private int newestMatchday;
 	private int nMatchdaySetForDate = -1;
 	private int nMatchdaySetUntilTime = -1;
@@ -233,7 +234,7 @@ public class Gruppe implements Wettbewerb {
 	public int getCurrentMatchday() {
 		int today = MyDate.newMyDate();
 		
-		if (cMatchdaySetForDate != today) {
+		if (cMatchdaySetForDate != today || cMatchdaySetForOverview) {
 			if (today < getDate(0, 0)) {
 				currentMatchday = 0;
 			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
@@ -248,8 +249,35 @@ public class Gruppe implements Wettbewerb {
 				}
 			}
 			cMatchdaySetForDate = today;
+			cMatchdaySetForOverview = false;
 		}
 		
+		return currentMatchday;
+	}
+	
+	public int getOverviewMatchday() {
+		int today = MyDate.newMyDate() - 7;
+		
+		if (cMatchdaySetForDate != today || !cMatchdaySetForOverview) {
+			if (today < getDate(0, 0)) {
+				currentMatchday = 0;
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+				currentMatchday = numberOfMatchdays - 1;
+			} else {
+				currentMatchday = 0;
+				while (currentMatchday < numberOfMatchdays - 1) {
+					boolean allResultsSet = true, allPast = true;
+					for (int match = 0; match < numberOfMatchesPerMatchday && allResultsSet && allPast; match++) {
+						allResultsSet = allResultsSet && isErgebnisplanEntered(currentMatchday, match);
+						allPast = allPast && getDate(currentMatchday, match) <= today;
+					}
+					if (allResultsSet && allPast)	currentMatchday++;
+					else							break;
+				}
+			}
+			cMatchdaySetForDate = today;
+			cMatchdaySetForOverview = true;
+		}
 		return currentMatchday;
 	}
 	

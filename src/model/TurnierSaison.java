@@ -209,18 +209,18 @@ public class TurnierSaison {
 	public int getCurrentMatchday() {
 		int matchday = 0, altMD = -1;
 		if (Start.getInstance().isCurrentlyInQualification()) {
-			matchday = qGruppen[0].getCurrentMatchday();
+			matchday = qGruppen[0].getOverviewMatchday();
 			for (int i = 1; i < numberOfQGroups && altMD == -1; i++) {
-				if (matchday != qGruppen[i].getCurrentMatchday()) altMD = qGruppen[i].getCurrentMatchday();	
+				if (matchday != qGruppen[i].getOverviewMatchday()) altMD = qGruppen[i].getOverviewMatchday();	
 			}
 			if (altMD != -1) {
 				// always use the earlier matchday to remember setting the result
 				matchday = matchday < altMD ? matchday : altMD;
 			}
 		} else {
-			matchday = gruppen[0].getCurrentMatchday();
+			matchday = gruppen[0].getOverviewMatchday();
 			for (int i = 1; i < numberOfGroups && altMD == -1; i++) {
-				if (matchday != gruppen[i].getCurrentMatchday()) altMD = gruppen[i].getCurrentMatchday();	
+				if (matchday != gruppen[i].getOverviewMatchday()) altMD = gruppen[i].getOverviewMatchday();	
 			}
 			if (altMD != -1) {
 				// always use the earlier matchday to remember setting the result
