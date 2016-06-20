@@ -63,10 +63,10 @@ GA1: Frankreich
 GA2: Schweiz
 GA3: Albanien
 GA4: Rumänien
-GB1: EM2016GB1
-GB2: EM2016GB2
-GB3: EM2016GB3
-GB4: EM2016GB4
+GB1: Wales
+GB2: England
+GB3: Slowakei
+GB4: Russland
 GC1: EM2016GC1
 GC2: EM2016GC2
 GC3: EM2016GC3
