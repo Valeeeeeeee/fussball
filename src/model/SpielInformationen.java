@@ -87,7 +87,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLRESULT = new Rectangle(360, 60, 80, 40);
 	private Rectangle REC_LBLZUSATZ = new Rectangle(370, 90, 60, 20);
 	private Rectangle REC_LBLREFEREE = new Rectangle(350, 485, 100, 20);
-	private Rectangle REC_CBREFEREES = new Rectangle(310, 510, 180, 25);
+	private Rectangle REC_CBREFEREES = new Rectangle(300, 510, 200, 25);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(445, 60, 330, 40);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(260, 35, 70, 25);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(470, 35, 70, 25);
@@ -116,18 +116,18 @@ public class SpielInformationen extends JFrame {
 	// Toreingabe
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
-	private Dimension DIM_PNLEINGABE = new Dimension(270, 130);
-	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(140, 5, 45, 30);
-	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(190, 5, 70, 30);
+	private Dimension DIM_PNLEINGABE = new Dimension(290, 130);
+	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(160, 5, 45, 30);
+	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(210, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
-	private Rectangle REC_CHBLEFT = new Rectangle(20, 40, 105, 20);
-	private Rectangle REC_CHBRIGHT = new Rectangle(155, 40, 95, 20);
+	private Rectangle REC_CHBLEFT = new Rectangle(30, 40, 105, 20);
+	private Rectangle REC_CHBRIGHT = new Rectangle(165, 40, 95, 20);
 	private Rectangle REC_CHBBENCH = new Rectangle(20, 70, 110, 20);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
-	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 155, 26);
+	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 175, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
-	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 155, 26);
+	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 175, 26);
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
