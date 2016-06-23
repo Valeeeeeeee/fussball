@@ -256,7 +256,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getOverviewMatchday() {
-		int today = MyDate.newMyDate() - 7;
+		int today = MyDate.newMyDate();
 		
 		if (cMatchdaySetForDate != today || !cMatchdaySetForOverview) {
 			if (today < getDate(0, 0)) {

@@ -428,7 +428,7 @@ public class SpielInformationen extends JFrame {
 			jBtnAGTHome.setBounds(REC_BTNAGTHOME);
 			jBtnAGTHome.setText("a.g.T.");
 			jBtnAGTHome.setFocusable(false);
-			jBtnAGTHome.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTHome.setToolTipText("Sieg am grünen Tisch");
 			jBtnAGTHome.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setAmGruenenTisch(true);
@@ -441,7 +441,7 @@ public class SpielInformationen extends JFrame {
 			jBtnAGTAway.setBounds(REC_BTNAGTAWAY);
 			jBtnAGTAway.setText("a.g.T.");
 			jBtnAGTAway.setFocusable(false);
-			jBtnAGTAway.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTAway.setToolTipText("Sieg am grünen Tisch");
 			jBtnAGTAway.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setAmGruenenTisch(false);
@@ -1447,7 +1447,7 @@ public class SpielInformationen extends JFrame {
 			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		if (changedElement != -1)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedElement);
@@ -1489,7 +1489,7 @@ public class SpielInformationen extends JFrame {
 		jChBRight.setText("Eigentor");
 		jChBLeft.setVisible(true);
 		jChBRight.setVisible(true);
-		jLblOben.setText("Torschuetze");
+		jLblOben.setText("Torschütze");
 		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 		jLblUnten.setText("Vorbereiter");
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
@@ -1569,7 +1569,7 @@ public class SpielInformationen extends JFrame {
 			eligiblePlayers = new String[1];
 		}
 		
-		eligiblePlayers[0] = "Bitte waehlen";
+		eligiblePlayers[0] = "Bitte wählen";
 		
 		return eligiblePlayers;
 	}
@@ -1619,7 +1619,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		eligiblePlayers[0] = "Bitte waehlen";
+		eligiblePlayers[0] = "Bitte wählen";
 		
 		return eligiblePlayers;
 	}
@@ -1634,10 +1634,10 @@ public class SpielInformationen extends JFrame {
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
 		if (minute > 120) {
-			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte fuer Elfmeterschiessen die dafuer vorgesehene Eingabemaske.");
+			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte für Elfmeterschiessen die dafür vorgesehene Eingabemaske.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		for (Tor tor : goals) {
@@ -1741,7 +1741,7 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		if (jCBUnten.getSelectedIndex() == 0) {
-			message("Bitte einen Spieler auswaehlen.");
+			message("Bitte einen Spieler auswählen.");
 			return;
 		}
 		
@@ -1750,7 +1750,7 @@ public class SpielInformationen extends JFrame {
 			message("Ein Spieler kann nicht nach der 120. Minute verwarnt werden. Bitte eine korrekte Minute angeben.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben. Bitte eine korrekte Minute angeben.");
+			message("In diesem Spiel kann es keine Verlängerung geben. Bitte eine korrekte Minute angeben.");
 			return;
 		}
 		
