@@ -105,7 +105,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNPENALTIES = new Rectangle(325, 170, 150, 25);
 	
 	// Labels Aufstellung, Wechsel, Tore
-	private int[] subMinsLbls = new int[] {75, 160, 610, 25, 40, 20};
+	private int[] subMinsLbls = new int[] {70, 160, 615, 25, 45, 20};
 	private int[] luLbls = new int[] {120, 160, 435, 25, 125, 20};
 	private int[] bLbls = new int[] {250, 161, 286, 25, 14, 19};
 	private int[] gLbls = new int[] {305, 160, 30, 25, 160, 20};
@@ -526,7 +526,7 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < maxNumOfPlayers; i++) {
 			jLblsSubsOffMinutesHome[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesHome[i]);
-			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesHome[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignLeft(jLblsSubsOffMinutesHome[i]);
 			jLblsSubsOffMinutesHome[i].setCursor(handCursor);
@@ -535,7 +535,7 @@ public class SpielInformationen extends JFrame {
 			
 			jLblsSubsOffMinutesAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesAway[i]);
-			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesAway[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignRight(jLblsSubsOffMinutesAway[i]);
 			jLblsSubsOffMinutesAway[i].setCursor(handCursor);
@@ -1859,6 +1859,7 @@ public class SpielInformationen extends JFrame {
 		
 		// hide lineup labels
 		setLabelsVisible(false);
+		jBtnPenaltyShootout.setVisible(false);
 		
 		playerSelected = new boolean[kader.size()];
 		
@@ -1910,6 +1911,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;
@@ -1963,6 +1965,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;
