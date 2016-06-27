@@ -28,5 +28,5 @@ HF02W: Chile
 HF02L: Kolumbien
 P301W: Kolumbien
 P301L: USA
-FI01W: CA2016FI01W
-FI01L: CA2016FI01L
+FI01W: Chile
+FI01L: Argentinien
