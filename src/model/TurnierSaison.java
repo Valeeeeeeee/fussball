@@ -663,7 +663,7 @@ public class TurnierSaison {
 			hasQKOStage = true;
 			qKORunden = new KORunde[numberOfQKORounds];
 			for (int i = 0; i < numberOfQKORounds; i++) {
-				qKORunden[i] = new KORunde(this, 0, true, qualifikationDatenFromFile.remove(0));
+				qKORunden[i] = new KORunde(this, i, true, qualifikationDatenFromFile.remove(0));
 			}
 		}
 	}

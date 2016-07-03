@@ -1,0 +1,9 @@
+20160628
+20160825
+false
+0
+4
+1. Qualifikationsrunde;Q1;true;true;96;0;0;
+2. Qualifikationsrunde;Q2;true;true;18;48;0;
+3. Qualifikationsrunde;Q3;true;true;25;33;0;
+Play-offs;PO;true;true;0;29;15;
