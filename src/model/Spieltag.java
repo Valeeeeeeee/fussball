@@ -755,10 +755,16 @@ public class Spieltag extends JPanel {
 		changeTFs = true;
 	}
 	
-	private void setLabelsEnabled(boolean bool) {
+	private void setLabelsEnabled(boolean enabled) {
 		for (JLabel lbl : jLblsMannschaften) {
-			lbl.setEnabled(bool);
+			lbl.setEnabled(enabled);
 			lbl.setOpaque(false);
+		}
+	}
+	
+	private void setButtonsEnabled(boolean enabled) {
+		for (JButton btn : jBtnsMatchInfos) {
+			btn.setEnabled(enabled);
 		}
 	}
 	
@@ -927,6 +933,7 @@ public class Spieltag extends JPanel {
 			jBtnsMannschaften[i].setEnabled(true);
 		}
 		setLabelsEnabled(true);
+		setButtonsEnabled(false);
 		disableTFs();
 		jBtnBearbeiten.setVisible(false);
 		jBtnFertig.setVisible(true);
@@ -990,6 +997,7 @@ public class Spieltag extends JPanel {
 			editedMatchday = -1;
 			
 			setLabelsEnabled(false);
+			setButtonsEnabled(true);
 			setTFsEditableFromRepresentation();
 			jBtnFertig.setVisible(false);
 			jPnlTeamsSelection.setVisible(false);
