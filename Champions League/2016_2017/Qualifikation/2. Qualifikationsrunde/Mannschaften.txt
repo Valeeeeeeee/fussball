@@ -11,8 +11,8 @@ Ludogorez Rasgrad
 Rosenborg Trondheim
 Roter Stern Belgrad
 Olimpija Ljubljana
-FK Qarabag Agdam
-FK AS Trencin
+Qarabag Agdam
+AS Trencin
 Ferencvaros Budapest
 FK Astana
 Sheriff Tiraspol
@@ -23,7 +23,7 @@ Zrinjski Mostar
 Vardar Skopje
 Dundalk FC
 Mladost Podgorica
-KF Skenderbeu Korça
+Skenderbeu Korça
 F91 Düdelingen
 Crusaders FC
 Zalgiris Vilnius
