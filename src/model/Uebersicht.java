@@ -653,7 +653,7 @@ public class Uebersicht extends JPanel {
 			}
 			
 			
-			int minimumheight = 645;
+			int minimumheight = 730;
 			int maximumheight = 840;
 			Dimension dim = new Dimension();
 			dim.width = startx + jPnlMatches.getSize().width + 5 + jPnlInformationen.getSize().width + startx;

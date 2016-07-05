@@ -1,9 +1,9 @@
-Q101W: FC Pjunik Erewan
+Q101W: Pjunik Erewan
 Q101L: SS Folgore/Falciano
 Q102W: Lincoln Red Imps FC
 Q102L: FC Santa Coloma
 Q103W: Crusaders FC
-Q103L: FC Levadia Tallinn
+Q103L: Levadia Tallinn
 Q104W: The New Saints FC
 Q104L: B36 Tórshavn
 Q201W: HJK Helsinki
@@ -15,8 +15,8 @@ Q203L: Lincoln Red Imps FC
 Q204W: FC Milsami
 Q204L: Ludogorez Rasgrad
 Q205W: Molde FK
-Q205L: FC Pjunik Erewan
-Q206W: KF Skenderbeu Korça
+Q205L: Pjunik Erewan
+Q206W: Skenderbeu Korça
 Q206L: Crusaders FC
 Q207W: Maccabi Tel Aviv
 Q207L: Hibernians Football Club
@@ -25,13 +25,13 @@ Q208L: The New Saints FC
 Q209W: FK Astana
 Q209L: NK Maribor
 Q210W: Steaua Bukarest
-Q210L: FK AS Trencin
-Q211W: FK Partizan Belgrad
-Q211L: FC Dila Gori
+Q210L: AS Trencin
+Q211W: Partizan Belgrad
+Q211L: Dila Gori
 Q212W: Lech Posen
 Q212L: FK Sarajevo
-Q213W: FK Qarabag Agdam
-Q213L: FK Rudar Pljevlja
+Q213W: Qarabag Agdam
+Q213L: Rudar Pljevlja
 Q214W: Malmö FF
 Q214L: Zalgiris Vilnius
 Q215W: BATE Baryssau
@@ -39,12 +39,12 @@ Q215L: Dundalk FC
 Q216W: Celtic Glasgow
 Q216L: UMF Stjarnan
 Q217W: Dinamo Zagreb
-Q217L: CS Fola Esch
+Q217L: Fola Esch
 Q301W: ZSKA Moskau
 Q301L: Sparta Prag
 Q302W: APOEL Nikosia
 Q302L: FC Midtjylland
-Q303W: KF Skenderbeu Korça
+Q303W: Skenderbeu Korça
 Q303L: FC Milsami
 Q304W: Maccabi Tel Aviv
 Q304L: Viktoria Pilsen
@@ -62,13 +62,13 @@ Q310W: FK Astana
 Q310L: HJK Helsinki
 Q311W: Malmö FF
 Q311L: FC Salzburg
-Q312W: FK Partizan Belgrad
+Q312W: Partizan Belgrad
 Q312L: Steaua Bukarest
 Q313W: FC Basel
 Q313L: Lech Posen
 Q314W: Celtic Glasgow
-Q314L: FK Qarabag Agdam
-Q315W: SK Rapid Wien
+Q314L: Qarabag Agdam
+Q315W: Rapid Wien
 Q315L: Ajax Amsterdam
 PO01W: FK Astana
 PO01L: APOEL Nikosia
@@ -79,17 +79,17 @@ PO03L: Lazio Rom
 PO04W: ZSKA Moskau
 PO04L: Sporting Lissabon
 PO05W: BATE Baryssau
-PO05L: FK Partizan Belgrad
+PO05L: Partizan Belgrad
 PO06W: FC Valencia
 PO06L: AS Monaco
 PO07W: Dinamo Zagreb
-PO07L: KF Skenderbeu Korça
+PO07L: Skenderbeu Korça
 PO08W: Maccabi Tel Aviv
 PO08L: FC Basel
 PO09W: Malmö FF
 PO09L: Celtic Glasgow
 PO10W: Schachtar Donezk
-PO10L: SK Rapid Wien
+PO10L: Rapid Wien
 GA1: Real Madrid
 GA2: Paris Saint-Germain
 GA3: Schachtar Donezk

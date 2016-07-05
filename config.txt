@@ -8,7 +8,7 @@ Super League
 6
 NAME*FIFA Weltmeisterschaft;SHN*WM;
 NAME*Champions League;SHN*CL;
-NAME*Europa League;SHN*CL;
+NAME*Europa League;SHN*EL;
 NAME*UEFA Europameisterschaft;SHN*EM;
 NAME*DFB-Pokal;SHN*DP;
 NAME*Copa America;SHN*CA;

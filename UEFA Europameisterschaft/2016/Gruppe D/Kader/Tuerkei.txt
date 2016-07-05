@@ -1,0 +1,23 @@
+Volkan;Babacan;null;19880811;Türkei;Tor;1
+Onur;Kivrak;null;19880101;Türkei;Tor;12
+Harun;Tekin;null;19890617;Türkei;Tor;23
+Hakan;Balta;null;19830323;Türkei;Abwehr;3
+Caner;Erkin;null;19881004;Türkei;Abwehr;18
+Gökhan;Gönül;null;19850104;Türkei;Abwehr;7
+Semih;Kaya;null;19910224;Türkei;Abwehr;2
+Ismail;Köybasi;null;19890710;Türkei;Abwehr;13
+Sener;Özbayrakli;null;19900123;Türkei;Abwehr;22
+Ahmet;Yilmaz Çalik;null;19940226;Türkei;Abwehr;4
+Hakan;Çalhanoglu;null;19940208;Türkei;Mittelfeld;6
+Selçuk;Inan;null;19850210;Türkei;Mittelfeld;8
+Yunus;Malli;null;19920224;Türkei;Mittelfeld;19
+Emre;Mor;null;19970724;Türkei;Mittelfeld;21
+Oguzhan;Özyakup;null;19920923;Türkei;Mittelfeld;14
+Olcay;Sahan;null;19870526;Türkei;Mittelfeld;11
+Nuri;Sahin;null;19880905;Türkei;Mittelfeld;5
+Volkan;Sen;null;19870707;Türkei;Mittelfeld;20
+Mehmet;Topal;null;19860303;Türkei;Mittelfeld;15
+Ozan;Tufan;null;19950323;Türkei;Mittelfeld;16
+Arda;Turan;null;19870130;Türkei;Mittelfeld;10
+Cenk;Tosun;null;19910607;Türkei;Sturm;9
+Burak;Yilmaz;null;19850715;Türkei;Sturm;17

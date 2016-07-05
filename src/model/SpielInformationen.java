@@ -87,7 +87,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLRESULT = new Rectangle(360, 60, 80, 40);
 	private Rectangle REC_LBLZUSATZ = new Rectangle(370, 90, 60, 20);
 	private Rectangle REC_LBLREFEREE = new Rectangle(350, 485, 100, 20);
-	private Rectangle REC_CBREFEREES = new Rectangle(310, 510, 180, 25);
+	private Rectangle REC_CBREFEREES = new Rectangle(300, 510, 200, 25);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(445, 60, 330, 40);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(260, 35, 70, 25);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(470, 35, 70, 25);
@@ -105,7 +105,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_BTNPENALTIES = new Rectangle(325, 170, 150, 25);
 	
 	// Labels Aufstellung, Wechsel, Tore
-	private int[] subMinsLbls = new int[] {75, 160, 610, 25, 40, 20};
+	private int[] subMinsLbls = new int[] {70, 160, 615, 25, 45, 20};
 	private int[] luLbls = new int[] {120, 160, 435, 25, 125, 20};
 	private int[] bLbls = new int[] {250, 161, 286, 25, 14, 19};
 	private int[] gLbls = new int[] {305, 160, 30, 25, 160, 20};
@@ -116,18 +116,18 @@ public class SpielInformationen extends JFrame {
 	// Toreingabe
 	private Point LOC_PNLEINGABEHOME = new Point(120, 150);
 	private Point LOC_PNLEINGABEAWAY = new Point(410, 150);
-	private Dimension DIM_PNLEINGABE = new Dimension(270, 130);
-	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(140, 5, 45, 30);
-	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(190, 5, 70, 30);
+	private Dimension DIM_PNLEINGABE = new Dimension(290, 130);
+	private Rectangle REC_BTNTOREINGCANCL = new Rectangle(160, 5, 45, 30);
+	private Rectangle REC_BTNTOREINGCOMPL = new Rectangle(210, 5, 70, 30);
 	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
 	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
-	private Rectangle REC_CHBLEFT = new Rectangle(20, 40, 105, 20);
-	private Rectangle REC_CHBRIGHT = new Rectangle(155, 40, 95, 20);
+	private Rectangle REC_CHBLEFT = new Rectangle(30, 40, 105, 20);
+	private Rectangle REC_CHBRIGHT = new Rectangle(165, 40, 95, 20);
 	private Rectangle REC_CHBBENCH = new Rectangle(20, 70, 110, 20);
 	private Rectangle REC_LBLOBEN = new Rectangle(10, 70, 95, 20);
-	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 155, 26);
+	private Rectangle REC_CBOBEN = new Rectangle(105, 67, 175, 26);
 	private Rectangle REC_LBLUNTEN = new Rectangle(10, 100, 95, 20);
-	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 155, 26);
+	private Rectangle REC_CBUNTEN = new Rectangle(105, 97, 175, 26);
 	
 	// Lineup selection
 	private Point LOC_PNLLINEUPHOMESEL = new Point(30, 150);
@@ -428,7 +428,7 @@ public class SpielInformationen extends JFrame {
 			jBtnAGTHome.setBounds(REC_BTNAGTHOME);
 			jBtnAGTHome.setText("a.g.T.");
 			jBtnAGTHome.setFocusable(false);
-			jBtnAGTHome.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTHome.setToolTipText("Sieg am grünen Tisch");
 			jBtnAGTHome.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setAmGruenenTisch(true);
@@ -441,7 +441,7 @@ public class SpielInformationen extends JFrame {
 			jBtnAGTAway.setBounds(REC_BTNAGTAWAY);
 			jBtnAGTAway.setText("a.g.T.");
 			jBtnAGTAway.setFocusable(false);
-			jBtnAGTAway.setToolTipText("Sieg am gruenen Tisch");
+			jBtnAGTAway.setToolTipText("Sieg am grünen Tisch");
 			jBtnAGTAway.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setAmGruenenTisch(false);
@@ -526,7 +526,7 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < maxNumOfPlayers; i++) {
 			jLblsSubsOffMinutesHome[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesHome[i]);
-			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesHome[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignLeft(jLblsSubsOffMinutesHome[i]);
 			jLblsSubsOffMinutesHome[i].setCursor(handCursor);
@@ -535,7 +535,7 @@ public class SpielInformationen extends JFrame {
 			
 			jLblsSubsOffMinutesAway[i] = new JLabel();
 			jPnlSpielInformationen.add(jLblsSubsOffMinutesAway[i]);
-			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 45, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesAway[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignRight(jLblsSubsOffMinutesAway[i]);
 			jLblsSubsOffMinutesAway[i].setCursor(handCursor);
@@ -1447,7 +1447,7 @@ public class SpielInformationen extends JFrame {
 			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		if (changedElement != -1)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedElement);
@@ -1489,7 +1489,7 @@ public class SpielInformationen extends JFrame {
 		jChBRight.setText("Eigentor");
 		jChBLeft.setVisible(true);
 		jChBRight.setVisible(true);
-		jLblOben.setText("Torschuetze");
+		jLblOben.setText("Torschütze");
 		jCBOben.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(true)));
 		jLblUnten.setText("Vorbereiter");
 		jCBUnten.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
@@ -1569,7 +1569,7 @@ public class SpielInformationen extends JFrame {
 			eligiblePlayers = new String[1];
 		}
 		
-		eligiblePlayers[0] = "Bitte waehlen";
+		eligiblePlayers[0] = "Bitte wählen";
 		
 		return eligiblePlayers;
 	}
@@ -1619,7 +1619,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		eligiblePlayers[0] = "Bitte waehlen";
+		eligiblePlayers[0] = "Bitte wählen";
 		
 		return eligiblePlayers;
 	}
@@ -1634,10 +1634,10 @@ public class SpielInformationen extends JFrame {
 		
 		int minute = Integer.parseInt(jTFMinute.getText());
 		if (minute > 120) {
-			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte fuer Elfmeterschiessen die dafuer vorgesehene Eingabemaske.");
+			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte für Elfmeterschiessen die dafür vorgesehene Eingabemaske.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben.");
+			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		for (Tor tor : goals) {
@@ -1741,7 +1741,7 @@ public class SpielInformationen extends JFrame {
 		}
 		
 		if (jCBUnten.getSelectedIndex() == 0) {
-			message("Bitte einen Spieler auswaehlen.");
+			message("Bitte einen Spieler auswählen.");
 			return;
 		}
 		
@@ -1750,7 +1750,7 @@ public class SpielInformationen extends JFrame {
 			message("Ein Spieler kann nicht nach der 120. Minute verwarnt werden. Bitte eine korrekte Minute angeben.");
 			return;
 		} else if (!isETpossible && minute > 90) {
-			message("In diesem Spiel kann es keine Verlaengerung geben. Bitte eine korrekte Minute angeben.");
+			message("In diesem Spiel kann es keine Verlängerung geben. Bitte eine korrekte Minute angeben.");
 			return;
 		}
 		
@@ -1859,6 +1859,7 @@ public class SpielInformationen extends JFrame {
 		
 		// hide lineup labels
 		setLabelsVisible(false);
+		jBtnPenaltyShootout.setVisible(false);
 		
 		playerSelected = new boolean[kader.size()];
 		
@@ -1910,6 +1911,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;
@@ -1963,6 +1965,7 @@ public class SpielInformationen extends JFrame {
 		
 		// show hidden lineup labels
 		setLabelsVisible(true);
+		if (isETpossible)	jBtnPenaltyShootout.setVisible(true);
 		
 		jPnlLineupSelection.setVisible(false);
 		enteringLineup = false;

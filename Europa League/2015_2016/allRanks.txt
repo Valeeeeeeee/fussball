@@ -174,7 +174,7 @@ Q303W: Odds Ballklubb
 Q303L: IF Elfsborg
 Q304W: FK Krasnodar
 Q304L: Slovan Bratislava
-Q305W: SC Rheindorf Altach
+Q305W: Rheindorf Altach
 Q305L: Vitória Guimaraes
 Q306W: Rubin Kasan
 Q306L: Sturm Graz
@@ -250,7 +250,7 @@ PO12W: Fenerbahce Istanbul
 PO12L: Atromitos Athen
 PO13W: Rubin Kasan
 PO13L: Rabotnicki Skopje
-PO14W: FK Qarabag Agdam
+PO14W: Qarabag Agdam
 PO14L: Young Boys Bern
 PO15W: Rosenborg Trondheim
 PO15L: Steaua Bukarest
@@ -259,7 +259,7 @@ PO16L: MSK Zilina
 PO17W: Borussia Dortmund
 PO17L: Odds Ballklubb
 PO18W: Belenenses Lissabon
-PO18L: SC Rheindorf Altach
+PO18L: Rheindorf Altach
 PO19W: Girondins Bordeaux
 PO19L: Qairat Almaty
 PO20W: Viktoria Pilsen
@@ -284,7 +284,7 @@ GD1: SSC Neapel
 GD2: FC Midtjylland
 GD3: FC Brügge
 GD4: Legia Warschau
-GE1: SK Rapid Wien
+GE1: Rapid Wien
 GE2: FC Villarreal
 GE3: Viktoria Pilsen
 GE4: Dinamo Minsk
@@ -299,7 +299,7 @@ GG4: Rosenborg Trondheim
 GH1: Lokomotive Moskau
 GH2: Sporting Lissabon
 GH3: Besiktas Istanbul
-GH4: KF Skenderbeu Korça
+GH4: Skenderbeu Korça
 GI1: FC Basel
 GI2: AC Florenz
 GI3: Lech Posen
@@ -307,14 +307,14 @@ GI4: Belenenses Lissabon
 GJ1: Tottenham Hotspurs
 GJ2: RSC Anderlecht
 GJ3: AS Monaco
-GJ4: FK Qarabag Agdam
+GJ4: Qarabag Agdam
 GK1: FC Schalke 04
 GK2: Sparta Prag
 GK3: Asteras Tripolis
 GK4: APOEL Nikosia
 GL1: Athletic Bilbao
 GL2: FC Augsburg
-GL3: FK Partizan Belgrad
+GL3: Partizan Belgrad
 GL4: AZ Alkmaar
 SF01W: Fenerbahce Istanbul
 SF01L: Lokomotive Moskau
@@ -347,7 +347,7 @@ SF14L: FC Schalke 04
 SF15W: Lazio Rom
 SF15L: Galatasaray Istanbul
 SF16W: FC Valencia
-SF16L: SK Rapid Wien
+SF16L: Rapid Wien
 AF01W: SC Braga
 AF01L: Fenerbahce Istanbul
 AF02W: Borussia Dortmund

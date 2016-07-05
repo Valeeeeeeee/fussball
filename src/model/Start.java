@@ -148,7 +148,7 @@ public class Start extends JFrame {
 		
 		loadConfiguration();
 		initGUI();
-//		message("Den Spieltag fuer zu viele Spiele mit ScrollPane ausstatten. --> DFB-Pokal");
+//		message("Den Spieltag für zu viele Spiele mit ScrollPane ausstatten. --> DFB-Pokal");
 		
 		testSomethingBeforeIntroducingItIntoTheRealCode();
 		
@@ -178,7 +178,7 @@ public class Start extends JFrame {
 				jBtnZurueck = new JButton();
 				getContentPane().add(jBtnZurueck);
 				jBtnZurueck.setBounds(REC_BTNZURUECK);
-				jBtnZurueck.setText("zurueck");
+				jBtnZurueck.setText("zurück");
 				jBtnZurueck.setVisible(false);
 				jBtnZurueck.setFocusable(false);
 				jBtnZurueck.addActionListener(new ActionListener() {
@@ -510,7 +510,7 @@ public class Start extends JFrame {
 			optionen.add(defaultStarttag);
 			defaultStarttag.setBounds(20, 50, 105, 20);
 			defaultStarttag.setText("Standard-Starttag:");
-			defaultStarttag.setToolTipText("An diesem Wochentag beginnt ueblicherweise ein Spieltag.");
+			defaultStarttag.setToolTipText("An diesem Wochentag beginnt üblicherweise ein Spieltag.");
 			defaultStarttag.setVisible(false);
 		}
 	}
@@ -573,7 +573,7 @@ public class Start extends JFrame {
 			aktuelleLiga = ligen.get(index);
 			jLblWettbewerb.setText(aktuelleLiga.getName());
 			
-			// befuellt die ComboBox mit den verfuegbaren Saisons
+			// befüllt die ComboBox mit den verfügbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			LigaHomescreen.add(jCBSaisonauswahl);
@@ -598,15 +598,14 @@ public class Start extends JFrame {
 			TurnierHomescreen.add(jBtnZurueck);
 			
 			aktuellesTurnier = turniere.get(index);
-			// TODO check if this is visible
 			jLblWettbewerb.setText(aktuellesTurnier.getName());
 			
-			// befuellt die ComboBox mit den verfuegbaren Saisons
+			// befüllt die ComboBox mit den verfügbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuellesTurnier.getAllSeasons()));
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			TurnierHomescreen.add(jCBSaisonauswahl);
 			
-			if (jCBSaisonauswahl.getModel().getSize() - 1 == 0) {
+			if (jCBSaisonauswahl.getModel().getSize() == 1) {
 //				// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
 				aktuellesTurnier.laden(0);
 				aktuelleTSaison = aktuellesTurnier.getAktuelleSaison();
@@ -741,8 +740,8 @@ public class Start extends JFrame {
 	}
 	
 	private void turnierspezifischeSachenLaden() {
-		// falls sie bereits existieren entfernen (wird benoetigt, falls ein Turnier komplett neugestartet wird)
-		// (im Gegensatz zur Liga muessen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
+		// falls sie bereits existieren entfernen (wird benötigt, falls ein Turnier komplett neugestartet wird)
+		// (im Gegensatz zur Liga müssen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
 		if (aktuelleTSaison.hasQualification()) {
 			jBtnQualifikation.setVisible(true);
 			try {
@@ -878,7 +877,7 @@ public class Start extends JFrame {
 		addingNewSeason = false;
 		
 		if (aktuelleLiga.addSeason(toString, teamsNewSeasonOrder, dKOTRep)) {
-			// befuellt die ComboBox mit den verfuegbaren Saisons
+			// befüllt die ComboBox mit den verfügbaren Saisons
 			jCBSaisonauswahl.setModel(new DefaultComboBoxModel<>(aktuelleLiga.getAllSeasons()));
 			jCBSaisonauswahl.setSelectedIndex(jCBSaisonauswahl.getModel().getSize() - 1);
 			
@@ -974,14 +973,14 @@ public class Start extends JFrame {
 	public void teamsVerbessern() {
 		if (isCurrentlyALeague) {
 			for (int i = 0; i < aktuelleLSaison.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleLSaison.getMannschaften()[i].getName() + "\"");
+				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + aktuelleLSaison.getMannschaften()[i].getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
 					aktuelleLSaison.getMannschaften()[i].setName(newName);
 				}
 			}
 		} else {
 			for (int i = 0; i < aktuelleGruppe.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name fuer Mannschaft \"" + aktuelleGruppe.getMannschaften()[i].getName() + "\"");
+				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + aktuelleGruppe.getMannschaften()[i].getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
 					aktuelleGruppe.getMannschaften()[i].setName(newName);
 				}
@@ -1237,7 +1236,7 @@ public class Start extends JFrame {
 					
 					int numberOfMatchdays = (ko2leg && index != nOKO - 1) ? 2 : 1;
 					
-					// Vervollstaendigung der KO-Konfiguration
+					// Vervollständigung der KO-Konfiguration
 					int numberOfTeamsPrequalified = 0;
 					int numberOfTeamsFromPreviousRound = 0;
 					int numberOfTeamsFromOtherCompetition = 0;
@@ -1256,7 +1255,7 @@ public class Start extends JFrame {
 						} catch (NullPointerException npe) {
 							if (index == 0) {
 								// TODO Gruppendritte
-								// TODO Fehler finden: war ueberall eine Runde zu spaet(im Finale: VF1:VF2)
+								// TODO Fehler finden: war überall eine Runde zu spät(im Finale: VF1:VF2)
 								if (hasGrp) {
 									teams[team] = "G" + alphabet[team / 2] + (team % 2 + 1);
 									numberOfTeamsFromPreviousRound++;
@@ -1327,7 +1326,6 @@ public class Start extends JFrame {
 					aktuelleLSaison.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
-						JOptionPane.showMessageDialog(null, "huhu");
 						return;
 					}
 				}
@@ -1361,7 +1359,7 @@ public class Start extends JFrame {
 					aktuelleGruppe.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
-						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
+						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;
 					}
 				}
@@ -1373,7 +1371,7 @@ public class Start extends JFrame {
 					aktuelleKORunde.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
-						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
+						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;
 					}
 				}
@@ -1385,7 +1383,7 @@ public class Start extends JFrame {
 					aktuelleTSaison.ergebnisseSichern();
 				} else {
 					if (aktuellerSpieltag.jBtnFertigActionPerformed() != 0) {
-						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurueck gehen war nicht moeglich.");
+						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;
 					}
 				}
@@ -1473,16 +1471,16 @@ public class Start extends JFrame {
 		counter++;
 		
 		for (int i = 0; i < anzahlLigen; i++) {
-			ligen.add(new Liga(i, (String) configurationFromFile.get(counter)));
+			ligen.add(new Liga(i, configurationFromFile.get(counter)));
 			counter++;
 		}
 		
-		anzahlTurniere = Integer.parseInt((String) configurationFromFile.get(counter));
+		anzahlTurniere = Integer.parseInt(configurationFromFile.get(counter));
 		turniere = new ArrayList<>();
 		counter++;
 		
 		for (int i = 0; i < anzahlTurniere; i++) {
-			turniere.add(new Turnier(i, (String) configurationFromFile.get(counter)));
+			turniere.add(new Turnier(i, configurationFromFile.get(counter)));
 			counter++;
 		}
 	}
@@ -1512,13 +1510,10 @@ public class Start extends JFrame {
 	
 	public void checkOS() {
 		if (new File(workspaceWIN).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You are running Windows.");
 			workspace = workspaceWIN;
 		} else if (new File(workspaceMAC).isDirectory()) {
-//			JOptionPane.showMessageDialog(null, "You have a Mac.");
 			workspace = workspaceMAC;
 		} else {
-//			JOptionPane.showMessageDialog(null, "You are running neither OS X nor Windows, probably Linux!");
 			workspace = null;
 		}
 	}
