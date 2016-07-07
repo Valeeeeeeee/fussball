@@ -18,14 +18,17 @@ public class Spieltag extends JPanel {
 	private Color colorSelection = new Color(16, 255, 16);
 	private Color colorEditing = new Color(255, 255, 0);
 	private Color colorEdited = new Color(64, 255, 64);
-	private Color colorUp = new Color(224, 255, 224);
-	private Color colorDown = new Color(96, 255, 96);
+	private Color colorMatches = new Color(224, 255, 224);
+	private Color colorUp = new Color(160, 255, 160);
+	private Color colorDown = new Color(48, 255, 48);
 	private Color colorDatum = new Color(255, 191, 31);
 	private Font fontRR = new Font("Dialog", 1, 18);
 	
 	private JComboBox<String> jCBSpieltage;
-	public JLabel[] jLblsMannschaften;
-	public JTextField[] jTFsTore;
+	private JScrollPane jSPMatches;
+	private JPanel jPnlMatches;
+	private JLabel[] jLblsMannschaften;
+	private JTextField[] jTFsTore;
 	private JLabel[] jLblsZusatzInfos;
 	private JButton jBtnBearbeiten;
 	private JButton jBtnFertig;
@@ -62,12 +65,17 @@ public class Spieltag extends JPanel {
 	
 	private int[] rrLabels = new int[] {20, 80, 50, 70, 40, 30};
 	
-	private int[] buttonsauswahl;
-	private int[] labels;
-	private int[] textfields;
-	private int[] zusInfLabels;
-	private int[] moreOptButtons;
-	private int[] groupLabels;
+	private int scrollBarWidth;
+	private int matchesWidth;
+	private int matchesHeight;
+	
+	private int[] btnsSelection;
+	private int[] lblsDates;
+	private int[] lblsGroup;
+	private int[] lblsTeams;
+	private int[] tfsGoals;
+	private int[] lblsZusInfo;
+	private int[] btnsMoreOpt;
 
 	private Rectangle REC_PREV = new Rectangle(200, 10, 50, 30);
 	private Rectangle REC_COMBO = new Rectangle(255, 10, 200, 30);
@@ -86,6 +94,7 @@ public class Spieltag extends JPanel {
 	private Rectangle REC_BTNRRCANCEL;
 	private Rectangle REC_BTNRRCOMPLETE;
 
+	private JScrollPane jSPTeamsSelection;
 	private JPanel jPnlTeamsSelection;
 	private JButton[] jBtnsMannschaften;
 
@@ -200,37 +209,45 @@ public class Spieltag extends JPanel {
 	}
 
 	private void calculateButtonsauswahlBounds(int maxHeight) {
-		buttonsauswahl = new int[6];
-		buttonsauswahl[STARTX] = 10;
-		buttonsauswahl[STARTY] = 10;
-		buttonsauswahl[GAPX] = 5;
-		buttonsauswahl[GAPY] = 5;
-		buttonsauswahl[SIZEX] = 200;
-		buttonsauswahl[SIZEY] = 50;
+		btnsSelection = new int[6];
+		btnsSelection[STARTX] = 10;
+		btnsSelection[STARTY] = 10;
+		btnsSelection[GAPX] = 5;
+		btnsSelection[GAPY] = 5;
+		btnsSelection[SIZEX] = 200;
+		btnsSelection[SIZEY] = 50;
 		
-		if ((2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]) > maxHeight) {
-			buttonsauswahl[GAPY] = 1;
-			buttonsauswahl[SIZEY] = (maxHeight - (halfCountTeamsRoundUp + 1) * buttonsauswahl[GAPY]) / halfCountTeamsRoundUp;
+		if (2 * btnsSelection[STARTY] + halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) > maxHeight) {
+			btnsSelection[STARTX] = 5;
+			btnsSelection[STARTY] = 5;
+			btnsSelection[GAPY] = 1;
+			int buttons = maxHeight - 2 * btnsSelection[STARTY] - (halfCountTeamsRoundUp - 1) * btnsSelection[GAPY];
+			btnsSelection[SIZEY] = buttons / halfCountTeamsRoundUp;
+			btnsSelection[SIZEY] = Math.max(20, btnsSelection[SIZEY]);
+			
+			if (halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) > maxHeight) {
+				scrollBarWidth = 20;
+			}
 		}
 	}
 	
 	private void calculateBounds() {
-		int zusInfWidth = 35;
-		int height = 25, gapy = 2;
-		if(numberOfMatches > 26) {
-			height = 24;
-			gapy = -2;
-		}
-		groupLabels = new int[] {160, 80, 0, gapy, 10, height};
+		int zusInfWidth = 35, height = 25, gapy = 2;
+		lblsDates = new int[] { 5, 5, 0, gapy, 120, height };
 		
-		labels = new int[] { groupLabels[STARTX] + groupLabels[SIZEX] + 5, 80, (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
+		lblsGroup = new int[] { 135, 5, 0, gapy, 10, height };
+		
+		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
 
-		textfields = new int[] { labels[STARTX] + labels[SIZEX] + 10, labels[STARTY], 
-				labels[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? zusInfWidth + 15 : 5), labels[GAPY], 40, labels[SIZEY] };
+		tfsGoals = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 10, lblsTeams[STARTY], 
+				lblsTeams[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? zusInfWidth + 15 : 5), lblsTeams[GAPY], 40, lblsTeams[SIZEY] };
 		
-		zusInfLabels = new int[] { labels[STARTX] + labels[SIZEX] + 95, labels[STARTY], 0, labels[GAPY], (isETPossible ? zusInfWidth : 0), labels[SIZEY] };
+		lblsZusInfo = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 95, lblsTeams[STARTY], 0, lblsTeams[GAPY], (isETPossible ? zusInfWidth : 0), lblsTeams[SIZEY] };
 		
-		moreOptButtons = new int[] { labels[STARTX] + labels[SIZEX] + labels[GAPX] - 45, labels[STARTY], 0, labels[GAPY], 40, labels[SIZEY] };
+		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 45, lblsTeams[STARTY], 0, lblsTeams[GAPY], 40, lblsTeams[SIZEY] };
+		
+		matchesWidth = 650 + (isETPossible ? zusInfWidth + 10 : 0);
+		matchesHeight = numberOfMatches * (height + gapy) - gapy + 2 * 5;
 	}
 	
 	public void initGUI() {
@@ -239,15 +256,15 @@ public class Spieltag extends JPanel {
 
 			// TODO min und maxheight sinnvoll setzen
 			int minimumheight = 450;
-			int maximumheight = 800 - 2 * WIDTH_BORDER;
-			calculateButtonsauswahlBounds(maximumheight);
+			int maximumheight = 800;
+			calculateButtonsauswahlBounds(maximumheight - 2 * WIDTH_BORDER);
 			calculateBounds();
 
 			Dimension dim = new Dimension();
 			dim.width = 1200;
 
-			int heightOfTeamLabels = labels[STARTY] + numberOfMatches * (labels[SIZEY] + labels[GAPY]) + 20;
-			int heightOfTeamSelection = 2 * buttonsauswahl[STARTY] + halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY] + 2 * WIDTH_BORDER;
+			int heightOfTeamLabels = lblsTeams[STARTY] + numberOfMatches * (lblsTeams[SIZEY] + lblsTeams[GAPY]) + 20;
+			int heightOfTeamSelection = 2 * btnsSelection[STARTY] + halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) - btnsSelection[GAPY] + 2 * WIDTH_BORDER;
 
 			dim.height = (heightOfTeamLabels > heightOfTeamSelection ? heightOfTeamLabels : heightOfTeamSelection);
 
@@ -292,11 +309,28 @@ public class Spieltag extends JPanel {
 				});
 			}
 			
+			{
+				jPnlMatches = new JPanel();
+				jPnlMatches.setLayout(null);
+				jPnlMatches.setPreferredSize(new Dimension(matchesWidth, matchesHeight));
+				jPnlMatches.setOpaque(true);
+				jPnlMatches.setBackground(colorMatches);
+			}
+			{
+				jSPMatches = new JScrollPane();
+				this.add(jSPMatches);
+				jSPMatches.setSize(matchesWidth + 20, Math.min(matchesHeight, maximumheight - 2 * WIDTH_BORDER - 80));
+				jSPMatches.setLocation(25, 80);
+				jSPMatches.getVerticalScrollBar().setUnitIncrement(20);
+				jSPMatches.setBorder(null);
+				jSPMatches.setViewportView(jPnlMatches);
+			}
+			
 			for (int i = 0; i < jLblsSpieltagsdaten.length; i++) {
 				final int x = i;
 				jLblsSpieltagsdaten[i] = new JLabel();
-				this.add(jLblsSpieltagsdaten[i]);
-				jLblsSpieltagsdaten[i].setBounds(30, labels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), 120, labels[SIZEY]);
+				jPnlMatches.add(jLblsSpieltagsdaten[i]);
+				jLblsSpieltagsdaten[i].setBounds(lblsDates[STARTX], lblsDates[STARTY] + i * (lblsDates[SIZEY] + lblsDates[GAPY]), lblsDates[SIZEX], lblsDates[SIZEY]);
 				jLblsSpieltagsdaten[i].setCursor(handCursor);
 				jLblsSpieltagsdaten[i].setBackground(colorDatum);
 				jLblsSpieltagsdaten[i].addMouseListener(new MouseAdapter() {
@@ -332,8 +366,8 @@ public class Spieltag extends JPanel {
 				for (int i = 0; i < jLblsGruppen.length; i++) {
 					final int x = i;
 					jLblsGruppen[i] = new JLabel();
-					this.add(jLblsGruppen[i]);
-					jLblsGruppen[i].setBounds(groupLabels[STARTX], groupLabels[STARTY] + i * (labels[SIZEY] + labels[GAPY]), groupLabels[SIZEX], groupLabels[SIZEY]);
+					jPnlMatches.add(jLblsGruppen[i]);
+					jLblsGruppen[i].setBounds(lblsGroup[STARTX], lblsGroup[STARTY] + i * (lblsTeams[SIZEY] + lblsTeams[GAPY]), lblsGroup[SIZEX], lblsGroup[SIZEY]);
 					alignRight(jLblsGruppen[i]);
 					jLblsGruppen[i].setCursor(handCursor);
 					jLblsGruppen[i].addMouseListener(new MouseAdapter() {
@@ -350,9 +384,9 @@ public class Spieltag extends JPanel {
 				int spalte = i / numberOfMatches;
 
 				jLblsMannschaften[i] = new JLabel();
-				this.add(jLblsMannschaften[i]);
-				jLblsMannschaften[i].setBounds(labels[STARTX] + spalte * (labels[SIZEX] + labels[GAPX]), 
-						labels[STARTY] + zeile * (labels[SIZEY] + labels[GAPY]), labels[SIZEX], labels[SIZEY]);
+				jPnlMatches.add(jLblsMannschaften[i]);
+				jLblsMannschaften[i].setBounds(lblsTeams[STARTX] + spalte * (lblsTeams[SIZEX] + lblsTeams[GAPX]), 
+						lblsTeams[STARTY] + zeile * (lblsTeams[SIZEY] + lblsTeams[GAPY]), lblsTeams[SIZEX], lblsTeams[SIZEY]);
 				if (spalte == 0)	alignRight(jLblsMannschaften[i]);
 				else				alignLeft(jLblsMannschaften[i]);
 				jLblsMannschaften[i].setEnabled(false);
@@ -385,9 +419,9 @@ public class Spieltag extends JPanel {
 			for (int i = 0; i < jTFsTore.length; i++) {
 				final int x = i;
 				jTFsTore[i] = new JTextField();
-				this.add(jTFsTore[i]);
-				jTFsTore[i].setBounds(textfields[STARTX] + (i / numberOfMatches) * (textfields[SIZEX] + textfields[GAPX]), 
-						textfields[STARTY] + (i % numberOfMatches) * (textfields[SIZEY] + textfields[GAPY]), textfields[SIZEX], textfields[SIZEY]);
+				jPnlMatches.add(jTFsTore[i]);
+				jTFsTore[i].setBounds(tfsGoals[STARTX] + (i / numberOfMatches) * (tfsGoals[SIZEX] + tfsGoals[GAPX]), 
+						tfsGoals[STARTY] + (i % numberOfMatches) * (tfsGoals[SIZEY] + tfsGoals[GAPY]), tfsGoals[SIZEX], tfsGoals[SIZEY]);
 				alignCenter(jTFsTore[i]);
 				jTFsTore[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
@@ -409,9 +443,9 @@ public class Spieltag extends JPanel {
 			for (int i = 0; i < jBtnsMatchInfos.length; i++) {
 				final int x = i;
 				jBtnsMatchInfos[i] = new JButton();
-				this.add(jBtnsMatchInfos[i]);
-				jBtnsMatchInfos[i].setBounds(moreOptButtons[STARTX], moreOptButtons[STARTY] + i * (moreOptButtons[SIZEY] + moreOptButtons[GAPY]), 
-						moreOptButtons[SIZEX], moreOptButtons[SIZEY]);
+				jPnlMatches.add(jBtnsMatchInfos[i]);
+				jBtnsMatchInfos[i].setBounds(btnsMoreOpt[STARTX], btnsMoreOpt[STARTY] + i * (btnsMoreOpt[SIZEY] + btnsMoreOpt[GAPY]), 
+						btnsMoreOpt[SIZEX], btnsMoreOpt[SIZEY]);
 				jBtnsMatchInfos[i].setText("+");
 				jBtnsMatchInfos[i].setToolTipText("Reset this result.");
 				jBtnsMatchInfos[i].setFocusable(false);
@@ -423,8 +457,8 @@ public class Spieltag extends JPanel {
 			}
 			for (int i = 0; i < jLblsZusatzInfos.length; i++) {
 				jLblsZusatzInfos[i] = new JLabel();
-				this.add(jLblsZusatzInfos[i]);
-				jLblsZusatzInfos[i].setBounds(zusInfLabels[STARTX], zusInfLabels[STARTY] + i * (zusInfLabels[SIZEY] + zusInfLabels[GAPY]), zusInfLabels[SIZEX], zusInfLabels[SIZEY]);
+				jPnlMatches.add(jLblsZusatzInfos[i]);
+				jLblsZusatzInfos[i].setBounds(lblsZusInfo[STARTX], lblsZusInfo[STARTY] + i * (lblsZusInfo[SIZEY] + lblsZusInfo[GAPY]), lblsZusInfo[SIZEX], lblsZusInfo[SIZEY]);
 			}
 			{
 				jBtnBearbeiten = new JButton();
@@ -603,16 +637,24 @@ public class Spieltag extends JPanel {
 				});
 			}
 			
+			width = 2 * (btnsSelection[STARTX] + btnsSelection[SIZEX]) + btnsSelection[GAPX];
+			height = 2 * btnsSelection[STARTY] + halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) - btnsSelection[GAPY];
 			{
 				jPnlTeamsSelection = new JPanel();
-				this.add(jPnlTeamsSelection);
 				jPnlTeamsSelection.setLayout(null);
-				jPnlTeamsSelection.setSize(2 * (buttonsauswahl[STARTX] + buttonsauswahl[SIZEX]) + buttonsauswahl[GAPX], 2 * buttonsauswahl[STARTY]
-						+ halfCountTeamsRoundUp * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]) - buttonsauswahl[GAPY]);
-				jPnlTeamsSelection.setLocation(this.getSize().width - jPnlTeamsSelection.getSize().width - WIDTH_BORDER, (this.getSize().height - jPnlTeamsSelection.getSize().height) / 2);
-				jPnlTeamsSelection.setVisible(false);
+				jPnlTeamsSelection.setPreferredSize(new Dimension(width, height));
 				jPnlTeamsSelection.setOpaque(true);
 				jPnlTeamsSelection.setBackground(colorSelection);
+			}
+			{
+				jSPTeamsSelection = new JScrollPane();
+				this.add(jSPTeamsSelection);
+				jSPTeamsSelection.setSize(width + scrollBarWidth, Math.min(maximumheight - 2 * WIDTH_BORDER, height));
+				jSPTeamsSelection.setLocation(this.getSize().width - jSPTeamsSelection.getSize().width - WIDTH_BORDER, (this.getSize().height - jSPTeamsSelection.getSize().height) / 2);
+				jSPTeamsSelection.getVerticalScrollBar().setUnitIncrement(20);
+				jSPTeamsSelection.setBorder(null);
+				jSPTeamsSelection.setViewportView(jPnlTeamsSelection);
+				jSPTeamsSelection.setVisible(false);
 			}
 
 			for (int i = 0; i < numberOfTeams; i++) {
@@ -620,8 +662,8 @@ public class Spieltag extends JPanel {
 				int xfactor = i % 2, yfactor = i / 2;
 				jBtnsMannschaften[i] = new JButton();
 				jPnlTeamsSelection.add(jBtnsMannschaften[i]);
-				jBtnsMannschaften[i].setBounds(buttonsauswahl[STARTX] + xfactor * (buttonsauswahl[SIZEX] + buttonsauswahl[GAPX]),
-								buttonsauswahl[STARTY] + yfactor * (buttonsauswahl[SIZEY] + buttonsauswahl[GAPY]), buttonsauswahl[SIZEX], buttonsauswahl[SIZEY]);
+				jBtnsMannschaften[i].setBounds(btnsSelection[STARTX] + xfactor * (btnsSelection[SIZEX] + btnsSelection[GAPX]),
+								btnsSelection[STARTY] + yfactor * (btnsSelection[SIZEY] + btnsSelection[GAPY]), btnsSelection[SIZEX], btnsSelection[SIZEY]);
 				jBtnsMannschaften[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						mannschaftenButtonClicked(x);
@@ -1000,7 +1042,7 @@ public class Spieltag extends JPanel {
 			setButtonsEnabled(true);
 			setTFsEditableFromRepresentation();
 			jBtnFertig.setVisible(false);
-			jPnlTeamsSelection.setVisible(false);
+			jSPTeamsSelection.setVisible(false);
 			
 			jBtnBearbeiten.setVisible(true);
 			jCBSpieltage.setEnabled(true);
@@ -1463,7 +1505,7 @@ public class Spieltag extends JPanel {
 				jLblsMannschaften[i].paintImmediately(0, 0, jLblsMannschaften[i].getWidth(), jLblsMannschaften[i].getHeight());
 			}
 		}
-		jPnlTeamsSelection.setVisible(true);
+		jSPTeamsSelection.setVisible(true);
 		editedLabel = index;
 		if (isOverview) {
 			int hlf = editedLabel % numberOfMatches;
@@ -1513,6 +1555,6 @@ public class Spieltag extends JPanel {
 		jLblsMannschaften[editedLabel].setBackground(colorEdited);
 		editedLabel = -1;
 		editedGroupID = -1;
-		jPnlTeamsSelection.setVisible(false);
+		jSPTeamsSelection.setVisible(false);
 	}
 }
