@@ -683,7 +683,7 @@ public class Mannschaft {
 	public String getDateAndTime(int matchday) {
 		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, id);
 		else if (playsInGroup)	return gruppe.getDateOfTeam(matchday, id);
-		else					return "21.06.2014 22:00";
+		else					return "01.01.1970 00:00";
 	}
 	
 	public void resetMatch(int matchday) {
