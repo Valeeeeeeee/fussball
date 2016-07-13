@@ -525,7 +525,7 @@ public class Spieltag extends JPanel {
 				jBtnEnterRueckrunde = new JButton();
 				this.add(jBtnEnterRueckrunde);
 				jBtnEnterRueckrunde.setBounds(REC_BTNRRUNDE);
-				jBtnEnterRueckrunde.setText("Rueckrunde");
+				jBtnEnterRueckrunde.setText("Rückrunde");
 				jBtnEnterRueckrunde.setFocusable(false);
 				jBtnEnterRueckrunde.setVisible(false);
 				jBtnEnterRueckrunde.addActionListener(new ActionListener() {
@@ -554,7 +554,7 @@ public class Spieltag extends JPanel {
 				jLblRRBeschreibung = new JLabel();
 				jPnlEnterRueckrunde.add(jLblRRBeschreibung);
 				jLblRRBeschreibung.setBounds(REC_LBLRRDESCR);
-				jLblRRBeschreibung.setText("Klicken die auf die Spieltage in der Reihenfolge, wie sie in der Rueckrunde gespielt werden.");
+				jLblRRBeschreibung.setText("Klicken die auf die Spieltage in der Reihenfolge, wie sie in der Rückrunde gespielt werden.");
 			}
 			{
 				jLblHinrunde = new JLabel();
@@ -566,7 +566,7 @@ public class Spieltag extends JPanel {
 				jLblRueckrunde = new JLabel();
 				jPnlEnterRueckrunde.add(jLblRueckrunde);
 				jLblRueckrunde.setBounds(REC_LBLRRUNDE);
-				jLblRueckrunde.setText("Rueckrunde");
+				jLblRueckrunde.setText("Rückrunde");
 			}
 			for (int i = 0; i < numberOfMatchdays / 2; i++) {
 				matchdaysHinrunde.add(i + 1);
@@ -1161,11 +1161,7 @@ public class Spieltag extends JPanel {
 	
 	private void showRueckrundePanel(boolean showRRPanel) {
 		jPnlEnterRueckrunde.setVisible(showRRPanel);
-		
-		for (JTextField tf : jTFsTore)			tf.setVisible(!showRRPanel);
-		for (JLabel lbl : jLblsMannschaften)	lbl.setVisible(!showRRPanel);
-		for (JLabel lbl : jLblsSpieltagsdaten)	lbl.setVisible(!showRRPanel);
-		for (JButton btn : jBtnsMatchInfos)	btn.setVisible(!showRRPanel);
+		jSPMatches.setVisible(!showRRPanel);
 		
 		jBtnBearbeiten.setVisible(!showRRPanel);
 		jBtnResetMatchday.setVisible(!showRRPanel);
@@ -1177,11 +1173,11 @@ public class Spieltag extends JPanel {
 		if (belongsToALeague) {
 			season.useDefaultKickoffTimes(currentMatchday);
 		} else if (belongsToGroup) {
-			message("Nicht vorgesehen fuer Gruppe");
+			message("Nicht vorgesehen für Gruppe");
 		} else if (belongsToKORound) {
-			message("Nicht vorgesehen fuer KORunde");
+			message("Nicht vorgesehen für KORunde");
 		} else {
-			message("Nicht vorgesehen fuer Gruppenuebersicht");
+			message("Nicht vorgesehen für Gruppenübersicht");
 		}
 		spieltagsdatenBefuellen();
 	}
@@ -1208,7 +1204,7 @@ public class Spieltag extends JPanel {
 			else if (belongsToKORound)	currentMatchday = koRunde.getCurrentMatchday();
 			else 						currentMatchday = tSeason.getCurrentMatchday();
 			
-			// damit nicht bei setSelectedIndex die default-Inhalte von tore in das ergebnis-Array kopiert werden muss das Befuellen davor erfolgen
+			// damit nicht bei setSelectedIndex die default-Inhalte von tore in das ergebnis-Array kopiert werden muss das Befüllen davor erfolgen
 			for (int match = 0; match < numberOfMatches; match++) {
 				try {
 					if (belongsToALeague) {
