@@ -4,6 +4,8 @@ import static util.Utilities.*;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Mannschaft {
 	private int id;
@@ -26,7 +28,7 @@ public class Mannschaft {
 	
 	private int numberOfMatchdays;
 	private int[][] daten;
-	private Spiel[] spiele;
+	private HashMap<String, Spiel> matches;
 	private Ergebnis[] ergebnisse;
 	private int[][] performanceData;
 	
@@ -92,7 +94,7 @@ public class Mannschaft {
 		else					numberOfMatchdays = 0;
 		daten = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
-		spiele = new Spiel[numberOfMatchdays];
+		matches = new HashMap<>();
 		ergebnisse = new Ergebnis[numberOfMatchdays];
 	}
 	
@@ -177,9 +179,11 @@ public class Mannschaft {
 	
 	public void changeSquadNumber(Spieler player, int newSquadNumber) {
 		int oldSquadNumber = player.getSquadNumber();
-		for (int i = 0; i < spiele.length; i++) {
-			if (spiele[i] == null || !player.isEligible(spiele[i].getDate())) continue;
-			spiele[i].changeSquadNumberInLineup(spiele[i].getHomeTeam() == this, oldSquadNumber, newSquadNumber);
+		Iterator<String> iter = matches.keySet().iterator();
+		while (iter.hasNext()) {
+			Spiel spiel = matches.get(iter.next());
+			if (spiel == null || !player.isEligible(spiel.getDate())) continue;
+			spiel.changeSquadNumberInLineup(spiel.getHomeTeam() == this, oldSquadNumber, newSquadNumber);
 		}
 	}
 	
@@ -258,7 +262,9 @@ public class Mannschaft {
 		int squadNumber = player.getSquadNumber();
 		ArrayList<int[]> performanceData = new ArrayList<>();
 		
-		for (Spiel spiel : spiele) {
+		Iterator<String> iter = matches.keySet().iterator();
+		while (iter.hasNext()) {
+			Spiel spiel = matches.get(iter.next());
 			if (spiel != null) {
 				if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
 				if (!player.isEligible(spiel.getDate()))	continue;
@@ -300,7 +306,12 @@ public class Mannschaft {
 					}
 				}
 				
-				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(new int[] {spiel.getMatchday(), otherTeam, firstMinute, lastMinute, goals, assists, booked, bookedTwice, redCard});
+				int index = 0;
+				for (int i = 0; i < performanceData.size(); i++) {
+					if (performanceData.get(i)[0] < spiel.getMatchday())	index++;
+				}
+				
+				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(index, new int[] {spiel.getMatchday(), otherTeam, firstMinute, lastMinute, goals, assists, booked, bookedTwice, redCard});
 			}
 		}
 		
@@ -322,7 +333,9 @@ public class Mannschaft {
 			int gamesPlayed = 0, gamesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goals = 0, assists = 0, booked = 0, bookedTwice = 0, redCards = 0;
 			int squadNumber = player.getSquadNumber();
 			
-			for (Spiel spiel : spiele) {
+			Iterator<String> iter = matches.keySet().iterator();
+			while (iter.hasNext()) {
+				Spiel spiel = matches.get(iter.next());
 				if (spiel != null) {
 					if (!inThePast(spiel.getDate(), spiel.getTime()))	continue;
 					if (!player.isEligible(spiel.getDate()))	continue;
@@ -384,7 +397,9 @@ public class Mannschaft {
 	public int[] getFairplayData() {
 		int booked = 0, bookedTwice = 0, redCards = 0;
 		
-		for (Spiel spiel : spiele) {
+		Iterator<String> iter = matches.keySet().iterator();
+		while (iter.hasNext()) {
+			Spiel spiel = matches.get(iter.next());
 			if (spiel != null) {
 				ArrayList<Karte> bookings = spiel.getBookings();
 				for (Karte booking : bookings) {
@@ -557,7 +572,7 @@ public class Mannschaft {
 	}
 	
 	public boolean isSpielEntered(int matchday) {
-		if (spiele[matchday] != null)	return true;
+		if (matches.containsKey("SP" + matchday))	return true;
 		return false;
 	}
 	
@@ -697,16 +712,26 @@ public class Mannschaft {
 	}
 	
 	public void setMatch(int matchday, Spiel spiel) {
-		spiele[matchday] = spiel;
 		if (spiel != null) {
+			matches.put("SP" + matchday, spiel);
 			if (this.id == spiel.home()) {
 				setGegner(matchday, true, spiel.away());
 			} else if (this.id == spiel.away()) {
 				setGegner(matchday, false, spiel.home());
 			} else {
-				message("This match came to the wrong team.");
-				spiele[matchday] = null;
+				log("This match came to the wrong team.");
+				matches.remove("SP" + matchday);
 			}
+		} else {
+			matches.remove("SP" + matchday);
+		}
+	}
+	
+	public void setMatch(String key, Spiel spiel) {
+		if (spiel != null) {
+			matches.put(key, spiel);
+		} else {
+			matches.remove(key);
 		}
 	}
 	
@@ -731,7 +756,7 @@ public class Mannschaft {
 
 	private void setResult(int matchday, int tore, int gegentore) {
 		if (0 > matchday || matchday >= daten.length) {
-			message("Ergebnis konnte nicht gesetzt werden, da matchday die Grenzen verlaesst.");
+			log("Ergebnis konnte nicht gesetzt werden, da matchday die Grenzen verlaesst.");
 			return;
 		}
 		
