@@ -2,7 +2,6 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 
 import javax.swing.*;
 
@@ -11,12 +10,12 @@ import static util.Utilities.*;
 public class Tabelle extends JPanel {
 	private static final long serialVersionUID = 2308780445852600421L;
 	
-	private Wettbewerb wettbewerb;
+	private Wettbewerb competition;
 	private LigaSaison season;
-	private Gruppe gruppe;
+	private Gruppe group;
 	
 	private int currentMatchday = -1;
-	private Tabellenart aktuelleTabellenart;
+	private Tabellenart currentTableType;
 	
 	private boolean saveTableWithData = true;
 	private boolean belongsToALeague = false;
@@ -37,7 +36,7 @@ public class Tabelle extends JPanel {
 	private int ANZAHL_ZWISCHENRUNDE;
 	private int ANZAHL_AUSGESCHIEDEN;
 	
-	private String[] titelleist = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
+	private String[] headers = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private Color colorTabellenart = new Color(255, 255, 128);
 	
 	private int startx = 10;
@@ -46,39 +45,39 @@ public class Tabelle extends JPanel {
 	private int height = 15;
 	private int[] gapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
 	private int gapy = 15;
-	private int widthPAtf = 35;
-	private int widthPAlbl = 150;
+	private int widthPDtf = 35;
+	private int widthPDlbl = 150;
 	
-	private Rectangle REC_COMBO = new Rectangle(120, 10, 130, 30);
+	private Rectangle REC_CBMATCHDAYS = new Rectangle(120, 10, 130, 30);
 	private Rectangle REC_BTNDEDUCTION = new Rectangle(260, 10, 110, 30);
 	private Rectangle REC_SAVETABLE = new Rectangle(380, 10, 80, 30);
 	private Rectangle REC_HOMETABLE = new Rectangle(10, 50, 80, 20);
 	private Rectangle REC_COMPLETETABLE = new Rectangle(190, 50, 90, 20);
 	private Rectangle REC_AWAYTABLE = new Rectangle(350, 50, 110, 20);
-	private Rectangle REC_FERTIG = new Rectangle(380, 10, 80, 30);
+	private Rectangle REC_DONE = new Rectangle(380, 10, 80, 30);
 	
-	private JComboBox<String> jCBSpieltage;
+	private JComboBox<String> jCBMatchdays;
 	private JButton jBtnDeduction;
-	private JButton jBtnTabelleSichern;
-	private JLabel jLblHeimtabelle;
-	private JLabel jLblGesamttabelle;
-	private JLabel jLblAuswaertstabelle;
-	private JLabel[] titelleiste;
-	private JLabel[][] tabelle;
-	private JLabel jLblPunktabzuege;
-	private JTextField[] jTFPunktabzuege;
-	private JButton jBtnFertig;
+	private JButton jBtnSaveTable;
+	private JLabel jLblHomeTable;
+	private JLabel jLblCompleteTable;
+	private JLabel jLblAwayTable;
+	private JLabel[] jLblsHeaders;
+	private JLabel[][] jLblsData;
+	private JLabel jLblPointDeductions;
+	private JTextField[] jTFsPointDeductions;
+	private JButton jBtnDone;
 	
-	public Tabelle(Gruppe gruppe) {
+	public Tabelle(Gruppe group) {
 		super();
-		this.gruppe = gruppe;
-		this.wettbewerb = gruppe;
-		this.belongsToALeague = false;
+		this.group = group;
+		competition = group;
+		belongsToALeague = false;
 		
-		this.ANZAHL_TEAMS = gruppe.getNumberOfTeams();
-		this.ANZAHL_KORUNDE = 2;
-		this.ANZAHL_ZWISCHENRUNDE = 0;
-		this.ANZAHL_AUSGESCHIEDEN = 2;
+		ANZAHL_TEAMS = group.getNumberOfTeams();
+		ANZAHL_KORUNDE = 2;
+		ANZAHL_ZWISCHENRUNDE = 0;
+		ANZAHL_AUSGESCHIEDEN = 2;
 		
 		initGUI();
 	}
@@ -86,15 +85,15 @@ public class Tabelle extends JPanel {
 	public Tabelle(LigaSaison season) {
 		super();
 		this.season = season;
-		this.wettbewerb = season;
-		this.belongsToALeague = true;
+		competition = season;
+		belongsToALeague = true;
 		
-		this.ANZAHL_TEAMS = season.getNumberOfTeams();
-		this.ANZAHL_CL = season.getAnzahl(0);
-		this.ANZAHL_CLQ = season.getAnzahl(1);
-		this.ANZAHL_EL = season.getAnzahl(2);
-		this.ANZAHL_REL = season.getAnzahl(3);
-		this.ANZAHL_ABS = season.getAnzahl(4);
+		ANZAHL_TEAMS = season.getNumberOfTeams();
+		ANZAHL_CL = season.getAnzahl(0);
+		ANZAHL_CLQ = season.getAnzahl(1);
+		ANZAHL_EL = season.getAnzahl(2);
+		ANZAHL_REL = season.getAnzahl(3);
+		ANZAHL_ABS = season.getAnzahl(4);
 		
 		initGUI();
 	}
@@ -103,64 +102,63 @@ public class Tabelle extends JPanel {
 		try { 
 			this.setLayout(null);
 			
-			tabelle = new JLabel[ANZAHL_TEAMS][titelleist.length];
-			titelleiste = new JLabel[titelleist.length];
+			jLblsData = new JLabel[ANZAHL_TEAMS][headers.length];
+			jLblsHeaders = new JLabel[headers.length];
 			
 			teamIndices = new int[ANZAHL_TEAMS];
 			
 			int sumofwidthes = 0;
 			
-			for (int j = 0; j < titelleiste.length; j++) {
-				titelleiste[j] = new JLabel();
-				this.add(titelleiste[j]);
+			for (int j = 0; j < jLblsHeaders.length; j++) {
+				jLblsHeaders[j] = new JLabel();
+				this.add(jLblsHeaders[j]);
 				if (j == 1) {
-					alignLeft(titelleiste[j]);
-					titelleiste[j].setCursor(handCursor);
+					alignLeft(jLblsHeaders[j]);
+					jLblsHeaders[j].setCursor(handCursor);
 				} else {
-					alignCenter(titelleiste[j]);
+					alignCenter(jLblsHeaders[j]);
 				}
-				titelleiste[j].setBounds(startx + sumofwidthes, starty - (height + gapy), widthes[j], height);
-				titelleiste[j].setText(titelleist[j]);
+				jLblsHeaders[j].setBounds(startx + sumofwidthes, starty - (height + gapy), widthes[j], height);
+				jLblsHeaders[j].setText(headers[j]);
 				sumofwidthes += widthes[j] + gapx[j];
 			}
 			
-			for (int i = 0; i < tabelle.length; i++) {
+			for (int i = 0; i < jLblsData.length; i++) {
 				sumofwidthes = 0;
-				for (int j = 0; j < tabelle[i].length; j++) {
-					tabelle[i][j] = new JLabel();
-					this.add(tabelle[i][j]);
+				for (int j = 0; j < jLblsData[i].length; j++) {
+					jLblsData[i][j] = new JLabel();
+					this.add(jLblsData[i][j]);
 					if (j == 1) {
 						final int x = i;
-						alignLeft(tabelle[i][j]);
-						tabelle[i][j].setCursor(handCursor);
-						tabelle[i][j].addMouseListener(new MouseAdapter() {
+						alignLeft(jLblsData[i][j]);
+						jLblsData[i][j].setCursor(handCursor);
+						jLblsData[i][j].addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent evt) {
-								int index = teamIndices[x];
-								jBtnAndereTabellenart(Tabellenart.COMPLETE);
-								if (belongsToALeague)	jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
-								Start.getInstance().uebersichtAnzeigen(index);
+								jBtnChangeTableType(Tabellenart.COMPLETE);
+								if (belongsToALeague)	jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
+								Start.getInstance().uebersichtAnzeigen(teamIndices[x]);
 							}
 						});
 					} else {
-						alignCenter(tabelle[i][j]);
+						alignCenter(jLblsData[i][j]);
 					}
-					tabelle[i][j].setBounds(startx + sumofwidthes, starty + i * (height + gapy), widthes[j], height);
+					jLblsData[i][j].setBounds(startx + sumofwidthes, starty + i * (height + gapy), widthes[j], height);
 					sumofwidthes += widthes[j] + gapx[j];
 				}
 			}
 			{
-				String[] hilfsarray = new String[wettbewerb.getNumberOfMatchdays()];
-				for (int i = 0; i < wettbewerb.getNumberOfMatchdays(); i++) {
+				String[] hilfsarray = new String[competition.getNumberOfMatchdays()];
+				for (int i = 0; i < competition.getNumberOfMatchdays(); i++) {
 					hilfsarray[i] = (i + 1) + ". Spieltag";
 				}
-				jCBSpieltage = new JComboBox<String>();
-				this.add(jCBSpieltage);
-				jCBSpieltage.setModel(new DefaultComboBoxModel<String>(hilfsarray));
-				jCBSpieltage.setBounds(REC_COMBO);
-				jCBSpieltage.setFocusable(false);
-				jCBSpieltage.addItemListener(new ItemListener() {
+				jCBMatchdays = new JComboBox<String>();
+				this.add(jCBMatchdays);
+				jCBMatchdays.setModel(new DefaultComboBoxModel<String>(hilfsarray));
+				jCBMatchdays.setBounds(REC_CBMATCHDAYS);
+				jCBMatchdays.setFocusable(false);
+				jCBMatchdays.addItemListener(new ItemListener() {
 					public void itemStateChanged(ItemEvent evt) {
-						jCBSpieltageItemStateChanged(evt);
+						jCBMatchdaysItemStateChanged(evt);
 					}
 				});
 			}
@@ -176,79 +174,79 @@ public class Tabelle extends JPanel {
 				});
 			}
 			{
-				jBtnTabelleSichern = new JButton();
-				this.add(jBtnTabelleSichern);
-				jBtnTabelleSichern.setBounds(REC_SAVETABLE);
-				jBtnTabelleSichern.setText("Sichern");
-				jBtnTabelleSichern.addActionListener(new ActionListener() {
+				jBtnSaveTable = new JButton();
+				this.add(jBtnSaveTable);
+				jBtnSaveTable.setBounds(REC_SAVETABLE);
+				jBtnSaveTable.setText("Sichern");
+				jBtnSaveTable.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						jBtnTabelleSichernActionPerformed();
+						jBtnSaveTableActionPerformed();
 					}
 				});
 			}
 			{
-				jLblHeimtabelle = new JLabel();
-				this.add(jLblHeimtabelle);
-				jLblHeimtabelle.setBounds(REC_HOMETABLE);
-				jLblHeimtabelle.setText("Heimtabelle");
-				alignCenter(jLblHeimtabelle);
-				jLblHeimtabelle.setCursor(handCursor);
-				jLblHeimtabelle.setBackground(colorTabellenart);
-				jLblHeimtabelle.addMouseListener(new MouseAdapter() {
+				jLblHomeTable = new JLabel();
+				this.add(jLblHomeTable);
+				jLblHomeTable.setBounds(REC_HOMETABLE);
+				jLblHomeTable.setText("Heimtabelle");
+				alignCenter(jLblHomeTable);
+				jLblHomeTable.setCursor(handCursor);
+				jLblHomeTable.setBackground(colorTabellenart);
+				jLblHomeTable.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
-						jBtnAndereTabellenart(Tabellenart.HOME);
+						jBtnChangeTableType(Tabellenart.HOME);
 					}
 				});
 			}
 			{
-				jLblGesamttabelle = new JLabel();
-				this.add(jLblGesamttabelle);
-				jLblGesamttabelle.setBounds(REC_COMPLETETABLE);
-				jLblGesamttabelle.setText("Gesamttabelle");
-				alignCenter(jLblGesamttabelle);
-				jLblGesamttabelle.setCursor(handCursor);
-				jLblGesamttabelle.setBackground(colorTabellenart);
-				jLblGesamttabelle.setOpaque(true);
-				jLblGesamttabelle.addMouseListener(new MouseAdapter() {
+				jLblCompleteTable = new JLabel();
+				this.add(jLblCompleteTable);
+				jLblCompleteTable.setBounds(REC_COMPLETETABLE);
+				jLblCompleteTable.setText("Gesamttabelle");
+				alignCenter(jLblCompleteTable);
+				jLblCompleteTable.setCursor(handCursor);
+				jLblCompleteTable.setBackground(colorTabellenart);
+				jLblCompleteTable.setOpaque(true);
+				jLblCompleteTable.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
-						jBtnAndereTabellenart(Tabellenart.COMPLETE);
+						jBtnChangeTableType(Tabellenart.COMPLETE);
 					}
 				});
 			}
 			{
-				jLblAuswaertstabelle = new JLabel();
-				this.add(jLblAuswaertstabelle);
-				jLblAuswaertstabelle.setBounds(REC_AWAYTABLE);
-				jLblAuswaertstabelle.setText("Auswaertstabelle");
-				alignCenter(jLblAuswaertstabelle);
-				jLblAuswaertstabelle.setCursor(handCursor);
-				jLblAuswaertstabelle.setBackground(colorTabellenart);
-				jLblAuswaertstabelle.addMouseListener(new MouseAdapter() {
+				jLblAwayTable = new JLabel();
+				this.add(jLblAwayTable);
+				jLblAwayTable.setBounds(REC_AWAYTABLE);
+				jLblAwayTable.setText("Auswärtstabelle");
+				alignCenter(jLblAwayTable);
+				jLblAwayTable.setCursor(handCursor);
+				jLblAwayTable.setBackground(colorTabellenart);
+				jLblAwayTable.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
-						jBtnAndereTabellenart(Tabellenart.AWAY);
+						jBtnChangeTableType(Tabellenart.AWAY);
 					}
 				});
 			}
 			{
-				jLblPunktabzuege = new JLabel();
-				this.add(jLblPunktabzuege);
-				jLblPunktabzuege.setText("abgezogene Punkte");
-				jLblPunktabzuege.setVisible(false);
+				jLblPointDeductions = new JLabel();
+				this.add(jLblPointDeductions);
+				jLblPointDeductions.setText("abgezogene Punkte");
+				jLblPointDeductions.setVisible(false);
 			}
 			{
-				jBtnFertig = new JButton();
-				this.add(jBtnFertig);
-				jBtnFertig.setBounds(REC_FERTIG);
-				jBtnFertig.setText("Fertig");
-				jBtnFertig.setVisible(false);
-				jBtnFertig.addActionListener(new ActionListener() {
+				jBtnDone = new JButton();
+				this.add(jBtnDone);
+				jBtnDone.setBounds(REC_DONE);
+				jBtnDone.setText("Fertig");
+				jBtnDone.setVisible(false);
+				jBtnDone.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						jBtnFertigActionPerformed();
+						jBtnDoneActionPerformed();
 					}
 				});
 			}
 			
-			this.setSize(sumofwidthes + 20, starty - (gapy / 2) + ANZAHL_TEAMS * (height + gapy) + 10);
+			setSize(sumofwidthes + 20, starty - (gapy / 2) + ANZAHL_TEAMS * (height + gapy) + 10);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -301,7 +299,7 @@ public class Tabelle extends JPanel {
 			// KO Runde
 			g.setColor(colorCategory1);
 			g.fillRect(hstartx, hstarty, sumofwidthes, ANZAHL_KORUNDE * hheight);
-			// (optional) Zwischenrunde des naechsttieferen Wettbewerbs zB 3. Platz der CL-Gruppen steigt in die EL ab
+			// (optional) Zwischenrunde des nächsttieferen Wettbewerbs zB 3. Platz der CL-Gruppen steigt in die EL ab
 			g.setColor(colorCategory4);
 			g.fillRect(hstartx, hstarty + (ANZAHL_TEAMS - ANZAHL_AUSGESCHIEDEN - ANZAHL_ZWISCHENRUNDE) * hheight, sumofwidthes, ANZAHL_ZWISCHENRUNDE * hheight);
 			// Ausgeschieden
@@ -310,22 +308,22 @@ public class Tabelle extends JPanel {
 		}
 	}
 	
-	public void labelsbefuellen() {
+	private void fillLabels() {
 		int nextPlace = 0; // index in der Tabelle
 		int lastIndexedPlace = 0;
 		
-		Mannschaft[] mannschaften = wettbewerb.getMannschaften();
+		Mannschaft[] teams = competition.getTeams();
 		
-		for (int i = 0; i < tabelle.length; i++) {
-			for (Mannschaft ms : mannschaften) {
+		for (int i = 0; i < jLblsData.length; i++) {
+			for (Mannschaft ms : teams) {
 				if (ms.getPlace() == i) {
-					for (int j = 0; j < tabelle[i].length; j++) {
-						tabelle[nextPlace][j].setText(ms.getString(j));
-						tabelle[nextPlace][j].repaint();
+					for (int j = 0; j < jLblsData[i].length; j++) {
+						jLblsData[nextPlace][j].setText(ms.getString(j));
+						jLblsData[nextPlace][j].repaint();
 					}
 					if (nextPlace >= 1) {
-						if (tabelle[nextPlace][0].getText().equals(tabelle[lastIndexedPlace][0].getText())) {
-							tabelle[nextPlace][0].setText("");
+						if (jLblsData[nextPlace][0].getText().equals(jLblsData[lastIndexedPlace][0].getText())) {
+							jLblsData[nextPlace][0].setText("");
 						} else {
 							lastIndexedPlace = nextPlace;
 						}
@@ -341,151 +339,151 @@ public class Tabelle extends JPanel {
 		currentMatchday = -1;
 	}
 	
-	public void aktualisieren() {
+	public void refresh() {
 		if (currentMatchday == -1) {
-			jCBSpieltage.setSelectedIndex(wettbewerb.getCurrentMatchday());
-			if (wettbewerb.getCurrentMatchday() == 0)	currentMatchday = 0;
+			jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
+			if (competition.getCurrentMatchday() == 0)	currentMatchday = 0;
 			else return;
 		}
-		if (aktuelleTabellenart == null)	aktuelleTabellenart = Tabellenart.COMPLETE;
-		for (Mannschaft ms : wettbewerb.getMannschaften()) {
-			ms.compareWithOtherTeams(wettbewerb.getMannschaften(), currentMatchday, aktuelleTabellenart);
+		if (currentTableType == null)	currentTableType = Tabellenart.COMPLETE;
+		for (Mannschaft ms : competition.getTeams()) {
+			ms.compareWithOtherTeams(competition.getTeams(), currentMatchday, currentTableType);
 		}
 		
-		this.labelsbefuellen();
+		fillLabels();
 	}
 
-	private void jCBSpieltageItemStateChanged(ItemEvent evt) {
+	private void jCBMatchdaysItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			currentMatchday = jCBSpieltage.getSelectedIndex();
-			aktualisieren();
+			currentMatchday = jCBMatchdays.getSelectedIndex();
+			refresh();
 		}
 	}
 	
 	private void jBtnDeductionActionPerformed() {
-		jCBSpieltage.setVisible(false);
+		jCBMatchdays.setVisible(false);
 		jBtnDeduction.setVisible(false);
-		jBtnTabelleSichern.setVisible(false);
-		jBtnFertig.setVisible(true);
+		jBtnSaveTable.setVisible(false);
+		jBtnDone.setVisible(true);
 		
-		for (int i = 0; i < tabelle.length; i++) {
-			for (int j = 0; j < tabelle[i].length; j++) {
+		for (int i = 0; i < jLblsData.length; i++) {
+			for (int j = 0; j < jLblsData[i].length; j++) {
 				if (j != 1) {
-					tabelle[i][j].setVisible(false);
-					titelleiste[j].setVisible(false);
+					jLblsData[i][j].setVisible(false);
+					jLblsHeaders[j].setVisible(false);
 				}
 			}
 		}
 		
-		Mannschaft[] mannschaften = wettbewerb.getMannschaften();
-		if (jTFPunktabzuege == null) {
+		Mannschaft[] teams = competition.getTeams();
+		if (jTFsPointDeductions == null) {
 			int offset = 0;
 			for (int i = 0; i < 2; i++) {
 				offset += widthes[i] + gapx[i];
 			}
-			jLblPunktabzuege.setBounds(startx + offset, starty - (height + gapy), widthPAlbl, height);
+			jLblPointDeductions.setBounds(startx + offset, starty - (height + gapy), widthPDlbl, height);
 			
-			jTFPunktabzuege = new JTextField[mannschaften.length];
-			for (int i = 0; i < jTFPunktabzuege.length; i++) {
+			jTFsPointDeductions = new JTextField[teams.length];
+			for (int i = 0; i < jTFsPointDeductions.length; i++) {
 				final int x = i;
-				jTFPunktabzuege[i] = new JTextField();
-				this.add(jTFPunktabzuege[i]);
-				jTFPunktabzuege[i].setBounds(startx + offset, starty + i * (height + gapy) - 3, widthPAtf, height + 6);
-				alignCenter(jTFPunktabzuege[i]);
-				jTFPunktabzuege[i].addKeyListener(new KeyAdapter() {
+				jTFsPointDeductions[i] = new JTextField();
+				this.add(jTFsPointDeductions[i]);
+				jTFsPointDeductions[i].setBounds(startx + offset, starty + i * (height + gapy) - 3, widthPDtf, height + 6);
+				alignCenter(jTFsPointDeductions[i]);
+				jTFsPointDeductions[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
-						if ((jTFPunktabzuege[x].getText().length() >= 2 && !jTFPunktabzuege[x].getText().equals("-1"))
+						if ((jTFsPointDeductions[x].getText().length() >= 2 && !jTFsPointDeductions[x].getText().equals("-1"))
 								|| arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
 							arg0.consume();
 						}
 					}
 				});
-				jTFPunktabzuege[i].addFocusListener(new FocusAdapter() {
+				jTFsPointDeductions[i].addFocusListener(new FocusAdapter() {
 					public void focusGained(FocusEvent arg0) {
-						jTFPunktabzuege[x].selectAll();
+						jTFsPointDeductions[x].selectAll();
 					}
 				});
 			}
 		}
-		jLblPunktabzuege.setVisible(true);
-		for (int i = 0; i < jTFPunktabzuege.length; i++) {
-			int dP = -mannschaften[teamIndices[i] - 1].getDeductedPoints();
-			jTFPunktabzuege[i].setText("" + dP);
-			jTFPunktabzuege[i].setVisible(true);
+		jLblPointDeductions.setVisible(true);
+		for (int i = 0; i < jTFsPointDeductions.length; i++) {
+			int dP = -teams[teamIndices[i] - 1].getDeductedPoints();
+			jTFsPointDeductions[i].setText("" + dP);
+			jTFsPointDeductions[i].setVisible(true);
 		}
 	}
 	
-	private void jBtnTabelleSichernActionPerformed() {
-		String[] order = new String[tabelle.length];
-		String dateiname = Start.getInstance().getWorkspace();
+	private void jBtnSaveTableActionPerformed() {
+		String[] order = new String[jLblsData.length];
+		String fileName = Start.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
 			if (saveTableWithData) {
-				order[i] = tabelle[i][1].getText() + ";" + tabelle[i][9].getText() + ";" + tabelle[i][6].getText() + ";" + tabelle[i][7].getText() + ";";
+				order[i] = jLblsData[i][1].getText() + ";" + jLblsData[i][9].getText() + ";" + jLblsData[i][6].getText() + ";" + jLblsData[i][7].getText() + ";";
 			} else {
-				if (belongsToALeague)	order[i] = season.getTeamWithName(tabelle[i][1].getText()).toString();
-				else					order[i] = gruppe.getTeamWithName(tabelle[i][1].getText()).toString();
+				if (belongsToALeague)	order[i] = season.getTeamWithName(jLblsData[i][1].getText()).toString();
+				else					order[i] = group.getTeamWithName(jLblsData[i][1].getText()).toString();
 			}
 			log((i + 1) + ". " + order[i]);
 		}
 		if (belongsToALeague) {
-			dateiname = season.getWorkspace() + "Tabelle.txt";
+			fileName = season.getWorkspace() + "Tabelle.txt";
 		} else {
-			dateiname += gruppe.getWorkspace() + "Tabelle.txt";
+			fileName += group.getWorkspace() + "Tabelle.txt";
 		}
-		log(dateiname);
-		inDatei(dateiname, order);
+		log(fileName);
+		inDatei(fileName, order);
 	}
 	
-	private void jBtnAndereTabellenart(Tabellenart tabellenart) {
-		if (aktuelleTabellenart == tabellenart)	return;
+	private void jBtnChangeTableType(Tabellenart tableType) {
+		if (currentTableType == tableType)	return;
 		
-		aktuelleTabellenart = tabellenart;
-		aktualisieren();
+		currentTableType = tableType;
+		refresh();
 		
-		jLblHeimtabelle.setOpaque(false);
-		jLblGesamttabelle.setOpaque(false);
-		jLblAuswaertstabelle.setOpaque(false);
+		jLblHomeTable.setOpaque(false);
+		jLblCompleteTable.setOpaque(false);
+		jLblAwayTable.setOpaque(false);
 		
-		switch (aktuelleTabellenart) {
+		switch (currentTableType) {
 			case HOME:
-				jLblHeimtabelle.setOpaque(true);
+				jLblHomeTable.setOpaque(true);
 				break;
 			case COMPLETE:
-				jLblGesamttabelle.setOpaque(true);
+				jLblCompleteTable.setOpaque(true);
 				break;
 			case AWAY:
-				jLblAuswaertstabelle.setOpaque(true);
+				jLblAwayTable.setOpaque(true);
 				break;
 		}
 		
-		repaintImmediately(jLblHeimtabelle);
-		repaintImmediately(jLblGesamttabelle);
-		repaintImmediately(jLblAuswaertstabelle);
+		repaintImmediately(jLblHomeTable);
+		repaintImmediately(jLblCompleteTable);
+		repaintImmediately(jLblAwayTable);
 	}
 	
-	private void jBtnFertigActionPerformed() {
-		Mannschaft[] mannschaften = wettbewerb.getMannschaften();
-		jLblPunktabzuege.setVisible(false);
-		for (int i = 0; i < jTFPunktabzuege.length; i++) {
-			int dP = -Integer.parseInt(jTFPunktabzuege[i].getText());
-			mannschaften[teamIndices[i] - 1].setDeductedPoints(dP);
-			jTFPunktabzuege[i].setVisible(false);
+	private void jBtnDoneActionPerformed() {
+		Mannschaft[] teams = competition.getTeams();
+		jLblPointDeductions.setVisible(false);
+		for (int i = 0; i < jTFsPointDeductions.length; i++) {
+			int dP = -Integer.parseInt(jTFsPointDeductions[i].getText());
+			teams[teamIndices[i] - 1].setDeductedPoints(dP);
+			jTFsPointDeductions[i].setVisible(false);
 		}
 		
-		for (int i = 0; i < tabelle.length; i++) {
-			for (int j = 0; j < tabelle[i].length; j++) {
-				tabelle[i][j].setVisible(true);
-				titelleiste[j].setVisible(true);
+		for (int i = 0; i < jLblsData.length; i++) {
+			for (int j = 0; j < jLblsData[i].length; j++) {
+				jLblsData[i][j].setVisible(true);
+				jLblsHeaders[j].setVisible(true);
 			}
 		}
 		
-		jCBSpieltage.setVisible(true);
+		jCBMatchdays.setVisible(true);
 		jBtnDeduction.setVisible(true);
-		jBtnTabelleSichern.setVisible(true);
-		jBtnFertig.setVisible(false);
+		jBtnSaveTable.setVisible(true);
+		jBtnDone.setVisible(false);
 		
-		aktualisieren();
+		refresh();
 	}
 }
 

@@ -4,32 +4,32 @@ import static util.Utilities.log;
 
 public class Wechsel {
 	
-	private Spiel spiel;
+	private Spiel match;
 	private boolean firstTeam;
 	private int minute;
-	private Spieler ausgewechselterSpieler;
-	private Spieler eingewechselterSpieler;
+	private Spieler playerOff;
+	private Spieler playerOn;
 	
-	public Wechsel(Spiel spiel, boolean firstTeam, int minute, Spieler ausgSpieler, Spieler eingSpieler) {
-		this.spiel = spiel;
+	public Wechsel(Spiel match, boolean firstTeam, int minute, Spieler playerOff, Spieler playerOn) {
+		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
-		this.ausgewechselterSpieler = ausgSpieler;
-		this.eingewechselterSpieler = eingSpieler;
+		this.playerOff = playerOff;
+		this.playerOn = playerOn;
 		
-		log("Substitution by " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
-				", in the " + minute + ". minute " + ausgewechselterSpieler.getPseudonymOrLN() + 
-				" leaves the pitch and is replaced by " + eingewechselterSpieler.getPseudonymOrLN());
+		log("Substitution by " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
+				", in the " + minute + ". minute " + playerOff.getPseudonymOrLN() + 
+				" leaves the pitch and is replaced by " + playerOn.getPseudonymOrLN());
 	}
 	
-	public Wechsel(Spiel spiel, boolean firstTeam, String daten) {
-		this.spiel = spiel;
+	public Wechsel(Spiel match, boolean firstTeam, String data) {
+		this.match = match;
 		this.firstTeam = firstTeam;
-		parseString(daten);
+		parseString(data);
 	}
 	
-	public Spiel getSpiel() {
-		return spiel;
+	public Spiel getMatch() {
+		return match;
 	}
 
 	public boolean isFirstTeam() {
@@ -40,23 +40,23 @@ public class Wechsel {
 		return minute;
 	}
 
-	public Spieler getAusgewechselterSpieler() {
-		return ausgewechselterSpieler;
+	public Spieler getPlayerOff() {
+		return playerOff;
 	}
 
-	public Spieler getEingewechselterSpieler() {
-		return eingewechselterSpieler;
+	public Spieler getPlayerOn() {
+		return playerOn;
 	}
 
-	private void parseString(String daten) {
-		minute = Integer.parseInt(daten.substring(0, daten.indexOf(":")));
-		int sqAusg = Integer.parseInt(daten.substring(daten.indexOf(":") + 1, daten.indexOf(">>")));
-		ausgewechselterSpieler = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqAusg, spiel.getDate());
-		int sqEing = Integer.parseInt(daten.substring(daten.indexOf(">>") + 2));
-		eingewechselterSpieler = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(sqEing, spiel.getDate());
+	private void parseString(String data) {
+		minute = Integer.parseInt(data.substring(0, data.indexOf(":")));
+		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));
+		playerOff = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqOff, match.getDate());
+		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
+		playerOn = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqOn, match.getDate());
 	}
 	
 	public String toString() {
-		return minute + ":" + ausgewechselterSpieler.getSquadNumber() + ">>" + eingewechselterSpieler.getSquadNumber();
+		return minute + ":" + playerOff.getSquadNumber() + ">>" + playerOn.getSquadNumber();
 	}
 }

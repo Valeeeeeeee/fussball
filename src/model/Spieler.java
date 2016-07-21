@@ -42,20 +42,20 @@ public class Spieler {
 	}
 	
 	public String getFirstName() {
-		return this.firstName;
+		return firstName;
 	}
 	
 	public String getFirstNameShort() {
-		return this.firstNameShort;
+		return firstNameShort;
 	}
 	
 	public String getFirstNameFile() {
-		return this.firstNameFile;
+		return firstNameFile;
 	}
 	
 	private void setFirstName(String firstNameFile) {
 		this.firstNameFile = firstNameFile;
-		this.firstName = firstNameFile.replace("'", "");
+		firstName = firstNameFile.replace("'", "");
 		if (firstNameFile.contains("'") && firstNameFile.indexOf("'") < firstNameFile.lastIndexOf("'")) {
 			firstNameShort = firstNameFile.substring(firstNameFile.indexOf("'") + 1, firstNameFile.lastIndexOf("'"));
 		} else {
@@ -64,20 +64,20 @@ public class Spieler {
 	}
 
 	public String getLastName() {
-		return this.lastName;
+		return lastName;
 	}
 	
 	public String getLastNameShort() {
-		return this.lastNameShort;
+		return lastNameShort;
 	}
 	
 	public String getLastNameFile() {
-		return this.lastNameFile;
+		return lastNameFile;
 	}
 	
 	private void setLastName(String lastNameFile) {
 		this.lastNameFile = lastNameFile;
-		this.lastName = lastNameFile.replace("'", "");
+		lastName = lastNameFile.replace("'", "");
 		
 		String[] lastNameSplit = lastNameFile.split(" ");
 		if (lastNameFile.contains("'") && lastNameFile.indexOf("'") < lastNameFile.lastIndexOf("'")) {
@@ -98,55 +98,55 @@ public class Spieler {
 	}
 	
 	public String getPseudonymOrLN() {
-		if (this.pseudonym != null)	return this.pseudonym;
-		if (this.distinctName != null)	return this.distinctName;
-		return this.lastNameShort;
+		if (pseudonym != null)		return pseudonym;
+		if (distinctName != null)	return distinctName;
+		return lastNameShort;
 	}
 	
-	public void setDistictionLevel(int level) {
+	public void setDistinctionLevel(int level) {
 		boolean fullFirstName = level >= firstName.length();
-		this.distinctName = (fullFirstName ? this.firstName : this.firstName.substring(0, level) + ".") + " " + this.lastNameShort;
+		distinctName = (fullFirstName ? firstName : firstName.substring(0, level) + ".") + " " + lastNameShort;
 	}
 	
 	public void resetDistinctName() {
-		this.distinctName = null;
+		distinctName = null;
 	}
 	
 	public String getPseudonym() {
-		return this.pseudonym;
+		return pseudonym;
 	}
 	
 	public String getFullName() {
-		return this.firstName + " " + lastName;
+		return firstName + " " + lastName;
 	}
 	
 	public String getFullNameShort() {
-		return this.pseudonym != null ? this.pseudonym : this.firstNameShort + " " + lastNameShort;
+		return pseudonym != null ? pseudonym : firstNameShort + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
-		return this.birthDate;
+		return birthDate;
 	}
 
 	public int getAge() {
-		if (this.age == 0)	this.age = MyDate.difference(birthDate, Start.today());
-		return this.age;
+		if (age == 0)	age = MyDate.difference(birthDate, Start.today());
+		return age;
 	}
 
 	public String getNationality() {
-		return this.nationality;
+		return nationality;
 	}
 	
 	public Position getPosition() {
-		return this.position;
+		return position;
 	}
 
 	public Mannschaft getTeam() {
-		return this.team;
+		return team;
 	}
 
 	public int getSquadNumber() {
-		return this.squadNumber;
+		return squadNumber;
 	}
 	
 	public int getFirstDate() {
@@ -166,7 +166,6 @@ public class Spieler {
 		if (date < firstDate)							return false;
 		if (secondFDate != -1 && date >= secondFDate)	return true;
 		if (lastDate != -1 && date > lastDate)			return false;
-		
 		return true;
 	}
 	
@@ -175,9 +174,9 @@ public class Spieler {
 		if (this2FD && other2FD || firstDate == otherFirstDate || lastDate == otherLastDate)	return true;
 		int fDate = firstDate == -1 ? 101 : firstDate, lDate = lastDate == -1 ? 99991231 : lastDate;
 		int oFDate = otherFirstDate == -1 ? 101 : otherFirstDate, oLDate = otherLastDate == -1 ? 99991231 : otherLastDate;
-		if (other2FD)		return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate);
-		else if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate);
-		else				return (oFDate <= lDate && fDate <= oLDate);
+		if (other2FD)	return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate);
+		if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate);
+		return (oFDate <= lDate && fDate <= oLDate);
 	}
 	
 	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
@@ -201,37 +200,38 @@ public class Spieler {
 		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastName).toLowerCase();
 		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastName).toLowerCase();
 		if (myName.equals(otherName))	return firstName.compareTo(other.firstName) < 0;
-		else return						myName.compareTo(otherName) < 0;
+		return myName.compareTo(otherName) < 0;
 	}
 	
 	public String toString() {
-		String stringRep = this.firstNameFile + trennZeichen;
-		stringRep += this.lastNameFile + trennZeichen;
-		stringRep += this.pseudonym + trennZeichen;
-		stringRep += this.birthDate + trennZeichen;
-		stringRep += this.nationality + trennZeichen;
-		stringRep += this.position.getName() + trennZeichen;
-		stringRep += this.squadNumber;
-		if (this.firstDate + this.lastDate != -2) {
-			stringRep += trennZeichen + (this.firstDate != -1 ? this.firstDate : "") + "-" + (this.lastDate != -1 ? this.lastDate : "");
-			if (secondFDate != -1)	stringRep += "," + this.secondFDate + "-";
+		String toString = firstNameFile + trennZeichen;
+		toString += lastNameFile + trennZeichen;
+		toString += pseudonym + trennZeichen;
+		toString += birthDate + trennZeichen;
+		toString += nationality + trennZeichen;
+		toString += position.getName() + trennZeichen;
+		toString += squadNumber;
+		if (firstDate + lastDate != -2) {
+			toString += trennZeichen + (firstDate != -1 ? firstDate : "") + "-" + (lastDate != -1 ? lastDate : "");
+			if (secondFDate != -1)	toString += "," + secondFDate + "-";
 		}
-		return stringRep;
+		return toString;
 	}
 	
 	public void fromString(String data, Mannschaft team) {
-		String[] dataSplit = data.split(trennZeichen);
+		String[] split = data.split(trennZeichen);
+		int index = 0;
 		
-		setFirstName(dataSplit[0]);
-		setLastName(dataSplit[1]);
-		this.pseudonym = (dataSplit[2].equals("null") ? null : dataSplit[2]);
-		this.birthDate = Integer.parseInt(dataSplit[3]);
-		this.nationality = dataSplit[4];
-		this.position = Position.getPositionFromString(dataSplit[5]);
+		setFirstName(split[index++]);
+		setLastName(split[index++]);
+		pseudonym = (split[index++].equals("null") ? null : split[index - 1]);
+		birthDate = Integer.parseInt(split[index++]);
+		nationality = split[index++];
+		position = Position.getPositionFromString(split[index++]);
 		this.team = team;
-		this.squadNumber = Integer.parseInt(dataSplit[6]);
-		if (dataSplit.length >= 8) {
-			String[] allDates = dataSplit[7].split(",");
+		squadNumber = Integer.parseInt(split[index++]);
+		if (split.length >= 8) {
+			String[] allDates = split[index++].split(",");
 			String[] dates = allDates[0].split("\\-");
 			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
 			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
@@ -252,11 +252,11 @@ enum Position {
 	}
 	
 	public int getID() {
-		return this.id;
+		return id;
 	}
 	
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	
 	public static Position getPositionFromString(String string) {

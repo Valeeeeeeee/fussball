@@ -34,14 +34,14 @@ public class Tabellenverlauf extends JPanel {
 	private int freeSpaceX;
 	private int freeSpaceY;
 	
-	public Tabellenverlauf(int numberOfTeams, int[] rankings, Wettbewerb wettbewerb) {
+	public Tabellenverlauf(int numberOfTeams, int[] rankings, Wettbewerb competition) {
 		super();
 		
 		setLayout(null);
 		this.numberOfTeams = numberOfTeams;
 		this.rankings = rankings;
-		if (wettbewerb instanceof LigaSaison) {
-			LigaSaison lSeason = (LigaSaison) wettbewerb;
+		if (competition instanceof LigaSaison) {
+			LigaSaison lSeason = (LigaSaison) competition;
 			for (int i = 0; i < 5; i++) {
 				anzahlen[i] = lSeason.getAnzahl(i);
 			}

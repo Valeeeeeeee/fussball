@@ -13,7 +13,7 @@ public class LigaStatistik extends JPanel {
 	
 	private Dimension preferredSize = new Dimension(1100, 750);
 	private LigaSaison season;
-	private Mannschaft[] mannschaften;
+	private Mannschaft[] teams;
 	private int currentMatchday;
 	
 	// global variables for results
@@ -46,15 +46,15 @@ public class LigaStatistik extends JPanel {
 	private int[] indices = new int[] {3, 4, 5, 6, 7};
 	private String[] mostLeastStrings = new String[] {"Siege", "Unentschieden", "Niederlagen", "Tore", "Gegentore"};
 	
-	private Font fontWettbewerbLbl = new Font("Verdana", Font.PLAIN, 24);
+	private Font fontCompetition = new Font("Verdana", Font.PLAIN, 24);
 	
-	private JLabel jLblWettbewerb;
+	private JLabel jLblCompetition;
 	private JLabel[] jLblsMost;
 	private JLabel[] jLblsMostValues;
 	private JLabel[] jLblsLeast;
 	private JLabel[] jLblsLeastValues;
 
-	private JLabel jLblsSerien;
+	private JLabel jLblSeries;
 	private JLabel[] jLblsSeries;
 	private JLabel[] jLblsSeriesValues;
 	
@@ -109,11 +109,11 @@ public class LigaStatistik extends JPanel {
 		resultsFrequency = new ArrayList<>();
 		
 		{
-			jLblWettbewerb = new JLabel();
-			this.add(jLblWettbewerb);
-			jLblWettbewerb.setBounds(REC_LBLWETTBW);
-			jLblWettbewerb.setFont(fontWettbewerbLbl);
-			jLblWettbewerb.setText(season.getName());
+			jLblCompetition = new JLabel();
+			this.add(jLblCompetition);
+			jLblCompetition.setBounds(REC_LBLWETTBW);
+			jLblCompetition.setFont(fontCompetition);
+			jLblCompetition.setText(season.getName());
 		}
 		
 		buildResults();
@@ -121,7 +121,7 @@ public class LigaStatistik extends JPanel {
 		buildSeries();
 		
 		
-        this.setSize(preferredSize);
+        setSize(preferredSize);
 	}
 	
 	private void buildResults() {
@@ -193,10 +193,10 @@ public class LigaStatistik extends JPanel {
 		jLblsSeries = new JLabel[NUMBER_OF_SERIES];
 		jLblsSeriesValues = new JLabel[NUMBER_OF_SERIES];
 		{
-			jLblsSerien = new JLabel();
-			this.add(jLblsSerien);
-			jLblsSerien.setBounds(REC_LBLSERIEN);
-			jLblsSerien.setText("Meiste Spiele in Folge ...");
+			jLblSeries = new JLabel();
+			this.add(jLblSeries);
+			jLblSeries.setBounds(REC_LBLSERIEN);
+			jLblSeries.setText("Meiste Spiele in Folge ...");
 		}
 		
 		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
@@ -244,15 +244,15 @@ public class LigaStatistik extends JPanel {
 		}
     }
 	
-	public void aktualisieren() {
-		this.mannschaften = season.getMannschaften();
-		this.currentMatchday = season.getCurrentMatchday();
+	public void refresh() {
+		teams = season.getTeams();
+		currentMatchday = season.getCurrentMatchday();
 		updateGUI();
 	}
 	
 	private void resetValues() {
 		maximum = maxIndex = minIndex = -1;
-		minimum = 1000;
+		minimum = Integer.MAX_VALUE;
 		moreMax = moreMin = 0;
 	}
 	
@@ -320,8 +320,8 @@ public class LigaStatistik extends JPanel {
 		resultsFrequency.clear();
 		for (int i = 0; i < season.getNumberOfMatchdays(); i++) {
 			for (int j = 0; j < season.getNumberOfMatchesPerMatchday(); j++) {
-				if (season.isErgebnisplanEntered(i, j)) {
-					Ergebnis result = season.getErgebnis(i, j);
+				if (season.isResultSet(i, j)) {
+					Ergebnis result = season.getResult(i, j);
 					addResult(Math.max(result.home(), result.away()), Math.min(result.home(), result.away()));
 					if (result.home() > result.away())		numberOfHomeWins++;
 					else if (result.home() < result.away())	numberOfAwayWins++;
@@ -385,30 +385,30 @@ public class LigaStatistik extends JPanel {
 		
 		for (int i = 0; i < NUMBER_OF_MOSTLEAST; i++) {
 			resetValues();
-			for (Mannschaft team : mannschaften) {
+			for (Mannschaft team : teams) {
 				value = team.get(indices[i], 0, currentMatchday);
 				compareMinMax(team.getId());
 			}
 			weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-			jLblsMostValues[i].setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
+			jLblsMostValues[i].setText(teams[maxIndex].getName() + weitere + " (" + maximum + ")");
 			
 			weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-			jLblsLeastValues[i].setText(mannschaften[minIndex].getName() + weitere + " (" + minimum + ")");
+			jLblsLeastValues[i].setText(teams[minIndex].getName() + weitere + " (" + minimum + ")");
 		}
 	}
 	
 	private void updateSeries() {
-		String weitere;
+		String more;
 		
 		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
 			// Meiste Siege, ... in Serie
 			resetValues();
-			for (Mannschaft team : mannschaften) {
+			for (Mannschaft team : teams) {
 				value = team.getSeries(i + 1);
 				compareMinMax(team.getId());
 			}
-			weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-			jLblsSeriesValues[i].setText(mannschaften[maxIndex].getName() + weitere + " (" + maximum + ")");
+			more = moreMax == 0 ? "" : " + " + moreMax + " weitere";
+			jLblsSeriesValues[i].setText(teams[maxIndex].getName() + more + " (" + maximum + ")");
 		}
 	}
 }

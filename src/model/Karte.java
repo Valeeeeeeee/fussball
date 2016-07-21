@@ -4,7 +4,7 @@ import static util.Utilities.log;
 
 public class Karte {
 	private String id;
-	private Spiel spiel;
+	private Spiel match;
 	private boolean firstTeam;
 	private boolean isYellowCard;
 	private boolean isSecondBooking;
@@ -12,8 +12,8 @@ public class Karte {
 	private int minute;
 	private Spieler bookedPlayer;
 	
-	public Karte(Spiel spiel, boolean firstTeam, int minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, Spieler bookedPlayer) {
-		this.spiel = spiel;
+	public Karte(Spiel match, boolean firstTeam, int minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, Spieler bookedPlayer) {
+		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
 		this.isYellowCard = isYellowCard;
@@ -21,14 +21,14 @@ public class Karte {
 		this.onTheBench = onTheBench;
 		this.bookedPlayer = bookedPlayer;
 		
-		this.id = spiel.home() + "v" + spiel.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
+		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
 					+ (onTheBench ? "-b" : "");
-		log("Booking for " + (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getName() + 
+		log("Booking for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
 				" in the " + minute + ". minute: " + bookedPlayer.getPseudonymOrLN() + (onTheBench ? " (on the bench)" : ""));
 	}
 	
-	public Karte(Spiel spiel, String data) {
-		this.spiel = spiel;
+	public Karte(Spiel match, String data) {
+		this.match = match;
 		parseString(data);
 	}
 	
@@ -36,8 +36,8 @@ public class Karte {
 		return id;
 	}
 
-	public Spiel getSpiel() {
-		return spiel;
+	public Spiel getMatch() {
+		return match;
 	}
 	
 	public boolean isFirstTeam() {
@@ -75,9 +75,9 @@ public class Karte {
 		isYellowCard = Boolean.parseBoolean(data.substring(data.indexOf("-y") + 2, data.indexOf("-s")));
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
 		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", ""));
-		bookedPlayer = (firstTeam ? spiel.getHomeTeam() : spiel.getAwayTeam()).getSpieler(squadNumber, spiel.getDate());
+		bookedPlayer = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(squadNumber, match.getDate());
 		
-		id = spiel.home() + "v" + spiel.away() + "-h" + data;
+		id = match.home() + "v" + match.away() + "-h" + data;
 	}
 	
 	public String toString() {

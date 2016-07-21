@@ -160,7 +160,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private Uebersicht uebersicht;
 	private Spieler player;
-	private Wettbewerb wettbewerb;
+	private Wettbewerb competition;
 	
 	private boolean addingNewPlayer;
 	private boolean changingInformation;
@@ -168,11 +168,11 @@ public class SpielerInformationen extends JFrame {
 	private boolean atClubUntilEver;
 	private boolean moreDetails;
 	
-	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb wettbewerb) {
+	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb competition) {
 		super();
 		
 		this.uebersicht = uebersicht;
-		this.wettbewerb = wettbewerb;
+		this.competition = competition;
 		
 		initGUI();
 	}
@@ -203,14 +203,14 @@ public class SpielerInformationen extends JFrame {
 		for (int i = 1; i <= monate.length; i++) {
 			monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
 		}
-		int firstYear = wettbewerb.getYear() - maximumAge;
+		int firstYear = competition.getYear() - maximumAge;
 		String[] jahre = new String[maximumAge - minimumAge + 1];
 		for (int i = 0; i < jahre.length; i++) {
 			jahre[i] = firstYear + i + "";
 		}
-		String[] beimVereinJahre = new String[wettbewerb.isSTSS() ? 2 : 1];
+		String[] beimVereinJahre = new String[competition.isSTSS() ? 2 : 1];
 		for (int i = 0; i < beimVereinJahre.length; i++) {
-			beimVereinJahre[i] = wettbewerb.getYear() + i + "";
+			beimVereinJahre[i] = competition.getYear() + i + "";
 		}
 		
 		{
@@ -535,7 +535,7 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblCompetition);
 			jLblCompetition.setBounds(REC_COMPETITION);
 			jLblCompetition.setFont(fontCompetition);
-			jLblCompetition.setText(wettbewerb.getName());
+			jLblCompetition.setText(competition.getName());
 		}
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
 			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? bndsPerf[GAPX] : 0;
@@ -737,7 +737,7 @@ public class SpielerInformationen extends JFrame {
 			for (int[] performance : performanceMbM) {
 				String nothing = performance[2] != 91 ? "." : "X";
 				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
-				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getWettbewerb().getMannschaften()[performance[1] - 1].getName());
+				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getCompetition().getTeams()[performance[1] - 1].getName());
 				jLblsPerformanceMbMResult.get(index).setText(player.getTeam().getResultOfMatch(performance[0]));
 				jLblsPerformanceMbMSubOn.get(index).setText((performance[2] - 1) % 90 != 0 ? performance[2] + "." : nothing);
 				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : nothing);
@@ -888,7 +888,7 @@ public class SpielerInformationen extends JFrame {
 		addingNewPlayer = true;
 		String firstName = "Vorname";
 		String lastName = "Nachname";
-		int birthDate = (wettbewerb.getYear() - averageAge) * 10000 + 101;
+		int birthDate = (competition.getYear() - averageAge) * 10000 + 101;
 		String nationality = "Deutschland";
 		int squadNumber = team.getNextFreeSquadNumber();
 		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);

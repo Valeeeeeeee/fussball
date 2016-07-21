@@ -17,24 +17,24 @@ public class Ergebnis {
 	public static final int EXTRATIME = 2;
 	public static final int PENALTIES = 3;
 
-	public Ergebnis(ArrayList<Tor> tore) {
-		for (Tor tor : tore) {
+	public Ergebnis(ArrayList<Tor> goals) {
+		for (Tor goal : goals) {
 			int time = 0;
-			if (tor.getMinute() > 120) {
+			if (goal.getMinute() > 120) {
 				time = PENALTIES;
 				finishedInRegularTime = false;
 				finishedInExtraTime = false;
-			} else if (tor.getMinute() > 90) {
+			} else if (goal.getMinute() > 90) {
 				time = EXTRATIME;
 				finishedInRegularTime = false;
 				finishedInExtraTime = true;
 			} else {
-				if (tor.getMinute() > 45) 	time = REGULAR;
+				if (goal.getMinute() > 45) 	time = REGULAR;
 				finishedInRegularTime = true;
 			}
 			
 			while (time <= 3) {
-				if (tor.isFirstTeam())	home[time]++;
+				if (goal.isFirstTeam())	home[time]++;
 				else					away[time]++;
 				time++;
 			}
@@ -51,7 +51,7 @@ public class Ergebnis {
 		home[REGULAR] = homeRegular;
 		away[REGULAR] = awayRegular;
 		
-		// falls Elfmeterschiessen dazu kommt
+		// falls Elfmeterschießen dazu kommt
 		home[EXTRATIME] = home[REGULAR];
 		away[EXTRATIME] = away[REGULAR];
 		
@@ -59,54 +59,54 @@ public class Ergebnis {
 		away[PENALTIES] = away[REGULAR];
 	}
 	
-	public Ergebnis(String daten) {
+	public Ergebnis(String data) {
 		try {
-			if (daten.indexOf("agT") != -1) {
+			if (data.indexOf("agT") != -1) {
 				// >3:0 agT< / >0:2 agT<
 				amGruenenTisch = true;
 				
-				String[] teile = daten.split(":|\\ ");
-				home[REGULAR] = Integer.parseInt(teile[0]);
-				away[REGULAR] = Integer.parseInt(teile[1]);
+				String[] split = data.split(":|\\ ");
+				home[REGULAR] = Integer.parseInt(split[0]);
+				away[REGULAR] = Integer.parseInt(split[1]);
 				
-			} else if (daten.indexOf("nE") != -1) {
+			} else if (data.indexOf("nE") != -1) {
 				// Beispiel: >2:1nE (1:1,0:0)<
 				
-				String[] teile = daten.split("nE ");
-				teile[1] = teile[1].substring(1, teile[1].length() - 1);
+				String[] split = data.split("nE ");
+				split[1] = split[1].substring(1, split[1].length() - 1);
 				
 				// teile[0] = 2:1
-				String[] tore = teile[0].split(":");
-				home[PENALTIES] = Integer.parseInt(tore[0]);
-				away[PENALTIES] = Integer.parseInt(tore[1]);
+				String[] goals = split[0].split(":");
+				home[PENALTIES] = Integer.parseInt(goals[0]);
+				away[PENALTIES] = Integer.parseInt(goals[1]);
 				
 				// teile[1] = 1:1,0:0
-				tore = teile[1].split(",")[0].split(":");
-				home[EXTRATIME] = Integer.parseInt(tore[0]);
-				away[EXTRATIME] = Integer.parseInt(tore[1]);
+				goals = split[1].split(",")[0].split(":");
+				home[EXTRATIME] = Integer.parseInt(goals[0]);
+				away[EXTRATIME] = Integer.parseInt(goals[1]);
 				
-				tore = teile[1].split(",")[1].split(":");
-				home[REGULAR] = Integer.parseInt(tore[0]);
-				away[REGULAR] = Integer.parseInt(tore[1]);
+				goals = split[1].split(",")[1].split(":");
+				home[REGULAR] = Integer.parseInt(goals[0]);
+				away[REGULAR] = Integer.parseInt(goals[1]);
 				
-			} else if (daten.indexOf("nV") != -1) {
+			} else if (data.indexOf("nV") != -1) {
 				// Beispiel: >3:2nV (2:2)<
 				finishedInExtraTime = true;
 				
-				String[] teile = daten.split("nV ");
-				teile[1] = teile[1].substring(1, teile[1].length() - 1);
+				String[] split = data.split("nV ");
+				split[1] = split[1].substring(1, split[1].length() - 1);
 				
 				// teile[0] = 3:2
-				String[] tore = teile[0].split(":");
-				home[EXTRATIME] = Integer.parseInt(tore[0]);
-				away[EXTRATIME] = Integer.parseInt(tore[1]);
+				String[] goals = split[0].split(":");
+				home[EXTRATIME] = Integer.parseInt(goals[0]);
+				away[EXTRATIME] = Integer.parseInt(goals[1]);
 				
 				// teile[1] = 2:2
-				tore = teile[1].split(":");
-				home[REGULAR] = Integer.parseInt(tore[0]);
-				away[REGULAR] = Integer.parseInt(tore[1]);
+				goals = split[1].split(":");
+				home[REGULAR] = Integer.parseInt(goals[0]);
+				away[REGULAR] = Integer.parseInt(goals[1]);
 				
-				// falls Elfmeterschiessen dazu kommt
+				// falls Elfmeterschießen dazu kommt
 				home[PENALTIES] = home[EXTRATIME];
 				away[PENALTIES] = away[EXTRATIME];
 				
@@ -114,11 +114,11 @@ public class Ergebnis {
 				// Beispiel: >2:1<
 				finishedInRegularTime = true;
 				
-				String[] tore = daten.split(":");
-				home[REGULAR] = Integer.parseInt(tore[0]);
-				away[REGULAR] = Integer.parseInt(tore[1]);
+				String[] goals = data.split(":");
+				home[REGULAR] = Integer.parseInt(goals[0]);
+				away[REGULAR] = Integer.parseInt(goals[1]);
 				
-				// falls Elfmeterschiessen dazu kommt
+				// falls Elfmeterschießen dazu kommt
 				home[EXTRATIME] = home[REGULAR];
 				away[EXTRATIME] = away[REGULAR];
 				
@@ -131,12 +131,12 @@ public class Ergebnis {
 		} catch (IllegalArgumentException iae) {
 			home = new int[4];
 			away = new int[4];
-			log("Der uebergebene String war formal korrekt, aber falsch.");
+			log("Der übergebene String war formal korrekt, aber falsch.");
 			
 		} catch (Exception e) {
 			home = new int[4];
 			away = new int[4];
-			log("Der uebergebene String war formal inkorrekt.");
+			log("Der übergebene String war formal inkorrekt.");
 		}
 	}
 	
@@ -155,10 +155,10 @@ public class Ergebnis {
 	}
 	
 	public String getTooltipText() {
-		if (amGruenenTisch)	return "am gruenen Tisch";
+		if (amGruenenTisch)	return "am grünen Tisch";
 		if (finishedInRegularTime)	return "";
-		if (finishedInExtraTime)	return "nach Verlaengerung";
-		return "nach Elfmeterschiessen";
+		if (finishedInExtraTime)	return "nach Verlängerung";
+		return "nach Elfmeterschießen";
 	}
 	
 	public int home() {
@@ -262,18 +262,18 @@ public class Ergebnis {
 	}
 	
 	public String toString() {
-		String data = home(REGULAR) + ":" + away(REGULAR);
+		String toString = home(REGULAR) + ":" + away(REGULAR);
 		
-		if (amGruenenTisch)	return data + " agT";
+		if (amGruenenTisch)	return toString + " agT";
 		
-		if (finishedInRegularTime)	return data;
+		if (finishedInRegularTime)	return toString;
 		
 		if (finishedInExtraTime) {
-			data = home(EXTRATIME) + ":" + away(EXTRATIME) + "nV (" + data + ")";
-			return data;
+			toString = home(EXTRATIME) + ":" + away(EXTRATIME) + "nV (" + toString + ")";
+			return toString;
 		}
 		
-		data = home(PENALTIES) + ":" + away(PENALTIES) + "nE (" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + data + ")";
-		return data;
+		toString = home(PENALTIES) + ":" + away(PENALTIES) + "nE (" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + toString + ")";
+		return toString;
 	}
 }
