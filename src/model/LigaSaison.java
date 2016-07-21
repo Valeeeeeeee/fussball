@@ -705,7 +705,7 @@ public class LigaSaison implements Wettbewerb {
 					}
 					
 					// Spielplan
-					for (matchID = 0; (matchID + 2) < matches.length; matchID++) {
+					for (matchID = 0; (matchID + 2) < split.length; matchID++) {
 						Spiel match = null;
 						
 						if (isMatchSet(matchday, matchID)) {
