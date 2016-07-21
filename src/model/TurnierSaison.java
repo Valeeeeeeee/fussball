@@ -639,13 +639,15 @@ public class TurnierSaison {
 		if (hasQGroupStage) {
 			qualificationDataFromFile.add("" + hasSecondLegQGroupStage);
 			qualificationDataFromFile.add("" + goalDifferenceQGroupStage);
+			for (Gruppe group : qGroups)	group.save();
 		}
-		for (Gruppe group : qGroups)	group.save();
 		
 		qualificationDataFromFile.add("" + numberOfQKORounds);
-		for (int i = 0; i < numberOfQKORounds; i++) {
-			qKORounds[i].save();
-			qualificationDataFromFile.add("" + qKORounds[i].toString());
+		if (hasQKOStage) {
+			for (int i = 0; i < numberOfQKORounds; i++) {
+				qKORounds[i].save();
+				qualificationDataFromFile.add("" + qKORounds[i].toString());
+			}
 		}
 		
 		inDatei(fileQualificationData, qualificationDataFromFile);
