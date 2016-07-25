@@ -221,7 +221,7 @@ public class Utilities {
 	public static boolean inThePast(int date, int time, int timeDifference) {
 		time += timeDifference + (time % 100 < 15 ? 0 : 40);
 		if (time > 2359) {
-			date = MyDate.verschoben(date, 1);
+			date = MyDate.shiftDate(date, 1);
 			time -= 2400;
 		}
 		return inThePast(date, time);
@@ -236,8 +236,8 @@ public class Utilities {
 	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
 		ArrayList<Spieler> clone = new ArrayList<>();
 		
-		for (Spieler spieler : list) {
-			clone.add(spieler);
+		for (Spieler player : list) {
+			clone.add(player);
 		}
 		
 		return clone;

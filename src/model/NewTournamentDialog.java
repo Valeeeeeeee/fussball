@@ -14,7 +14,7 @@ public class NewTournamentDialog extends JFrame {
 	private Color background = new Color(78, 235, 78);
 	private Color backgroundRemove = new Color(235, 31, 31);
 	private Color foregroundRemove = new Color(255, 255, 255);
-	private Font fontWettbewerb = new Font("Dialog", 0, 25);
+	private Font fontCompetition = new Font("Dialog", 0, 25);
 	
 	private String[] possibleKORounds = new String[] {"1. Runde", "2. Runde", "3. Runde", "Zwischenrunde", "Sechzehntelfinale", 
 														"Achtelfinale", "Viertelfinale", "Halbfinale", "Spiel um Platz 3", "Finale"};
@@ -22,7 +22,7 @@ public class NewTournamentDialog extends JFrame {
 	private String[] posNumOfTeamsPerGroup;
 	private String[] posNumOfTeamsPerQGroup;
 	private String[] prOptions = new String[] {"alle", "keine", "die besten"};
-	private String[] gruppenXte = new String[] {"Gruppenersten", "Gruppenzweiten", "Gruppendritten"};
+	private String[] groupXth = new String[] {"Gruppenersten", "Gruppenzweiten", "Gruppendritten"};
 	
 	private final int minNumberOfQGroups = 1;
 	private final int maxNumberOfQGroups = 12;
@@ -40,7 +40,7 @@ public class NewTournamentDialog extends JFrame {
 	
 	// Bounds
 	private Dimension dim;
-	private Rectangle REC_WETTBLBL = new Rectangle(30, 30, 380, 40);
+	private Rectangle REC_COMPLBL = new Rectangle(30, 30, 380, 40);
 	private Rectangle REC_GO;
 	private Rectangle REC_CANCEL;
 
@@ -144,7 +144,7 @@ public class NewTournamentDialog extends JFrame {
 	private int[] lbls = new int[] {245, 170, 0, 30, 105, 25};
 	
 	// View
-	private JLabel jLblWettbewerb;
+	private JLabel jLblCompetition;
 	private JButton go;
 	private JButton cancel;
 	private JLabel jLblDetailsFor;
@@ -236,7 +236,7 @@ public class NewTournamentDialog extends JFrame {
 	private ButtonGroup koStageRBGrp;
 	private JLabel numOfKORoundsLbl;
 	private JButton jBtnChangeKORounds;
-	private JCheckBox[] jChBKORunden;
+	private JCheckBox[] jChBKORounds;
 	private JButton jBtnSaveKORounds;
 	private JComboBox<String> detailsKOCB;
 	private JLabel koSecondLegLbl;
@@ -333,12 +333,12 @@ public class NewTournamentDialog extends JFrame {
 		
 
 		{
-			jLblWettbewerb = new JLabel();
-			getContentPane().add(jLblWettbewerb);
-			jLblWettbewerb.setBounds(REC_WETTBLBL);
-			jLblWettbewerb.setFont(fontWettbewerb);
-			alignCenter(jLblWettbewerb);
-			jLblWettbewerb.setVisible(false);
+			jLblCompetition = new JLabel();
+			getContentPane().add(jLblCompetition);
+			jLblCompetition.setBounds(REC_COMPLBL);
+			jLblCompetition.setFont(fontCompetition);
+			alignCenter(jLblCompetition);
+			jLblCompetition.setVisible(false);
 		}
 		
 		{
@@ -954,7 +954,7 @@ public class NewTournamentDialog extends JFrame {
 	
 	@SuppressWarnings("unchecked")
 	private void buildKOStage() {
-		jChBKORunden = new JCheckBox[possibleKORounds.length];
+		jChBKORounds = new JCheckBox[possibleKORounds.length];
 		isKORoundSelected = new boolean[possibleKORounds.length];
 		previousKORound = new int[possibleKORounds.length];
 		jCBsPlatzierungen = new JComboBox[3];
@@ -1038,12 +1038,12 @@ public class NewTournamentDialog extends JFrame {
 			});
 		}
 		
-		for (int i = 0; i < jChBKORunden.length; i++) {
-			jChBKORunden[i] = new JCheckBox(possibleKORounds[i]);
-			koStagePnl.add(jChBKORunden[i]);
-			jChBKORunden[i].setBounds(koRounds[STARTX], koRounds[STARTY] + i * koRounds[GAPY], koRounds[SIZEX], koRounds[SIZEY]);
-			jChBKORunden[i].setOpaque(false);
-			jChBKORunden[i].setFocusable(false);
+		for (int i = 0; i < jChBKORounds.length; i++) {
+			jChBKORounds[i] = new JCheckBox(possibleKORounds[i]);
+			koStagePnl.add(jChBKORounds[i]);
+			jChBKORounds[i].setBounds(koRounds[STARTX], koRounds[STARTY] + i * koRounds[GAPY], koRounds[SIZEX], koRounds[SIZEY]);
+			jChBKORounds[i].setOpaque(false);
+			jChBKORounds[i].setFocusable(false);
 		}
 		{
 			jBtnSaveKORounds = new JButton();
@@ -1159,7 +1159,7 @@ public class NewTournamentDialog extends JFrame {
 			
 			jLblsPlatzierungen[i] = new JLabel();
 			koStagePnl.add(jLblsPlatzierungen[i]);
-			jLblsPlatzierungen[i].setText(gruppenXte[i]);
+			jLblsPlatzierungen[i].setText(groupXth[i]);
 			jLblsPlatzierungen[i].setBounds(lbls[STARTX], lbls[STARTY] + i * lbls[GAPY], lbls[SIZEX], lbls[SIZEY]);
 			jLblsPlatzierungen[i].setVisible(false);
 		}
@@ -1274,10 +1274,10 @@ public class NewTournamentDialog extends JFrame {
 		
 		koStageYesRB.setSelected(true);
 		koSecondLegNoRB.setSelected(true);
-		jChBKORunden[5].setSelected(true);
-		jChBKORunden[6].setSelected(true);
-		jChBKORunden[7].setSelected(true);
-		jChBKORunden[9].setSelected(true);
+		jChBKORounds[5].setSelected(true);
+		jChBKORounds[6].setSelected(true);
+		jChBKORounds[7].setSelected(true);
+		jChBKORounds[9].setSelected(true);
 		jCBsPlatzierungen[2].setSelectedIndex(1);
 	}
 	
@@ -1298,15 +1298,15 @@ public class NewTournamentDialog extends JFrame {
 		qKoStagePnl.setBounds(REC_QKOPNL);
 		
 		int heightQ = hasQ ? 70 + heightQG + heightQK : 50;
-		REC_QPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightQ);
+		REC_QPNL = new Rectangle(OFFSETX, OFFSETY + REC_COMPLBL.height + GAPPNL, 380, heightQ);
 		qualificationPnl.setBounds(REC_QPNL);
 		
 		int heightG = hasGrp ? 400 : 50;
-		REC_GRPPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightG);
+		REC_GRPPNL = new Rectangle(OFFSETX, OFFSETY + REC_COMPLBL.height + GAPPNL, 380, heightG);
 		groupStagePnl.setBounds(REC_GRPPNL);
 		
 		int heightK = hasKO ? 480 : 50;
-		REC_KOPNL = new Rectangle(OFFSETX, OFFSETY + REC_WETTBLBL.height + GAPPNL, 380, heightK);
+		REC_KOPNL = new Rectangle(OFFSETX, OFFSETY + REC_COMPLBL.height + GAPPNL, 380, heightK);
 		koStagePnl.setBounds(REC_KOPNL);
 		
 		int startyGo = 0;
@@ -1321,7 +1321,7 @@ public class NewTournamentDialog extends JFrame {
 		go.setBounds(REC_GO);
 		
 		dim = new Dimension(380 + 2 * OFFSETX + getWindowDecorationWidth(), REC_GO.y + REC_GO.height + OFFSETY + getWindowDecorationHeight());
-		setSize(this.dim);
+		setSize(dim);
 		setLocationRelativeTo(null);
 	}
 	
@@ -1786,10 +1786,10 @@ public class NewTournamentDialog extends JFrame {
 		// saving provided data -> could be in different order later, checking if data is deleted
 		int[][] teamsCFrom = new int[possibleKORounds.length][];
 		int index = 0;
-		for (int i = 0; i < jChBKORunden.length; i++) {
+		for (int i = 0; i < jChBKORounds.length; i++) {
 			if (isKORoundSelected[i]) {
 				teamsCFrom[i] = teamsComingFrom.get(index++);
-				if (!jChBKORunden[i].isSelected() && (teamsCFrom[i][0] != 0 || teamsCFrom[i][1] != 0 || teamsCFrom[i][2] != 0)) {
+				if (!jChBKORounds[i].isSelected() && (teamsCFrom[i][0] != 0 || teamsCFrom[i][1] != 0 || teamsCFrom[i][2] != 0)) {
 					int cont = yesNoDialog("Es wurden für die gelöschte KO-Runde " + possibleKORounds[i] + " bereits Daten bereitgestellt. Diese gehen hierbei verloren. Trotzdem fortfahren?");
 					if (cont != JOptionPane.YES_OPTION)	return;
 				}
@@ -1799,8 +1799,8 @@ public class NewTournamentDialog extends JFrame {
 		}
 		
 		selectedKORounds.clear();
-		for (int i = 0; i < jChBKORunden.length; i++) {
-			isKORoundSelected[i] = jChBKORunden[i].isSelected();
+		for (int i = 0; i < jChBKORounds.length; i++) {
+			isKORoundSelected[i] = jChBKORounds[i].isSelected();
 			if (isKORoundSelected[i])	selectedKORounds.add(i);
 		}
 		
@@ -1833,8 +1833,8 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	private void showKORoundConfiguration(boolean show) {
-		for (int i = 0; i < jChBKORunden.length; i++) {
-			jChBKORunden[i].setVisible(hasKO && show);
+		for (int i = 0; i < jChBKORounds.length; i++) {
+			jChBKORounds[i].setVisible(hasKO && show);
 		}
 		jBtnSaveKORounds.setVisible(hasKO && show);
 
@@ -2159,14 +2159,14 @@ public class NewTournamentDialog extends JFrame {
 			String newName = null;
 			boolean cancel = false;
 			while((newName == null || newName.isEmpty()) && !cancel) {
-				newName = inputDialog("Neuer Name fuer " + jLTeamsModel.get(index));
+				newName = inputDialog("Neuer Name für " + jLTeamsModel.get(index));
 				if (newName == null || newName.isEmpty()) {
 					cancel = yesNoDialog("Sie haben keinen validen Namen eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
 				}
 			}
 			if (!cancel)	jLTeamsModel.set(index, newName);
 		} else {
-			message("Sie haben keine Mannschaft ausgewaehlt.");
+			message("Sie haben keine Mannschaft ausgewählt.");
 		}
 	}
 	
@@ -2176,7 +2176,7 @@ public class NewTournamentDialog extends JFrame {
 			boolean delete = yesNoDialog("Wollen Sie das Team \"" + jLTeamsModel.get(index) + "\" wirklich aus dieser KO-Runde entfernen?") == JOptionPane.YES_OPTION;
 			if (delete)	jLTeamsModel.remove(index);
 		} else {
-			message("Sie haben keine Mannschaft ausgewaehlt.");
+			message("Sie haben keine Mannschaft ausgewählt.");
 		}
 	}
 	
@@ -2206,17 +2206,17 @@ public class NewTournamentDialog extends JFrame {
 		String message = "";
 		
 		name = nameTF.getText();
-		if (name.isEmpty())	message += "Geben Sie bitte einen gueltigen Namen ein.\n";
+		if (name.isEmpty())	message += "Geben Sie bitte einen gültigen Namen ein.\n";
 		
 		shortName = shortNameTF.getText();
-		if (shortName.isEmpty())	message += "Geben Sie bitte einen gueltigen Kurznamen ein.\n";
+		if (shortName.isEmpty())	message += "Geben Sie bitte einen gültigen Kurznamen ein.\n";
 		
 		stDate = MyDate.getDate(startDateTF.getText());
-		if (stDate == 19700101)	message += "Geben Sie bitte ein gueltiges Startdatum ein.\n";
+		if (stDate == MyDate.UNIX_EPOCH)	message += "Geben Sie bitte ein gültiges Startdatum ein.\n";
 		
 		fiDate = MyDate.getDate(finalDateTF.getText());
-		if (fiDate == 19700101)	message += "Geben Sie bitte ein gueltiges Enddatum ein.\n";
-		else if (stDate > fiDate)	message += "Das Finale kann nicht vor Beginn des Turniers stattfinden.\n";
+		if (fiDate == MyDate.UNIX_EPOCH)	message += "Geben Sie bitte ein gültiges Enddatum ein.\n";
+		else if (stDate > fiDate)			message += "Das Finale kann nicht vor Beginn des Turniers stattfinden.\n";
 		
 		season = stDate / 10000;
 		isSTSS = season != (fiDate / 10000);
@@ -2383,7 +2383,7 @@ public class NewTournamentDialog extends JFrame {
 	}
 	
 	public void dispose() {
-		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schliessen wollen? Dabei gehen die eingegebenen Daten verloren.");
+		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schließen wollen? Dabei gehen die eingegebenen Daten verloren.");
 		if (cancel == JOptionPane.YES_OPTION)	super.dispose();
 	}
 	
@@ -2394,8 +2394,8 @@ public class NewTournamentDialog extends JFrame {
 	private void goActionPerformed() {
 		if (step == 0) {
 			if (!validateGeneralInfo())	return;
-			jLblWettbewerb.setText(name + " " + season + (isSTSS ? "/" + (season + 1) : ""));
-			jLblWettbewerb.setVisible(true);
+			jLblCompetition.setText(name + " " + season + (isSTSS ? "/" + (season + 1) : ""));
+			jLblCompetition.setVisible(true);
 			
 			infoPnl.setVisible(false);
 			qGroupStagePnl.add(jSPTeams);

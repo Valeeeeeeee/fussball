@@ -12,45 +12,45 @@ public class Spiel {
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
-	private Wettbewerb wettbewerb;
+	private Wettbewerb competition;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
 	private int[] lineupHome;
 	private int[] lineupAway;
 	
 	private Schiedsrichter referee;
-	private Ergebnis ergebnis;
+	private Ergebnis result;
 	private ArrayList<Tor> goals = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
 	private ArrayList<Karte> bookings = new ArrayList<>();
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
-		this.wettbewerb = wettbewerb;
+	public Spiel(Wettbewerb competition, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
+		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
 		this.time = time;
 		
 		this.homeTeamIndex = homeTeamIndex;
-		this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
+		homeTeam = competition.getTeams()[homeTeamIndex - 1];
 		this.awayTeamIndex = awayTeamIndex;
-		this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
+		awayTeam = competition.getTeams()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb wettbewerb, int matchday, int date, int time, String daten) {
-		this.wettbewerb = wettbewerb;
+	public Spiel(Wettbewerb competition, int matchday, int date, int time, String data) {
+		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
 		this.time = time;
-		parseString(daten);
+		parseString(data);
 	}
 	
-	public Wettbewerb getWettbewerb() {
-		return this.wettbewerb;
+	public Wettbewerb getCompetition() {
+		return competition;
 	}
 	
 	public String getDescription() {
-		return wettbewerb.getMatchdayDescription(matchday);
+		return competition.getMatchdayDescription(matchday);
 	}
 	
 	public String getDateAndTime() {
@@ -62,39 +62,39 @@ public class Spiel {
 	}
 	
 	public int getDate() {
-		return this.date;
+		return date;
 	}
 	
 	public int getTime() {
-		return this.time;
+		return time;
 	}
 	
 	public int home() {
-		return this.homeTeamIndex;
+		return homeTeamIndex;
 	}
 	
 	public Mannschaft getHomeTeam() {
-		return this.homeTeam;
+		return homeTeam;
 	}
 	
 	public int away() {
-		return this.awayTeamIndex;
+		return awayTeamIndex;
 	}
 	
 	public Mannschaft getAwayTeam() {
-		return this.awayTeam;
+		return awayTeam;
 	}
 	
-	public Ergebnis getErgebnis() {
-		return this.ergebnis;
+	public Ergebnis getResult() {
+		return result;
 	}
 	
-	public void setErgebnis(Ergebnis ergebnis) {
-		this.ergebnis = ergebnis;
+	public void setResult(Ergebnis result) {
+		this.result = result;
 	}
 	
 	public int[] getLineupHome() {
-		return this.lineupHome;
+		return lineupHome;
 	}
 	
 	public void setLineupHome(int[] lineupHome) {
@@ -102,15 +102,15 @@ public class Spiel {
 	}
 	
 	public int[] getLineupAway() {
-		return this.lineupAway;
+		return lineupAway;
 	}
 	
 	public void setLineupAway(int[] lineupAway) {
 		this.lineupAway = lineupAway;
 	}
 	
-	public ArrayList<Tor> getTore() {
-		return this.goals;
+	public ArrayList<Tor> getGoals() {
+		return goals;
 	}
 	
 	public ArrayList<Wechsel> getSubstitutions(boolean firstTeam) {
@@ -118,7 +118,7 @@ public class Spiel {
 	}
 	
 	public ArrayList<Karte> getBookings() {
-		return this.bookings;
+		return bookings;
 	}
 	
 	public void addGoal(Tor goal) {
@@ -128,14 +128,14 @@ public class Spiel {
 				if (goals.get(i).getMinute() <= goal.getMinute())	index++;
 			}
 			goals.add(index, goal);
-			ergebnis = new Ergebnis(goals);
+			result = new Ergebnis(goals);
 		}
 	}
 	
 	public void removeGoal(Tor goal) {
 		if (goal != null) {
 			goals.remove(goal);
-			ergebnis = new Ergebnis(goals);
+			result = new Ergebnis(goals);
 		}
 	}
 	
@@ -188,7 +188,7 @@ public class Spiel {
 	}
 	
 	public void setReferee(int refereeID) {
-		setReferee(refereeID == 0 ? null : wettbewerb.getReferees().get(refereeID - 1));
+		setReferee(refereeID == 0 ? null : competition.getReferees().get(refereeID - 1));
 	}
 	
 	public void setReferee(Schiedsrichter referee) {
@@ -196,7 +196,7 @@ public class Spiel {
 		referee.addMatch(this);
 	}
 	
-	public void setRemainder(String matchData) {
+	public void setMatchData(String matchData) {
 		String[] matchDataSplit = matchData.split("\\+");
 		if (!matchDataSplit[0].equals(homeTeamIndex + ":" + awayTeamIndex))	return;
 		if (matchDataSplit.length > 1) {
@@ -208,31 +208,31 @@ public class Spiel {
 		}
 	}
 	
-	private String getRemainder() {
-		String remainder = "";
+	private String getMatchData() {
+		String matchData = "";
 		
 		if (lineupHome != null || lineupAway != null) {
-			remainder += "+{" + matchDataToString() + "}";
-			remainder += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
-		} else if (ergebnis != null) {
-			remainder += "+{" + matchDataToString() + "}";
+			matchData += "+{" + matchDataToString() + "}";
+			matchData += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
+		} else if (result != null) {
+			matchData += "+{" + matchDataToString() + "}";
 		} else if (referee != null) {
-			remainder += "+{" + referee.getID() + "}";
+			matchData += "+{" + referee.getID() + "}";
 		}
 		
-		return remainder;
+		return matchData;
 	}
 	
 	private String matchDataToString() {
 		String matchData = "";
 		
-		if (referee != null)						matchData += referee.getID();
-		if (referee != null && ergebnis != null)	matchData += "_";
-		if (ergebnis != null)						matchData += ergebnis;
-		if (!wettbewerb.teamsHaveKader())	return matchData;
+		if (referee != null)					matchData += referee.getID();
+		if (referee != null && result != null)	matchData += "_";
+		if (result != null)						matchData += result;
+		if (!competition.teamsHaveKader())	return matchData;
 		
-		for (Tor tor : goals) {
-			matchData += "#" + tor;
+		for (Tor goal : goals) {
+			matchData += "#" + goal;
 		}
 		
 		if (bookings.size() > 0)	matchData += "^";
@@ -252,8 +252,8 @@ public class Spiel {
 				lineupString += lineup[i];
 				if (i < lineup.length - 1)	lineupString += ",";
 			}
-			for (Wechsel wechsel : substitutions) {
-				lineupString += "#" + wechsel.toString();
+			for (Wechsel substitution : substitutions) {
+				lineupString += "#" + substitution.toString();
 			}
 		} else {
 			lineupString = "null";
@@ -265,17 +265,17 @@ public class Spiel {
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
 		if (matchData.indexOf("_") != -1) {
-			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
+			setReferee(competition.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
 		}
 		matchData = matchData.substring(matchData.indexOf("_") + 1);
 		if (matchData.indexOf(":") == -1) {
-			setReferee(wettbewerb.getReferees().get(Integer.parseInt(matchData) - 1));
+			setReferee(competition.getReferees().get(Integer.parseInt(matchData) - 1));
 			return;
 		}
 		String[] matchDataSplit = matchData.split("\\^");
 		String allGoals = matchDataSplit[0];
 		String[] goalsSplit = allGoals.split("#");
-		if(!goalsSplit[0].equals("null"))	this.ergebnis = new Ergebnis(goalsSplit[0]);
+		if(!goalsSplit[0].equals("null"))	result = new Ergebnis(goalsSplit[0]);
 		if (goalsSplit.length > 1) {
 			for (int i = 1; i < goalsSplit.length; i++) {
 				goals.add(new Tor(this, goalsSplit[i]));
@@ -301,8 +301,8 @@ public class Spiel {
 				lineup[i] = Integer.parseInt(lineupSplit[i]);
 			}
 			for (int i = 1; i < hashSplit.length; i++) {
-				Wechsel wechsel = new Wechsel(this, firstTeam, hashSplit[i]);
-				addSubstitution(wechsel);
+				Wechsel substitution = new Wechsel(this, firstTeam, hashSplit[i]);
+				addSubstitution(substitution);
 			}
 		}
 		
@@ -315,17 +315,17 @@ public class Spiel {
 		return isValid ? lineup : null;
 	}
 	
-	private void parseString(String daten) {
+	private void parseString(String data) {
 		try {
-			this.homeTeamIndex = Integer.parseInt(daten.split(":")[0]);
-			this.awayTeamIndex = Integer.parseInt(daten.split(":")[1]);
+			homeTeamIndex = Integer.parseInt(data.split(":")[0]);
+			awayTeamIndex = Integer.parseInt(data.split(":")[1]);
 			
-			if (this.homeTeamIndex == this.awayTeamIndex || this.homeTeamIndex == -1 || this.awayTeamIndex == -1) {
+			if (homeTeamIndex == awayTeamIndex || homeTeamIndex == -1 || awayTeamIndex == -1) {
 				throw new IllegalArgumentException();
 			}
 			
-			this.homeTeam = wettbewerb.getMannschaften()[homeTeamIndex - 1];
-			this.awayTeam = wettbewerb.getMannschaften()[awayTeamIndex - 1];
+			homeTeam = competition.getTeams()[homeTeamIndex - 1];
+			awayTeam = competition.getTeams()[awayTeamIndex - 1];
 		} catch (IllegalArgumentException iae) {
 			log("The given match was formally correct, but impossible.");
 			log(iae.getMessage());
@@ -336,13 +336,13 @@ public class Spiel {
 	}
 	
 	public String fullString() {
-		String fullString = this.homeTeamIndex + ":" + this.awayTeamIndex + getRemainder();
+		String fullString = homeTeamIndex + ":" + awayTeamIndex + getMatchData();
 		
 		return fullString;
 	}
 	
 	public String toString() {
-		String toString = this.homeTeamIndex + ":" + this.awayTeamIndex;
+		String toString = homeTeamIndex + ":" + awayTeamIndex;
 		
 		return toString;
 	}

@@ -10,31 +10,31 @@ public class Turnier {
 	private String name;
 	private String shortName;
 	
-	private int aktuelleSaison;
-	private ArrayList<TurnierSaison> saisons;
+	private int currentSeasonIndex;
+	private ArrayList<TurnierSaison> seasons;
 	
 	private String workspace;
 	
-	private String dateiSaisonsDaten;
-	private ArrayList<String> saisonsDatenFromFile;
+	private String fileSeasonsData;
+	private ArrayList<String> seasonsDataFromFile;
 	
 	
-	public Turnier(int id, String daten) {
+	public Turnier(int id, String data) {
 		this.id = id;
-		fromString(daten);
-		saisonsLaden();
+		fromString(data);
+		loadSeasons();
 	}
 	
 	public int getID() {
-		return this.id;
+		return id;
 	}
 	
 	public String getWorkspace(int season) {
 		int seasonIndex = 0;
-		for (seasonIndex = 0; seasonIndex < saisons.size(); seasonIndex++) {
-			if (saisons.get(seasonIndex).getSeason() == season)	break;
+		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
+			if (seasons.get(seasonIndex).getYear() == season)	break;
 		}
-		return workspace + saisons.get(seasonIndex).getSeasonFull("_") + File.separator;
+		return workspace + seasons.get(seasonIndex).getSeasonFull("_") + File.separator;
 	}
 	
 	public String getWorkspace() {
@@ -42,11 +42,11 @@ public class Turnier {
 	}
 	
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	
 	public String getShortName() {
-		return this.shortName;
+		return shortName;
 	}
 	
 	/**
@@ -54,35 +54,35 @@ public class Turnier {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.saisons.size()];
-        for (int i = 0; i < saisons.size(); i++) {
-            hilfsarray[i] = saisons.get(i).getSeasonFull("/");
+		String[] allSeasons = new String[seasons.size()];
+        for (int i = 0; i < seasons.size(); i++) {
+            allSeasons[i] = seasons.get(i).getSeasonFull("/");
         }
-        return hilfsarray;
+        return allSeasons;
 	}
 	
-	public int getCurrentSeason() {
-		return this.saisons.get(this.aktuelleSaison).getSeason();
+	public int getCurrentSeasonYear() {
+		return seasons.get(currentSeasonIndex).getYear();
 	}
 	
-	public TurnierSaison getAktuelleSaison() {
-		return saisons.get(this.aktuelleSaison);
+	public TurnierSaison getCurrentSeason() {
+		return seasons.get(currentSeasonIndex);
 	}
 	
 	public boolean addNewSeason(String toString, ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
-		TurnierSaison neueSaison = new TurnierSaison(this, saisons.size(), toString);
-		for (int i = 0; i < saisons.size(); i++) {
-			if (saisons.get(i).getSeason() == neueSaison.getSeason()) {
+		TurnierSaison newSeason = new TurnierSaison(this, seasons.size(), toString);
+		for (int i = 0; i < seasons.size(); i++) {
+			if (seasons.get(i).getYear() == newSeason.getYear()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
 				return false;
 			}
 		}
-		saisons.add(neueSaison);
+		seasons.add(newSeason);
 		
-		String folder = workspace + neueSaison.getSeasonFull("_") + File.separator;
+		String folder = workspace + newSeason.getSeasonFull("_") + File.separator;
 		(new File(folder)).mkdirs();
 		
-		if (neueSaison.hasQualification()) {
+		if (newSeason.hasQualification()) {
 			inDatei(folder + "QualiConfig.txt", qConfig);
 			String qFolder = folder + "Qualifikation" + File.separator;
 			(new File(qFolder)).mkdirs();
@@ -99,8 +99,8 @@ public class Turnier {
 				(new File(grpFolder)).mkdirs();
 				
 				ArrayList<String> teams = new ArrayList<>();
-				ArrayList<String> spielplan = new ArrayList<>();
-				ArrayList<String> ergebnisse = new ArrayList<>();
+				ArrayList<String> matches = new ArrayList<>();
+				ArrayList<String> results = new ArrayList<>();
 				
 				int nOfTeams = teamsQG[i].length;
 				int nOfMtchs = nOfTeams / 2;
@@ -110,15 +110,15 @@ public class Turnier {
 					allF += "f";
 				}
 				for (int j = 0; j < nOfMtdys; j++) {
-					spielplan.add(allF + ";");
-					ergebnisse.add(allF + ";");
+					matches.add(allF + ";");
+					results.add(allF + ";");
 				}
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsQG[i][j]);
 				}
 				inDatei(grpFolder + "Mannschaften.txt", teams);
-				inDatei(grpFolder + "Spielplan.txt", spielplan);
-				inDatei(grpFolder + "Ergebnisse.txt", ergebnisse);
+				inDatei(grpFolder + "Spielplan.txt", matches);
+				inDatei(grpFolder + "Ergebnisse.txt", results);
 			}
 			
 			// KO-Runden
@@ -131,8 +131,8 @@ public class Turnier {
 				(new File(koFolder)).mkdirs();
 				
 				ArrayList<String> teams = new ArrayList<>();
-				ArrayList<String> spielplan = new ArrayList<>();
-				ArrayList<String> ergebnisse = new ArrayList<>();
+				ArrayList<String> matches = new ArrayList<>();
+				ArrayList<String> results = new ArrayList<>();
 				
 				int nOfTeams = teamsQKO[i].length;
 				int nOfMtchs = nOfTeams / 2;
@@ -142,19 +142,19 @@ public class Turnier {
 					allF += "f";
 				}
 				for (int j = 0; j < nOfMtdys; j++) {
-					spielplan.add(allF + ";");
-					ergebnisse.add(allF + ";");
+					matches.add(allF + ";");
+					results.add(allF + ";");
 				}
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsQKO[i][j]);
 				}
 				
 				inDatei(koFolder + "Mannschaften.txt", teams);
-				inDatei(koFolder + "Spielplan.txt", spielplan);
-				inDatei(koFolder + "Ergebnisse.txt", ergebnisse);
+				inDatei(koFolder + "Spielplan.txt", matches);
+				inDatei(koFolder + "Ergebnisse.txt", results);
 			}
 		}
-		if (neueSaison.hasGroupStage()) {
+		if (newSeason.hasGroupStage()) {
 			inDatei(folder + "GruppenConfig.txt", grpConfig);
 			
 			int nOfGrps = Integer.parseInt(grpConfig.remove(0));
@@ -164,8 +164,8 @@ public class Turnier {
 				(new File(grpFolder)).mkdirs();
 				
 				ArrayList<String> teams = new ArrayList<>();
-				ArrayList<String> spielplan = new ArrayList<>();
-				ArrayList<String> ergebnisse = new ArrayList<>();
+				ArrayList<String> matches = new ArrayList<>();
+				ArrayList<String> results = new ArrayList<>();
 				
 				int nOfTeams = teamsGrp[i].length;
 				int nOfMtchs = nOfTeams / 2;
@@ -175,18 +175,18 @@ public class Turnier {
 					allF += "f";
 				}
 				for (int j = 0; j < nOfMtdys; j++) {
-					spielplan.add(allF + ";");
-					ergebnisse.add(allF + ";");
+					matches.add(allF + ";");
+					results.add(allF + ";");
 				}
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsGrp[i][j]);
 				}
 				inDatei(grpFolder + "Mannschaften.txt", teams);
-				inDatei(grpFolder + "Spielplan.txt", spielplan);
-				inDatei(grpFolder + "Ergebnisse.txt", ergebnisse);
+				inDatei(grpFolder + "Spielplan.txt", matches);
+				inDatei(grpFolder + "Ergebnisse.txt", results);
 			}
 		}
-		if (neueSaison.hasKOStage()) {
+		if (newSeason.hasKOStage()) {
 			inDatei(folder + "KOconfig.txt", koConfig);
 			
 			int nOfKORds = koConfig.size();
@@ -198,8 +198,8 @@ public class Turnier {
 				(new File(koFolder)).mkdirs();
 				
 				ArrayList<String> teams = new ArrayList<>();
-				ArrayList<String> spielplan = new ArrayList<>();
-				ArrayList<String> ergebnisse = new ArrayList<>();
+				ArrayList<String> matches = new ArrayList<>();
+				ArrayList<String> results = new ArrayList<>();
 				
 				int nOfTeams = teamsKO[i].length;
 				int nOfMtchs = nOfTeams / 2;
@@ -209,49 +209,47 @@ public class Turnier {
 					allF += "f";
 				}
 				for (int j = 0; j < nOfMtdys; j++) {
-					spielplan.add(allF + ";");
-					ergebnisse.add(allF + ";");
+					matches.add(allF + ";");
+					results.add(allF + ";");
 				}
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsKO[i][j]);
 				}
 				
 				inDatei(koFolder + "Mannschaften.txt", teams);
-				inDatei(koFolder + "Spielplan.txt", spielplan);
-				inDatei(koFolder + "Ergebnisse.txt", ergebnisse);
+				inDatei(koFolder + "Spielplan.txt", matches);
+				inDatei(koFolder + "Ergebnisse.txt", results);
 			}
 		}
 		
 		return true;
 	}
 	
-	private void saisonsLaden() {
+	private void loadSeasons() {
 		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
-		// SaisonsConfig.txt
-		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
-		saisonsDatenFromFile = ausDatei(dateiSaisonsDaten);
+		fileSeasonsData = workspace + "SaisonsConfig.txt";
+		seasonsDataFromFile = ausDatei(fileSeasonsData);
 		
-		// TurnierSaisons erstellen
-		saisons = new ArrayList<>();
-		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
-			saisons.add(new TurnierSaison(this, i, saisonsDatenFromFile.get(i)));
+		seasons = new ArrayList<>();
+		for (int i = 0; i < seasonsDataFromFile.size(); i++) {
+			seasons.add(new TurnierSaison(this, i, seasonsDataFromFile.get(i)));
 		}
 	}
 	
-	private void saisonsSpeichern() {
-		saisonsDatenFromFile.clear();
-		for (int i = 0; i < saisons.size(); i++) {
-			saisons.get(i).speichern();
-			saisonsDatenFromFile.add(saisons.get(i).toString());
+	private void saveSeasons() {
+		seasonsDataFromFile.clear();
+		for (int i = 0; i < seasons.size(); i++) {
+			seasons.get(i).save();
+			seasonsDataFromFile.add(seasons.get(i).toString());
 		}
 		
-		inDatei(dateiSaisonsDaten, saisonsDatenFromFile);
+		inDatei(fileSeasonsData, seasonsDataFromFile);
 	}
 	
 	public int[] checkMissingResults() {
 		int countCompleted = 0, countStillRunning = 0;
-		for (TurnierSaison season : saisons) {
+		for (TurnierSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
 			if (nextMatchesString.size() > 0) {
@@ -273,25 +271,26 @@ public class Turnier {
 		return new int[] {countCompleted, countStillRunning};
 	}
 	
-	public void laden(int index) {
-		aktuelleSaison = index;
-		saisons.get(aktuelleSaison).laden();
+	public void load(int index) {
+		currentSeasonIndex = index;
+		seasons.get(currentSeasonIndex).load();
 	}
 	
-	public void speichern() {
-		saisonsSpeichern();
+	public void save() {
+		saveSeasons();
 	}
 	
-	private void fromString(String daten) {
-		String[] alleDaten = daten.split(";");
+	private void fromString(String data) {
+		String[] split = data.split(";");
+		int index = 0;
 		
-		this.name = alleDaten[0].substring(5);
-		this.shortName = alleDaten[1].substring(4);
+		name = split[index++].substring(5);
+		shortName = split[index++].substring(4);
 	}
 	
 	public String toString() {
-		String alles = "NAME*" + this.name + ";";
-		alles += "SHN*" + this.shortName + ";";
-		return alles;
+		String toString = "NAME*" + name + ";";
+		toString += "SHN*" + shortName + ";";
+		return toString;
 	}
 }

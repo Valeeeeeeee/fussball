@@ -176,7 +176,7 @@ public class NewLeagueDialog extends JFrame {
 		enterPresetValues();
 		
 		setTitle("Neue Liga erstellen");
-		setSize(this.dim);
+		setSize(dim);
 		setResizable(false);
 	}
 	
@@ -394,7 +394,7 @@ public class NewLeagueDialog extends JFrame {
 			kotLbl = new JLabel();
 			kotPnl.add(kotLbl);
 			kotLbl.setBounds(REC_KOTLBL);
-			kotLbl.setText("Anstosszeiten");
+			kotLbl.setText("Anstoßzeiten");
 		}
 		{
 			kotSP = new JScrollPane();
@@ -457,14 +457,14 @@ public class NewLeagueDialog extends JFrame {
 			String newName = null;
 			boolean cancel = false;
 			while((newName == null || newName.isEmpty()) && !cancel) {
-				newName = inputDialog("Neuer Name fuer " + teamsModel.get(index));
+				newName = inputDialog("Neuer Name für " + teamsModel.get(index));
 				if (newName == null || newName.isEmpty()) {
 					cancel = yesNoDialog("Sie haben keinen validen Namen eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
 				}
 			}
 			if (!cancel)	teamsModel.set(index, newName);
 		} else {
-			message("Sie haben keine Mannschaft ausgewaehlt.");
+			message("Sie haben keine Mannschaft ausgewählt.");
 		}
 	}
 	
@@ -472,11 +472,11 @@ public class NewLeagueDialog extends JFrame {
 		String newKOT = null;
 		boolean cancel = false, valid = false;
 		while(!valid && !cancel) {
-			newKOT = inputDialog("Neue Anstosszeit:");
+			newKOT = inputDialog("Neue Anstoßzeit:");
 			valid = validateKOT(newKOT);
 			
 			if (!valid) {
-				cancel = yesNoDialog("Sie haben keine valide Anstosszeit eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
+				cancel = yesNoDialog("Sie haben keine valide Anstoßzeit eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
 			}
 		}
 		if (!cancel)	kotModel.addElement(newKOT);
@@ -488,16 +488,16 @@ public class NewLeagueDialog extends JFrame {
 			String newKOT = null;
 			boolean cancel = false, valid = false;
 			while(!valid && !cancel) {
-				newKOT = inputDialog("Verbesserte Anstosszeit von " + kotModel.get(index));
+				newKOT = inputDialog("Verbesserte Anstoßzeit von " + kotModel.get(index));
 				valid = validateKOT(newKOT);
 				
 				if (!valid) {
-					cancel = yesNoDialog("Sie haben keine valide Anstosszeit eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
+					cancel = yesNoDialog("Sie haben keine valide Anstoßzeit eingegeben. Wollen Sie abbrechen?") == JOptionPane.YES_OPTION;
 				}
 			}
 			if (!cancel)	kotModel.set(index, newKOT);
 		} else {
-			message("Sie haben keine Anstosszeit ausgewaehlt.");
+			message("Sie haben keine Anstoßzeit ausgewählt.");
 		}
 	}
 	
@@ -578,7 +578,7 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	public void dispose() {
-		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schliessen wollen? Dabei gehen die eingegebenen Daten verloren.");
+		int cancel = yesNoDialog("Sicher, dass Sie das Fenster schließen wollen? Dabei gehen die eingegebenen Daten verloren.");
 		if (cancel == JOptionPane.YES_OPTION)	super.dispose();
 	}
 	

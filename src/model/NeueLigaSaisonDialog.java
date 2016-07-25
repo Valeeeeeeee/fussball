@@ -507,7 +507,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		
 		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
 			jTFName.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getName());
-			jTFDatum.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getGruendungsdatum());
+			jTFDatum.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getFoundingDate());
 		} else {
 			jTFName.setText("");
 			jTFDatum.setText("01.01.1970");
@@ -538,7 +538,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		
 		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
-			newSeasonTeamsOrder.get(newSeasonTeamIndex).setGruendungsdatum(grDatum);
+			newSeasonTeamsOrder.get(newSeasonTeamIndex).setFoundingDate(grDatum);
 		} else {
 			Mannschaft mannschaft = new Mannschaft(newSeasonTeamIndex, null, name + ";" + grDatum);
 			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
@@ -560,7 +560,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	public void setConfigurationFromPreviousSeason(LigaSaison lSeason) {
 		season = (lSeason.getYear() + 1);
 		isSummerToSpringSeason = lSeason.isSTSS();
-		setOldMannschaften(lSeason.getMannschaften());
+		setOldMannschaften(lSeason.getTeams());
 		numberOfMatchesAgainstSameOpponent = lSeason.getNumberOfMatchesAgainstSameOpponent();
 		setKickoffTimes(lSeason);
 		goalDifference = lSeason.useGoalDifference();
@@ -589,8 +589,8 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private void setKickoffTimes(LigaSaison lSeason) {
 		defaultKickoffTimes = lSeason.getDefaultKickoffTimes();
 		kickOffTimes = new ArrayList<>();
-		for (AnstossZeit asz : lSeason.getKickOffTimes()) {
-			kickOffTimes.add(asz);
+		for (AnstossZeit kot : lSeason.getKickOffTimes()) {
+			kickOffTimes.add(kot);
 		}
 		kickOffTimes.remove(0);
 		int lastKOT = defaultKickoffTimes[defaultKickoffTimes.length - 1];
@@ -656,7 +656,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		Start.getInstance().jBtnNeueLigaSaisonFertigActionPerformed(toString, teamsNames, defaultKickOffTimes);
+		Start.getInstance().jBtnNewLeagueSeasonDoneActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

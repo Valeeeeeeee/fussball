@@ -9,44 +9,43 @@ public class Liga {
 	private int id = -1;
 	private String name;
 	
-	private ArrayList<LigaSaison> saisons;
-	private int aktuelleSaison;
+	private ArrayList<LigaSaison> seasons;
+	private int currentSeasonIndex;
 	
 	private String workspace;
 	
-	private String dateiSaisonsDaten;
-	private ArrayList<String> saisonsDatenFromFile;
+	private String fileSeasonsData;
+	private ArrayList<String> seasonsDataFromFile;
 	
 	
-	public Liga(int id, String daten) {
+	public Liga(int id, String data) {
 		this.id = id;
-		fromString(daten);
-		saisonsLaden();
+		fromString(data);
+		loadSeasons();
 	}
 	
 	public boolean addSeason(String toString, ArrayList<String> teams, String KOTRepresentation) {
-		LigaSaison neueSaison = new LigaSaison(this, saisons.size(), toString);
-		for (int i = 0; i < saisons.size(); i++) {
-			if (saisons.get(i).getYear() == neueSaison.getYear()) {
+		LigaSaison newSeason = new LigaSaison(this, seasons.size(), toString);
+		for (int i = 0; i < seasons.size(); i++) {
+			if (seasons.get(i).getYear() == newSeason.getYear()) {
 				message("Eine Saison mit diesem Startjahr existiert bereits.");
 				return false;
 			}
 		}
-		saisons.add(neueSaison);
+		seasons.add(newSeason);
 		
-		String folder = workspace + neueSaison.getSeasonFull("_") + File.separator;
+		String folder = workspace + newSeason.getSeasonFull("_") + File.separator;
 		(new File(folder)).mkdirs();
 		
-		String dateiErgebnisse = folder + "Ergebnisse.txt";
-		String dateiSpieldaten = folder + "Spieldaten.txt";
-		String dateiSpielplan = folder + "Spielplan.txt";
-		String dateiTeams = folder + "Mannschaften.txt";
-		ArrayList<String> ergebnisplan = new ArrayList<>();
-		ArrayList<String> spieldaten = new ArrayList<>();
-		ArrayList<String> spielplan = new ArrayList<>();
-		ArrayList<String> teamsNames = new ArrayList<>();
+		String fileResults = folder + "Ergebnisse.txt";
+		String fileMatchData = folder + "Spieldaten.txt";
+		String fileMatches = folder + "Spielplan.txt";
+		String fileTeams = folder + "Mannschaften.txt";
+		ArrayList<String> results = new ArrayList<>();
+		ArrayList<String> matchData = new ArrayList<>();
+		ArrayList<String> matches = new ArrayList<>();
 
-		int numberOfMatchdays = neueSaison.getNumberOfMatchesAgainstSameOpponent() * (2 * ((teams.size() + 1) / 2) - 1);
+		int numberOfMatchdays = newSeason.getNumberOfMatchesAgainstSameOpponent() * (2 * ((teams.size() + 1) / 2) - 1);
 		int numberOfMatchesPerMatchday = teams.size() / 2;
 		
 		String allF = "";
@@ -54,24 +53,21 @@ public class Liga {
 			allF += "f";
 		}
 		
-		spielplan.add(KOTRepresentation);
+		matches.add(KOTRepresentation);
 		for (int i = 0; i < numberOfMatchdays; i++) {
-			ergebnisplan.add(allF);
-			spielplan.add(allF);
+			results.add(allF);
+			matches.add(allF);
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				spieldaten.add("null");
+				matchData.add("null");
 			}
 		}
 		
-		teamsNames.add("" + teams.size());
-		for (int i = 0; i < teams.size(); i++) {
-			teamsNames.add(teams.get(i));
-		}
+		teams.add(0, "" + teams.size());
 		
-		inDatei(dateiErgebnisse, ergebnisplan);
-		inDatei(dateiSpieldaten, spieldaten);
-		inDatei(dateiSpielplan, spielplan);
-		inDatei(dateiTeams, teamsNames);
+		inDatei(fileResults, results);
+		inDatei(fileMatchData, matchData);
+		inDatei(fileMatches, matches);
+		inDatei(fileTeams, teams);
 		
 		return true;
 	}
@@ -79,7 +75,7 @@ public class Liga {
 	public int[] checkMissingResults() {
 		int countCompleted = 0, countStillRunning = 0;
 		long now = 10000L * MyDate.newMyDate() + MyDate.newMyTime();
-		for (LigaSaison season : saisons) {
+		for (LigaSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
 			if (nextMatchesString.size() > 0) {
@@ -100,17 +96,17 @@ public class Liga {
 		return new int[] {countCompleted, countStillRunning};
 	}
 	
-	public void laden(int index) {
-		aktuelleSaison = index;
-		saisons.get(aktuelleSaison).laden();
+	public void load(int index) {
+		currentSeasonIndex = index;
+		seasons.get(currentSeasonIndex).load();
 	}
 	
-	public void speichern() {
-		saisonsSpeichern();
+	public void save() {
+		saveSeasons();
 	}
 
 	public String getWorkspace() {
-		return this.workspace;
+		return workspace;
 	}
 	
 	/**
@@ -118,62 +114,60 @@ public class Liga {
 	 * @return a String array containing all available seasons
 	 */
 	public String[] getAllSeasons() {
-		String[] hilfsarray = new String[this.saisons.size()];
-		for (int i = 0; i < this.saisons.size(); i++) {
-			hilfsarray[i] = this.saisons.get(i).getSeasonFull("/");
+		String[] allSeasons = new String[seasons.size()];
+		for (int i = 0; i < seasons.size(); i++) {
+			allSeasons[i] = seasons.get(i).getSeasonFull("/");
 		}
-		return hilfsarray;
+		return allSeasons;
 	}
 	
-	public int getAktuelleSeason() {
-		return this.saisons.get(this.aktuelleSaison).getYear();
+	public int getCurrentSeasonYear() {
+		return seasons.get(currentSeasonIndex).getYear();
 	}
 	
-	public LigaSaison getAktuelleSaison() {
-		return this.saisons.get(this.aktuelleSaison);
+	public LigaSaison getCurrentSeason() {
+		return seasons.get(currentSeasonIndex);
 	}
 	
 	public int getID() {
-		return this.id;
+		return id;
 	}
 	
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	
-	private void saisonsLaden() {
+	private void loadSeasons() {
 		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
-		// SaisonsConfig.txt
-		dateiSaisonsDaten = workspace + "SaisonsConfig.txt";
-		saisonsDatenFromFile = ausDatei(dateiSaisonsDaten);
+		fileSeasonsData = workspace + "SaisonsConfig.txt";
+		seasonsDataFromFile = ausDatei(fileSeasonsData);
 		
-		// LigaSaisons erstellen
-		saisons = new ArrayList<>();
-		for (int i = 0; i < saisonsDatenFromFile.size(); i++) {
-			saisons.add(new LigaSaison(this, i, saisonsDatenFromFile.get(i)));
+		seasons = new ArrayList<>();
+		for (int i = 0; i < seasonsDataFromFile.size(); i++) {
+			seasons.add(new LigaSaison(this, i, seasonsDataFromFile.get(i)));
 		}
 	}
 	
-	private void saisonsSpeichern() {
-		saisonsDatenFromFile.clear();
-		for (int i = 0; i < saisons.size(); i++) {
-			saisons.get(i).speichern();
-			saisonsDatenFromFile.add(saisons.get(i).toString());
+	private void saveSeasons() {
+		seasonsDataFromFile.clear();
+		for (int i = 0; i < seasons.size(); i++) {
+			seasons.get(i).save();
+			seasonsDataFromFile.add(seasons.get(i).toString());
 		}
 		
-		inDatei(dateiSaisonsDaten, saisonsDatenFromFile);
+		inDatei(fileSeasonsData, seasonsDataFromFile);
 	}
 	
 	public String toString() {
-		String rueckgabe = this.name;
-		return rueckgabe;
+		String toString = name;
+		return toString;
 	}
 	
-	private void fromString(String daten) {
-		String[] split = daten.split(";");
+	private void fromString(String data) {
+		String[] split = data.split(";");
 		int index = 0;
 		
-		this.name = split[index++];
+		name = split[index++];
 	}
 }

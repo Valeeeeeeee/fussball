@@ -15,21 +15,21 @@ public interface Wettbewerb {
 	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);
 	
-	public boolean isSpielplanEntered(int matchday, int match);
-	public Spiel getSpiel(int matchday, int match);
-	public void setSpiel(int matchday, int match, Spiel spiel);
+	public boolean isMatchSet(int matchday, int matchID);
+	public Spiel getMatch(int matchday, int matchID);
+	public void setMatch(int matchday, int matchID, Spiel match);
 	
-	public boolean isErgebnisplanEntered(int matchday, int match);
-	public Ergebnis getErgebnis(int matchday, int match);
-	public void setErgebnis(int matchday, int match, Ergebnis ergebnis);
+	public boolean isResultSet(int matchday, int matchID);
+	public Ergebnis getResult(int matchday, int matchID);
+	public void setResult(int matchday, int matchID, Ergebnis result);
 	
-	public int getDate(int matchday, int match);
-	public int getTime(int matchday, int match);
+	public int getDate(int matchday, int matchID);
+	public int getTime(int matchday, int matchID);
 	
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();
 	
-	public Mannschaft[] getMannschaften();
+	public Mannschaft[] getTeams();
 	
 	public boolean isETPossible();
 	
