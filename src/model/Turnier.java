@@ -55,10 +55,10 @@ public class Turnier {
 	 */
 	public String[] getAllSeasons() {
 		String[] allSeasons = new String[seasons.size()];
-        for (int i = 0; i < seasons.size(); i++) {
-            allSeasons[i] = seasons.get(i).getSeasonFull("/");
-        }
-        return allSeasons;
+		for (int i = 0; i < seasons.size(); i++) {
+			allSeasons[i] = seasons.get(i).getSeasonFull("/");
+		}
+		return allSeasons;
 	}
 	
 	public int getCurrentSeasonYear() {

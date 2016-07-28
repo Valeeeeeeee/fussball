@@ -121,7 +121,7 @@ public class LigaStatistik extends JPanel {
 		buildSeries();
 		
 		
-        setSize(preferredSize);
+		setSize(preferredSize);
 	}
 	
 	private void buildResults() {
@@ -213,36 +213,36 @@ public class LigaStatistik extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
-    	super.paintComponent(g);
-    	g.setColor(Color.red);
-    	g.fillRect(0, 0, getWidth(), getHeight());
-    	
-    	for (int i = 0; i < getHeight(); i++) {
-    		int wert = (int) 192 + (64 * i / getHeight());
-    		g.setColor(new Color(wert, 70, 70));
-        	g.drawLine(0, i, getWidth() - 1, i);
-    	}
-    	
-    	int maximum = Math.max(Math.max(numberOfHomeWins, numberOfDraws), numberOfAwayWins);
-		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
-    	g.setColor(Color.yellow);
-    	g.fillRect(STARTX_HOMEAWAY, 440, 1 + numberOfHomeWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
-    	g.fillRect(STARTX_HOMEAWAY, 470, 1 + numberOfDraws * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
-    	g.fillRect(STARTX_HOMEAWAY, 500, 1 + numberOfAwayWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
-    	
-    	maximum = Math.max(numberOfHomeGoals, numberOfAwayGoals);
-		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
-    	g.fillRect(STARTX_HOMEAWAY, 530, 1 + numberOfHomeGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
-    	g.fillRect(STARTX_HOMEAWAY, 560, 1 + numberOfAwayGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
-    	
-    	maximum = 1;
-    	if (resultsFrequency.size() > 0)	maximum = resultsFrequency.get(0);
-    	for (int i = 0; i < 5; i++) {
-    		int height = 0;
-    		if (resultsFrequency.size() > i)	height = resultsFrequency.get(i);
-        	g.fillRect(STARTX_RESULTS, 440 + i * 30, 1 + height * SIZEX_RESULTS / maximum, SIZEY_RESULTS);
+		super.paintComponent(g);
+		g.setColor(Color.red);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		for (int i = 0; i < getHeight(); i++) {
+			int wert = (int) 192 + (64 * i / getHeight());
+			g.setColor(new Color(wert, 70, 70));
+			g.drawLine(0, i, getWidth() - 1, i);
 		}
-    }
+		
+		int maximum = Math.max(Math.max(numberOfHomeWins, numberOfDraws), numberOfAwayWins);
+		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
+		g.setColor(Color.yellow);
+		g.fillRect(STARTX_HOMEAWAY, 440, 1 + numberOfHomeWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+		g.fillRect(STARTX_HOMEAWAY, 470, 1 + numberOfDraws * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+		g.fillRect(STARTX_HOMEAWAY, 500, 1 + numberOfAwayWins * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+		
+		maximum = Math.max(numberOfHomeGoals, numberOfAwayGoals);
+		if (maximum == 0)	maximum = 1;// to avoid dividing by zero
+		g.fillRect(STARTX_HOMEAWAY, 530, 1 + numberOfHomeGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+		g.fillRect(STARTX_HOMEAWAY, 560, 1 + numberOfAwayGoals * SIZEX_HOMEAWAY / maximum, SIZEY_HOMEAWAY);
+		
+		maximum = 1;
+		if (resultsFrequency.size() > 0)	maximum = resultsFrequency.get(0);
+		for (int i = 0; i < 5; i++) {
+			int height = 0;
+			if (resultsFrequency.size() > i)	height = resultsFrequency.get(i);
+			g.fillRect(STARTX_RESULTS, 440 + i * 30, 1 + height * SIZEX_RESULTS / maximum, SIZEY_RESULTS);
+		}
+	}
 	
 	public void refresh() {
 		teams = season.getTeams();

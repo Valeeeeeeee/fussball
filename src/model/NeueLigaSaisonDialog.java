@@ -121,17 +121,17 @@ public class NeueLigaSaisonDialog extends JFrame {
 		oldSeasonTeamsOrder = new ArrayList<>();
 		
 		String[] posNumOfTeams = new String[maxNumberOfTeams - minNumberOfTeams + 1];
-    	for (int i = 0; i < posNumOfTeams.length; i++) {
+		for (int i = 0; i < posNumOfTeams.length; i++) {
 			posNumOfTeams[i] = "" + (i + minNumberOfTeams);
 		}
-    	
-    	{
-    		jPnlBackground = new JPanel();
-    		getContentPane().add(jPnlBackground);
-    		jPnlBackground.setLayout(null);
-    		jPnlBackground.setSize(WIDTH, HEIGHT);
-    		jPnlBackground.setBackground(colorBackground);
-    	}
+		
+		{
+			jPnlBackground = new JPanel();
+			getContentPane().add(jPnlBackground);
+			jPnlBackground.setLayout(null);
+			jPnlBackground.setSize(WIDTH, HEIGHT);
+			jPnlBackground.setBackground(colorBackground);
+		}
 		{
 			jLblSaison = new JLabel();
 			jPnlBackground.add(jLblSaison);
@@ -264,10 +264,10 @@ public class NeueLigaSaisonDialog extends JFrame {
 			jCBNumberOfTeams.setBounds(REC_CBNOFTEAMS);
 			jCBNumberOfTeams.setModel(new DefaultComboBoxModel<>(posNumOfTeams));
 			jCBNumberOfTeams.addItemListener(new ItemListener() {
-                public void itemStateChanged(ItemEvent evt) {
-                	jCBNumberOfTeamsItemStateChanged(evt);
-                }
-            });
+				public void itemStateChanged(ItemEvent evt) {
+					jCBNumberOfTeamsItemStateChanged(evt);
+				}
+			});
 		}
 		{
 			jLblNumberOfTeams = new JLabel();

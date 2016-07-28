@@ -481,7 +481,7 @@ public class TurnierSaison {
 			}
 			
 			if (groupindex == -1) {
-				error("    ungültiger Gruppenindex:  " + groupindex + " für Zeichen  " + teamsorigin.charAt(1));
+				error("\tungültiger Gruppenindex:  " + groupindex + " für Zeichen  " + teamsorigin.charAt(1));
 				return null;
 			}
 			
@@ -616,7 +616,7 @@ public class TurnierSaison {
 				qOverview = new Spieltag(this, true);
 				qOverview.setLocation((Start.WIDTH - qOverview.getSize().width) / 2, (Start.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 				qOverview.setVisible(false);
-	    	}
+			}
 		}
 		
 		numberOfQKORounds = Integer.parseInt(qualificationDataFromFile.get(index++));
@@ -664,10 +664,10 @@ public class TurnierSaison {
 		groups = new Gruppe[numberOfGroups];
 		for (int i = 0; i < groups.length; i++)	groups[i] = new Gruppe(this, i, false, goalDifferenceGroupStage);
 		{
-    		overview = new Spieltag(this, false);
-    		overview.setLocation((Start.WIDTH - overview.getSize().width) / 2, (Start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
-    		overview.setVisible(false);
-    	}
+			overview = new Spieltag(this, false);
+			overview.setLocation((Start.WIDTH - overview.getSize().width) / 2, (Start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			overview.setVisible(false);
+		}
 	}
 	
 	public void saveGroups() {
@@ -689,7 +689,7 @@ public class TurnierSaison {
 		numberOfKORounds = koRoundsDataFromFile.size();
 		
 		koRounds = new KORunde[numberOfKORounds];
-    	for (int i = 0; i < koRounds.length; i++)	koRounds[i] = new KORunde(this, i, false, koRoundsDataFromFile.get(i));
+		for (int i = 0; i < koRounds.length; i++)	koRounds[i] = new KORunde(this, i, false, koRoundsDataFromFile.get(i));
 	}
 	
 	public void saveKORounds() {

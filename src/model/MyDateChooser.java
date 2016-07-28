@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private int defaultMyDate = 20160822;
-	private int defaultMyTime = 2045;
+	private int defaultMyDate = 20160804;
+	private int defaultMyTime = 1900;
 	private int date;
 	private int time;
 	private int kotIndex;
@@ -145,8 +145,8 @@ public class MyDateChooser extends JFrame {
 		{
 			jLblMatch = new JLabel();
 			this.add(jLblMatch);
-	        if (belongsToLeague)	jLblMatch.setBounds(REC_LBLMATCH);
-	        else					jLblMatch.setBounds(REC_LBLMATCHTOUR);
+			if (belongsToLeague)	jLblMatch.setBounds(REC_LBLMATCH);
+			else					jLblMatch.setBounds(REC_LBLMATCHTOUR);
 			jLblMatch.setOpaque(true);
 			jLblMatch.setBackground(Color.yellow);
 			alignCenter(jLblMatch);
@@ -159,48 +159,48 @@ public class MyDateChooser extends JFrame {
 			jLblStarttag.setText("Starttag");
 		}
 		if (belongsToLeague) {
-	        jCBStDay = new JComboBox<>();
-	        this.add(jCBStDay);
-	        jCBStDay.setModel(new DefaultComboBoxModel<>(days));
-	        jCBStDay.setBounds(REC_STDAY);
-	        jCBStDay.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	                jCBStDayItemStateChanged(evt);
-	            }
-	        });
+			jCBStDay = new JComboBox<>();
+			this.add(jCBStDay);
+			jCBStDay.setModel(new DefaultComboBoxModel<>(days));
+			jCBStDay.setBounds(REC_STDAY);
+			jCBStDay.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBStDayItemStateChanged(evt);
+				}
+			});
 		}
 		if (belongsToLeague) {
-	        jCBStMonth = new JComboBox<>();
-	        this.add(jCBStMonth);
-	        jCBStMonth.setModel(new DefaultComboBoxModel<>(months));
-	        jCBStMonth.setBounds(REC_STMONTH);
-	        jCBStMonth.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	            	jCBMonthItemStateChanged(evt, true);
-	            }
-	        });
+			jCBStMonth = new JComboBox<>();
+			this.add(jCBStMonth);
+			jCBStMonth.setModel(new DefaultComboBoxModel<>(months));
+			jCBStMonth.setBounds(REC_STMONTH);
+			jCBStMonth.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBMonthItemStateChanged(evt, true);
+				}
+			});
 		}
 		if (belongsToLeague) {
-	        jCBStYear = new JComboBox<>();
-	        this.add(jCBStYear);
-	        jCBStYear.setModel(new DefaultComboBoxModel<>(years));
-	        jCBStYear.setBounds(REC_STYEAR);
-	        jCBStYear.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	                jCBYearItemStateChanged(evt, true);
-	            }
-	        });
+			jCBStYear = new JComboBox<>();
+			this.add(jCBStYear);
+			jCBStYear.setModel(new DefaultComboBoxModel<>(years));
+			jCBStYear.setBounds(REC_STYEAR);
+			jCBStYear.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBYearItemStateChanged(evt, true);
+				}
+			});
 		}
 		if (belongsToLeague) {
 			jCBKickOffTimes = new JComboBox<>();
-	        this.add(jCBKickOffTimes);
-	        jCBKickOffTimes.setBounds(REC_ANSTOSS);
-	        jCBKickOffTimes.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	            	jCBKickOffTimesItemStateChanged(evt);
-	            }
-	        });
-	        refreshKickOffTimesComboBox();
+			this.add(jCBKickOffTimes);
+			jCBKickOffTimes.setBounds(REC_ANSTOSS);
+			jCBKickOffTimes.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBKickOffTimesItemStateChanged(evt);
+				}
+			});
+			refreshKickOffTimesComboBox();
 		}
 		{
 			jBtnGo = new JButton();
@@ -211,60 +211,60 @@ public class MyDateChooser extends JFrame {
 			jBtnGo.setFocusable(false);
 			jBtnGo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-			        if (belongsToLeague)	returnLeagueStyle();
-			        else					returnTournamentStyle();
+					if (belongsToLeague)	returnLeagueStyle();
+					else					returnTournamentStyle();
 				}
 			});
 		}
 		{
-	        jCBDay = new JComboBox<>();
-	        this.add(jCBDay);
-	        jCBDay.setModel(new DefaultComboBoxModel<>(days));
-	        if (belongsToLeague)	jCBDay.setBounds(REC_DAY);
-	        else					jCBDay.setBounds(REC_DAYTOUR);
-	        if (belongsToLeague)	jCBDay.setVisible(false);
+			jCBDay = new JComboBox<>();
+			this.add(jCBDay);
+			jCBDay.setModel(new DefaultComboBoxModel<>(days));
+			if (belongsToLeague)	jCBDay.setBounds(REC_DAY);
+			else					jCBDay.setBounds(REC_DAYTOUR);
+			if (belongsToLeague)	jCBDay.setVisible(false);
 		}
 		{
-	        jCBMonth = new JComboBox<>();
-	        this.add(jCBMonth);
-	        jCBMonth.setModel(new DefaultComboBoxModel<>(months));
-	        if (belongsToLeague)	jCBMonth.setBounds(REC_MONTH);
-	        else					jCBMonth.setBounds(REC_MONTHTOUR);
-	        if (belongsToLeague)	jCBMonth.setVisible(false);
-	        jCBMonth.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	            	jCBMonthItemStateChanged(evt, false);
-	            }
-	        });
+			jCBMonth = new JComboBox<>();
+			this.add(jCBMonth);
+			jCBMonth.setModel(new DefaultComboBoxModel<>(months));
+			if (belongsToLeague)	jCBMonth.setBounds(REC_MONTH);
+			else					jCBMonth.setBounds(REC_MONTHTOUR);
+			if (belongsToLeague)	jCBMonth.setVisible(false);
+			jCBMonth.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBMonthItemStateChanged(evt, false);
+				}
+			});
 		}
 		{
-	        jCBYear = new JComboBox<>();
-	        this.add(jCBYear);
-	        jCBYear.setModel(new DefaultComboBoxModel<>(years));
-	        if (belongsToLeague)	jCBYear.setBounds(REC_YEAR);
-	        else					jCBYear.setBounds(REC_YEARTOUR);
-	        if (belongsToLeague)	jCBYear.setVisible(false);
-	        jCBYear.addItemListener(new ItemListener() {
-	            public void itemStateChanged(ItemEvent evt) {
-	                jCBYearItemStateChanged(evt, false);
-	            }
-	        });
+			jCBYear = new JComboBox<>();
+			this.add(jCBYear);
+			jCBYear.setModel(new DefaultComboBoxModel<>(years));
+			if (belongsToLeague)	jCBYear.setBounds(REC_YEAR);
+			else					jCBYear.setBounds(REC_YEARTOUR);
+			if (belongsToLeague)	jCBYear.setVisible(false);
+			jCBYear.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					jCBYearItemStateChanged(evt, false);
+				}
+			});
 		}
 		{
-	        jCBHour = new JComboBox<>();
-	        this.add(jCBHour);
-	        jCBHour.setModel(new DefaultComboBoxModel<>(hours));
-	        if (belongsToLeague)	jCBHour.setBounds(REC_HOUR);
-	        else					jCBHour.setBounds(REC_HOURTOUR);
-	        if (belongsToLeague)	jCBHour.setVisible(false);
+			jCBHour = new JComboBox<>();
+			this.add(jCBHour);
+			jCBHour.setModel(new DefaultComboBoxModel<>(hours));
+			if (belongsToLeague)	jCBHour.setBounds(REC_HOUR);
+			else					jCBHour.setBounds(REC_HOURTOUR);
+			if (belongsToLeague)	jCBHour.setVisible(false);
 		}
 		{
-	        jCBMinute = new JComboBox<>();
-	        this.add(jCBMinute);
-	        jCBMinute.setModel(new DefaultComboBoxModel<>(minutes));
-	        if (belongsToLeague)	jCBMinute.setBounds(REC_MINUTE);
-	        else					jCBMinute.setBounds(REC_MINUTETOUR);
-	        if (belongsToLeague)	jCBMinute.setVisible(false);
+			jCBMinute = new JComboBox<>();
+			this.add(jCBMinute);
+			jCBMinute.setModel(new DefaultComboBoxModel<>(minutes));
+			if (belongsToLeague)	jCBMinute.setBounds(REC_MINUTE);
+			else					jCBMinute.setBounds(REC_MINUTETOUR);
+			if (belongsToLeague)	jCBMinute.setVisible(false);
 		}
 		
 		if (belongsToLeague)	setSize(WIDTH_LG, HEIGHT_LG);
@@ -448,11 +448,11 @@ public class MyDateChooser extends JFrame {
 			ComboBoxModel<String> jCBDayModel = new DefaultComboBoxModel<>(days);
 			if (starttag) {
 				jCBStDay.setModel(jCBDayModel);
-		        jCBStDay.setSelectedIndex(tag - 1);
-		        refreshKickOffTimesComboBox();
+				jCBStDay.setSelectedIndex(tag - 1);
+				refreshKickOffTimesComboBox();
 			} else {
 				jCBDay.setModel(jCBDayModel);
-		        jCBDay.setSelectedIndex(tag - 1);
+				jCBDay.setSelectedIndex(tag - 1);
 			}
 		}
 	}
@@ -479,7 +479,7 @@ public class MyDateChooser extends JFrame {
 			kots[kots.length - 1] = "anderes";
 			ComboBoxModel<String> jCBKickOffTimesModel = new DefaultComboBoxModel<>(kots);
 			
-	        jCBKickOffTimes.setModel(jCBKickOffTimesModel);
+			jCBKickOffTimes.setModel(jCBKickOffTimesModel);
 		}
 	}
 	

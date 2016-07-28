@@ -170,9 +170,9 @@ public class Gruppe implements Wettbewerb {
 		return "n.a.";
 	}
 	
-	public String getDateAndTime(int matchday, int match) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday)
-			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
+	public String getDateAndTime(int matchday, int matchID) {
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday)
+			return MyDate.datum(getDate(matchday, matchID)) + " " + MyDate.uhrzeit(getTime(matchday, matchID));
 		else 
 			return "nicht terminiert";
 	}

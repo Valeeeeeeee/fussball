@@ -65,16 +65,16 @@ public class Utilities {
 	}
 	
 	public static Image resizeImage(Image image, int width, int height) {
-	    BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-	    Graphics2D g = resizedImage.createGraphics();
+		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = resizedImage.createGraphics();
 
-	    g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-	    
-	    g.drawImage(image, 0, 0, width, height, null);
-	    g.dispose();
-	    
-	    return resizedImage;
+		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		
+		g.drawImage(image, 0, 0, width, height, null);
+		g.dispose();
+		
+		return resizedImage;
 	}
 	
 	public static void removeAllMouseListeners(Component comp) {

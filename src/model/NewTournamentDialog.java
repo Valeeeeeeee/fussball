@@ -375,9 +375,9 @@ public class NewTournamentDialog extends JFrame {
 			jSPTeams.setVisible(false);
 			{
 				jLTeams = new JList<>();
-			    jSPTeams.setViewportView(jLTeams);
-			    jLTeams.setModel(jLTeamsModel);
-			    jLTeams.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				jSPTeams.setViewportView(jLTeams);
+				jLTeams.setModel(jLTeamsModel);
+				jLTeams.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			}
 		}
 		{

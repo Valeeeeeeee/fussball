@@ -297,10 +297,10 @@ public class SpielInformationen extends JFrame {
 		{
 			jCBReferees = new JComboBox<>();
 			jPnlMatchInformation.add(jCBReferees);
-	        jCBReferees.setBounds(REC_CBREFEREES);
-	        jCBReferees.setFocusable(false);
-	        jCBReferees.setModel(new DefaultComboBoxModel<>(match.getCompetition().getAllReferees()));
-	        jCBReferees.addItemListener(new ItemListener() {
+			jCBReferees.setBounds(REC_CBREFEREES);
+			jCBReferees.setFocusable(false);
+			jCBReferees.setModel(new DefaultComboBoxModel<>(match.getCompetition().getAllReferees()));
+			jCBReferees.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
 					jCBRefereesItemStateChanged(e);
 				}
@@ -480,7 +480,7 @@ public class SpielInformationen extends JFrame {
 			jBtnPenaltiesCompleted = new JButton();
 			jPnlPenalties.add(jBtnPenaltiesCompleted);
 			jBtnPenaltiesCompleted.setBounds(REC_BTNPENALTIESCOMPL);
-			jBtnPenaltiesCompleted.setText("Fertig");
+			jBtnPenaltiesCompleted.setText("fertig");
 			jBtnPenaltiesCompleted.setFocusable(false);
 			jBtnPenaltiesCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -698,8 +698,8 @@ public class SpielInformationen extends JFrame {
 		{
 			jCBTop = new JComboBox<>();
 			jPnlEntry.add(jCBTop);
-	        jCBTop.setBounds(REC_CBTOP);
-	        jCBTop.setFocusable(false);
+			jCBTop.setBounds(REC_CBTOP);
+			jCBTop.setFocusable(false);
 		}
 		{
 			jLblBottom = new JLabel();
@@ -710,7 +710,7 @@ public class SpielInformationen extends JFrame {
 			jCBBottom = new JComboBox<>();
 			jPnlEntry.add(jCBBottom);
 			jCBBottom.setBounds(REC_CBBOTTOM);
-	        jCBBottom.setFocusable(false);
+			jCBBottom.setFocusable(false);
 		}
 		
 		
@@ -722,7 +722,7 @@ public class SpielInformationen extends JFrame {
 			jBtnGo.setFocusable(false);
 			jBtnGo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-			        jBtnGoActionPerformed();
+					jBtnGoActionPerformed();
 				}
 			});
 		}
