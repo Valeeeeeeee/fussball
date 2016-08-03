@@ -1464,8 +1464,11 @@ public class SpielInformationen extends JFrame {
 		
 		Wechsel substitution = new Wechsel(match, editingFirstTeam, minute, playerOff, playerOn);
 		int index = match.addSubstitution(substitution);
-		if (repaint)	paintSubstitutions(editingFirstTeam);
-		else			displaySubstitution(substitution, index);
+		if (repaint) {
+			paintSubstitutions(editingFirstTeam);
+			paintBookings();
+		}
+		else	displaySubstitution(substitution, index);
 		enteringSubstitution = false;
 		validateMatchDataOnLineupChange();
 		
