@@ -1,6 +1,0 @@
-1. Runde;1R;true;false;64;0;0;
-2. Runde;2R;true;false;0;32;0;
-Achtelfinale;AF;true;false;0;16;0;
-Viertelfinale;VF;true;false;0;8;0;
-Halbfinale;HF;true;false;0;4;0;
-Finale;FI;true;false;0;2;0;
