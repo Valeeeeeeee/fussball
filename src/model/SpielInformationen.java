@@ -1801,8 +1801,12 @@ public class SpielInformationen extends JFrame {
 				return false;
 			}
 		}
+		int[] lineup = editingFirstTeam ? lineupHome : lineupAway;
+		for (int i = 0; i < lineup.length; i++) {
+			if (lineup[i] == player.getSquadNumber())	return true;
+		}
 		
-		return true;
+		return false;
 	}
 	
 	private boolean addBooking(int minute, boolean yellowCard, boolean onTheBench, Spieler bookedPlayer) {
