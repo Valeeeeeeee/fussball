@@ -22,19 +22,13 @@ public class Tabelle extends JPanel {
 	
 	private int[] teamIndices;
 	
-	private int ANZAHL_TEAMS;
+	private int numberOfTeams;
 	
-	// for Liga
-	private int ANZAHL_CL;
-	private int ANZAHL_CLQ;
-	private int ANZAHL_EL;
-	private int ANZAHL_REL;
-	private int ANZAHL_ABS;
-	
-	// for Turnier
-	private int ANZAHL_KORUNDE;
-	private int ANZAHL_ZWISCHENRUNDE;
-	private int ANZAHL_AUSGESCHIEDEN;
+	private int numberOfCat1;
+	private int numberOfCat2;
+	private int numberOfCat3;
+	private int numberOfCat4;
+	private int numberOfCat5;
 	
 	private String[] headers = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private Color colorTabellenart = new Color(255, 255, 128);
@@ -74,10 +68,10 @@ public class Tabelle extends JPanel {
 		competition = group;
 		belongsToALeague = false;
 		
-		ANZAHL_TEAMS = group.getNumberOfTeams();
-		ANZAHL_KORUNDE = 2;
-		ANZAHL_ZWISCHENRUNDE = 0;
-		ANZAHL_AUSGESCHIEDEN = 2;
+		numberOfTeams = group.getNumberOfTeams();
+		numberOfCat1 = 2;
+		numberOfCat4 = 0;
+		numberOfCat5 = numberOfTeams - numberOfCat1 - numberOfCat4;
 		
 		initGUI();
 	}
@@ -88,12 +82,12 @@ public class Tabelle extends JPanel {
 		competition = season;
 		belongsToALeague = true;
 		
-		ANZAHL_TEAMS = season.getNumberOfTeams();
-		ANZAHL_CL = season.getAnzahl(0);
-		ANZAHL_CLQ = season.getAnzahl(1);
-		ANZAHL_EL = season.getAnzahl(2);
-		ANZAHL_REL = season.getAnzahl(3);
-		ANZAHL_ABS = season.getAnzahl(4);
+		numberOfTeams = season.getNumberOfTeams();
+		numberOfCat1 = season.getNumberOf(0);
+		numberOfCat2 = season.getNumberOf(1);
+		numberOfCat3 = season.getNumberOf(2);
+		numberOfCat4 = season.getNumberOf(3);
+		numberOfCat5 = season.getNumberOf(4);
 		
 		initGUI();
 	}
@@ -102,10 +96,10 @@ public class Tabelle extends JPanel {
 		try { 
 			this.setLayout(null);
 			
-			jLblsData = new JLabel[ANZAHL_TEAMS][headers.length];
+			jLblsData = new JLabel[numberOfTeams][headers.length];
 			jLblsHeaders = new JLabel[headers.length];
 			
-			teamIndices = new int[ANZAHL_TEAMS];
+			teamIndices = new int[numberOfTeams];
 			
 			int sumofwidthes = 0;
 			
@@ -246,7 +240,7 @@ public class Tabelle extends JPanel {
 				});
 			}
 			
-			setSize(sumofwidthes + 20, starty - (gapy / 2) + ANZAHL_TEAMS * (height + gapy) + 10);
+			setSize(sumofwidthes + 20, starty - (gapy / 2) + numberOfTeams * (height + gapy) + 10);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -279,33 +273,20 @@ public class Tabelle extends JPanel {
 			sumofwidthes += widthes[j] + gapx[j];
 		}
 		
-		if (belongsToALeague) {
-			// Champions League
-			g.setColor(colorCategory1);
-			g.fillRect(hstartx, hstarty, sumofwidthes, ANZAHL_CL * hheight);
-			// CL Qualifikation
-			g.setColor(colorCategory2);
-			g.fillRect(hstartx, hstarty + ANZAHL_CL * hheight, sumofwidthes, ANZAHL_CLQ * hheight);
-			// Europa League
-			g.setColor(colorCategory3);
-			g.fillRect(hstartx, hstarty + (ANZAHL_CL + ANZAHL_CLQ) * hheight, sumofwidthes, ANZAHL_EL * hheight);
-			// Relegation
-			g.setColor(colorCategory4);
-			g.fillRect(hstartx, hstarty + (ANZAHL_TEAMS - ANZAHL_ABS - ANZAHL_REL) * hheight, sumofwidthes, ANZAHL_REL * hheight);
-			// Absteiger
-			g.setColor(colorCategory5);
-			g.fillRect(hstartx, hstarty + (ANZAHL_TEAMS - ANZAHL_ABS) * hheight, sumofwidthes, ANZAHL_ABS * hheight);
-		} else {
-			// KO Runde
-			g.setColor(colorCategory1);
-			g.fillRect(hstartx, hstarty, sumofwidthes, ANZAHL_KORUNDE * hheight);
-			// (optional) Zwischenrunde des nächsttieferen Wettbewerbs zB 3. Platz der CL-Gruppen steigt in die EL ab
-			g.setColor(colorCategory4);
-			g.fillRect(hstartx, hstarty + (ANZAHL_TEAMS - ANZAHL_AUSGESCHIEDEN - ANZAHL_ZWISCHENRUNDE) * hheight, sumofwidthes, ANZAHL_ZWISCHENRUNDE * hheight);
-			// Ausgeschieden
-			g.setColor(colorCategory5);
-			g.fillRect(hstartx, hstarty + (ANZAHL_TEAMS - ANZAHL_AUSGESCHIEDEN) * hheight, sumofwidthes, ANZAHL_AUSGESCHIEDEN * hheight);
-		}
+		g.setColor(colorCategory1);
+		g.fillRect(hstartx, hstarty, sumofwidthes, numberOfCat1 * hheight);
+		
+		g.setColor(colorCategory2);
+		g.fillRect(hstartx, hstarty + numberOfCat1 * hheight, sumofwidthes, numberOfCat2 * hheight);
+		
+		g.setColor(colorCategory3);
+		g.fillRect(hstartx, hstarty + (numberOfCat1 + numberOfCat2) * hheight, sumofwidthes, numberOfCat3 * hheight);
+		
+		g.setColor(colorCategory4);
+		g.fillRect(hstartx, hstarty + (numberOfTeams - numberOfCat5 - numberOfCat4) * hheight, sumofwidthes, numberOfCat4 * hheight);
+		
+		g.setColor(colorCategory5);
+		g.fillRect(hstartx, hstarty + (numberOfTeams - numberOfCat5) * hheight, sumofwidthes, numberOfCat5 * hheight);
 	}
 	
 	private void fillLabels() {

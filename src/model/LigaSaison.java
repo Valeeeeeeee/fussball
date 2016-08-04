@@ -19,7 +19,7 @@ public class LigaSaison implements Wettbewerb {
 	private ArrayList<Schiedsrichter> referees;
 	private int numberOfTeams;
 	private Mannschaft[] teams;
-	private int halbeAnzMSAuf;
+	private int halfNOfTeamsUp;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
@@ -29,7 +29,7 @@ public class LigaSaison implements Wettbewerb {
 	private int nMatchdaySetForDate = -1;
 	private int nMatchdaySetUntilTime = -1;
 	
-	private int[] anzahl;
+	private int[] numberOf;
 	
 	private int[][] datesAndTimes;
 	
@@ -100,16 +100,16 @@ public class LigaSaison implements Wettbewerb {
 		return year + (isSummerToSpringSeason ? trennzeichen + (year + 1) : "");
 	}
 	
-	public int getAnzahl(int index) {
-		return anzahl[index];
+	public int getNumberOf(int index) {
+		return numberOf[index];
 	}
 	
 	public int getNumberOfTeams() {
 		return numberOfTeams;
 	}
 	
-	public int getHalbeAnzMSAuf() {
-		return halbeAnzMSAuf;
+	public int getHalfNOfTeamsUp() {
+		return halfNOfTeamsUp;
 	}
 	
 	public int getNumberOfMatchdays() {
@@ -579,8 +579,8 @@ public class LigaSaison implements Wettbewerb {
 	private String getAnzahlRepresentation() {
 		String representation = "", sep = "";
 		
-		for (int i = 0; i < anzahl.length; i++) {
-			representation += sep + anzahl[i];
+		for (int i = 0; i < numberOf.length; i++) {
+			representation += sep + numberOf[i];
 			sep = ",";
 		}
 		
@@ -651,9 +651,9 @@ public class LigaSaison implements Wettbewerb {
 	public void loadTeams() {
 		teamsFromFile = ausDatei(fileTeams);
 		
-		halbeAnzMSAuf = (int) Math.round((double) numberOfTeams / 2);				// liefert die (aufgerundete) Hälfte zurueck
-		numberOfMatchesPerMatchday = numberOfTeams / 2;								// liefert die (abgerundete) Hälfte zurueck
-		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halbeAnzMSAuf - 1);
+		halfNOfTeamsUp = (1 + numberOfTeams) / 2;
+		numberOfMatchesPerMatchday = numberOfTeams / 2;
+		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halfNOfTeamsUp - 1);
 		else						numberOfMatchdays = 0;
 		
 		teams = new Mannschaft[numberOfTeams];
@@ -914,7 +914,7 @@ public class LigaSaison implements Wettbewerb {
 		initDefaultKickoffTimes(split[index++]);
 		goalDifference = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
-		anzahl = getAnzahlFromString(split[index++]);
+		numberOf = getAnzahlFromString(split[index++]);
 	}
 }
 

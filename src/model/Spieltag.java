@@ -137,7 +137,7 @@ public class Spieltag extends JPanel {
 		numberOfMatches = lSeason.getNumberOfMatchesPerMatchday();
 		numberOfTeams = lSeason.getNumberOfTeams();
 		numberOfMatchdays = lSeason.getNumberOfMatchdays();
-		halfCountTeamsRoundUp = lSeason.getHalbeAnzMSAuf();
+		halfCountTeamsRoundUp = lSeason.getHalfNOfTeamsUp();
 
 		initGUI();
 	}
