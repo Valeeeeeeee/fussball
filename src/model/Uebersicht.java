@@ -707,17 +707,20 @@ public class Uebersicht extends JPanel {
 		jLblsKader = new JLabel[numberOfEligiblePlayers + numberOfIneligiblePlayers][NUMBEROFFIELDSKAD];
 		jLblsKaderDescr = new JLabel[numberOfEligiblePlayers == 0 ? 0 : numberOfPositions];
 		
+		for (int i = 0; i < jLblsKaderDescr.length; i++) {
+			jLblsKaderDescr[i] = new JLabel();
+			jPnlKader.add(jLblsKaderDescr[i]);
+			jLblsKaderDescr[i].setText(positions[i]);
+			jLblsKaderDescr[i].setFont(getFont().deriveFont(Font.BOLD));
+			jLblsKaderDescr[i].setVisible(showingMoreKader);
+		}
+		
 		int countSinceLastER = 0;
 		int descrIndex = 0;
 		int sumOfAges = 0;
 		for (int i = 0; i < numberOfEligiblePlayers; i++) {
 			if (countSinceLastER == 0) {
-				jLblsKaderDescr[descrIndex] = new JLabel();
-				jPnlKader.add(jLblsKaderDescr[descrIndex]);
 				jLblsKaderDescr[descrIndex].setBounds(kaderSTARTX, kaderSTARTY + (i + descrIndex) * (kaderHEIGHT + kaderGAPY), 70, kaderHEIGHT);
-				jLblsKaderDescr[descrIndex].setText(positions[descrIndex]);
-				jLblsKaderDescr[descrIndex].setFont(getFont().deriveFont(Font.BOLD));
-				jLblsKaderDescr[descrIndex].setVisible(showingMoreKader);
 				descrIndex++;
 			}
 			

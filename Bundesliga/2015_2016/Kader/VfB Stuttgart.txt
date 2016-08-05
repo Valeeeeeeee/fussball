@@ -30,5 +30,5 @@ Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
 Artem;Kravets;null;19890603;Ukraine;Sturm;23;20160101-
 Robbie;Kruse;null;19881005;Australien;Sturm;9;20150831-20160131
-Borys;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
+Boris;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
 Timo;Werner;null;19960306;Deutschland;Sturm;19

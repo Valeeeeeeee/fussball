@@ -1,0 +1,30 @@
+Timo;Königsmann;null;19970405;Deutschland;Tor;40
+Samuel;Sahin-Radlinger;null;19921107;Österreich;Tor;30
+Philipp;Tschauner;null;19851103;Deutschland;Tor;1
+Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
+Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
+Fynn;Arkenberg;null;19960304;Deutschland;Abwehr;33
+Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
+André;Hoffmann;null;19930228;Deutschland;Abwehr;15
+Timo;Hübers;null;19960720;Deutschland;Abwehr;22
+Florian;Hübner;null;19910301;Deutschland;Abwehr;19
+Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;5
+Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
+Mike-Steven;Bähre;null;19950810;Deutschland;Mittelfeld;28
+Marvin;Bakalorz;null;19890913;Deutschland;Mittelfeld;6
+Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17
+Tim;Dierßen;null;19960115;Deutschland;Mittelfeld;34
+Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18
+Felix;Klaus;null;19920913;Deutschland;Mittelfeld;11
+Sebastian;Maier;null;19930918;Deutschland;Mittelfeld;10
+Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
+Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
+Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
+Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
+Babacar;Gueye;null;19941231;Senegal;Sturm;29
+Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
+Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
+Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
+Artur;Sobiech;null;19900612;Polen;Sturm;9
+Valmir;Sulejmani;null;19960201;Kosovo, Deutschland;Sturm;38
+Marius;Wolf;null;19950527;Deutschland;Sturm;21
