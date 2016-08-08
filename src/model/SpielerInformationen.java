@@ -87,7 +87,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private Rectangle REC_DETAILS = new Rectangle(390, 375, 80, 25);
 	private Rectangle REC_PERFORMANCE = new Rectangle(390, 400, 140, 25);
-	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
+	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 280, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
 	private Rectangle REC_SPPERFMBM = new Rectangle(390, 430, 470, 380);

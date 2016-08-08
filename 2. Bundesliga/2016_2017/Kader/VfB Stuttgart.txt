@@ -15,6 +15,7 @@ Anto;Grgic;null;19961128;Schweiz;Mittelfeld;8
 Kevin;Großkreutz;null;19880719;Deutschland;Mittelfeld;19
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;10
+Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
 Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;17
