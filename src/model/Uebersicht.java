@@ -187,6 +187,7 @@ public class Uebersicht extends JPanel {
 	private boolean[] homeaway;
 	private ArrayList<Integer> matchdayOrder = new ArrayList<>();
 	
+	private boolean canHaveKader;
 	private ArrayList<Spieler> eligiblePlayers;
 	private ArrayList<Spieler> ineligiblePlayers;
 	private int numberOfMatchdays;
@@ -806,7 +807,7 @@ public class Uebersicht extends JPanel {
 		}
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;
-		jLblKaderMoreLess.setVisible(hasPlayers);
+		jLblKaderMoreLess.setVisible(hasPlayers || canHaveKader);
 		jLblNoData.setVisible(!showingMoreKader && !hasPlayers);
 		jLblAverageAge.setVisible(!showingMoreKader && hasPlayers);
 		jLblAverageAgeVal.setVisible(!showingMoreKader && hasPlayers);
@@ -849,6 +850,7 @@ public class Uebersicht extends JPanel {
 		if (showingMoreKader)	showMoreLessFromKader();
 		teamID = id;
 		team = teams[teamID - 1];
+		canHaveKader = team.getCompetition().teamsHaveKader();
 		jLblMannschaftsname.setText(team.getName());
 		if (hasGrDatum) {
 			jLblGruendungsdatum.setText("Gegründet: " + (!team.getFoundingDate().equals("01.01.1970") ? team.getFoundingDate() : "n. a."));

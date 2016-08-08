@@ -1,0 +1,27 @@
+Svend Arvid;Brodersen;null;19970322;Deutschland;Tor;33
+Philipp;Heerwagen;null;19830413;Deutschland;Tor;1
+Robin;Himmelmann;null;19890205;Deutschland;Tor;30
+Daniel;Buballa;null;19900511;Deutschland;Abwehr;15
+Jeremy;Dudziak;null;19950828;Deutschland;Abwehr;8
+Sören;Gonther;null;19861215;Deutschland;Abwehr;26
+Vegar Eggen;Hedenstad;null;19910626;Norwegen;Abwehr;2
+Marc;Hornschuh;null;19910302;Deutschland;Abwehr;16
+Jan-Philipp;Kalla;null;19860806;Deutschland;Abwehr;27
+Joël;Keller;null;19950306;Schweiz;Abwehr;5
+Jacob;Rasmussen;null;19970528;Dänemark;Abwehr;19
+Lasse;Sobiech;null;19910118;Deutschland;Abwehr;3
+Philipp;Ziereis;null;19930314;Deutschland;Abwehr;4
+Christopher;Avevor;null;19920211;Deutschland, Ghana;Mittelfeld;6
+Christopher;Buchtmann;null;19920425;Deutschland;Mittelfeld;10
+Kyoung-Rok;Choi;null;19950315;Südkorea;Mittelfeld;37
+Maurice Jerome;Litka;null;19960102;Deutschland;Mittelfeld;31
+Ryo;Miyaichi;null;19921214;Japan;Mittelfeld;13
+Bernd;Nehrig;null;19860928;Deutschland;Mittelfeld;7
+Richard;Neudecker;null;19961029;Deutschland;Mittelfeld;20
+Dennis;Rosin;null;19960627;Deutschland;Mittelfeld;25
+Enver Cenk;Sahin;null;19940922;Türkei;Mittelfeld;22
+Waldemar;Sobota;null;19870519;Polen;Mittelfeld;28
+Aziz;Bouhaddouz;null;19870330;Deutschland;Sturm;11
+Marvin;Ducksch;null;19940307;Deutschland;Sturm;34
+Nico;Empen;null;19960111;Deutschland;Sturm;24
+Fabrice-Jean;Picault;null;19910223;USA;Sturm;9
