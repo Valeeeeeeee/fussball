@@ -21,7 +21,7 @@ Eduardo;Vargas;null;19891120;Chile;Mittelfeld;9;20150824-
 Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
 Joelinton Cassio;Apolinaro de Lira;Joelinton;19960814;Brasilien;Sturm;40
 Andrej;Kramaric;null;19910619;Kroatien;Sturm;27;20160101-
-Kevin;Kurányi;null;19820302;Deutschland, Brasilien;Sturm;22
+Kevin;Kurányi;null;19820302;Deutschland, Brasilien, Panama;Sturm;22
 Philipp;Ochs;null;19970417;Deutschland;Sturm;30
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28;-20151231
 Mark;Uth;null;19910824;Deutschland;Sturm;19
