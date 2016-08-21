@@ -1795,12 +1795,16 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private boolean checkPlayerOnPitch(Spieler player, int minute) {
+		boolean subOn = false;
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
-			if (substitution.getPlayerOff() == player && minute > substitution.getMinute() || 
-					substitution.getPlayerOn() == player && minute < substitution.getMinute()) {
+			if (substitution.getPlayerOff() == player && minute > substitution.getMinute()) {
 				return false;
+			} else if (substitution.getPlayerOn() == player) {
+				if (minute < substitution.getMinute())	return false;
+				subOn = true;
 			}
 		}
+		if (subOn)	return true;
 		int[] lineup = editingFirstTeam ? lineupHome : lineupAway;
 		for (int i = 0; i < lineup.length; i++) {
 			if (lineup[i] == player.getSquadNumber())	return true;
