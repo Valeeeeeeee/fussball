@@ -3,7 +3,7 @@ Julian;Pollersbeck;null;19940816;Deutschland;Tor;22
 André;Weis;null;19890930;Deutschland;Tor;1
 Naser;Aliji;null;19931227;Albanien;Abwehr;34
 Tim;Heubach;null;19880412;Deutschland;Abwehr;3
-Sascha;Mockenhaupt;null;19910910;Deutschland;Abwehr;5
+Sascha;Mockenhaupt;null;19910910;Deutschland;Abwehr;5;-20160815
 Philipp;Mwene;null;19940129;Österreich;Abwehr;21
 Michael;Schulze;null;19890113;Deutschland;Abwehr;7
 Stipe;Vucur;null;19920522;Österreich, Kroatien;Abwehr;29
@@ -18,10 +18,12 @@ Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13
 Marcus;Piossek;null;19890721;Polen, Deutschland;Mittelfeld;8
 Alexander;Ring;null;19910409;Finnland;Mittelfeld;6
 Nils;Seufert;null;19970203;Deutschland;Mittelfeld;38
-Maurice John;Deville;null;19920731;Luxemburg;Sturm;27
+Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;10;20160812-
+Maurice John;Deville;null;19920731;Luxemburg;Sturm;27;-20160806
 Lukas;Görtler;null;19940615;Deutschland;Sturm;9
 Sebastian;Jacob;null;19930626;Deutschland;Sturm;14
 Osayamen;Osawe;null;19930903;England, Nigeria;Sturm;35
 Kacper;Przybylko;null;19930325;Polen, Deutschland;Sturm;20
 Nicklas;Shipnoski;null;19980101;Deutschland;Sturm;37
 Erik;Wekesser;null;19970703;Deutschland;Sturm;30
+Jacques;Zoua;null;19910906;Kamerun;Sturm;11;20160812-

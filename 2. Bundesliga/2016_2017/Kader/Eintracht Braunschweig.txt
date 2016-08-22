@@ -1,0 +1,24 @@
+Marcel;Engelhardt;null;19930405;Deutschland;Tor;1
+Jasmin;Fejzic;null;19860515;Bosnien-Herzegowina;Tor;16
+Joseph;Baffo;null;19921107;Schweden;Abwehr;4
+Marcel;Correia;null;19890516;Portugal;Abwehr;25
+Saulo;Decarli;null;19920204;Schweiz;Abwehr;3
+Niko;Kijewski;null;19960328;Deutschland;Abwehr;27
+Phil;Ofosu-Ayeh;null;19910915;Ghana;Abwehr;17
+Ken;Reichel;null;19861219;Deutschland;Abwehr;19
+Maximilian;Sauer;null;19940515;Deutschland;Abwehr;24
+Gustav;Valsvik;null;19930526;Norwegen;Abwehr;5
+Julius;Biada;null;19921103;Deutschland;Mittelfeld;9
+Mirko;Boland;null;19870423;Deutschland;Mittelfeld;10
+Jan;Hochscheidt;null;19871004;Deutschland;Mittelfeld;11
+Salim;Khelifi;null;19940126;Schweiz;Mittelfeld;22
+Adam;Matuschyk;null;19890214;Polen;Mittelfeld;8
+Quirin;Moll;null;19910121;Deutschland;Mittelfeld;6
+Nik;Omladic;null;19890821;Slowenien;Mittelfeld;12
+Patrick;Schönfeld;null;19890621;Deutschland;Mittelfeld;21
+Hendrick;Zuck;null;19900721;Deutschland;Mittelfeld;30
+Suleiman;Abdullahi;null;19961210;Nigeria;Sturm;20
+Orhan;Ademi;null;19911028;Schweiz;Sturm;18
+Onel;Hernandez;null;19930201;Deutschland;Sturm;23
+Domi;Kumbela;null;19840420;DR Kongo;Sturm;7
+Phillip;Tietz;null;19970709;Deutschland;Sturm;34
