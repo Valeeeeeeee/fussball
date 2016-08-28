@@ -12,7 +12,7 @@ Maximilian;Dittgen;null;19950303;Deutschland;Mittelfeld;17
 Marlon;Frey;null;19960324;Deutschland;Mittelfeld;24
 Marcel;Gaus;null;19890802;Deutschland;Mittelfeld;19
 Daniel;Halfar;null;19880107;Deutschland;Mittelfeld;28
-Mateusz;Klich;null;19900613;Polen;Mittelfeld;23
+Mateusz;Klich;null;19900613;Polen;Mittelfeld;23;-20160825
 Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;18
 Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13
 Marcus;Piossek;null;19890721;Polen, Deutschland;Mittelfeld;8

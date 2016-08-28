@@ -1,4 +1,5 @@
 Dominik;Brunnhübner;null;19900729;Deutschland;Tor;1
+Kenan;Mujezinovic;null;19950603;Deutschland;Tor;19;-20160822
 Jörg;Siebenhandl;null;19900118;Österreich;Tor;31
 Robert;Wulnikowski;null;19770711;Deutschland;Tor;28
 Royal-Dominique;Fennell;null;19890605;Deutschland;Abwehr;26

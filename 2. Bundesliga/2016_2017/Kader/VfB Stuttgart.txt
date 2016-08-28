@@ -2,6 +2,7 @@ Jens;Grahl;null;19880922;Deutschland;Tor;13
 Mitchell;Langerak;null;19880822;Australien;Tor;1
 Benjamin;Uphoff;null;19930808;Deutschland;Tor;32
 Timo;Baumgartl;null;19960304;Deutschland;Abwehr;5
+Kevin;Großkreutz;null;19880719;Deutschland;Abwehr;19
 Philip;Heise;null;19910620;Deutschland;Abwehr;14
 Emiliano;Insúa;null;19890107;Argentinien;Abwehr;2
 Marcin;Kaminski;null;19920115;Polen;Abwehr;35
@@ -9,17 +10,18 @@ Florian;Klein;null;19861117;Österreich;Abwehr;16
 Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;41
 Toni;Sunjic;null;19881215;Bosnien-Herzegowina;Abwehr;4
 Jean;Zimmer;null;19931206;Deutschland;Abwehr;6
+Matthias;Zimmermann;null;19920616;Deutschland;Abwehr;25
 Max;Besuschkow;null;19970531;Deutschland;Mittelfeld;23
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 Anto;Grgic;null;19961128;Schweiz;Mittelfeld;8
-Kevin;Großkreutz;null;19880719;Deutschland;Mittelfeld;19
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;10
 Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
+Joel;Soñora;null;19960915;USA;Mittelfeld;29
 Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;17
-Matthias;Zimmermann;null;19920616;Deutschland;Mittelfeld;25
+Takuma;Asano;null;19941110;Japan;Sturm;11
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
 Boris;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
