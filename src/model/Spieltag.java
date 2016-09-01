@@ -256,7 +256,7 @@ public class Spieltag extends JPanel {
 
 			// TODO min und maxheight sinnvoll setzen
 			int minimumHeight = 450;
-			int maximumHeight = 800;
+			int maximumHeight = 840;
 			calculateButtonsauswahlBounds(maximumHeight - 2 * WIDTH_BORDER);
 			calculateBounds();
 
