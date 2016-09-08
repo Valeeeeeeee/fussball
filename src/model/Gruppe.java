@@ -233,11 +233,11 @@ public class Gruppe implements Wettbewerb {
 		if (cMatchdaySetForDate != today || cMatchdaySetForOverview) {
 			if (today < getDate(0, 0)) {
 				currentMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != startDate) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
-				while (today >= getDate(currentMatchday, 0) && getDate(currentMatchday, 0) != 0) {
+				while (today >= getDate(currentMatchday, 0) && getDate(currentMatchday, 0) != startDate) {
 					currentMatchday++;
 				}
 				if (currentMatchday != 0 && MyDate.difference(getDate(currentMatchday - 1, 0), today) <= MyDate.difference(today, getDate(currentMatchday, 0))) {
@@ -257,7 +257,7 @@ public class Gruppe implements Wettbewerb {
 		if (cMatchdaySetForDate != today || !cMatchdaySetForOverview) {
 			if (today < getDate(0, 0)) {
 				currentMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != startDate) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
@@ -336,7 +336,7 @@ public class Gruppe implements Wettbewerb {
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID))	representation += "t";
-			else										representation += "f";
+			else								representation += "f";
 		}
 		
 		return representation;

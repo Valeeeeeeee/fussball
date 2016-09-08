@@ -819,9 +819,14 @@ public class Spieltag extends JPanel {
 		else if (belongsToGroup)	representation = group.getMatchesSetRepresentation(currentMatchday);
 		else if (belongsToKORound)	representation = koRound.getMatchesSetRepresentation(currentMatchday);
 		else {
-			representation = "";
+			String groupOrder = "";
 			for (Gruppe group : allGroups) {
-				representation += group.getMatchesSetRepresentation(currentMatchday);
+				groupOrder += group.getMatchesSetRepresentation(currentMatchday);
+			}
+			char[] groupsChars = groupOrder.toCharArray();
+			representation = "";
+			for (int i = 0; i < numberOfMatches; i++) {
+				representation += groupsChars[oldOrder[i]];
 			}
 		}
 		
@@ -1188,9 +1193,7 @@ public class Spieltag extends JPanel {
 			oldOrder = tSeason.getChronologicalOrder(matchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
 			newOrder = new int[oldOrder.length]; // beinhaltet die neuen Indizes in der alten Reihenfolge
 			for (int i = 0; i < oldOrder.length; i++) {
-				newOrder[oldOrder[i]] = i; // if enabled
-//				oldOrder[i] = i; // if disabled
-//				newOrder[i] = i; // if disabled
+				newOrder[oldOrder[i]] = i;
 			}
 		}
 	}
@@ -1484,7 +1487,8 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void saveMatchInfos(SpielInformationen matchInfo, Ergebnis result, int editedResult) {
-		setResult(editedResult, result);
+		if (isOverview)	setResult(oldOrder[editedResult], result);
+		else			setResult(editedResult, result);
 		openedMatchInfos.remove(matchInfo);
 	}
 	
