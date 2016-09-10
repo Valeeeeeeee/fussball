@@ -14,6 +14,7 @@ Jakub;Kosecki;null;19900829;Polen;Mittelfeld;13
 Moritz;Kuhn;null;19910801;Deutschland;Mittelfeld;11
 Stefan;Kulovits;null;19830419;Österreich;Mittelfeld;31
 Denis;Linsmeyer;null;19910919;Deutschland;Mittelfeld;6
+Daniel;Lukasik;null;19910428;Polen;Mittelfeld;35;20160831-
 Thomas;Pledl;null;19940523;Deutschland;Mittelfeld;30
 Manuel;Stiefler;null;19880725;Deutschland;Mittelfeld;21
 Marco;Thiede;null;19920520;Deutschland;Mittelfeld;7

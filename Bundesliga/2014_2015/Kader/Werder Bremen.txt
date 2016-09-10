@@ -11,7 +11,7 @@ Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
 Sebastian;Prödl;null;19870621;Österreich;Abwehr;15
 Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7;20150101-
-Levent;Aycicek;null;19940212;Deutschland;Mittelfeld;21
+Levent;Ayçiçek;null;19940212;Deutschland;Mittelfeld;21
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35

@@ -23,6 +23,7 @@ Kenny Prince;Redondo;null;19940829;Deutschland, Spanien;Mittelfeld;18
 Maximilian;Thiel;null;19930203;Deutschland;Mittelfeld;11
 Eroll;Zejnullahu;null;19941019;Deutschland, Kosovo;Mittelfeld;27
 Sören;Brandy;null;19850506;Deutschland;Sturm;9
+Simon;Hedlund;null;19930311;Schweden;Sturm;17;20160829-
 Philipp;Hosiner;null;19890515;Österreich;Sturm;16
 Collin;Quaner;null;19910618;Deutschland;Sturm;21
 Steven;Skrzybski;null;19921118;Deutschland;Sturm;24

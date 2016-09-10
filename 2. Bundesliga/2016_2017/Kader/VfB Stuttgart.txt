@@ -7,6 +7,7 @@ Philip;Heise;null;19910620;Deutschland;Abwehr;14
 Emiliano;Insúa;null;19890107;Argentinien;Abwehr;2
 Marcin;Kaminski;null;19920115;Polen;Abwehr;35
 Florian;Klein;null;19861117;Österreich;Abwehr;16
+Benjamin;Pavard;null;19960328;Frankreich;Abwehr;21;20160830-
 Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;41
 Toni;Sunjic;null;19881215;Bosnien-Herzegowina;Abwehr;4
 Jean;Zimmer;null;19931206;Deutschland;Abwehr;6
@@ -18,11 +19,13 @@ Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;10
 Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31
 Mart;Ristl;null;19960707;Deutschland;Mittelfeld;27
+Hans Nunoo;Sarpei;null;19980822;Ghana;Mittelfeld;18;20160822-
 Joel;Soñora;null;19960915;USA;Mittelfeld;29
 Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
 Tobias;Werner;null;19850719;Deutschland;Mittelfeld;17
-Takuma;Asano;null;19941110;Japan;Sturm;11
+Takuma;Asano;null;19941110;Japan;Sturm;11;20160826-
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
-Jan;Kliment;null;19930901;Tschechien;Sturm;39
+Jan;Kliment;null;19930901;Tschechien;Sturm;39;-20160829
+Carlos;Mané;null;19940311;Portugal;Sturm;15;20160831-
 Boris;Tashchy;null;19930726;Bulgarien, Ukraine;Sturm;34
 Simon;Terodde;null;19880302;Deutschland;Sturm;9

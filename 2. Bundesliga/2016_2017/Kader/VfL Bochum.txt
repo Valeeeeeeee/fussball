@@ -3,6 +3,7 @@ Martin;Kompalla;null;19920826;Deutschland;Tor;30
 Florian;Kraft;null;19980804;Deutschland;Tor;38
 Manuel;Riemann;null;19880909;Deutschland;Tor;1
 Tom;Baack;null;19990313;Deutschland;Abwehr;31
+Jannik;Bandowski;null;19940330;Deutschland;Abwehr;25;20160831-
 Felix;Bastians;null;19880509;Deutschland;Abwehr;5
 Stefano;Celozzi;null;19881102;Deutschland;Abwehr;21
 Pawel;Dawidowicz;null;19950520;Polen;Abwehr;17;20160812-

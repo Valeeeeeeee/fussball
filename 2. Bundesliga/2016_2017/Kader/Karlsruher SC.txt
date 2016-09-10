@@ -15,6 +15,7 @@ Tim;Fahrenholz;null;19940322;Deutschland;Mittelfeld;34
 Tim;Grupp;null;19950105;Deutschland;Mittelfeld;32
 Franck;Kom;null;19910918;Kamerun;Mittelfeld;6
 Gaëtan;Krebs;null;19851118;Frankreich;Mittelfeld;21
+Charalampos;Mavrias;null;19940221;Griechenland;Mittelfeld;27;20160906-
 Marvin;Mehlem;null;19970911;Deutschland;Mittelfeld;16
 Grischa;Prömel;null;19950109;Deutschland;Mittelfeld;19
 Ylli;Sallahi;null;19940406;Österreich;Mittelfeld;20
@@ -25,5 +26,6 @@ Hiroki;Yamada;null;19881227;Japan;Mittelfeld;10
 Yann;del Pino Rolim;Yann;19950315;Brasilien;Mittelfeld;23
 Dimitrios;Diamantakos;null;19930305;Griechenland;Sturm;9
 Erwin;Hoffer;null;19870414;Österreich;Sturm;8
+Florian;Kamberi;null;19950308;Schweiz;Sturm;15;20160902-
 Vadim;Manzon;null;19941205;Russland;Sturm;29;-20160816
 Valentino;Vujinovic;null;19990220;Deutschland;Sturm;36

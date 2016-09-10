@@ -20,6 +20,7 @@ Kevin;Möhland;null;19930703;Deutschland;Mittelfeld;14
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
 Guido;Burgstaller;null;19890429;Österreich;Sturm;9
 Philipp;Hercher;null;19960321;Deutschland;Sturm;27
+Tim;Matavz;null;19890113;Slowenien;Sturm;24;20160830-
 Shawn;Parker;null;19930307;Deutschland;Sturm;20;20160823-
 Jakub;Sylvestr;null;19890202;Slowakei;Sturm;11
 Cedric;Teuchert;null;19970114;Deutschland;Sturm;36

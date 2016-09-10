@@ -2,7 +2,8 @@ Dominik;Brunnhübner;null;19900729;Deutschland;Tor;1
 Kenan;Mujezinovic;null;19950603;Deutschland;Tor;19;-20160822
 Jörg;Siebenhandl;null;19900118;Österreich;Tor;31
 Robert;Wulnikowski;null;19770711;Deutschland;Tor;28
-Royal-Dominique;Fennell;null;19890605;Deutschland;Abwehr;26
+Royal-Dominique;Fennell;null;19890605;Deutschland;Abwehr;26;-20160830
+Júnior Enrique;Díaz Campbell;Junior Díaz;19830912;Costa Rica;Abwehr;12;20160830-
 Peter;Kurzweg;null;19940210;Deutschland;Abwehr;16
 Felix;Müller;null;19930127;Deutschland;Abwehr;7
 Sebastian;Neumann;null;19910218;Deutschland;Abwehr;29
@@ -18,6 +19,7 @@ Nejmeddin;Daghfous;null;19861001;Deutschland;Mittelfeld;10
 Joannis;Karsanidis;null;19930625;Deutschland;Mittelfeld;14
 Anastasios;Lagos;null;19920412;Griechenland;Mittelfeld;6
 Dániel;Nagy;null;19910315;Ungarn;Mittelfeld;20
+Valdet;Rama;null;19871120;Albanien;Mittelfeld;24;20160829-
 Dennis;Schmitt;null;19930527;Deutschland;Mittelfeld;2
 Tobias;Schröck;null;19921231;Deutschland;Mittelfeld;21
 Amir;Shapourzadeh;null;19820919;Iran;Mittelfeld;9

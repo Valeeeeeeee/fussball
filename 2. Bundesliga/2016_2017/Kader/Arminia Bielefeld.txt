@@ -1,0 +1,29 @@
+Daniel;Davari;null;19880106;Iran;Tor;34
+Baboucarr;Gaye;null;19980224;Deutschland;Tor;40
+Wolfgang;Hesl;null;19860113;Deutschland;Tor;1
+Nikolai;Rehnen;null;19970204;Deutschland;Tor;33
+Julian;Börner;null;19910121;Deutschland;Abwehr;13
+Malcolm;Cacutalua;null;19941115;Deutschland;Abwehr;4
+Florian;Dick;null;19841109;Deutschland;Abwehr;23
+Florian;Hartherz;null;19930529;Deutschland;Abwehr;28
+Manuel;Hornig;null;19821218;Deutschland;Abwehr;14
+Steffen;Lang;null;19930814;Deutschland;Abwehr;2
+Stephan;Salger;null;19900130;Deutschland;Abwehr;11
+Sebastian;Schuppan;null;19860718;Deutschland;Abwehr;27
+Brian;Behrendt;null;19911024;Deutschland;Mittelfeld;3
+Daniel;Brinkmann;null;19860129;Deutschland;Mittelfeld;8
+Allan Firmino;Dantas;null;19970128;Deutschland;Mittelfeld;35
+Michael;Görlitz;null;19870308;Deutschland;Mittelfeld;7
+Christoph;Hemlein;null;19901216;Deutschland;Mittelfeld;17
+Tomasz;Holota;null;19910121;Polen;Mittelfeld;10
+Manuel;Junglas;null;19890131;Deutschland;Mittelfeld;20
+Manuel;Prietl;null;19910803;Österreich;Mittelfeld;19
+Francisco;Rodríguez;null;19950914;Schweiz;Mittelfeld;22;-20160830
+Tom;Schütz;null;19880120;Deutschland;Mittelfeld;6
+Keanu;Staude;null;19970126;Deutschland;Mittelfeld;32
+David;Ulm;null;19840630;Frankreich;Mittelfeld;5
+Fabian;Klos;null;19871202;Deutschland;Sturm;9
+Michal;Mak;null;19911114;Polen;Sturm;30;20160831-
+Christopher;Nöthe;null;19880103;Deutschland;Sturm;18
+Leandro;Putaro;null;19970107;Deutschland, Italien;Sturm;29
+Andreas;Voglsammer;null;19920109;Deutschland;Sturm;21
