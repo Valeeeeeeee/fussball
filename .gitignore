@@ -3,10 +3,7 @@
 *.ucls
 *uefacoefficient*
 *5-Jahres-Wertung*
-Sicherungskopie*
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.eclipse.core.resources.prefs
 *nextMatches.txt
 Bundesliga/andereSpieler.txt
-Sicherungskopie/*
-Sicherungskopie/Source code/01-21 Jun/Liga.java

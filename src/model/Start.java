@@ -127,7 +127,6 @@ public class Start extends JFrame {
 	// Optionen-Panel
 	public JPanel jPnlOptions;
 	private JButton jBtnCorrectNames;
-	private JLabel jLblDefaultStarttag;
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -214,7 +213,7 @@ public class Start extends JFrame {
 			jBtnAddLeague = new JButton(); 
 			Homescreen.add(jBtnAddLeague);
 			jBtnAddLeague.setBounds(REC_ADDLEAG);
-			jBtnAddLeague.setText("Add league");
+			jBtnAddLeague.setText("Neue Liga");
 			jBtnAddLeague.setFocusable(false);
 			jBtnAddLeague.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
@@ -226,7 +225,7 @@ public class Start extends JFrame {
 			jBtnAddTournament = new JButton(); 
 			Homescreen.add(jBtnAddTournament);
 			jBtnAddTournament.setBounds(REC_ADDTOUR);
-			jBtnAddTournament.setText("Add tournament");
+			jBtnAddTournament.setText("Neues Turnier");
 			jBtnAddTournament.setFocusable(false);
 			jBtnAddTournament.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
@@ -341,7 +340,6 @@ public class Start extends JFrame {
 			alignCenter(jLblCompetition);
 		}
 		{
-			
 			jCBSeasonSelection = new JComboBox<>();
 			jCBSeasonSelection.setBounds(REC_CBSEASONS);
 			jCBSeasonSelection.addItemListener(new ItemListener() {
@@ -504,14 +502,6 @@ public class Start extends JFrame {
 				}
 			});
 		}
-		{
-			jLblDefaultStarttag = new JLabel();
-			jPnlOptions.add(jLblDefaultStarttag);
-			jLblDefaultStarttag.setBounds(20, 50, 105, 20);
-			jLblDefaultStarttag.setText("Standard-Starttag:");
-			jLblDefaultStarttag.setToolTipText("An diesem Wochentag beginnt üblicherweise ein Spieltag.");
-			jLblDefaultStarttag.setVisible(false);
-		}
 	}
 	
 	public char[] getAlphabet() {
@@ -563,26 +553,24 @@ public class Start extends JFrame {
 		Homescreen.setVisible(false);
 		jBtnBack.setVisible(true);
 		
-		if (index < numberOfLeagues) {
-			// The pressed button leads to a league
-			isCurrentlyALeague = true;
-			LeagueHomescreen.setVisible(true);
-			LeagueHomescreen.add(jBtnBack);
-			
-			currentLeague = leagues.get(index);
-			jLblCompetition.setText(currentLeague.getName());
-			
-			// befüllt die ComboBox mit den verfügbaren Saisons
-			jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentLeague.getAllSeasons()));
-			jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
-			LeagueHomescreen.add(jCBSeasonSelection);
-			
-			if (jCBSeasonSelection.getModel().getSize() == 1) {
-				// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
-				currentLeague.load(0);
-				currentLSeason = currentLeague.getCurrentSeason();
-				loadLeagueSpecificThings();
-			}
+		// The pressed button leads to a league
+		isCurrentlyALeague = true;
+		LeagueHomescreen.setVisible(true);
+		LeagueHomescreen.add(jBtnBack);
+		
+		currentLeague = leagues.get(index);
+		jLblCompetition.setText(currentLeague.getName());
+		
+		// befüllt die ComboBox mit den verfügbaren Saisons
+		jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentLeague.getAllSeasons()));
+		jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
+		LeagueHomescreen.add(jCBSeasonSelection);
+		
+		if (jCBSeasonSelection.getModel().getSize() == 1) {
+			// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
+			currentLeague.load(0);
+			currentLSeason = currentLeague.getCurrentSeason();
+			loadLeagueSpecificThings();
 		}
 	}
 	
@@ -590,34 +578,32 @@ public class Start extends JFrame {
 		Homescreen.setVisible(false);
 		jBtnBack.setVisible(true);
 		
-		if (index < numberOfTournaments) {
-			// The pressed button leads to a tournament
-			isCurrentlyALeague = false;
-			TournamentHomescreen.setVisible(true);
-			TournamentHomescreen.add(jBtnBack);
-			
-			currentTournament = tournaments.get(index);
-			jLblCompetition.setText(currentTournament.getName());
-			
-			// befüllt die ComboBox mit den verfügbaren Saisons
-			jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentTournament.getAllSeasons()));
-			jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
-			TournamentHomescreen.add(jCBSeasonSelection);
-			
-			if (jCBSeasonSelection.getModel().getSize() == 1) {
-//				// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
-				currentTournament.load(0);
-				currentTSeason = currentTournament.getCurrentSeason();
-				loadTournamentSpecificThings();
-			}
-			
-			if (!currentTSeason.hasQualification() && !currentTSeason.hasGroupStage()) {
-				jBtnKORoundsActionPerformed();
-				KORoundsHomescreen.add(jCBSeasonSelection);
-			} else if (!currentTSeason.hasQualification() && !currentTSeason.hasKOStage()) {
-				jBtnGroupStageActionPerformed();
-				GroupStageHomescreen.add(jCBSeasonSelection);
-			}
+		// The pressed button leads to a tournament
+		isCurrentlyALeague = false;
+		TournamentHomescreen.setVisible(true);
+		TournamentHomescreen.add(jBtnBack);
+		
+		currentTournament = tournaments.get(index);
+		jLblCompetition.setText(currentTournament.getName());
+		
+		// befüllt die ComboBox mit den verfügbaren Saisons
+		jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentTournament.getAllSeasons()));
+		jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
+		TournamentHomescreen.add(jCBSeasonSelection);
+		
+		if (jCBSeasonSelection.getModel().getSize() == 1) {
+			// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
+			currentTournament.load(0);
+			currentTSeason = currentTournament.getCurrentSeason();
+			loadTournamentSpecificThings();
+		}
+		
+		if (!currentTSeason.hasQualification() && !currentTSeason.hasGroupStage()) {
+			jBtnKORoundsActionPerformed();
+			KORoundsHomescreen.add(jCBSeasonSelection);
+		} else if (!currentTSeason.hasQualification() && !currentTSeason.hasKOStage()) {
+			jBtnGroupStageActionPerformed();
+			GroupStageHomescreen.add(jCBSeasonSelection);
 		}
 	}
 	
