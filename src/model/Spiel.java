@@ -197,7 +197,7 @@ public class Spiel {
 	}
 	
 	public void setMatchData(String matchData) {
-		String[] matchDataSplit = matchData.split("\\+");
+		String[] matchDataSplit = matchData.split("=");
 		if (!matchDataSplit[0].equals(homeTeamIndex + ":" + awayTeamIndex))	return;
 		if (matchDataSplit.length > 1) {
 			parseMatchData(matchDataSplit[1]);
@@ -212,12 +212,12 @@ public class Spiel {
 		String matchData = "";
 		
 		if (lineupHome != null || lineupAway != null) {
-			matchData += "+{" + matchDataToString() + "}";
-			matchData += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
+			matchData += "={" + matchDataToString() + "}";
+			matchData += "={" + lineupToString(lineupHome, substitutionsHome) + "}={" + lineupToString(lineupAway, substitutionsAway) + "}";
 		} else if (result != null) {
-			matchData += "+{" + matchDataToString() + "}";
+			matchData += "={" + matchDataToString() + "}";
 		} else if (referee != null) {
-			matchData += "+{" + referee.getID() + "}";
+			matchData += "={" + referee.getID() + "}";
 		}
 		
 		return matchData;
