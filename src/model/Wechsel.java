@@ -6,11 +6,11 @@ public class Wechsel {
 	
 	private Spiel match;
 	private boolean firstTeam;
-	private int minute;
+	private Minute minute;
 	private Spieler playerOff;
 	private Spieler playerOn;
 	
-	public Wechsel(Spiel match, boolean firstTeam, int minute, Spieler playerOff, Spieler playerOn) {
+	public Wechsel(Spiel match, boolean firstTeam, Minute minute, Spieler playerOff, Spieler playerOn) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
@@ -36,7 +36,7 @@ public class Wechsel {
 		return firstTeam;
 	}
 
-	public int getMinute() {
+	public Minute getMinute() {
 		return minute;
 	}
 
@@ -49,7 +49,7 @@ public class Wechsel {
 	}
 
 	private void parseString(String data) {
-		minute = Integer.parseInt(data.substring(0, data.indexOf(":")));
+		minute = Minute.parse(data.substring(0, data.indexOf(":")));
 		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));
 		playerOff = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqOff, match.getDate());
 		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
@@ -57,6 +57,6 @@ public class Wechsel {
 	}
 	
 	public String toString() {
-		return minute + ":" + playerOff.getSquadNumber() + ">>" + playerOn.getSquadNumber();
+		return minute.toString() + ":" + playerOff.getSquadNumber() + ">>" + playerOn.getSquadNumber();
 	}
 }

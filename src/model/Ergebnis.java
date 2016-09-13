@@ -20,16 +20,16 @@ public class Ergebnis {
 	public Ergebnis(ArrayList<Tor> goals) {
 		for (Tor goal : goals) {
 			int time = 0;
-			if (goal.getMinute() > 120) {
+			if (goal.getMinute().getRegularTime() > 120) {
 				time = PENALTIES;
 				finishedInRegularTime = false;
 				finishedInExtraTime = false;
-			} else if (goal.getMinute() > 90) {
+			} else if (goal.getMinute().getRegularTime() > 90) {
 				time = EXTRATIME;
 				finishedInRegularTime = false;
 				finishedInExtraTime = true;
 			} else {
-				if (goal.getMinute() > 45) 	time = REGULAR;
+				if (goal.getMinute().getRegularTime() > 45) 	time = REGULAR;
 				finishedInRegularTime = true;
 			}
 			

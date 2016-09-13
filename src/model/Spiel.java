@@ -125,7 +125,7 @@ public class Spiel {
 		if (goal != null) {
 			int index = 0;
 			for (int i = 0; i < goals.size(); i++) {
-				if (goals.get(i).getMinute() <= goal.getMinute())	index++;
+				if (!goals.get(i).getMinute().isAfter(goal.getMinute()))	index++;
 			}
 			goals.add(index, goal);
 			result = new Ergebnis(goals);
@@ -144,12 +144,12 @@ public class Spiel {
 		if (substitution != null) {
 			if (substitution.isFirstTeam()) {
 				for (int i = 0; i < substitutionsHome.size(); i++) {
-					if (substitutionsHome.get(i).getMinute() <= substitution.getMinute())	index++;
+					if (!substitutionsHome.get(i).getMinute().isAfter(substitution.getMinute()))	index++;
 				}
 				substitutionsHome.add(index, substitution);
 			} else {
 				for (int i = 0; i < substitutionsAway.size(); i++) {
-					if (substitutionsAway.get(i).getMinute() <= substitution.getMinute())	index++;
+					if (!substitutionsAway.get(i).getMinute().isAfter(substitution.getMinute()))	index++;
 				}
 				substitutionsAway.add(index, substitution);
 			}
@@ -165,7 +165,7 @@ public class Spiel {
 		if (booking != null) {
 			int index = 0;
 			for (int i = 0; i < bookings.size(); i++) {
-				if (bookings.get(i).getMinute() <= booking.getMinute())	index++;
+				if (!bookings.get(i).getMinute().isAfter(booking.getMinute()))	index++;
 			}
 			bookings.add(index, booking);
 		}

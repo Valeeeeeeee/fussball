@@ -11,7 +11,7 @@ import static util.Utilities.*;
 public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
-	private static final int WIDTH = 800;
+	private static final int WIDTH = 950;
 	private static final int HEIGHT = 550;
 	
 	private int matchIndex;
@@ -80,47 +80,47 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnPenaltiesCompleted;
 	
 	// Obere Labels
-	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, 800, 550);
-	private Rectangle REC_LBLCOMPETITION = new Rectangle(200, 10, 400, 20);
-	private Rectangle REC_LBLDATE = new Rectangle(340, 35, 120, 25);
-	private Rectangle REC_LBLHOMENAME = new Rectangle(25, 60, 330, 40);
-	private Rectangle REC_LBLRESULT = new Rectangle(360, 60, 80, 40);
-	private Rectangle REC_LBLZUSATZ = new Rectangle(370, 90, 60, 20);
-	private Rectangle REC_LBLAWAYNAME = new Rectangle(445, 60, 330, 40);
-	private Rectangle REC_LBLREFEREE = new Rectangle(350, 485, 100, 20);
-	private Rectangle REC_CBREFEREES = new Rectangle(300, 510, 200, 25);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(260, 35, 70, 25);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(470, 35, 70, 25);
+	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, 950, 550);
+	private Rectangle REC_LBLCOMPETITION = new Rectangle(275, 10, 400, 20);
+	private Rectangle REC_LBLDATE = new Rectangle(415, 35, 120, 25);
+	private Rectangle REC_LBLHOMENAME = new Rectangle(100, 60, 330, 40);
+	private Rectangle REC_LBLRESULT = new Rectangle(435, 60, 80, 40);
+	private Rectangle REC_LBLZUSATZ = new Rectangle(445, 90, 60, 20);
+	private Rectangle REC_LBLAWAYNAME = new Rectangle(520, 60, 330, 40);
+	private Rectangle REC_LBLREFEREE = new Rectangle(425, 485, 100, 20);
+	private Rectangle REC_CBREFEREES = new Rectangle(375, 510, 200, 25);
+	private Rectangle REC_BTNAGTHOME = new Rectangle(335, 35, 70, 25);
+	private Rectangle REC_BTNAGTAWAY = new Rectangle(545, 35, 70, 25);
 	
 	// Untere Button-Reihe
-	private Rectangle REC_BTNSTARTMATCH = new Rectangle(350, 110, 100, 30);
-	private Rectangle REC_BTNLINEUPHOME = new Rectangle(30, 110, 110, 30);
-	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(660, 110, 110, 30);
-	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(145, 110, 90, 30);
-	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(565, 110, 90, 30);
-	private Rectangle REC_BTNGOALHOME = new Rectangle(315, 110, 60, 30);
-	private Rectangle REC_BTNGOALAWAY = new Rectangle(425, 110, 60, 30);
-	private Rectangle REC_BTNBOOKINGHOME = new Rectangle(240, 110, 70, 30);
-	private Rectangle REC_BTNBOOKINGAWAY = new Rectangle(490, 110, 70, 30);
-	private Rectangle REC_BTNPENALTIES = new Rectangle(325, 170, 150, 25);
+	private Rectangle REC_BTNSTARTMATCH = new Rectangle(425, 105, 100, 35);
+	private Rectangle REC_BTNLINEUPHOME = new Rectangle(45, 105, 125, 35);
+	private Rectangle REC_BTNLINEUPAWAY = new Rectangle(780, 105, 125, 35);
+	private Rectangle REC_BTNSUBSTITUTIONHOME = new Rectangle(175, 105, 105, 35);
+	private Rectangle REC_BTNSUBSTITUTIONAWAY = new Rectangle(670, 105, 105, 35);
+	private Rectangle REC_BTNGOALHOME = new Rectangle(375, 105, 75, 35);
+	private Rectangle REC_BTNGOALAWAY = new Rectangle(500, 105, 75, 35);
+	private Rectangle REC_BTNBOOKINGHOME = new Rectangle(285, 105, 85, 35);
+	private Rectangle REC_BTNBOOKINGAWAY = new Rectangle(580, 105, 85, 35);
+	private Rectangle REC_BTNPENALTIES = new Rectangle(400, 170, 150, 25);
 	
 	// Labels Aufstellung, Wechsel, Tore, Karten
-	private int[] subMinsLbls = new int[] {70, 160, 615, 25, 45, 20};
-	private int[] luLbls = new int[] {120, 160, 435, 25, 125, 20};
-	private int[] bLbls = new int[] {250, 161, 286, 25, 14, 19};
-	private int[] gLbls = new int[] {305, 160, 30, 25, 160, 20};
+	private int[] subMinsLbls = new int[] {85, 160, 715, 25, 65, 20};
+	private int[] luLbls = new int[] {155, 160, 515, 25, 125, 20};
+	private int[] bLbls = new int[] {285, 161, 366, 25, 14, 19};
+	private int[] gLbls = new int[] {380, 160, 30, 25, 160, 20};
 
 	private int bDeltaX = 10;
 	private int bDeltaY = 2;
 	
 	// Eingabe
-	private Point LOC_PNLENTRYHOME = new Point(120, 150);
-	private Point LOC_PNLENTRYAWAY = new Point(410, 150);
+	private Point LOC_PNLENTRYHOME = new Point(175, 150);
+	private Point LOC_PNLENTRYAWAY = new Point(485, 150);
 	private Dimension DIM_PNLENTRY = new Dimension(290, 130);
 	private Rectangle REC_BTNENTRYCANCL = new Rectangle(160, 5, 45, 30);
 	private Rectangle REC_BTNENTRYCOMPL = new Rectangle(210, 5, 70, 30);
-	private Rectangle REC_LBLMINUTE = new Rectangle(50, 10, 70, 20);
-	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 40, 20);
+	private Rectangle REC_LBLMINUTE = new Rectangle(70, 10, 70, 20);
+	private Rectangle REC_TFMINUTE = new Rectangle(10, 10, 60, 20);
 	private Rectangle REC_CHBLEFT = new Rectangle(30, 40, 105, 20);
 	private Rectangle REC_CHBRIGHT = new Rectangle(165, 40, 95, 20);
 	private Rectangle REC_CHBBENCH = new Rectangle(20, 70, 110, 20);
@@ -130,14 +130,14 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_CBBOTTOM = new Rectangle(105, 97, 175, 26);
 	
 	// Lineup selection
-	private Point LOC_PNLENTERLINEUPHOME = new Point(30, 150);
-	private Point LOC_PNLENTERLINEUPAWAY = new Point(360, 150);
+	private Point LOC_PNLENTERLINEUPHOME = new Point(50, 150);
+	private Point LOC_PNLENTERLINEUPAWAY = new Point(490, 150);
 	private Dimension DIM_PNLENTERLINEUP = new Dimension(410, 330);
 	private Rectangle REC_BTNELUCANCEL = new Rectangle(220, 290, 100, 30);
 	private Rectangle REC_BTNELUCOMPL = new Rectangle(330, 290, 70, 30);
 	
 	// Penalties
-	private Rectangle REC_PNLPENALTIES = new Rectangle(170, 120, 460, 120);
+	private Rectangle REC_PNLPENALTIES = new Rectangle(245, 120, 460, 120);
 	private Rectangle REC_LBLPENALTIES = new Rectangle(10, 10, 130, 25);
 	private Rectangle REC_BTNPENALTIESCOMPL = new Rectangle(380, 10, 70, 25);
 	
@@ -199,7 +199,7 @@ public class SpielInformationen extends JFrame {
 	
 	private JButton jBtnGo;
 
-	private Rectangle RECGO = new Rectangle(700, 10, 90, 40);
+	private Rectangle RECGO = new Rectangle(850, 10, 90, 40);
 	
 	public SpielInformationen(Spieltag spieltag, int matchIndex, Spiel match, Ergebnis result) {
 		super();
@@ -528,7 +528,7 @@ public class SpielInformationen extends JFrame {
 		for (int i = 0; i < maxNumOfPlayers; i++) {
 			jLblsSubsOffMinutesHome[i] = new JLabel();
 			jPnlMatchInformation.add(jLblsSubsOffMinutesHome[i]);
-			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesHome[i].setLocation(subMinsLbls[STARTX] - 70, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesHome[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignLeft(jLblsSubsOffMinutesHome[i]);
 			jLblsSubsOffMinutesHome[i].setCursor(handCursor);
@@ -537,7 +537,7 @@ public class SpielInformationen extends JFrame {
 			
 			jLblsSubsOffMinutesAway[i] = new JLabel();
 			jPnlMatchInformation.add(jLblsSubsOffMinutesAway[i]);
-			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 50, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
+			jLblsSubsOffMinutesAway[i].setLocation(subMinsLbls[STARTX] + subMinsLbls[GAPX] + 70, subMinsLbls[STARTY] + i * subMinsLbls[GAPY]);
 			jLblsSubsOffMinutesAway[i].setSize(subMinsLbls[SIZEX], subMinsLbls[SIZEY]);
 			alignRight(jLblsSubsOffMinutesAway[i]);
 			jLblsSubsOffMinutesAway[i].setCursor(handCursor);
@@ -641,7 +641,7 @@ public class SpielInformationen extends JFrame {
 			jTFMinute.addKeyListener(new KeyAdapter() {
 				public void keyTyped(KeyEvent ke) {
 					if (ke.getKeyChar() == 10)	jBtnEntryCompleted.doClick();
-					else if (ke.getKeyChar() <= 47 || ke.getKeyChar() >= 58) {
+					else if (ke.getKeyChar() != 43 && (ke.getKeyChar() <= 47 || ke.getKeyChar() >= 58)) {
 						ke.consume();
 					}
 				}
@@ -799,16 +799,16 @@ public class SpielInformationen extends JFrame {
 					else					away++;
 				}
 				for (int i = home; i < result.home(1); i++) {
-					match.addGoal(new Tor(match, true, false, false, 1));
+					match.addGoal(new Tor(match, true, false, false, new Minute(1, 0)));
 				}
 				for (int i = away; i < result.away(1); i++) {
-					match.addGoal(new Tor(match, false, false, false, 1));
+					match.addGoal(new Tor(match, false, false, false, new Minute(1, 0)));
 				}
 				for (int i = result.home(1); i < result.home(2); i++) {
-					match.addGoal(new Tor(match, true, false, false, 91));
+					match.addGoal(new Tor(match, true, false, false, new Minute(91, 0)));
 				}
 				for (int i = result.away(1); i < result.away(2); i++) {
-					match.addGoal(new Tor(match, false, false, false, 91));
+					match.addGoal(new Tor(match, false, false, false, new Minute(91, 0)));
 				}
 			}
 			if (result.home(3) > result.home(2) || result.away(3) > result.away(2)) {
@@ -905,7 +905,7 @@ public class SpielInformationen extends JFrame {
 	
 	private void displayGoal(Tor goal, final int index) {
 		String zusatz = goal.isPenalty() ? " (11m)" : (goal.isOwnGoal() ? " (ET)" : "");
-		String scorer = (goal.getScorer() != null ? goal.getScorer().getPseudonymOrLN() : "n/a"), minute = goal.getMinute() + "'";
+		String scorer = (goal.getScorer() != null ? goal.getScorer().getPseudonymOrLN() : "n/a"), minute = goal.getMinute().asString();
 		JLabel jLblNewGoal = new JLabel();
 		jPnlMatchInformation.add(jLblNewGoal);
 		jLblNewGoal.setLocation(gLbls[STARTX] + (goal.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + index * gLbls[GAPY]);
@@ -927,7 +927,7 @@ public class SpielInformationen extends JFrame {
 	private void displaySubstitution(Wechsel substitution, final int index) {
 		int squadNumberOff = substitution.getPlayerOff().getSquadNumber();
 		String subOn = substitution.getPlayerOn().getPseudonymOrLN();
-		String minute = substitution.getMinute() + "'";
+		String minute = substitution.getMinute().asString();
 		final boolean firstTeam = substitution.isFirstTeam();
 		JLabel[] labels = firstTeam ? jLblsPlayersHome : jLblsPlayersAway;
 		JLabel[] offMinutes = firstTeam ? jLblsSubsOffMinutesHome : jLblsSubsOffMinutesAway;
@@ -935,8 +935,7 @@ public class SpielInformationen extends JFrame {
 		labels[numberOfPlayersInLineUp + index].setText(subOn);
 		labels[numberOfPlayersInLineUp + index].setVisible(true);
 		
-		String arrowup = arrowUp();
-		onMinutes[index].setText(firstTeam ? arrowup + " " + minute : minute + " " + arrowup);
+		onMinutes[index].setText(firstTeam ? arrowUp() + " " + minute : minute + " " + arrowUp());
 		onMinutes[index].setVisible(true);
 		onMinutes[index].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -954,8 +953,7 @@ public class SpielInformationen extends JFrame {
 				if (match.getSubstitutions(firstTeam).get(i).getPlayerOn().getSquadNumber() == squadNumberOff)	playerPos = numberOfPlayersInLineUp + i;
 			}
 		}
-		String arrowdown = arrowDown();
-		offMinutes[playerPos].setText(firstTeam ? arrowdown + " " + minute : minute + " " + arrowdown);
+		offMinutes[playerPos].setText(firstTeam ? arrowDown() + " " + minute : minute + " " + arrowDown());
 		offMinutes[playerPos].setVisible(true);
 		offMinutes[playerPos].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -1031,7 +1029,7 @@ public class SpielInformationen extends JFrame {
 		enteringGoal = true;
 		editingFirstTeam = changedGoal.isFirstTeam();
 		
-		log("You want to change the goal of " + (changedGoal.getScorer() == null ? "n/a" : changedGoal.getScorer().getPseudonymOrLN()) + "(" + changedGoal.getMinute() + ")");
+		log("You want to change the goal of " + (changedGoal.getScorer() == null ? "n/a" : changedGoal.getScorer().getPseudonymOrLN()) + "(" + changedGoal.getMinute().asString() + ")");
 		
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
@@ -1055,7 +1053,7 @@ public class SpielInformationen extends JFrame {
 		
 		if (changedGoal.getScorer() != null)	jCBTop.setSelectedItem(changedGoal.getScorer().getPseudonymOrLN());
 		if (changedGoal.getAssister() != null)	jCBBottom.setSelectedItem(changedGoal.getAssister().getPseudonymOrLN());
-		jTFMinute.setText("" + changedGoal.getMinute());
+		jTFMinute.setText("" + changedGoal.getMinute().toString());
 		
 		if (editingFirstTeam)	jPnlEntry.setLocation(LOC_PNLENTRYHOME);
 		else					jPnlEntry.setLocation(LOC_PNLENTRYAWAY);
@@ -1072,7 +1070,7 @@ public class SpielInformationen extends JFrame {
 		enteringSubstitution = true;
 		editingFirstTeam = firstTeam;
 		
-		log("You want to change the substitution " + changedSubstitution.getPlayerOff().getPseudonymOrLN() + "(" + changedSubstitution.getMinute() + ". " + 
+		log("You want to change the substitution " + changedSubstitution.getPlayerOff().getPseudonymOrLN() + "(" + changedSubstitution.getMinute().toString() + ". " + 
 				changedSubstitution.getPlayerOn().getPseudonymOrLN() + ")");
 		
 		int playerPos = -1, squadNumber = changedSubstitution.getPlayerOff().getSquadNumber();
@@ -1101,7 +1099,7 @@ public class SpielInformationen extends JFrame {
 		
 		jCBTop.setSelectedItem(changedSubstitution.getPlayerOff().getPseudonymOrLN());
 		jCBBottom.setSelectedItem(changedSubstitution.getPlayerOn().getPseudonymOrLN());
-		jTFMinute.setText("" + changedSubstitution.getMinute());
+		jTFMinute.setText("" + changedSubstitution.getMinute().toString());
 		
 		if (editingFirstTeam)	jPnlEntry.setLocation(LOC_PNLENTRYHOME);
 		else					jPnlEntry.setLocation(LOC_PNLENTRYAWAY);
@@ -1136,7 +1134,7 @@ public class SpielInformationen extends JFrame {
 		if (changedBooking.isYellowCard())	jChBLeft.setSelected(true);
 		else						jChBRight.setSelected(true);
 		
-		jTFMinute.setText("" + changedBooking.getMinute());
+		jTFMinute.setText("" + changedBooking.getMinute().toString());
 		
 		if (editingFirstTeam)	jPnlEntry.setLocation(LOC_PNLENTRYHOME);
 		else					jPnlEntry.setLocation(LOC_PNLENTRYAWAY);
@@ -1440,22 +1438,28 @@ public class SpielInformationen extends JFrame {
 		if (!enteringSubstitution)	return;
 		
 		if (jTFMinute.getText().length() == 0) {
-			message("You have to enter a minute before you can save.");
+			message("Bitte eine Minute angeben.");
 			return;
 		}
 		
-		int minute = Integer.parseInt(jTFMinute.getText());
-		if (minute > 120) {
+		Minute minute;
+		try {
+			minute = Minute.parse(jTFMinute.getText());
+		} catch (Exception e) {
+			message("Bitte eine gültige Minute eingeben.");
+			return;
+		}
+		if (minute.getRegularTime() > 120) {
 			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
-		} else if (!isETpossible && minute > 90) {
+		} else if (!isETpossible && minute.getRegularTime() > 90) {
 			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		if (changedSubstitution != null)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedSubstitution);
 		changedSubstitution = null;
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
-			if (substitution.getMinute() > minute) {
+			if (substitution.getMinute().isAfter(minute)) {
 				repaint = true;
 			}
 		}
@@ -1633,20 +1637,26 @@ public class SpielInformationen extends JFrame {
 		if (!enteringGoal)	return;
 		
 		if (jTFMinute.getText().length() == 0) {
-			message("You have to enter a minute before you can save.");
+			message("Bitte eine Minute angeben.");
 			return;
 		}
 		
-		int minute = Integer.parseInt(jTFMinute.getText());
-		if (minute > 120) {
+		Minute minute;
+		try {
+			minute = Minute.parse(jTFMinute.getText());
+		} catch (Exception e) {
+			message("Bitte eine gültige Minute eingeben.");
+			return;
+		}
+		if (minute.getRegularTime() > 120) {
 			message("Ein Tor kann nicht nach der 120. Minute fallen.\nBenutzen Sie bitte für Elfmeterschießen die dafür vorgesehene Eingabemaske.");
 			return;
-		} else if (!isETpossible && minute > 90) {
+		} else if (!isETpossible && minute.getRegularTime() > 90) {
 			message("In diesem Spiel kann es keine Verlängerung geben.");
 			return;
 		}
 		for (Tor goal : goals) {
-			if (goal.getMinute() > minute) {
+			if (goal.getMinute().isAfter(minute)) {
 				repaint = true;
 			}
 		}
@@ -1658,8 +1668,8 @@ public class SpielInformationen extends JFrame {
 		if ((index = jCBTop.getSelectedIndex()) != 0) {
 			scorer = eligiblePlayersListUpper.get(index - 1);
 			for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
-				if (substitution.getPlayerOff() == scorer && minute > substitution.getMinute() || 
-						substitution.getPlayerOn() == scorer && minute < substitution.getMinute()) {
+				if (substitution.getPlayerOff() == scorer && minute.isAfter(substitution.getMinute()) || 
+						substitution.getPlayerOn() == scorer && minute.isBefore(substitution.getMinute())) {
 					message("The player " + scorer.getPseudonymOrLN() + " was not on the pitch in the given minute.");
 					return;
 				}
@@ -1669,8 +1679,8 @@ public class SpielInformationen extends JFrame {
 		if ((index = jCBBottom.getSelectedIndex()) != 0) {
 			assister = eligiblePlayersListLower.get(index - 1);
 			for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
-				if (substitution.getPlayerOff() == assister && minute > substitution.getMinute() || 
-						substitution.getPlayerOn() == assister && minute < substitution.getMinute()) {
+				if (substitution.getPlayerOff() == assister && minute.isAfter(substitution.getMinute()) || 
+						substitution.getPlayerOn() == assister && minute.isBefore(substitution.getMinute())) {
 					message("The player " + assister.getPseudonymOrLN() + " was not on the pitch in the given minute.");
 					return;
 				}
@@ -1750,11 +1760,17 @@ public class SpielInformationen extends JFrame {
 			return;
 		}
 		
-		int minute = Integer.parseInt(jTFMinute.getText());
-		if (minute > 120) {
+		Minute minute;
+		try {
+			minute = Minute.parse(jTFMinute.getText());
+		} catch (Exception e) {
+			message("Bitte eine gültige Minute eingeben.");
+			return;
+		}
+		if (minute.getRegularTime() > 120) {
 			message("Ein Spieler kann nicht nach der 120. Minute verwarnt werden. Bitte eine korrekte Minute angeben.");
 			return;
-		} else if (!isETpossible && minute > 90) {
+		} else if (!isETpossible && minute.getRegularTime() > 90) {
 			message("In diesem Spiel kann es keine Verlängerung geben. Bitte eine korrekte Minute angeben.");
 			return;
 		}
@@ -1794,13 +1810,13 @@ public class SpielInformationen extends JFrame {
 		requestFocus();
 	}
 	
-	private boolean checkPlayerOnPitch(Spieler player, int minute) {
+	private boolean checkPlayerOnPitch(Spieler player, Minute minute) {
 		boolean subOn = false;
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
-			if (substitution.getPlayerOff() == player && minute > substitution.getMinute()) {
+			if (substitution.getPlayerOff() == player && minute.isAfter(substitution.getMinute())) {
 				return false;
 			} else if (substitution.getPlayerOn() == player) {
-				if (minute < substitution.getMinute())	return false;
+				if (minute.isBefore(substitution.getMinute()))	return false;
 				subOn = true;
 			}
 		}
@@ -1813,7 +1829,7 @@ public class SpielInformationen extends JFrame {
 		return false;
 	}
 	
-	private boolean addBooking(int minute, boolean yellowCard, boolean onTheBench, Spieler bookedPlayer) {
+	private boolean addBooking(Minute minute, boolean yellowCard, boolean onTheBench, Spieler bookedPlayer) {
 		boolean isSecondBooking = false;
 		ArrayList<Karte> playersBookings = new ArrayList<>();
 		ArrayList<Karte> otherBookings = new ArrayList<>();
@@ -1829,7 +1845,7 @@ public class SpielInformationen extends JFrame {
 		} else if (playersBookings.size() == 1) {
 			Karte previous = playersBookings.get(0);
 			boolean prvYellow = previous.isYellowCard();
-			boolean prvFirst = previous.getMinute() <= minute;
+			boolean prvFirst = !previous.getMinute().isAfter(minute);
 			
 			if (!yellowCard && !prvFirst) {
 				message("Der Spieler kann nicht vom Platz gestellt werden, da er später noch eine Karte sieht.");

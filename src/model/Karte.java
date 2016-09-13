@@ -9,10 +9,10 @@ public class Karte {
 	private boolean isYellowCard;
 	private boolean isSecondBooking;
 	private boolean onTheBench;
-	private int minute;
+	private Minute minute;
 	private Spieler bookedPlayer;
 	
-	public Karte(Spiel match, boolean firstTeam, int minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, Spieler bookedPlayer) {
+	public Karte(Spiel match, boolean firstTeam, Minute minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, Spieler bookedPlayer) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
@@ -60,7 +60,7 @@ public class Karte {
 		return onTheBench;
 	}
 	
-	public int getMinute() {
+	public Minute getMinute() {
 		return minute;
 	}
 
@@ -71,7 +71,7 @@ public class Karte {
 	private void parseString(String data) {
 		onTheBench = data.indexOf("-b") != -1;
 		firstTeam = Boolean.parseBoolean(data.substring(0, data.indexOf("-m")));
-		minute = Integer.parseInt(data.substring(data.indexOf("-m") + 2, data.indexOf("-y")));
+		minute = Minute.parse(data.substring(data.indexOf("-m") + 2, data.indexOf("-y")));
 		isYellowCard = Boolean.parseBoolean(data.substring(data.indexOf("-y") + 2, data.indexOf("-s")));
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
 		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", ""));
@@ -81,6 +81,6 @@ public class Karte {
 	}
 	
 	public String toString() {
-		return firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber() + (onTheBench ? "-b" : "");
+		return firstTeam + "-m" + minute.toString() + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber() + (onTheBench ? "-b" : "");
 	}
 }

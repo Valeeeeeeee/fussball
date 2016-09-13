@@ -283,9 +283,9 @@ public class Mannschaft {
 				for (Wechsel substitution : substitutions) {
 					if (substitution.getPlayerOn() == player) {
 						played = true;
-						firstMinute = substitution.getMinute();
+						firstMinute = substitution.getMinute().getRegularTime();
 					} else if (substitution.getPlayerOff() == player) {
-						lastMinute = substitution.getMinute();
+						lastMinute = substitution.getMinute().getRegularTime();
 					}
 				}
 				for (Tor goal : goals) {
@@ -297,9 +297,9 @@ public class Mannschaft {
 				}
 				for (Karte booking : bookings) {
 					if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
-						if (booking.isSecondBooking())		bookedTwice = booking.getMinute();
-						else if (booking.isYellowCard())	booked = booking.getMinute();
-						else								redCard = booking.getMinute();
+						if (booking.isSecondBooking())		bookedTwice = booking.getMinute().getRegularTime();
+						else if (booking.isYellowCard())	booked = booking.getMinute().getRegularTime();
+						else								redCard = booking.getMinute().getRegularTime();
 					}
 				}
 				
@@ -355,10 +355,10 @@ public class Mannschaft {
 						if (substitution.getPlayerOn() == player) {
 							matchesPlayed++;
 							subOn++;
-							firstMinute = substitution.getMinute();
+							firstMinute = substitution.getMinute().getRegularTime();
 						} else if (substitution.getPlayerOff() == player) {
 							subOff++;
-							lastMinute = substitution.getMinute();
+							lastMinute = substitution.getMinute().getRegularTime();
 						}
 					}
 					for (Tor goal : goals) {
@@ -373,12 +373,12 @@ public class Mannschaft {
 							if (booking.isSecondBooking()) {
 								booked--;
 								bookedTwice++;
-								lastMinute = booking.getMinute();
+								lastMinute = booking.getMinute().getRegularTime();
 							}
 							else if (booking.isYellowCard())	booked++;
 							else {
 								redCards++;
-								lastMinute = booking.getMinute();
+								lastMinute = booking.getMinute().getRegularTime();
 							}
 						}
 					}

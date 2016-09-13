@@ -9,23 +9,23 @@ public class Tor {
 	private boolean firstTeam;
 	private boolean penalty;
 	private boolean ownGoal;
-	private int minute;
+	private Minute minute;
 	private Spieler scorer;
 	private Spieler assister;
 	
-	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, int minute) {
+	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, Minute minute) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.penalty = penalty;
 		this.ownGoal = ownGoal;
 		this.minute = minute;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute");
 	}
 	
-	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, int minute, Spieler scorer) {
+	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, Minute minute, Spieler scorer) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.penalty = penalty;
@@ -33,12 +33,12 @@ public class Tor {
 		this.minute = minute;
 		this.scorer = scorer;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN());
 	}
 	
-	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, int minute, Spieler scorer, Spieler assister) {
+	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, Minute minute, Spieler scorer, Spieler assister) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.penalty = penalty;
@@ -47,7 +47,7 @@ public class Tor {
 		this.scorer = scorer;
 		this.assister = assister;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-s" + scorer.getSquadNumber() + "-a" + assister.getSquadNumber()
+		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + assister.getSquadNumber()
 					+ (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN() + 
@@ -79,7 +79,7 @@ public class Tor {
 		return firstTeam;
 	}
 	
-	public int getMinute() {
+	public Minute getMinute() {
 		return minute;
 	}
 
@@ -97,7 +97,7 @@ public class Tor {
 		if (penalty)	data = data.substring(0, data.indexOf("-p"));
 		ownGoal = data.indexOf("-og") != -1;
 		if (ownGoal)	data = data.substring(0, data.indexOf("-og"));
-		minute = Integer.parseInt(data.substring(data.indexOf("-m") + 2, data.indexOf("-s")));
+		minute = Minute.parse(data.substring(data.indexOf("-m") + 2, data.indexOf("-s")));
 		String substring;
 		if ((substring = data.substring(data.indexOf("-s") + 2, data.indexOf("-a"))).length() > 0) {
 			int sqScorer = Integer.parseInt(substring);
@@ -112,7 +112,7 @@ public class Tor {
 	}
 	
 	public String toString() {
-		return firstTeam + "-m" + minute + "-s" + (scorer != null ? scorer.getSquadNumber() : "")
+		return firstTeam + "-m" + minute.toString() + "-s" + (scorer != null ? scorer.getSquadNumber() : "")
 					+ "-a" + (assister != null ? assister.getSquadNumber() : "") + (ownGoal ? "-og" : (penalty ? "-p" : ""));
 	}
 }
