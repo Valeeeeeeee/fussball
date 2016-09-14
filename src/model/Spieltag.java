@@ -237,16 +237,15 @@ public class Spieltag extends JPanel {
 		
 		lblsGroup = new int[] { 135, 5, 0, gapy, 10, height };
 		
-		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
+		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 135 : 125), gapy, 180, height };
 
-		tfsGoals = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 10, lblsTeams[STARTY], 
-				lblsTeams[GAPX] - 2 * 10 - 2 * 40 - 30 - (isETPossible ? zusInfWidth + 15 : 5), lblsTeams[GAPY], 40, lblsTeams[SIZEY] };
+		tfsGoals = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 10, lblsTeams[STARTY], 0, gapy, 40, height };
 		
-		lblsAddInfo = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 95, lblsTeams[STARTY], 0, lblsTeams[GAPY], (isETPossible ? zusInfWidth : 0), lblsTeams[SIZEY] };
+		lblsAddInfo = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 95, lblsTeams[STARTY], 0, gapy, (isETPossible ? zusInfWidth : 0), height };
 		
-		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 45, lblsTeams[STARTY], 0, lblsTeams[GAPY], 40, lblsTeams[SIZEY] };
+		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 35, lblsTeams[STARTY], 0, gapy, 30, height };
 		
-		matchesWidth = 650 + (isETPossible ? zusInfWidth + 10 : 0);
+		matchesWidth = 640 + (isETPossible ? zusInfWidth + 10 : 0);
 		matchesHeight = numberOfMatches * (height + gapy) - gapy + 2 * 5;
 	}
 	
@@ -449,6 +448,7 @@ public class Spieltag extends JPanel {
 				jBtnsMatchInfos[i].setText("+");
 				jBtnsMatchInfos[i].setToolTipText("Reset this result.");
 				jBtnsMatchInfos[i].setFocusable(false);
+				jBtnsMatchInfos[i].setMargin(new Insets(2, 6, 2, 6));
 				jBtnsMatchInfos[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						jBtnsMatchInfosClicked(x);

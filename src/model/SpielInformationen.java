@@ -646,6 +646,11 @@ public class SpielInformationen extends JFrame {
 					}
 				}
 			});
+			jTFMinute.addFocusListener(new FocusAdapter() {
+				public void focusGained(FocusEvent e) {
+					jTFMinute.selectAll();
+				}
+			});
 		}
 		{
 			jChBLeft = new JCheckBox();

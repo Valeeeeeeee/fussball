@@ -16,7 +16,7 @@ Patrick;Erras;null;19950121;Deutschland;Mittelfeld;29
 Willi;Evseev;null;19920214;Deutschland;Mittelfeld;21
 Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;10
-Kevin;Möhland;null;19930703;Deutschland;Mittelfeld;14
+Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;14
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
 Guido;Burgstaller;null;19890429;Österreich;Sturm;9
 Philipp;Hercher;null;19960321;Deutschland;Sturm;27
