@@ -20,4 +20,4 @@ Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;8
 Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
 Branimir;Hrgota;null;19930112;Schweden;Sturm;31
 Max;Kruse;null;19880319;Deutschland;Sturm;10
-Rafael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
+Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11

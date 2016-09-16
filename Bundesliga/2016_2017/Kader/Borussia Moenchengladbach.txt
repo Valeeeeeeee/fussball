@@ -1,0 +1,29 @@
+Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
+Moritz;Nicolas;null;19971021;Deutschland;Tor;35
+Tobias;Sippel;null;19880322;Deutschland;Tor;21
+Yann;Sommer;null;19881217;Schweiz;Tor;1
+Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
+Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;18
+Mamadou;Doucouré;null;19980521;Senegal, Frankreich;Abwehr;29
+Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
+Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
+Julian;Korb;null;19920321;Deutschland;Abwehr;27
+Marvin;Schulz;null;19950115;Deutschland;Abwehr;15
+Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
+Oscar;Wendt;null;19851024;Schweden;Abwehr;17
+László;Bénes;null;19970909;Slowakei;Mittelfeld;22
+Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;8
+Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
+Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;23
+Fabian;Johnson;null;19871211;Deutschland, USA;Mittelfeld;19
+Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;6
+Tsiy William;Ndenge;null;19970613;Deutschland;Mittelfeld;26
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14
+Djibril;Sow;null;19970206;Schweiz;Mittelfeld;20
+Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;5
+Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
+Josip;Drmic;null;19920808;Schweiz;Sturm;9
+André;Hahn;null;19900813;Deutschland;Sturm;28
+Thorgan;Hazard;null;19930329;Belgien;Sturm;10
+Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
+Lars;Stindl;null;19880826;Deutschland;Sturm;13
