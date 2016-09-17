@@ -237,15 +237,15 @@ public class Spieltag extends JPanel {
 		
 		lblsGroup = new int[] { 135, 5, 0, gapy, 10, height };
 		
-		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 135 : 125), gapy, 180, height };
+		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
 
 		tfsGoals = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 10, lblsTeams[STARTY], 0, gapy, 40, height };
 		
 		lblsAddInfo = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 95, lblsTeams[STARTY], 0, gapy, (isETPossible ? zusInfWidth : 0), height };
 		
-		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 35, lblsTeams[STARTY], 0, gapy, 30, height };
+		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 45, lblsTeams[STARTY], 0, gapy, 40, height };
 		
-		matchesWidth = 640 + (isETPossible ? zusInfWidth + 10 : 0);
+		matchesWidth = 650 + (isETPossible ? zusInfWidth + 10 : 0);
 		matchesHeight = numberOfMatches * (height + gapy) - gapy + 2 * 5;
 	}
 	
