@@ -58,10 +58,10 @@ public class Start extends JFrame {
 	private boolean isCurrentlyInMatchdayView = false;
 	private boolean isCurrentlyInOverviewMode = false;
 	
-	private int start_btnsstartx = 315;
-	private int start_btnsstarty = 120;
 	private static final int SIZEX_BTNS = 400;
 	private static final int SIZEY_BTNS = 90;
+	private static final int STARTX_BTNS = 315;
+	private static final int STARTY_BTNS = 120;
 	private static final int SIZEX_LBLS = 60;
 	private static final int SIZEY_LBLS = 60;
 	
@@ -81,10 +81,10 @@ public class Start extends JFrame {
 	// Homescreen
 	private JPanel Homescreen;
 	private JButton[] jBtnsLeagues;
-	private JLabel[] jLblsStillRunningMatchesLeagues;
+	private JLabel[] jLblsRunningMatchesLeagues;
 	private JLabel[] jLblsCompletedMatchesLeagues;
 	private JButton[] jBtnsTournaments;
-	private JLabel[] jLblsStillRunningMatchesTournaments;
+	private JLabel[] jLblsRunningMatchesTournaments;
 	private JLabel[] jLblsCompletedMatchesTournaments;
 	private JButton jBtnAddLeague;
 	private JButton jBtnAddTournament;
@@ -253,17 +253,17 @@ public class Start extends JFrame {
 		}
 		
 		jBtnsLeagues = new JButton[numberOfLeagues];
-		jLblsStillRunningMatchesLeagues = new JLabel[numberOfLeagues];
+		jLblsRunningMatchesLeagues = new JLabel[numberOfLeagues];
 		jLblsCompletedMatchesLeagues = new JLabel[numberOfLeagues];
 		jBtnsTournaments = new JButton[numberOfTournaments];
-		jLblsStillRunningMatchesTournaments = new JLabel[numberOfTournaments];
+		jLblsRunningMatchesTournaments = new JLabel[numberOfTournaments];
 		jLblsCompletedMatchesTournaments = new JLabel[numberOfTournaments];
 		
 		for (int i = 0; i < numberOfLeagues; i++) {
 			final int x = i;
 			jBtnsLeagues[i] = new JButton();
 			Homescreen.add(jBtnsLeagues[i]);
-			jBtnsLeagues[i].setBounds(start_btnsstartx, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+			jBtnsLeagues[i].setBounds(STARTX_BTNS, STARTY_BTNS + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 			jBtnsLeagues[i].setText(leagues.get(i).getName());
 			jBtnsLeagues[i].setFocusable(false);
 			jBtnsLeagues[i].addActionListener(new ActionListener() {
@@ -274,27 +274,27 @@ public class Start extends JFrame {
 			
 			jLblsCompletedMatchesLeagues[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesLeagues[i]);
-			jLblsCompletedMatchesLeagues[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsCompletedMatchesLeagues[i].setBounds(STARTX_BTNS - 2 * (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsCompletedMatchesLeagues[i]);
 			jLblsCompletedMatchesLeagues[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesLeagues[i].setFocusable(false);
 			jLblsCompletedMatchesLeagues[i].setBackground(colorCategory5);
 			jLblsCompletedMatchesLeagues[i].setOpaque(true);
 			
-			jLblsStillRunningMatchesLeagues[i] = new JLabel();
-			Homescreen.add(jLblsStillRunningMatchesLeagues[i]);
-			jLblsStillRunningMatchesLeagues[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
-			alignCenter(jLblsStillRunningMatchesLeagues[i]);
-			jLblsStillRunningMatchesLeagues[i].setFont(fontMissingResults);
-			jLblsStillRunningMatchesLeagues[i].setFocusable(false);
-			jLblsStillRunningMatchesLeagues[i].setBackground(colorCategory2);
-			jLblsStillRunningMatchesLeagues[i].setOpaque(true);
+			jLblsRunningMatchesLeagues[i] = new JLabel();
+			Homescreen.add(jLblsRunningMatchesLeagues[i]);
+			jLblsRunningMatchesLeagues[i].setBounds(STARTX_BTNS - (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsRunningMatchesLeagues[i]);
+			jLblsRunningMatchesLeagues[i].setFont(fontMissingResults);
+			jLblsRunningMatchesLeagues[i].setFocusable(false);
+			jLblsRunningMatchesLeagues[i].setBackground(colorCategory2);
+			jLblsRunningMatchesLeagues[i].setOpaque(true);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
 			final int x = i;
 			jBtnsTournaments[i] = new JButton();
 			Homescreen.add(jBtnsTournaments[i]);
-			jBtnsTournaments[i].setBounds(start_btnsstartx + SIZEX_BTNS + 10, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+			jBtnsTournaments[i].setBounds(STARTX_BTNS + SIZEX_BTNS + 10, STARTY_BTNS + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 			jBtnsTournaments[i].setText(tournaments.get(i).getName());
 			jBtnsTournaments[i].setFocusable(false);
 			jBtnsTournaments[i].addActionListener(new ActionListener() {
@@ -305,21 +305,21 @@ public class Start extends JFrame {
 			
 			jLblsCompletedMatchesTournaments[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesTournaments[i]);
-			jLblsCompletedMatchesTournaments[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsCompletedMatchesTournaments[i].setBounds(STARTX_BTNS + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsCompletedMatchesTournaments[i]);
 			jLblsCompletedMatchesTournaments[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesTournaments[i].setFocusable(false);
 			jLblsCompletedMatchesTournaments[i].setBackground(colorCategory5);
 			jLblsCompletedMatchesTournaments[i].setOpaque(true);
 			
-			jLblsStillRunningMatchesTournaments[i] = new JLabel();
-			Homescreen.add(jLblsStillRunningMatchesTournaments[i]);
-			jLblsStillRunningMatchesTournaments[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
-			alignCenter(jLblsStillRunningMatchesTournaments[i]);
-			jLblsStillRunningMatchesTournaments[i].setFont(fontMissingResults);
-			jLblsStillRunningMatchesTournaments[i].setFocusable(false);
-			jLblsStillRunningMatchesTournaments[i].setBackground(colorCategory2);
-			jLblsStillRunningMatchesTournaments[i].setOpaque(true);
+			jLblsRunningMatchesTournaments[i] = new JLabel();
+			Homescreen.add(jLblsRunningMatchesTournaments[i]);
+			jLblsRunningMatchesTournaments[i].setBounds(STARTX_BTNS + 2 * (SIZEX_BTNS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsRunningMatchesTournaments[i]);
+			jLblsRunningMatchesTournaments[i].setFont(fontMissingResults);
+			jLblsRunningMatchesTournaments[i].setFocusable(false);
+			jLblsRunningMatchesTournaments[i].setBackground(colorCategory2);
+			jLblsRunningMatchesTournaments[i].setOpaque(true);
 		}
 		refreshRunningAndCompletedMatches();
 	}
@@ -530,22 +530,22 @@ public class Start extends JFrame {
 	
 	private void refreshRunningAndCompletedMatches() {
 		for (int i = 0; i < numberOfLeagues; i++) {
-			int[] missingResults = leagues.get(i).checkMissingResults();
-			jLblsCompletedMatchesLeagues[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsCompletedMatchesLeagues[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesLeagues[i].setVisible(missingResults[0] != 0);
-			jLblsStillRunningMatchesLeagues[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsStillRunningMatchesLeagues[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
-			jLblsStillRunningMatchesLeagues[i].setVisible(missingResults[1] != 0);
+			int[] missing = leagues.get(i).checkMissingResults();
+			jLblsCompletedMatchesLeagues[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
+			jLblsCompletedMatchesLeagues[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
+			jLblsCompletedMatchesLeagues[i].setVisible(missing[0] != 0);
+			jLblsRunningMatchesLeagues[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
+			jLblsRunningMatchesLeagues[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
+			jLblsRunningMatchesLeagues[i].setVisible(missing[1] != 0);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
-			int[] missingResults = tournaments.get(i).checkMissingResults();
-			jLblsCompletedMatchesTournaments[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsCompletedMatchesTournaments[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesTournaments[i].setVisible(missingResults[0] != 0);
-			jLblsStillRunningMatchesTournaments[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsStillRunningMatchesTournaments[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
-			jLblsStillRunningMatchesTournaments[i].setVisible(missingResults[1] != 0);
+			int[] missing = tournaments.get(i).checkMissingResults();
+			jLblsCompletedMatchesTournaments[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
+			jLblsCompletedMatchesTournaments[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
+			jLblsCompletedMatchesTournaments[i].setVisible(missing[0] != 0);
+			jLblsRunningMatchesTournaments[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
+			jLblsRunningMatchesTournaments[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
+			jLblsRunningMatchesTournaments[i].setVisible(missing[1] != 0);
 		}
 	}
 	
