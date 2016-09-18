@@ -339,7 +339,7 @@ public class Mannschaft {
 					boolean home = homeaway[match.getMatchday()];
 					int[] lineup = home ? match.getLineupHome() : match.getLineupAway();
 					if (lineup == null)	continue;
-					int firstMinute = 91, lastMinute = 91;
+					int firstMinute = 90, lastMinute = 90;
 					ArrayList<Wechsel> substitutions = match.getSubstitutions(home);
 					ArrayList<Tor> goals = match.getGoals();
 					ArrayList<Karte> bookings = match.getBookings();
@@ -348,7 +348,7 @@ public class Mannschaft {
 						if (lineup[j] == squadNumber) {
 							matchesPlayed++;
 							matchesStarted++;
-							firstMinute = 1;
+							firstMinute = 0;
 						}
 					}
 					for (Wechsel substitution : substitutions) {
@@ -356,9 +356,11 @@ public class Mannschaft {
 							matchesPlayed++;
 							subOn++;
 							firstMinute = substitution.getMinute().getRegularTime();
+							if (firstMinute == 45 || firstMinute == 46 || firstMinute == 90)	firstMinute--;
 						} else if (substitution.getPlayerOff() == player) {
 							subOff++;
 							lastMinute = substitution.getMinute().getRegularTime();
+							if (lastMinute == 46)	lastMinute--;
 						}
 					}
 					for (Tor goal : goals) {

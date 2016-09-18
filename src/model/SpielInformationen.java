@@ -2016,13 +2016,13 @@ public class SpielInformationen extends JFrame {
 				if (editingFirstTeam) {
 					lineupHome[counter] = kaderHome.get(i).getSquadNumber();
 					jLblsPlayersHome[counter].setText(kaderHome.get(i).getPseudonymOrLN());
-					jLblsPlayersHome[counter++].setVisible(true);
+					jLblsPlayersHome[counter].setVisible(true);
 					jLblsSquadNumbersHome[counter].setText("" + kaderHome.get(i).getSquadNumber());
 					jLblsSquadNumbersHome[counter++].setVisible(true);
 				} else {
 					lineupAway[counter] = kaderAway.get(i).getSquadNumber();
 					jLblsPlayersAway[counter].setText(kaderAway.get(i).getPseudonymOrLN());
-					jLblsPlayersAway[counter++].setVisible(true);
+					jLblsPlayersAway[counter].setVisible(true);
 					jLblsSquadNumbersAway[counter].setText("" + kaderAway.get(i).getSquadNumber());
 					jLblsSquadNumbersAway[counter++].setVisible(true);
 				}
