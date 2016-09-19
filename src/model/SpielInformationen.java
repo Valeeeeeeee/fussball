@@ -44,6 +44,7 @@ public class SpielInformationen extends JFrame {
 	
 	private JPanel jPnlLineupSelection;
 	private JLabel[] jLblsLineupSelectionPlayers;
+	private JLabel jLblNumberOfSelectedPlayers;
 	private JButton jBtnLineupSelectionCancel;
 	private JButton jBtnLineupSelectionCompleted;
 	
@@ -136,6 +137,7 @@ public class SpielInformationen extends JFrame {
 	private Point LOC_PNLENTERLINEUPHOME = new Point(50, 150);
 	private Point LOC_PNLENTERLINEUPAWAY = new Point(490, 150);
 	private Dimension DIM_PNLENTERLINEUP = new Dimension(410, 330);
+	private Rectangle REC_LBLNOFSELPLAYERS = new Rectangle(30, 295, 160, 20);
 	private Rectangle REC_BTNELUCANCEL = new Rectangle(220, 290, 100, 30);
 	private Rectangle REC_BTNELUCOMPL = new Rectangle(330, 290, 70, 30);
 	
@@ -176,6 +178,8 @@ public class SpielInformationen extends JFrame {
 	private ArrayList<Spieler> eligiblePlayersListUpper  = new ArrayList<>();
 	private ArrayList<Spieler> eligiblePlayersListLower  = new ArrayList<>();
 	private boolean[] playerSelected;
+	private int numberOfSelectedPlayers;
+	private int squadNumberToSelect;
 	private boolean editingFirstTeam;
 	private boolean enteringLineup;
 	private boolean enteringGoal;
@@ -590,6 +594,20 @@ public class SpielInformationen extends JFrame {
 			jPnlLineupSelection.setLayout(null);
 			jPnlLineupSelection.setBackground(lineupSelColor);
 			jPnlLineupSelection.setVisible(false);
+			jPnlLineupSelection.addKeyListener(new KeyAdapter() {
+				public void keyTyped(KeyEvent e) {
+					if (e.getKeyChar() > 47 && e.getKeyChar() < 58) {
+						squadNumberDigit(e.getKeyChar() - 48);
+					} else if (e.getKeyChar() == 44) {
+						squadNumberCompleted();
+					}
+				}
+			});
+		}
+		{
+			jLblNumberOfSelectedPlayers = new JLabel();
+			jPnlLineupSelection.add(jLblNumberOfSelectedPlayers);
+			jLblNumberOfSelectedPlayers.setBounds(REC_LBLNOFSELPLAYERS);
 		}
 		{
 			jBtnLineupSelectionCompleted = new JButton();
@@ -1953,8 +1971,10 @@ public class SpielInformationen extends JFrame {
 			});
 		}
 		
+		numberOfSelectedPlayers = 0;
 		if (lineup == null) {
 			lineup = new int[numberOfPlayersInLineUp];
+			jLblNumberOfSelectedPlayers.setText(numberOfSelectedPlayers + " Spieler ausgewählt");
 		} else {
 			// colorise previously selected players
 			for (int i = 0; i < lineup.length; i++) {
@@ -1970,6 +1990,7 @@ public class SpielInformationen extends JFrame {
 		if (editingFirstTeam)	jPnlLineupSelection.setLocation(LOC_PNLENTERLINEUPHOME);
 		else					jPnlLineupSelection.setLocation(LOC_PNLENTERLINEUPAWAY);
 		jPnlLineupSelection.setVisible(true);
+		jPnlLineupSelection.requestFocus();
 	}
 	
 	private void jBtnEnterLineupCancelActionPerformed() {
@@ -1989,9 +2010,27 @@ public class SpielInformationen extends JFrame {
 		requestFocus();
 	}
 	
+	private void squadNumberDigit(int digit) {
+		squadNumberToSelect *= 10;
+		squadNumberToSelect += digit;
+	}
+	
+	private void squadNumberCompleted() {
+		for (int i = 0; i < jLblsLineupSelectionPlayers.length; i++) {
+			if (jLblsLineupSelectionPlayers[i].getText().startsWith(squadNumberToSelect + " ")) {
+				playerSelected(i);
+				break;
+			}
+		}
+		squadNumberToSelect = 0;
+	}
+	
 	private void playerSelected(int index) {
-		jLblsLineupSelectionPlayers[index].setOpaque(playerSelected[index] = !playerSelected[index]);
+		numberOfSelectedPlayers += (playerSelected[index] = !playerSelected[index]) ? 1 : -1;
+		jLblNumberOfSelectedPlayers.setText(numberOfSelectedPlayers + " Spieler ausgewählt");
+		jLblsLineupSelectionPlayers[index].setOpaque(playerSelected[index]);
 		repaintImmediately(jLblsLineupSelectionPlayers[index]);
+		jPnlLineupSelection.requestFocus();
 	}
 	
 	private void jBtnEnterLineupCompletedActionPerformed() {
@@ -2000,7 +2039,7 @@ public class SpielInformationen extends JFrame {
 		int numberOfPlayers = 0, counter = 0;
 		// count number of players
 		for (int i = 0; i < playerSelected.length; i++) {
-			if(playerSelected[i])	numberOfPlayers++;
+			if (playerSelected[i])	numberOfPlayers++;
 		}
 		
 		if (numberOfPlayers != numberOfPlayersInLineUp) {

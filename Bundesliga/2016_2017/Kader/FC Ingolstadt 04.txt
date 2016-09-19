@@ -1,0 +1,26 @@
+Fabijan;Buntic;null;19970224;Kroatien, Deutschland;Tor;24
+Martin;Hansen;null;19900615;Dänemark;Tor;35
+Ørjan;Nyland;null;19900910;Norwegen;Tor;1
+Christian;Ortag;null;19950114;Deutschland;Tor;39
+Romain;Brégerie;null;19860809;Frankreich;Abwehr;18
+Florent;Hadergjonaj;null;19940731;Schweiz;Abwehr;33
+Anthony;Jung;null;19911103;Deutschland;Abwehr;3
+Tobias;Levels;null;19861122;Deutschland, Niederlande;Abwehr;28
+Marvin;Matip;null;19850925;Kamerun, Deutschland;Abwehr;34
+Markus;Suttner;null;19870416;Österreich;Abwehr;29
+Marcel;Tisserand;null;19930110;DR Kongo;Abwehr;32;20160831-
+Hauke;Wahl;null;19940415;Deutschland;Abwehr;17
+Max;Christiansen;null;19960925;Deutschland;Mittelfeld;19
+Almog;Cohen;null;19880901;Israel;Mittelfeld;36
+Pascal;Groß;null;19910615;Deutschland;Mittelfeld;10
+Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;21
+Stefan;Lex;null;19891127;Deutschland;Mittelfeld;14
+Alfredo;Morales;null;19900512;USA, Deutschland;Mittelfeld;6
+Maurice;Multhaup;null;19961215;Deutschland;Mittelfeld;31
+Nico;Rinderknecht;null;19971011;Deutschland;Mittelfeld;22
+Roger;de Oliveira Bernardo;Roger;19850810;Brasilien;Mittelfeld;8
+Moritz;Hartmann;null;19860620;Deutschland;Sturm;9
+Lukas;Hinterseer;null;19910328;Österreich;Sturm;16
+Mathew;Leckie;null;19910204;Australien;Sturm;7
+Robert;Leipertz;null;19930201;Deutschland;Sturm;13
+Darío;Lezcano;null;19900630;Paraguay;Sturm;11
