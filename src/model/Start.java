@@ -241,7 +241,7 @@ public class Start extends JFrame {
 			jBtnExit.setFocusable(false);
 			jBtnExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					jBtnBeendenActionPerformed();
+					jBtnExitActionPerformed();
 				}
 			});
 		}
@@ -938,19 +938,13 @@ public class Start extends JFrame {
 		aktuellerSpieltag.setVisible(false);
 		aktuelleTabelle.setVisible(false);
 		
-		aktuellerSpieltag.remove(jBtnBack);
-		aktuelleTabelle.remove(jBtnBack);
-		getContentPane().add(jBtnBack);
-		jBtnBack.repaint();
 		uebersicht.setMannschaft(index);
 		uebersicht.setVisible(true);
 	}
 	
 	public void showMatchday(int matchday) {
-		jBtnBack.setVisible(false);
 		uebersicht.setVisible(false);
 		aktuellerSpieltag.add(jBtnBack);
-		jBtnBack.setVisible(true);
 		aktuellerSpieltag.setVisible(true);
 		aktuellerSpieltag.showMatchday();
 		aktuellerSpieltag.showMatchday(matchday);
@@ -1299,7 +1293,7 @@ public class Start extends JFrame {
 		message("Successfully created new tournament.");
 	}
 	
-	public void jBtnBeendenActionPerformed() {
+	public void jBtnExitActionPerformed() {
 		saveConfiguration();
 		System.exit(0);
 	}
@@ -1324,16 +1318,11 @@ public class Start extends JFrame {
 				LeagueHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
 			} else if (uebersicht.isVisible()) {
-				jBtnBack.setVisible(false);
-				getContentPane().remove(jBtnBack);
 				if (isCurrentlyInMatchdayView) {
-					aktuellerSpieltag.add(jBtnBack);
 					aktuellerSpieltag.setVisible(true);
 				} else {
-					aktuelleTabelle.add(jBtnBack);
 					aktuelleTabelle.setVisible(true);
 				}
-				jBtnBack.setVisible(true);
 				uebersicht.setVisible(false);
 			} else {
 				LeagueHomescreen.add(jBtnBack);
@@ -1418,16 +1407,11 @@ public class Start extends JFrame {
 				isCurrentlyInOverviewMode = false;
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {
-				jBtnBack.setVisible(false);
-				getContentPane().remove(jBtnBack);
 				if (isCurrentlyInMatchdayView) {
-					aktuellerSpieltag.add(jBtnBack);
 					aktuellerSpieltag.setVisible(true);
 				} else {
-					aktuelleTabelle.add(jBtnBack);
 					aktuelleTabelle.setVisible(true);
 				}
-				jBtnBack.setVisible(true);
 				uebersicht.setVisible(false);
 			} else if (isCurrentlyInQualification) {
 				if (currentTSeason.hasQGroupStage() && aktuelleTabelle != null) {
