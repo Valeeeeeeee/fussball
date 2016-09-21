@@ -1,0 +1,33 @@
+Diego;Benaglio;null;19830908;Schweiz;Tor;1
+Koen;Casteels;null;19920625;Belgien;Tor;28
+Max;Grün;null;19870405;Deutschland;Tor;20
+Phillip;Menzel;null;19980818;Deutschland;Tor;36
+Carlos;Ascues;null;19920606;Peru;Abwehr;6
+Jeffrey;Bruma;null;19911113;Niederlande;Abwehr;5
+Jannes;Horn;null;19970206;Deutschland;Abwehr;21
+Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
+Robin;Knoche;null;19920522;Deutschland;Abwehr;31
+Ricardo;Rodríguez;null;19920825;Schweiz;Abwehr;34
+Marian;Sarr;null;19950130;Deutschland;Abwehr;32
+Marcel;Schäfer;null;19840607;Deutschland;Abwehr;4
+Christian;Träsch;null;19870901;Deutschland;Abwehr;15
+Philipp;Wollscheid;null;19890306;Deutschland;Abwehr;2;20160831-
+Robin;Ziegele;null;19970313;Deutschland;Abwehr;40
+Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
+Ismail;Azzaoui;null;19980106;Belgien;Mittelfeld;38
+Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;14
+Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7
+Amara;Condé;null;19970106;Deutschland;Mittelfeld;29
+Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;11
+Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10
+Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;13
+Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
+Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
+Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
+Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
+Josip;Brekalo;null;19980623;Kroatien;Sturm;25
+Bruno Henrique;Pinto;Bruno Henrique;19901230;Brasilien;Sturm;16
+Anton-Leander;Donkor;null;19971111;Deutschland;Sturm;35
+Bas;Dost;null;19890531;Niederlande;Sturm;12;-20160827
+Mario;Gomez;null;19850710;Deutschland;Sturm;33
+Borja;Mayoral;null;19970405;Spanien;Sturm;17
