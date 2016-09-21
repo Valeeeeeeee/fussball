@@ -1,0 +1,27 @@
+Benjamin;Bellot;null;19900730;Deutschland;Tor;22
+Fabio;Coltorti;null;19801203;Schweiz;Tor;1
+Péter;Gulácsi;null;19900506;Ungarn;Tor;32
+Marius;Müller;null;19930712;Deutschland;Tor;21
+Bernardo;Fernandes da Silva Junior;Bernardo;19950514;Brasilien;Abwehr;3;20160828-
+Marvin;Compper;null;19850614;Deutschland;Abwehr;33
+Ken;Gipson;null;19960224;Deutschland;Abwehr;36
+Marcel;Halstenberg;null;19910927;Deutschland;Abwehr;23
+Lukas;Klostermann;null;19960603;Deutschland;Abwehr;16
+Atinç;Nukan;null;19930720;Türkei;Abwehr;5;-20160830
+Willi;Orban;null;19921103;Deutschland;Abwehr;4
+Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;5;20160831-
+Benno;Schmitz;null;19941117;Deutschland;Abwehr;20
+Massimo;Bruno;null;19930917;Belgien;Mittelfeld;14;-20160829
+Oliver;Burke;null;19970407;Schottland;Mittelfeld;19;20160828-
+Diego;Demme;null;19911121;Deutschland;Mittelfeld;31
+Stefan;Ilsanker;null;19890518;Österreich;Mittelfeld;13
+Dominik;Kaiser;null;19880916;Deutschland;Mittelfeld;24
+Zsolt;Kalmár;null;19950609;Ungarn;Mittelfeld;35
+Naby;Keita;null;19950210;Guinea;Mittelfeld;8
+Rani;Khedira;null;19940127;Deutschland;Mittelfeld;6
+Terrence;Boyd;null;19910216;USA;Sturm;18
+Emil;Forsberg;null;19911023;Schweden;Sturm;10
+Yusuf;Poulsen;null;19940615;Dänemark;Sturm;9
+Marcel;Sabitzer;null;19940317;Österreich;Sturm;7
+Davie;Selke;null;19950120;Deutschland;Sturm;27
+Timo;Werner;null;19960306;Deutschland;Sturm;11

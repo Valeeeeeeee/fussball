@@ -1,0 +1,34 @@
+Jaroslav;Drobny;null;19791018;Tschechien;Tor;33
+Felix;Wiedwald;null;19900315;Deutschland;Tor;42
+Raphael;Wolf;null;19880606;Deutschland;Tor;1
+Michael;Zetterer;null;19950712;Deutschland;Tor;30
+Robert;Bauer;null;19950409;Deutschland;Abwehr;4
+Luca;Caldirola;null;19910201;Italien;Abwehr;3
+Fallou;Diagne;null;19890814;Senegal;Abwehr;21
+Santiago;García;null;19880708;Italien, Argentinien;Abwehr;2
+Ulisses;Garcia;null;19960111;Schweiz;Abwehr;20
+Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
+Leon;Guwara;null;19960628;Deutschland;Abwehr;29;-20160830
+Niklas;Moisander;null;19850929;Finnland;Abwehr;18
+Lamine;Sané;null;19870322;Senegal;Abwehr;26
+Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
+Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
+Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
+Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
+Justin;Eilers;null;19880613;Deutschland;Mittelfeld;17
+Clemens;Fritz;null;19801207;Deutschland;Mittelfeld;8
+Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;39
+Serge;Gnabry;null;19950714;Deutschland;Mittelfeld;29;20160831-
+Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;27
+Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;15
+Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
+Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
+Thanos;Petsos;null;19910605;Griechenland;Mittelfeld;25
+Sambou;Yatabaré;null;19890302;Mali;Mittelfeld;5
+Johannes;Eggestein;null;19980508;Deutschland;Sturm;24
+Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
+Max;Kruse;null;19880319;Deutschland;Sturm;10
+Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28
+Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14
+Lennart;Thy;null;19920225;Deutschland;Sturm;11
