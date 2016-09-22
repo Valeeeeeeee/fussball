@@ -21,7 +21,7 @@ Theodor;'Gebre Selassie';null;19861224;Tschechien;Mittelfeld;23
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
 Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
-Cedrick;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6
+Cédric;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6
 Ludovic;Obraniak;null;19841110;Frankreich, Polen;Mittelfeld;7;-20141231
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;11;20150101-
 Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17

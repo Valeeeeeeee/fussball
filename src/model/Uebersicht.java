@@ -923,9 +923,9 @@ public class Uebersicht extends JPanel {
 		matchdayOrder.clear();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			String dateString = team.getDateAndTime(i);
-			int index = 0, date = MyDate.getDate(dateString.substring(0, dateString.indexOf(" ")));
+			int index = 0, date = MyDate.getDate(dateString.split(" ")[0]);
 			for (Integer itg : dates) {
-				if (date > itg)	index++;
+				if (date == MyDate.UNIX_EPOCH || date > itg)	index++;
 			}
 			dates.add(index, date);
 			matchdayOrder.add(index, i);
