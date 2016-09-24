@@ -128,9 +128,10 @@ public class Tabelle extends JPanel {
 						jLblsData[i][j].setCursor(handCursor);
 						jLblsData[i][j].addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent evt) {
+								int index = teamIndices[x];
 								jBtnChangeTableType(Tabellenart.COMPLETE);
 								if (belongsToALeague)	jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
-								Start.getInstance().uebersichtAnzeigen(teamIndices[x]);
+								Start.getInstance().uebersichtAnzeigen(index);
 							}
 						});
 					} else {
