@@ -5,11 +5,11 @@ Tom;Mickel;null;19890419;Deutschland;Tor;36
 Cléber Janderson;Pereira Reis;Cléber;19901205;Brasilien;Abwehr;3
 Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Johan;Djourou;null;19870118;Schweiz;Abwehr;5
-Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;Abwehr;6;20160831-
 Ashton-Phillip;Götz;null;19930716;Deutschland;Abwehr;39
 Gideon;Jung;null;19940912;Deutschland;Abwehr;28
 Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24
+Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;Abwehr;6;20160831-
 Young-Jae;Seo;null;19950523;Südkorea;Abwehr;37
 Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;4
 Nabil;Bahoui;null;19910205;Schweden;Mittelfeld;21

@@ -197,8 +197,8 @@ public class Spieler {
 	public boolean inOrderBefore(Spieler other) {
 		if (position.getID() < other.position.getID())	return true;
 		if (position.getID() > other.position.getID())	return false;
-		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastName).toLowerCase();
-		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastName).toLowerCase();
+		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastNameShort).toLowerCase();
+		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastNameShort).toLowerCase();
 		if (myName.equals(otherName))	return firstName.compareTo(other.firstName) < 0;
 		return myName.compareTo(otherName) < 0;
 	}

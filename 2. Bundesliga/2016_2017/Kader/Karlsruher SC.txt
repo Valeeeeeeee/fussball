@@ -18,12 +18,12 @@ Gaëtan;Krebs;null;19851118;Frankreich;Mittelfeld;21
 Charalampos;Mavrias;null;19940221;Griechenland;Mittelfeld;27;20160906-
 Marvin;Mehlem;null;19970911;Deutschland;Mittelfeld;16
 Grischa;Prömel;null;19950109;Deutschland;Mittelfeld;19
+Yann;del Pino 'Rolim';null;19950315;Brasilien;Mittelfeld;23
 Ylli;Sallahi;null;19940406;Österreich;Mittelfeld;20
 Moritz;Stoppelkamp;null;19861211;Deutschland;Mittelfeld;7
 Manuel;Torres;null;19910105;Spanien;Mittelfeld;18
 Enrico;Valentini;null;19890220;Deutschland;Mittelfeld;22
 Hiroki;Yamada;null;19881227;Japan;Mittelfeld;10
-Yann;del Pino Rolim;Yann;19950315;Brasilien;Mittelfeld;23
 Dimitrios;Diamantakos;null;19930305;Griechenland;Sturm;9
 Erwin;Hoffer;null;19870414;Österreich;Sturm;8
 Florian;Kamberi;null;19950308;Schweiz;Sturm;15;20160902-

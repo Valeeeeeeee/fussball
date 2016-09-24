@@ -21,9 +21,9 @@ Johannes;Geis;null;19930817;Deutschland;Mittelfeld;5
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11;20160830-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
-Christian;Rubio 'Sivodedov';null;19971107;Schweden;Mittelfeld;12
 Sidney;Sam;null;19880131;Deutschland;Mittelfeld;18
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;21
+Christian;Rubio 'Sivodedov';null;19971107;Schweden;Mittelfeld;12
 Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
 Donis;Avdijaj;null;19960825;Deutschland;Sturm;33
 Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
