@@ -394,6 +394,7 @@ public class Spieltag extends JPanel {
 							jLblsTeams[x % numberOfMatches].setBorder(null);
 							jLblsTeams[x % numberOfMatches + numberOfMatches].setBorder(null);
 						} else if (belongsToALeague || belongsToGroup) {
+							saveResults();
 							Spiel match = competition.getMatch(currentMatchday, row);
 							if (match != null)	Start.getInstance().uebersichtAnzeigen(column == 0 ? match.home() : match.away());
 						}
@@ -747,23 +748,19 @@ public class Spieltag extends JPanel {
 			openedMatchInfos.get(0).jBtnGoActionPerformed();
 		}
 	}
+	
+	private void saveResults() {
+		if (belongsToALeague)		lSeason.getResultsFromSpieltag();
+		else if (belongsToGroup)	group.getResultsFromSpieltag();
+		else if (belongsToKORound)	koRound.getResultsFromSpieltag();
+		else						tSeason.getResultsFromSpieltag();
+	}
 
 	private void jCBMatchdaysItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
 			ensureNoOpenedMatchInfos();
-			if (belongsToALeague) {
-				lSeason.getResultsFromSpieltag();
-				showMatchday();
-			} else if (belongsToGroup) {
-				group.getResultsFromSpieltag();
-				showMatchday();
-			} else if (belongsToKORound) {
-				koRound.getResultsFromSpieltag();
-				showMatchday();
-			} else {
-				tSeason.getResultsFromSpieltag();
-				showMatchday();
-			}
+			saveResults();
+			showMatchday();
 		}
 	}
 	
