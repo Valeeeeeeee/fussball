@@ -25,10 +25,12 @@ Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;15
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
 Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
 Thanos;Petsos;null;19910605;Griechenland;Mittelfeld;25
+Niklas;Schmidt;null;19980301;Deutschland;Mittelfeld;38
 Sambou;Yatabaré;null;19890302;Mali;Mittelfeld;5
 Johannes;Eggestein;null;19980508;Deutschland;Sturm;24
 Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
 Max;Kruse;null;19880319;Deutschland;Sturm;10
 Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28
+Ousman;Manneh;null;19970310;Gambia;Sturm;47
 Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14
 Lennart;Thy;null;19920225;Deutschland;Sturm;11

@@ -4,6 +4,7 @@ André;Weis;null;19890930;Deutschland;Tor;1
 Naser;Aliji;null;19931227;Albanien;Abwehr;34
 Ewerton José;Almeida Santos;Ewerton;19890323;Brasilien;Abwehr;5;20160829-
 Tim;Heubach;null;19880412;Deutschland;Abwehr;3
+Robin;Koch;null;19960717;Deutschland;Abwehr;25
 Sascha;Mockenhaupt;null;19910910;Deutschland;Abwehr;5;-20160815
 Mensur;Mujdza;null;19840328;Bosnien-Herzegowina;Abwehr;23;20160828-
 Philipp;Mwene;null;19940129;Österreich;Abwehr;21
@@ -23,6 +24,7 @@ Alexander;Ring;null;19910409;Finnland;Mittelfeld;6
 Nils;Seufert;null;19970203;Deutschland;Mittelfeld;38
 Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;10;20160812-
 Maurice John;Deville;null;19920731;Luxemburg;Sturm;27;-20160806
+Robert;Glatzel;null;19940108;Deutschland;Sturm;31
 Lukas;Görtler;null;19940615;Deutschland;Sturm;9
 Sebastian;Jacob;null;19930626;Deutschland;Sturm;14
 Osayamen;Osawe;null;19930903;England, Nigeria;Sturm;35
