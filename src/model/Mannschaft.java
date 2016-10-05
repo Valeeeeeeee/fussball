@@ -571,7 +571,7 @@ public class Mannschaft {
 	}
 	
 	public boolean isMatchSet(int matchday) {
-		if (matches.containsKey("SP" + matchday))	return true;
+		if (matches.containsKey(getKey(matchday)))	return true;
 		return false;
 	}
 	
@@ -710,19 +710,24 @@ public class Mannschaft {
 		data[matchday][OPPONENT] = 0;
 	}
 	
+	public String getKey(int matchday) {
+		return "SP" + matchday;
+	}
+	
 	public void setMatch(int matchday, Spiel match) {
+		String key = getKey(matchday);
 		if (match != null) {
-			matches.put("SP" + matchday, match);
+			matches.put(key, match);
 			if (id == match.home()) {
 				setOpponent(matchday, true, match.away());
 			} else if (id == match.away()) {
 				setOpponent(matchday, false, match.home());
 			} else {
 				log("This match came to the wrong team.");
-				matches.remove("SP" + matchday);
+				matches.remove(key);
 			}
 		} else {
-			matches.remove("SP" + matchday);
+			matches.remove(key);
 		}
 	}
 	
