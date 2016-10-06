@@ -284,8 +284,8 @@ public class Gruppe implements Wettbewerb {
 			nMatchdaySetUntilTime = 2400;
 			if (today < getDate(0, 0)) {
 				newestMatchday = 0;
-			} else if (today >= getDate(getNumberOfMatchdays() - 1, 0) && getDate(getNumberOfMatchdays() - 1, 0) != 0) {
-				newestMatchday = getNumberOfMatchdays() - 1;
+			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != startDate) {
+				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
 				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
