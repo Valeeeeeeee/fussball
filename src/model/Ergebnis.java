@@ -140,11 +140,13 @@ public class Ergebnis {
 		}
 	}
 	
+	public String fromPerspective(boolean firstTeam) {
+		if (firstTeam)	return home() + ":" + away();
+		else			return away() + ":" + home();
+	}
+	
 	public String getResult() {
-		if (amGruenenTisch)	return home(REGULAR) + ":" + away(REGULAR);
-		if (finishedInRegularTime)	return home(REGULAR) + ":" + away(REGULAR);
-		if (finishedInExtraTime)	return home(EXTRATIME) + ":" + away(EXTRATIME);
-		return home(PENALTIES) + ":" + away(PENALTIES);
+		return fromPerspective(true);
 	}
 	
 	public String getMore() {
@@ -162,15 +164,9 @@ public class Ergebnis {
 	}
 	
 	public int home() {
-		if (amGruenenTisch) {
-			return home(REGULAR);
-		}
-		if (finishedInRegularTime) {
-			return home(REGULAR);
-		}
-		if (finishedInExtraTime) {
-			return home(EXTRATIME);
-		}
+		if (amGruenenTisch)			return home(REGULAR);
+		if (finishedInRegularTime)	return home(REGULAR);
+		if (finishedInExtraTime)	return home(EXTRATIME);
 		return home(PENALTIES);
 	}
 	
@@ -179,15 +175,9 @@ public class Ergebnis {
 	}
 	
 	public int away() {
-		if (amGruenenTisch) {
-			return away(REGULAR);
-		}
-		if (finishedInRegularTime) {
-			return away(REGULAR);
-		}
-		if (finishedInExtraTime) {
-			return away(EXTRATIME);
-		}
+		if (amGruenenTisch)			return away(REGULAR);
+		if (finishedInRegularTime)	return away(REGULAR);
+		if (finishedInExtraTime)	return away(EXTRATIME);
 		return away(PENALTIES);
 	}
 	

@@ -21,7 +21,7 @@ public class Tor {
 		this.minute = minute;
 		
 		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
+		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
 			" in the " + minute + ". minute");
 	}
 	
@@ -34,8 +34,8 @@ public class Tor {
 		this.scorer = scorer;
 		
 		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN());
+		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
+			" in the " + minute + ". minute scored by " + scorer.getPopularOrLastName());
 	}
 	
 	public Tor(Spiel match, boolean firstTeam, boolean penalty, boolean ownGoal, Minute minute, Spieler scorer, Spieler assister) {
@@ -49,9 +49,9 @@ public class Tor {
 		
 		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + assister.getSquadNumber()
 					+ (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
-		log("GOOOAL for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
-			" in the " + minute + ". minute scored by " + scorer.getPseudonymOrLN() + 
-			" and assisted by " + assister.getPseudonymOrLN());
+		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
+			" in the " + minute + ". minute scored by " + scorer.getPopularOrLastName() + 
+			" and assisted by " + assister.getPopularOrLastName());
 	}
 	
 	public Tor(Spiel match, String data) {
@@ -111,11 +111,11 @@ public class Tor {
 		String substring;
 		if ((substring = data.substring(data.indexOf("-s") + 2, data.indexOf("-a"))).length() > 0) {
 			int sqScorer = Integer.parseInt(substring);
-			scorer = (firstTeam ^ ownGoal ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqScorer, match.getDate());
+			scorer = match.getTeam(firstTeam ^ ownGoal).getPlayer(sqScorer, match.getDate());
 		}
 		if ((substring = data.substring(data.indexOf("-a") + 2)).length() > 0) {
 			int sqAssist = Integer.parseInt(substring);
-			assister = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqAssist, match.getDate());
+			assister = match.getTeam(firstTeam).getPlayer(sqAssist, match.getDate());
 		}
 		
 		id = match.home() + "v" + match.away() + "-h" + data + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");

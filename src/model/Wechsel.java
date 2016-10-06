@@ -17,9 +17,9 @@ public class Wechsel {
 		this.playerOff = playerOff;
 		this.playerOn = playerOn;
 		
-		log("Substitution by " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
-				", in the " + minute + ". minute " + playerOff.getPseudonymOrLN() + 
-				" leaves the pitch and is replaced by " + playerOn.getPseudonymOrLN());
+		log("Substitution by " + match.getTeam(firstTeam).getName() + 
+				", in the " + minute + ". minute " + playerOff.getPopularOrLastName() + 
+				" leaves the pitch and is replaced by " + playerOn.getPopularOrLastName());
 	}
 	
 	public Wechsel(Spiel match, boolean firstTeam, String data) {
@@ -59,9 +59,9 @@ public class Wechsel {
 	private void parseString(String data) {
 		minute = Minute.parse(data.substring(0, data.indexOf(":")));
 		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));
-		playerOff = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqOff, match.getDate());
+		playerOff = match.getTeam(firstTeam).getPlayer(sqOff, match.getDate());
 		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
-		playerOn = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(sqOn, match.getDate());
+		playerOn = match.getTeam(firstTeam).getPlayer(sqOn, match.getDate());
 	}
 	
 	public String toString() {

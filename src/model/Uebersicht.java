@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import analyse.SaisonPerformance;
+
 import static util.Utilities.*;
 
 public class Uebersicht extends JPanel {
@@ -700,7 +702,7 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showKader() {
-		team.retrievePerformanceData();
+		team.retrieveMatchPerformances();
 		if (jLblsKader != null) {
 			for (int i = 0; i < jLblsKader.length; i++) {
 				for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
@@ -757,25 +759,24 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			Spieler player = eligiblePlayers.get(i);
-			int[] performanceData = team.getPerformanceData(player);
+			sumOfAges += player.getAge();
+			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
 			jLblsKader[i][SQUADNUMBER].setText("" + player.getSquadNumber());
 			alignCenter(jLblsKader[i][SQUADNUMBER]);
 			jLblsKader[i][NAMES].setText(player.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(player.getBirthDate()));
-			jLblsKader[i][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
+			jLblsKader[i][MATCHES].setText("" + seasonPerformance.matchesPlayed());
 			alignCenter(jLblsKader[i][MATCHES]);
-			jLblsKader[i][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
+			jLblsKader[i][GOALS].setText("" + seasonPerformance.goalsScored());
 			alignCenter(jLblsKader[i][GOALS]);
-			jLblsKader[i][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
+			jLblsKader[i][ASSISTS].setText("" + seasonPerformance.goalsAssisted());
 			alignCenter(jLblsKader[i][ASSISTS]);
-			jLblsKader[i][BOOKINGS].setText("" + performanceData[Mannschaft.BOOKED]);
+			jLblsKader[i][BOOKINGS].setText("" + seasonPerformance.booked());
 			alignCenter(jLblsKader[i][BOOKINGS]);
-			jLblsKader[i][BOOKEDTWICE].setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
+			jLblsKader[i][BOOKEDTWICE].setText("" + seasonPerformance.bookedTwice());
 			alignCenter(jLblsKader[i][BOOKEDTWICE]);
-			jLblsKader[i][REDCARDS].setText("" + performanceData[Mannschaft.RED_CARDS]);
+			jLblsKader[i][REDCARDS].setText("" + seasonPerformance.sentOffStraight());
 			alignCenter(jLblsKader[i][REDCARDS]);
-			int age = player.getAge();
-			sumOfAges += age;
 			
 			nOfPlayersByPosition[descrIndex - 1]++;
 			countSinceLastER++;
@@ -803,22 +804,22 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			Spieler player = ineligiblePlayers.get(i);
-			int[] performanceData = team.getPerformanceData(player);
+			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
 			jLblsKader[index][SQUADNUMBER].setText("" + player.getSquadNumber());
 			alignCenter(jLblsKader[index][SQUADNUMBER]);
 			jLblsKader[index][NAMES].setText(player.getFullNameShort());
 			jLblsKader[index][BIRTHDATE].setText(MyDate.datum(player.getBirthDate()));
-			jLblsKader[index][MATCHES].setText("" + performanceData[Mannschaft.MATCHES_PLAYED]);
+			jLblsKader[index][MATCHES].setText("" + seasonPerformance.matchesPlayed());
 			alignCenter(jLblsKader[index][MATCHES]);
-			jLblsKader[index][GOALS].setText("" + performanceData[Mannschaft.GOALS_SCORED]);
+			jLblsKader[index][GOALS].setText("" + seasonPerformance.goalsScored());
 			alignCenter(jLblsKader[index][GOALS]);
-			jLblsKader[index][ASSISTS].setText("" + performanceData[Mannschaft.GOALS_ASSISTED]);
+			jLblsKader[index][ASSISTS].setText("" + seasonPerformance.goalsAssisted());
 			alignCenter(jLblsKader[index][ASSISTS]);
-			jLblsKader[index][BOOKINGS].setText("" + performanceData[Mannschaft.BOOKED]);
+			jLblsKader[index][BOOKINGS].setText("" + seasonPerformance.booked());
 			alignCenter(jLblsKader[index][BOOKINGS]);
-			jLblsKader[index][BOOKEDTWICE].setText("" + performanceData[Mannschaft.BOOKED_TWICE]);
+			jLblsKader[index][BOOKEDTWICE].setText("" + seasonPerformance.bookedTwice());
 			alignCenter(jLblsKader[index][BOOKEDTWICE]);
-			jLblsKader[index][REDCARDS].setText("" + performanceData[Mannschaft.RED_CARDS]);
+			jLblsKader[index][REDCARDS].setText("" + seasonPerformance.sentOffStraight());
 			alignCenter(jLblsKader[index][REDCARDS]);
 		}
 		

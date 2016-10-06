@@ -2,6 +2,8 @@ package model;
 
 import static util.Utilities.*;
 
+import analyse.SaisonPerformance;
+
 public class Spieler {
 
 	private String trennZeichen = ";";
@@ -13,7 +15,7 @@ public class Spieler {
 	private String lastNameShort;
 	private String lastNameFile;
 	private String distinctName;
-	private String pseudonym;
+	private String popularName;
 	private int birthDate;
 	private int age;
 	private String nationality;
@@ -26,19 +28,23 @@ public class Spieler {
 	private int lastDate = -1;
 	private int secondFDate = -1;
 	
+	private SaisonPerformance seasonPerformance;
+	
 	public Spieler(String data, Mannschaft team) {
 		fromString(data, team);
+		seasonPerformance = new SaisonPerformance(this);
 	}
 	
-	public Spieler(String firstName, String lastName, String pseudonym, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
+	public Spieler(String firstName, String lastName, String popularName, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
 		setFirstName(firstName);
 		setLastName(lastName);
-		this.pseudonym = pseudonym;
+		this.popularName = popularName;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
 		this.position = position;
 		this.team = team;
 		this.squadNumber = squadNumber;
+		seasonPerformance = new SaisonPerformance(this);
 	}
 	
 	public String getFirstName() {
@@ -97,8 +103,8 @@ public class Spieler {
 		}
 	}
 	
-	public String getPseudonymOrLN() {
-		if (pseudonym != null)		return pseudonym;
+	public String getPopularOrLastName() {
+		if (popularName != null)	return popularName;
 		if (distinctName != null)	return distinctName;
 		return lastNameShort;
 	}
@@ -112,8 +118,8 @@ public class Spieler {
 		distinctName = null;
 	}
 	
-	public String getPseudonym() {
-		return pseudonym;
+	public String getPopularName() {
+		return popularName;
 	}
 	
 	public String getFullName() {
@@ -121,7 +127,7 @@ public class Spieler {
 	}
 	
 	public String getFullNameShort() {
-		return pseudonym != null ? pseudonym : firstNameShort + " " + lastNameShort;
+		return popularName != null ? popularName : firstNameShort + " " + lastNameShort;
 	}
 
 	public int getBirthDate() {
@@ -161,6 +167,10 @@ public class Spieler {
 		return secondFDate;
 	}
 	
+	public SaisonPerformance getSeasonPerformance() {
+		return seasonPerformance;
+	}
+	
 	public boolean isEligible(int date) {
 		if (date == 0)									return false;
 		if (date < firstDate)							return false;
@@ -179,11 +189,11 @@ public class Spieler {
 		return (oFDate <= lDate && fDate <= oLDate);
 	}
 	
-	public void updateInfo(String firstName, String lastName, String pseudonym, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
+	public void updateInfo(String firstName, String lastName, String popularName, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
 		team.changeSquadNumber(this, squadNumber);
 		setFirstName(firstName);
 		setLastName(lastName);
-		this.pseudonym = pseudonym;
+		this.popularName = popularName;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
 		this.position = Position.getPositionFromString(position);
@@ -197,8 +207,8 @@ public class Spieler {
 	public boolean inOrderBefore(Spieler other) {
 		if (position.getID() < other.position.getID())	return true;
 		if (position.getID() > other.position.getID())	return false;
-		String myName = removeUmlaute(pseudonym != null ? pseudonym : lastNameShort).toLowerCase();
-		String otherName = removeUmlaute(other.pseudonym != null ? other.pseudonym : other.lastNameShort).toLowerCase();
+		String myName = removeUmlaute(popularName != null ? popularName : lastNameShort).toLowerCase();
+		String otherName = removeUmlaute(other.popularName != null ? other.popularName : other.lastNameShort).toLowerCase();
 		if (myName.equals(otherName))	return firstName.compareTo(other.firstName) < 0;
 		return myName.compareTo(otherName) < 0;
 	}
@@ -206,7 +216,7 @@ public class Spieler {
 	public String toString() {
 		String toString = firstNameFile + trennZeichen;
 		toString += lastNameFile + trennZeichen;
-		toString += pseudonym + trennZeichen;
+		toString += popularName + trennZeichen;
 		toString += birthDate + trennZeichen;
 		toString += nationality + trennZeichen;
 		toString += position.getName() + trennZeichen;
@@ -224,7 +234,7 @@ public class Spieler {
 		
 		setFirstName(split[index++]);
 		setLastName(split[index++]);
-		pseudonym = (split[index++].equals("null") ? null : split[index - 1]);
+		popularName = (split[index++].equals("null") ? null : split[index - 1]);
 		birthDate = Integer.parseInt(split[index++]);
 		nationality = split[index++];
 		position = Position.getPositionFromString(split[index++]);

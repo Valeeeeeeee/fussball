@@ -4,6 +4,8 @@ import static util.Utilities.*;
 
 import java.util.ArrayList;
 
+import analyse.SpielPerformance;
+
 public class Spiel {
 	
 	private int matchday;
@@ -87,6 +89,10 @@ public class Spiel {
 	
 	public Ergebnis getResult() {
 		return result;
+	}
+	
+	public Mannschaft getTeam(boolean firstTeam) {
+		return firstTeam ? homeTeam : awayTeam;
 	}
 	
 	public void setResult(Ergebnis result) {
@@ -194,6 +200,31 @@ public class Spiel {
 	public void setReferee(Schiedsrichter referee) {
 		this.referee = referee;
 		referee.addMatch(this);
+	}
+	
+	public SpielPerformance getMatchPerformance(boolean firstTeam, int squadNumber) {
+		SpielPerformance matchPerformance = new SpielPerformance(this, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
+		int[] lineup = firstTeam ? lineupHome : lineupAway;
+		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
+		
+		for (int sqNumber : lineup) {
+			if (sqNumber == squadNumber)	matchPerformance.started();
+		}
+		for (Wechsel sub : substitutions) {
+			if (sub.isPlayerOff(squadNumber))		matchPerformance.subbedOff(sub.getMinute());
+			else if (sub.isPlayerOn(squadNumber))	matchPerformance.subbedOn(sub.getMinute());
+		}
+		for (Tor goal : goals) {
+			if (goal.isFirstTeam() != firstTeam)	continue;
+			if (goal.isScorer(squadNumber))			matchPerformance.goalScored();
+			else if (goal.isAssister(squadNumber))	matchPerformance.goalAssisted();
+		}
+		for (Karte booking : bookings) {
+			if (booking.isFirstTeam() != firstTeam)	continue;
+			if (booking.isBookedPlayer(squadNumber))	matchPerformance.booked(booking);
+		}
+		
+		return matchPerformance;
 	}
 	
 	public void setMatchData(String matchData) {

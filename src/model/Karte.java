@@ -23,8 +23,8 @@ public class Karte {
 		
 		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
 					+ (onTheBench ? "-b" : "");
-		log("Booking for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
-				" in the " + minute + ". minute: " + bookedPlayer.getPseudonymOrLN() + (onTheBench ? " (on the bench)" : ""));
+		log("Booking for " + match.getTeam(firstTeam).getName() + 
+				" in the " + minute + ". minute: " + bookedPlayer.getPopularOrLastName() + (onTheBench ? " (on the bench)" : ""));
 	}
 	
 	public Karte(Spiel match, String data) {
@@ -79,7 +79,7 @@ public class Karte {
 		isYellowCard = Boolean.parseBoolean(data.substring(data.indexOf("-y") + 2, data.indexOf("-s")));
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
 		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", ""));
-		bookedPlayer = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(squadNumber, match.getDate());
+		bookedPlayer = match.getTeam(firstTeam).getPlayer(squadNumber, match.getDate());
 		
 		id = match.home() + "v" + match.away() + "-h" + data;
 	}

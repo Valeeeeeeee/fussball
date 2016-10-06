@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import analyse.SpielPerformance;
+
 public class Mannschaft {
 	private int id;
 	private String name;
@@ -30,7 +32,6 @@ public class Mannschaft {
 	private int[][] data;
 	private HashMap<String, Spiel> matches;
 	private Ergebnis[] results;
-	private int[][] performanceData;
 	
 	public final static int OPPONENT = 0;
 	public final static int GOALS = 1;
@@ -114,8 +115,8 @@ public class Mannschaft {
 	public int getNumberOfUsedPlayers() {
 		int numberOfUsedPlayers = 0;
 		
-		for (int i = 0; i < performanceData.length; i++) {
-			if (performanceData[i][0] != 0)	numberOfUsedPlayers++;
+		for (int i = 0; i < kader.size(); i++) {
+			if (kader.get(i).getSeasonPerformance().matchesPlayed() > 0)	numberOfUsedPlayers++;
 		}
 		
 		return numberOfUsedPlayers;
@@ -230,7 +231,7 @@ public class Mannschaft {
 				Spieler player = kader.get(i);
 				for (int j = 0; j < kader.size() && !doubleNames[i]; j++) {
 					if (i == j)	continue;
-					if (player.getPseudonymOrLN().equals(kader.get(j).getPseudonymOrLN())) {
+					if (player.getPopularOrLastName().equals(kader.get(j).getPopularOrLastName())) {
 						doubleNames[i] = true;
 						doubleNames[j] = true;
 					}
@@ -255,141 +256,17 @@ public class Mannschaft {
 		return data[matchday][GOALS] + ":" + data[matchday][CGOALS];
 	}
 	
-	public ArrayList<int[]> getPerformanceDataMatchByMatch(Spieler player) {
-		int squadNumber = player.getSquadNumber();
-		ArrayList<int[]> performanceData = new ArrayList<>();
-		
+	public void retrieveMatchPerformances() {
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
 			Spiel match = matches.get(iter.next());
-			if (match != null) {
-				if (!inThePast(match.getDate(), match.getTime()))	continue;
+			if (match == null)	continue;
+			if (!inThePast(match.getDate(), match.getTime()))	continue;
+			for (Spieler player : kader) {
 				if (!player.isEligible(match.getDate()))	continue;
-				boolean played = false, home = homeaway[match.getMatchday()];
-				int[] lineup = home ? match.getLineupHome() : match.getLineupAway();
-				if (lineup == null)	continue;
-				int otherTeam = home ? match.away() : match.home();
-				int firstMinute = 91, lastMinute = 91, goalsScored = 0, assists = 0, booked = 0, bookedTwice = 0, redCard = 0;
-				ArrayList<Wechsel> substitutions = match.getSubstitutions(home);
-				ArrayList<Tor> goals = match.getGoals();
-				ArrayList<Karte> bookings = match.getBookings();
-				
-				for (int j = 0; j < lineup.length; j++) {
-					if (lineup[j] == squadNumber) {
-						played = true;
-						firstMinute = 1;
-					}
-				}
-				for (Wechsel substitution : substitutions) {
-					if (substitution.getPlayerOn() == player) {
-						played = true;
-						firstMinute = substitution.getMinute().getRegularTime();
-					} else if (substitution.getPlayerOff() == player) {
-						lastMinute = substitution.getMinute().getRegularTime();
-					}
-				}
-				for (Tor goal : goals) {
-					if (!goal.isOwnGoal() && home == goal.isFirstTeam() && goal.getScorer() == player) {
-						goalsScored++;
-					} else if (home == goal.isFirstTeam() && goal.getAssister() != null && goal.getAssister() == player) {
-						assists++;
-					}
-				}
-				for (Karte booking : bookings) {
-					if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
-						if (booking.isSecondBooking())		bookedTwice = booking.getMinute().getRegularTime();
-						else if (booking.isYellowCard())	booked = booking.getMinute().getRegularTime();
-						else								redCard = booking.getMinute().getRegularTime();
-					}
-				}
-				
-				int index = 0;
-				for (int i = 0; i < performanceData.size(); i++) {
-					if (performanceData.get(i)[0] < match.getMatchday())	index++;
-				}
-				
-				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(index, new int[] {match.getMatchday(), otherTeam, firstMinute, lastMinute, goalsScored, assists, booked, bookedTwice, redCard});
+				SpielPerformance matchPerformance = match.getMatchPerformance(homeaway[match.getMatchday()], player.getSquadNumber());
+				player.getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
 			}
-		}
-		
-		return performanceData;
-	}
-	
-	public int[] getPerformanceData(Spieler player) {
-		for (int i = 0; i < kader.size(); i++) {
-			if (kader.get(i) == player)	return performanceData[i];
-		}
-		return null;
-	}
-	
-	public void retrievePerformanceData() {
-		performanceData = new int[numberOfPlayers][];
-		for (int i = 0; i < performanceData.length; i++) {
-			Spieler player = kader.get(i);
-			
-			int matchesPlayed = 0, matchesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goalsScored = 0, assists = 0, booked = 0, bookedTwice = 0, redCards = 0;
-			int squadNumber = player.getSquadNumber();
-			
-			Iterator<String> iter = matches.keySet().iterator();
-			while (iter.hasNext()) {
-				Spiel match = matches.get(iter.next());
-				if (match != null) {
-					if (!inThePast(match.getDate(), match.getTime()))	continue;
-					if (!player.isEligible(match.getDate()))	continue;
-					boolean home = homeaway[match.getMatchday()];
-					int[] lineup = home ? match.getLineupHome() : match.getLineupAway();
-					if (lineup == null)	continue;
-					int firstMinute = 90, lastMinute = 90;
-					ArrayList<Wechsel> substitutions = match.getSubstitutions(home);
-					ArrayList<Tor> goals = match.getGoals();
-					ArrayList<Karte> bookings = match.getBookings();
-					
-					for (int j = 0; j < lineup.length; j++) {
-						if (lineup[j] == squadNumber) {
-							matchesPlayed++;
-							matchesStarted++;
-							firstMinute = 0;
-						}
-					}
-					for (Wechsel substitution : substitutions) {
-						if (substitution.getPlayerOn() == player) {
-							matchesPlayed++;
-							subOn++;
-							firstMinute = substitution.getMinute().getRegularTime();
-							if (firstMinute == 45 || firstMinute == 46 || firstMinute == 90)	firstMinute--;
-						} else if (substitution.getPlayerOff() == player) {
-							subOff++;
-							lastMinute = substitution.getMinute().getRegularTime();
-							if (lastMinute == 46)	lastMinute--;
-						}
-					}
-					for (Tor goal : goals) {
-						if (!goal.isOwnGoal() && home == goal.isFirstTeam() && goal.getScorer() == player) {
-							goalsScored++;
-						} else if (home == goal.isFirstTeam() && goal.getAssister() != null && goal.getAssister() == player) {
-							assists++;
-						}
-					}
-					for (Karte booking : bookings) {
-						if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
-							if (booking.isSecondBooking()) {
-								booked--;
-								bookedTwice++;
-								lastMinute = booking.getMinute().getRegularTime();
-							}
-							else if (booking.isYellowCard())	booked++;
-							else {
-								redCards++;
-								lastMinute = booking.getMinute().getRegularTime();
-							}
-						}
-					}
-					
-					minutesPlayed += lastMinute - firstMinute;
-				}
-			}
-			
-			performanceData[i] = new int[] {matchesPlayed, matchesStarted, subOn, subOff, minutesPlayed, goalsScored, assists, booked, bookedTwice, redCards};
 		}
 	}
 	
@@ -710,7 +587,7 @@ public class Mannschaft {
 		data[matchday][OPPONENT] = 0;
 	}
 	
-	public String getKey(int matchday) {
+	public static String getKey(int matchday) {
 		return "SP" + matchday;
 	}
 	
