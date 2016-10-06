@@ -67,6 +67,10 @@ public class Karte {
 	public Spieler getBookedPlayer() {
 		return bookedPlayer;
 	}
+
+	public boolean isBookedPlayer(int squadNumber) {
+		return bookedPlayer.getSquadNumber() == squadNumber;
+	}
 	
 	private void parseString(String data) {
 		onTheBench = data.indexOf("-b") != -1;

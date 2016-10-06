@@ -1004,7 +1004,7 @@ public class SpielInformationen extends JFrame {
 		}
 		if (playerPos == -1) {
 			for (int i = 0; i < maximumNumberOfSubstitutions && playerPos == -1; i++) {
-				if (match.getSubstitutions(firstTeam).get(i).getPlayerOn().getSquadNumber() == squadNumberOff)	playerPos = numberOfPlayersInLineUp + i;
+				if (match.getSubstitutions(firstTeam).get(i).isPlayerOn(squadNumberOff))	playerPos = numberOfPlayersInLineUp + i;
 			}
 		}
 		offMinutes[playerPos].setText(firstTeam ? arrowDown() + " " + minute : minute + " " + arrowDown());
@@ -1031,7 +1031,7 @@ public class SpielInformationen extends JFrame {
 			if (!found) {
 				int i = 0;
 				for (Wechsel substitution : substitutionsHome) {
-					if (substitution.getPlayerOn().getSquadNumber() == squadNumber) {
+					if (substitution.isPlayerOn(squadNumber)) {
 						label = (second ? jLblsSecBookingsHome : jLblsBookingsHome)[numberOfPlayersInLineUp + i];
 						break;
 					}
@@ -1052,7 +1052,7 @@ public class SpielInformationen extends JFrame {
 			if (!found) {
 				int i = 0;
 				for (Wechsel substitution : substitutionsAway) {
-					if (substitution.getPlayerOn().getSquadNumber() == squadNumber) {
+					if (substitution.isPlayerOn(squadNumber)) {
 						label = (second ? jLblsSecBookingsAway : jLblsBookingsAway)[numberOfPlayersInLineUp + i];
 						break;
 					}
@@ -1134,7 +1134,7 @@ public class SpielInformationen extends JFrame {
 		}
 		if (playerPos == -1) {
 			for (int j = 0; j < numberOfPlayersInLineUp && playerPos == -1; j++) {
-				if (match.getSubstitutions(firstTeam).get(j).getPlayerOn().getSquadNumber() == squadNumber)	playerPos = numberOfPlayersInLineUp + j;
+				if (match.getSubstitutions(firstTeam).get(j).isPlayerOn(squadNumber))	playerPos = numberOfPlayersInLineUp + j;
 			}
 		}
 		JLabel[] minutes = firstTeam ? jLblsSubsOffMinutesHome : jLblsSubsOffMinutesAway;
@@ -2056,13 +2056,13 @@ public class SpielInformationen extends JFrame {
 					lineupHome[counter] = kaderHome.get(i).getSquadNumber();
 					jLblsPlayersHome[counter].setText(kaderHome.get(i).getPseudonymOrLN());
 					jLblsPlayersHome[counter].setVisible(true);
-					jLblsSquadNumbersHome[counter].setText("" + kaderHome.get(i).getSquadNumber());
+					jLblsSquadNumbersHome[counter].setText("" + lineupHome[counter]);
 					jLblsSquadNumbersHome[counter++].setVisible(true);
 				} else {
 					lineupAway[counter] = kaderAway.get(i).getSquadNumber();
 					jLblsPlayersAway[counter].setText(kaderAway.get(i).getPseudonymOrLN());
 					jLblsPlayersAway[counter].setVisible(true);
-					jLblsSquadNumbersAway[counter].setText("" + kaderAway.get(i).getSquadNumber());
+					jLblsSquadNumbersAway[counter].setText("" + lineupAway[counter]);
 					jLblsSquadNumbersAway[counter++].setVisible(true);
 				}
 			}
@@ -2100,14 +2100,14 @@ public class SpielInformationen extends JFrame {
 						if (lineupHome[i] == sqN)	scorerOnPitch = true;
 					}
 					for (Wechsel substitution : substitutionsHome) {
-						if (substitution.getPlayerOn().getSquadNumber() == sqN) scorerOnPitch = true;
+						if (substitution.isPlayerOn(sqN)) scorerOnPitch = true;
 					}
 				} else {
 					for (int i = 0; i < lineupAway.length; i++) {
 						if (lineupAway[i] == sqN)	scorerOnPitch = true;
 					}
 					for (Wechsel substitution : substitutionsAway) {
-						if (substitution.getPlayerOn().getSquadNumber() == sqN) scorerOnPitch = true;
+						if (substitution.isPlayerOn(sqN)) scorerOnPitch = true;
 					}
 				}
 			}
@@ -2120,14 +2120,14 @@ public class SpielInformationen extends JFrame {
 						if (lineupHome[i] == sqN)	assisterOnPitch = true;
 					}
 					for (Wechsel substitution : substitutionsHome) {
-						if (substitution.getPlayerOn().getSquadNumber() == sqN) assisterOnPitch = true;
+						if (substitution.isPlayerOn(sqN)) assisterOnPitch = true;
 					}
 				} else {
 					for (int i = 0; i < lineupAway.length; i++) {
 						if (lineupAway[i] == sqN)	assisterOnPitch = true;
 					}
 					for (Wechsel substitution : substitutionsAway) {
-						if (substitution.getPlayerOn().getSquadNumber() == sqN) assisterOnPitch = true;
+						if (substitution.isPlayerOn(sqN)) assisterOnPitch = true;
 					}
 				}
 			}
@@ -2149,7 +2149,7 @@ public class SpielInformationen extends JFrame {
 				if (lineupHome[i] == sqNumberOn)	subOnInLineup = true;
 			}
 			for (int i = 0; i < index; i++) {
-				if (substitutionsHome.get(i).getPlayerOn().getSquadNumber() == sqNumberOff) subOffOnPitch = true;
+				if (substitutionsHome.get(i).isPlayerOn(sqNumberOff)) subOffOnPitch = true;
 			}
 			
 			if (!subOffOnPitch || subOnInLineup) {
@@ -2168,7 +2168,7 @@ public class SpielInformationen extends JFrame {
 				if (lineupAway[i] == sqNumberOn)	subOnInLineup = true;
 			}
 			for (int i = 0; i < index; i++) {
-				if (substitutionsAway.get(i).getPlayerOn().getSquadNumber() == sqNumberOff) subOffOnPitch = true;
+				if (substitutionsAway.get(i).isPlayerOn(sqNumberOff)) subOffOnPitch = true;
 			}
 			
 			if (!subOffOnPitch || subOnInLineup) {
@@ -2187,14 +2187,14 @@ public class SpielInformationen extends JFrame {
 					if (lineupHome[i] == sqNumber)	found = true;
 				}
 				for (Wechsel substitution : substitutionsHome) {
-					if (substitution.getPlayerOn().getSquadNumber() == sqNumber)	found = true;
+					if (substitution.isPlayerOn(sqNumber))	found = true;
 				}
 			} else {
 				for (int i = 0; i < lineupAway.length; i++) {
 					if (lineupAway[i] == sqNumber)	found = true;
 				}
 				for (Wechsel substitution : substitutionsAway) {
-					if (substitution.getPlayerOn().getSquadNumber() == sqNumber)	found = true;
+					if (substitution.isPlayerOn(sqNumber))	found = true;
 				}
 			}
 			if (!found) {

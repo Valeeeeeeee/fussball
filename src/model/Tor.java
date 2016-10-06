@@ -90,6 +90,16 @@ public class Tor {
 	public Spieler getAssister() {
 		return assister;
 	}
+
+	public boolean isScorer(int squadNumber) {
+		if (scorer == null)	return false;
+		return scorer.getSquadNumber() == squadNumber;
+	}
+
+	public boolean isAssister(int squadNumber) {
+		if (assister == null)	return false;
+		return assister.getSquadNumber() == squadNumber;
+	}
 	
 	private void parseString(String data) {
 		firstTeam = Boolean.parseBoolean(data.substring(0, data.indexOf("-m")));
