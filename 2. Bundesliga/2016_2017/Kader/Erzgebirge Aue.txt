@@ -1,4 +1,5 @@
 Maik;Ebersbach;null;19900307;Deutschland;Tor;13
+Daniel;Haas;null;19830801;Deutschland;Tor;34;20161005-
 Robert;Jendrusch;null;19960528;Deutschland;Tor;26
 Martin;Männel;null;19880316;Deutschland;Tor;1
 Mario;Seidel;null;19950119;Deutschland;Tor;31
