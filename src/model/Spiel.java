@@ -203,9 +203,11 @@ public class Spiel {
 	}
 	
 	public SpielPerformance getMatchPerformance(boolean firstTeam, int squadNumber) {
+		if (result == null)	return null;
 		SpielPerformance matchPerformance = new SpielPerformance(this, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
 		int[] lineup = firstTeam ? lineupHome : lineupAway;
 		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
+		if (lineup == null)	return null;
 		
 		for (int sqNumber : lineup) {
 			if (sqNumber == squadNumber)	matchPerformance.started();

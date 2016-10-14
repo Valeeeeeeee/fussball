@@ -43,7 +43,8 @@ public class SaisonPerformance {
 	}
 	
 	public void addMatchPerformance(int matchday, SpielPerformance matchPerformance) {
-		matchPerformances.put(Mannschaft.getKey(matchday), matchPerformance);
+		if (matchPerformance == null)	matchPerformances.remove(Mannschaft.getKey(matchday));
+		else							matchPerformances.put(Mannschaft.getKey(matchday), matchPerformance);
 	}
 	
 	public boolean hasData() {
