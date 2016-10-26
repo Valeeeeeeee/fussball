@@ -3,13 +3,24 @@ package analyse;
 import model.Karte;
 import model.Minute;
 import model.Spiel;
+import model.Spieler;
+import model.Tor;
 
 public class SpielPerformance {
 	
+	private static final int bonusGoal = 4;
+	private static final int bonusAssist = 1;
+	private static final int malusOwnGoal = 2;
+	private static final int malusBooked = 1;
+	private static final int malusBookedTwice = 3;
+	private static final int malusSentOffStraight = 5;
+	
 	private int minutesFullMatch = 90;
 	
+	private Spieler player;
 	private Spiel match;
 	private int matchday;
+	private boolean home;
 	private String opponentName;
 	private String result;
 	
@@ -25,6 +36,7 @@ public class SpielPerformance {
 	private int numberOfGoals;
 	private boolean assisted;
 	private int numberOfAssists;
+	private int numberOfOwnGoals;
 	
 	private boolean booked;
 	private Minute minuteBooked;
@@ -33,9 +45,16 @@ public class SpielPerformance {
 	private boolean sentOffStraight;
 	private Minute minuteSentOffStraight;
 	
-	public SpielPerformance(Spiel match, String opponentName, String result) {
+	private int numberOfScoredGoalsFullMatch;
+	private int numberOfScoredGoalsWhileOnPitch;
+	private int numberOfConcededGoalsFullMatch;
+	private int numberOfConcededGoalsWhileOnPitch;
+	
+	public SpielPerformance(Spieler player, Spiel match, boolean home, String opponentName, String result) {
+		this.player = player;
 		this.match = match;
 		this.matchday = match.getMatchday();
+		this.home = home;
 		this.opponentName = opponentName;
 		this.result = result;
 	}
@@ -46,6 +65,10 @@ public class SpielPerformance {
 	
 	public int getMatchday() {
 		return matchday;
+	}
+	
+	public boolean atHome() {
+		return home;
 	}
 	
 	public String getOpponentName() {
@@ -100,6 +123,11 @@ public class SpielPerformance {
 		return numberOfAssists;
 	}
 	
+	public int numberOfOwnGoals() {
+		return numberOfOwnGoals;
+	}
+	
+	
 	public boolean hasBeenBooked() {
 		return booked;
 	}
@@ -122,6 +150,22 @@ public class SpielPerformance {
 	
 	public Minute minuteSentOffStraight() {
 		return minuteSentOffStraight;
+	}
+	
+	public int numberOfScoredGoalsFullMatch() {
+		return numberOfScoredGoalsFullMatch;
+	}
+	
+	public int numberOfScoredGoalsWhileOnPitch() {
+		return numberOfScoredGoalsWhileOnPitch;
+	}
+	
+	public int numberOfConcededGoalsFullMatch() {
+		return numberOfConcededGoalsFullMatch;
+	}
+	
+	public int numberOfConcededGoalsWhileOnPitch() {
+		return numberOfConcededGoalsWhileOnPitch;
 	}
 	
 	public boolean hasData() {
@@ -155,6 +199,25 @@ public class SpielPerformance {
 		numberOfMinutesPlayed -= (minutesFullMatch - lastMinute);
 	}
 	
+	public void goal(Tor goal) {
+		boolean forOwnTeam = goal.isFirstTeam() == home;
+		if (forOwnTeam) {
+			numberOfScoredGoalsFullMatch++;
+			if (onPitch(goal.getMinute())) {
+				numberOfScoredGoalsWhileOnPitch++;
+				if (goal.isOwnGoal())	return;
+				if (goal.isScorer(player.getSquadNumber()))	goalScored();
+				if (goal.isAssister(player.getSquadNumber()))	goalAssisted();
+			}
+		} else {
+			numberOfConcededGoalsFullMatch++;
+			if (onPitch(goal.getMinute())) {
+				numberOfConcededGoalsWhileOnPitch++;
+				if (goal.isOwnGoal() && goal.isScorer(player.getSquadNumber()))	numberOfOwnGoals++;
+			}
+		}
+	}
+	
 	public void goalScored() {
 		scored = true;
 		numberOfGoals++;
@@ -178,5 +241,23 @@ public class SpielPerformance {
 			sentOffStraight = true;
 			minuteSentOffStraight = booking.getMinute();
 		}
+	}
+	
+	private boolean onPitch(Minute minute) {
+		if (!played)	return false;
+		if (subbedOn && minuteSubOn.isAfter(minute))	return false;
+		if (subbedOff && minuteSubOff.isBefore(minute))	return false;
+		if (bookedTwice && minuteBookedTwice.isBefore(minute))	return false;
+		if (sentOffStraight && minuteSentOffStraight.isBefore(minute))	return false;
+		return true;
+	}
+	
+	public double getImpact() {
+		double impact = 0.1 * (180 - numberOfMinutesPlayed) * (numberOfScoredGoalsWhileOnPitch - numberOfConcededGoalsWhileOnPitch);
+		impact += bonusGoal * numberOfGoals + bonusAssist * numberOfAssists - malusOwnGoal * numberOfOwnGoals;
+		if (bookedTwice)	impact -= malusBookedTwice;
+		else if (booked)	impact -= malusBooked;
+		if (sentOffStraight)	impact -= malusSentOffStraight;
+		return impact;
 	}
 }

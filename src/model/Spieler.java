@@ -2,7 +2,10 @@ package model;
 
 import static util.Utilities.*;
 
+import java.util.ArrayList;
+
 import analyse.SaisonPerformance;
+import analyse.SpielPerformance;
 
 public class Spieler {
 
@@ -169,6 +172,20 @@ public class Spieler {
 	
 	public SaisonPerformance getSeasonPerformance() {
 		return seasonPerformance;
+	}
+	
+	public double getAverageImpact() {
+		double sumOfImpacts = 0;
+		int count = 0;
+		
+		ArrayList<SpielPerformance> performances = seasonPerformance.asSortedList();
+		for (SpielPerformance mp : performances) {
+			if (!mp.hasData())	continue;
+			sumOfImpacts += mp.getImpact();
+			count++;
+		}
+		
+		return sumOfImpacts / count;
 	}
 	
 	public boolean isEligible(int date) {

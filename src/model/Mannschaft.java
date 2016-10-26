@@ -264,7 +264,7 @@ public class Mannschaft {
 			if (!inThePast(match.getDate(), match.getTime()))	continue;
 			for (Spieler player : kader) {
 				if (!player.isEligible(match.getDate()))	continue;
-				SpielPerformance matchPerformance = match.getMatchPerformance(homeaway[match.getMatchday()], player.getSquadNumber());
+				SpielPerformance matchPerformance = match.getMatchPerformance(player);
 				player.getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
 			}
 		}

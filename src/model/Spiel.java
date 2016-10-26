@@ -202,9 +202,11 @@ public class Spiel {
 		referee.addMatch(this);
 	}
 	
-	public SpielPerformance getMatchPerformance(boolean firstTeam, int squadNumber) {
+	public SpielPerformance getMatchPerformance(Spieler player) {
 		if (result == null)	return null;
-		SpielPerformance matchPerformance = new SpielPerformance(this, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
+		boolean firstTeam = getTeam(true) == player.getTeam();
+		int squadNumber = player.getSquadNumber();
+		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
 		int[] lineup = firstTeam ? lineupHome : lineupAway;
 		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
 		if (lineup == null)	return null;
@@ -216,14 +218,12 @@ public class Spiel {
 			if (sub.isPlayerOff(squadNumber))		matchPerformance.subbedOff(sub.getMinute());
 			else if (sub.isPlayerOn(squadNumber))	matchPerformance.subbedOn(sub.getMinute());
 		}
-		for (Tor goal : goals) {
-			if (goal.isFirstTeam() != firstTeam)	continue;
-			if (goal.isScorer(squadNumber))			matchPerformance.goalScored();
-			else if (goal.isAssister(squadNumber))	matchPerformance.goalAssisted();
-		}
 		for (Karte booking : bookings) {
 			if (booking.isFirstTeam() != firstTeam)	continue;
 			if (booking.isBookedPlayer(squadNumber))	matchPerformance.booked(booking);
+		}
+		for (Tor goal : goals) {
+			matchPerformance.goal(goal);
 		}
 		
 		return matchPerformance;
