@@ -28,6 +28,7 @@ Marco;Schuster;null;19951010;Deutschland;Mittelfeld;29
 Albian;Ajeti;null;19970226;Schweiz, Albanien;Sturm;17;-20160830
 Raúl;Bobadilla;null;19870618;Argentinien;Sturm;25
 Alfreð;Finnbogason;null;19890201;Island;Sturm;27
+Julian;Günther-Schmidt;null;19940913;Deutschland;Sturm;33
 Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
 Bastian;Kurz;null;19960923;Deutschland;Sturm;26
 Tim;Matavz;null;19890113;Slowenien;Sturm;23;-20160829
