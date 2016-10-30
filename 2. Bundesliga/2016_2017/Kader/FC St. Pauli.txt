@@ -19,7 +19,7 @@ Ryo;Miyaichi;null;19921214;Japan;Mittelfeld;13
 Bernd;Nehrig;null;19860928;Deutschland;Mittelfeld;7
 Richard;Neudecker;null;19961029;Deutschland;Mittelfeld;20
 Dennis;Rosin;null;19960627;Deutschland;Mittelfeld;25
-Enver Cenk;Sahin;null;19940922;Türkei;Mittelfeld;22
+Enver 'Cenk';Sahin;null;19940922;Türkei;Mittelfeld;22
 Waldemar;Sobota;null;19870519;Polen;Mittelfeld;28
 Aziz;Bouhaddouz;null;19870330;Deutschland;Sturm;11
 Marvin;Ducksch;null;19940307;Deutschland;Sturm;34
