@@ -5,6 +5,7 @@ Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;6;20161006-
 Kai;Bülow;null;19860531;Deutschland;Abwehr;4
 Marnon;Busch;null;19941208;Deutschland;Abwehr;16
 Milos;Degenek;null;19940428;Australien;Abwehr;30
+Kilian;Jakob;null;19980125;Deutschland;Abwehr;26
 Jan;Mauersberger;null;19850617;Deutschland;Abwehr;2
 Rodnei Francisco;de Lima;Rodnei;19850911;Brasilien;Abwehr;20
 Ilie;Sanchez;null;19901121;Spanien;Abwehr;6;-20160825

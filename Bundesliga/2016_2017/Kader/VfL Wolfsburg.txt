@@ -4,6 +4,7 @@ Max;Grün;null;19870405;Deutschland;Tor;20
 Phillip;Menzel;null;19980818;Deutschland;Tor;36
 Carlos;Ascues;null;19920606;Peru;Abwehr;6
 Jeffrey;Bruma;null;19911113;Niederlande;Abwehr;5
+Hendrik;Hansen;null;19941104;Deutschland;Abwehr;41
 Jannes;Horn;null;19970206;Deutschland;Abwehr;21
 Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
 Robin;Knoche;null;19920522;Deutschland;Abwehr;31

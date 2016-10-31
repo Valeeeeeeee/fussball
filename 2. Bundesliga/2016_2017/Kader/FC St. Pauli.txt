@@ -8,6 +8,7 @@ Vegar Eggen;Hedenstad;null;19910626;Norwegen;Abwehr;2
 Marc;Hornschuh;null;19910302;Deutschland;Abwehr;16
 Jan-Philipp;Kalla;null;19860806;Deutschland;Abwehr;27
 Joël;Keller;null;19950306;Schweiz;Abwehr;5
+Brian;Koglin;null;19970107;Deutschland;Abwehr;35
 Jacob;Rasmussen;null;19970528;Dänemark;Abwehr;19
 Lasse;Sobiech;null;19910118;Deutschland;Abwehr;3
 Philipp;Ziereis;null;19930314;Deutschland;Abwehr;4
