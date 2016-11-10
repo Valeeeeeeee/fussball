@@ -2,18 +2,21 @@ package analyse;
 
 import model.Karte;
 import model.Minute;
+import model.Position;
 import model.Spiel;
 import model.Spieler;
 import model.Tor;
 
 public class SpielPerformance {
 	
-	private static final int bonusGoal = 4;
-	private static final int bonusAssist = 1;
-	private static final int malusOwnGoal = 2;
-	private static final int malusBooked = 1;
-	private static final int malusBookedTwice = 3;
-	private static final int malusSentOffStraight = 5;
+	private static final int bonusGoal = 40;
+	private static final int bonusAssist = 10;
+	private static final int bonusNoGoalConcededGK = 30;
+	private static final int bonusNoGoalConcededDF = 20;
+	private static final int malusOwnGoal = 20;
+	private static final int malusBooked = 10;
+	private static final int malusBookedTwice = 30;
+	private static final int malusSentOffStraight = 50;
 	
 	private int minutesFullMatch = 90;
 	
@@ -253,11 +256,15 @@ public class SpielPerformance {
 	}
 	
 	public double getImpact() {
-		double impact = 0.1 * (180 - numberOfMinutesPlayed) * (numberOfScoredGoalsWhileOnPitch - numberOfConcededGoalsWhileOnPitch);
+		double impact = (180 - numberOfMinutesPlayed) * (numberOfScoredGoalsWhileOnPitch - numberOfConcededGoalsWhileOnPitch);
 		impact += bonusGoal * numberOfGoals + bonusAssist * numberOfAssists - malusOwnGoal * numberOfOwnGoals;
 		if (bookedTwice)	impact -= malusBookedTwice;
 		else if (booked)	impact -= malusBooked;
 		if (sentOffStraight)	impact -= malusSentOffStraight;
-		return impact;
+		if (numberOfConcededGoalsWhileOnPitch == 0) {
+			if (player.getPosition() == Position.ABWEHR)	impact += (bonusNoGoalConcededDF * numberOfMinutesPlayed / minutesFullMatch);
+			else if (player.getPosition() == Position.TOR)	impact += (bonusNoGoalConcededGK * numberOfMinutesPlayed / minutesFullMatch);
+		}
+		return 0.1 * impact;
 	}
 }
