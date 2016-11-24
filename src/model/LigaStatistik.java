@@ -31,8 +31,8 @@ public class LigaStatistik extends JPanel {
 	private int minimum;
 	private int maxIndex;
 	private int minIndex;
-	private int moreMax;
-	private int moreMin;
+	private ArrayList<Integer> moreMax;
+	private ArrayList<Integer> moreMin;
 	
 	private static final int NUMBER_OF_HOMEAWAY = 5;
 	private String[] homeAwayStrings = new String[] {"Heimsiege", "Unentschieden", "Auswärtssiege", "Heimtore", "Auswärtstore"};
@@ -107,6 +107,8 @@ public class LigaStatistik extends JPanel {
 		
 		resultsHash = new ArrayList<>();
 		resultsFrequency = new ArrayList<>();
+		moreMax = new ArrayList<>();
+		moreMin = new ArrayList<>();
 		
 		{
 			jLblCompetition = new JLabel();
@@ -253,23 +255,24 @@ public class LigaStatistik extends JPanel {
 	private void resetValues() {
 		maximum = maxIndex = minIndex = -1;
 		minimum = Integer.MAX_VALUE;
-		moreMax = moreMin = 0;
+		moreMax.clear();
+		moreMin.clear();
 	}
 	
 	private void compareMinMax(int id) {
 		if (value > maximum) {
 			maximum = value;
 			maxIndex = id - 1;
-			moreMax = 0;
+			moreMax.clear();
 		} else if (value == maximum) {
-			moreMax++;
+			moreMax.add(id - 1);
 		}
 		if (value < minimum) {
 			minimum = value;
 			minIndex = id - 1;
-			moreMin = 0;
+			moreMin .clear();
 		} else if (value == minimum) {
-			moreMin++;
+			moreMin.add(id - 1);
 		}
 	}
 	
@@ -381,7 +384,7 @@ public class LigaStatistik extends JPanel {
 	}
 	
 	private void updateMostLeast() {
-		String weitere;
+		String more, sep;
 		
 		for (int i = 0; i < NUMBER_OF_MOSTLEAST; i++) {
 			resetValues();
@@ -389,16 +392,36 @@ public class LigaStatistik extends JPanel {
 				value = team.get(indices[i], 0, currentMatchday);
 				compareMinMax(team.getId());
 			}
-			weitere = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-			jLblsMostValues[i].setText(teams[maxIndex].getName() + weitere + " (" + maximum + ")");
+			more = sep = "";
+			if (moreMax.size() > 0) {
+				jLblsMostValues[i].setText(String.format("%s + %d weitere (%d)", teams[maxIndex].getName(), moreMax.size(), maximum));
+				for (Integer index : moreMax) {
+					more += sep + teams[index].getName();
+					sep = "<br>";
+				}
+				jLblsMostValues[i].setToolTipText("<html>" + more + "</html>");
+			} else {
+				jLblsMostValues[i].setText(String.format("%s (%d)", teams[maxIndex].getName(), maximum));
+				jLblsMostValues[i].setToolTipText(null);
+			}
 			
-			weitere = moreMin == 0 ? "" : " + " + moreMin + " weitere";
-			jLblsLeastValues[i].setText(teams[minIndex].getName() + weitere + " (" + minimum + ")");
+			more = sep = "";
+			if (moreMin.size() > 0) {
+				jLblsLeastValues[i].setText(String.format("%s + %d weitere (%d)", teams[minIndex].getName(), moreMin.size(), minimum));
+				for (Integer index : moreMin) {
+					more += sep + teams[index].getName();
+					sep = "<br>";
+				}
+				jLblsLeastValues[i].setToolTipText("<html>" + more + "</html>");
+			} else {
+				jLblsLeastValues[i].setText(String.format("%s (%d)", teams[minIndex].getName(), minimum));
+				jLblsLeastValues[i].setToolTipText(null);
+			}
 		}
 	}
 	
 	private void updateSeries() {
-		String more;
+		String more, sep;
 		
 		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
 			// Meiste Siege, ... in Serie
@@ -407,8 +430,18 @@ public class LigaStatistik extends JPanel {
 				value = team.getSeries(i + 1);
 				compareMinMax(team.getId());
 			}
-			more = moreMax == 0 ? "" : " + " + moreMax + " weitere";
-			jLblsSeriesValues[i].setText(teams[maxIndex].getName() + more + " (" + maximum + ")");
+			more = sep = "";
+			if (moreMax.size() > 0) {
+				jLblsSeriesValues[i].setText(String.format("%s + %d weitere (%d)", teams[maxIndex].getName(), moreMax.size(), maximum));
+				for (Integer index : moreMax) {
+					more += sep + teams[index].getName();
+					sep = "<br>";
+				}
+				jLblsSeriesValues[i].setToolTipText("<html>" + more + "</html>");
+			} else {
+				jLblsSeriesValues[i].setText(String.format("%s (%d)", teams[maxIndex].getName(), maximum));
+				jLblsSeriesValues[i].setToolTipText(null);
+			}
 		}
 	}
 }
