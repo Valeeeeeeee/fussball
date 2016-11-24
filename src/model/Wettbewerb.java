@@ -23,8 +23,8 @@ public interface Wettbewerb {
 	public Ergebnis getResult(int matchday, int matchID);
 	public void setResult(int matchday, int matchID, Ergebnis result);
 	
-	public int getDate(int matchday, int matchID);
-	public int getTime(int matchday, int matchID);
+	public Datum getDate(int matchday, int matchID);
+	public Uhrzeit getTime(int matchday, int matchID);
 	
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();

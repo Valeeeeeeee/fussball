@@ -610,20 +610,20 @@ public class SpielerInformationen extends JFrame {
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
 			jTFPopularName.setText(jLblPopularName.getText());
-			jCBBirthYear.setSelectedItem(player.getBirthDate() / 10000 + "");
-			jCBBirthMonth.setSelectedIndex((player.getBirthDate() % 10000) / 100 - 1);
-			jCBBirthDay.setSelectedIndex(player.getBirthDate() % 100 - 1);
+			jCBBirthYear.setSelectedItem(player.getBirthDate().getYear() + "");
+			jCBBirthMonth.setSelectedIndex(player.getBirthDate().getMonth() - 1);
+			jCBBirthDay.setSelectedIndex(player.getBirthDate().getDay() - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
-			boolean sinceSet = player.getFirstDate() != -1, untilSet = player.getLastDate() != -1;
+			boolean sinceSet = player.getFirstDate() != MIN_DATE, untilSet = player.getLastDate() != MAX_DATE;
 			if (sinceSet == atClubSinceEver)	jChBAtClubSinceEver.doClick();
-			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate() / 10000 + "" : "");
-			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate() / 100 % 100 - 1 : 0);
-			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate() % 100 - 1 : 0);
+			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate().getYear() + "" : "");
+			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate().getMonth() - 1 : 0);
+			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate().getDay() - 1 : 0);
 			if (untilSet == atClubUntilEver)	jChBAtClubUntilEver.doClick();
-			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate() / 10000 + "" : "");
-			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate() / 100 % 100 - 1 : 0);
-			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate() % 100 - 1 : 0);
+			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate().getYear() + "" : "");
+			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate().getMonth() - 1 : 0);
+			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate().getDay() - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
 			jLblMoreDetails.setVisible(false);
 		} else {
@@ -631,12 +631,12 @@ public class SpielerInformationen extends JFrame {
 			String lastName = jTFLastNames.getText();
 			String popularName = jTFPopularName.getText();
 			if (popularName.isEmpty())	popularName = null;
-			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
+			Datum birthDate = new Datum(jCBBirthDay.getSelectedIndex() + 1, jCBBirthMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBBirthYear.getSelectedItem()));
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
-			int firstDate = -1, lastDate = -1, secondFDate = -1;
-			if (!atClubSinceEver)	firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
-			if (!atClubUntilEver)	lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
+			Datum firstDate = MIN_DATE, lastDate = MAX_DATE, secondFDate = MAX_DATE;
+			if (!atClubSinceEver)	firstDate = new Datum(jCBAtClubSinceDay.getSelectedIndex() + 1, jCBAtClubSinceMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()));
+			if (!atClubUntilEver)	lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
 			secondFDate = player.getSecondFirstDate();
 			int squadNumber = 0;
 			try {
@@ -674,8 +674,8 @@ public class SpielerInformationen extends JFrame {
 		jLblPopularName.setVisible(!changingInformation);
 		jLblBirthDateVal.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
-		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != -1);
-		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != -1);
+		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != MIN_DATE);
+		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != MAX_DATE);
 		jCBPositions.setVisible(changingInformation);
 		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
@@ -693,8 +693,8 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilDay.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilMonth.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilYear.setVisible(changingInformation && !atClubUntilEver);
-		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
-		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
+		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != MIN_DATE);
+		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != MAX_DATE);
 		
 		jLblPerformance.setVisible(!changingInformation);
 		jLblCompetition.setVisible(!changingInformation);
@@ -903,7 +903,7 @@ public class SpielerInformationen extends JFrame {
 		addingNewPlayer = true;
 		String firstName = "Vorname";
 		String lastName = "Nachname";
-		int birthDate = (competition.getYear() - averageAge) * 10000 + 101;
+		Datum birthDate = new Datum(1, 1, competition.getYear() - averageAge);
 		String nationality = "Deutschland";
 		int squadNumber = team.getNextFreeSquadNumber();
 		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
@@ -928,17 +928,17 @@ public class SpielerInformationen extends JFrame {
 		jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
 		jLblLastNames.setFont(player.getLastName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
 		jLblPopularName.setText(player.getPopularName() != null ? player.getPopularName() : "");
-		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
+		jLblBirthDateVal.setText(player.getBirthDate().withDividers());
 		jLblPositionVal.setText(player.getPosition().getName());
 		jLblNationalityVal.setText(player.getNationality());
 		
-		int atClubSince = player.getFirstDate();
-		int atClubUntil = player.getLastDate();
-		boolean sinceSet = atClubSince != -1, untilSet = atClubUntil != -1;
-		jLblAtClubSinceVal.setText(sinceSet ? MyDate.datum(atClubSince) : "");
+		Datum atClubSince = player.getFirstDate();
+		Datum atClubUntil = player.getLastDate();
+		boolean sinceSet = atClubSince != MIN_DATE, untilSet = atClubUntil != MAX_DATE;
+		jLblAtClubSinceVal.setText(sinceSet ? atClubSince.withDividers() : "");
 		jLblAtClubSince.setVisible(sinceSet);
 		jLblAtClubSinceVal.setVisible(sinceSet);
-		jLblAtClubUntilVal.setText(untilSet ? MyDate.datum(atClubUntil) : "");
+		jLblAtClubUntilVal.setText(untilSet ? atClubUntil.withDividers() : "");
 		jLblAtClubUntil.setVisible(untilSet);
 		jLblAtClubUntilVal.setVisible(untilSet);
 		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");

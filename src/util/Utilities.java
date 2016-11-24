@@ -13,9 +13,10 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import model.MyDate;
+import model.Datum;
 import model.Spieler;
 import model.Start;
+import model.Uhrzeit;
 
 public class Utilities {
 	
@@ -39,6 +40,13 @@ public class Utilities {
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	public static String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	
+	public static final Datum UNIX_EPOCH = new Datum(1, 1, 1970);
+	public static final Datum MIN_DATE = new Datum(1, 1, 0);
+	public static final Datum MAX_DATE = new Datum(31, 12, 9999);
+	
+	public static final Uhrzeit UNDEFINED = new Uhrzeit(-1);
+	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
+	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
@@ -218,19 +226,18 @@ public class Utilities {
 		return false;
 	}
 	
-	public static boolean inThePast(int date, int time, int timeDifference) {
-		time += timeDifference + (time % 100 < 15 ? 0 : 40);
-		if (time > 2359) {
-			date = MyDate.shiftDate(date, 1);
-			time -= 2400;
+	public static boolean inThePast(Datum date, Uhrzeit time, int timeDifference) {
+		Uhrzeit shiftedTime = new Uhrzeit(time, timeDifference);
+		if (shiftedTime.isBefore(time)) {
+			date = new Datum(date, 1);
 		}
-		return inThePast(date, time);
+		return inThePast(date, shiftedTime);
 	}
 	
-	public static boolean inThePast(int date, int time) {
-		if (date < Start.today())	return true;
-		if (date > Start.today())	return false;
-		return time < MyDate.newMyTime();
+	public static boolean inThePast(Datum date, Uhrzeit time) {
+		if (date.isBefore(Start.today()))	return true;
+		if (date.isAfter(Start.today()))	return false;
+		return time.isBefore(new Uhrzeit());
 	}
 	
 	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {

@@ -993,24 +993,24 @@ public class Spieltag extends JPanel {
 	 * @return if the content was saved: 0 if yes, 1 if not
 	 */
 	public int jBtnDoneActionPerformed() {
-		int fehlerart = -1;
+		int error = -1;
 		// 1. Fehlerfall: es befinden sich noch ungesetzte Felder im Array
 		for (int i = 0; i < array.length; i++) {
 			if (array[i][0] == -1) {
-				fehlerart = 1;
+				error = 1;
 				break;
 			} else if (array[i][1] == -1) {
-				fehlerart = 1;
+				error = 1;
 				break;
 			}
 		}
 		
-		int saveanyway = 0;
-		if (fehlerart == 1) {
-			saveanyway = JOptionPane.showConfirmDialog(null, "Es fehlen noch Spiele. \nTrotzdem fortfahren?", "Warnung", JOptionPane.YES_NO_OPTION);
+		int saveAnyway = 0;
+		if (error == 1) {
+			saveAnyway = JOptionPane.showConfirmDialog(null, "Es fehlen noch Spiele. \nTrotzdem fortfahren?", "Warnung", JOptionPane.YES_NO_OPTION);
 		}
 		
-		if (saveanyway == 0) {
+		if (saveAnyway == 0) {
 			if (belongsToKORound)	koRound.setCheckTeamsFromPreviousRound(false);
 			int groupID = 0, matchIDAll = 0, offset = 0, home, away;
 			for (int matchID = 0; matchID < array.length; matchID++) {
@@ -1055,7 +1055,7 @@ public class Spieltag extends JPanel {
 			editingMatches = false;
 			showMatchday();
 		}
-		return saveanyway;
+		return saveAnyway;
 	}
 	
 	private void previousMatchday() {
@@ -1366,7 +1366,7 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(lSeason, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setDateAndKOTindex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
+			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
 			mdc.setMatch(lSeason, currentMatchday, editedDate);
 			
 			Start.getInstance().toFront();
@@ -1413,20 +1413,20 @@ public class Spieltag extends JPanel {
 		}
 	}
 	
-	public void dateEnteredLeagueStyle(int startDate, int KOTindex) {
+	public void dateEnteredLeagueStyle(Datum startDate, int KOTindex) {
 		lSeason.setDate(currentMatchday, startDate);
 		lSeason.setKOTIndex(currentMatchday, editedDate, KOTindex);
 		dateChooserClosed();
 		fillDates();
 	}
 	
-	public void dateEnteredTournamentStyle(int myDate, int myTime) {
+	public void dateEnteredTournamentStyle(Datum date, Uhrzeit time) {
 		if (belongsToGroup) {
-			group.setDate(currentMatchday, editedDate, myDate);
-			group.setTime(currentMatchday, editedDate, myTime);
+			group.setDate(currentMatchday, editedDate, date);
+			group.setTime(currentMatchday, editedDate, time);
 		} else if (belongsToKORound) {
-			koRound.setDate(currentMatchday, editedDate, myDate);
-			koRound.setTime(currentMatchday, editedDate, myTime);
+			koRound.setDate(currentMatchday, editedDate, date);
+			koRound.setTime(currentMatchday, editedDate, time);
 		} else {
 			// Bestimmung der Gruppe
 			int groupID = 0, matchID = editedDate;
@@ -1440,8 +1440,8 @@ public class Spieltag extends JPanel {
 			}
 			
 			Gruppe group = allGroups[groupID];
-			group.setDate(currentMatchday, matchID, myDate);
-			group.setTime(currentMatchday, matchID, myTime);
+			group.setDate(currentMatchday, matchID, date);
+			group.setTime(currentMatchday, matchID, time);
 		}
 		dateChooserClosed();
 		fillDates();

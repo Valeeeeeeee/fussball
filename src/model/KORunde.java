@@ -18,10 +18,10 @@ public class KORunde implements Wettbewerb {
 	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
 	private int currentMatchday;
-	private int cMatchdaySetForDate = -1;
+	private Datum cMatchdaySetForDate = MIN_DATE;
 	private int newestMatchday;
-	private int nMatchdaySetForDate = -1;
-	private int nMatchdaySetUntilTime = -1;
+	private Datum nMatchdaySetForDate = MIN_DATE;
+	private Uhrzeit nMatchdaySetUntilTime = UNDEFINED;
 	private Mannschaft[] teams;
 	private int numberOfTeamsPrequalified;
 	private int numberOfTeamsFromPreviousRound;
@@ -56,10 +56,10 @@ public class KORunde implements Wettbewerb {
 	private String fileMatchData;
 	private ArrayList<String> matchDataFromFile;
 	
-	private int startDate;
-	private int finalDate;
+	private Datum startDate;
+	private Datum finalDate;
 	private int[][] daysSinceFirstDay;
-	private int[][] startTime;
+	private Uhrzeit[][] startTime;
 	
 	private Spieltag spieltag;
 	
@@ -109,11 +109,11 @@ public class KORunde implements Wettbewerb {
 		return shortName;
 	}
 	
-	public int getStartDate() {
+	public Datum getStartDate() {
 		return startDate;
 	}
 	
-	public int getFinalDate() {
+	public Datum getFinalDate() {
 		return finalDate;
 	}
 	
@@ -197,19 +197,19 @@ public class KORunde implements Wettbewerb {
 	
 	public int getCurrentMatchday() {
 		if (numberOfMatchdays == 2) {
-			int today = MyDate.newMyDate();
+			Datum today = Start.today();
 			
-			if (cMatchdaySetForDate != today) {
-				if (getDate(0, 0) == startDate) {
+			if (!today.equals(cMatchdaySetForDate)) {
+				if (getDate(0, 0).equals(startDate)) {
 					currentMatchday = 0;
-				} else if (today <= getDate(0, 0)) {
+				} else if (!today.isAfter(getDate(0, 0))) {
 					currentMatchday = 0;
-				} else if (today >= getDate(1, 0) && !isNoMatchSet(1)) {
+				} else if (!today.isBefore(getDate(1, 0)) && !isNoMatchSet(1)) {
 					currentMatchday = 1;
 				} else {
 					currentMatchday = 1;
 					
-					if (MyDate.difference(getDate(0, 0), today) < MyDate.difference(today, getDate(1, 0))) {
+					if (getDate(0, 0).daysUntil(today) < today.daysUntil(getDate(1, 0))) {
 						currentMatchday--;
 					}
 				}
@@ -224,20 +224,21 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNewestStartedMatchday() {
 		if (numberOfMatchdays == 2) {
-			int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+			Datum today = Start.today();
+			Uhrzeit time = new Uhrzeit();
 			
-			if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
-				nMatchdaySetUntilTime = 2400;
-				if (today <= getDate(0, 0)) {
+			if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
+				nMatchdaySetUntilTime = END_OF_DAY;
+				if (!today.isAfter(getDate(0, 0))) {
 					newestMatchday = 0;
-				} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != startDate) {
+				} else if (!today.isBefore(getDate(numberOfMatchdays - 1, 0))) {
 					newestMatchday = numberOfMatchdays - 1;
 				} else {
 					newestMatchday = 0;
-					while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+					while (today.isAfter(getDate(newestMatchday + 1, 0)) || (today.equals(getDate(newestMatchday + 1, 0)) && !time.isBefore(getTime(newestMatchday + 1, 0)))) {
 						newestMatchday++;
 					}
-					if (today == getDate(newestMatchday + 1, 0)) {
+					if (today.equals(getDate(newestMatchday + 1, 0))) {
 						nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
 					}
 				}
@@ -252,32 +253,33 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchID) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday)
-			return MyDate.datum(getDate(matchday, matchID)) + " " + MyDate.uhrzeit(getTime(matchday, matchID));
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != MAX_DATE)
+			return getDate(matchday, matchID).withDividers() + " " + getTime(matchday, matchID).withDividers();
 		else 
 			return "nicht terminiert";
 	}
 	
-	public int getDate(int matchday, int matchID) {
-		return MyDate.shiftDate(startDate, daysSinceFirstDay[matchday][matchID]);
+	public Datum getDate(int matchday, int matchID) {
+		if (daysSinceFirstDay[matchday][matchID] == -1)	return MAX_DATE;
+		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
-	public int getTime(int matchday, int matchID) {
+	public Uhrzeit getTime(int matchday, int matchID) {
 		return startTime[matchday][matchID];
 	}
 	
-	public void setDate(int matchday, int matchID, int myDate) {
-		daysSinceFirstDay[matchday][matchID] = MyDate.difference(startDate, myDate);
+	public void setDate(int matchday, int matchID, Datum myDate) {
+		daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
-	public void setTime(int matchday, int matchID, int myTime) {
+	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
 		startTime[matchday][matchID] = myTime;
 	}
 	
 	// Spielplan eingetragen
 	
 	public boolean isNoMatchSet(int matchday) {
-		for (int matchID = 0; matchID < getNumberOfMatchesPerMatchday(); matchID++) {
+		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID)) 	return false;
 		}
 		return true;
@@ -322,7 +324,7 @@ public class KORunde implements Wettbewerb {
 	// Ergebnisplan eingetragen
 	
 	public boolean isNoResultSet(int matchday) {
-		for (int matchID = 0; matchID < getNumberOfMatchesPerMatchday(); matchID++) {
+		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isResultSet(matchday, matchID)) 	return false;
 		}
 		return true;
@@ -392,8 +394,8 @@ public class KORunde implements Wettbewerb {
 	public void changeOrderToChronological(int matchday) {
 		int[] newOrder = new int[numberOfMatchesPerMatchday];
 		int[] hilfsarray = new int[numberOfMatchesPerMatchday];
-		int[] dates = new int[numberOfMatchesPerMatchday];
-		int[] times = new int[numberOfMatchesPerMatchday];
+		Datum[] dates = new Datum[numberOfMatchesPerMatchday];
+		Uhrzeit[] times = new Uhrzeit[numberOfMatchesPerMatchday];
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			dates[matchID] = getDate(matchday, matchID);
@@ -402,10 +404,10 @@ public class KORunde implements Wettbewerb {
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (dates[m2] > dates[m])		hilfsarray[m2]++;
-				else if (dates[m2] < dates[m])	hilfsarray[m]++;
-				else if (times[m2] > times[m])	hilfsarray[m2]++;
-				else if (times[m2] < times[m])	hilfsarray[m]++;
+				if (dates[m2].isAfter(dates[m]))		hilfsarray[m2]++;
+				else if (dates[m2].isBefore(dates[m]))	hilfsarray[m]++;
+				else if (times[m2].isAfter(times[m]))	hilfsarray[m2]++;
+				else if (times[m2].isBefore(times[m]))	hilfsarray[m]++;
 				else {
 					Spiel sp1 = getMatch(matchday, m), sp2 = getMatch(matchday, m2);
 					if (sp1 != null && sp2 != null && sp1.home() > sp2.home())	hilfsarray[m]++;
@@ -448,21 +450,21 @@ public class KORunde implements Wettbewerb {
 		// duplicate old arrays and set new ones
 		Spiel[] oldMatches = new Spiel[numberOfMatchesPerMatchday];
 		Ergebnis[] oldResults = new Ergebnis[numberOfMatchesPerMatchday];
-		int[] oldDaysSinceFirstDay = new int[numberOfMatchesPerMatchday];
-		int[] oldStartTime = new int[numberOfMatchesPerMatchday];
+		Datum[] oldDates = new Datum[numberOfMatchesPerMatchday];
+		Uhrzeit[] oldStartTimes = new Uhrzeit[numberOfMatchesPerMatchday];
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			oldMatches[matchID] = getMatch(matchday, matchID);
 			oldResults[matchID] = getResult(matchday, matchID);
-			oldDaysSinceFirstDay[matchID] = getDate(matchday, matchID);
-			oldStartTime[matchID] = getTime(matchday, matchID);
+			oldDates[matchID] = getDate(matchday, matchID);
+			oldStartTimes[matchID] = getTime(matchday, matchID);
 		}
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			setMatch(matchday, matchID, oldMatches[oldIndicesInNewOrder[matchID]]);
 			setResult(matchday, matchID, oldResults[oldIndicesInNewOrder[matchID]]);
-			setDate(matchday, matchID, oldDaysSinceFirstDay[oldIndicesInNewOrder[matchID]]);
-			setTime(matchday, matchID, oldStartTime[oldIndicesInNewOrder[matchID]]);
+			setDate(matchday, matchID, oldDates[oldIndicesInNewOrder[matchID]]);
+			setTime(matchday, matchID, oldStartTimes[oldIndicesInNewOrder[matchID]]);
 		}
 	}
 	
@@ -572,9 +574,10 @@ public class KORunde implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				int date = getDate(i, j), time = getTime(i, j);
-				if (isMatchSet(i, j) && (!inThePast(date, time, 145) || !isResultSet(i, j)) && (date > startDate || time > 0)) {
-					long dateAndTime = 10000L * date + time;
+				Datum date = getDate(i, j);
+				Uhrzeit time = getTime(i, j);
+				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j)) && (date.isAfter(startDate) || time.comparable() > 0)) {
+					long dateAndTime = 10000L * date.comparable() + time.comparable();
 					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
@@ -623,7 +626,7 @@ public class KORunde implements Wettbewerb {
 	
 	private void initializeArrays() {
 		daysSinceFirstDay = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
-		startTime = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
+		startTime = new Uhrzeit[numberOfMatchdays][numberOfMatchesPerMatchday];
 		
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
@@ -684,11 +687,11 @@ public class KORunde implements Wettbewerb {
 					for (matchID = 0; matchID < koTimes.length; matchID++) {
 						String dateAndTime[] = koTimes[matchID].split(",");
 						daysSinceFirstDay[matchday][matchID] = Integer.parseInt(dateAndTime[0]);
-						startTime[matchday][matchID] = Integer.parseInt(dateAndTime[1]);
+						setTime(matchday, matchID, new Uhrzeit(dateAndTime[1]));
 					}
 					
 					// Herkunften der Mannschaften
-					for (matchID = 0; (matchID + 2) < split.length; matchID++) {
+					for (matchID = 0; matchID + 2 < split.length; matchID++) {
 						Spiel match = null;
 						if (isMatchSet(matchday, matchID)) {
 							match = new Spiel(this, matchday, getDate(matchday, matchID), getTime(matchday, matchID), split[matchID + 2]);
@@ -700,6 +703,8 @@ public class KORunde implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
+					daysSinceFirstDay[matchday][matchID] = -1;
+					setTime(matchday, matchID, UNDEFINED);
 					matchID++;
 				}
 			}
@@ -715,10 +720,10 @@ public class KORunde implements Wettbewerb {
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			String row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
-				for (int matchID = 0; matchID < daysSinceFirstDay[matchday].length; matchID++) {
-					row += daysSinceFirstDay[matchday][matchID] + "," + startTime[matchday][matchID];
-					if ((matchID + 1) < daysSinceFirstDay[matchday].length)	row += ":";
-					else													row += ";";
+				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
+					row += daysSinceFirstDay[matchday][matchID] + "," + getTime(matchday, matchID).comparable();
+					if (matchID + 1 < numberOfMatchesPerMatchday)	row += ":";
+					else											row += ";";
 				}
 				
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {

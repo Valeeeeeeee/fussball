@@ -13,10 +13,10 @@ public class TurnierSaison {
 	private boolean isSummerToSpringSeason;
 	private int seasonIndex;
 	private int year;
-	private int startDate;
-	private int finalDate;
-	private int qStartDate;
-	private int qFinalDate;
+	private Datum startDate;
+	private Datum finalDate;
+	private Datum qStartDate;
+	private Datum qFinalDate;
 	
 	private boolean hasQualification;
 	private boolean hasGroupStage;
@@ -97,11 +97,11 @@ public class TurnierSaison {
 		return tournament.getName() + " " + getSeasonFull("/");
 	}
 	
-	public int getStartDate(boolean isQ) {
+	public Datum getStartDate(boolean isQ) {
 		return isQ ? qStartDate : startDate;
 	}
 	
-	public int getFinalDate(boolean isQ) {
+	public Datum getFinalDate(boolean isQ) {
 		return isQ ? qFinalDate : finalDate;
 	}
 	
@@ -280,8 +280,8 @@ public class TurnierSaison {
 		
 		int[] newOrder = new int[numberOfMatches];
 		int[] hilfsarray = new int[numberOfMatches];
-		int[] dates = new int[numberOfMatches];
-		int[] times = new int[numberOfMatches];
+		Datum[] dates = new Datum[numberOfMatches];
+		Uhrzeit[] times = new Uhrzeit[numberOfMatches];
 		
 		int matchID = 0;
 		for (Gruppe group : Start.getInstance().isCurrentlyInQualification() ? qGroups : groups) {
@@ -294,9 +294,9 @@ public class TurnierSaison {
 		
 		for (int m = 0; m < numberOfMatches; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatches; m2++) {
-				if (dates[m2] > dates[m])									hilfsarray[m2]++;
-				else if (dates[m2] == dates[m] && times[m2] >= times[m])	hilfsarray[m2]++;
-				else														hilfsarray[m]++;
+				if (dates[m2].isAfter(dates[m]))										hilfsarray[m2]++;
+				else if (dates[m2].equals(dates[m]) && !times[m2].isBefore(times[m]))	hilfsarray[m2]++;
+				else																	hilfsarray[m]++;
 			}
 		}
 		
@@ -602,8 +602,8 @@ public class TurnierSaison {
 		qualificationDataFromFile = ausDatei(fileQualificationData);
 		int index = 0;
 		
-		qStartDate = Integer.parseInt(qualificationDataFromFile.get(index++));
-		qFinalDate = Integer.parseInt(qualificationDataFromFile.get(index++));
+		qStartDate = new Datum(qualificationDataFromFile.get(index++));
+		qFinalDate = new Datum(qualificationDataFromFile.get(index++));
 		qTeamsHaveKader = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
 		numberOfQGroups = Integer.parseInt(qualificationDataFromFile.get(index++));
 		if (numberOfQGroups > 0) {
@@ -632,8 +632,8 @@ public class TurnierSaison {
 		
 		qualificationDataFromFile.clear();
 		
-		qualificationDataFromFile.add("" + qStartDate);
-		qualificationDataFromFile.add("" + qFinalDate);
+		qualificationDataFromFile.add("" + qStartDate.comparable());
+		qualificationDataFromFile.add("" + qFinalDate.comparable());
 		qualificationDataFromFile.add("" + qTeamsHaveKader);
 		qualificationDataFromFile.add("" + numberOfQGroups);
 		if (hasQGroupStage) {
@@ -815,8 +815,8 @@ public class TurnierSaison {
 		
 		toString += year + ";";
 		toString += isSummerToSpringSeason + ";";
-		toString += startDate + ";";
-		toString += finalDate + ";";
+		toString += startDate.comparable() + ";";
+		toString += finalDate.comparable() + ";";
 		toString += hasQualification + ";";
 		toString += hasGroupStage + ";";
 		toString += hasKOStage + ";";
@@ -832,8 +832,8 @@ public class TurnierSaison {
 		
 		year = Integer.parseInt(split[index++]);
 		isSummerToSpringSeason = Boolean.parseBoolean(split[index++]);
-		startDate = Integer.parseInt(split[index++]);
-		finalDate = Integer.parseInt(split[index++]);
+		startDate = new Datum(split[index++]);
+		finalDate = new Datum(split[index++]);
 		hasQualification = Boolean.parseBoolean(split[index++]);
 		hasGroupStage = Boolean.parseBoolean(split[index++]);
 		hasKOStage = Boolean.parseBoolean(split[index++]);

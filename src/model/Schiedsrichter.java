@@ -10,10 +10,10 @@ public class Schiedsrichter {
 	
 	private String firstName;
 	private String lastName;
-	private int birthDate;
+	private Datum birthDate;
 	private ArrayList<Spiel> matches = new ArrayList<>();
 	
-	public Schiedsrichter(int id, String firstName, String lastName, int birthDate) {
+	public Schiedsrichter(int id, String firstName, String lastName, Datum birthDate) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -41,14 +41,14 @@ public class Schiedsrichter {
 		return lastName;
 	}
 	
-	public int getBirthDate() {
+	public Datum getBirthDate() {
 		return birthDate;
 	}
 	
 	public void addMatch(Spiel match) {
 		int index = 0;
 		for (int i = 0; i < matches.size(); i++) {
-			if (matches.get(i).getDate() < match.getDate() || match.getDate() == 0)	index++;
+			if (matches.get(i).getDate().isBefore(match.getDate()))	index++;
 		}
 		matches.add(index, match);
 	}
@@ -70,7 +70,7 @@ public class Schiedsrichter {
 		
 		firstName = dataSplit[index++];
 		lastName = dataSplit[index++];
-		birthDate = Integer.parseInt(dataSplit[index++]);
+		birthDate = new Datum(dataSplit[index++]);
 	}
 	
 	public String toString() {
@@ -78,7 +78,7 @@ public class Schiedsrichter {
 		
 		toString += firstName + trennZeichen;
 		toString += lastName + trennZeichen;
-		toString += birthDate + trennZeichen;
+		toString += birthDate.comparable() + trennZeichen;
 		
 		return toString;
 	}

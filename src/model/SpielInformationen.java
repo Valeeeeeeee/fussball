@@ -1362,10 +1362,10 @@ public class SpielInformationen extends JFrame {
 	private void setLabelsVisible(boolean value) {
 		if (editingFirstTeam) {
 			for (JLabel label : jLblsPlayersHome) {
-				label.setVisible(value && label.getText() != "");
+				label.setVisible(value && !label.getText().equals(""));
 			}
 			for (JLabel label : jLblsSquadNumbersHome) {
-				label.setVisible(value && label.getText() != "");
+				label.setVisible(value && !label.getText().equals(""));
 			}
 			for (JLabel label : jLblsBookingsHome) {
 				label.setVisible(value);
@@ -1381,10 +1381,10 @@ public class SpielInformationen extends JFrame {
 			}
 		} else {
 			for (JLabel label : jLblsPlayersAway) {
-				label.setVisible(value && label.getText() != "");
+				label.setVisible(value && !label.getText().equals(""));
 			}
 			for (JLabel label : jLblsSquadNumbersAway) {
-				label.setVisible(value && label.getText() != "");
+				label.setVisible(value && !label.getText().equals(""));
 			}
 			for (JLabel label : jLblsBookingsAway) {
 				label.setVisible(value);
@@ -1497,7 +1497,7 @@ public class SpielInformationen extends JFrame {
 	private void jBtnEnterSubstitutionCompletedActionPerformed() {
 		if (!enteringSubstitution)	return;
 		
-		if (jTFMinute.getText().length() == 0) {
+		if (jTFMinute.getText().isEmpty()) {
 			message("Bitte eine Minute angeben.");
 			return;
 		}
@@ -1696,7 +1696,7 @@ public class SpielInformationen extends JFrame {
 	private void jBtnEnterGoalCompletedActionPerformed() {
 		if (!enteringGoal)	return;
 		
-		if (jTFMinute.getText().length() == 0) {
+		if (jTFMinute.getText().isEmpty()) {
 			message("Bitte eine Minute angeben.");
 			return;
 		}
@@ -1805,7 +1805,7 @@ public class SpielInformationen extends JFrame {
 	private void jBtnEnterBookingCompletedActionPerformed() {
 		if (!enteringBooking)	return;
 		
-		if (jTFMinute.getText().length() == 0) {
+		if (jTFMinute.getText().isEmpty()) {
 			message("Bitte eine Minute angeben.");
 			return;
 		}

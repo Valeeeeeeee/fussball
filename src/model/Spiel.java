@@ -9,8 +9,8 @@ import analyse.SpielPerformance;
 public class Spiel {
 	
 	private int matchday;
-	private int date;
-	private int time;
+	private Datum date;
+	private Uhrzeit time;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
@@ -27,7 +27,7 @@ public class Spiel {
 	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
 	private ArrayList<Karte> bookings = new ArrayList<>();
 	
-	public Spiel(Wettbewerb competition, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, int homeTeamIndex, int awayTeamIndex) {
 		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
@@ -39,7 +39,7 @@ public class Spiel {
 		awayTeam = competition.getTeams()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb competition, int matchday, int date, int time, String data) {
+	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, String data) {
 		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
@@ -56,18 +56,18 @@ public class Spiel {
 	}
 	
 	public String getDateAndTime() {
-		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+		return date.withDividers() + " " + time.withDividers();
 	}
 	
 	public int getMatchday() {
 		return matchday;
 	}
 	
-	public int getDate() {
+	public Datum getDate() {
 		return date;
 	}
 	
-	public int getTime() {
+	public Uhrzeit getTime() {
 		return time;
 	}
 	

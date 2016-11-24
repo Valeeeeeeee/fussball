@@ -24,7 +24,7 @@ public class Uebersicht extends JPanel {
 	// Informationen
 	private Rectangle REC_INFPNL = new Rectangle(595, 35, 550, 80);
 	private Rectangle REC_LBLNAME = new Rectangle(90, 10, 370, 30);
-	private Rectangle REC_LBLGRDATUM = new Rectangle(200, 40, 150, 30);
+	private Rectangle REC_LBLFOUDATE = new Rectangle(200, 40, 150, 30);
 	
 	// Statistiken
 	private Rectangle REC_STATSPNL = new Rectangle(595, 120, 550, 115);
@@ -184,7 +184,7 @@ public class Uebersicht extends JPanel {
 	
 	private Wettbewerb competition;
 	
-	private boolean hasGrDatum;
+	private boolean hasFoundingDate;
 	
 	private int teamID;
 	private Mannschaft team;
@@ -206,20 +206,20 @@ public class Uebersicht extends JPanel {
 	public Uebersicht(LigaSaison season) {
 		super();
 		competition = season;
-		hasGrDatum = true;
+		hasFoundingDate = true;
 		initGUI();
 	}
 	
 	public Uebersicht(Gruppe group) {
 		super();
 		competition = group;
-		hasGrDatum = false;
+		hasFoundingDate = false;
 		initGUI();
 	}
 	
 	public Uebersicht(Turnier tournament) {
 		super();
-		hasGrDatum = false;
+		hasFoundingDate = false;
 //		initGUI();
 	}
 	
@@ -394,10 +394,10 @@ public class Uebersicht extends JPanel {
 				jLblTeamName.setFont(new Font("Dialog", 0, 24));
 				alignCenter(jLblTeamName);
 			}
-			if (hasGrDatum) {
+			if (hasFoundingDate) {
 				jLblFoundingDate = new JLabel();
 				jPnlInformation.add(jLblFoundingDate);
-				jLblFoundingDate.setBounds(REC_LBLGRDATUM);
+				jLblFoundingDate.setBounds(REC_LBLFOUDATE);
 				jLblFoundingDate.setFont(new Font("Dialog", 0, 12));
 				alignCenter(jLblFoundingDate);
 			}
@@ -764,7 +764,7 @@ public class Uebersicht extends JPanel {
 			jLblsKader[i][SQUADNUMBER].setText("" + player.getSquadNumber());
 			alignCenter(jLblsKader[i][SQUADNUMBER]);
 			jLblsKader[i][NAMES].setText(player.getFullNameShort());
-			jLblsKader[i][BIRTHDATE].setText(MyDate.datum(player.getBirthDate()));
+			jLblsKader[i][BIRTHDATE].setText(player.getBirthDate().withDividers());
 			jLblsKader[i][MATCHES].setText("" + seasonPerformance.matchesPlayed());
 			alignCenter(jLblsKader[i][MATCHES]);
 			jLblsKader[i][GOALS].setText("" + seasonPerformance.goalsScored());
@@ -808,7 +808,7 @@ public class Uebersicht extends JPanel {
 			jLblsKader[index][SQUADNUMBER].setText("" + player.getSquadNumber());
 			alignCenter(jLblsKader[index][SQUADNUMBER]);
 			jLblsKader[index][NAMES].setText(player.getFullNameShort());
-			jLblsKader[index][BIRTHDATE].setText(MyDate.datum(player.getBirthDate()));
+			jLblsKader[index][BIRTHDATE].setText(player.getBirthDate().withDividers());
 			jLblsKader[index][MATCHES].setText("" + seasonPerformance.matchesPlayed());
 			alignCenter(jLblsKader[index][MATCHES]);
 			jLblsKader[index][GOALS].setText("" + seasonPerformance.goalsScored());
@@ -869,8 +869,8 @@ public class Uebersicht extends JPanel {
 		team = teams[teamID - 1];
 		canHaveKader = team.getCompetition().teamsHaveKader();
 		jLblTeamName.setText(team.getName());
-		if (hasGrDatum) {
-			jLblFoundingDate.setText("Gegründet: " + (!team.getFoundingDate().equals("01.01.1970") ? team.getFoundingDate() : "n. a."));
+		if (hasFoundingDate) {
+			jLblFoundingDate.setText("Gegründet: " + (!team.getFoundingDate().equals(UNIX_EPOCH.withDividers()) ? team.getFoundingDate() : "n. a."));
 			jLblFoundingDate.setVisible(true);
 		}
 		showKader();
@@ -920,13 +920,13 @@ public class Uebersicht extends JPanel {
 	
 	private void sortByDate() {
 		// make matchday order chronological
-		ArrayList<Integer> dates = new ArrayList<>();
+		ArrayList<Datum> dates = new ArrayList<>();
 		matchdayOrder.clear();
 		for (int i = 0; i < numberOfMatchdays; i++) {
-			String dateString = team.getDateAndTime(i);
-			int index = 0, date = MyDate.getDate(dateString.split(" ")[0]);
-			for (Integer itg : dates) {
-				if (date == MyDate.UNIX_EPOCH || date > itg)	index++;
+			Datum date = Datum.parse(team.getDateAndTime(i).split(" ")[0]);
+			int index = 0;
+			for (Datum sorted : dates) {
+				if (date == MIN_DATE || date.isAfter(sorted))	index++;
 			}
 			dates.add(index, date);
 			matchdayOrder.add(index, i);

@@ -1047,8 +1047,8 @@ public class Start extends JFrame {
 		String shortName = "EM";
 		int season = 2016;
 		boolean isSTSS = true;
-		int stDate = 20140907;
-		int fiDate = 20160710;
+		Datum stDate = new Datum(7, 9, 2014);
+		Datum fiDate = new Datum(10, 7, 2016);
 		boolean hasQ = true;
 		boolean hasGrp = true;
 		boolean hasKO = true;
@@ -1075,7 +1075,7 @@ public class Start extends JFrame {
 		addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
 	}
 	
-	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
+	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, Datum stDate, Datum fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
 									ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
 		for (Turnier tournament : tournaments) {
 			if (tournament.getName().equals(name)) {
@@ -1093,8 +1093,8 @@ public class Start extends JFrame {
 		
 		toString = season + ";";
 		toString += isSTSS + ";";
-		toString += stDate + ";";
-		toString += fiDate + ";";
+		toString += stDate.comparable() + ";";
+		toString += fiDate.comparable() + ";";
 		toString += hasQ + ";";
 		toString += hasGrp + ";";
 		toString += hasKO + ";";
@@ -1113,7 +1113,7 @@ public class Start extends JFrame {
 		message("Successfully created new tournament.");
 	}
 	
-	public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
+	public void addNewTournament(String name, String shortName, int season, Datum stDate, Datum fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
 									int nOTeam, int nOGrp, int nOKO, String[][] teamsGrp, String[][] teamsKO) {
 		for (Turnier tournament : tournaments) {
 			if (tournament.getName().equals(name)) {
@@ -1129,8 +1129,8 @@ public class Start extends JFrame {
 		daten = "NAME*" + name + ";";
 		daten += "SHN*" + shortName + ";";
 		daten += "ISSTSS*" + isSTSS + ";";
-		daten += "STDATE*" + stDate + ";";
-		daten += "FIDATE*" + fiDate + ";";
+		daten += "STDATE*" + stDate.comparable() + ";";
+		daten += "FIDATE*" + fiDate.comparable() + ";";
 		daten += "NOFTEAMS*" + nOTeam + ";";
 		daten += "QUALI*" + hasQ + ";";
 		daten += "GRPSTG*" + hasGrp + ";";
@@ -1485,8 +1485,8 @@ public class Start extends JFrame {
 		inDatei(fileConfiguration, configurationFromFile);
 	}
 	
-	public static int today() {
-		return MyDate.newMyDate();
+	public static Datum today() {
+		return new Datum();
 	}
 	
 	public void checkOS() {

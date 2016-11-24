@@ -265,8 +265,8 @@ public class NewTournamentDialog extends JFrame {
 	private String name;
 	private String shortName;
 	private int season;
-	private int stDate;
-	private int fiDate;
+	private Datum stDate;
+	private Datum fiDate;
 	private boolean isSTSS;
 	private boolean hasQ;
 	private boolean hasQGrp;
@@ -2211,15 +2211,15 @@ public class NewTournamentDialog extends JFrame {
 		shortName = shortNameTF.getText();
 		if (shortName.isEmpty())	message += "Geben Sie bitte einen gültigen Kurznamen ein.\n";
 		
-		stDate = MyDate.getDate(startDateTF.getText());
-		if (stDate == MyDate.UNIX_EPOCH)	message += "Geben Sie bitte ein gültiges Startdatum ein.\n";
+		stDate = Datum.parse(startDateTF.getText());
+		if (stDate.equals(MIN_DATE))	message += "Geben Sie bitte ein gültiges Startdatum ein.\n";
 		
-		fiDate = MyDate.getDate(finalDateTF.getText());
-		if (fiDate == MyDate.UNIX_EPOCH)	message += "Geben Sie bitte ein gültiges Enddatum ein.\n";
-		else if (stDate > fiDate)			message += "Das Finale kann nicht vor Beginn des Turniers stattfinden.\n";
+		fiDate = Datum.parse(finalDateTF.getText());
+		if (fiDate.equals(MIN_DATE))	message += "Geben Sie bitte ein gültiges Enddatum ein.\n";
+		else if (stDate.isAfter(fiDate))	message += "Das Finale kann nicht vor Beginn des Turniers stattfinden.\n";
 		
-		season = stDate / 10000;
-		isSTSS = season != (fiDate / 10000);
+		season = stDate.getYear();
+		isSTSS = season != (fiDate.getYear());
 		
 		if (message.length() > 0) {
 			message("Folgende Fehler sind aufgetreten:\n" + message);

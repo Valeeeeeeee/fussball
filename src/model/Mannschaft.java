@@ -64,8 +64,8 @@ public class Mannschaft {
 	private int[] numberOfPlayersByPosition;
 	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
 	private ArrayList<Spieler> ineligiblePlayers = new ArrayList<Spieler>();
-	private int lastUpdatedEligibleForDate = -1;
-	private int lastUpdatedIneligibleForDate = -1;
+	private Datum lastUpdatedEligibleForDate;
+	private Datum lastUpdatedIneligibleForDate;
 	private int[] currentNumberOfPlayersByPosition;
 
 	private boolean playsInLeague = false;
@@ -491,8 +491,8 @@ public class Mannschaft {
 		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
 	}
 	
-	private void updateEligiblePlayers(int date, boolean forceUpdate) {
-		if (!forceUpdate && lastUpdatedEligibleForDate == date)	return;
+	private void updateEligiblePlayers(Datum date, boolean forceUpdate) {
+		if (!forceUpdate && date.equals(lastUpdatedEligibleForDate))	return;
 		
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
@@ -507,8 +507,8 @@ public class Mannschaft {
 		lastUpdatedEligibleForDate = date;
 	}
 	
-	private void updateIneligiblePlayers(int date, boolean forceUpdate) {
-		if (!forceUpdate && lastUpdatedIneligibleForDate == date)	return;
+	private void updateIneligiblePlayers(Datum date, boolean forceUpdate) {
+		if (!forceUpdate && date.equals(lastUpdatedIneligibleForDate))	return;
 		
 		ineligiblePlayers.clear();
 		
@@ -521,22 +521,22 @@ public class Mannschaft {
 		lastUpdatedIneligibleForDate = date;
 	}
 	
-	public int getCurrentNumberOfPlayers(int date, boolean forceUpdate) {
+	public int getCurrentNumberOfPlayers(Datum date, boolean forceUpdate) {
 		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers.size();
 	}
 	
-	public ArrayList<Spieler> getEligiblePlayers(int date, boolean forceUpdate) {
+	public ArrayList<Spieler> getEligiblePlayers(Datum date, boolean forceUpdate) {
 		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers;
 	}
 	
-	public ArrayList<Spieler> getIneligiblePlayers(int date, boolean forceUpdate) {
+	public ArrayList<Spieler> getIneligiblePlayers(Datum date, boolean forceUpdate) {
 		updateIneligiblePlayers(date, forceUpdate);
 		return ineligiblePlayers;
 	}
 	
-	public Spieler getPlayer(int squadNumber, int date) {
+	public Spieler getPlayer(int squadNumber, Datum date) {
 		for (Spieler player : kader) {
 			if (player.getSquadNumber() == squadNumber && player.isEligible(date))	return player;
 		}

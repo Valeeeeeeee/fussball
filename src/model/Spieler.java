@@ -19,7 +19,7 @@ public class Spieler {
 	private String lastNameFile;
 	private String distinctName;
 	private String popularName;
-	private int birthDate;
+	private Datum birthDate;
 	private int age;
 	private String nationality;
 	
@@ -27,9 +27,9 @@ public class Spieler {
 	private Mannschaft team;
 	private int squadNumber;
 	
-	private int firstDate = -1;
-	private int lastDate = -1;
-	private int secondFDate = -1;
+	private Datum firstDate = MIN_DATE;
+	private Datum lastDate = MAX_DATE;
+	private Datum secondFDate = MAX_DATE;
 	
 	private SaisonPerformance seasonPerformance;
 	
@@ -38,7 +38,7 @@ public class Spieler {
 		seasonPerformance = new SaisonPerformance(this);
 	}
 	
-	public Spieler(String firstName, String lastName, String popularName, int birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
+	public Spieler(String firstName, String lastName, String popularName, Datum birthDate, String nationality, Position position, Mannschaft team, int squadNumber) {
 		setFirstName(firstName);
 		setLastName(lastName);
 		this.popularName = popularName;
@@ -133,12 +133,12 @@ public class Spieler {
 		return popularName != null ? popularName : firstNameShort + " " + lastNameShort;
 	}
 
-	public int getBirthDate() {
+	public Datum getBirthDate() {
 		return birthDate;
 	}
 
 	public int getAge() {
-		if (age == 0)	age = MyDate.difference(birthDate, Start.today());
+		if (age == 0)	age = birthDate.daysUntil(Start.today());
 		return age;
 	}
 
@@ -158,15 +158,15 @@ public class Spieler {
 		return squadNumber;
 	}
 	
-	public int getFirstDate() {
+	public Datum getFirstDate() {
 		return firstDate;
 	}
 	
-	public int getLastDate() {
+	public Datum getLastDate() {
 		return lastDate;
 	}
 	
-	public int getSecondFirstDate() {
+	public Datum getSecondFirstDate() {
 		return secondFDate;
 	}
 	
@@ -188,25 +188,24 @@ public class Spieler {
 		return sumOfImpacts / count;
 	}
 	
-	public boolean isEligible(int date) {
-		if (date == 0)									return false;
-		if (date < firstDate)							return false;
-		if (secondFDate != -1 && date >= secondFDate)	return true;
-		if (lastDate != -1 && date > lastDate)			return false;
+	public boolean isEligible(Datum date) {
+		if (date.isBefore(firstDate))		return false;
+		if (!date.isBefore(secondFDate))	return true;
+		if (date.isAfter(lastDate))			return false;
 		return true;
 	}
 	
-	public boolean playedAtTheSameTimeAs(int otherFirstDate, int otherLastDate, int otherSecondFDate) {
-		boolean this2FD = secondFDate != -1, other2FD = otherSecondFDate != -1;
-		if (this2FD && other2FD || firstDate == otherFirstDate || lastDate == otherLastDate)	return true;
-		int fDate = firstDate == -1 ? 101 : firstDate, lDate = lastDate == -1 ? 99991231 : lastDate;
-		int oFDate = otherFirstDate == -1 ? 101 : otherFirstDate, oLDate = otherLastDate == -1 ? 99991231 : otherLastDate;
-		if (other2FD)	return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate);
-		if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate);
+	public boolean playedAtTheSameTimeAs(Datum otherFirstDate, Datum otherLastDate, Datum otherSecondFDate) {
+		boolean this2FD = secondFDate != MAX_DATE, other2FD = otherSecondFDate != MAX_DATE;
+		if (this2FD && other2FD || firstDate.equals(otherFirstDate) || lastDate.equals(otherLastDate))	return true;
+		int fDate = firstDate.comparable(), lDate = lastDate.comparable();
+		int oFDate = otherFirstDate.comparable(), oLDate = otherLastDate.comparable();
+		if (other2FD)	return lDate >= oFDate && (oLDate >= fDate || lDate >= otherSecondFDate.comparable());
+		if (this2FD)	return oLDate >= fDate && (lDate >= oFDate || oLDate >= secondFDate.comparable());
 		return (oFDate <= lDate && fDate <= oLDate);
 	}
 	
-	public void updateInfo(String firstName, String lastName, String popularName, int birthDate, String nationality, String position, int squadNumber, int firstDate, int lastDate, int secondFDate) {
+	public void updateInfo(String firstName, String lastName, String popularName, Datum birthDate, String nationality, String position, int squadNumber, Datum firstDate, Datum lastDate, Datum secondFDate) {
 		team.changeSquadNumber(this, squadNumber);
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -234,13 +233,13 @@ public class Spieler {
 		String toString = firstNameFile + trennZeichen;
 		toString += lastNameFile + trennZeichen;
 		toString += popularName + trennZeichen;
-		toString += birthDate + trennZeichen;
+		toString += birthDate.comparable() + trennZeichen;
 		toString += nationality + trennZeichen;
 		toString += position.getName() + trennZeichen;
 		toString += squadNumber;
-		if (firstDate + lastDate != -2) {
-			toString += trennZeichen + (firstDate != -1 ? firstDate : "") + "-" + (lastDate != -1 ? lastDate : "");
-			if (secondFDate != -1)	toString += "," + secondFDate + "-";
+		if (firstDate != MIN_DATE || lastDate != MAX_DATE) {
+			toString += trennZeichen + (firstDate != MIN_DATE ? firstDate.comparable() : "") + "-" + (lastDate != MAX_DATE ? lastDate.comparable() : "");
+			if (secondFDate != MAX_DATE)	toString += "," + secondFDate.comparable() + "-";
 		}
 		return toString;
 	}
@@ -252,7 +251,7 @@ public class Spieler {
 		setFirstName(split[index++]);
 		setLastName(split[index++]);
 		popularName = (split[index++].equals("null") ? null : split[index - 1]);
-		birthDate = Integer.parseInt(split[index++]);
+		birthDate = new Datum(split[index++]);
 		nationality = split[index++];
 		position = Position.getPositionFromString(split[index++]);
 		this.team = team;
@@ -260,9 +259,9 @@ public class Spieler {
 		if (split.length >= 8) {
 			String[] allDates = split[index++].split(",");
 			String[] dates = allDates[0].split("\\-");
-			if (dates[0] != null && !dates[0].isEmpty())	firstDate = Integer.parseInt(dates[0]);
-			if (dates.length == 2 && dates[1] != null)		lastDate = Integer.parseInt(dates[1]);
-			if (allDates.length > 1)						secondFDate = Integer.parseInt(allDates[1].substring(0, allDates[1].indexOf("-")));
+			if (dates[0] != null && !dates[0].isEmpty())	firstDate = new Datum(dates[0]);
+			if (dates.length == 2 && dates[1] != null)		lastDate = new Datum(dates[1]);
+			if (allDates.length > 1)						secondFDate = new Datum(allDates[1].substring(0, allDates[1].indexOf("-")));
 		}
 	}
 }

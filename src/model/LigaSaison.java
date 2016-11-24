@@ -24,14 +24,15 @@ public class LigaSaison implements Wettbewerb {
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
 	private int currentMatchday;
-	private int cMatchdaySetForDate = -1;
+	private Datum cMatchdaySetForDate;
 	private int newestMatchday;
-	private int nMatchdaySetForDate = -1;
-	private int nMatchdaySetUntilTime = -1;
+	private Datum nMatchdaySetForDate;
+	private Uhrzeit nMatchdaySetUntilTime = UNDEFINED;
 	
 	private int[] numberOf;
 	
-	private int[][] datesAndTimes;
+	private Datum[] dates;
+	private int[][] kotIndices;
 	
 	private int numberOfKickoffTimes;
 	private ArrayList<AnstossZeit> kickOffTimes;
@@ -185,19 +186,19 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		int today = MyDate.shiftDate(MyDate.newMyDate(), -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
+		Datum today = new Datum(Start.today(), -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
-		if (cMatchdaySetForDate != today) {
-			if (today < getDate(0)) {
+		if (!today.equals(cMatchdaySetForDate)) {
+			if (today.isBefore(getDate(0))) {
 				currentMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1) && getDate(numberOfMatchdays - 1) != 0) {
+			} else if (!today.isBefore(getDate(numberOfMatchdays - 1))) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
-				while (today >= getDate(currentMatchday) && getDate(currentMatchday) != 0) {
+				while (!today.isBefore(getDate(currentMatchday))) {
 					currentMatchday++;
 				}
-				if (currentMatchday != 0 && MyDate.difference(getDate(currentMatchday - 1), today) < MyDate.difference(today, getDate(currentMatchday))) {
+				if (currentMatchday != 0 && getDate(currentMatchday - 1).daysUntil(today) < today.daysUntil(getDate(currentMatchday))) {
 					currentMatchday--;
 				}
 			}
@@ -208,22 +209,23 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		int today = MyDate.newMyDate(), time = MyDate.newMyTime(), nextDate;
+		Datum today = Start.today(), nextDate;
+		Uhrzeit time = new Uhrzeit();
 		
-		if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
-			nMatchdaySetUntilTime = 2400;
-			if (today < getDate(0, 0)) {
+		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
+			nMatchdaySetUntilTime = END_OF_DAY;
+			if (today.isBefore(getDate(0, 0))) {
 				newestMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+			} else if (!today.isBefore(getDate(numberOfMatchdays - 1, 0))) {
 				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
 				nextDate = getDate(newestMatchday + 1, 0);
-				while (nextDate != 0 && (today > nextDate || (today == nextDate && time >= getTime(newestMatchday + 1, 0)))) {
+				while (today.isAfter(nextDate) || (today.equals(nextDate) && !time.isBefore(getTime(newestMatchday + 1, 0)))) {
 					newestMatchday++;
 					nextDate = getDate(newestMatchday + 1, 0);
 				}
-				if (today == getDate(newestMatchday + 1, 0)) {
+				if (today.equals(getDate(newestMatchday + 1, 0))) {
 					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
 				}
 			}
@@ -248,44 +250,44 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchID) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday) != 0)
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday) != MAX_DATE)
 			return kickOffTimes.get(getKOTIndex(matchday, matchID)).getDateAndTime(getDate(matchday));
 		else
 			return "nicht terminiert";
 	}
 	
-	public int getDate(int matchday) {
-		if (matchday > 0 && matchday < numberOfMatchdays)	return datesAndTimes[matchday][0];
-		else												return datesAndTimes[0][0];
+	public Datum getDate(int matchday) {
+		return dates[matchday];
 	}
 	
 	public int getKOTIndex(int matchday, int matchID) {
-		return datesAndTimes[matchday][matchID + 1];
+		return kotIndices[matchday][matchID];
 	}
 	
-	public void setDate(int matchday, int date) {
-		datesAndTimes[matchday][0] = date;
+	public void setDate(int matchday, Datum date) {
+		dates[matchday] = date;
 	}
 	
 	public void setKOTIndex(int matchday, int matchID, int index) {
-		datesAndTimes[matchday][matchID + 1] = index;
+		kotIndices[matchday][matchID] = index;
 	}
 	
-	public int getDate(int matchday, int matchID) {
-		return kickOffTimes.get(datesAndTimes[matchday][matchID + 1]).getDate(datesAndTimes[matchday][0]);
+	public Datum getDate(int matchday, int matchID) {
+		// TODO: frühere 0 ist jetzt MAX_DATE
+		return kickOffTimes.get(kotIndices[matchday][matchID]).getDate(dates[matchday]);
 	}
 	
-	public int getTime(int matchday, int matchID) {
-		return kickOffTimes.get(datesAndTimes[matchday][matchID + 1]).getTime();
+	public Uhrzeit getTime(int matchday, int matchID) {
+		return kickOffTimes.get(kotIndices[matchday][matchID]).getTime();
 	}
 	
-	public int addNewKickoffTime(int daysSince, int time) {
+	public int addNewKickoffTime(int daysSince, Uhrzeit time) {
 		numberOfKickoffTimes++;
 		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, daysSince, time));
 		return numberOfKickoffTimes;
 	}
 	
-	public int getIndexOfKOT(int diff, int timeOfNewKOT) {
+	public int getIndexOfKOT(int diff, Uhrzeit timeOfNewKOT) {
 		for (AnstossZeit az : kickOffTimes) {
 			if (az.matches(diff, timeOfNewKOT))	return az.getIndex();
 		}
@@ -313,7 +315,7 @@ public class LigaSaison implements Wettbewerb {
 	// Spielplan eingetragen
 	
 	public boolean isNoMatchSet(int matchday) {
-		for (int matchID = 0; matchID < getNumberOfMatchesPerMatchday(); matchID++) {
+		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID)) 	return false;
 		}
 		return true;
@@ -442,6 +444,7 @@ public class LigaSaison implements Wettbewerb {
 		}
 		
 		int matchdayOld, matchdayNew = 0;
+		Uhrzeit time = MIDNIGHT;
 		for (int i = 0; i < orderOfRueckRunde.length; i++) {
 			Spiel[] matchesInNewOrder = new Spiel[numberOfMatchesPerMatchday];
 			matchdayOld = orderOfRueckRunde[i] - 1;
@@ -451,7 +454,7 @@ public class LigaSaison implements Wettbewerb {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Spiel oldMatch = getMatch(matchdayOld, j);
 				if (oldMatch != null) {
-					matchesInNewOrder[j] = new Spiel(this, matchdayNew, getDate(matchdayNew), 0, oldMatch.away(), oldMatch.home());
+					matchesInNewOrder[j] = new Spiel(this, matchdayNew, getDate(matchdayNew), time, oldMatch.away(), oldMatch.home());
 				}
 			}
 			for (int j = 0; j < matchesInNewOrder.length; j++) {
@@ -473,8 +476,8 @@ public class LigaSaison implements Wettbewerb {
 	public void changeOrderToChronological(int matchday) {
 		int[] newOrder = new int[numberOfMatchesPerMatchday];
 		int[] hilfsarray = new int[numberOfMatchesPerMatchday];
-		int[] dates = new int[numberOfMatchesPerMatchday];
-		int[] times = new int[numberOfMatchesPerMatchday];
+		Datum[] dates = new Datum[numberOfMatchesPerMatchday];
+		Uhrzeit[] times = new Uhrzeit[numberOfMatchesPerMatchday];
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			dates[matchID] = kickOffTimes.get(getKOTIndex(matchday, matchID)).getDate(getDate(matchday));
@@ -483,12 +486,12 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (times[m] == -1 && times[m2] > -1)		hilfsarray[m2]++;
-				else if (times[m2] == -1 && times[m] > -1)	hilfsarray[m]++;
-				else if (dates[m2] > dates[m])				hilfsarray[m2]++;
-				else if (dates[m2] < dates[m])				hilfsarray[m]++;
-				else if (times[m2] > times[m])				hilfsarray[m2]++;
-				else if (times[m2] < times[m])				hilfsarray[m]++;
+				if (times[m].isUndefined() && !times[m2].isUndefined())			hilfsarray[m2]++;
+				else if (times[m2].isUndefined() && !times[m].isUndefined())	hilfsarray[m]++;
+				else if (dates[m2].isAfter(dates[m]))							hilfsarray[m2]++;
+				else if (dates[m2].isBefore(dates[m]))							hilfsarray[m]++;
+				else if (times[m2].isAfter(times[m]))							hilfsarray[m2]++;
+				else if (times[m2].isBefore(times[m]))							hilfsarray[m]++;
 				else {
 					Spiel sp1 = getMatch(matchday, m), sp2 = getMatch(matchday, m2);
 					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
@@ -536,13 +539,13 @@ public class LigaSaison implements Wettbewerb {
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			oldMatches[matchID] = getMatch(matchday, matchID);
 			oldResults[matchID] = getResult(matchday, matchID);
-			oldKOTindices[matchID] = datesAndTimes[matchday][matchID + 1];
+			oldKOTindices[matchID] = kotIndices[matchday][matchID];
 		}
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			setMatch(matchday, matchID, oldMatches[oldIndicesInNewOrder[matchID]]);
 			setResult(matchday, matchID, oldResults[oldIndicesInNewOrder[matchID]]);
-			datesAndTimes[matchday][matchID + 1] = oldKOTindices[oldIndicesInNewOrder[matchID]];
+			kotIndices[matchday][matchID] = oldKOTindices[oldIndicesInNewOrder[matchID]];
 		}
 	}
 	
@@ -550,9 +553,10 @@ public class LigaSaison implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				int date = getDate(i, j), time = getTime(i, j);
-				if (isMatchSet(i, j) && date > 0 && (!inThePast(date, time, 145) || !isResultSet(i, j))) {
-					long dateAndTime = 10000L * date + time;
+				Datum date = getDate(i, j);
+				Uhrzeit time = getTime(i, j);
+				if (isMatchSet(i, j) && date != null && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
+					long dateAndTime = 10000L * date.comparable() + time.comparable();
 					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
@@ -621,7 +625,8 @@ public class LigaSaison implements Wettbewerb {
 	
 	private void initializeArrays() {
 		// Alle Array werden initialisiert
-		datesAndTimes = new int[numberOfMatchdays][numberOfMatchesPerMatchday + 1];
+		dates = new Datum[numberOfMatchdays];
+		kotIndices = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		results = new Ergebnis[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
@@ -685,7 +690,7 @@ public class LigaSaison implements Wettbewerb {
 			String[] split = allKickoffTimes.split(";");
 			numberOfKickoffTimes = Integer.parseInt(split[0]);
 			kickOffTimes = new ArrayList<>();
-			kickOffTimes.add(new AnstossZeit(0, -1, -1));
+			kickOffTimes.add(new AnstossZeit(0, -1, UNDEFINED));
 			for (int counter = 1; counter <= numberOfKickoffTimes; counter++) {
 				kickOffTimes.add(new AnstossZeit(counter, split[counter]));
 			}
@@ -699,7 +704,7 @@ public class LigaSaison implements Wettbewerb {
 				if (!isNoMatchSet(matchday)) {
 					// Daten und Uhrzeiten
 					String[] koTimes = split[1].split(":");
-					setDate(matchday, Integer.parseInt(koTimes[0]));
+					setDate(matchday, koTimes[0].equals("0") ? MAX_DATE : new Datum(koTimes[0]));
 					for (matchID = 0; (matchID + 1) < koTimes.length; matchID++) {
 						setKOTIndex(matchday, matchID, Integer.parseInt(koTimes[matchID + 1]));
 					}
@@ -715,6 +720,7 @@ public class LigaSaison implements Wettbewerb {
 						setMatch(matchday, matchID, match);
 					}
 				}
+				else	setDate(matchday, MAX_DATE);
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
@@ -739,7 +745,8 @@ public class LigaSaison implements Wettbewerb {
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
-				row += getDate(matchday);
+				Datum date = getDate(matchday);
+				row += date == MAX_DATE ? 0 : date.comparable();
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 					row += ":" + getKOTIndex(matchday, matchID);
 				}
@@ -767,7 +774,7 @@ public class LigaSaison implements Wettbewerb {
 
 				int matchID = 0;
 				if (!isNoMatchSet(matchday) && !isNoResultSet(matchday)) {
-					for (matchID = 0; (matchID + 1) < split.length; matchID++) {
+					for (matchID = 0; matchID + 1 < split.length; matchID++) {
 						if (isMatchSet(matchday, matchID)) {
 							Ergebnis result = null;
 							if (isResultSet(matchday, matchID))	result = new Ergebnis(split[matchID + 1]);
@@ -869,8 +876,8 @@ public class LigaSaison implements Wettbewerb {
 		spieltag.resetCurrentMatchday();
 		tabelle.resetCurrentMatchday();
 		
-		cMatchdaySetForDate = -1;
-		nMatchdaySetForDate = -1;
+		cMatchdaySetForDate = MIN_DATE;
+		nMatchdaySetForDate = MIN_DATE;
 		
 		geladen = true;
 	}
