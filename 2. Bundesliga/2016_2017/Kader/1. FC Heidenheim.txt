@@ -20,6 +20,6 @@ Marcel;Titsch-Rivero;null;19891102;Deutschland;Mittelfeld;26
 Bård;Finne;null;19950213;Norwegen;Sturm;10
 Tim;Kleindienst;null;19950831;Deutschland;Sturm;21
 Smail;Morabit;null;19880705;Frankreich;Sturm;9
-Dennis;Thomalla;null;19920816;Deutschland;Sturm;11
+Denis;Thomalla;null;19920816;Deutschland;Sturm;11
 John;Verhoek;null;19890325;Niederlande;Sturm;15
 Dominik;Widemann;null;19960730;Deutschland;Sturm;31
