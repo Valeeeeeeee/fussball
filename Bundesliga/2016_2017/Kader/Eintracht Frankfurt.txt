@@ -3,6 +3,7 @@ Lukás;Hrádecky;null;19891124;Finnland;Tor;1
 Heinz;Lindner;null;19900717;Österreich;Tor;13
 David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
 Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
+Aymane;Barkok;null;19980521;Deutschland;Abwehr;28
 Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
 Michael;Hector;null;19920719;Jamaika;Abwehr;15
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
