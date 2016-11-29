@@ -28,3 +28,4 @@ Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15
 Gerrit;Holtmann;null;19950325;Deutschland;Sturm;38
 Yoshinori;Muto;null;19920715;Japan;Sturm;9
 Karim;Onisiwo;null;19920317;Österreich;Sturm;21
+Aaron;Seydel;null;19960207;Deutschland;Sturm;36
