@@ -90,22 +90,22 @@ PO09W: Ludogorez Rasgrad
 PO09L: Viktoria Pilsen
 PO10W: Celtic Glasgow
 PO10L: Hapoel Be'er Scheva
-GA1: CL2016GA1
-GA2: CL2016GA2
-GA3: CL2016GA3
-GA4: CL2016GA4
-GB1: CL2016GB1
-GB2: CL2016GB2
-GB3: CL2016GB3
-GB4: CL2016GB4
-GC1: CL2016GC1
-GC2: CL2016GC2
-GC3: CL2016GC3
-GC4: CL2016GC4
-GD1: CL2016GD1
-GD2: CL2016GD2
-GD3: CL2016GD3
-GD4: CL2016GD4
+GA1: FC Arsenal
+GA2: Paris Saint-Germain
+GA3: Ludogorez Rasgrad
+GA4: FC Basel
+GB1: SSC Neapel
+GB2: Benfica Lissabon
+GB3: Besiktas Istanbul
+GB4: Dynamo Kiew
+GC1: FC Barcelona
+GC2: Manchester City
+GC3: Borussia Mönchengladbach
+GC4: Celtic Glasgow
+GD1: Atlético Madrid
+GD2: Bayern München
+GD3: FK Rostow
+GD4: PSV Eindhoven
 GE1: CL2016GE1
 GE2: CL2016GE2
 GE3: CL2016GE3
