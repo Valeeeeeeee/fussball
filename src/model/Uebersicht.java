@@ -267,6 +267,7 @@ public class Uebersicht extends JPanel {
 				this.add(jBtnBack);
 				jBtnBack.setBounds(REC_BTNBACK);
 				jBtnBack.setText("zurück");
+				jBtnBack.setFocusable(false);
 				jBtnBack.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						Start.getInstance().jBtnBackActionPerformed();

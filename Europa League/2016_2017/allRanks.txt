@@ -262,54 +262,54 @@ PO21W: Olympiakos Piräus
 PO21L: FC Arouca
 PO22W: Rapid Wien
 PO22L: AS Trencin
-GA1: EL2016GA1
-GA2: EL2016GA2
-GA3: EL2016GA3
-GA4: EL2016GA4
-GB1: EL2016GB1
-GB2: EL2016GB2
-GB3: EL2016GB3
-GB4: EL2016GB4
-GC1: EL2016GC1
-GC2: EL2016GC2
-GC3: EL2016GC3
-GC4: EL2016GC4
-GD1: EL2016GD1
-GD2: EL2016GD2
-GD3: EL2016GD3
-GD4: EL2016GD4
-GE1: EL2016GE1
-GE2: EL2016GE2
-GE3: EL2016GE3
-GE4: EL2016GE4
-GF1: EL2016GF1
-GF2: EL2016GF2
-GF3: EL2016GF3
-GF4: EL2016GF4
-GG1: EL2016GG1
-GG2: EL2016GG2
-GG3: EL2016GG3
-GG4: EL2016GG4
-GH1: EL2016GH1
-GH2: EL2016GH2
-GH3: EL2016GH3
-GH4: EL2016GH4
-GI1: EL2016GI1
-GI2: EL2016GI2
-GI3: EL2016GI3
-GI4: EL2016GI4
-GJ1: EL2016GJ1
-GJ2: EL2016GJ2
-GJ3: EL2016GJ3
-GJ4: EL2016GJ4
-GK1: EL2016GK1
-GK2: EL2016GK2
-GK3: EL2016GK3
-GK4: EL2016GK4
-GL1: EL2016GL1
-GL2: EL2016GL2
-GL3: EL2016GL3
-GL4: EL2016GL4
+GA1: Fenerbahce Istanbul
+GA2: Manchester United
+GA3: Feyenoord Rotterdam
+GA4: Sorja Luhansk
+GB1: APOEL Nikosia
+GB2: Olympiakos Piräus
+GB3: Young Boys Bern
+GB4: FK Astana
+GC1: AS Saint-Étienne
+GC2: RSC Anderlecht
+GC3: 1. FSV Mainz 05
+GC4: FK Qäbälä
+GD1: Zenit Sankt Petersburg
+GD2: AZ Alkmaar
+GD3: Maccabi Tel-Aviv
+GD4: Dundalk FC
+GE1: AS Rom
+GE2: Astra Giurgiu
+GE3: Viktoria Pilsen
+GE4: Austria Wien
+GF1: KRC Genk
+GF2: Athletic Bilbao
+GF3: Rapid Wien
+GF4: Sassuolo Calcio
+GG1: Ajax Amsterdam
+GG2: Celta Vigo
+GG3: Standard Lüttich
+GG4: Panathinaikos Athen
+GH1: Schachtar Donezk
+GH2: KAA Gent
+GH3: SC Braga
+GH4: Konyaspor
+GI1: FC Schalke 04
+GI2: FK Krasnodar
+GI3: FC Salzburg
+GI4: OGC Nizza
+GJ1: AC Florenz
+GJ2: PAOK Thessaloniki
+GJ3: Qarabag Agdam
+GJ4: Slovan Liberec
+GK1: Sparta Prag
+GK2: Hapoel Be'er Sheva
+GK3: FC Southampton
+GK4: Inter Mailand
+GL1: Osmanlispor
+GL2: FC Villarreal
+GL3: FC Zürich
+GL4: Steaua Bukarest
 SF01W: EL2016SF01W
 SF01L: EL2016SF01L
 SF02W: EL2016SF02W
