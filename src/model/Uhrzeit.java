@@ -3,7 +3,7 @@ package model;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import static util.Utilities.UNDEFINED;
+import static util.Utilities.TIME_UNDEFINED;
 
 public class Uhrzeit {
 	private int hourOfDay;
@@ -49,7 +49,7 @@ public class Uhrzeit {
 	}
 	
 	public boolean isUndefined() {
-		return equals(UNDEFINED);
+		return equals(TIME_UNDEFINED);
 	}
 	
 	public boolean equals(Object other) {

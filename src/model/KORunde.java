@@ -21,7 +21,7 @@ public class KORunde implements Wettbewerb {
 	private Datum cMatchdaySetForDate = MIN_DATE;
 	private int newestMatchday;
 	private Datum nMatchdaySetForDate = MIN_DATE;
-	private Uhrzeit nMatchdaySetUntilTime = UNDEFINED;
+	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private Mannschaft[] teams;
 	private int numberOfTeamsPrequalified;
 	private int numberOfTeamsFromPreviousRound;
@@ -260,7 +260,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public Datum getDate(int matchday, int matchID) {
-		if (daysSinceFirstDay[matchday][matchID] == -1)	return MAX_DATE;
+		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return MAX_DATE;
 		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
@@ -269,7 +269,8 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void setDate(int matchday, int matchID, Datum myDate) {
-		daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
+		if (myDate == MAX_DATE)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+		else					daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
 	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
@@ -517,14 +518,14 @@ public class KORunde implements Wettbewerb {
 			// first and second leg don't have to be in the same position on the plan and most likely they aren't!!
 			
 			// get index of second leg match
-			int index = -1;
-			for (int i = 0; i < numberOfMatchesPerMatchday && index == -1; i++) {
+			int index = UNDEFINED;
+			for (int i = 0; i < numberOfMatchesPerMatchday && index == UNDEFINED; i++) {
 				if (getMatch(1, i) != null && (getMatch(1, i).home() == teamHomeFirstLeg || getMatch(1, i).home() == teamAwayFirstLeg)) {
 					index = i + 1;
 				}
 			}
 			
-			if (index != -1 && isResultSet(numberOfMatchdays - 1, index - 1)) {
+			if (index != UNDEFINED && isResultSet(numberOfMatchdays - 1, index - 1)) {
 				Ergebnis secondLeg = getResult(1, index - 1);
 				if (firstLeg.home() + secondLeg.away() > firstLeg.away() + secondLeg.home()) {
 					return isWinnerRequested ? teamHomeFirstLeg : teamAwayFirstLeg;
@@ -703,8 +704,8 @@ public class KORunde implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
-					daysSinceFirstDay[matchday][matchID] = -1;
-					setTime(matchday, matchID, UNDEFINED);
+					daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+					setTime(matchday, matchID, TIME_UNDEFINED);
 					matchID++;
 				}
 			}

@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.MAX_DATE;
+import static util.Utilities.UNDEFINED;
 
 public class AnstossZeit {
 	
@@ -24,7 +25,7 @@ public class AnstossZeit {
 	}
 	
 	public String getDateAndTime(Datum startDate) {
-		Datum date = new Datum(startDate, !time.isUndefined() || daysSince != -1 ? daysSince : 0);
+		Datum date = new Datum(startDate, !time.isUndefined() || daysSince != UNDEFINED ? daysSince : 0);
 		return date.withDividers() + " " + time.withDividers();
 	}
 	

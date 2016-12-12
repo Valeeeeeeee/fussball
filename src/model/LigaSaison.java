@@ -27,7 +27,7 @@ public class LigaSaison implements Wettbewerb {
 	private Datum cMatchdaySetForDate;
 	private int newestMatchday;
 	private Datum nMatchdaySetForDate;
-	private Uhrzeit nMatchdaySetUntilTime = UNDEFINED;
+	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	
 	private int[] numberOf;
 	
@@ -174,7 +174,7 @@ public class LigaSaison implements Wettbewerb {
 				return ms.getId();
 			}
 		}
-		return -1;
+		return UNDEFINED;
 	}
 	
 	public Mannschaft getTeamWithName(String teamsName) {
@@ -186,7 +186,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		Datum today = new Datum(Start.today(), -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
+		Datum today = new Datum(Start.today(), UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
 		if (!today.equals(cMatchdaySetForDate)) {
 			if (today.isBefore(getDate(0))) {
@@ -291,7 +291,7 @@ public class LigaSaison implements Wettbewerb {
 		for (AnstossZeit az : kickOffTimes) {
 			if (az.matches(diff, timeOfNewKOT))	return az.getIndex();
 		}
-		return -1;
+		return UNDEFINED;
 	}
 	
 	public void useDefaultKickoffTimes(int matchday) {
@@ -690,7 +690,7 @@ public class LigaSaison implements Wettbewerb {
 			String[] split = allKickoffTimes.split(";");
 			numberOfKickoffTimes = Integer.parseInt(split[0]);
 			kickOffTimes = new ArrayList<>();
-			kickOffTimes.add(new AnstossZeit(0, -1, UNDEFINED));
+			kickOffTimes.add(new AnstossZeit(0, UNDEFINED, TIME_UNDEFINED));
 			for (int counter = 1; counter <= numberOfKickoffTimes; counter++) {
 				kickOffTimes.add(new AnstossZeit(counter, split[counter]));
 			}

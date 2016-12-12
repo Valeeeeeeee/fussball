@@ -19,7 +19,7 @@ public class Gruppe implements Wettbewerb {
 	private boolean cMatchdaySetForOverview;
 	private int newestMatchday;
 	private Datum nMatchdaySetForDate = MIN_DATE;
-	private Uhrzeit nMatchdaySetUntilTime = UNDEFINED;
+	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private Mannschaft[] teams;
 	private TurnierSaison season;
 	private boolean isETPossible = false;
@@ -178,7 +178,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public Datum getDate(int matchday, int matchID) {
-		if (daysSinceFirstDay[matchday][matchID] == -1)	return MAX_DATE;
+		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return MAX_DATE;
 		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
@@ -187,7 +187,8 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void setDate(int matchday, int matchID, Datum myDate) {
-		daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
+		if (myDate == MAX_DATE)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+		else					daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
 	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
@@ -221,7 +222,7 @@ public class Gruppe implements Wettbewerb {
 				return ms.getId();
 			}
 		}
-		return -1;
+		return UNDEFINED;
 	}
 	
 	public Mannschaft getTeamWithName(String teamsName) {
@@ -652,8 +653,8 @@ public class Gruppe implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
-					daysSinceFirstDay[matchday][matchID] = -1;
-					setTime(matchday, matchID, UNDEFINED);
+					daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+					setTime(matchday, matchID, TIME_UNDEFINED);
 					matchID++;
 				}
 			}

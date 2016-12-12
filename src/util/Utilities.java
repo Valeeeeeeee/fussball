@@ -44,7 +44,9 @@ public class Utilities {
 	public static final Datum MIN_DATE = new Datum(1, 1, 0);
 	public static final Datum MAX_DATE = new Datum(31, 12, 9999);
 	
-	public static final Uhrzeit UNDEFINED = new Uhrzeit(-1);
+	public static final int UNDEFINED = -1;
+	
+	public static final Uhrzeit TIME_UNDEFINED = new Uhrzeit(UNDEFINED);
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
