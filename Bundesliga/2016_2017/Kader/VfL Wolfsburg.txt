@@ -24,6 +24,7 @@ Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;13
 Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
 Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
+Justin;Möbius;null;19970421;Deutschland;Mittelfeld;26
 Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
 Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
 Josip;Brekalo;null;19980623;Kroatien;Sturm;25
