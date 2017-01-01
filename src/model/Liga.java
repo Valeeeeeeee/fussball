@@ -83,7 +83,7 @@ public class Liga {
 					long match = Long.parseLong(nextMatchesString.get(i));
 					if (match <= now) {
 						boolean hourPassed = match % 100 >= now % 100;
-						int dayDiff = new Datum((int) match / 10000).daysUntil(new Datum((int) now / 10000));
+						int dayDiff = new Datum((int) (match / 10000)).daysUntil(new Datum((int) (now / 10000)));
 						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);
 						diff = (diff / 100) * 60 + diff % 100;
 						if (diff < 105)	countStillRunning++;
