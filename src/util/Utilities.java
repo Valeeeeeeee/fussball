@@ -35,7 +35,7 @@ public class Utilities {
 	public static final int GAPY = 3;
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
-	private static boolean osX = System.getProperty("os.name").startsWith("Mac OS X");
+	private static boolean macOS = System.getProperty("os.name").startsWith("Mac OS X");
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	public static String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
@@ -147,11 +147,11 @@ public class Utilities {
 	}
 	
 	public static String arrowDown() {
-		return osX ? "\u2b07" : "\u2193";
+		return macOS ? "\u2b07" : "\u2193";
 	}
 	
 	public static String arrowUp() {
-		return osX ? "\u2b06" : "\u2191";
+		return macOS ? "\u2b06" : "\u2191";
 	}
 	
 	public static int numberOfDaysInMonth(int month, int year) {
@@ -401,12 +401,12 @@ public class Utilities {
 	}
 	
 	public static int getWindowDecorationWidth() {
-		if (osX)	return 0;
+		if (macOS)	return 0;
 		else		return 6;
 	}
 	
 	public static int getWindowDecorationHeight() {
-		if (osX)	return 22;
+		if (macOS)	return 22;
 		else		return 28;
 	}
 }
