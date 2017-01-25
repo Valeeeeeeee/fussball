@@ -11,6 +11,7 @@ Khaled;Narey;null;19940723;Deutschland;Abwehr;21
 Erhun;Obanor;null;19950905;Nigeria;Abwehr;3;20160907-
 Nicolai;Rapp;null;19961213;Deutschland;Abwehr;5
 Dominik;Schad;null;19970304;Deutschland;Abwehr;35
+Dominik;Sollfrank;null;19980410;Deutschland;Abwehr;38
 George;Davies;null;19961116;Sierra Leone;Mittelfeld;25
 Damjan;Djokovic;null;19900418;Kroatien;Mittelfeld;16;20161015-
 Jürgen;Gjasula;null;19851205;Albanien;Mittelfeld;8
