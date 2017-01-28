@@ -16,6 +16,7 @@ Philipp;Wollscheid;null;19890306;Deutschland;Abwehr;2;20160831-
 Robin;Ziegele;null;19970313;Deutschland;Abwehr;40
 Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
 Ismail;Azzaoui;null;19980106;Belgien;Mittelfeld;38
+Riechedly;Bazoer;null;19961012;Niederlande;Mittelfeld;6;20170101-
 Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;14
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7;-20170124
 Amara;Condé;null;19970106;Deutschland;Mittelfeld;29
@@ -24,6 +25,7 @@ Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10;-20161231
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;13
 Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
 Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
+Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10;20170101-
 Justin;Möbius;null;19970421;Deutschland;Mittelfeld;26
 Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
 Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
@@ -33,3 +35,4 @@ Anton-Leander;Donkor;null;19971111;Deutschland;Sturm;35;-20170124
 Bas;Dost;null;19890531;Niederlande;Sturm;12;-20160827
 Mario;Gomez;null;19850710;Deutschland;Sturm;33
 Borja;Mayoral;null;19970405;Spanien;Sturm;17
+Paul-Georges;Ntep de Madiba;null;19920729;Frankreich;Sturm;9;20170101-

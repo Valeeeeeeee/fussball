@@ -2,6 +2,7 @@ Oliver;Baumann;null;19900602;Deutschland;Tor;1
 Gregor;Kobel;null;19971206;Schweiz;Tor;36
 Alexander;Stolz;null;19831013;Deutschland;Tor;33
 Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
+Danilo Teodoro;Soares;Danilo;19911029;Brasilien;Abwehr;12;20161124-
 Benjamin;Hübner;null;19890704;Deutschland;Abwehr;21
 Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
 Jin-Su;Kim;null;19920613;Südkorea;Abwehr;20;-20161231

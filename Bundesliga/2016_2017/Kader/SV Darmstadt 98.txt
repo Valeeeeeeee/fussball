@@ -23,8 +23,11 @@ László;Kleinheisler;null;19940408;Ungarn;Mittelfeld;30;-20170122
 Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
 Denys;Oliinyk;null;19870616;Ukraine;Mittelfeld;22
 Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;10
+Sidney;Sam;null;19880131;Deutschland;Mittelfeld;33;20170101-
+Markus;Steinhöfer;null;19860307;Deutschland;Mittelfeld;13;20170101-
 Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
 Roman;Bejzak;null;19890221;Slowenien;Sturm;14;20160829-
+Terrence;Boyd;null;19910216;USA;Sturm;15;20170124-
 Antonio-Mirko;Colak;null;19930917;Deutschland, Kroatien;Sturm;16
 Victor;Obinna;null;19870325;Nigeria;Sturm;11
 Felix;Platte;null;19960211;Deutschland;Sturm;19

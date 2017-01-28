@@ -12,7 +12,9 @@ Filip;Mladenovic;null;19910815;Serbien;Abwehr;25;-20161231
 Pawel;Olkowski;null;19900213;Polen;Abwehr;16
 Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
 Frederik;Sørensen;null;19920414;Dänemark;Abwehr;4
+Neven;Subotic;null;19881210;USA, Serbien;Abwehr;2;20170126-
 Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;21
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;17;20170101-
 Marcel;Hartel;null;19960119;Deutschland;Mittelfeld;30
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;6
 Milos;Jojic;null;19920319;Serbien;Mittelfeld;8

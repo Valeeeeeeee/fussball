@@ -26,4 +26,5 @@ André;Schürrle;null;19901106;Deutschland;Mittelfeld;21
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
 Ousmane;Dembélé;null;19970515;Frankreich;Sturm;7
+Alexander;Isak;null;19990921;Schweden, Eritrea;Sturm;14;20170123-
 Adrián;Ramos;null;19860122;Kolumbien;Sturm;20;-20170125

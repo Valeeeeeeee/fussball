@@ -11,6 +11,7 @@ Atinç;Nukan;null;19930720;Türkei;Abwehr;5;-20160830
 Willi;Orban;null;19921103;Deutschland;Abwehr;4
 Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;5;20160831-20161231
 Benno;Schmitz;null;19941117;Deutschland;Abwehr;20
+'Dayot'chanculle;Upamecano;null;19981027;Frankreich;Abwehr;17;20170101-
 Massimo;Bruno;null;19930917;Belgien;Mittelfeld;14;-20160829
 Oliver;Burke;null;19970407;Schottland;Mittelfeld;19;20160828-
 Diego;Demme;null;19911121;Deutschland;Mittelfeld;31

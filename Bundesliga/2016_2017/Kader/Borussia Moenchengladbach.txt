@@ -7,6 +7,7 @@ Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
 Mamadou;Doucouré;null;19980521;Senegal, Frankreich;Abwehr;29
 Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
+Timothée;Kolodziejczak;null;19911001;Frankreich;Abwehr;25;20170101-
 Julian;Korb;null;19920321;Deutschland;Abwehr;27
 Marvin;Schulz;null;19950115;Deutschland;Abwehr;15
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
