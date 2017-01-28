@@ -115,7 +115,7 @@ public class LigaStatistik extends JPanel {
 			this.add(jLblCompetition);
 			jLblCompetition.setBounds(REC_LBLWETTBW);
 			jLblCompetition.setFont(fontCompetition);
-			jLblCompetition.setText(season.getName());
+			jLblCompetition.setText(season.getDescription());
 		}
 		
 		buildResults();

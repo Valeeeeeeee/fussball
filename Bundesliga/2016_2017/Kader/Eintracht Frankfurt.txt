@@ -14,7 +14,7 @@ Jesús;Vallejo;null;19970105;Spanien;Abwehr;5
 Guillermo;Varela;null;19930324;Uruguay;Abwehr;3
 Furkan;Zorba;null;19980225;Deutschland;Abwehr;36
 Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;10
-Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
+Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18;-20161231
 Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
 Joel;Gerezgiher;null;19951009;Deutschland;Mittelfeld;32
 Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20

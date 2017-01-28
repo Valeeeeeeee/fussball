@@ -11,7 +11,7 @@ Steffen;Lang;null;19930814;Deutschland;Abwehr;2
 Stephan;Salger;null;19900130;Deutschland;Abwehr;11
 Sebastian;Schuppan;null;19860718;Deutschland;Abwehr;27
 Brian;Behrendt;null;19911024;Deutschland;Mittelfeld;3
-Daniel;Brinkmann;null;19860129;Deutschland;Mittelfeld;8
+Daniel;Brinkmann;null;19860129;Deutschland;Mittelfeld;8;-20161231
 Allan Firmino;Dantas;null;19970128;Deutschland;Mittelfeld;35
 Michael;Görlitz;null;19870308;Deutschland;Mittelfeld;7
 Christoph;Hemlein;null;19901216;Deutschland;Mittelfeld;17
@@ -23,7 +23,7 @@ Tom;Schütz;null;19880120;Deutschland;Mittelfeld;6
 Keanu;Staude;null;19970126;Deutschland;Mittelfeld;32
 David;Ulm;null;19840630;Frankreich;Mittelfeld;5
 Fabian;Klos;null;19871202;Deutschland;Sturm;9
-Michal;Mak;null;19911114;Polen;Sturm;30;20160831-
+Michal;Mak;null;19911114;Polen;Sturm;30;20160831-20161231
 Christopher;Nöthe;null;19880103;Deutschland;Sturm;18
 Leandro;Putaro;null;19970107;Deutschland, Italien;Sturm;29
 Andreas;Voglsammer;null;19920109;Deutschland;Sturm;21

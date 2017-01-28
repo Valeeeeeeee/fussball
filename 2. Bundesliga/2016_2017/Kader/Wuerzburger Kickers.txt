@@ -7,11 +7,11 @@ Júnior Enrique;Díaz Campbell;Junior Díaz;19830912;Costa Rica;Abwehr;12;201608
 Peter;Kurzweg;null;19940210;Deutschland;Abwehr;16
 Felix;Müller;null;19930127;Deutschland;Abwehr;7
 Sebastian;Neumann;null;19910218;Deutschland;Abwehr;29
-Dominik;Nothnagel;null;19941228;Deutschland;Abwehr;3
+Dominik;Nothnagel;null;19941228;Deutschland;Abwehr;3;-20161231
 David;Pisot;null;19870706;Deutschland;Abwehr;25;20160816-
-Dennis;Russ;null;19920605;Deutschland;Abwehr;22
+Dennis;Russ;null;19920605;Deutschland;Abwehr;22;-20161231
 Clemens;Schoppenhauer;null;19920223;Deutschland;Abwehr;5
-Sascha;Traut;null;19850521;Deutschland;Abwehr;17
+Sascha;Traut;null;19850521;Deutschland;Abwehr;17;-20161231
 Franko;Uzelac;null;19941105;Kroatien;Abwehr;15
 Richard;Weil;null;19880206;Deutschland;Abwehr;11
 Rico;Benatelli;null;19920317;Deutschland;Mittelfeld;4
@@ -22,7 +22,7 @@ Dániel;Nagy;null;19910315;Ungarn;Mittelfeld;20
 Valdet;Rama;null;19871120;Albanien;Mittelfeld;24;20160829-
 Dennis;Schmitt;null;19930527;Deutschland;Mittelfeld;2
 Tobias;Schröck;null;19921231;Deutschland;Mittelfeld;21
-Amir;Shapourzadeh;null;19820919;Iran;Mittelfeld;9
+Amir;Shapourzadeh;null;19820919;Iran;Mittelfeld;9;-20161231
 Emanuel;Taffertshofer;null;19950224;Deutschland;Mittelfeld;8
 Marco;Königs;null;19900125;Deutschland;Sturm;27
 Elia;Soriano;null;19890626;Italien;Sturm;33

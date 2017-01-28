@@ -10,7 +10,7 @@ Georg;Margreitter;null;19881107;Österreich;Abwehr;33
 Lukas;Mühl;null;19970127;Deutschland;Abwehr;28
 Ondrej;Petrák;null;19920311;Tschechien;Abwehr;31
 László;Sepsi;null;19870607;Rumänien;Abwehr;6
-Enis;Alushi;null;19851222;Kosovo;Mittelfeld;5
+Enis;Alushi;null;19851222;Kosovo;Mittelfeld;5;-20161231
 Hanno;Behrens;null;19900326;Deutschland;Mittelfeld;18
 Patrick;Erras;null;19950121;Deutschland;Mittelfeld;29
 Willi;Evseev;null;19920214;Deutschland;Mittelfeld;21
@@ -18,9 +18,9 @@ Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;10
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;14
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
-Guido;Burgstaller;null;19890429;Österreich;Sturm;9
-Philipp;Hercher;null;19960321;Deutschland;Sturm;27
+Guido;Burgstaller;null;19890429;Österreich;Sturm;9;-20161231
+Philipp;Hercher;null;19960321;Deutschland;Sturm;27;-20161231
 Tim;Matavz;null;19890113;Slowenien;Sturm;24;20160830-
 Shawn;Parker;null;19930307;Deutschland;Sturm;20;20160823-
-Jakub;Sylvestr;null;19890202;Slowakei;Sturm;11
+Jakub;Sylvestr;null;19890202;Slowakei;Sturm;11;-20161231
 Cedric;Teuchert;null;19970114;Deutschland;Sturm;36

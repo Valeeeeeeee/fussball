@@ -5,7 +5,7 @@ Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
 Fynn;Arkenberg;null;19960304;Deutschland;Abwehr;33
 Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
-André;Hoffmann;null;19930228;Deutschland;Abwehr;15
+André;Hoffmann;null;19930228;Deutschland;Abwehr;15;-20161231
 Timo;Hübers;null;19960720;Deutschland;Abwehr;22
 Florian;Hübner;null;19910301;Deutschland;Abwehr;19
 Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;5
@@ -22,7 +22,7 @@ Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
 Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
 Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
-Babacar;Gueye;null;19941231;Senegal;Sturm;29
+Babacar;Gueye;null;19941231;Senegal;Sturm;29;-20161231
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
 Elias;Huth;null;19970210;Deutschland;Sturm;32
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26

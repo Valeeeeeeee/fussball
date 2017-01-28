@@ -3,7 +3,7 @@ Michael;Gspurning;null;19810502;Österreich;Tor;30
 Daniel;Mesenhöler;null;19950724;Deutschland;Tor;1
 Benjamin;Kessel;null;19871001;Deutschland;Abwehr;5
 Toni;Leistner;null;19900819;Deutschland;Abwehr;37
-Christopher;Lenz;null;19940922;Deutschland;Abwehr;25
+Christopher;Lenz;null;19940922;Deutschland;Abwehr;25;-20161231
 Michael;Parensen;null;19860624;Deutschland;Abwehr;29
 Kristian;Pedersen;null;19940804;Dänemark;Abwehr;6
 Emanuel;Pogatetz;null;19830116;Österreich;Abwehr;3
@@ -18,12 +18,12 @@ Damir;Kreilach;null;19890416;Kroatien;Mittelfeld;19
 Felix;Kroos;null;19910312;Deutschland;Mittelfeld;23
 Lukas;Lämmel;null;19970908;Deutschland;Mittelfeld;39
 Adrian;Nikçi;null;19891110;Schweiz, Kosovo;Mittelfeld;14
-Christopher;Quiring;null;19901123;Deutschland;Mittelfeld;2
+Christopher;Quiring;null;19901123;Deutschland;Mittelfeld;2;-20161231
 Kenny Prince;Redondo;null;19940829;Deutschland, Spanien;Mittelfeld;18
 Maximilian;Thiel;null;19930203;Deutschland;Mittelfeld;11
 Eroll;Zejnullahu;null;19941019;Deutschland, Kosovo;Mittelfeld;27
-Sören;Brandy;null;19850506;Deutschland;Sturm;9
+Sören;Brandy;null;19850506;Deutschland;Sturm;9;-20161231
 Simon;Hedlund;null;19930311;Schweden;Sturm;17;20160829-
 Philipp;Hosiner;null;19890515;Österreich;Sturm;16
-Collin;Quaner;null;19910618;Deutschland;Sturm;21
+Collin;Quaner;null;19910618;Deutschland;Sturm;21;-20161231
 Steven;Skrzybski;null;19921118;Deutschland;Sturm;24

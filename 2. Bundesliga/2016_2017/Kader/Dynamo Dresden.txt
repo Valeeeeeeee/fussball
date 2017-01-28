@@ -23,4 +23,4 @@ Marvin;Stefaniak;null;19950203;Deutschland;Mittelfeld;10
 Erich;Berko;null;19940906;Deutschland;Sturm;40
 Stefan;Kutschke;null;19881103;Deutschland;Sturm;30
 Pascal;Testroet;null;19900926;Deutschland;Sturm;37
-Tim;Väyrynen;null;19930330;Finnland;Sturm;9
+Tim;Väyrynen;null;19930330;Finnland;Sturm;9;-20161231

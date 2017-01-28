@@ -19,7 +19,7 @@ Thomas;Pledl;null;19940523;Deutschland;Mittelfeld;30
 Manuel;Stiefler;null;19880725;Deutschland;Mittelfeld;21
 Marco;Thiede;null;19920520;Deutschland;Mittelfeld;7
 Korbinian;Vollmann;null;19931027;Deutschland;Mittelfeld;22
-Steven;Zellner;null;19910314;Deutschland;Mittelfeld;18
+Steven;Zellner;null;19910314;Deutschland;Mittelfeld;18;-20161231
 Erik;Zenga;null;19930118;Deutschland;Mittelfeld;16
 Julian;Derstroff;null;19920105;Deutschland;Sturm;37
 Lucas;Höler;null;19940710;Deutschland;Sturm;9

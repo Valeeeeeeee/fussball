@@ -8,11 +8,11 @@ Sebastian;Hertner;null;19910502;Deutschland;Abwehr;3
 Fabian;Kalig;null;19930328;Deutschland;Abwehr;4
 Julian;Riedel;null;19910810;Deutschland;Abwehr;2
 Calogero;Rizzuto;null;19920105;Deutschland;Abwehr;20
-Marcin;Sieber;null;19960131;Deutschland;Abwehr;12
+Marcin;Sieber;null;19960131;Deutschland;Abwehr;12;-20161231
 Adam;Susac;null;19890520;Kroatien;Abwehr;21
 Sören;Bertram;null;19910605;Deutschland;Mittelfeld;23
 Clemens;Fandrich;null;19910110;Deutschland;Mittelfeld;5
-Simon;Handle;null;19930125;Deutschland;Mittelfeld;7
+Simon;Handle;null;19930125;Deutschland;Mittelfeld;7;-20161231
 Tommy;Käßemodel;null;19880809;Deutschland;Mittelfeld;29
 Fabio;Kaufmann;null;19920908;Deutschland;Mittelfeld;22
 Mario;Kvesic;null;19920112;Bosnien-Herzegowina;Mittelfeld;16
@@ -23,8 +23,8 @@ Simon;Skarlatidis;null;19910606;Deutschland;Mittelfeld;10
 Cebio;Soukou;null;19921002;Deutschland;Mittelfeld;19
 Christian;Tiffert;null;19820218;Deutschland;Mittelfeld;33
 Nicky;Adler;null;19850523;Deutschland;Sturm;8
-Björn;Kluft;null;19900111;Deutschland;Sturm;11
+Björn;Kluft;null;19900111;Deutschland;Sturm;11;-20161231
 Pascal;Köpke;null;19950903;Deutschland;Sturm;14
 Dimitrij;Nazarov;null;19900404;Aserbaidschan;Sturm;30
-Martin;Toshev;null;19900417;Bulgarien;Sturm;18
+Martin;Toshev;null;19900417;Bulgarien;Sturm;18;-20161231
 Max;Wegner;null;19890324;Deutschland;Sturm;9

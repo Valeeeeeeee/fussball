@@ -187,6 +187,7 @@ public class Start extends JFrame {
 			}
 			
 			pack();
+			setTitle("Fußball");
 			setSize(WIDTH, HEIGHT);
 			setResizable(false);
 		} catch (Exception e) {
@@ -659,7 +660,7 @@ public class Start extends JFrame {
 			GroupStageHomescreen.setVisible(false);
 		}
 		
-		jLblCompetition.setText(currentGroup.getName());
+		jLblCompetition.setText(currentGroup.getDescription());
 		LeagueHomescreen.setVisible(true);
 		LeagueHomescreen.add(jBtnBack);
 		
@@ -722,11 +723,13 @@ public class Start extends JFrame {
 		getContentPane().add(aktuelleTabelle);
 		aktuelleStatistik = currentLSeason.getStatistik();
 		getContentPane().add(aktuelleStatistik);
+		setTitle(currentLSeason.getDescription());
 	}
 	
 	private void loadTournamentSpecificThings() {
 		// falls sie bereits existieren entfernen (wird benötigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga müssen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
+		setTitle(currentTSeason.getDescription());
 		if (currentTSeason.hasQualification()) {
 			jBtnQualification.setVisible(true);
 			try {
@@ -744,7 +747,7 @@ public class Start extends JFrame {
 				qualificationButtons[ctr] = new JButton();
 				QualificationHomescreen.add(qualificationButtons[ctr]);
 				qualificationButtons[ctr].setBounds(295 + (ctr % 2) * (SIZEX_BTNS + 50), 150 + (ctr / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[ctr].setText(currentTSeason.getQGroups()[ctr].getName());
+				qualificationButtons[ctr].setText(currentTSeason.getQGroups()[ctr].getDescription());
 				qualificationButtons[ctr].setFocusable(false);
 				qualificationButtons[ctr].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -770,7 +773,7 @@ public class Start extends JFrame {
 				qualificationButtons[position] = new JButton();
 				QualificationHomescreen.add(qualificationButtons[position]);
 				qualificationButtons[position].setBounds(295 + (position % 2) * (SIZEX_BTNS + 50), 150 + position / 2 * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[position].setText(currentTSeason.getQKORounds()[x].getName());
+				qualificationButtons[position].setText(currentTSeason.getQKORounds()[x].getDescription());
 				qualificationButtons[position].setFocusable(false);
 				qualificationButtons[position].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -795,7 +798,7 @@ public class Start extends JFrame {
 				groupStageButtons[i] = new JButton();
 				GroupStageHomescreen.add(groupStageButtons[i]);
 				groupStageButtons[i].setBounds(295 + (i % 2) * (SIZEX_BTNS + 50), 150 + (i / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				groupStageButtons[i].setText(currentTSeason.getGroups()[i].getName());
+				groupStageButtons[i].setText(currentTSeason.getGroups()[i].getDescription());
 				groupStageButtons[i].setFocusable(false);
 				groupStageButtons[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -833,7 +836,7 @@ public class Start extends JFrame {
 				KORoundsButtons[i] = new JButton();
 				KORoundsHomescreen.add(KORoundsButtons[i]);
 				KORoundsButtons[i].setBounds(520, 150 + i * (SIZEY_BTNS + 15), SIZEX_BTNS, SIZEY_BTNS);
-				KORoundsButtons[i].setText(currentTSeason.getKORounds()[i].getName());
+				KORoundsButtons[i].setText(currentTSeason.getKORounds()[i].getDescription());
 				KORoundsButtons[i].setFocusable(false);
 				KORoundsButtons[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -1317,6 +1320,7 @@ public class Start extends JFrame {
 				refreshRunningAndCompletedMatches();
 				LeagueHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
+				setTitle("Fußball");
 			} else if (uebersicht.isVisible()) {
 				if (isCurrentlyInMatchdayView) {
 					aktuellerSpieltag.setVisible(true);
@@ -1375,6 +1379,7 @@ public class Start extends JFrame {
 				refreshRunningAndCompletedMatches();
 				TournamentHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
+				setTitle("Fußball");
 			} else if (QualificationHomescreen.isVisible() || GroupStageHomescreen.isVisible() || KORoundsHomescreen.isVisible()) {
 				QualificationHomescreen.setVisible(false);
 				GroupStageHomescreen.setVisible(false);

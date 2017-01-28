@@ -89,7 +89,7 @@ public class KORunde implements Wettbewerb {
 		return isQ;
 	}
 	
-	public String getName() {
+	public String getDescription() {
 		return name;
 	}
 	

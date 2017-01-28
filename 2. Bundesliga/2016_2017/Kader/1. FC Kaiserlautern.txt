@@ -18,7 +18,7 @@ Daniel;Halfar;null;19880107;Deutschland;Mittelfeld;28
 Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;27;20160831-
 Mateusz;Klich;null;19900613;Polen;Mittelfeld;23;-20160825
 Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;18
-Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13
+Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13;-20161231
 Marcus;Piossek;null;19890721;Polen, Deutschland;Mittelfeld;8;-20160830
 Alexander;Ring;null;19910409;Finnland;Mittelfeld;6
 Nils;Seufert;null;19970203;Deutschland;Mittelfeld;38

@@ -6,7 +6,7 @@ public interface Wettbewerb {
 
 	public int getID();
 	public int getYear();
-	public String getName();
+	public String getDescription();
 	public boolean isSTSS();
 	public String getWorkspace();
 	public int getCurrentMatchday();

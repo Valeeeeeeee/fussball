@@ -77,7 +77,7 @@ public class LigaSaison implements Wettbewerb {
 		return league;
 	}
 	
-	public String getName() {
+	public String getDescription() {
 		return league.getName() + " " + getSeasonFull("/");
 	}
 	

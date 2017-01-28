@@ -91,7 +91,7 @@ public class Gruppe implements Wettbewerb {
 		return season.getDescription() + isQuali + ", " + name + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
-	public String getName() {
+	public String getDescription() {
 		return name;
 	}
 	

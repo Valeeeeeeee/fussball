@@ -15,7 +15,7 @@ Nico;Rieble;null;19950822;Deutschland;Abwehr;27
 Russell;Canouse;null;19950611;USA;Mittelfeld;4
 Thomas;Eisfeld;null;19930118;Deutschland;Mittelfeld;10
 Hayk;Galstyan;null;19980323;Armenien;Mittelfeld;35
-Gökhan;Gül;null;19980717;Deutschland;Mittelfeld;16
+Gökhan;Gül;null;19980717;Deutschland;Mittelfeld;16;-20161231
 Tim;Hoogland;null;19850611;Deutschland;Mittelfeld;2
 Tim;Krafft;null;19980103;Deutschland;Mittelfeld;28
 Anthony;Losilla;null;19860310;Frankreich;Mittelfeld;8
@@ -28,7 +28,7 @@ Tobias;Weis;null;19850730;Deutschland;Mittelfeld;17;-20160811
 Dominik;Wydra;null;19940321;Österreich;Mittelfeld;6
 Selim;Gündüz;null;19940516;Deutschland;Sturm;7
 Peniel;Mlapa;null;19910220;Deutschland;Sturm;14
-Arvydas;Novikovas;null;19901218;Litauen;Sturm;11
+Arvydas;Novikovas;null;19901218;Litauen;Sturm;11;-20161231
 Evangelos;Pavlidis;null;19981121;Griechenland;Sturm;34
 Nils;Quaschner;null;19940422;Deutschland;Sturm;36
 Johannes;Wurtz;null;19920619;Deutschland;Sturm;9

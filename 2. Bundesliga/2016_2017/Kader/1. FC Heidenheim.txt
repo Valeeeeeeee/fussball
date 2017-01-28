@@ -8,7 +8,7 @@ Kevin;Kraus;null;19920812;Deutschland;Abwehr;23
 Ronny;Philp;null;19890128;Deutschland;Abwehr;20
 Robert;Strauß;null;19861007;Deutschland;Abwehr;29
 Mathias;Wittek;null;19890330;Deutschland;Abwehr;5
-David;Atanga;null;19961225;Ghana;Mittelfeld;17
+David;Atanga;null;19961225;Ghana;Mittelfeld;17;-20161231
 Dave;Gnaase;null;19961214;Deutschland;Mittelfeld;36
 Sebastian;Griesbeck;null;19901003;Deutschland;Mittelfeld;18
 Ben;Halloran;null;19920614;Australien;Mittelfeld;12
@@ -19,7 +19,7 @@ Norman;Theuerkauf;null;19870124;Deutschland;Mittelfeld;30
 Marcel;Titsch-Rivero;null;19891102;Deutschland;Mittelfeld;26
 Bård;Finne;null;19950213;Norwegen;Sturm;10
 Tim;Kleindienst;null;19950831;Deutschland;Sturm;21
-Smail;Morabit;null;19880705;Frankreich;Sturm;9
+Smail;Morabit;null;19880705;Frankreich;Sturm;9;-20161231
 Denis;Thomalla;null;19920816;Deutschland;Sturm;11
 John;Verhoek;null;19890325;Niederlande;Sturm;15
 Dominik;Widemann;null;19960730;Deutschland;Sturm;31

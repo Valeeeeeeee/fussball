@@ -8,7 +8,7 @@ Niklas;Hoffmann;null;19970409;Deutschland;Abwehr;33
 Dennis;Kempe;null;19860624;Deutschland;Abwehr;5
 David;Kinsombi;null;19951212;Deutschland;Abwehr;17
 Martin;Stoll;null;19830209;Deutschland;Abwehr;4
-Marin;Sverko;null;19980204;Deutschland;Abwehr;37
+Marin;Sverko;null;19980204;Deutschland;Abwehr;37;-20161231
 Bjarne;Thoelke;null;19920411;Deutschland;Abwehr;26
 Boubacar;Barry;null;19960415;Deutschland;Mittelfeld;11
 Tim;Fahrenholz;null;19940322;Deutschland;Mittelfeld;34

@@ -2,7 +2,7 @@ Bernd;Leno;null;19920304;Deutschland;Tor;1
 Niklas;Lomb;null;19930728;Deutschland;Tor;36
 Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;28
 Joel;'Abu Hanna';null;19980122;Deutschland;Abwehr;22
-Lukas;Boeder;null;19970418;Deutschland;Abwehr;33
+Lukas;Boeder;null;19970418;Deutschland;Abwehr;33;-20170122
 Danny;da Costa;null;19930713;Deutschland;Abwehr;23
 Aleksandar;Dragovic;null;19910306;Österreich;Abwehr;6
 Roberto;Hilbert;null;19841016;Deutschland;Abwehr;13
@@ -21,7 +21,7 @@ Hakan;Çalhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
 Kai;Havertz;null;19990611;Deutschland;Mittelfeld;29
 Benjamin;Henrichs;null;19970223;Deutschland;Mittelfeld;39
 Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44
-Robbie;Kruse;null;19881005;Australien;Mittelfeld;27
+Robbie;Kruse;null;19881005;Australien;Mittelfeld;27;-20161231
 Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24;-20160829
 Sam;Schreck;null;19990129;Deutschland;Mittelfeld;30
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35

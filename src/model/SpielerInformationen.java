@@ -538,7 +538,7 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblCompetition);
 			jLblCompetition.setBounds(REC_COMPETITION);
 			jLblCompetition.setFont(fontCompetition);
-			jLblCompetition.setText(competition.getName());
+			jLblCompetition.setText(competition.getDescription());
 		}
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
 			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? bndsPerf[GAPX] : 0;

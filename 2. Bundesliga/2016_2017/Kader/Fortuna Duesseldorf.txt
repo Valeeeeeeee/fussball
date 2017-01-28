@@ -18,7 +18,7 @@ Oliver;Fink;null;19820606;Deutschland;Mittelfeld;7
 Christian;Gartner;null;19940403;Österreich;Mittelfeld;21
 Jerome;Kiesewetter;null;19930209;Deutschland, USA;Mittelfeld;8
 Justin Toshiki;Kinjo;null;19970222;Japan, USA;Mittelfeld;24
-Julian;Koch;null;19901111;Deutschland;Mittelfeld;2
+Julian;Koch;null;19901111;Deutschland;Mittelfeld;2;-20161231
 Marcel;Sobottka;null;19940425;Deutschland;Mittelfeld;31
 Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;9
 Ihlas;Bebou;null;19940423;Deutschland, Togo;Sturm;37
@@ -26,6 +26,6 @@ Rouwen;Hennings;null;19870828;Deutschland;Sturm;28;20160822-
 Emmanuel;Iyoha;null;19971011;Deutschland, Nigeria;Sturm;20
 Maecky;Ngombo;null;19950328;Belgien, DR Kongo;Sturm;22
 Marlon;Ritter;null;19941015;Deutschland;Sturm;10
-Kemal;Rüzgar;null;19950620;Deutschland, Türkei;Sturm;23
+Kemal;Rüzgar;null;19950620;Deutschland, Türkei;Sturm;23;-20161231
 Mike;van Duinen;null;19911106;Niederlande;Sturm;29;-20160830
 Didier;'Ya Konan';null;19840522;Elfenbeinküste;Sturm;33

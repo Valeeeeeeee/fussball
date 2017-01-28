@@ -558,7 +558,7 @@ public class TurnierSaison {
 	private void testGetGroupStageOriginsOfTeams() {
 		log("\n\n");
 		for (int i = 0; i < koRounds.length; i++) {
-			log(koRounds[i].getName() + "\n-------------");
+			log(koRounds[i].getDescription() + "\n-------------");
 			koRounds[i].setCheckTeamsFromPreviousRound(false);
 			Mannschaft[] teams = koRounds[i].getTeams();
 			koRounds[i].setCheckTeamsFromPreviousRound(true);

@@ -9,7 +9,7 @@ Marc;Hornschuh;null;19910302;Deutschland;Abwehr;16
 Jan-Philipp;Kalla;null;19860806;Deutschland;Abwehr;27
 Joël;Keller;null;19950306;Schweiz;Abwehr;5
 Brian;Koglin;null;19970107;Deutschland;Abwehr;35
-Jacob;Rasmussen;null;19970528;Dänemark;Abwehr;19
+Jacob;Rasmussen;null;19970528;Dänemark;Abwehr;19;-20161231
 Lasse;Sobiech;null;19910118;Deutschland;Abwehr;3
 Philipp;Ziereis;null;19930314;Deutschland;Abwehr;4
 Christopher;Avevor;null;19920211;Deutschland, Ghana;Mittelfeld;6
@@ -23,6 +23,6 @@ Dennis;Rosin;null;19960627;Deutschland;Mittelfeld;25
 Enver 'Cenk';Sahin;null;19940922;Türkei;Mittelfeld;22
 Waldemar;Sobota;null;19870519;Polen;Mittelfeld;28
 Aziz;Bouhaddouz;null;19870330;Deutschland;Sturm;11
-Marvin;Ducksch;null;19940307;Deutschland;Sturm;34
+Marvin;Ducksch;null;19940307;Deutschland;Sturm;34;-20161231
 Nico;Empen;null;19960111;Deutschland;Sturm;24
 Fabrice-Jean;Picault;null;19910223;USA;Sturm;9

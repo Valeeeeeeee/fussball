@@ -12,13 +12,13 @@ Giulio;Donati;null;19900205;Italien;Abwehr;2
 Jean-Philippe;Gbamin;null;19950925;Frankreich;Abwehr;25
 Alexander;Hack;null;19930908;Deutschland;Abwehr;42
 André;Ramalho;null;19920216;Brasilien;Abwehr;22;20160831-
-Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27;-20161231
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
 Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20
 Besar;Halimi;null;19941212;Deutschland;Mittelfeld;30
 Philipp;Klement;null;19920909;Deutschland;Mittelfeld;47
 Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
-Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10
+Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10;-20161231
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;8
 José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5
 Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17

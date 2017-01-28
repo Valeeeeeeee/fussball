@@ -3,7 +3,7 @@ Moritz;Nicolas;null;19971021;Deutschland;Tor;35
 Tobias;Sippel;null;19880322;Deutschland;Tor;21
 Yann;Sommer;null;19881217;Schweiz;Tor;1
 Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
-Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;18
+Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;18;-20161206
 Mamadou;Doucouré;null;19980521;Senegal, Frankreich;Abwehr;29
 Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24

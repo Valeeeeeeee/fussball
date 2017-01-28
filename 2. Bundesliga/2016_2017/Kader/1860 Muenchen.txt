@@ -1,10 +1,10 @@
-Vitus;Eicher;null;19901105;Deutschland;Tor;1
+Vitus;Eicher;null;19901105;Deutschland;Tor;1;-20161231
 Stefan;Ortega;null;19921106;Deutschland;Tor;24
 Jan;Zimmermann;null;19850419;Deutschland;Tor;21
 Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;6;20161006-
 Kai;Bülow;null;19860531;Deutschland;Abwehr;4
 Marnon;Busch;null;19941208;Deutschland;Abwehr;16
-Milos;Degenek;null;19940428;Australien;Abwehr;30
+Milos;Degenek;null;19940428;Australien;Abwehr;30;-20161231
 Kilian;Jakob;null;19980125;Deutschland;Abwehr;26
 Jan;Mauersberger;null;19850617;Deutschland;Abwehr;2
 Rodnei Francisco;de Lima;Rodnei;19850911;Brasilien;Abwehr;20

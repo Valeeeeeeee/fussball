@@ -1,5 +1,5 @@
 Ralf;Fährmann;null;19880927;Deutschland;Tor;1
-Fabian;Giefer;null;19900517;Deutschland;Tor;34
+Fabian;Giefer;null;19900517;Deutschland;Tor;34;-20161231
 Alexander;Nübel;null;19960930;Deutschland;Tor;35
 Timon;Wellenreuther;null;19951203;Deutschland;Tor;30
 Dennis;Aogo;null;19870114;Deutschland;Abwehr;15
@@ -8,7 +8,7 @@ Abdul Rahman;Baba;null;19940702;Ghana;Abwehr;14
 Joshua;Bitter;null;19970101;Deutschland;Abwehr;28
 Jorge;Andujar Moreno;Coke;19870426;Spanien;Abwehr;23
 Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4
-Uilson;de Souza Paula Junior;Junior Caiçara;19890427;Brasilien;Abwehr;3
+Uilson;de Souza Paula Junior;Junior Caiçara;19890427;Brasilien;Abwehr;3;-20161231
 Thilo;Kehrer;null;19960921;Deutschland;Abwehr;20
 Sead;Kolasinac;null;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;6
 Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;29
@@ -21,9 +21,9 @@ Johannes;Geis;null;19930817;Deutschland;Mittelfeld;5
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11;20160830-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
-Sidney;Sam;null;19880131;Deutschland;Mittelfeld;18
+Sidney;Sam;null;19880131;Deutschland;Mittelfeld;18;-20161231
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;21
-Christian;Rubio 'Sivodedov';null;19971107;Schweden;Mittelfeld;12
+Christian;Rubio 'Sivodedov';null;19971107;Schweden;Mittelfeld;12;-20161231
 Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
 Donis;Avdijaj;null;19960825;Deutschland;Sturm;33
 Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13

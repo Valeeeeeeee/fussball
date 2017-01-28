@@ -2,7 +2,7 @@ René;Adler;null;19850115;Deutschland;Tor;1
 Andreas;Hirzel;null;19930325;Schweiz;Tor;30
 Christian;Mathenia;null;19920331;Deutschland;Tor;31
 Tom;Mickel;null;19890419;Deutschland;Tor;36
-Cléber Janderson;Pereira Reis;Cléber;19901205;Brasilien;Abwehr;3
+Cléber Janderson;Pereira Reis;Cléber;19901205;Brasilien;Abwehr;3;-20161231
 Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Johan;Djourou;null;19870118;Schweiz;Abwehr;5
 Ashton-Phillip;Götz;null;19930716;Deutschland;Abwehr;39
@@ -16,7 +16,7 @@ Nabil;Bahoui;null;19910205;Schweden;Mittelfeld;21
 Albin;Ekdal;null;19890728;Schweden;Mittelfeld;20
 Dren;Feka;null;19970609;Deutschland;Mittelfeld;19
 Michael;Gregoritsch;null;19940418;Österreich;Mittelfeld;11
-Alen;Halilovic;null;19960618;Kroatien;Mittelfeld;23
+Alen;Halilovic;null;19960618;Kroatien;Mittelfeld;23;-20170125
 Lewis;Holtby;null;19900918;Deutschland;Mittelfeld;8
 Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;14
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;17
