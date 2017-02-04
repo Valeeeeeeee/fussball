@@ -20,7 +20,7 @@ Mateusz;Klich;null;19900613;Polen;Mittelfeld;23;-20160825
 Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;18
 Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13;-20161231
 Marcus;Piossek;null;19890721;Polen, Deutschland;Mittelfeld;8;-20160830
-Alexander;Ring;null;19910409;Finnland;Mittelfeld;6
+Alexander;Ring;null;19910409;Finnland;Mittelfeld;6;-20170131
 Nils;Seufert;null;19970203;Deutschland;Mittelfeld;38
 Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;10;20160812-
 Maurice John;Deville;null;19920731;Luxemburg;Sturm;27;-20160806

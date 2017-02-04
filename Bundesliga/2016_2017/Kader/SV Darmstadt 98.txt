@@ -18,7 +18,7 @@ Johannes;Wolff;null;19980710;Deutschland;Abwehr;35
 Liam;Fisch;null;19981123;Deutschland;Mittelfeld;37
 Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
 Marcel;Heller;null;19860212;Deutschland;Mittelfeld;20
-Florian;Jungwirth;null;19890127;Deutschland;Mittelfeld;23
+Florian;Jungwirth;null;19890127;Deutschland;Mittelfeld;23;-20170130
 László;Kleinheisler;null;19940408;Ungarn;Mittelfeld;30;-20170122
 Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
 Denys;Oliinyk;null;19870616;Ukraine;Mittelfeld;22
@@ -29,7 +29,7 @@ Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
 Roman;Bejzak;null;19890221;Slowenien;Sturm;14;20160829-
 Terrence;Boyd;null;19910216;USA;Sturm;15;20170124-
 Antonio-Mirko;Colak;null;19930917;Deutschland, Kroatien;Sturm;16
-Victor;Obinna;null;19870325;Nigeria;Sturm;11
+Victor;Obinna;null;19870325;Nigeria;Sturm;11;-20170130
 Felix;Platte;null;19960211;Deutschland;Sturm;19
 Sven;Schipplock;null;19881108;Deutschland;Sturm;39
 Dominik;Stroh-Engel;null;19851127;Deutschland;Sturm;9

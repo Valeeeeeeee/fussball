@@ -1,4 +1,4 @@
-Gianluca;Curci;null;19850712;Italien;Tor;23
+Gianluca;Curci;null;19850712;Italien;Tor;23;-20170129
 Jannik;Huth;null;19940415;Deutschland;Tor;33
 Jonas;Lössl;null;19890201;Dänemark;Tor;1
 Florian;Müller;null;19971113;Deutschland;Tor;46
@@ -21,7 +21,7 @@ Philipp;Klement;null;19920909;Deutschland;Mittelfeld;47
 Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
 Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10;-20161231
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;8
-José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5
+José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5;-20170130
 Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
 Suat;Serdar;null;19970411;Deutschland;Mittelfeld;45
 Emil;Berggreen;null;19930510;Dänemark;Sturm;11

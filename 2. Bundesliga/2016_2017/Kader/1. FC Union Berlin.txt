@@ -25,5 +25,6 @@ Eroll;Zejnullahu;null;19941019;Deutschland, Kosovo;Mittelfeld;27
 Sören;Brandy;null;19850506;Deutschland;Sturm;9;-20161231
 Simon;Hedlund;null;19930311;Schweden;Sturm;17;20160829-
 Philipp;Hosiner;null;19890515;Österreich;Sturm;16
+Sebastian;Polter;null;19910401;Deutschland;Sturm;9;20170101-
 Collin;Quaner;null;19910618;Deutschland;Sturm;21;-20161231
 Steven;Skrzybski;null;19921118;Deutschland;Sturm;24

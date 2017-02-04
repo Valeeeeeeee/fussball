@@ -10,6 +10,7 @@ Sebastian;Heidinger;null;19860111;Deutschland;Abwehr;29;-20161231
 Khaled;Narey;null;19940723;Deutschland;Abwehr;21
 Erhun;Obanor;null;19950905;Nigeria;Abwehr;3;20160907-
 Nicolai;Rapp;null;19961213;Deutschland;Abwehr;5
+Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;2;20170101-
 Dominik;Schad;null;19970304;Deutschland;Abwehr;35
 Dominik;Sollfrank;null;19980410;Deutschland;Abwehr;38
 George;Davies;null;19961116;Sierra Leone;Mittelfeld;25;-20161231
@@ -17,8 +18,10 @@ Damjan;Djokovic;null;19900418;Kroatien;Mittelfeld;16;20161015-20170127
 Jürgen;Gjasula;null;19851205;Albanien;Mittelfeld;8
 Andreas;Hofmann;null;19860413;Deutschland;Mittelfeld;6
 Benedikt;Kirsch;null;19960415;Deutschland;Mittelfeld;18
+Ádám;Pintér;null;19880612;Ungarn;Mittelfeld;16;20170128-
+David;Raum;null;19980422;Deutschland;Mittelfeld;39
 Sercan;Sararer;null;19891127;Türkei;Mittelfeld;23
-Ilir;Azemi;null;19920221;Kosovo;Sturm;33
+Ilir;Azemi;null;19920221;Kosovo;Sturm;33;-20170130
 Veton;Berisha;null;19940413;Norwegen;Sturm;19
 Mathis;Bolly;null;19901114;Elfenbeinküste;Sturm;14
 Serdar;Dursun;null;19911019;Deutschland;Sturm;15

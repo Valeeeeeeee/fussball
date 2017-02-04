@@ -13,9 +13,10 @@ Dennis;Russ;null;19920605;Deutschland;Abwehr;22;-20161231
 Clemens;Schoppenhauer;null;19920223;Deutschland;Abwehr;5
 Sascha;Traut;null;19850521;Deutschland;Abwehr;17;-20161231
 Franko;Uzelac;null;19941105;Kroatien;Abwehr;15
-Richard;Weil;null;19880206;Deutschland;Abwehr;11
+Richard;Weil;null;19880206;Deutschland;Abwehr;11;-20170129
 Rico;Benatelli;null;19920317;Deutschland;Mittelfeld;4
 Nejmeddin;Daghfous;null;19861001;Deutschland;Mittelfeld;10
+Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;13;20170101-
 Joannis;Karsanidis;null;19930625;Deutschland;Mittelfeld;14
 Anastasios;Lagos;null;19920412;Griechenland;Mittelfeld;6
 Dániel;Nagy;null;19910315;Ungarn;Mittelfeld;20

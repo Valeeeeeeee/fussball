@@ -7,6 +7,7 @@ Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;5;20160831-
 Adam;Bodzek;null;19850907;Deutschland;Abwehr;13
 Robin;Bormuth;null;19950919;Deutschland;Abwehr;32
 Karim;Haggui;null;19840120;Deutschland, Tunesien;Abwehr;3;-20160814
+André;Hoffmann;null;19930228;Deutschland;Abwehr;3;20170101-
 Anderson;Lucoqui;null;19970706;Deutschland, Angola;Abwehr;36
 Alexander;Madlung;null;19820711;Deutschland;Abwehr;39
 Julian;Schauerte;null;19880402;Deutschland;Abwehr;4
@@ -16,6 +17,7 @@ Taylan;Duman;null;19970730;Deutschland;Mittelfeld;27
 Arianit;Ferati;null;19970907;Deutschland;Mittelfeld;30
 Oliver;Fink;null;19820606;Deutschland;Mittelfeld;7
 Christian;Gartner;null;19940403;Österreich;Mittelfeld;21
+Gökhan;Gül;null;19980717;Deutschland;Mittelfeld;18;20170101-
 Jerome;Kiesewetter;null;19930209;Deutschland, USA;Mittelfeld;8
 Justin Toshiki;Kinjo;null;19970222;Japan, USA;Mittelfeld;24
 Julian;Koch;null;19901111;Deutschland;Mittelfeld;2;-20161231
@@ -24,7 +26,7 @@ Marcel;Sobottka;null;19940425;Deutschland;Mittelfeld;31
 Ihlas;Bebou;null;19940423;Deutschland, Togo;Sturm;37
 Rouwen;Hennings;null;19870828;Deutschland;Sturm;28;20160822-
 Emmanuel;Iyoha;null;19971011;Deutschland, Nigeria;Sturm;20
-Maecky;Ngombo;null;19950328;Belgien, DR Kongo;Sturm;22
+Maecky;Ngombo;null;19950328;Belgien, DR Kongo;Sturm;22;-20170129
 Marlon;Ritter;null;19941015;Deutschland;Sturm;10
 Kemal;Rüzgar;null;19950620;Deutschland, Türkei;Sturm;23;-20161231
 Mike;van Duinen;null;19911106;Niederlande;Sturm;29;-20160830

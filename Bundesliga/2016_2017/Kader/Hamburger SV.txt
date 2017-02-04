@@ -13,7 +13,7 @@ Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;9;20170101-
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24
 Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;Abwehr;6;20160831-
 Young-Jae;Seo;null;19950523;Südkorea;Abwehr;37
-Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;4
+Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;4;-20170130
 Nabil;Bahoui;null;19910205;Schweden;Mittelfeld;21
 Albin;Ekdal;null;19890728;Schweden;Mittelfeld;20
 Dren;Feka;null;19970609;Deutschland;Mittelfeld;19

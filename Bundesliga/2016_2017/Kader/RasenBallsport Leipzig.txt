@@ -17,7 +17,7 @@ Oliver;Burke;null;19970407;Schottland;Mittelfeld;19;20160828-
 Diego;Demme;null;19911121;Deutschland;Mittelfeld;31
 Stefan;Ilsanker;null;19890518;Österreich;Mittelfeld;13
 Dominik;Kaiser;null;19880916;Deutschland;Mittelfeld;24
-Zsolt;Kalmár;null;19950609;Ungarn;Mittelfeld;35
+Zsolt;Kalmár;null;19950609;Ungarn;Mittelfeld;35;-20170129
 Naby;Keita;null;19950210;Guinea;Mittelfeld;8
 Rani;Khedira;null;19940127;Deutschland;Mittelfeld;6
 Terrence;Boyd;null;19910216;USA;Sturm;18;-20170123

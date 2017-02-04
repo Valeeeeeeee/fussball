@@ -1,11 +1,13 @@
 Vitus;Eicher;null;19901105;Deutschland;Tor;1;-20161231
 Stefan;Ortega;null;19921106;Deutschland;Tor;24
 Jan;Zimmermann;null;19850419;Deutschland;Tor;21
+Abdoulaye;Ba;null;19910101;Senegal;Abwehr;25;20170101-
 Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;6;20161006-
 Kai;Bülow;null;19860531;Deutschland;Abwehr;4
 Marnon;Busch;null;19941208;Deutschland;Abwehr;16
 Milos;Degenek;null;19940428;Australien;Abwehr;30;-20161231
 Kilian;Jakob;null;19980125;Deutschland;Abwehr;26
+Lumor;Agbenyenu;Lumor;19960815;Ghana;Abwehr;28;20170101-
 Jan;Mauersberger;null;19850617;Deutschland;Abwehr;2
 Rodnei Francisco;de Lima;Rodnei;19850911;Brasilien;Abwehr;20
 Ilie;Sanchez;null;19901121;Spanien;Abwehr;6;-20160825
@@ -24,11 +26,13 @@ Michael;Liendl;null;19851025;Österreich;Mittelfeld;10
 Karim;Matmour;null;19850625;Algerien;Mittelfeld;8
 Florian;Neuhaus;null;19970316;Deutschland;Mittelfeld;19
 Fanol;Perdedaj;null;19910716;Kosovo;Mittelfeld;5
-Goran;Sukalo;null;19810824;Slowenien;Mittelfeld;15
+Goran;Sukalo;null;19810824;Slowenien;Mittelfeld;15;-20170202
+Amilton;Minervino da Silva;Amilton;19890812;Brasilien;Sturm;30;20170101-
 Victor;Andrade Santos;null;19950930;Brasilien;Sturm;31
+Christian;Gytkjær;null;19900506;Dänemark;Sturm;9;20170101-
 Moritz;Heinrich;null;19970703;Deutschland;Sturm;27
 Sascha;Mölders;null;19850320;Deutschland;Sturm;13
-Stefan;Mugosa;null;19920226;Montenegro;Sturm;9
+Stefan;Mugosa;null;19920226;Montenegro;Sturm;9;-20161231
 Ivica;Olic;null;19790914;Kroatien;Sturm;40
 Lucas Ribamar;Lopes dos Santos Bibiano;Ribamar;19970521;Brasilien;Sturm;12
 Krisztián;Simon;null;19910610;Ungarn;Sturm;14

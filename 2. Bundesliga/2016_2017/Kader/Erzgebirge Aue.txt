@@ -1,4 +1,4 @@
-Maik;Ebersbach;null;19900307;Deutschland;Tor;13
+Maik;Ebersbach;null;19900307;Deutschland;Tor;13;-20170130
 Daniel;Haas;null;19830801;Deutschland;Tor;34;20161005-
 Robert;Jendrusch;null;19960528;Deutschland;Tor;26
 Martin;Männel;null;19880316;Deutschland;Tor;1
@@ -23,6 +23,7 @@ Simon;Skarlatidis;null;19910606;Deutschland;Mittelfeld;10
 Cebio;Soukou;null;19921002;Deutschland;Mittelfeld;19
 Christian;Tiffert;null;19820218;Deutschland;Mittelfeld;33
 Nicky;Adler;null;19850523;Deutschland;Sturm;8
+Albert;Bunjaku;null;19831129;Schweiz;Sturm;28;20170101-
 Björn;Kluft;null;19900111;Deutschland;Sturm;11;-20161231
 Pascal;Köpke;null;19950903;Deutschland;Sturm;14
 Dimitrij;Nazarov;null;19900404;Aserbaidschan;Sturm;30

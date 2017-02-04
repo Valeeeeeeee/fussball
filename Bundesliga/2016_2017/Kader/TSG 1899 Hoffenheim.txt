@@ -24,5 +24,5 @@ Andrej;Kramaric;null;19910619;Kroatien;Sturm;27
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28
 Marco;Terrazzino;null;19910415;Deutschland;Sturm;23
 Mark;Uth;null;19910824;Deutschland;Sturm;19
-Eduardo;Vargas;null;19891120;Chile;Sturm;9;-20170126
+Eduardo;Vargas;null;19891120;Chile;Sturm;9;-20170129
 Sandro;Wagner;null;19871129;Deutschland;Sturm;14

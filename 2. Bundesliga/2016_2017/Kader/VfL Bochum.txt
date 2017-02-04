@@ -17,6 +17,7 @@ Thomas;Eisfeld;null;19930118;Deutschland;Mittelfeld;10
 Hayk;Galstyan;null;19980323;Armenien;Mittelfeld;35
 Gökhan;Gül;null;19980717;Deutschland;Mittelfeld;16;-20161231
 Tim;Hoogland;null;19850611;Deutschland;Mittelfeld;2
+Vitaly;Janelt;null;19980510;Deutschland;Mittelfeld;20;20170101-
 Tim;Krafft;null;19980103;Deutschland;Mittelfeld;28
 Anthony;Losilla;null;19860310;Frankreich;Mittelfeld;8
 Alexander;Merkel;null;19920222;Kasachstan, Deutschland;Mittelfeld;15;20160815-

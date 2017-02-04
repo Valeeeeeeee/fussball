@@ -14,6 +14,7 @@ Jean;Zimmer;null;19931206;Deutschland;Abwehr;6
 Matthias;Zimmermann;null;19920616;Deutschland;Abwehr;25
 Max;Besuschkow;null;19970531;Deutschland;Mittelfeld;23;-20161231
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
+Julian;Green;null;19950606;Deutschland, USA;Mittelfeld;37;20170101-
 Anto;Grgic;null;19961128;Schweiz;Mittelfeld;8
 Hajime;Hosogai;null;19860610;Japan;Mittelfeld;7
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;10

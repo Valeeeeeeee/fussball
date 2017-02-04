@@ -30,3 +30,4 @@ Florian;Kamberi;null;19950308;Schweiz;Sturm;15;20160902-
 Kai;Luibrand;null;19940424;Deutschland;Sturm;29
 Vadim;Manzon;null;19941205;Russland;Sturm;29;-20160816
 Valentino;Vujinovic;null;19990220;Deutschland;Sturm;36
+Oskar;Zawada;null;19960201;Polen;Sturm;39;20170101-

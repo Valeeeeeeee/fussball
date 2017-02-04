@@ -22,6 +22,8 @@ Francisco;Rodríguez;null;19950914;Schweiz;Mittelfeld;22;-20160830
 Tom;Schütz;null;19880120;Deutschland;Mittelfeld;6
 Keanu;Staude;null;19970126;Deutschland;Mittelfeld;32
 David;Ulm;null;19840630;Frankreich;Mittelfeld;5
+Reinhold;Yabo;null;19920210;Deutschland;Mittelfeld;25;20170101-
+Sören;Brandy;null;19850506;Deutschland;Sturm;16;20170101-
 Fabian;Klos;null;19871202;Deutschland;Sturm;9
 Michal;Mak;null;19911114;Polen;Sturm;30;20160831-20161231
 Christopher;Nöthe;null;19880103;Deutschland;Sturm;18
