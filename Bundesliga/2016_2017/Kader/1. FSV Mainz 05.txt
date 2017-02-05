@@ -25,6 +25,7 @@ José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5;-20170130
 Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
 Suat;Serdar;null;19970411;Deutschland;Mittelfeld;45
 Emil;Berggreen;null;19930510;Dänemark;Sturm;11
+Mounir;Bouziane;null;19910205;Frankreich;Sturm;41
 Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15
 Gerrit;Holtmann;null;19950325;Deutschland;Sturm;38
 Yoshinori;Muto;null;19920715;Japan;Sturm;9

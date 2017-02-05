@@ -15,6 +15,7 @@ Janek;Sternberg;null;19921019;Deutschland;Abwehr;37;-20161231
 Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Thomas;Delaney;null;19910903;Dänemark;Mittelfeld;6;20170101-
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
 Justin;Eilers;null;19880613;Deutschland;Mittelfeld;17
 Clemens;Fritz;null;19801207;Deutschland;Mittelfeld;8

@@ -20,6 +20,7 @@ Fabian;Johnson;null;19871211;Deutschland, USA;Mittelfeld;19
 Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;6
 Tsiy William;Ndenge;null;19970613;Deutschland;Mittelfeld;26
 Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14
+Ba-Muaka;Simakala;null;19970128;Deutschland, Kongo;Mittelfeld;44
 Djibril;Sow;null;19970206;Schweiz;Mittelfeld;20
 Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;5
 Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
