@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.log;
+import static util.Utilities.message;
 
 public class Karte {
 	private String id;
@@ -80,6 +81,10 @@ public class Karte {
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
 		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", ""));
 		bookedPlayer = match.getTeam(firstTeam).getPlayer(squadNumber, match.getDate());
+		if (bookedPlayer == null) {
+			message("Fehler beim Parsen der Karten des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
+			if (bookedPlayer == null)	log("Es konnte der Rückennummer " + squadNumber + " kein spielberechtigter Spieler zugeordnet werden.");
+		}
 		
 		id = match.home() + "v" + match.away() + "-h" + data;
 	}

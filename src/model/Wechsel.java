@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.log;
+import static util.Utilities.message;
 
 public class Wechsel {
 	
@@ -62,6 +63,11 @@ public class Wechsel {
 		playerOff = match.getTeam(firstTeam).getPlayer(sqOff, match.getDate());
 		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
 		playerOn = match.getTeam(firstTeam).getPlayer(sqOn, match.getDate());
+		if (playerOff == null || playerOn == null) {
+			message("Fehler beim Parsen der Wechsel des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
+			if (playerOff == null)	log("Es konnte der Rückennummer " + sqOff + " kein spielberechtigter Spieler zugeordnet werden.");
+			if (playerOn == null)	log("Es konnte der Rückennummer " + sqOn + " kein spielberechtigter Spieler zugeordnet werden.");
+		}
 	}
 	
 	public String toString() {
