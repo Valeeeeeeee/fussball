@@ -26,7 +26,7 @@ Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;10
 Sidney;Sam;null;19880131;Deutschland;Mittelfeld;33;20170101-
 Markus;Steinhöfer;null;19860307;Deutschland;Mittelfeld;13;20170101-
 Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
-Roman;Bejzak;null;19890221;Slowenien;Sturm;14;20160829-
+Roman;Bejzak;null;19890221;Slowenien;Sturm;14;20160829-20170213
 Terrence;Boyd;null;19910216;USA;Sturm;15;20170124-
 Antonio-Mirko;Colak;null;19930917;Deutschland, Kroatien;Sturm;16
 Victor;Obinna;null;19870325;Nigeria;Sturm;11;-20170130

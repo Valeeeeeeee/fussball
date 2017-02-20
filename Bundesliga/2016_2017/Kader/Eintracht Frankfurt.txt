@@ -20,7 +20,7 @@ Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18;-20161231
 Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
 Joel;Gerezgiher;null;19951009;Deutschland;Mittelfeld;32;-20170130
 Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
-Szabolcs;Huszti;null;19830418;Ungarn;Mittelfeld;8
+Szabolcs;Huszti;null;19830418;Ungarn;Mittelfeld;8;-20170205
 Omar;Mascarell;null;19930202;Spanien;Mittelfeld;39
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21

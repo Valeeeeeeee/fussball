@@ -11,7 +11,7 @@ Niklas;Süle;null;19950903;Deutschland;Abwehr;25
 Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
 Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
 Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;13
-Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11
+Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11;-20170206
 Philipp;Ochs;null;19970417;Deutschland;Mittelfeld;30
 Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
 Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;6

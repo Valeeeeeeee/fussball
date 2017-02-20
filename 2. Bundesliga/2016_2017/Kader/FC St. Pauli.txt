@@ -4,7 +4,7 @@ Robin;Himmelmann;null;19890205;Deutschland;Tor;30
 Daniel;Buballa;null;19900511;Deutschland;Abwehr;15
 Jeremy;Dudziak;null;19950828;Deutschland;Abwehr;8
 Sören;Gonther;null;19861215;Deutschland;Abwehr;26
-Vegar Eggen;Hedenstad;null;19910626;Norwegen;Abwehr;2
+Vegar Eggen;Hedenstad;null;19910626;Norwegen;Abwehr;2;-20170208
 Marc;Hornschuh;null;19910302;Deutschland;Abwehr;16
 Jan-Philipp;Kalla;null;19860806;Deutschland;Abwehr;27
 Joël;Keller;null;19950306;Schweiz;Abwehr;5
