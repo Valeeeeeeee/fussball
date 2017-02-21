@@ -25,6 +25,7 @@ Filip;Kostic;null;19921101;Serbien;Mittelfeld;17
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Finn;Porath;null;19970223;Deutschland;Mittelfeld;34
 Frank;Ronstadt;null;19970721;Deutschland;Mittelfeld;32
+Walace;Souza Silva;Walace;19950404;Brasilien;Mittelfeld;12;20170130-
 Bakery;Jatta;null;19980606;Gambia;Sturm;18
 Mats;Köhlert;null;19980502;Deutschland;Sturm;25
 Pierre-Michel;Lasogga;null;19911215;Deutschland;Sturm;10

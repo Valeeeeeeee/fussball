@@ -32,3 +32,4 @@ Alexander;Meier;null;19830117;Deutschland;Sturm;14
 Ante;Rebic;null;19930921;Kroatien;Sturm;17
 Haris;Seferovic;null;19920222;Schweiz;Sturm;9
 Shani;Tarashaj;null;19950207;Schweiz;Sturm;30;20160831-
+Marius;Wolf;null;19950527;Deutschland;Sturm;24;20170131-

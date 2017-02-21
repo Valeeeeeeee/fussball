@@ -21,6 +21,7 @@ Markus;Feulner;null;19820212;Deutschland;Mittelfeld;8
 Gojko;Kacar;null;19870126;Serbien;Mittelfeld;20
 Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
 Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19
+Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;5;20170131-
 Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14
 Max;Reinthaler;null;19950322;Italien;Mittelfeld;34
 Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;11

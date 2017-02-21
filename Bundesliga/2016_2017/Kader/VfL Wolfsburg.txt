@@ -20,6 +20,7 @@ Riechedly;Bazoer;null;19961012;Niederlande;Mittelfeld;6;20170101-
 Jakub;Blaszczykowski;null;19851214;Polen;Mittelfeld;14
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7;-20170124
 Amara;Condé;null;19970106;Deutschland;Mittelfeld;29
+Ashkan;Dejagah;null;19860705;Iran;Mittelfeld;25;20170130-
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;11
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10;-20161231
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;13
@@ -29,7 +30,7 @@ Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10;20170101-
 Justin;Möbius;null;19970421;Deutschland;Mittelfeld;26
 Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
 Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
-Josip;Brekalo;null;19980623;Kroatien;Sturm;25;-20170130
+Josip;Brekalo;null;19980623;Kroatien;Sturm;25;-20170129
 Bruno Henrique;Pinto;Bruno Henrique;19901230;Brasilien;Sturm;16;-20170122
 Anton-Leander;Donkor;null;19971111;Deutschland;Sturm;35;-20170124
 Bas;Dost;null;19890531;Niederlande;Sturm;12;-20160827

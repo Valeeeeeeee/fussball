@@ -22,6 +22,7 @@ Charles-Elie;Laprévotte;null;19921004;Frankreich;Mittelfeld;29;-20161231
 Jonas;Meffert;null;19940904;Deutschland;Mittelfeld;22;-20170130
 Mats;'Møller Dæhli';null;19950302;Dänemark;Mittelfeld;16;-20161231
 Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
+Vincent;Sierro;null;19951008;Schweiz;Mittelfeld;22;20170131-
 Amir;Falahen;null;19930315;Deutschland;Sturm;34
 Karim;Guédé;null;19850107;Togo, Slowakei;Sturm;31
 Janik;Haberer;null;19940402;Deutschland;Sturm;19

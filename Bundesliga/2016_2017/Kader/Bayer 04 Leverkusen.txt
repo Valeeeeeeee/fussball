@@ -25,6 +25,7 @@ Robbie;Kruse;null;19881005;Australien;Mittelfeld;27;-20161231
 Seung-Woo;Ryu;null;19931217;Südkorea;Mittelfeld;24;-20160829
 Sam;Schreck;null;19990129;Deutschland;Mittelfeld;30
 Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
+Leon;Bailey;null;19970809;Jamaika;Sturm;9;20170131-
 Javier;Hernández;null;19880601;Mexiko;Sturm;7
 Stefan;Kießling;null;19840125;Deutschland;Sturm;11
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
