@@ -122,10 +122,10 @@ GH1: Juventus Turin
 GH2: FC Sevilla
 GH3: Olympique Lyon
 GH4: Dinamo Zagreb
-AF01W: CL2016AF01W
-AF01L: CL2016AF01L
-AF02W: CL2016AF02W
-AF02L: CL2016AF02L
+AF01W: FC Barcelona
+AF01L: Paris Saint-Germain
+AF02W: Borussia Dortmund
+AF02L: Benfica Lissabon
 AF03W: Bayern München
 AF03L: FC Arsenal
 AF04W: Real Madrid
