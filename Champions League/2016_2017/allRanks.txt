@@ -130,10 +130,10 @@ AF03W: Bayern München
 AF03L: FC Arsenal
 AF04W: Real Madrid
 AF04L: SSC Neapel
-AF05W: CL2016AF05W
-AF05L: CL2016AF05L
-AF06W: CL2016AF06W
-AF06L: CL2016AF06L
+AF05W: AS Monaco
+AF05L: Manchester City
+AF06W: Atlético Madrid
+AF06L: Bayer 04 Leverkusen
 AF07W: Juventus Turin
 AF07L: FC Porto
 AF08W: Leicester City
