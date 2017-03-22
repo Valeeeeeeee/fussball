@@ -37,7 +37,7 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private Datum defaultDate = new Datum(26, 10, 2016);
+	private Datum defaultDate = new Datum(10, 10, 2017);
 	private Uhrzeit defaultTime = new Uhrzeit(20, 45);
 	private Datum date;
 	private Uhrzeit time;
@@ -288,7 +288,7 @@ public class MyDateChooser extends JFrame {
 		} catch (IllegalArgumentException iae) {
 			Datum guess = MIN_DATE;
 			if (spieltag.getCurrentMatchday() > 0)	guess = new Datum(season.getDate(spieltag.getCurrentMatchday() - 1), 7);
-			if (guess.getYear() < 1900)	guess = new Datum(1, 8, startYear);
+			if (guess.getYear() > MAX_DATE.getYear())	guess = new Datum(1, 8, startYear);
 			jCBStYear.setSelectedIndex(guess.getYear() - startYear);
 			jCBStMonth.setSelectedIndex(guess.getMonth() - 1);
 			jCBStDay.setSelectedIndex(guess.getDay() - 1);
@@ -305,25 +305,25 @@ public class MyDateChooser extends JFrame {
 			jCBHour.setSelectedIndex(time.getHourOfDay());
 			jCBMinute.setSelectedIndex(time.getMinute() / 5);
 			
+			this.date = date;
+			this.time = time;
+			
 			if (date.equals(belongsToGroup ? group.getStartDate() : koRound.getStartDate()) && time.equals(MIDNIGHT)) {
 				jCBYear.setSelectedIndex(defaultDate.getYear() - startYear);
 				jCBMonth.setSelectedIndex(defaultDate.getMonth() - 1);
 				jCBDay.setSelectedIndex(defaultDate.getDay() - 1);
 				jCBHour.setSelectedIndex(defaultTime.getHourOfDay());
 				jCBMinute.setSelectedIndex(defaultTime.getMinute() / 5);
+				this.date = defaultDate;
 			}
-			
-			this.date = date;
-			this.time = time;
 		} catch (Exception e) {
-			Datum guess = new Datum(new Datum(15, 8, startYear), spieltag.getCurrentMatchday() * 7);
-			jCBYear.setSelectedIndex(guess.getYear() - startYear);
-			jCBMonth.setSelectedIndex(guess.getMonth() - 1);
-			jCBDay.setSelectedIndex(guess.getDay() - 1);
-			jCBHour.setSelectedIndex(19);
-			jCBMinute.setSelectedIndex(9);
+			jCBYear.setSelectedIndex(defaultDate.getYear() - startYear);
+			jCBMonth.setSelectedIndex(defaultDate.getMonth() - 1);
+			jCBDay.setSelectedIndex(defaultDate.getDay() - 1);
+			jCBHour.setSelectedIndex(defaultTime.getHourOfDay());
+			jCBMinute.setSelectedIndex(defaultTime.getMinute() / 5);
 			
-			this.date = guess;
+			this.date = defaultDate;
 			this.time = defaultTime;
 		}
 	}
