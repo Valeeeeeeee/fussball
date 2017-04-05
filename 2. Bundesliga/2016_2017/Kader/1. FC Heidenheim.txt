@@ -19,7 +19,7 @@ Marc;Schnatterer;null;19851118;Deutschland;Mittelfeld;7
 Tim;Skarke;null;19960907;Deutschland;Mittelfeld;38
 Norman;Theuerkauf;null;19870124;Deutschland;Mittelfeld;30
 Marcel;Titsch-Rivero;null;19891102;Deutschland;Mittelfeld;26
-Bård;Finne;null;19950213;Norwegen;Sturm;10
+Bård;Finne;null;19950213;Norwegen;Sturm;10;-20170223
 Tim;Kleindienst;null;19950831;Deutschland;Sturm;21
 Smail;Morabit;null;19880705;Frankreich;Sturm;9;-20161231
 Denis;Thomalla;null;19920816;Deutschland;Sturm;11

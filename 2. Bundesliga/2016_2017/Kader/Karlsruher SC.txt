@@ -4,6 +4,7 @@ René;Vollath;null;19900320;Deutschland;Tor;24
 Matthias;Bader;null;19970617;Deutschland;Abwehr;35
 Pierre;Fassnacht;null;19960126;Deutschland;Abwehr;31
 Jordi;Figueras;null;19870516;Spanien;Abwehr;14
+Benedikt;Gimber;null;19970219;Deutschland;Abwehr;3;20170130-
 Niklas;Hoffmann;null;19970409;Deutschland;Abwehr;33
 Dennis;Kempe;null;19860624;Deutschland;Abwehr;5
 David;Kinsombi;null;19951212;Deutschland;Abwehr;17
@@ -16,6 +17,7 @@ Tim;Grupp;null;19950105;Deutschland;Mittelfeld;32
 Franck;Kom;null;19910918;Kamerun;Mittelfeld;6
 Gaëtan;Krebs;null;19851118;Frankreich;Mittelfeld;21
 Charalampos;Mavrias;null;19940221;Griechenland;Mittelfeld;27;20160906-
+Jonas;Meffert;null;19940904;Deutschland;Mittelfeld;2;20170131-
 Marvin;Mehlem;null;19970911;Deutschland;Mittelfeld;16
 Grischa;Prömel;null;19950109;Deutschland;Mittelfeld;19
 Yann;del Pino 'Rolim';null;19950315;Brasilien;Mittelfeld;23
@@ -29,5 +31,7 @@ Erwin;Hoffer;null;19870414;Österreich;Sturm;8
 Florian;Kamberi;null;19950308;Schweiz;Sturm;15;20160902-
 Kai;Luibrand;null;19940424;Deutschland;Sturm;29
 Vadim;Manzon;null;19941205;Russland;Sturm;29;-20160816
+Stefan;Mugosa;null;19920226;Montenegro;Sturm;41;20170131-
+Fabian;Reese;null;19971129;Deutschland;Sturm;40;20170130-
 Valentino;Vujinovic;null;19990220;Deutschland;Sturm;36
 Oskar;Zawada;null;19960201;Polen;Sturm;39;20170101-

@@ -1,4 +1,5 @@
 Sascha;Burchert;null;19891030;Deutschland;Tor;30
+Jonas;Deumeland;null;19880209;Deutschland;Tor;26;20170131-
 Marius;Funk;null;19960101;Deutschland;Tor;34
 Balázs;Megyeri;null;19900331;Ungarn;Tor;24
 Sebastian;Mielitz;null;19890718;Deutschland;Tor;1
@@ -13,6 +14,7 @@ Nicolai;Rapp;null;19961213;Deutschland;Abwehr;5
 Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;2;20170101-
 Dominik;Schad;null;19970304;Deutschland;Abwehr;35
 Dominik;Sollfrank;null;19980410;Deutschland;Abwehr;38
+Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;22;20170130-
 George;Davies;null;19961116;Sierra Leone;Mittelfeld;25;-20161231
 Damjan;Djokovic;null;19900418;Kroatien;Mittelfeld;16;20161015-20170127
 Jürgen;Gjasula;null;19851205;Albanien;Mittelfeld;8
@@ -28,5 +30,5 @@ Serdar;Dursun;null;19911019;Deutschland;Sturm;15
 Sebastian;Freis;null;19850423;Deutschland;Sturm;9
 Daniel;Steininger;null;19950413;Deutschland;Sturm;31
 Zlatko;Tripic;null;19921202;Norwegen;Sturm;17
-Ante;Vukusic;null;19910604;Kroatien;Sturm;11
+Ante;Vukusic;null;19910604;Kroatien;Sturm;11;-20170314
 Robert;Zulj;null;19920205;Österreich;Sturm;20

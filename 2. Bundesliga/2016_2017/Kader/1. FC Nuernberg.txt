@@ -3,6 +3,7 @@ Patrick;Rakovsky;null;19930602;Deutschland;Tor;22
 Raphael;Schäfer;null;19790130;Deutschland;Tor;1
 Miso;Brecko;null;19840501;Slowenien;Abwehr;2
 Dave;Bulthuis;null;19900628;Niederlande;Abwehr;4
+Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15;20170131-
 Even;Hovland;null;19890214;Norwegen;Abwehr;3
 Patrick;Kammerbauer;null;19970211;Deutschland;Abwehr;39
 Tim;Leibold;null;19931130;Deutschland;Abwehr;23
@@ -14,12 +15,15 @@ Enis;Alushi;null;19851222;Kosovo;Mittelfeld;5;-20161231
 Hanno;Behrens;null;19900326;Deutschland;Mittelfeld;18
 Patrick;Erras;null;19950121;Deutschland;Mittelfeld;29
 Willi;Evseev;null;19920214;Deutschland;Mittelfeld;21
+Philipp;Förster;null;19950204;Deutschland;Mittelfeld;5;20170131-
 Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
+Lucas;Hufnagel;null;19940129;Deutschland;Mittelfeld;8;20170131-
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;10
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;14
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
 Guido;Burgstaller;null;19890429;Österreich;Sturm;9;-20161231
 Philipp;Hercher;null;19960321;Deutschland;Sturm;27;-20161231
+Mikael;Ishak;null;19930331;Schweden;Sturm;9;20170130-
 Tim;Matavz;null;19890113;Slowenien;Sturm;24;20160830-
 Shawn;Parker;null;19930307;Deutschland;Sturm;20;20160823-
 Jakub;Sylvestr;null;19890202;Slowakei;Sturm;11;-20161231

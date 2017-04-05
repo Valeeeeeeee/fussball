@@ -18,6 +18,7 @@ Sertan;Yegenoglu;null;19950104;Türkei;Abwehr;37;-20160829
 Daniel;Adlung;null;19871001;Deutschland;Mittelfeld;11
 Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;29
 Levent;Ayçiçek;null;19940212;Deutschland;Mittelfeld;33
+Frank;Boya;null;19960701;Kamerun;Mittelfeld;15;20170131-
 Daylon;Claasen;null;19900128;Südafrika;Mittelfeld;7
 Nicholas;Helmbrecht;null;19950130;Deutschland;Mittelfeld;23
 Nico;Karger;null;19930201;Deutschland;Mittelfeld;18
@@ -26,7 +27,7 @@ Michael;Liendl;null;19851025;Österreich;Mittelfeld;10
 Karim;Matmour;null;19850625;Algerien;Mittelfeld;8
 Florian;Neuhaus;null;19970316;Deutschland;Mittelfeld;19
 Fanol;Perdedaj;null;19910716;Kosovo;Mittelfeld;5
-Goran;Sukalo;null;19810824;Slowenien;Mittelfeld;15;-20170202
+Goran;Sukalo;null;19810824;Slowenien;Mittelfeld;15;-20170130
 Amilton;Minervino da Silva;Amilton;19890812;Brasilien;Sturm;30;20170101-
 Victor;Andrade Santos;null;19950930;Brasilien;Sturm;31
 Christian;Gytkjær;null;19900506;Dänemark;Sturm;9;20170101-

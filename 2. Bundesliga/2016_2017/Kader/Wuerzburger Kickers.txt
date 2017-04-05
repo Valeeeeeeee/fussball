@@ -16,6 +16,7 @@ Franko;Uzelac;null;19941105;Kroatien;Abwehr;15
 Richard;Weil;null;19880206;Deutschland;Abwehr;11;-20170129
 Rico;Benatelli;null;19920317;Deutschland;Mittelfeld;4
 Nejmeddin;Daghfous;null;19861001;Deutschland;Mittelfeld;10
+Sebastian;Ernst;null;19950304;Deutschland;Mittelfeld;17;20170130-
 Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;13;20170101-
 Joannis;Karsanidis;null;19930625;Deutschland;Mittelfeld;14
 Anastasios;Lagos;null;19920412;Griechenland;Mittelfeld;6

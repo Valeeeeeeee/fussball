@@ -1,4 +1,5 @@
 Timo;Königsmann;null;19970405;Deutschland;Tor;40
+Marko;Maric;null;19960103;Kroatien;Tor;13;20170131-
 Samuel;Sahin-Radlinger;null;19921107;Österreich;Tor;30
 Philipp;Tschauner;null;19851103;Deutschland;Tor;1
 Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
