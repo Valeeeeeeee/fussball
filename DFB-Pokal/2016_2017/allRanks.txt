@@ -118,9 +118,9 @@ VF03W: Bayern München
 VF03L: FC Schalke 04
 VF04W: Borussia Dortmund
 VF04L: Sportfreunde Lotte
-HF01W: DP2016HF01W
-HF01L: DP2016HF01L
-HF02W: DP2016HF02W
-HF02L: DP2016HF02L
+HF01W: Eintracht Frankfurt
+HF01L: Borussia Mönchengladbach
+HF02W: Borussia Dortmund
+HF02L: Bayern München
 FI01W: DP2016FI01W
 FI01L: DP2016FI01L
