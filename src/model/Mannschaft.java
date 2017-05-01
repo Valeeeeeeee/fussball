@@ -30,6 +30,7 @@ public class Mannschaft {
 	
 	private int numberOfMatchdays;
 	private int[][] data;
+	private int[] matchdayOrder;
 	private HashMap<String, Spiel> matches;
 	private Ergebnis[] results;
 	
@@ -296,6 +297,29 @@ public class Mannschaft {
 		return new int[] {booked, bookedTwice, redCards};
 	}
 	
+	private void setMatchdayOrder() {
+		if (matchdayOrder != null)	return;
+		
+		int[] array = new int[numberOfMatchdays];
+		Datum[] dates = new Datum[numberOfMatchdays];
+		
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			if (matches.containsKey(getKey(i)))	dates[i] = matches.get(getKey(i)).getDate();
+		}
+		
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = i + 1; j < numberOfMatchdays; j++) {
+				if (dates[j].isBefore(dates[i]))	array[i]++;
+				else								array[j]++;
+			}
+		}
+		
+		matchdayOrder = new int[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdayOrder[array[i]] = i;
+		}
+	}
+	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tableType) {
 		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tableType)	return;
 		
@@ -407,9 +431,11 @@ public class Mannschaft {
 	 */
 	public int getSeries(int index) {
 		int currentDuration = 0, longestDuration = 0;
+		setMatchdayOrder();
 		
 		boolean reset;
-		for (int matchday = 0; matchday < data.length; matchday++) {
+		for (int i = 0; i < data.length; i++) {
+			int matchday = matchdayOrder[i];
 			if (data[matchday][0] != 0) {
 				if (data[matchday][3] == 0 && data[matchday][2] == 0)	continue;
 				reset = false;
