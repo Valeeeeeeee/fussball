@@ -7,6 +7,7 @@ Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15;20170131-
 Even;Hovland;null;19890214;Norwegen;Abwehr;3
 Patrick;Kammerbauer;null;19970211;Deutschland;Abwehr;39
 Tim;Leibold;null;19931130;Deutschland;Abwehr;23
+Dennis;Lippert;null;19960220;Deutschland;Abwehr;34
 Georg;Margreitter;null;19881107;Österreich;Abwehr;33
 Lukas;Mühl;null;19970127;Deutschland;Abwehr;28
 Ondrej;Petrák;null;19920311;Tschechien;Abwehr;31
@@ -20,6 +21,7 @@ Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
 Lucas;Hufnagel;null;19940129;Deutschland;Mittelfeld;8;20170131-
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;10
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;14
+Abdelhamid;Sabiri;null;19961128;Marokko;Mittelfeld;27;20170101-
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
 Guido;Burgstaller;null;19890429;Österreich;Sturm;9;-20161231
 Philipp;Hercher;null;19960321;Deutschland;Sturm;27;-20161231

@@ -21,6 +21,7 @@ Ryo;Miyaichi;null;19921214;Japan;Mittelfeld;13
 Mats;'Møller Dæhli';null;19950302;Dänemark;Mittelfeld;14;20170101-
 Bernd;Nehrig;null;19860928;Deutschland;Mittelfeld;7
 Richard;Neudecker;null;19961029;Deutschland;Mittelfeld;20
+Yi-Young;Park;null;19940628;Südkorea;Mittelfeld;39
 Dennis;Rosin;null;19960627;Deutschland;Mittelfeld;25
 Enver 'Cenk';Sahin;null;19940922;Türkei;Mittelfeld;22
 Waldemar;Sobota;null;19870519;Polen;Mittelfeld;28
@@ -28,4 +29,5 @@ Aziz;Bouhaddouz;null;19870330;Deutschland;Sturm;11
 Marvin;Ducksch;null;19940307;Deutschland;Sturm;34;-20161231
 Nico;Empen;null;19960111;Deutschland;Sturm;24
 Fabrice-Jean;Picault;null;19910223;USA;Sturm;9;-20170130
+Jan-Marc;Schneider;null;19940325;Deutschland;Sturm;29
 Lennart;Thy;null;19920225;Deutschland;Sturm;18;20170101-
