@@ -22,6 +22,7 @@ Naby;Keita;null;19950210;Guinea;Mittelfeld;8
 Rani;Khedira;null;19940127;Deutschland;Mittelfeld;6
 Terrence;Boyd;null;19910216;USA;Sturm;18;-20170123
 Emil;Forsberg;null;19911023;Schweden;Sturm;10
+Federico;Palacios;null;19950409;Deutschland;Sturm;38
 Yussuf;Poulsen;null;19940615;Dänemark;Sturm;9
 Marcel;Sabitzer;null;19940317;Österreich;Sturm;7
 Davie;Selke;null;19950120;Deutschland;Sturm;27
