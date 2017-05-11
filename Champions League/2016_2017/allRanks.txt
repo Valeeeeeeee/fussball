@@ -146,8 +146,8 @@ VF03W: Real Madrid
 VF03L: Bayern München
 VF04W: Atlético Madrid
 VF04L: Leicester City
-HF01W: CL2016HF01W
-HF01L: CL2016HF01L
+HF01W: Real Madrid
+HF01L: Atlético Madrid
 HF02W: Juventus Turin
 HF02L: AS Monaco
 FI01W: CL2016FI01W
