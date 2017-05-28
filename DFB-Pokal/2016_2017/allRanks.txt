@@ -122,5 +122,5 @@ HF01W: Eintracht Frankfurt
 HF01L: Borussia Mönchengladbach
 HF02W: Borussia Dortmund
 HF02L: Bayern München
-FI01W: DP2016FI01W
-FI01L: DP2016FI01L
+FI01W: Borussia Dortmund
+FI01L: Eintracht Frankfurt

@@ -370,5 +370,5 @@ HF01W: Ajax Amsterdam
 HF01L: Olympique Lyon
 HF02W: Manchester United
 HF02L: Celta Vigo
-FI01W: EL2016FI01W
-FI01L: EL2016FI01L
+FI01W: Manchester United
+FI01L: Ajax Amsterdam
