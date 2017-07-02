@@ -20,9 +20,11 @@ Philipp;Förster;null;19950204;Deutschland;Mittelfeld;5;20170131-
 Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
 Lucas;Hufnagel;null;19940129;Deutschland;Mittelfeld;8;20170131-
 Tobias;Kempe;null;19890627;Deutschland;Mittelfeld;10
+Eduard;Löwen;null;19970128;Deutschland;Mittelfeld;38
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;14
 Abdelhamid;Sabiri;null;19961128;Marokko;Mittelfeld;27;20170101-
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
+Dominic;Baumann;null;19950424;Deutschland;Sturm;32
 Guido;Burgstaller;null;19890429;Österreich;Sturm;9;-20161231
 Philipp;Hercher;null;19960321;Deutschland;Sturm;27;-20161231
 Mikael;Ishak;null;19930331;Schweden;Sturm;9;20170130-

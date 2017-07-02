@@ -14,6 +14,7 @@ David;Atanga;null;19961225;Ghana;Mittelfeld;17;-20161231
 Dave;Gnaase;null;19961214;Deutschland;Mittelfeld;36
 Sebastian;Griesbeck;null;19901003;Deutschland;Mittelfeld;18
 Ben;Halloran;null;19920614;Australien;Mittelfeld;12
+Kevin;Lankford;null;19981116;Deutschland;Mittelfeld;35
 Martin;Rasner;null;19950918;Österreich;Mittelfeld;8
 Marc;Schnatterer;null;19851118;Deutschland;Mittelfeld;7
 Tim;Skarke;null;19960907;Deutschland;Mittelfeld;38
