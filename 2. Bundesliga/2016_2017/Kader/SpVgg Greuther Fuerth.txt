@@ -15,6 +15,7 @@ Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;2;20170101-
 Dominik;Schad;null;19970304;Deutschland;Abwehr;35
 Dominik;Sollfrank;null;19980410;Deutschland;Abwehr;38
 Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;22;20170130-
+Tolcay;Cigerci;null;19950124;Deutschland, Türkei;Mittelfeld;29;20170101-
 George;Davies;null;19961116;Sierra Leone;Mittelfeld;25;-20161231
 Christian;Derflinger;null;19940202;Österreich;Mittelfeld;27;20160901-
 Damjan;Djokovic;null;19900418;Kroatien;Mittelfeld;16;20161015-20170127

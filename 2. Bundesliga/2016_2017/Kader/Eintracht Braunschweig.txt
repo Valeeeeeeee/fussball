@@ -7,6 +7,7 @@ Niko;Kijewski;null;19960328;Deutschland;Abwehr;27
 Phil;Ofosu-Ayeh;null;19910915;Ghana;Abwehr;17
 Ken;Reichel;null;19861219;Deutschland;Abwehr;19
 Maximilian;Sauer;null;19940515;Deutschland;Abwehr;24
+Michael;Schulze;null;19890113;Deutschland;Abwehr;26;20170131-
 Gustav;Valsvik;null;19930526;Norwegen;Abwehr;5
 Julius;Biada;null;19921103;Deutschland;Mittelfeld;9
 Mirko;Boland;null;19870423;Deutschland;Mittelfeld;10
