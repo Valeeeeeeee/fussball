@@ -309,8 +309,9 @@ public class Mannschaft {
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = i + 1; j < numberOfMatchdays; j++) {
-				if (dates[j].isBefore(dates[i]))	array[i]++;
-				else								array[j]++;
+				if (dates[i] == null || dates[j] == null)	array[j]++;
+				else if (dates[j].isBefore(dates[i]))		array[i]++;
+				else										array[j]++;
 			}
 		}
 		
