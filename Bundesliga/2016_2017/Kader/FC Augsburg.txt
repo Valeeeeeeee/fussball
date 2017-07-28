@@ -2,6 +2,7 @@ Ioannis;Gelios;null;19920424;Deutschland, Griechenland;Tor;24
 Marwin;Hitz;null;19870918;Schweiz;Tor;35
 Andreas;Luthe;null;19870310;Deutschland;Tor;1
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
+Kevin;Danso;null;19980919;Österreich;Abwehr;38
 Raphael;Framberger;null;19950906;Deutschland;Abwehr;32
 Marvin;Friedrich;null;19951213;Deutschland;Abwehr;15
 Jeffrey;Gouweleeuw;null;19910710;Niederlande;Abwehr;6
