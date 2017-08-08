@@ -71,6 +71,7 @@ public class SpielInformationen extends JFrame {
 	private JCheckBox jChBRight;
 	private ButtonGroup buttonGroupDetails;
 	private JCheckBox jChBBench;
+	private JCheckBox jChBAfterMatch;
 	private JLabel jLblTop;
 	private JComboBox<String> jCBTop;
 	private JLabel jLblBottom;
@@ -128,6 +129,7 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_CHBLEFT = new Rectangle(30, 40, 105, 20);
 	private Rectangle REC_CHBRIGHT = new Rectangle(165, 40, 95, 20);
 	private Rectangle REC_CHBBENCH = new Rectangle(20, 70, 110, 20);
+	private Rectangle REC_CHBAFTERMATCH = new Rectangle(150, 70, 140, 20);
 	private Rectangle REC_LBLTOP = new Rectangle(10, 70, 95, 20);
 	private Rectangle REC_CBTOP = new Rectangle(105, 67, 175, 26);
 	private Rectangle REC_LBLBOTTOM = new Rectangle(10, 100, 95, 20);
@@ -186,6 +188,7 @@ public class SpielInformationen extends JFrame {
 	private boolean enteringSubstitution;
 	private boolean enteringBooking;
 	private boolean bookedOnTheBench;
+	private boolean bookedAfterTheMatch;
 	private int goalDetails;
 	private int[] lineupHome;
 	private int[] lineupAway;
@@ -734,6 +737,21 @@ public class SpielInformationen extends JFrame {
 				}
 			});
 		}
+
+		{
+			jChBAfterMatch = new JCheckBox();
+			jPnlEntry.add(jChBAfterMatch);
+			jChBAfterMatch.setBounds(REC_CHBAFTERMATCH);
+			jChBAfterMatch.setText("nach dem Spiel");
+			jChBAfterMatch.setOpaque(false);
+			jChBAfterMatch.setFocusable(false);
+			jChBAfterMatch.setVisible(false);
+			jChBAfterMatch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					jChBAfterMatchSelectionChanged();
+				}
+			});
+		}
 		{
 			jLblTop = new JLabel();
 			jPnlEntry.add(jLblTop);
@@ -1176,7 +1194,9 @@ public class SpielInformationen extends JFrame {
 		jLblTop.setVisible(false);
 		jCBTop.setVisible(false);
 		jChBBench.setVisible(true);
+		jChBAfterMatch.setVisible(true);
 		bookedOnTheBench = changedBooking.isOnTheBench();
+		bookedAfterTheMatch = changedBooking.isAfterTheMatch();
 		jLblBottom.setText("Spieler");
 		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
 		jCBBottom.setSelectedItem(changedBooking.getBookedPlayer().getPopularOrLastName());
@@ -1186,7 +1206,9 @@ public class SpielInformationen extends JFrame {
 		jChBLeft.setVisible(true);
 		jChBRight.setVisible(true);
 		if (changedBooking.isYellowCard())	jChBLeft.setSelected(true);
-		else						jChBRight.setSelected(true);
+		else								jChBRight.setSelected(true);
+		if (bookedOnTheBench)		jChBBench.setSelected(true);
+		if (bookedAfterTheMatch)	jChBAfterMatch.setSelected(true);
 		
 		jTFMinute.setText("" + changedBooking.getMinute().toString());
 		
@@ -1409,6 +1431,7 @@ public class SpielInformationen extends JFrame {
 		enteringBooking = false;
 		enteringGoal = false;
 		bookedOnTheBench = false;
+		bookedAfterTheMatch = false;
 		repaint = false;
 		changedGoal = null;
 		changedSubstitution = null;
@@ -1420,6 +1443,8 @@ public class SpielInformationen extends JFrame {
 		jCBTop.setVisible(true);
 		jChBBench.setSelected(false);
 		jChBBench.setVisible(false);
+		jChBAfterMatch.setSelected(false);
+		jChBAfterMatch.setVisible(false);
 		jChBLeft.setVisible(false);
 		jChBRight.setVisible(false);
 		buttonGroupDetails.clearSelection();
@@ -1576,6 +1601,13 @@ public class SpielInformationen extends JFrame {
 		jCBBottom.setSelectedItem(selectedItem);
 	}
 	
+	private void jChBAfterMatchSelectionChanged() {
+		bookedAfterTheMatch = !bookedAfterTheMatch;
+		String selectedItem = (String) jCBBottom.getSelectedItem();
+		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
+		jCBBottom.setSelectedItem(selectedItem);
+	}
+	
 	private void jChBLeftSelectionChanged() {
 		if (enteringGoal) {
 			if (goalDetails == 1) {
@@ -1612,7 +1644,7 @@ public class SpielInformationen extends JFrame {
 			Mannschaft bookedTeam = match.getTeam(firstTeam);
 			eligiblePlayersListLower.clear();
 			
-			if (bookedOnTheBench) {
+			if (bookedOnTheBench || bookedAfterTheMatch) {
 				ArrayList<Spieler> eligPlayers = bookedTeam.getEligiblePlayers(match.getDate(), false);
 				eligiblePlayers = new String[1 + eligPlayers.size()];
 				int count = 1;
@@ -1787,6 +1819,7 @@ public class SpielInformationen extends JFrame {
 		jLblTop.setVisible(false);
 		jCBTop.setVisible(false);
 		jChBBench.setVisible(true);
+		jChBAfterMatch.setVisible(true);
 		jLblBottom.setText("Spieler");
 		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
 		
@@ -1827,12 +1860,17 @@ public class SpielInformationen extends JFrame {
 			message("Bitte eine gültige Minute eingeben.");
 			return;
 		}
+		boolean afterTheMatch = jChBAfterMatch.isSelected();
 		if (minute.getRegularTime() > 120) {
-			message("Ein Spieler kann nicht nach der 120. Minute verwarnt werden. Bitte eine korrekte Minute angeben.");
-			return;
+			if (minute.getRegularTime() != 121 || !isETpossible || !afterTheMatch) {
+				message("Ein Spieler kann nicht nach der 120. Minute verwarnt werden. Bitte eine korrekte Minute angeben.");
+				return;
+			}
 		} else if (!isETpossible && minute.getRegularTime() > 90) {
-			message("In diesem Spiel kann es keine Verlängerung geben. Bitte eine korrekte Minute angeben.");
-			return;
+			if (minute.getRegularTime() != 91 || !afterTheMatch) {
+				message("In diesem Spiel kann es keine Verlängerung geben. Bitte eine korrekte Minute angeben.");
+				return;
+			}
 		}
 		
 		boolean yellowCard = jChBLeft.isSelected();
@@ -1849,9 +1887,10 @@ public class SpielInformationen extends JFrame {
 			return;
 		}
 		
-		if (!addBooking(minute, yellowCard, onTheBench, bookedPlayer)) return;
+		if (!addBooking(minute, yellowCard, onTheBench, afterTheMatch, bookedPlayer)) return;
 		enteringBooking = false;
 		bookedOnTheBench = false;
+		bookedAfterTheMatch = false;
 		
 		buttonGroupDetails.clearSelection();
 		jChBLeft.setVisible(false);
@@ -1859,6 +1898,8 @@ public class SpielInformationen extends JFrame {
 		
 		jChBBench.setSelected(false);
 		jChBBench.setVisible(false);
+		jChBAfterMatch.setSelected(false);
+		jChBAfterMatch.setVisible(false);
 		jLblTop.setVisible(true);
 		jCBTop.setVisible(true);
 		jPnlEntry.setVisible(false);
@@ -1889,7 +1930,7 @@ public class SpielInformationen extends JFrame {
 		return false;
 	}
 	
-	private boolean addBooking(Minute minute, boolean yellowCard, boolean onTheBench, Spieler bookedPlayer) {
+	private boolean addBooking(Minute minute, boolean yellowCard, boolean onTheBench, boolean afterTheMatch, Spieler bookedPlayer) {
 		boolean isSecondBooking = false;
 		ArrayList<Karte> playersBookings = new ArrayList<>();
 		ArrayList<Karte> otherBookings = new ArrayList<>();
@@ -1927,7 +1968,7 @@ public class SpielInformationen extends JFrame {
 			}
 		}
 		
-		Karte booking = new Karte(match, editingFirstTeam, minute, yellowCard, isSecondBooking, onTheBench, bookedPlayer);
+		Karte booking = new Karte(match, editingFirstTeam, minute, yellowCard, isSecondBooking, onTheBench, afterTheMatch, bookedPlayer);
 		if (changedBooking != null)	bookings.remove(changedBooking);
 		changedBooking = null;
 		match.addBooking(booking);
