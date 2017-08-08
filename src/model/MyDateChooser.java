@@ -288,7 +288,7 @@ public class MyDateChooser extends JFrame {
 		} catch (IllegalArgumentException iae) {
 			Datum guess = MIN_DATE;
 			if (spieltag.getCurrentMatchday() > 0)	guess = new Datum(season.getDate(spieltag.getCurrentMatchday() - 1), 7);
-			if (guess.getYear() > MAX_DATE.getYear())	guess = new Datum(1, 8, startYear);
+			if (guess.getYear() > MAX_DATE.getYear() || guess == MIN_DATE)	guess = new Datum(1, 8, startYear);
 			jCBStYear.setSelectedIndex(guess.getYear() - startYear);
 			jCBStMonth.setSelectedIndex(guess.getMonth() - 1);
 			jCBStDay.setSelectedIndex(guess.getDay() - 1);
