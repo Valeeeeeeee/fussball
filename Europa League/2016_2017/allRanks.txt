@@ -73,7 +73,7 @@ Q136L: NSÍ Runavík
 Q137W: Spartak Trnava
 Q137L: Hibernians Football Club
 Q138W: Gap Connah's Quay
-Q138L: Stabæk Fotball 
+Q138L: Stabæk Fotball
 Q139W: FK Cukaricki
 Q139L: Ordabassy Schymkent
 Q140W: VSC Debrecen
