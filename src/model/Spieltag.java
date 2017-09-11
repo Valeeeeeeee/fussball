@@ -665,6 +665,7 @@ public class Spieltag extends JPanel {
 				jPnlTeamsSelection.add(jBtnsMannschaften[i]);
 				jBtnsMannschaften[i].setBounds(btnsSelection[STARTX] + xFactor * (btnsSelection[SIZEX] + btnsSelection[GAPX]),
 								btnsSelection[STARTY] + yFactor * (btnsSelection[SIZEY] + btnsSelection[GAPY]), btnsSelection[SIZEX], btnsSelection[SIZEY]);
+				jBtnsMannschaften[i].setFocusable(false);
 				jBtnsMannschaften[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						mannschaftenButtonClicked(x);
@@ -986,6 +987,7 @@ public class Spieltag extends JPanel {
 		jBtnResetMatchday.setVisible(false);
 		jBtnEnterRueckrunde.setVisible(false);
 		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(false);
+		clickNextEmptySpot();
 	}
 
 	/**
@@ -996,10 +998,7 @@ public class Spieltag extends JPanel {
 		int error = -1;
 		// 1. Fehlerfall: es befinden sich noch ungesetzte Felder im Array
 		for (int i = 0; i < array.length; i++) {
-			if (array[i][0] == -1) {
-				error = 1;
-				break;
-			} else if (array[i][1] == -1) {
+			if (array[i][0] == -1 || array[i][1] == -1) {
 				error = 1;
 				break;
 			}
@@ -1514,6 +1513,19 @@ public class Spieltag extends JPanel {
 		}
 	}
 	
+	private void clickNextEmptySpot() {
+		int index = -1;
+		for (int row = 0; row < array.length && index == -1; row++) {
+			for (int column = 0; column < array[row].length; column++) {
+				if (array[row][column] == -1) {
+					index = column * numberOfMatches + row;
+					break;
+				}
+			}
+		}
+		if (index != -1)	mannschaftClicked(index);
+	}
+	
 	public void mannschaftenButtonClicked(int index) {
 		if (belongsToALeague)		jLblsTeams[editedLabel].setText(lSeason.getTeams()[index].getName());
 		else if (belongsToGroup)	jLblsTeams[editedLabel].setText(group.getTeams()[index].getName());
@@ -1550,5 +1562,6 @@ public class Spieltag extends JPanel {
 		editedLabel = -1;
 		editedGroupID = -1;
 		jSPTeamsSelection.setVisible(false);
+		clickNextEmptySpot();
 	}
 }
