@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import analyse.SaisonPerformance;
+import analyse.SpielPerformance;
+
 public class SpielerInformationen extends JFrame {
 	
 	private static final long serialVersionUID = -8974853216829127796L;
@@ -49,8 +52,8 @@ public class SpielerInformationen extends JFrame {
 	private Font fontNamesSmall = new Font("Calibri", 0, 26);
 	private Font fontNationality = new Font("Calibri", 0, 24);
 	private Font fontPerformance = new Font("Calibri", 0, 18);
+	private Font fontPopularName = new Font("Calibri", 0, 18);
 	private Font fontPosition = new Font("Calibri", 0, 24);
-	private Font fontPseudonym = new Font("Calibri", 0, 18);
 	private Font fontSquadNumber = new Font("Calibri", 0, 65);
 	
 	private static final int NUMBEROFFIELDSPMBM = 10;
@@ -62,7 +65,7 @@ public class SpielerInformationen extends JFrame {
 	private Rectangle REC_SQUADNUMBER = new Rectangle(390, 65, 100, 65);
 	private Rectangle REC_FIRSTNAMES = new Rectangle(500, 60, 340, 35);
 	private Rectangle REC_LASTNAMES = new Rectangle(500, 100, 340, 35);
-	private Rectangle REC_PSEUDONYM = new Rectangle(500, 140, 240, 30);
+	private Rectangle REC_POPULARNAME = new Rectangle(500, 140, 240, 30);
 	private Rectangle REC_BIRTHDATE = new Rectangle(390, 180, 110, 20);
 	private Rectangle REC_BIRTHDATEVAL = new Rectangle(390, 200, 140, 30);
 	private Rectangle REC_POSITION = new Rectangle(640, 180, 65, 20);
@@ -87,7 +90,7 @@ public class SpielerInformationen extends JFrame {
 	
 	private Rectangle REC_DETAILS = new Rectangle(390, 375, 80, 25);
 	private Rectangle REC_PERFORMANCE = new Rectangle(390, 400, 140, 25);
-	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 200, 25);
+	private Rectangle REC_COMPETITION = new Rectangle(550, 400, 280, 25);
 	private int[] bndsPerf = new int[] {390, 430, 30, 30, 160, 25};
 	private int[] bndsPerfV = new int[] {600, 430, 0, 30, 50, 25};
 	private Rectangle REC_SPPERFMBM = new Rectangle(390, 430, 470, 380);
@@ -109,7 +112,7 @@ public class SpielerInformationen extends JFrame {
 	private JLabel jLblSquadNumber;
 	private JLabel jLblFirstNames;
 	private JLabel jLblLastNames;
-	private JLabel jLblPseudonym;
+	private JLabel jLblPopularName;
 	private JLabel jLblBirthDate;
 	private JLabel jLblBirthDateVal;
 	private JLabel jLblPosition;
@@ -125,7 +128,7 @@ public class SpielerInformationen extends JFrame {
 	private JTextField jTFSquadNumber;
 	private JTextField jTFFirstNames;
 	private JTextField jTFLastNames;
-	private JTextField jTFPseudonym;
+	private JTextField jTFPopularName;
 	private JComboBox<String> jCBBirthDay;
 	private JComboBox<String> jCBBirthMonth;
 	private JComboBox<String> jCBBirthYear;
@@ -252,10 +255,10 @@ public class SpielerInformationen extends JFrame {
 			jLblLastNames.setFont(fontNames);
 		}
 		{
-			jLblPseudonym = new JLabel();
-			jPnlPlayerInformation.add(jLblPseudonym);
-			jLblPseudonym.setBounds(REC_PSEUDONYM);
-			jLblPseudonym.setFont(fontPseudonym);
+			jLblPopularName = new JLabel();
+			jPnlPlayerInformation.add(jLblPopularName);
+			jLblPopularName.setBounds(REC_POPULARNAME);
+			jLblPopularName.setFont(fontPopularName);
 		}
 		{
 			jLblBirthDate = new JLabel();
@@ -363,14 +366,14 @@ public class SpielerInformationen extends JFrame {
 			});
 		}
 		{
-			jTFPseudonym = new JTextField();
-			jPnlPlayerInformation.add(jTFPseudonym);
-			jTFPseudonym.setBounds(REC_PSEUDONYM);
-			jTFPseudonym.setFont(fontPseudonym);
-			jTFPseudonym.setVisible(false);
-			jTFPseudonym.addFocusListener(new FocusAdapter() {
+			jTFPopularName = new JTextField();
+			jPnlPlayerInformation.add(jTFPopularName);
+			jTFPopularName.setBounds(REC_POPULARNAME);
+			jTFPopularName.setFont(fontPopularName);
+			jTFPopularName.setVisible(false);
+			jTFPopularName.addFocusListener(new FocusAdapter() {
 				public void focusGained(FocusEvent e) {
-					jTFPseudonym.selectAll();
+					jTFPopularName.selectAll();
 				}
 			});
 		}
@@ -535,7 +538,7 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblCompetition);
 			jLblCompetition.setBounds(REC_COMPETITION);
 			jLblCompetition.setFont(fontCompetition);
-			jLblCompetition.setText(competition.getName());
+			jLblCompetition.setText(competition.getDescription());
 		}
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
 			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? bndsPerf[GAPX] : 0;
@@ -606,34 +609,34 @@ public class SpielerInformationen extends JFrame {
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
-			jTFPseudonym.setText(jLblPseudonym.getText());
-			jCBBirthYear.setSelectedItem(player.getBirthDate() / 10000 + "");
-			jCBBirthMonth.setSelectedIndex((player.getBirthDate() % 10000) / 100 - 1);
-			jCBBirthDay.setSelectedIndex(player.getBirthDate() % 100 - 1);
+			jTFPopularName.setText(jLblPopularName.getText());
+			jCBBirthYear.setSelectedItem(player.getBirthDate().getYear() + "");
+			jCBBirthMonth.setSelectedIndex(player.getBirthDate().getMonth() - 1);
+			jCBBirthDay.setSelectedIndex(player.getBirthDate().getDay() - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
-			boolean sinceSet = player.getFirstDate() != -1, untilSet = player.getLastDate() != -1;
+			boolean sinceSet = player.getFirstDate() != MIN_DATE, untilSet = player.getLastDate() != MAX_DATE;
 			if (sinceSet == atClubSinceEver)	jChBAtClubSinceEver.doClick();
-			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate() / 10000 + "" : "");
-			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate() / 100 % 100 - 1 : 0);
-			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate() % 100 - 1 : 0);
+			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate().getYear() + "" : "");
+			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate().getMonth() - 1 : 0);
+			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate().getDay() - 1 : 0);
 			if (untilSet == atClubUntilEver)	jChBAtClubUntilEver.doClick();
-			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate() / 10000 + "" : "");
-			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate() / 100 % 100 - 1 : 0);
-			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate() % 100 - 1 : 0);
+			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate().getYear() + "" : "");
+			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate().getMonth() - 1 : 0);
+			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate().getDay() - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
 			jLblMoreDetails.setVisible(false);
 		} else {
 			String firstName = jTFFirstNames.getText();
 			String lastName = jTFLastNames.getText();
-			String pseudonym = jTFPseudonym.getText();
-			if (pseudonym.isEmpty())	pseudonym = null;
-			int birthDate = 10000 * Integer.parseInt((String) jCBBirthYear.getSelectedItem()) + 100 * (1 + jCBBirthMonth.getSelectedIndex()) + jCBBirthDay.getSelectedIndex() + 1;
+			String popularName = jTFPopularName.getText();
+			if (popularName.isEmpty())	popularName = null;
+			Datum birthDate = new Datum(jCBBirthDay.getSelectedIndex() + 1, jCBBirthMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBBirthYear.getSelectedItem()));
 			String nationality = jTFNationality.getText();
 			String position = (String) jCBPositions.getSelectedItem();
-			int firstDate = -1, lastDate = -1, secondFDate = -1;
-			if (!atClubSinceEver)	firstDate = 10000 * Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()) + 100 * (jCBAtClubSinceMonth.getSelectedIndex() + 1) + jCBAtClubSinceDay.getSelectedIndex() + 1;
-			if (!atClubUntilEver)	lastDate = 10000 * Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()) + 100 * (jCBAtClubUntilMonth.getSelectedIndex() + 1) + jCBAtClubUntilDay.getSelectedIndex() + 1;
+			Datum firstDate = MIN_DATE, lastDate = MAX_DATE, secondFDate = MAX_DATE;
+			if (!atClubSinceEver)	firstDate = new Datum(jCBAtClubSinceDay.getSelectedIndex() + 1, jCBAtClubSinceMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()));
+			if (!atClubUntilEver)	lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
 			secondFDate = player.getSecondFirstDate();
 			int squadNumber = 0;
 			try {
@@ -652,7 +655,7 @@ public class SpielerInformationen extends JFrame {
 					}
 				}
 			}
-			player.updateInfo(firstName, lastName, pseudonym, birthDate, nationality, position, squadNumber, firstDate, lastDate, secondFDate);
+			player.updateInfo(firstName, lastName, popularName, birthDate, nationality, position, squadNumber, firstDate, lastDate, secondFDate);
 			if (addingNewPlayer) {
 				player.getTeam().addPlayer(player);
 				addingNewPlayer = false;
@@ -668,16 +671,16 @@ public class SpielerInformationen extends JFrame {
 		jLblSquadNumber.setVisible(!changingInformation);
 		jLblFirstNames.setVisible(!changingInformation);
 		jLblLastNames.setVisible(!changingInformation);
-		jLblPseudonym.setVisible(!changingInformation);
+		jLblPopularName.setVisible(!changingInformation);
 		jLblBirthDateVal.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
-		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != -1);
-		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != -1);
+		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != MIN_DATE);
+		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != MAX_DATE);
 		jCBPositions.setVisible(changingInformation);
 		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
 		jTFLastNames.setVisible(changingInformation);
-		jTFPseudonym.setVisible(changingInformation);
+		jTFPopularName.setVisible(changingInformation);
 		jCBBirthDay.setVisible(changingInformation);
 		jCBBirthMonth.setVisible(changingInformation);
 		jCBBirthYear.setVisible(changingInformation);
@@ -690,8 +693,8 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilDay.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilMonth.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilYear.setVisible(changingInformation && !atClubUntilEver);
-		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != -1);
-		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != -1);
+		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != MIN_DATE);
+		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != MAX_DATE);
 		
 		jLblPerformance.setVisible(!changingInformation);
 		jLblCompetition.setVisible(!changingInformation);
@@ -731,21 +734,28 @@ public class SpielerInformationen extends JFrame {
 			jLblsPMbMHeaders[i].setVisible(moreDetails);
 		}
 		if (moreDetails) {
-			ArrayList<int[]> performanceMbM = player.getTeam().getPerformanceDataMatchByMatch(player);
+			ArrayList<SpielPerformance> performanceMbM = player.getSeasonPerformance().asSortedList();
 			createLabels(performanceMbM.size());
 			int index = 0;
-			for (int[] performance : performanceMbM) {
-				String nothing = performance[2] != 91 ? "." : "X";
-				jLblsPerformanceMbMMatchday.get(index).setText(performance[0] + 1 + ".");
-				jLblsPerformanceMbMOpponent.get(index).setText(player.getTeam().getCompetition().getTeams()[performance[1] - 1].getName());
-				jLblsPerformanceMbMResult.get(index).setText(player.getTeam().getResultOfMatch(performance[0]));
-				jLblsPerformanceMbMSubOn.get(index).setText((performance[2] - 1) % 90 != 0 ? performance[2] + "." : nothing);
-				jLblsPerformanceMbMSubOff.get(index).setText(performance[3] != 91 ? performance[3] + "." : nothing);
-				jLblsPerformanceMbMGoals.get(index).setText(performance[4] != 0 ? performance[4] + "" : nothing);
-				jLblsPerformanceMbMAssists.get(index).setText(performance[5] != 0 ? performance[5] + "" : nothing);
-				jLblsPerformanceMbMBooked.get(index).setText(performance[6] != 0 ? performance[6] + "." : nothing);
-				jLblsPerformanceMbMBookedTwice.get(index).setText(performance[7] != 0 ? performance[7] + "." : nothing);
-				jLblsPerformanceMbMRedCard.get(index).setText(performance[8] != 0 ? performance[8] + "." : nothing);
+			for (SpielPerformance performance : performanceMbM) {
+				String nothing = performance.hasPlayed() ? "." : "X";
+				jLblsPerformanceMbMMatchday.get(index).setText(performance.getMatchday() + 1 + ".");
+				jLblsPerformanceMbMOpponent.get(index).setText(performance.getOpponentName());
+				jLblsPerformanceMbMResult.get(index).setText(performance.getResult());
+				jLblsPerformanceMbMSubOn.get(index).setText(performance.hasBeenSubbedOn() ? performance.minuteSubOn().getRegularTime() + "." : nothing);
+				jLblsPerformanceMbMSubOff.get(index).setText(performance.hasBeenSubbedOff() ? performance.minuteSubOff().getRegularTime() + "." : nothing);
+				jLblsPerformanceMbMGoals.get(index).setText(performance.hasScored() ? performance.numberOfGoals() + "" : nothing);
+				jLblsPerformanceMbMAssists.get(index).setText(performance.hasAssisted() ? performance.numberOfAssists() + "" : nothing);
+				jLblsPerformanceMbMBooked.get(index).setText(performance.hasBeenBooked() ? performance.minuteBooked().getRegularTime() + "." : nothing);
+				jLblsPerformanceMbMBookedTwice.get(index).setText(performance.hasBeenBookedTwice() ? performance.minuteBookedTwice().getRegularTime() + "." : nothing);
+				jLblsPerformanceMbMRedCard.get(index).setText(performance.hasBeenSentOffStraight() ? performance.minuteSentOffStraight().getRegularTime() + "." : nothing);
+				
+				jLblsPerformanceMbMSubOn.get(index).setToolTipText(getTooltipText(performance.minuteSubOn()));
+				jLblsPerformanceMbMSubOff.get(index).setToolTipText(getTooltipText(performance.minuteSubOff()));
+				jLblsPerformanceMbMBooked.get(index).setToolTipText(getTooltipText(performance.minuteBooked()));
+				jLblsPerformanceMbMBookedTwice.get(index).setToolTipText(getTooltipText(performance.minuteBookedTwice()));
+				jLblsPerformanceMbMRedCard.get(index).setToolTipText(getTooltipText(performance.minuteSentOffStraight()));
+				
 				index++;
 			}
 			for (int i = 0; i < jLblsPerformanceMbMMatchday.size(); i++) {
@@ -765,6 +775,11 @@ public class SpielerInformationen extends JFrame {
 			jSPPerformanceMbM.setViewportView(jPnlPerformanceMbM);
 			jSPPerformanceMbM.setBounds(REC_SPPERFMBM);
 		}
+	}
+	
+	private String getTooltipText(Minute minute) {
+		if (minute == null || minute.getInjuryTime() == 0)	return null;
+		return minute.asString();
 	}
 	
 	private void createLabels(int totalNumber) {
@@ -888,7 +903,7 @@ public class SpielerInformationen extends JFrame {
 		addingNewPlayer = true;
 		String firstName = "Vorname";
 		String lastName = "Nachname";
-		int birthDate = (competition.getYear() - averageAge) * 10000 + 101;
+		Datum birthDate = new Datum(1, 1, competition.getYear() - averageAge);
 		String nationality = "Deutschland";
 		int squadNumber = team.getNextFreeSquadNumber();
 		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
@@ -912,36 +927,36 @@ public class SpielerInformationen extends JFrame {
 		jLblLastNames.setText(player.getLastName());
 		jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
 		jLblLastNames.setFont(player.getLastName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
-		jLblPseudonym.setText(player.getPseudonym() != null ? player.getPseudonym() : "");
-		jLblBirthDateVal.setText(MyDate.datum(player.getBirthDate()));
+		jLblPopularName.setText(player.getPopularName() != null ? player.getPopularName() : "");
+		jLblBirthDateVal.setText(player.getBirthDate().withDividers());
 		jLblPositionVal.setText(player.getPosition().getName());
 		jLblNationalityVal.setText(player.getNationality());
 		
-		int atClubSince = player.getFirstDate();
-		int atClubUntil = player.getLastDate();
-		boolean sinceSet = atClubSince != -1, untilSet = atClubUntil != -1;
-		jLblAtClubSinceVal.setText(sinceSet ? MyDate.datum(atClubSince) : "");
+		Datum atClubSince = player.getFirstDate();
+		Datum atClubUntil = player.getLastDate();
+		boolean sinceSet = atClubSince != MIN_DATE, untilSet = atClubUntil != MAX_DATE;
+		jLblAtClubSinceVal.setText(sinceSet ? atClubSince.withDividers() : "");
 		jLblAtClubSince.setVisible(sinceSet);
 		jLblAtClubSinceVal.setVisible(sinceSet);
-		jLblAtClubUntilVal.setText(untilSet ? MyDate.datum(atClubUntil) : "");
+		jLblAtClubUntilVal.setText(untilSet ? atClubUntil.withDividers() : "");
 		jLblAtClubUntil.setVisible(untilSet);
 		jLblAtClubUntilVal.setVisible(untilSet);
 		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 	
 	private void setPerformance() {
-		int[] performanceData = player.getTeam().getPerformanceData(player);
-		jLblsPerformanceValues[MATCHES_PLAYED].setText("" + performanceData[MATCHES_PLAYED]);
-		jLblsPerformanceValues[MATCHES_STARTED].setText("" + performanceData[MATCHES_STARTED]);
-		jLblsPerformanceValues[MATCHES_SUB_ON].setText("" + performanceData[MATCHES_SUB_ON]);
-		jLblsPerformanceValues[MATCHES_SUB_OFF].setText("" + performanceData[MATCHES_SUB_OFF]);
-		jLblsPerformanceValues[MINUTES_PLAYED].setText("" + performanceData[MINUTES_PLAYED]);
-		jLblsPerformanceValues[GOALS_SCORED].setText("" + performanceData[GOALS_SCORED]);
-		jLblsPerformanceValues[GOALS_ASSISTED].setText("" + performanceData[GOALS_ASSISTED]);
-		jLblsPerformanceValues[BOOKED].setText("" + performanceData[BOOKED]);
-		jLblsPerformanceValues[BOOKED_TWICE].setText("" + performanceData[BOOKED_TWICE]);
-		jLblsPerformanceValues[RED_CARDS].setText("" + performanceData[RED_CARDS]);
-		jLblMoreDetails.setVisible(performanceData[MATCHES_PLAYED] != 0);
+		SaisonPerformance seasonPerformance = player.getSeasonPerformance();
+		jLblsPerformanceValues[MATCHES_PLAYED].setText("" + seasonPerformance.matchesPlayed());
+		jLblsPerformanceValues[MATCHES_STARTED].setText("" + seasonPerformance.matchesStarted());
+		jLblsPerformanceValues[MATCHES_SUB_ON].setText("" + seasonPerformance.matchesSubbedOn());
+		jLblsPerformanceValues[MATCHES_SUB_OFF].setText("" + seasonPerformance.matchesSubbedOff());
+		jLblsPerformanceValues[MINUTES_PLAYED].setText("" + seasonPerformance.minutesPlayed());
+		jLblsPerformanceValues[GOALS_SCORED].setText("" + seasonPerformance.goalsScored());
+		jLblsPerformanceValues[GOALS_ASSISTED].setText("" + seasonPerformance.goalsAssisted());
+		jLblsPerformanceValues[BOOKED].setText("" + seasonPerformance.booked());
+		jLblsPerformanceValues[BOOKED_TWICE].setText("" + seasonPerformance.bookedTwice());
+		jLblsPerformanceValues[RED_CARDS].setText("" + seasonPerformance.sentOffStraight());
+		jLblMoreDetails.setVisible(seasonPerformance.hasData());
 	}
 	
 	private void showPhoto() {

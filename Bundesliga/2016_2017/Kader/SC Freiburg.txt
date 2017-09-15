@@ -1,0 +1,33 @@
+Rafal;Gikiewicz;null;19871026;Polen;Tor;44
+Patric;Klandt;null;19830929;Deutschland;Tor;21
+Alexander;Schwolow;null;19920602;Deutschland;Tor;1
+Jonas;Föhrenbach;null;19960126;Deutschland;Abwehr;25
+Christian;Günter;null;19930228;Deutschland;Abwehr;30
+Manuel;Gulde;null;19910212;Deutschland;Abwehr;5
+Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;2
+Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;20
+Lukas;Kübler;null;19920830;Deutschland;Abwehr;17
+Georg;Niedermeier;null;19860226;Deutschland;Abwehr;24;20160830-
+Çaglar;Söyüncü;null;19960523;Türkei;Abwehr;4
+Pascal;Stenzel;null;19960320;Deutschland;Abwehr;15
+Marc;Torrejón;null;19860218;Spanien;Abwehr;3
+Amir;Abrashi;null;19900327;Albanien;Mittelfeld;6
+Onur;Bulut;null;19940416;Deutschland;Mittelfeld;11
+Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
+Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32
+Nicolas;Höfler;null;19900309;Deutschland;Mittelfeld;27
+Lucas;Hufnagel;null;19940129;Deutschland;Mittelfeld;35;-20170130
+Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;37;-20160830
+Charles-Elie;Laprévotte;null;19921004;Frankreich;Mittelfeld;29;-20161231
+Jonas;Meffert;null;19940904;Deutschland;Mittelfeld;22;-20170130
+Mats;'Møller Dæhli';null;19950302;Dänemark;Mittelfeld;16;-20161231
+Julian;Schuster;null;19850415;Deutschland;Mittelfeld;23
+Vincent;Sierro;null;19951008;Schweiz;Mittelfeld;22;20170131-
+Amir;Falahen;null;19930315;Deutschland;Sturm;34
+Karim;Guédé;null;19850107;Togo, Slowakei;Sturm;31
+Janik;Haberer;null;19940402;Deutschland;Sturm;19
+Florian;Niederlechner;null;19901024;Deutschland;Sturm;7
+Håvard;Nielsen;null;19930715;Norwegen;Sturm;14
+Nils;Petersen;null;19881206;Deutschland;Sturm;18
+Maximilian;Philipp;null;19940301;Deutschland;Sturm;26
+Philipp;Zulechner;null;19900412;Österreich;Sturm;9;-20160830

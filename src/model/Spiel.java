@@ -4,11 +4,13 @@ import static util.Utilities.*;
 
 import java.util.ArrayList;
 
+import analyse.SpielPerformance;
+
 public class Spiel {
 	
 	private int matchday;
-	private int date;
-	private int time;
+	private Datum date;
+	private Uhrzeit time;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
@@ -25,7 +27,7 @@ public class Spiel {
 	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
 	private ArrayList<Karte> bookings = new ArrayList<>();
 	
-	public Spiel(Wettbewerb competition, int matchday, int date, int time, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, int homeTeamIndex, int awayTeamIndex) {
 		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
@@ -37,7 +39,7 @@ public class Spiel {
 		awayTeam = competition.getTeams()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb competition, int matchday, int date, int time, String data) {
+	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, String data) {
 		this.competition = competition;
 		this.matchday = matchday;
 		this.date = date;
@@ -54,18 +56,18 @@ public class Spiel {
 	}
 	
 	public String getDateAndTime() {
-		return MyDate.datum(date) + " " + MyDate.uhrzeit(time);
+		return date.withDividers() + " " + time.withDividers();
 	}
 	
 	public int getMatchday() {
 		return matchday;
 	}
 	
-	public int getDate() {
+	public Datum getDate() {
 		return date;
 	}
 	
-	public int getTime() {
+	public Uhrzeit getTime() {
 		return time;
 	}
 	
@@ -87,6 +89,10 @@ public class Spiel {
 	
 	public Ergebnis getResult() {
 		return result;
+	}
+	
+	public Mannschaft getTeam(boolean firstTeam) {
+		return firstTeam ? homeTeam : awayTeam;
 	}
 	
 	public void setResult(Ergebnis result) {
@@ -125,7 +131,7 @@ public class Spiel {
 		if (goal != null) {
 			int index = 0;
 			for (int i = 0; i < goals.size(); i++) {
-				if (goals.get(i).getMinute() <= goal.getMinute())	index++;
+				if (!goals.get(i).getMinute().isAfter(goal.getMinute()))	index++;
 			}
 			goals.add(index, goal);
 			result = new Ergebnis(goals);
@@ -144,12 +150,12 @@ public class Spiel {
 		if (substitution != null) {
 			if (substitution.isFirstTeam()) {
 				for (int i = 0; i < substitutionsHome.size(); i++) {
-					if (substitutionsHome.get(i).getMinute() <= substitution.getMinute())	index++;
+					if (!substitutionsHome.get(i).getMinute().isAfter(substitution.getMinute()))	index++;
 				}
 				substitutionsHome.add(index, substitution);
 			} else {
 				for (int i = 0; i < substitutionsAway.size(); i++) {
-					if (substitutionsAway.get(i).getMinute() <= substitution.getMinute())	index++;
+					if (!substitutionsAway.get(i).getMinute().isAfter(substitution.getMinute()))	index++;
 				}
 				substitutionsAway.add(index, substitution);
 			}
@@ -165,7 +171,7 @@ public class Spiel {
 		if (booking != null) {
 			int index = 0;
 			for (int i = 0; i < bookings.size(); i++) {
-				if (bookings.get(i).getMinute() <= booking.getMinute())	index++;
+				if (!bookings.get(i).getMinute().isAfter(booking.getMinute()))	index++;
 			}
 			bookings.add(index, booking);
 		}
@@ -196,8 +202,35 @@ public class Spiel {
 		referee.addMatch(this);
 	}
 	
+	public SpielPerformance getMatchPerformance(Spieler player) {
+		if (result == null)	return null;
+		boolean firstTeam = getTeam(true) == player.getTeam();
+		int squadNumber = player.getSquadNumber();
+		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
+		int[] lineup = firstTeam ? lineupHome : lineupAway;
+		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
+		if (lineup == null)	return null;
+		
+		for (int sqNumber : lineup) {
+			if (sqNumber == squadNumber)	matchPerformance.started();
+		}
+		for (Wechsel sub : substitutions) {
+			if (sub.isPlayerOff(squadNumber))		matchPerformance.subbedOff(sub.getMinute());
+			else if (sub.isPlayerOn(squadNumber))	matchPerformance.subbedOn(sub.getMinute());
+		}
+		for (Karte booking : bookings) {
+			if (booking.isFirstTeam() != firstTeam)	continue;
+			if (booking.isBookedPlayer(squadNumber))	matchPerformance.booked(booking);
+		}
+		for (Tor goal : goals) {
+			matchPerformance.goal(goal);
+		}
+		
+		return matchPerformance;
+	}
+	
 	public void setMatchData(String matchData) {
-		String[] matchDataSplit = matchData.split("\\+");
+		String[] matchDataSplit = matchData.split("=");
 		if (!matchDataSplit[0].equals(homeTeamIndex + ":" + awayTeamIndex))	return;
 		if (matchDataSplit.length > 1) {
 			parseMatchData(matchDataSplit[1]);
@@ -212,12 +245,12 @@ public class Spiel {
 		String matchData = "";
 		
 		if (lineupHome != null || lineupAway != null) {
-			matchData += "+{" + matchDataToString() + "}";
-			matchData += "+{" + lineupToString(lineupHome, substitutionsHome) + "}+{" + lineupToString(lineupAway, substitutionsAway) + "}";
+			matchData += "={" + matchDataToString() + "}";
+			matchData += "={" + lineupToString(lineupHome, substitutionsHome) + "}={" + lineupToString(lineupAway, substitutionsAway) + "}";
 		} else if (result != null) {
-			matchData += "+{" + matchDataToString() + "}";
+			matchData += "={" + matchDataToString() + "}";
 		} else if (referee != null) {
-			matchData += "+{" + referee.getID() + "}";
+			matchData += "={" + referee.getID() + "}";
 		}
 		
 		return matchData;

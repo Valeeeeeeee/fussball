@@ -1,0 +1,37 @@
+Sascha;Burchert;null;19891030;Deutschland;Tor;30
+Jonas;Deumeland;null;19880209;Deutschland;Tor;26;20170131-
+Marius;Funk;null;19960101;Deutschland;Tor;34
+Balázs;Megyeri;null;19900331;Ungarn;Tor;24
+Sebastian;Mielitz;null;19890718;Deutschland;Tor;1
+Marco;Caligiuri;null;19840414;Deutschland;Abwehr;13
+Marcel;Franke;null;19930405;Deutschland;Abwehr;28
+Niko;Gießelmann;null;19910926;Deutschland;Abwehr;7
+Lukas;Gugganig;null;19950214;Österreich;Abwehr;4
+Sebastian;Heidinger;null;19860111;Deutschland;Abwehr;29;-20161231
+Khaled;Narey;null;19940723;Deutschland;Abwehr;21
+Erhun;Obanor;null;19950905;Nigeria;Abwehr;3;20160907-
+Nicolai;Rapp;null;19961213;Deutschland;Abwehr;5
+Stephen;Sama;null;19930305;Deutschland, Kamerun;Abwehr;2;20170101-
+Dominik;Schad;null;19970304;Deutschland;Abwehr;35
+Dominik;Sollfrank;null;19980410;Deutschland;Abwehr;38
+Johannes;van den Bergh;null;19861121;Deutschland;Abwehr;22;20170130-
+Tolcay;Cigerci;null;19950124;Deutschland, Türkei;Mittelfeld;29;20170101-
+George;Davies;null;19961116;Sierra Leone;Mittelfeld;25;-20161231
+Christian;Derflinger;null;19940202;Österreich;Mittelfeld;27;20160901-
+Damjan;Djokovic;null;19900418;Kroatien;Mittelfeld;16;20161015-20170127
+Jürgen;Gjasula;null;19851205;Albanien;Mittelfeld;8
+Andreas;Hofmann;null;19860413;Deutschland;Mittelfeld;6
+Benedikt;Kirsch;null;19960415;Deutschland;Mittelfeld;18
+Ádám;Pintér;null;19880612;Ungarn;Mittelfeld;16;20170128-
+David;Raum;null;19980422;Deutschland;Mittelfeld;39
+Sercan;Sararer;null;19891127;Türkei;Mittelfeld;23
+Patrick;Sontheimer;null;19980703;Deutschland;Mittelfeld;40
+Ilir;Azemi;null;19920221;Kosovo;Sturm;33;-20170130
+Veton;Berisha;null;19940413;Norwegen;Sturm;19
+Mathis;Bolly;null;19901114;Elfenbeinküste;Sturm;14
+Serdar;Dursun;null;19911019;Deutschland;Sturm;15
+Sebastian;Freis;null;19850423;Deutschland;Sturm;9
+Daniel;Steininger;null;19950413;Deutschland;Sturm;31
+Zlatko;Tripic;null;19921202;Norwegen;Sturm;17
+Ante;Vukusic;null;19910604;Kroatien;Sturm;11;-20170314
+Robert;Zulj;null;19920205;Österreich;Sturm;20

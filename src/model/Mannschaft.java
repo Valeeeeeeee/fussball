@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import analyse.SpielPerformance;
+
 public class Mannschaft {
 	private int id;
 	private String name;
@@ -28,9 +30,9 @@ public class Mannschaft {
 	
 	private int numberOfMatchdays;
 	private int[][] data;
+	private int[] matchdayOrder;
 	private HashMap<String, Spiel> matches;
 	private Ergebnis[] results;
-	private int[][] performanceData;
 	
 	public final static int OPPONENT = 0;
 	public final static int GOALS = 1;
@@ -63,8 +65,8 @@ public class Mannschaft {
 	private int[] numberOfPlayersByPosition;
 	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
 	private ArrayList<Spieler> ineligiblePlayers = new ArrayList<Spieler>();
-	private int lastUpdatedEligibleForDate = -1;
-	private int lastUpdatedIneligibleForDate = -1;
+	private Datum lastUpdatedEligibleForDate;
+	private Datum lastUpdatedIneligibleForDate;
 	private int[] currentNumberOfPlayersByPosition;
 
 	private boolean playsInLeague = false;
@@ -114,8 +116,8 @@ public class Mannschaft {
 	public int getNumberOfUsedPlayers() {
 		int numberOfUsedPlayers = 0;
 		
-		for (int i = 0; i < performanceData.length; i++) {
-			if (performanceData[i][0] != 0)	numberOfUsedPlayers++;
+		for (int i = 0; i < kader.size(); i++) {
+			if (kader.get(i).getSeasonPerformance().matchesPlayed() > 0)	numberOfUsedPlayers++;
 		}
 		
 		return numberOfUsedPlayers;
@@ -230,7 +232,7 @@ public class Mannschaft {
 				Spieler player = kader.get(i);
 				for (int j = 0; j < kader.size() && !doubleNames[i]; j++) {
 					if (i == j)	continue;
-					if (player.getPseudonymOrLN().equals(kader.get(j).getPseudonymOrLN())) {
+					if (player.getPopularOrLastName().equals(kader.get(j).getPopularOrLastName())) {
 						doubleNames[i] = true;
 						doubleNames[j] = true;
 					}
@@ -255,139 +257,17 @@ public class Mannschaft {
 		return data[matchday][GOALS] + ":" + data[matchday][CGOALS];
 	}
 	
-	public ArrayList<int[]> getPerformanceDataMatchByMatch(Spieler player) {
-		int squadNumber = player.getSquadNumber();
-		ArrayList<int[]> performanceData = new ArrayList<>();
-		
+	public void retrieveMatchPerformances() {
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
 			Spiel match = matches.get(iter.next());
-			if (match != null) {
-				if (!inThePast(match.getDate(), match.getTime()))	continue;
+			if (match == null)	continue;
+			if (!inThePast(match.getDate(), match.getTime()))	continue;
+			for (Spieler player : kader) {
 				if (!player.isEligible(match.getDate()))	continue;
-				boolean played = false, home = homeaway[match.getMatchday()];
-				int[] lineup = home ? match.getLineupHome() : match.getLineupAway();
-				if (lineup == null)	continue;
-				int otherTeam = home ? match.away() : match.home();
-				int firstMinute = 91, lastMinute = 91, goalsScored = 0, assists = 0, booked = 0, bookedTwice = 0, redCard = 0;
-				ArrayList<Wechsel> substitutions = match.getSubstitutions(home);
-				ArrayList<Tor> goals = match.getGoals();
-				ArrayList<Karte> bookings = match.getBookings();
-				
-				for (int j = 0; j < lineup.length; j++) {
-					if (lineup[j] == squadNumber) {
-						played = true;
-						firstMinute = 1;
-					}
-				}
-				for (Wechsel substitution : substitutions) {
-					if (substitution.getPlayerOn() == player) {
-						played = true;
-						firstMinute = substitution.getMinute();
-					} else if (substitution.getPlayerOff() == player) {
-						lastMinute = substitution.getMinute();
-					}
-				}
-				for (Tor goal : goals) {
-					if (!goal.isOwnGoal() && home == goal.isFirstTeam() && goal.getScorer() == player) {
-						goalsScored++;
-					} else if (home == goal.isFirstTeam() && goal.getAssister() != null && goal.getAssister() == player) {
-						assists++;
-					}
-				}
-				for (Karte booking : bookings) {
-					if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
-						if (booking.isSecondBooking())		bookedTwice = booking.getMinute();
-						else if (booking.isYellowCard())	booked = booking.getMinute();
-						else								redCard = booking.getMinute();
-					}
-				}
-				
-				int index = 0;
-				for (int i = 0; i < performanceData.size(); i++) {
-					if (performanceData.get(i)[0] < match.getMatchday())	index++;
-				}
-				
-				if (played || booked + bookedTwice + redCard != 0)	performanceData.add(index, new int[] {match.getMatchday(), otherTeam, firstMinute, lastMinute, goalsScored, assists, booked, bookedTwice, redCard});
+				SpielPerformance matchPerformance = match.getMatchPerformance(player);
+				player.getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
 			}
-		}
-		
-		return performanceData;
-	}
-	
-	public int[] getPerformanceData(Spieler player) {
-		for (int i = 0; i < kader.size(); i++) {
-			if (kader.get(i) == player)	return performanceData[i];
-		}
-		return null;
-	}
-	
-	public void retrievePerformanceData() {
-		performanceData = new int[numberOfPlayers][];
-		for (int i = 0; i < performanceData.length; i++) {
-			Spieler player = kader.get(i);
-			
-			int matchesPlayed = 0, matchesStarted = 0, subOn = 0, subOff = 0, minutesPlayed = 0, goalsScored = 0, assists = 0, booked = 0, bookedTwice = 0, redCards = 0;
-			int squadNumber = player.getSquadNumber();
-			
-			Iterator<String> iter = matches.keySet().iterator();
-			while (iter.hasNext()) {
-				Spiel match = matches.get(iter.next());
-				if (match != null) {
-					if (!inThePast(match.getDate(), match.getTime()))	continue;
-					if (!player.isEligible(match.getDate()))	continue;
-					boolean home = homeaway[match.getMatchday()];
-					int[] lineup = home ? match.getLineupHome() : match.getLineupAway();
-					if (lineup == null)	continue;
-					int firstMinute = 91, lastMinute = 91;
-					ArrayList<Wechsel> substitutions = match.getSubstitutions(home);
-					ArrayList<Tor> goals = match.getGoals();
-					ArrayList<Karte> bookings = match.getBookings();
-					
-					for (int j = 0; j < lineup.length; j++) {
-						if (lineup[j] == squadNumber) {
-							matchesPlayed++;
-							matchesStarted++;
-							firstMinute = 1;
-						}
-					}
-					for (Wechsel substitution : substitutions) {
-						if (substitution.getPlayerOn() == player) {
-							matchesPlayed++;
-							subOn++;
-							firstMinute = substitution.getMinute();
-						} else if (substitution.getPlayerOff() == player) {
-							subOff++;
-							lastMinute = substitution.getMinute();
-						}
-					}
-					for (Tor goal : goals) {
-						if (!goal.isOwnGoal() && home == goal.isFirstTeam() && goal.getScorer() == player) {
-							goalsScored++;
-						} else if (home == goal.isFirstTeam() && goal.getAssister() != null && goal.getAssister() == player) {
-							assists++;
-						}
-					}
-					for (Karte booking : bookings) {
-						if (booking.isFirstTeam() == home && booking.getBookedPlayer() == player) {
-							if (booking.isSecondBooking()) {
-								booked--;
-								bookedTwice++;
-								lastMinute = booking.getMinute();
-							}
-							else if (booking.isYellowCard())	booked++;
-							else {
-								redCards++;
-								lastMinute = booking.getMinute();
-							}
-						}
-					}
-					
-					minutesPlayed += lastMinute - firstMinute;
-				}
-			}
-			
-			performanceData[i] = new int[] {matchesPlayed, matchesStarted, subOn, subOff, minutesPlayed, goalsScored, assists, booked, bookedTwice, redCards};
 		}
 	}
 	
@@ -415,6 +295,30 @@ public class Mannschaft {
 		}
 		
 		return new int[] {booked, bookedTwice, redCards};
+	}
+	
+	private void setMatchdayOrder() {
+		if (matchdayOrder != null)	return;
+		
+		int[] array = new int[numberOfMatchdays];
+		Datum[] dates = new Datum[numberOfMatchdays];
+		
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			if (matches.containsKey(getKey(i)))	dates[i] = matches.get(getKey(i)).getDate();
+		}
+		
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			for (int j = i + 1; j < numberOfMatchdays; j++) {
+				if (dates[i] == null || dates[j] == null)	array[j]++;
+				else if (dates[j].isBefore(dates[i]))		array[i]++;
+				else										array[j]++;
+			}
+		}
+		
+		matchdayOrder = new int[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdayOrder[array[i]] = i;
+		}
 	}
 	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tableType) {
@@ -528,9 +432,11 @@ public class Mannschaft {
 	 */
 	public int getSeries(int index) {
 		int currentDuration = 0, longestDuration = 0;
+		setMatchdayOrder();
 		
 		boolean reset;
-		for (int matchday = 0; matchday < data.length; matchday++) {
+		for (int i = 0; i < data.length; i++) {
+			int matchday = matchdayOrder[i];
 			if (data[matchday][0] != 0) {
 				if (data[matchday][3] == 0 && data[matchday][2] == 0)	continue;
 				reset = false;
@@ -569,7 +475,7 @@ public class Mannschaft {
 	}
 	
 	public boolean isMatchSet(int matchday) {
-		if (matches.containsKey("SP" + matchday))	return true;
+		if (matches.containsKey(getKey(matchday)))	return true;
 		return false;
 	}
 	
@@ -612,8 +518,8 @@ public class Mannschaft {
 		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
 	}
 	
-	private void updateEligiblePlayers(int date, boolean forceUpdate) {
-		if (!forceUpdate && lastUpdatedEligibleForDate == date)	return;
+	private void updateEligiblePlayers(Datum date, boolean forceUpdate) {
+		if (!forceUpdate && date.equals(lastUpdatedEligibleForDate))	return;
 		
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
@@ -628,8 +534,8 @@ public class Mannschaft {
 		lastUpdatedEligibleForDate = date;
 	}
 	
-	private void updateIneligiblePlayers(int date, boolean forceUpdate) {
-		if (!forceUpdate && lastUpdatedIneligibleForDate == date)	return;
+	private void updateIneligiblePlayers(Datum date, boolean forceUpdate) {
+		if (!forceUpdate && date.equals(lastUpdatedIneligibleForDate))	return;
 		
 		ineligiblePlayers.clear();
 		
@@ -642,22 +548,22 @@ public class Mannschaft {
 		lastUpdatedIneligibleForDate = date;
 	}
 	
-	public int getCurrentNumberOfPlayers(int date, boolean forceUpdate) {
+	public int getCurrentNumberOfPlayers(Datum date, boolean forceUpdate) {
 		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers.size();
 	}
 	
-	public ArrayList<Spieler> getEligiblePlayers(int date, boolean forceUpdate) {
+	public ArrayList<Spieler> getEligiblePlayers(Datum date, boolean forceUpdate) {
 		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers;
 	}
 	
-	public ArrayList<Spieler> getIneligiblePlayers(int date, boolean forceUpdate) {
+	public ArrayList<Spieler> getIneligiblePlayers(Datum date, boolean forceUpdate) {
 		updateIneligiblePlayers(date, forceUpdate);
 		return ineligiblePlayers;
 	}
 	
-	public Spieler getPlayer(int squadNumber, int date) {
+	public Spieler getPlayer(int squadNumber, Datum date) {
 		for (Spieler player : kader) {
 			if (player.getSquadNumber() == squadNumber && player.isEligible(date))	return player;
 		}
@@ -708,19 +614,24 @@ public class Mannschaft {
 		data[matchday][OPPONENT] = 0;
 	}
 	
+	public static String getKey(int matchday) {
+		return "SP" + matchday;
+	}
+	
 	public void setMatch(int matchday, Spiel match) {
+		String key = getKey(matchday);
 		if (match != null) {
-			matches.put("SP" + matchday, match);
+			matches.put(key, match);
 			if (id == match.home()) {
 				setOpponent(matchday, true, match.away());
 			} else if (id == match.away()) {
 				setOpponent(matchday, false, match.home());
 			} else {
 				log("This match came to the wrong team.");
-				matches.remove("SP" + matchday);
+				matches.remove(key);
 			}
 		} else {
-			matches.remove("SP" + matchday);
+			matches.remove(key);
 		}
 	}
 	
@@ -826,12 +737,12 @@ public class Mannschaft {
 		return match;
 	}
 
-	public void compareWithOtherTeams(Mannschaft[] otherTeams, int untilMatchday, Tabellenart tableType) {
+	public void compareWithOtherTeams(Mannschaft[] allTeams, int untilMatchday, Tabellenart tableType) {
 		setValuesForMatchday(untilMatchday, tableType);
 		ArrayList<Integer> teamsSamePoints = new ArrayList<>();
 		this.place = 0;
 		
-		for (Mannschaft other : otherTeams) {
+		for (Mannschaft other : allTeams) {
 			if (this.id == other.id)	continue;
 			other.setValuesForMatchday(untilMatchday, tableType);
 			
@@ -841,29 +752,31 @@ public class Mannschaft {
 		
 		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
-				if (this.goalDiff == otherTeams[id - 1].goalDiff) {
-					if (this.numOfGoals < otherTeams[id - 1].numOfGoals)	this.place++;
+				if (this.goalDiff == allTeams[id - 1].goalDiff) {
+					if (this.numOfGoals < allTeams[id - 1].numOfGoals)	this.place++;
 				}
-				else if (this.goalDiff < otherTeams[id - 1].goalDiff)	this.place++;
+				else if (this.goalDiff < allTeams[id - 1].goalDiff)	this.place++;
 			}
 		} else {
 			teamsSamePoints.add(0, this.id);
-			int[] points = new int[teamsSamePoints.size() + 1];
-			int[] pointsOpp = new int[teamsSamePoints.size() + 1];
-			int[] goals = new int[teamsSamePoints.size() + 1];
-			int[] goalsOpp = new int[teamsSamePoints.size() + 1];
+			int[] points = new int[teamsSamePoints.size()];
+			int[] pointsOpp = new int[teamsSamePoints.size()];
+			int[] goals = new int[teamsSamePoints.size()];
+			int[] goalsOpp = new int[teamsSamePoints.size()];
+			int[] goalsAway = new int[teamsSamePoints.size()];
 			
 			for (int i = 0; i < teamsSamePoints.size(); i++) {
-				Mannschaft team1 = otherTeams[teamsSamePoints.get(i) - 1];
+				Mannschaft team1 = allTeams[teamsSamePoints.get(i) - 1];
 				for (int j = 0; j < teamsSamePoints.size(); j++) {
 					if (i == j)	continue;
-					Mannschaft team2 = otherTeams[teamsSamePoints.get(j) - 1];
+					Mannschaft team2 = allTeams[teamsSamePoints.get(j) - 1];
 					for (int k = 0; k <= untilMatchday; k++) {
 						if (team1.data[k][OPPONENT] == team2.id) {
 							goals[i] += team1.data[k][GOALS];
 							goalsOpp[i] += team1.data[k][CGOALS];
 							points[i] += team1.data[k][POINTS];
 							pointsOpp[i] += (team1.data[k][POINTS] == 1 ? 1 : 3 - team1.data[k][POINTS]);
+							if (!team1.homeaway[k])	goalsAway[i] += team1.data[k][GOALS];
 						}
 					}
 				}
@@ -873,14 +786,18 @@ public class Mannschaft {
 					if (goals[0] - goalsOpp[0] == goals[i] - goalsOpp[i]) {
 						if (goals[0] < goals[i])	this.place++;
 						else if (goals[0] == goals[i]) {
-							// use goal difference anyway
-							int otherID = teamsSamePoints.get(i);
-							if (this.goalDiff == otherTeams[otherID - 1].goalDiff) {
-								if (this.numOfGoals < otherTeams[otherID - 1].numOfGoals)	this.place++;
+							if (goalsAway[0] == goalsAway[i]) {
+								// use goal difference anyway
+								int otherID = teamsSamePoints.get(i);
+								if (this.goalDiff == allTeams[otherID - 1].goalDiff) {
+									if (this.numOfGoals < allTeams[otherID - 1].numOfGoals)	this.place++;
+								}
+								else if (this.goalDiff < allTeams[otherID - 1].goalDiff)	this.place++;
 							}
-							else if (this.goalDiff < otherTeams[otherID - 1].goalDiff)	this.place++;
+							else if (goalsAway[0] < goalsAway[i])	this.place++;
 						}
-					} else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.place++;
+					}
+					else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.place++;
 				}
 				else if (points[0] < points[i])	this.place++;
 			}

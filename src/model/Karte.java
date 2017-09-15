@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.log;
+import static util.Utilities.message;
 
 public class Karte {
 	private String id;
@@ -9,22 +10,24 @@ public class Karte {
 	private boolean isYellowCard;
 	private boolean isSecondBooking;
 	private boolean onTheBench;
-	private int minute;
+	private boolean afterTheMatch;
+	private Minute minute;
 	private Spieler bookedPlayer;
 	
-	public Karte(Spiel match, boolean firstTeam, int minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, Spieler bookedPlayer) {
+	public Karte(Spiel match, boolean firstTeam, Minute minute, boolean isYellowCard, boolean isSecondBooking, boolean onTheBench, boolean afterTheMatch, Spieler bookedPlayer) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
 		this.isYellowCard = isYellowCard;
 		this.isSecondBooking = isSecondBooking;
 		this.onTheBench = onTheBench;
+		this.afterTheMatch = afterTheMatch;
 		this.bookedPlayer = bookedPlayer;
 		
 		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
-					+ (onTheBench ? "-b" : "");
-		log("Booking for " + (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getName() + 
-				" in the " + minute + ". minute: " + bookedPlayer.getPseudonymOrLN() + (onTheBench ? " (on the bench)" : ""));
+					+ (onTheBench ? "-b" : "") + (afterTheMatch ? "-am" : "");
+		log("Booking for " + match.getTeam(firstTeam).getName() + " in the " + minute + ". minute: " + 
+				bookedPlayer.getPopularOrLastName() + (onTheBench ? " (on the bench)" : "") + (afterTheMatch ? " (after the match)" : ""));
 	}
 	
 	public Karte(Spiel match, String data) {
@@ -60,27 +63,41 @@ public class Karte {
 		return onTheBench;
 	}
 	
-	public int getMinute() {
+	public boolean isAfterTheMatch() {
+		return afterTheMatch;
+	}
+	
+	public Minute getMinute() {
 		return minute;
 	}
 
 	public Spieler getBookedPlayer() {
 		return bookedPlayer;
 	}
+
+	public boolean isBookedPlayer(int squadNumber) {
+		return bookedPlayer.getSquadNumber() == squadNumber;
+	}
 	
 	private void parseString(String data) {
 		onTheBench = data.indexOf("-b") != -1;
+		afterTheMatch = data.indexOf("-am") != -1;
 		firstTeam = Boolean.parseBoolean(data.substring(0, data.indexOf("-m")));
-		minute = Integer.parseInt(data.substring(data.indexOf("-m") + 2, data.indexOf("-y")));
+		minute = Minute.parse(data.substring(data.indexOf("-m") + 2, data.indexOf("-y")));
 		isYellowCard = Boolean.parseBoolean(data.substring(data.indexOf("-y") + 2, data.indexOf("-s")));
 		isSecondBooking = Boolean.parseBoolean(data.substring(data.indexOf("-s") + 2, data.indexOf("-p")));
-		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", ""));
-		bookedPlayer = (firstTeam ? match.getHomeTeam() : match.getAwayTeam()).getPlayer(squadNumber, match.getDate());
+		int squadNumber = Integer.parseInt(data.substring(data.indexOf("-p") + 2).replace("-b", "").replace("-am", ""));
+		bookedPlayer = match.getTeam(firstTeam).getPlayer(squadNumber, match.getDate());
+		if (bookedPlayer == null) {
+			message("Fehler beim Parsen der Karten des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
+			if (bookedPlayer == null)	log("Es konnte der Rückennummer " + squadNumber + " kein spielberechtigter Spieler zugeordnet werden.");
+		}
 		
 		id = match.home() + "v" + match.away() + "-h" + data;
 	}
 	
 	public String toString() {
-		return firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber() + (onTheBench ? "-b" : "");
+		return firstTeam + "-m" + minute.toString() + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + 
+				bookedPlayer.getSquadNumber() + (onTheBench ? "-b" : "") + (afterTheMatch ? "-am" : "");
 	}
 }

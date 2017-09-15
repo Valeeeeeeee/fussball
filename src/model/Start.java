@@ -58,10 +58,10 @@ public class Start extends JFrame {
 	private boolean isCurrentlyInMatchdayView = false;
 	private boolean isCurrentlyInOverviewMode = false;
 	
-	private int start_btnsstartx = 315;
-	private int start_btnsstarty = 120;
 	private static final int SIZEX_BTNS = 400;
 	private static final int SIZEY_BTNS = 90;
+	private static final int STARTX_BTNS = 315;
+	private static final int STARTY_BTNS = 120;
 	private static final int SIZEX_LBLS = 60;
 	private static final int SIZEY_LBLS = 60;
 	
@@ -81,10 +81,10 @@ public class Start extends JFrame {
 	// Homescreen
 	private JPanel Homescreen;
 	private JButton[] jBtnsLeagues;
-	private JLabel[] jLblsStillRunningMatchesLeagues;
+	private JLabel[] jLblsRunningMatchesLeagues;
 	private JLabel[] jLblsCompletedMatchesLeagues;
 	private JButton[] jBtnsTournaments;
-	private JLabel[] jLblsStillRunningMatchesTournaments;
+	private JLabel[] jLblsRunningMatchesTournaments;
 	private JLabel[] jLblsCompletedMatchesTournaments;
 	private JButton jBtnAddLeague;
 	private JButton jBtnAddTournament;
@@ -127,7 +127,6 @@ public class Start extends JFrame {
 	// Optionen-Panel
 	public JPanel jPnlOptions;
 	private JButton jBtnCorrectNames;
-	private JLabel jLblDefaultStarttag;
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -188,6 +187,7 @@ public class Start extends JFrame {
 			}
 			
 			pack();
+			setTitle("Fußball");
 			setSize(WIDTH, HEIGHT);
 			setResizable(false);
 		} catch (Exception e) {
@@ -214,7 +214,7 @@ public class Start extends JFrame {
 			jBtnAddLeague = new JButton(); 
 			Homescreen.add(jBtnAddLeague);
 			jBtnAddLeague.setBounds(REC_ADDLEAG);
-			jBtnAddLeague.setText("Add league");
+			jBtnAddLeague.setText("Neue Liga");
 			jBtnAddLeague.setFocusable(false);
 			jBtnAddLeague.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
@@ -226,7 +226,7 @@ public class Start extends JFrame {
 			jBtnAddTournament = new JButton(); 
 			Homescreen.add(jBtnAddTournament);
 			jBtnAddTournament.setBounds(REC_ADDTOUR);
-			jBtnAddTournament.setText("Add tournament");
+			jBtnAddTournament.setText("Neues Turnier");
 			jBtnAddTournament.setFocusable(false);
 			jBtnAddTournament.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
@@ -242,7 +242,7 @@ public class Start extends JFrame {
 			jBtnExit.setFocusable(false);
 			jBtnExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					jBtnBeendenActionPerformed();
+					jBtnExitActionPerformed();
 				}
 			});
 		}
@@ -254,17 +254,17 @@ public class Start extends JFrame {
 		}
 		
 		jBtnsLeagues = new JButton[numberOfLeagues];
-		jLblsStillRunningMatchesLeagues = new JLabel[numberOfLeagues];
+		jLblsRunningMatchesLeagues = new JLabel[numberOfLeagues];
 		jLblsCompletedMatchesLeagues = new JLabel[numberOfLeagues];
 		jBtnsTournaments = new JButton[numberOfTournaments];
-		jLblsStillRunningMatchesTournaments = new JLabel[numberOfTournaments];
+		jLblsRunningMatchesTournaments = new JLabel[numberOfTournaments];
 		jLblsCompletedMatchesTournaments = new JLabel[numberOfTournaments];
 		
 		for (int i = 0; i < numberOfLeagues; i++) {
 			final int x = i;
 			jBtnsLeagues[i] = new JButton();
 			Homescreen.add(jBtnsLeagues[i]);
-			jBtnsLeagues[i].setBounds(start_btnsstartx, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+			jBtnsLeagues[i].setBounds(STARTX_BTNS, STARTY_BTNS + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 			jBtnsLeagues[i].setText(leagues.get(i).getName());
 			jBtnsLeagues[i].setFocusable(false);
 			jBtnsLeagues[i].addActionListener(new ActionListener() {
@@ -275,27 +275,27 @@ public class Start extends JFrame {
 			
 			jLblsCompletedMatchesLeagues[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesLeagues[i]);
-			jLblsCompletedMatchesLeagues[i].setBounds(start_btnsstartx - 2 * (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsCompletedMatchesLeagues[i].setBounds(STARTX_BTNS - 2 * (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsCompletedMatchesLeagues[i]);
 			jLblsCompletedMatchesLeagues[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesLeagues[i].setFocusable(false);
 			jLblsCompletedMatchesLeagues[i].setBackground(colorCategory5);
 			jLblsCompletedMatchesLeagues[i].setOpaque(true);
 			
-			jLblsStillRunningMatchesLeagues[i] = new JLabel();
-			Homescreen.add(jLblsStillRunningMatchesLeagues[i]);
-			jLblsStillRunningMatchesLeagues[i].setBounds(start_btnsstartx - (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
-			alignCenter(jLblsStillRunningMatchesLeagues[i]);
-			jLblsStillRunningMatchesLeagues[i].setFont(fontMissingResults);
-			jLblsStillRunningMatchesLeagues[i].setFocusable(false);
-			jLblsStillRunningMatchesLeagues[i].setBackground(colorCategory2);
-			jLblsStillRunningMatchesLeagues[i].setOpaque(true);
+			jLblsRunningMatchesLeagues[i] = new JLabel();
+			Homescreen.add(jLblsRunningMatchesLeagues[i]);
+			jLblsRunningMatchesLeagues[i].setBounds(STARTX_BTNS - (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsRunningMatchesLeagues[i]);
+			jLblsRunningMatchesLeagues[i].setFont(fontMissingResults);
+			jLblsRunningMatchesLeagues[i].setFocusable(false);
+			jLblsRunningMatchesLeagues[i].setBackground(colorCategory2);
+			jLblsRunningMatchesLeagues[i].setOpaque(true);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
 			final int x = i;
 			jBtnsTournaments[i] = new JButton();
 			Homescreen.add(jBtnsTournaments[i]);
-			jBtnsTournaments[i].setBounds(start_btnsstartx + SIZEX_BTNS + 10, start_btnsstarty + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
+			jBtnsTournaments[i].setBounds(STARTX_BTNS + SIZEX_BTNS + 10, STARTY_BTNS + i * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
 			jBtnsTournaments[i].setText(tournaments.get(i).getName());
 			jBtnsTournaments[i].setFocusable(false);
 			jBtnsTournaments[i].addActionListener(new ActionListener() {
@@ -306,21 +306,21 @@ public class Start extends JFrame {
 			
 			jLblsCompletedMatchesTournaments[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesTournaments[i]);
-			jLblsCompletedMatchesTournaments[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			jLblsCompletedMatchesTournaments[i].setBounds(STARTX_BTNS + 2 * (SIZEX_BTNS + 10) + (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
 			alignCenter(jLblsCompletedMatchesTournaments[i]);
 			jLblsCompletedMatchesTournaments[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesTournaments[i].setFocusable(false);
 			jLblsCompletedMatchesTournaments[i].setBackground(colorCategory5);
 			jLblsCompletedMatchesTournaments[i].setOpaque(true);
 			
-			jLblsStillRunningMatchesTournaments[i] = new JLabel();
-			Homescreen.add(jLblsStillRunningMatchesTournaments[i]);
-			jLblsStillRunningMatchesTournaments[i].setBounds(start_btnsstartx + 2 * (SIZEX_BTNS + 10), start_btnsstarty + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
-			alignCenter(jLblsStillRunningMatchesTournaments[i]);
-			jLblsStillRunningMatchesTournaments[i].setFont(fontMissingResults);
-			jLblsStillRunningMatchesTournaments[i].setFocusable(false);
-			jLblsStillRunningMatchesTournaments[i].setBackground(colorCategory2);
-			jLblsStillRunningMatchesTournaments[i].setOpaque(true);
+			jLblsRunningMatchesTournaments[i] = new JLabel();
+			Homescreen.add(jLblsRunningMatchesTournaments[i]);
+			jLblsRunningMatchesTournaments[i].setBounds(STARTX_BTNS + 2 * (SIZEX_BTNS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsRunningMatchesTournaments[i]);
+			jLblsRunningMatchesTournaments[i].setFont(fontMissingResults);
+			jLblsRunningMatchesTournaments[i].setFocusable(false);
+			jLblsRunningMatchesTournaments[i].setBackground(colorCategory2);
+			jLblsRunningMatchesTournaments[i].setOpaque(true);
 		}
 		refreshRunningAndCompletedMatches();
 	}
@@ -341,7 +341,6 @@ public class Start extends JFrame {
 			alignCenter(jLblCompetition);
 		}
 		{
-			
 			jCBSeasonSelection = new JComboBox<>();
 			jCBSeasonSelection.setBounds(REC_CBSEASONS);
 			jCBSeasonSelection.addItemListener(new ItemListener() {
@@ -504,14 +503,6 @@ public class Start extends JFrame {
 				}
 			});
 		}
-		{
-			jLblDefaultStarttag = new JLabel();
-			jPnlOptions.add(jLblDefaultStarttag);
-			jLblDefaultStarttag.setBounds(20, 50, 105, 20);
-			jLblDefaultStarttag.setText("Standard-Starttag:");
-			jLblDefaultStarttag.setToolTipText("An diesem Wochentag beginnt üblicherweise ein Spieltag.");
-			jLblDefaultStarttag.setVisible(false);
-		}
 	}
 	
 	public char[] getAlphabet() {
@@ -540,22 +531,22 @@ public class Start extends JFrame {
 	
 	private void refreshRunningAndCompletedMatches() {
 		for (int i = 0; i < numberOfLeagues; i++) {
-			int[] missingResults = leagues.get(i).checkMissingResults();
-			jLblsCompletedMatchesLeagues[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsCompletedMatchesLeagues[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesLeagues[i].setVisible(missingResults[0] != 0);
-			jLblsStillRunningMatchesLeagues[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsStillRunningMatchesLeagues[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
-			jLblsStillRunningMatchesLeagues[i].setVisible(missingResults[1] != 0);
+			int[] missing = leagues.get(i).checkMissingResults();
+			jLblsCompletedMatchesLeagues[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
+			jLblsCompletedMatchesLeagues[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
+			jLblsCompletedMatchesLeagues[i].setVisible(missing[0] != 0);
+			jLblsRunningMatchesLeagues[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
+			jLblsRunningMatchesLeagues[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
+			jLblsRunningMatchesLeagues[i].setVisible(missing[1] != 0);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
-			int[] missingResults = tournaments.get(i).checkMissingResults();
-			jLblsCompletedMatchesTournaments[i].setText(missingResults[0] == 10 ? "9+" : "" + missingResults[0]);
-			jLblsCompletedMatchesTournaments[i].setToolTipText((missingResults[0] == 10 ? "9+" : "" + missingResults[0]) + " finished match" + (missingResults[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesTournaments[i].setVisible(missingResults[0] != 0);
-			jLblsStillRunningMatchesTournaments[i].setText(missingResults[0] + missingResults[1] == 10 ? missingResults[1] + "+" : "" + missingResults[1]);
-			jLblsStillRunningMatchesTournaments[i].setToolTipText((missingResults[0] + missingResults[1] == 10 ? missingResults[1] + " or more" : "" + missingResults[1]) + " running matches");
-			jLblsStillRunningMatchesTournaments[i].setVisible(missingResults[1] != 0);
+			int[] missing = tournaments.get(i).checkMissingResults();
+			jLblsCompletedMatchesTournaments[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
+			jLblsCompletedMatchesTournaments[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
+			jLblsCompletedMatchesTournaments[i].setVisible(missing[0] != 0);
+			jLblsRunningMatchesTournaments[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
+			jLblsRunningMatchesTournaments[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
+			jLblsRunningMatchesTournaments[i].setVisible(missing[1] != 0);
 		}
 	}
 	
@@ -563,26 +554,24 @@ public class Start extends JFrame {
 		Homescreen.setVisible(false);
 		jBtnBack.setVisible(true);
 		
-		if (index < numberOfLeagues) {
-			// The pressed button leads to a league
-			isCurrentlyALeague = true;
-			LeagueHomescreen.setVisible(true);
-			LeagueHomescreen.add(jBtnBack);
-			
-			currentLeague = leagues.get(index);
-			jLblCompetition.setText(currentLeague.getName());
-			
-			// befüllt die ComboBox mit den verfügbaren Saisons
-			jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentLeague.getAllSeasons()));
-			jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
-			LeagueHomescreen.add(jCBSeasonSelection);
-			
-			if (jCBSeasonSelection.getModel().getSize() == 1) {
-				// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
-				currentLeague.load(0);
-				currentLSeason = currentLeague.getCurrentSeason();
-				loadLeagueSpecificThings();
-			}
+		// The pressed button leads to a league
+		isCurrentlyALeague = true;
+		LeagueHomescreen.setVisible(true);
+		LeagueHomescreen.add(jBtnBack);
+		
+		currentLeague = leagues.get(index);
+		jLblCompetition.setText(currentLeague.getName());
+		
+		// befüllt die ComboBox mit den verfügbaren Saisons
+		jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentLeague.getAllSeasons()));
+		jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
+		LeagueHomescreen.add(jCBSeasonSelection);
+		
+		if (jCBSeasonSelection.getModel().getSize() == 1) {
+			// dann passiert nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
+			currentLeague.load(0);
+			currentLSeason = currentLeague.getCurrentSeason();
+			loadLeagueSpecificThings();
 		}
 	}
 	
@@ -590,34 +579,32 @@ public class Start extends JFrame {
 		Homescreen.setVisible(false);
 		jBtnBack.setVisible(true);
 		
-		if (index < numberOfTournaments) {
-			// The pressed button leads to a tournament
-			isCurrentlyALeague = false;
-			TournamentHomescreen.setVisible(true);
-			TournamentHomescreen.add(jBtnBack);
-			
-			currentTournament = tournaments.get(index);
-			jLblCompetition.setText(currentTournament.getName());
-			
-			// befüllt die ComboBox mit den verfügbaren Saisons
-			jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentTournament.getAllSeasons()));
-			jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
-			TournamentHomescreen.add(jCBSeasonSelection);
-			
-			if (jCBSeasonSelection.getModel().getSize() == 1) {
-//				// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
-				currentTournament.load(0);
-				currentTSeason = currentTournament.getCurrentSeason();
-				loadTournamentSpecificThings();
-			}
-			
-			if (!currentTSeason.hasQualification() && !currentTSeason.hasGroupStage()) {
-				jBtnKORoundsActionPerformed();
-				KORoundsHomescreen.add(jCBSeasonSelection);
-			} else if (!currentTSeason.hasQualification() && !currentTSeason.hasKOStage()) {
-				jBtnGroupStageActionPerformed();
-				GroupStageHomescreen.add(jCBSeasonSelection);
-			}
+		// The pressed button leads to a tournament
+		isCurrentlyALeague = false;
+		TournamentHomescreen.setVisible(true);
+		TournamentHomescreen.add(jBtnBack);
+		
+		currentTournament = tournaments.get(index);
+		jLblCompetition.setText(currentTournament.getName());
+		
+		// befüllt die ComboBox mit den verfügbaren Saisons
+		jCBSeasonSelection.setModel(new DefaultComboBoxModel<>(currentTournament.getAllSeasons()));
+		jCBSeasonSelection.setSelectedIndex(jCBSeasonSelection.getModel().getSize() - 1);
+		TournamentHomescreen.add(jCBSeasonSelection);
+		
+		if (jCBSeasonSelection.getModel().getSize() == 1) {
+			// dann passierte oben nichts, weil von 0 zu 0 kein ItemStateChange vorliegt
+			currentTournament.load(0);
+			currentTSeason = currentTournament.getCurrentSeason();
+			loadTournamentSpecificThings();
+		}
+		
+		if (!currentTSeason.hasQualification() && !currentTSeason.hasGroupStage()) {
+			jBtnKORoundsActionPerformed();
+			KORoundsHomescreen.add(jCBSeasonSelection);
+		} else if (!currentTSeason.hasQualification() && !currentTSeason.hasKOStage()) {
+			jBtnGroupStageActionPerformed();
+			GroupStageHomescreen.add(jCBSeasonSelection);
 		}
 	}
 	
@@ -673,7 +660,7 @@ public class Start extends JFrame {
 			GroupStageHomescreen.setVisible(false);
 		}
 		
-		jLblCompetition.setText(currentGroup.getName());
+		jLblCompetition.setText(currentGroup.getDescription());
 		LeagueHomescreen.setVisible(true);
 		LeagueHomescreen.add(jBtnBack);
 		
@@ -736,11 +723,13 @@ public class Start extends JFrame {
 		getContentPane().add(aktuelleTabelle);
 		aktuelleStatistik = currentLSeason.getStatistik();
 		getContentPane().add(aktuelleStatistik);
+		setTitle(currentLSeason.getDescription());
 	}
 	
 	private void loadTournamentSpecificThings() {
 		// falls sie bereits existieren entfernen (wird benötigt, falls ein Turnier komplett neugestartet wird)
 		// (im Gegensatz zur Liga müssen die Buttons jedes Mal neu geladen werden, da jedes Turnier unterschiedlich viele Gruppen/KO-Phasen hat)
+		setTitle(currentTSeason.getDescription());
 		if (currentTSeason.hasQualification()) {
 			jBtnQualification.setVisible(true);
 			try {
@@ -758,7 +747,7 @@ public class Start extends JFrame {
 				qualificationButtons[ctr] = new JButton();
 				QualificationHomescreen.add(qualificationButtons[ctr]);
 				qualificationButtons[ctr].setBounds(295 + (ctr % 2) * (SIZEX_BTNS + 50), 150 + (ctr / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[ctr].setText(currentTSeason.getQGroups()[ctr].getName());
+				qualificationButtons[ctr].setText(currentTSeason.getQGroups()[ctr].getDescription());
 				qualificationButtons[ctr].setFocusable(false);
 				qualificationButtons[ctr].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -784,7 +773,7 @@ public class Start extends JFrame {
 				qualificationButtons[position] = new JButton();
 				QualificationHomescreen.add(qualificationButtons[position]);
 				qualificationButtons[position].setBounds(295 + (position % 2) * (SIZEX_BTNS + 50), 150 + position / 2 * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				qualificationButtons[position].setText(currentTSeason.getQKORounds()[x].getName());
+				qualificationButtons[position].setText(currentTSeason.getQKORounds()[x].getDescription());
 				qualificationButtons[position].setFocusable(false);
 				qualificationButtons[position].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -809,7 +798,7 @@ public class Start extends JFrame {
 				groupStageButtons[i] = new JButton();
 				GroupStageHomescreen.add(groupStageButtons[i]);
 				groupStageButtons[i].setBounds(295 + (i % 2) * (SIZEX_BTNS + 50), 150 + (i / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
-				groupStageButtons[i].setText(currentTSeason.getGroups()[i].getName());
+				groupStageButtons[i].setText(currentTSeason.getGroups()[i].getDescription());
 				groupStageButtons[i].setFocusable(false);
 				groupStageButtons[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -847,7 +836,7 @@ public class Start extends JFrame {
 				KORoundsButtons[i] = new JButton();
 				KORoundsHomescreen.add(KORoundsButtons[i]);
 				KORoundsButtons[i].setBounds(520, 150 + i * (SIZEY_BTNS + 15), SIZEX_BTNS, SIZEY_BTNS);
-				KORoundsButtons[i].setText(currentTSeason.getKORounds()[i].getName());
+				KORoundsButtons[i].setText(currentTSeason.getKORounds()[i].getDescription());
 				KORoundsButtons[i].setFocusable(false);
 				KORoundsButtons[i].addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
@@ -952,19 +941,13 @@ public class Start extends JFrame {
 		aktuellerSpieltag.setVisible(false);
 		aktuelleTabelle.setVisible(false);
 		
-		aktuellerSpieltag.remove(jBtnBack);
-		aktuelleTabelle.remove(jBtnBack);
-		getContentPane().add(jBtnBack);
-		jBtnBack.repaint();
 		uebersicht.setMannschaft(index);
 		uebersicht.setVisible(true);
 	}
 	
 	public void showMatchday(int matchday) {
-		jBtnBack.setVisible(false);
 		uebersicht.setVisible(false);
 		aktuellerSpieltag.add(jBtnBack);
-		jBtnBack.setVisible(true);
 		aktuellerSpieltag.setVisible(true);
 		aktuellerSpieltag.showMatchday();
 		aktuellerSpieltag.showMatchday(matchday);
@@ -1067,8 +1050,8 @@ public class Start extends JFrame {
 		String shortName = "EM";
 		int season = 2016;
 		boolean isSTSS = true;
-		int stDate = 20140907;
-		int fiDate = 20160710;
+		Datum stDate = new Datum(7, 9, 2014);
+		Datum fiDate = new Datum(10, 7, 2016);
 		boolean hasQ = true;
 		boolean hasGrp = true;
 		boolean hasKO = true;
@@ -1095,7 +1078,7 @@ public class Start extends JFrame {
 		addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
 	}
 	
-	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, int stDate, int fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
+	public void addNewTournament(String name, String shortName, int season, boolean isSTSS, Datum stDate, Datum fiDate, boolean hasQ, boolean hasGrp, boolean hasKO, boolean has3pl,
 									ArrayList<String> qConfig, String[][] teamsQG, String[][] teamsQKO, ArrayList<String> grpConfig, String[][] teamsGrp, ArrayList<String> koConfig, String[][] teamsKO) {
 		for (Turnier tournament : tournaments) {
 			if (tournament.getName().equals(name)) {
@@ -1113,8 +1096,8 @@ public class Start extends JFrame {
 		
 		toString = season + ";";
 		toString += isSTSS + ";";
-		toString += stDate + ";";
-		toString += fiDate + ";";
+		toString += stDate.comparable() + ";";
+		toString += fiDate.comparable() + ";";
 		toString += hasQ + ";";
 		toString += hasGrp + ";";
 		toString += hasKO + ";";
@@ -1133,7 +1116,7 @@ public class Start extends JFrame {
 		message("Successfully created new tournament.");
 	}
 	
-	public void addNewTournament(String name, String shortName, int season, int stDate, int fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
+	public void addNewTournament(String name, String shortName, int season, Datum stDate, Datum fiDate, boolean isSTSS, boolean hasQ, boolean hasGrp, boolean hasKO, boolean grp2leg, boolean ko2leg, boolean has3pl, 
 									int nOTeam, int nOGrp, int nOKO, String[][] teamsGrp, String[][] teamsKO) {
 		for (Turnier tournament : tournaments) {
 			if (tournament.getName().equals(name)) {
@@ -1149,8 +1132,8 @@ public class Start extends JFrame {
 		daten = "NAME*" + name + ";";
 		daten += "SHN*" + shortName + ";";
 		daten += "ISSTSS*" + isSTSS + ";";
-		daten += "STDATE*" + stDate + ";";
-		daten += "FIDATE*" + fiDate + ";";
+		daten += "STDATE*" + stDate.comparable() + ";";
+		daten += "FIDATE*" + fiDate.comparable() + ";";
 		daten += "NOFTEAMS*" + nOTeam + ";";
 		daten += "QUALI*" + hasQ + ";";
 		daten += "GRPSTG*" + hasGrp + ";";
@@ -1313,7 +1296,7 @@ public class Start extends JFrame {
 		message("Successfully created new tournament.");
 	}
 	
-	public void jBtnBeendenActionPerformed() {
+	public void jBtnExitActionPerformed() {
 		saveConfiguration();
 		System.exit(0);
 	}
@@ -1337,17 +1320,13 @@ public class Start extends JFrame {
 				refreshRunningAndCompletedMatches();
 				LeagueHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
+				setTitle("Fußball");
 			} else if (uebersicht.isVisible()) {
-				jBtnBack.setVisible(false);
-				getContentPane().remove(jBtnBack);
 				if (isCurrentlyInMatchdayView) {
-					aktuellerSpieltag.add(jBtnBack);
 					aktuellerSpieltag.setVisible(true);
 				} else {
-					aktuelleTabelle.add(jBtnBack);
 					aktuelleTabelle.setVisible(true);
 				}
-				jBtnBack.setVisible(true);
 				uebersicht.setVisible(false);
 			} else {
 				LeagueHomescreen.add(jBtnBack);
@@ -1400,6 +1379,7 @@ public class Start extends JFrame {
 				refreshRunningAndCompletedMatches();
 				TournamentHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
+				setTitle("Fußball");
 			} else if (QualificationHomescreen.isVisible() || GroupStageHomescreen.isVisible() || KORoundsHomescreen.isVisible()) {
 				QualificationHomescreen.setVisible(false);
 				GroupStageHomescreen.setVisible(false);
@@ -1432,16 +1412,11 @@ public class Start extends JFrame {
 				isCurrentlyInOverviewMode = false;
 				aktuellerSpieltag = null;
 			} else if (uebersicht != null && uebersicht.isVisible()) {
-				jBtnBack.setVisible(false);
-				getContentPane().remove(jBtnBack);
 				if (isCurrentlyInMatchdayView) {
-					aktuellerSpieltag.add(jBtnBack);
 					aktuellerSpieltag.setVisible(true);
 				} else {
-					aktuelleTabelle.add(jBtnBack);
 					aktuelleTabelle.setVisible(true);
 				}
-				jBtnBack.setVisible(true);
 				uebersicht.setVisible(false);
 			} else if (isCurrentlyInQualification) {
 				if (currentTSeason.hasQGroupStage() && aktuelleTabelle != null) {
@@ -1515,8 +1490,8 @@ public class Start extends JFrame {
 		inDatei(fileConfiguration, configurationFromFile);
 	}
 	
-	public static int today() {
-		return MyDate.newMyDate();
+	public static Datum today() {
+		return new Datum();
 	}
 	
 	public void checkOS() {

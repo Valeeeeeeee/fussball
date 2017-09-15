@@ -1,0 +1,28 @@
+Oliver;Baumann;null;19900602;Deutschland;Tor;1
+Gregor;Kobel;null;19971206;Schweiz;Tor;36
+Alexander;Stolz;null;19831013;Deutschland;Tor;33
+Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
+Danilo Teodoro;Soares;Danilo;19911029;Brasilien;Abwehr;12;20161124-
+Benjamin;Hübner;null;19890704;Deutschland;Abwehr;21
+Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
+Jin-Su;Kim;null;19920613;Südkorea;Abwehr;20;-20161231
+Fabian;Schär;null;19911220;Schweiz;Abwehr;5
+Niklas;Süle;null;19950903;Deutschland;Abwehr;25
+Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
+Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
+Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;13
+Jiloan;Hamad;null;19901106;Schweden;Mittelfeld;11;-20170206
+Philipp;Ochs;null;19970417;Deutschland;Mittelfeld;30
+Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
+Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;6
+Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;7
+Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;16
+Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;22
+Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
+Baris;Atik;null;19950109;Deutschland;Sturm;34;-20170125
+Andrej;Kramaric;null;19910619;Kroatien;Sturm;27
+Ádám;Szalai;null;19871209;Ungarn;Sturm;28
+Marco;Terrazzino;null;19910415;Deutschland;Sturm;23
+Mark;Uth;null;19910824;Deutschland;Sturm;19
+Eduardo;Vargas;null;19891120;Chile;Sturm;9;-20170129
+Sandro;Wagner;null;19871129;Deutschland;Sturm;14

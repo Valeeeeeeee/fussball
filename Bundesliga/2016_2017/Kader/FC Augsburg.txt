@@ -1,0 +1,37 @@
+Ioannis;Gelios;null;19920424;Deutschland, Griechenland;Tor;24
+Marwin;Hitz;null;19870918;Schweiz;Tor;35
+Andreas;Luthe;null;19870310;Deutschland;Tor;1
+Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
+Kevin;Danso;null;19980919;Österreich;Abwehr;38
+Raphael;Framberger;null;19950906;Deutschland;Abwehr;32
+Marvin;Friedrich;null;19951213;Deutschland;Abwehr;15
+Jeffrey;Gouweleeuw;null;19910710;Niederlande;Abwehr;6
+Martin;Hinteregger;null;19920907;Österreich;Abwehr;36;20160831-
+Christoph;Janker;null;19850214;Deutschland;Abwehr;16
+Philipp;Max;null;19930930;Deutschland;Abwehr;31
+Daniel;Opare;null;19901018;Ghana;Abwehr;4;-20161231
+Tim;Rieder;null;19930903;Deutschland;Abwehr;40
+Konstantinos;Stafylidis;null;19931202;Griechenland;Abwehr;3
+Georg;Teigl;null;19910209;Österreich;Abwehr;28
+Paul;Verhaegh;null;19830901;Niederlande;Abwehr;2
+Halil;Altintop;null;19821208;Türkei;Mittelfeld;7
+Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
+Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
+Arif;Ekin;null;19950914;Deutschland;Mittelfeld;37
+Markus;Feulner;null;19820212;Deutschland;Mittelfeld;8
+Gojko;Kacar;null;19870126;Serbien;Mittelfeld;20
+Dominik;Kohr;null;19940131;Deutschland;Mittelfeld;21
+Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19
+Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;5;20170131-
+Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14
+Max;Reinthaler;null;19950322;Italien;Mittelfeld;34
+Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;11
+Marco;Schuster;null;19951010;Deutschland;Mittelfeld;29
+Albian;Ajeti;null;19970226;Schweiz, Albanien;Sturm;17;-20160830
+Raúl;Bobadilla;null;19870618;Argentinien;Sturm;25
+Alfreð;Finnbogason;null;19890201;Island;Sturm;27
+Julian;Günther-Schmidt;null;19940913;Deutschland;Sturm;33
+Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
+Bastian;Kurz;null;19960923;Deutschland;Sturm;26
+Tim;Matavz;null;19890113;Slowenien;Sturm;23;-20160829
+Takashi;Usami;null;19920506;Japan;Sturm;39

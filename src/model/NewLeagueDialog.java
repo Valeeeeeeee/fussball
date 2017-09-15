@@ -301,7 +301,7 @@ public class NewLeagueDialog extends JFrame {
 	
 	private void buildTeams() {
 		String[] posNumOfTeams = new String[maxNumOfTeams - minNumOfTeams + 1];
-    	for (int i = 0; i < posNumOfTeams.length; i++) {
+		for (int i = 0; i < posNumOfTeams.length; i++) {
 			posNumOfTeams[i] = "" + (i + minNumOfTeams);
 		}
 		{
@@ -318,10 +318,10 @@ public class NewLeagueDialog extends JFrame {
 			numOfTeamsCB.setBounds(REC_NOTEAMCB);
 			numOfTeamsCB.setModel(new DefaultComboBoxModel<>(posNumOfTeams));
 			numOfTeamsCB.addItemListener(new ItemListener() {
-                public void itemStateChanged(ItemEvent evt) {
-                	numOfTeamsCBItemStateChanged(evt);
-                }
-            });
+				public void itemStateChanged(ItemEvent evt) {
+					numOfTeamsCBItemStateChanged(evt);
+				}
+			});
 		}
 		{
 			teamsLbl = new JLabel();
@@ -338,9 +338,9 @@ public class NewLeagueDialog extends JFrame {
 			teamsSP.setBounds(REC_TEAMSP);
 			{
 				teamsL = new JList<>();
-			    teamsSP.setViewportView(teamsL);
-			    teamsL.setModel(teamsModel);
-			    teamsL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				teamsSP.setViewportView(teamsL);
+				teamsL.setModel(teamsModel);
+				teamsL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			}
 		}
 		{
@@ -358,8 +358,8 @@ public class NewLeagueDialog extends JFrame {
 	
 	private void buildAmounts() {
 		String[] anzLblsContent = new String[] {"CL / Aufst.", "CLQ / Auf.-Rel.", "EL", "Ab.-Relegation", "Absteiger"};
-    	anzahlenLbls = new JLabel[anzLblsContent.length];
-    	anzahlenTFs = new JTextField[anzLblsContent.length];
+		anzahlenLbls = new JLabel[anzLblsContent.length];
+		anzahlenTFs = new JTextField[anzLblsContent.length];
 		{
 			anzahlenPnl = new JPanel();
 			getContentPane().add(anzahlenPnl);
@@ -443,7 +443,7 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void enterPresetValues() {
-		seasonTF.setText("" + MyDate.newMyDate() / 10000);
+		seasonTF.setText("" + Start.today().getYear());
 		calendarYearNoRB.setSelected(true);
 		goalDifferenceYesRB.setSelected(true);
 		teamsHaveKaderNoRB.setSelected(true);
@@ -587,19 +587,19 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void goActionPerformed() {
-    	name = nameTF.getText();
-    	season = Integer.parseInt(seasonTF.getText());
-    	numberOfTeams = numOfTeamsCB.getSelectedIndex() + minNumOfTeams;
-    	spGgSGegner = Integer.parseInt(sameOpponentTF.getText());
-    	teamsNames = getTeamsNames();
-    	anzahlenRep = getAnzahlen();
-    	isSTSS = Boolean.parseBoolean(calendarYearRBGrp.getSelection().getActionCommand());
-    	goalDifference = Boolean.parseBoolean(goalDifferenceRBGrp.getSelection().getActionCommand());
-    	teamsHaveKader = Boolean.parseBoolean(teamsHaveKaderRBGrp.getSelection().getActionCommand());
-    	KOTsRep = getKOTsRep();
-    	defKOTsRep = getDefaultKOTsRep();
-    	
-    	Start.getInstance().addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
+		name = nameTF.getText();
+		season = Integer.parseInt(seasonTF.getText());
+		numberOfTeams = numOfTeamsCB.getSelectedIndex() + minNumOfTeams;
+		spGgSGegner = Integer.parseInt(sameOpponentTF.getText());
+		teamsNames = getTeamsNames();
+		anzahlenRep = getAnzahlen();
+		isSTSS = Boolean.parseBoolean(calendarYearRBGrp.getSelection().getActionCommand());
+		goalDifference = Boolean.parseBoolean(goalDifferenceRBGrp.getSelection().getActionCommand());
+		teamsHaveKader = Boolean.parseBoolean(teamsHaveKaderRBGrp.getSelection().getActionCommand());
+		KOTsRep = getKOTsRep();
+		defKOTsRep = getDefaultKOTsRep();
+		
+		Start.getInstance().addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
 		
 		this.setVisible(false);
 		Start.getInstance().toFront();

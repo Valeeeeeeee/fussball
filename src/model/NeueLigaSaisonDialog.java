@@ -3,7 +3,6 @@ package model;
 import static util.Utilities.*;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -54,8 +53,8 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private boolean teamsHaveKader;
 	private int[] anzahl;
 	
-	private Rectangle REC_LBLSAISON = new Rectangle(25, 15, 85, 25);
-	private Rectangle REC_TFSAISON = new Rectangle(90, 15, 50, 25);
+	private Rectangle REC_LBLSEASON = new Rectangle(25, 15, 85, 25);
+	private Rectangle REC_TFSEASON = new Rectangle(90, 15, 50, 25);
 	
 	private Rectangle REC_LBLCONFIG = new Rectangle(200, 15, 160, 25);
 	private Rectangle REC_CALYEARLBL = new Rectangle(25, 45, 80, 25);
@@ -72,14 +71,14 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private Rectangle REC_CBNOFTEAMS = new Rectangle(30, 45, 75, 25);
 	private Rectangle REC_LBLNOFTEAMS = new Rectangle(110, 45, 90, 25);
-	private Rectangle REC_LBLBEARBEITEN = new Rectangle(220, 45, 70, 25);
-	private Rectangle REC_BTNFERTIG = new Rectangle(500, 750, 80, 30);
+	private Rectangle REC_LBLEDIT = new Rectangle(220, 45, 70, 25);
+	private Rectangle REC_BTNDONE = new Rectangle(500, 750, 80, 30);
 	
 	private int[] labels = new int[] {30, 80, 300, 25, 200, 20};
 	
 	private JPanel jPnlBackground;
-	private JLabel jLblSaison;
-	private JTextField jTFSaison;
+	private JLabel jLblSeason;
+	private JTextField jTFSeason;
 	private JLabel jLblConfiguration;
 	private JLabel jLblCalendarYear;
 	private JRadioButton jRBCalendarYearYes;
@@ -98,15 +97,15 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private JComboBox<String> jCBNumberOfTeams;
 	private JLabel jLblNumberOfTeams;
-	private JLabel jLblBearbeiten;
-	private JLabel[] jLblsMannschaftenNeueSaison;
-	private JLabel[] jLblsMannschaftenAlteSaison;
+	private JLabel jLblEdit;
+	private JLabel[] jLblsTeamsNewSeason;
+	private JLabel[] jLblsTeamsOldSeason;
 	private JLabel jLblName;
 	private JTextField jTFName;
-	private JLabel jLblDatum;
-	private JTextField jTFDatum;
+	private JLabel jLblDate;
+	private JTextField jTFDate;
 	private JButton jBtnChangeTeamCompleted;
-	private JButton jBtnFertig;
+	private JButton jBtnDone;
 	
 	public NeueLigaSaisonDialog() {
 		super();
@@ -121,28 +120,28 @@ public class NeueLigaSaisonDialog extends JFrame {
 		oldSeasonTeamsOrder = new ArrayList<>();
 		
 		String[] posNumOfTeams = new String[maxNumberOfTeams - minNumberOfTeams + 1];
-    	for (int i = 0; i < posNumOfTeams.length; i++) {
+		for (int i = 0; i < posNumOfTeams.length; i++) {
 			posNumOfTeams[i] = "" + (i + minNumberOfTeams);
 		}
-    	
-    	{
-    		jPnlBackground = new JPanel();
-    		getContentPane().add(jPnlBackground);
-    		jPnlBackground.setLayout(null);
-    		jPnlBackground.setSize(WIDTH, HEIGHT);
-    		jPnlBackground.setBackground(colorBackground);
-    	}
+		
 		{
-			jLblSaison = new JLabel();
-			jPnlBackground.add(jLblSaison);
-			jLblSaison.setBounds(REC_LBLSAISON);
+			jPnlBackground = new JPanel();
+			getContentPane().add(jPnlBackground);
+			jPnlBackground.setLayout(null);
+			jPnlBackground.setSize(WIDTH, HEIGHT);
+			jPnlBackground.setBackground(colorBackground);
 		}
 		{
-			jTFSaison = new JTextField();
-			jPnlBackground.add(jTFSaison);
-			jTFSaison.setBounds(REC_TFSAISON);
-			jTFSaison.setOpaque(true);
-			jTFSaison.setVisible(false);
+			jLblSeason = new JLabel();
+			jPnlBackground.add(jLblSeason);
+			jLblSeason.setBounds(REC_LBLSEASON);
+		}
+		{
+			jTFSeason = new JTextField();
+			jPnlBackground.add(jTFSeason);
+			jTFSeason.setBounds(REC_TFSEASON);
+			jTFSeason.setOpaque(true);
+			jTFSeason.setVisible(false);
 		}
 		// Configuration
 		{
@@ -264,10 +263,10 @@ public class NeueLigaSaisonDialog extends JFrame {
 			jCBNumberOfTeams.setBounds(REC_CBNOFTEAMS);
 			jCBNumberOfTeams.setModel(new DefaultComboBoxModel<>(posNumOfTeams));
 			jCBNumberOfTeams.addItemListener(new ItemListener() {
-                public void itemStateChanged(ItemEvent evt) {
-                	jCBNumberOfTeamsItemStateChanged(evt);
-                }
-            });
+				public void itemStateChanged(ItemEvent evt) {
+					jCBNumberOfTeamsItemStateChanged(evt);
+				}
+			});
 		}
 		{
 			jLblNumberOfTeams = new JLabel();
@@ -282,41 +281,41 @@ public class NeueLigaSaisonDialog extends JFrame {
 			});
 		}
 		{
-			jLblBearbeiten = new JLabel();
-			jPnlBackground.add(jLblBearbeiten);
-			jLblBearbeiten.setBounds(REC_LBLBEARBEITEN);
-			jLblBearbeiten.setText("Bearbeiten");
-			jLblBearbeiten.setCursor(handCursor);
-			jLblBearbeiten.addMouseListener(new MouseAdapter() {
+			jLblEdit = new JLabel();
+			jPnlBackground.add(jLblEdit);
+			jLblEdit.setBounds(REC_LBLEDIT);
+			jLblEdit.setText("Bearbeiten");
+			jLblEdit.setCursor(handCursor);
+			jLblEdit.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent evt) {
 					changeMode();
 				}
 			});
 		}
 		
-		jLblsMannschaftenNeueSaison = new JLabel[maxNumberOfTeams];
-		jLblsMannschaftenAlteSaison = new JLabel[maxNumberOfTeams];
-		for (int i = 0; i < jLblsMannschaftenNeueSaison.length; i++) {
+		jLblsTeamsNewSeason = new JLabel[maxNumberOfTeams];
+		jLblsTeamsOldSeason = new JLabel[maxNumberOfTeams];
+		for (int i = 0; i < jLblsTeamsNewSeason.length; i++) {
 			final int x = i;
-			jLblsMannschaftenNeueSaison[i] = new JLabel();
-			jPnlBackground.add(jLblsMannschaftenNeueSaison[i]);
-			jLblsMannschaftenNeueSaison[i].setBounds(labels[STARTX], labels[STARTY] + i * labels[GAPY], labels[SIZEX], labels[SIZEY]);
-			jLblsMannschaftenNeueSaison[i].setText("n/a");
-			jLblsMannschaftenNeueSaison[i].setVisible(false);
-			jLblsMannschaftenNeueSaison[i].setCursor(handCursor);
-			jLblsMannschaftenNeueSaison[i].addMouseListener(new MouseAdapter() {
+			jLblsTeamsNewSeason[i] = new JLabel();
+			jPnlBackground.add(jLblsTeamsNewSeason[i]);
+			jLblsTeamsNewSeason[i].setBounds(labels[STARTX], labels[STARTY] + i * labels[GAPY], labels[SIZEX], labels[SIZEY]);
+			jLblsTeamsNewSeason[i].setText("n/a");
+			jLblsTeamsNewSeason[i].setVisible(false);
+			jLblsTeamsNewSeason[i].setCursor(handCursor);
+			jLblsTeamsNewSeason[i].addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent evt) {
 					putNewTeamToNextFreePosition(x);
 				}
 			});
 			
-			jLblsMannschaftenAlteSaison[i] = new JLabel();
-			jPnlBackground.add(jLblsMannschaftenAlteSaison[i]);
-			jLblsMannschaftenAlteSaison[i].setBounds(labels[STARTX] + labels[GAPX], labels[STARTY] + i * labels[GAPY], labels[SIZEX], labels[SIZEY]);
-			jLblsMannschaftenAlteSaison[i].setOpaque(false);
-			jLblsMannschaftenAlteSaison[i].setVisible(false);
-			jLblsMannschaftenAlteSaison[i].setCursor(handCursor);
-			jLblsMannschaftenAlteSaison[i].addMouseListener(new MouseAdapter() {
+			jLblsTeamsOldSeason[i] = new JLabel();
+			jPnlBackground.add(jLblsTeamsOldSeason[i]);
+			jLblsTeamsOldSeason[i].setBounds(labels[STARTX] + labels[GAPX], labels[STARTY] + i * labels[GAPY], labels[SIZEX], labels[SIZEY]);
+			jLblsTeamsOldSeason[i].setOpaque(false);
+			jLblsTeamsOldSeason[i].setVisible(false);
+			jLblsTeamsOldSeason[i].setCursor(handCursor);
+			jLblsTeamsOldSeason[i].addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent evt) {
 					putOldTeamToNextFreePosition(x);
 				}
@@ -335,18 +334,18 @@ public class NeueLigaSaisonDialog extends JFrame {
 			jTFName.setVisible(false);
 		}
 		{
-			jLblDatum = new JLabel();
-			jPnlBackground.add(jLblDatum);
-			jLblDatum.setText("Gründungsdatum");
-			jLblDatum.setVisible(false);
+			jLblDate = new JLabel();
+			jPnlBackground.add(jLblDate);
+			jLblDate.setText("Gründungsdatum");
+			jLblDate.setVisible(false);
 		}
 		{
-			jTFDatum = new JTextField();
-			jPnlBackground.add(jTFDatum);
-			jTFDatum.setVisible(false);
-			jTFDatum.addFocusListener(new FocusAdapter() {
+			jTFDate = new JTextField();
+			jPnlBackground.add(jTFDate);
+			jTFDate.setVisible(false);
+			jTFDate.addFocusListener(new FocusAdapter() {
 				public void focusGained(FocusEvent evt) {
-					jTFDatum.selectAll();
+					jTFDate.selectAll();
 				}
 			});
 		}
@@ -363,12 +362,12 @@ public class NeueLigaSaisonDialog extends JFrame {
 			});
 		}
 		{
-			jBtnFertig = new JButton();
-			jPnlBackground.add(jBtnFertig);
-			jBtnFertig.setBounds(REC_BTNFERTIG);
-			jBtnFertig.setText("Fertig");
-			jBtnFertig.setFocusable(false);
-			jBtnFertig.addActionListener(new ActionListener() {
+			jBtnDone = new JButton();
+			jPnlBackground.add(jBtnDone);
+			jBtnDone.setBounds(REC_BTNDONE);
+			jBtnDone.setText("Fertig");
+			jBtnDone.setFocusable(false);
+			jBtnDone.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
 					jBtnFertigActionPerformed();
 				}
@@ -383,29 +382,29 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private void changeOrSaveConfiguration() {
 		if (teamChangeMode)	changeMode();
 		if (changingConfiguration) {
-			season = Integer.parseInt(jTFSaison.getText());
+			season = Integer.parseInt(jTFSeason.getText());
 			isSummerToSpringSeason = jRBCalendarYearNo.isSelected();
 			numberOfMatchesAgainstSameOpponent = Integer.parseInt(jTFSameOpponent.getText());
 			goalDifference = jRBGoalDifferenceYes.isSelected();
 			teamsHaveKader = jRBTeamsHaveKaderYes.isSelected();
 			jLblConfiguration.setText("Konfiguration ändern");
-			jLblSaison.setText("Saison " + season);
+			jLblSeason.setText("Saison " + season);
 			
 		} else {
 			jLblConfiguration.setText("Konfiguration speichern");
-			jLblSaison.setText("Saison");
+			jLblSeason.setText("Saison");
 		}
 		
 		changingConfiguration = !changingConfiguration;
 		jCBNumberOfTeams.setVisible(!changingConfiguration);
 		jLblNumberOfTeams.setVisible(!changingConfiguration);
-		jLblBearbeiten.setVisible(!changingConfiguration);
-		for (int i = 0; i < jLblsMannschaftenAlteSaison.length; i++) {
-			jLblsMannschaftenAlteSaison[i].setVisible(!changingConfiguration && !jLblsMannschaftenAlteSaison[i].getText().equals(""));
-			jLblsMannschaftenNeueSaison[i].setVisible(!changingConfiguration && !jLblsMannschaftenNeueSaison[i].getText().equals("n/a"));
+		jLblEdit.setVisible(!changingConfiguration);
+		for (int i = 0; i < jLblsTeamsOldSeason.length; i++) {
+			jLblsTeamsOldSeason[i].setVisible(!changingConfiguration && !jLblsTeamsOldSeason[i].getText().equals(""));
+			jLblsTeamsNewSeason[i].setVisible(!changingConfiguration && !jLblsTeamsNewSeason[i].getText().equals("n/a"));
 		}
 		
-		jTFSaison.setVisible(changingConfiguration);
+		jTFSeason.setVisible(changingConfiguration);
 		jLblCalendarYear.setVisible(changingConfiguration);
 		jRBCalendarYearYes.setVisible(changingConfiguration);
 		jRBCalendarYearNo.setVisible(changingConfiguration);
@@ -426,15 +425,15 @@ public class NeueLigaSaisonDialog extends JFrame {
 			int starty = labels[STARTY] + numberOfTeams * labels[GAPY];
 			Rectangle REC_LBLNAME = new Rectangle(30, starty + 10, 80, 25);
 			Rectangle REC_TFNAME = new Rectangle(160, starty + 10, 100, 25);
-			Rectangle REC_LBLDATUM = new Rectangle(30, starty + 40, 120, 25);
-			Rectangle REC_TFDATUM = new Rectangle(160, starty + 40, 100, 25);
-			Rectangle REC_BTNCTFERTIG = new Rectangle(180, starty + 75, 80, 25);
+			Rectangle REC_LBLDATE = new Rectangle(30, starty + 40, 120, 25);
+			Rectangle REC_TFDATE = new Rectangle(160, starty + 40, 100, 25);
+			Rectangle REC_BTNCTCOMPLETE = new Rectangle(180, starty + 75, 80, 25);
 			
 			jLblName.setBounds(REC_LBLNAME);
 			jTFName.setBounds(REC_TFNAME);
-			jLblDatum.setBounds(REC_LBLDATUM);
-			jTFDatum.setBounds(REC_TFDATUM);
-			jBtnChangeTeamCompleted.setBounds(REC_BTNCTFERTIG);
+			jLblDate.setBounds(REC_LBLDATE);
+			jTFDate.setBounds(REC_TFDATE);
+			jBtnChangeTeamCompleted.setBounds(REC_BTNCTCOMPLETE);
 		}
 	}
 	
@@ -443,52 +442,52 @@ public class NeueLigaSaisonDialog extends JFrame {
 			changeTeam(index);
 			return;
 		}
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setVisible(true);
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText(newSeasonTeamsOrder.get(index).getName());
+		jLblsTeamsOldSeason[oldSeasonTeamsOrder.size()].setVisible(true);
+		jLblsTeamsOldSeason[oldSeasonTeamsOrder.size()].setText(newSeasonTeamsOrder.get(index).getName());
 		oldSeasonTeamsOrder.add(newSeasonTeamsOrder.remove(index));
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(false);
+		jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setVisible(false);
 		for (int i = index; i < newSeasonTeamsOrder.size(); i++) {
-			jLblsMannschaftenNeueSaison[i].setText(newSeasonTeamsOrder.get(i).getName());
+			jLblsTeamsNewSeason[i].setText(newSeasonTeamsOrder.get(i).getName());
 		}
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText("n/a");
+		jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setText("n/a");
 	}
 	
 	private void putOldTeamToNextFreePosition(int index) {
 		if (oldSeasonTeamsOrder.size() <= anzahl[4]) {
 			if(yesNoDialog("Laut Konfiguration müssen " + anzahl[4] + " Mannschaften absteigen. Trotzdem fortfahren?") == JOptionPane.NO_OPTION)	return;
 		}
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
-		jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(oldSeasonTeamsOrder.get(index).getName());
+		jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setVisible(true);
+		jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setText(oldSeasonTeamsOrder.get(index).getName());
 		newSeasonTeamsOrder.add(oldSeasonTeamsOrder.remove(index));
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setVisible(false);
+		jLblsTeamsOldSeason[oldSeasonTeamsOrder.size()].setVisible(false);
 		for (int i = index; i < oldSeasonTeamsOrder.size(); i++) {
-			jLblsMannschaftenAlteSaison[i].setText(oldSeasonTeamsOrder.get(i).getName());
+			jLblsTeamsOldSeason[i].setText(oldSeasonTeamsOrder.get(i).getName());
 		}
-		jLblsMannschaftenAlteSaison[oldSeasonTeamsOrder.size()].setText("");
+		jLblsTeamsOldSeason[oldSeasonTeamsOrder.size()].setText("");
 	}
 	
 	private void changeMode() {
 		teamChangeMode = !teamChangeMode;
 		if (teamChangeMode) {
-			jLblBearbeiten.setText("Fertig");
+			jLblEdit.setText("Fertig");
 			for (int i = 0; i < numberOfTeams; i++) {
-				jLblsMannschaftenNeueSaison[i].setVisible(true);
+				jLblsTeamsNewSeason[i].setVisible(true);
 			}
 		} else {
-			jLblBearbeiten.setText("Bearbeiten");
-			for (int i = newSeasonTeamsOrder.size(); i < jLblsMannschaftenNeueSaison.length; i++) {
-				jLblsMannschaftenNeueSaison[i].setVisible(false);
+			jLblEdit.setText("Bearbeiten");
+			for (int i = newSeasonTeamsOrder.size(); i < jLblsTeamsNewSeason.length; i++) {
+				jLblsTeamsNewSeason[i].setVisible(false);
 			}
 			
 			if (newSeasonTeamIndex != -1) {
-				jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(false);
-				repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
+				jLblsTeamsNewSeason[newSeasonTeamIndex].setOpaque(false);
+				repaintImmediately(jLblsTeamsNewSeason[newSeasonTeamIndex]);
 				newSeasonTeamIndex = -1;
 				
 				jLblName.setVisible(false);
 				jTFName.setVisible(false);
-				jLblDatum.setVisible(false);
-				jTFDatum.setVisible(false);
+				jLblDate.setVisible(false);
+				jTFDate.setVisible(false);
 				jBtnChangeTeamCompleted.setVisible(false);
 			}
 		}
@@ -496,27 +495,27 @@ public class NeueLigaSaisonDialog extends JFrame {
 	
 	private void changeTeam(int index) {
 		if (newSeasonTeamIndex != -1) {
-			jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(false);
-			repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
+			jLblsTeamsNewSeason[newSeasonTeamIndex].setOpaque(false);
+			repaintImmediately(jLblsTeamsNewSeason[newSeasonTeamIndex]);
 		}
 		
 		newSeasonTeamIndex = index;
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(true);
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setBackground(colorHighlighted);
-		repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
+		jLblsTeamsNewSeason[newSeasonTeamIndex].setOpaque(true);
+		jLblsTeamsNewSeason[newSeasonTeamIndex].setBackground(colorHighlighted);
+		repaintImmediately(jLblsTeamsNewSeason[newSeasonTeamIndex]);
 		
 		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
 			jTFName.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getName());
-			jTFDatum.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getFoundingDate());
+			jTFDate.setText(newSeasonTeamsOrder.get(newSeasonTeamIndex).getFoundingDate());
 		} else {
 			jTFName.setText("");
-			jTFDatum.setText("01.01.1970");
+			jTFDate.setText(UNIX_EPOCH.withDividers());
 		}
 		
 		jLblName.setVisible(true);
 		jTFName.setVisible(true);
-		jLblDatum.setVisible(true);
-		jTFDatum.setVisible(true);
+		jLblDate.setVisible(true);
+		jTFDate.setVisible(true);
 		jBtnChangeTeamCompleted.setVisible(true);
 		jTFName.requestFocus();
 	}
@@ -528,32 +527,30 @@ public class NeueLigaSaisonDialog extends JFrame {
 			return;
 		}
 		
-		String grDatum = jTFDatum.getText();
 		if (name.isEmpty()) {
 			message("Bitte Gründungsdatum angeben!");
 			return;
 		}
-		int datum = MyDate.getDate(grDatum);
-		grDatum = MyDate.datum(datum);
+		String grDatum = Datum.parse(jTFDate.getText()).withDividers();
 		
 		if (newSeasonTeamIndex < newSeasonTeamsOrder.size()) {
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setName(name);
 			newSeasonTeamsOrder.get(newSeasonTeamIndex).setFoundingDate(grDatum);
 		} else {
 			Mannschaft mannschaft = new Mannschaft(newSeasonTeamIndex, null, name + ";" + grDatum);
-			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setVisible(true);
-			jLblsMannschaftenNeueSaison[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
+			jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setVisible(true);
+			jLblsTeamsNewSeason[newSeasonTeamsOrder.size()].setText(mannschaft.getName());
 			newSeasonTeamsOrder.add(mannschaft);
 		}
 		
-		jLblsMannschaftenNeueSaison[newSeasonTeamIndex].setOpaque(false);
-		repaintImmediately(jLblsMannschaftenNeueSaison[newSeasonTeamIndex]);
+		jLblsTeamsNewSeason[newSeasonTeamIndex].setOpaque(false);
+		repaintImmediately(jLblsTeamsNewSeason[newSeasonTeamIndex]);
 		newSeasonTeamIndex = -1;
 		
 		jLblName.setVisible(false);
 		jTFName.setVisible(false);
-		jLblDatum.setVisible(false);
-		jTFDatum.setVisible(false);
+		jLblDate.setVisible(false);
+		jTFDate.setVisible(false);
 		jBtnChangeTeamCompleted.setVisible(false);
 	}
 	
@@ -568,8 +565,8 @@ public class NeueLigaSaisonDialog extends JFrame {
 		setAnzahlen(lSeason);
 		
 		// TODO create more textfields, radiobuttons etc. to enable changing the config
-		jLblSaison.setText("Saison " + season);
-		jTFSaison.setText("" + season);
+		jLblSeason.setText("Saison " + season);
+		jTFSeason.setText("" + season);
 		(isSummerToSpringSeason ? jRBCalendarYearNo : jRBCalendarYearYes).setSelected(true);
 		jTFSameOpponent.setText("" + numberOfMatchesAgainstSameOpponent);
 		(goalDifference ? jRBGoalDifferenceYes : jRBGoalDifferenceNo).setSelected(true);
@@ -581,8 +578,8 @@ public class NeueLigaSaisonDialog extends JFrame {
 		jCBNumberOfTeams.setSelectedIndex(numberOfTeams - minNumberOfTeams);
 		for (int i = 0; i < numberOfTeamsOld; i++) {
 			oldSeasonTeamsOrder.add(mannschaften[i]);
-			jLblsMannschaftenAlteSaison[i].setText(mannschaften[i].getName());
-			jLblsMannschaftenAlteSaison[i].setVisible(true);
+			jLblsTeamsOldSeason[i].setText(mannschaften[i].getName());
+			jLblsTeamsOldSeason[i].setVisible(true);
 		}
 	}
 	
@@ -602,7 +599,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private void setAnzahlen(LigaSaison lSeason) {
 		anzahl = new int[5];
 		for (int i = 0; i < anzahl.length; i++) {
-			anzahl[i] = lSeason.getAnzahl(i);
+			anzahl[i] = lSeason.getNumberOf(i);
 		}
 	}
 	

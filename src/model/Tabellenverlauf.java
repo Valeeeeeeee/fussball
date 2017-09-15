@@ -43,7 +43,7 @@ public class Tabellenverlauf extends JPanel {
 		if (competition instanceof LigaSaison) {
 			LigaSaison lSeason = (LigaSaison) competition;
 			for (int i = 0; i < 5; i++) {
-				anzahlen[i] = lSeason.getAnzahl(i);
+				anzahlen[i] = lSeason.getNumberOf(i);
 			}
 		}
 		

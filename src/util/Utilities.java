@@ -13,9 +13,10 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import model.MyDate;
+import model.Datum;
 import model.Spieler;
 import model.Start;
+import model.Uhrzeit;
 
 public class Utilities {
 	
@@ -34,11 +35,20 @@ public class Utilities {
 	public static final int GAPY = 3;
 	public static final int SIZEX = 4;
 	public static final int SIZEY = 5;
-	private static boolean osX = System.getProperty("os.name").startsWith("Mac OS X");
+	private static boolean macOS = System.getProperty("os.name").startsWith("Mac OS X");
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	public static String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	
+	public static final Datum UNIX_EPOCH = new Datum(1, 1, 1970);
+	public static final Datum MIN_DATE = new Datum(1, 1, 0);
+	public static final Datum MAX_DATE = new Datum(31, 12, 9999);
+	
+	public static final int UNDEFINED = -1;
+	
+	public static final Uhrzeit TIME_UNDEFINED = new Uhrzeit(UNDEFINED);
+	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
+	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
@@ -65,16 +75,16 @@ public class Utilities {
 	}
 	
 	public static Image resizeImage(Image image, int width, int height) {
-	    BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-	    Graphics2D g = resizedImage.createGraphics();
+		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = resizedImage.createGraphics();
 
-	    g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-	    g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-	    
-	    g.drawImage(image, 0, 0, width, height, null);
-	    g.dispose();
-	    
-	    return resizedImage;
+		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		
+		g.drawImage(image, 0, 0, width, height, null);
+		g.dispose();
+		
+		return resizedImage;
 	}
 	
 	public static void removeAllMouseListeners(Component comp) {
@@ -137,11 +147,11 @@ public class Utilities {
 	}
 	
 	public static String arrowDown() {
-		return osX ? "\u2b07" : "\u2193";
+		return macOS ? "\u2b07" : "\u2193";
 	}
 	
 	public static String arrowUp() {
-		return osX ? "\u2b06" : "\u2191";
+		return macOS ? "\u2b06" : "\u2191";
 	}
 	
 	public static int numberOfDaysInMonth(int month, int year) {
@@ -218,19 +228,18 @@ public class Utilities {
 		return false;
 	}
 	
-	public static boolean inThePast(int date, int time, int timeDifference) {
-		time += timeDifference + (time % 100 < 15 ? 0 : 40);
-		if (time > 2359) {
-			date = MyDate.shiftDate(date, 1);
-			time -= 2400;
+	public static boolean inThePast(Datum date, Uhrzeit time, int timeDifference) {
+		Uhrzeit shiftedTime = new Uhrzeit(time, timeDifference);
+		if (shiftedTime.isBefore(time)) {
+			date = new Datum(date, 1);
 		}
-		return inThePast(date, time);
+		return inThePast(date, shiftedTime);
 	}
 	
-	public static boolean inThePast(int date, int time) {
-		if (date < Start.today())	return true;
-		if (date > Start.today())	return false;
-		return time < MyDate.newMyTime();
+	public static boolean inThePast(Datum date, Uhrzeit time) {
+		if (date.isBefore(Start.today()))	return true;
+		if (date.isAfter(Start.today()))	return false;
+		return time.isBefore(new Uhrzeit());
 	}
 	
 	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
@@ -392,12 +401,12 @@ public class Utilities {
 	}
 	
 	public static int getWindowDecorationWidth() {
-		if (osX)	return 0;
+		if (macOS)	return 0;
 		else		return 6;
 	}
 	
 	public static int getWindowDecorationHeight() {
-		if (osX)	return 22;
+		if (macOS)	return 22;
 		else		return 28;
 	}
 }

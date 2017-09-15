@@ -1,0 +1,35 @@
+Gianluca;Curci;null;19850712;Italien;Tor;23;-20170129
+Jannik;Huth;null;19940415;Deutschland;Tor;33
+Jonas;Lössl;null;19890201;Dänemark;Tor;1
+Florian;Müller;null;19971113;Deutschland;Tor;46
+Leon;Balogun;null;19880628;Nigeria, Deutschland;Abwehr;3
+Stefan;Bell;null;19910824;Deutschland;Abwehr;16
+Pierre;Bengtsson;null;19880412;Schweden;Abwehr;7;-20160828
+Daniel;Brosinski;null;19880717;Deutschland;Abwehr;18
+Niko;Bungert;null;19861024;Deutschland;Abwehr;26
+Gaëtan;Bussmann;null;19910202;Frankreich;Abwehr;24
+Giulio;Donati;null;19900205;Italien;Abwehr;2
+Jean-Philippe;Gbamin;null;19950925;Frankreich;Abwehr;25
+Alexander;Hack;null;19930908;Deutschland;Abwehr;42
+André;Ramalho;null;19920216;Brasilien;Abwehr;22;20160831-
+Marin;Sverko;null;19980204;Deutschland;Abwehr;19;20170101-
+Christian;Clemens;null;19910804;Deutschland;Mittelfeld;27;-20161231
+Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
+Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20
+Besar;Halimi;null;19941212;Deutschland;Mittelfeld;30
+Philipp;Klement;null;19920909;Deutschland;Mittelfeld;47
+Bojan;Krkic;null;19900828;Spanien;Mittelfeld;10;20170129-
+Danny;Latza;null;19891207;Deutschland;Mittelfeld;6
+Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10;-20161231
+Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;8
+Robin;Quaison;null;19931008;Schweden;Mittelfeld;7;20170131-
+José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5;-20170130
+Jairo;Samperio Bustara;null;19930711;Spanien;Mittelfeld;17
+Suat;Serdar;null;19970411;Deutschland;Mittelfeld;45
+Emil;Berggreen;null;19930510;Dänemark;Sturm;11
+Mounir;Bouziane;null;19910205;Frankreich;Sturm;41
+Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15
+Gerrit;Holtmann;null;19950325;Deutschland;Sturm;38
+Yoshinori;Muto;null;19920715;Japan;Sturm;9
+Karim;Onisiwo;null;19920317;Österreich;Sturm;21
+Aaron;Seydel;null;19960207;Deutschland;Sturm;36

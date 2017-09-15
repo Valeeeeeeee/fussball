@@ -1,0 +1,34 @@
+Zlatan;Alomerovic;null;19910615;Deutschland, Serbien;Tor;33;-20160830
+Julian;Pollersbeck;null;19940816;Deutschland;Tor;22
+André;Weis;null;19890930;Deutschland;Tor;1
+Naser;Aliji;null;19931227;Albanien;Abwehr;34
+Ewerton José;Almeida Santos;Ewerton;19890323;Brasilien;Abwehr;5;20160829-
+Tim;Heubach;null;19880412;Deutschland;Abwehr;3
+Robin;Koch;null;19960717;Deutschland;Abwehr;25
+Sascha;Mockenhaupt;null;19910910;Deutschland;Abwehr;5;-20160815
+Mensur;Mujdza;null;19840328;Bosnien-Herzegowina;Abwehr;23;20160828-
+Philipp;Mwene;null;19940129;Österreich;Abwehr;21
+Michael;Schulze;null;19890113;Deutschland;Abwehr;7;-20160830
+Stipe;Vucur;null;19920522;Österreich, Kroatien;Abwehr;29
+Patrick;Ziegler;null;19900209;Deutschland;Abwehr;4
+Maximilian;Dittgen;null;19950303;Deutschland;Mittelfeld;17
+Marlon;Frey;null;19960324;Deutschland;Mittelfeld;24
+Marcel;Gaus;null;19890802;Deutschland;Mittelfeld;19
+Daniel;Halfar;null;19880107;Deutschland;Mittelfeld;28
+Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;27;20160831-
+Mateusz;Klich;null;19900613;Polen;Mittelfeld;23;-20160825
+Christoph;Moritz;null;19900127;Deutschland;Mittelfeld;18
+Róbert;Pich;null;19881112;Slowakei;Mittelfeld;13;-20161231
+Marcus;Piossek;null;19890721;Polen, Deutschland;Mittelfeld;8;-20160830
+Alexander;Ring;null;19910409;Finnland;Mittelfeld;6;-20170131
+Nils;Seufert;null;19970203;Deutschland;Mittelfeld;38
+Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;10;20160812-
+Maurice John;Deville;null;19920731;Luxemburg;Sturm;27;-20160806
+Robert;Glatzel;null;19940108;Deutschland;Sturm;31
+Lukas;Görtler;null;19940615;Deutschland;Sturm;9
+Sebastian;Jacob;null;19930626;Deutschland;Sturm;14
+Osayamen;Osawe;null;19930903;England, Nigeria;Sturm;35
+Kacper;Przybylko;null;19930325;Polen, Deutschland;Sturm;20
+Nicklas;Shipnoski;null;19980101;Deutschland;Sturm;37
+Erik;Wekesser;null;19970703;Deutschland;Sturm;30
+Jacques;Zoua;null;19910906;Kamerun;Sturm;11;20160812-

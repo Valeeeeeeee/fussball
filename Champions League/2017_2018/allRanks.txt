@@ -1,0 +1,156 @@
+Q101W: Alashkert Martuni
+Q101L: FC Santa Coloma
+Q102W: Víkingur Gøta
+Q102L: KF Trepça'89
+Q103W: Hibernians Football Club
+Q103L: Infonet Tallinn
+Q104W: The New Saints FC
+Q104L: Europa FC
+Q105W: Linfield FC
+Q105L: SP La Fiorita
+Q201W: Qarabag Agdam
+Q201L: FC Samtredia
+Q202W: FC Salzburg
+Q202L: Hibernians Football Club
+Q203W: HNK Rijeka
+Q203L: The New Saints FC
+Q204W: Partizan Belgrad
+Q204L: Buducnost Podgorica
+Q205W: FK Astana
+Q205L: Spartaks Jurmala
+Q206W: APOEL Nikosia
+Q206L: F91 Düdelingen
+Q207W: Vardar Skopje
+Q207L: Malmö FF
+Q208W: Hapoel Be'er Scheva
+Q208L: Honvéd Budapest
+Q209W: Sheriff Tiraspol
+Q209L: FK Kukësi
+Q210W: NK Maribor
+Q210L: Zrinjski Mostar
+Q211W: BATE Baryssau
+Q211L: Alashkert Martuni
+Q212W: Legia Warschau
+Q212L: IFK Mariehamn
+Q213W: Ludogorez Rasgrad
+Q213L: Zalgiris Vilnius
+Q214W: FC Kopenhagen
+Q214L: MSK Zilina
+Q215W: Rosenborg Trondheim
+Q215L: Dundalk FC
+Q216W: FH Hafnarfjörður
+Q216L: Víkingur Gøta
+Q217W: Celtic Glasgow
+Q217L: Linfield FC
+Q301W: Slavia Prag
+Q301L: BATE Baryssau
+Q302W: Qarabag Agdam
+Q302L: Sheriff Tiraspol
+Q303W: ZSKA Moskau
+Q303L: AEK Athen
+Q304W: Steaua Bukarest
+Q304L: Viktoria Pilsen
+Q305W: FC Kopenhagen
+Q305L: Vardar Skopje
+Q306W: Olympiakos Piräus
+Q306L: Partizan Belgrad
+Q307W: FK Astana
+Q307L: Legia Warschau
+Q308W: Young Boys Bern
+Q308L: Dynamo Kiew
+Q309W: HNK Rijeka
+Q309L: FC Salzburg
+Q310W: Hapoel Be'er Scheva
+Q310L: Ludogorez Rasgrad
+Q311W: APOEL Nikosia
+Q311L: Viitorul Constanta
+Q312W: NK Maribor
+Q312L: FH Hafnarfjörður
+Q313W: OGC Nizza
+Q313L: Ajax Amsterdam
+Q314W: Celtic Glasgow
+Q314L: Rosenborg Trondheim
+Q315W: Istanbul Basaksehir
+Q315L: FC Brügge
+PO01W: Qarabag Agdam
+PO01L: FC Kopenhagen
+PO02W: Sporting Lissabon
+PO02L: Steaua Bukarest
+PO03W: FC Liverpool
+PO03L: TSG 1899 Hoffenheim
+PO04W: ZSKA Moskau
+PO04L: Young Boys Bern
+PO05W: APOEL Nikosia
+PO05L: Slavia Prag
+PO06W: SSC Neapel
+PO06L: OGC Nizza
+PO07W: Olympiakos Piräus
+PO07L: HNK Rijeka
+PO08W: NK Maribor
+PO08L: Hapoel Be'er Scheva
+PO09W: Celtic Glasgow
+PO09L: FK Astana
+PO10W: FC Sevilla
+PO10L: Istanbul Basaksehir
+GA1: CL2017GA1
+GA2: CL2017GA2
+GA3: CL2017GA3
+GA4: CL2017GA4
+GB1: CL2017GB1
+GB2: CL2017GB2
+GB3: CL2017GB3
+GB4: CL2017GB4
+GC1: CL2017GC1
+GC2: CL2017GC2
+GC3: CL2017GC3
+GC4: CL2017GC4
+GD1: CL2017GD1
+GD2: CL2017GD2
+GD3: CL2017GD3
+GD4: CL2017GD4
+GE1: CL2017GE1
+GE2: CL2017GE2
+GE3: CL2017GE3
+GE4: CL2017GE4
+GF1: CL2017GF1
+GF2: CL2017GF2
+GF3: CL2017GF3
+GF4: CL2017GF4
+GG1: CL2017GG1
+GG2: CL2017GG2
+GG3: CL2017GG3
+GG4: CL2017GG4
+GH1: CL2017GH1
+GH2: CL2017GH2
+GH3: CL2017GH3
+GH4: CL2017GH4
+AF01W: CL2017AF01W
+AF01L: CL2017AF01L
+AF02W: CL2017AF02W
+AF02L: CL2017AF02L
+AF03W: CL2017AF03W
+AF03L: CL2017AF03L
+AF04W: CL2017AF04W
+AF04L: CL2017AF04L
+AF05W: CL2017AF05W
+AF05L: CL2017AF05L
+AF06W: CL2017AF06W
+AF06L: CL2017AF06L
+AF07W: CL2017AF07W
+AF07L: CL2017AF07L
+AF08W: CL2017AF08W
+AF08L: CL2017AF08L
+VF01W: CL2017VF01W
+VF01L: CL2017VF01L
+VF02W: CL2017VF02W
+VF02L: CL2017VF02L
+VF03W: CL2017VF03W
+VF03L: CL2017VF03L
+VF04W: CL2017VF04W
+VF04L: CL2017VF04L
+HF01W: CL2017HF01W
+HF01L: CL2017HF01L
+HF02W: CL2017HF02W
+HF02L: CL2017HF02L
+FI01W: CL2017FI01W
+FI01L: CL2017FI01L

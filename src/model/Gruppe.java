@@ -15,11 +15,11 @@ public class Gruppe implements Wettbewerb {
 	private int numberOfMatchesAgainstSameOpponent;
 	private int numberOfMatchdays;
 	private int currentMatchday;
-	private int cMatchdaySetForDate = -1;
+	private Datum cMatchdaySetForDate = MIN_DATE;
 	private boolean cMatchdaySetForOverview;
 	private int newestMatchday;
-	private int nMatchdaySetForDate = -1;
-	private int nMatchdaySetUntilTime = -1;
+	private Datum nMatchdaySetForDate = MIN_DATE;
+	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private Mannschaft[] teams;
 	private TurnierSaison season;
 	private boolean isETPossible = false;
@@ -46,10 +46,10 @@ public class Gruppe implements Wettbewerb {
 	private String fileMatchData;
 	private ArrayList<String> matchDataFromFile;
 	
-	private int startDate;
-	private int finalDate;
+	private Datum startDate;
+	private Datum finalDate;
 	private int[][] daysSinceFirstDay;
-	private int[][] startTime;
+	private Uhrzeit[][] startTime;
 	
 	private Spieltag spieltag;
 	private Tabelle tabelle;
@@ -91,7 +91,7 @@ public class Gruppe implements Wettbewerb {
 		return season.getDescription() + isQuali + ", " + name + ", " + (matchday + 1) + ". Spieltag";
 	}
 	
-	public String getName() {
+	public String getDescription() {
 		return name;
 	}
 	
@@ -123,11 +123,11 @@ public class Gruppe implements Wettbewerb {
 		return teamsHaveKader;
 	}
 	
-	public int getStartDate() {
+	public Datum getStartDate() {
 		return startDate;
 	}
 	
-	public int getFinalDate() {
+	public Datum getFinalDate() {
 		return finalDate;
 	}
 	
@@ -170,26 +170,28 @@ public class Gruppe implements Wettbewerb {
 		return "n.a.";
 	}
 	
-	public String getDateAndTime(int matchday, int match) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && match >= 0 && match < numberOfMatchesPerMatchday)
-			return MyDate.datum(getDate(matchday, match)) + " " + MyDate.uhrzeit(getTime(matchday, match));
+	public String getDateAndTime(int matchday, int matchID) {
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != MAX_DATE)
+			return getDate(matchday, matchID).withDividers() + " " + getTime(matchday, matchID).withDividers();
 		else 
 			return "nicht terminiert";
 	}
 	
-	public int getDate(int matchday, int matchID) {
-		return MyDate.shiftDate(startDate, daysSinceFirstDay[matchday][matchID]);
+	public Datum getDate(int matchday, int matchID) {
+		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return MAX_DATE;
+		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
-	public int getTime(int matchday, int matchID) {
+	public Uhrzeit getTime(int matchday, int matchID) {
 		return startTime[matchday][matchID];
 	}
 	
-	public void setDate(int matchday, int matchID, int myDate) {
-		daysSinceFirstDay[matchday][matchID] = MyDate.difference(startDate, myDate);
+	public void setDate(int matchday, int matchID, Datum myDate) {
+		if (myDate == MAX_DATE)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+		else					daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
-	public void setTime(int matchday, int matchID, int myTime) {
+	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
 		startTime[matchday][matchID] = myTime;
 	}
 	
@@ -220,7 +222,7 @@ public class Gruppe implements Wettbewerb {
 				return ms.getId();
 			}
 		}
-		return -1;
+		return UNDEFINED;
 	}
 	
 	public Mannschaft getTeamWithName(String teamsName) {
@@ -228,19 +230,19 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		int today = MyDate.newMyDate();
+		Datum today = Start.today();
 		
-		if (cMatchdaySetForDate != today || cMatchdaySetForOverview) {
-			if (today < getDate(0, 0)) {
+		if (!cMatchdaySetForDate.equals(today) || cMatchdaySetForOverview) {
+			if (today.isBefore(getDate(0, 0))) {
 				currentMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+			} else if (!today.isBefore(getDate(numberOfMatchdays - 1, 0))) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
-				while (today >= getDate(currentMatchday, 0) && getDate(currentMatchday, 0) != 0) {
+				while (!today.isBefore(getDate(currentMatchday, 0))) {
 					currentMatchday++;
 				}
-				if (currentMatchday != 0 && MyDate.difference(getDate(currentMatchday - 1, 0), today) <= MyDate.difference(today, getDate(currentMatchday, 0))) {
+				if (currentMatchday != 0 && getDate(currentMatchday - 1, 0).daysUntil(today) <= today.daysUntil(getDate(currentMatchday, 0))) {
 					currentMatchday--;
 				}
 			}
@@ -252,12 +254,12 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getOverviewMatchday() {
-		int today = MyDate.newMyDate();
+		Datum today = Start.today();
 		
-		if (cMatchdaySetForDate != today || !cMatchdaySetForOverview) {
-			if (today < getDate(0, 0)) {
+		if (!today.equals(cMatchdaySetForDate) || !cMatchdaySetForOverview) {
+			if (today.isBefore(getDate(0, 0))) {
 				currentMatchday = 0;
-			} else if (today >= getDate(numberOfMatchdays - 1, 0) && getDate(numberOfMatchdays - 1, 0) != 0) {
+			} else if (!today.isBefore(getDate(numberOfMatchdays - 1, 0)) && !getDate(numberOfMatchdays - 1, 0).equals(startDate)) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
@@ -265,7 +267,7 @@ public class Gruppe implements Wettbewerb {
 					boolean allResultsSet = true, allPast = true;
 					for (int matchID = 0; matchID < numberOfMatchesPerMatchday && allResultsSet && allPast; matchID++) {
 						allResultsSet = allResultsSet && isResultSet(currentMatchday, matchID);
-						allPast = allPast && getDate(currentMatchday, matchID) <= today;
+						allPast = allPast && !getDate(currentMatchday, matchID).isAfter(today);
 					}
 					if (allResultsSet && allPast)	currentMatchday++;
 					else							break;
@@ -278,20 +280,21 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		int today = MyDate.newMyDate(), time = MyDate.newMyTime();
+		Datum today = Start.today();
+		Uhrzeit time = new Uhrzeit();
 		
-		if (nMatchdaySetForDate != today || time >= nMatchdaySetUntilTime) {
-			nMatchdaySetUntilTime = 2400;
-			if (today < getDate(0, 0)) {
+		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
+			nMatchdaySetUntilTime = END_OF_DAY;
+			if (today.isBefore(getDate(0, 0))) {
 				newestMatchday = 0;
-			} else if (today >= getDate(getNumberOfMatchdays() - 1, 0) && getDate(getNumberOfMatchdays() - 1, 0) != 0) {
-				newestMatchday = getNumberOfMatchdays() - 1;
+			} else if (!today.isBefore(getDate(numberOfMatchdays - 1, 0)) && !getDate(numberOfMatchdays - 1, 0).equals(startDate)) {
+				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
-				while (today > getDate(newestMatchday + 1, 0) || (today == getDate(newestMatchday + 1, 0) && time >= getTime(newestMatchday + 1, 0))) {
+				while (today.isAfter(getDate(newestMatchday + 1, 0)) || (today.equals(getDate(newestMatchday + 1, 0)) && !time.isBefore(getTime(newestMatchday + 1, 0)))) {
 					newestMatchday++;
 				}
-				if (today == getDate(newestMatchday + 1, 0)) {
+				if (today.equals(getDate(newestMatchday + 1, 0))) {
 					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
 				}
 			}
@@ -336,7 +339,7 @@ public class Gruppe implements Wettbewerb {
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID))	representation += "t";
-			else										representation += "f";
+			else								representation += "f";
 		}
 		
 		return representation;
@@ -439,9 +442,9 @@ public class Gruppe implements Wettbewerb {
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (getDate(matchday, m2) > getDate(matchday, m))															hilfsarray[m2]++;
-				else if (getDate(matchday, m2) == getDate(matchday, m) && getTime(matchday, m2) >= getTime(matchday, m))	hilfsarray[m2]++;
-				else																										hilfsarray[m]++;
+				if (getDate(matchday, m2).isAfter(getDate(matchday, m)))																hilfsarray[m2]++;
+				else if (getDate(matchday, m2).equals(getDate(matchday, m)) && !getTime(matchday, m2).isBefore(getTime(matchday, m)))	hilfsarray[m2]++;
+				else																													hilfsarray[m]++;
 			}
 		}
 		
@@ -479,21 +482,21 @@ public class Gruppe implements Wettbewerb {
 		// duplicate old arrays and set new ones
 		Spiel[] oldMatches = new Spiel[numberOfMatchesPerMatchday];
 		Ergebnis[] oldResults = new Ergebnis[numberOfMatchesPerMatchday];
-		int[] oldDaysSinceFirstDay = new int[numberOfMatchesPerMatchday];
-		int[] oldStartTime = new int[numberOfMatchesPerMatchday];
+		Datum[] oldDates = new Datum[numberOfMatchesPerMatchday];
+		Uhrzeit[] oldStartTimes = new Uhrzeit[numberOfMatchesPerMatchday];
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			oldMatches[matchID] = getMatch(matchday, matchID);
 			oldResults[matchID] = getResult(matchday, matchID);
-			oldDaysSinceFirstDay[matchID] = getDate(matchday, matchID);
-			oldStartTime[matchID] = getTime(matchday, matchID);
+			oldDates[matchID] = getDate(matchday, matchID);
+			oldStartTimes[matchID] = getTime(matchday, matchID);
 		}
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			setMatch(matchday, matchID, oldMatches[oldIndicesInNewOrder[matchID]]);
 			setResult(matchday, matchID, oldResults[oldIndicesInNewOrder[matchID]]);
-			setDate(matchday, matchID, oldDaysSinceFirstDay[oldIndicesInNewOrder[matchID]]);
-			setTime(matchday, matchID, oldStartTime[oldIndicesInNewOrder[matchID]]);
+			setDate(matchday, matchID, oldDates[oldIndicesInNewOrder[matchID]]);
+			setTime(matchday, matchID, oldStartTimes[oldIndicesInNewOrder[matchID]]);
 		}
 	}
 	
@@ -515,9 +518,10 @@ public class Gruppe implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				int date = getDate(i, j), time = getTime(i, j);
-				if (isMatchSet(i, j) && (!inThePast(date, time, 145) || !isResultSet(i, j)) && (date > startDate || time > 0)) {
-					long dateAndTime = 10000L * date + time;
+				Datum date = getDate(i, j);
+				Uhrzeit time = getTime(i, j);
+				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j)) && (date.isAfter(startDate) || time.comparable() > 0)) {
+					long dateAndTime = 10000L * date.comparable() + time.comparable();
 					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
@@ -612,7 +616,7 @@ public class Gruppe implements Wettbewerb {
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		results = new Ergebnis[numberOfMatchdays][numberOfMatchesPerMatchday];
 		daysSinceFirstDay = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
-		startTime = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
+		startTime = new Uhrzeit[numberOfMatchdays][numberOfMatchesPerMatchday];
 		
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 		resultsSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
@@ -633,7 +637,7 @@ public class Gruppe implements Wettbewerb {
 					for (matchID = 0; matchID < koTimes.length; matchID++) {
 						String[] dateAndTime = koTimes[matchID].split(",");
 						daysSinceFirstDay[matchday][matchID] = Integer.parseInt(dateAndTime[0]);
-						startTime[matchday][matchID] = Integer.parseInt(dateAndTime[1]);
+						setTime(matchday, matchID, new Uhrzeit(dateAndTime[1]));
 					}
 					
 					for (matchID = 0; (matchID + 2) < split.length; matchID++) {
@@ -649,6 +653,8 @@ public class Gruppe implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
+					daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+					setTime(matchday, matchID, TIME_UNDEFINED);
 					matchID++;
 				}
 			}
@@ -664,10 +670,10 @@ public class Gruppe implements Wettbewerb {
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			String row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
-				for (int matchID = 0; matchID < daysSinceFirstDay[matchday].length; matchID++) {
-					row += daysSinceFirstDay[matchday][matchID] + "," + startTime[matchday][matchID];
-					if ((matchID + 1) < daysSinceFirstDay[matchday].length)	row += ":";
-					else													row += ";";
+				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
+					row += daysSinceFirstDay[matchday][matchID] + "," + getTime(matchday, matchID).comparable();
+					if (matchID + 1 < numberOfMatchesPerMatchday)	row += ":";
+					else											row += ";";
 				}
 				
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {

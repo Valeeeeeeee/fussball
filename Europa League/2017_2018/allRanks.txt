@@ -1,0 +1,378 @@
+Q101W: ND Gorica
+Q101L: Schirak Gjumri
+Q102W: Ertis Pawlodar
+Q102L: Dunaw Russe
+Q103W: Qairat Almaty
+Q103L: Atlantas Klaipeda
+Q104W: Botew Plowdiw
+Q104L: Partizani Tirana
+Q105W: Valur Reykjavík
+Q105L: FK Ventspils
+Q106W: Slovan Bratislava
+Q106L: Pjunik Erewan
+Q107W: AS Trencin
+Q107L: Torpedo Kutaissi
+Q108W: Dinamo Minsk
+Q108L: NSÍ Runavík
+Q109W: Cork City
+Q109L: Levadia Tallinn
+Q110W: Suduva Marijampole
+Q110L: Schachzjor Salihorsk
+Q111W: Rheindorf Altach
+Q111L: Tschichura Satschchere
+Q112W: Jagiellonia Bialystok
+Q112L: Dinamo Batumi
+Q113W: Vaasa PS
+Q113L: Olimpija Ljubljana
+Q114W: KF Shkëndija
+Q114L: Dacia Chisinau
+Q115W: Lyngby BK
+Q115L: Bangor City
+Q116W: Nomme Kalju
+Q116L: B36 Tórshavn
+Q117W: Beitar Jerusalem
+Q117L: Vasas Budapest
+Q118W: Ferencvaros Budapest
+Q118L: FK Jelgava
+Q119W: AEK Larnaka
+Q119L: Lincoln Red Imps FC
+Q120W: Odds Ballklubb
+Q120L: Ballymena United
+Q121W: FK Haugesund
+Q121L: Coleraine FC
+Q122W: FK Zira
+Q122L: FC Differdingen
+Q123W: Lewski Sofia
+Q123L: Sutjeska Niksic
+Q124W: Zaria Balti
+Q124L: FK Sarajevo
+Q125W: NK Osijek
+Q125L: UE Santa Coloma
+Q126W: Fola Esch
+Q126L: FC Milsami
+Q127W: IFK Norrköping
+Q127L: FC Prishtina
+Q128W: Maccabi Tel Aviv
+Q128L: KF Tirana
+Q129W: FC Midtjylland
+Q129L: Derry City
+Q130W: MFK Ruzomberok
+Q130L: Vojvodina Novi Sad
+Q131W: Skënderbeu Korça
+Q131L: UE Sant Julià
+Q132W: AIK Solna
+Q132L: KÍ Klaksvík
+Q133W: HJK Helsinki
+Q133L: Gap Connah's Quay
+Q134W: FC Vaduz
+Q134L: Bala Town
+Q135W: Roter Stern Belgrad
+Q135L: FC Floriana
+Q136W: Inter Baku
+Q136L: Mladost Lucani
+Q137W: NK Domzale
+Q137L: Flora Tallinn
+Q138W: Sikori Brijeg
+Q138L: Ordabassy Schymkent
+Q139W: Mladost Podgorica
+Q139L: Gandsassar Kapan
+Q140W: Rabotnicki Skopje
+Q140L: SP Tre Penne
+Q141W: Lech Posen
+Q141L: Pelister Bitola
+Q142W: Progrès Niederkorn
+Q142L: Glasgow Rangers
+Q143W: FK Trakai
+Q143L: FC St. Johnstone
+Q144W: Videoton Szekesfehervar
+Q144L: FC Balzan
+Q145W: Zeljeznicar Sarajevo
+Q145L: Zeta Golubovci
+Q146W: FK Liepaja
+Q146L: Crusaders FC
+Q147W: FC Valletta
+Q147L: SS Folgore/Falciano
+Q148W: AEL Limassol
+Q148L: St Joseph's FC
+Q149W: Shamrock Rovers
+Q149L: UMF Stjarnan
+Q150W: KR Reykjavík
+Q150L: Seinäjoen Jalkapallokerho
+Q201W: Fola Esch
+Q201L: Inter Baku
+Q202W: Roter Stern Belgrad
+Q202L: Ertis Pawlodar
+Q203W: Skënderbeu Korça
+Q203L: Qairat Almaty
+Q204W: Maccabi Tel Aviv
+Q204L: KR Reykjavík
+Q205W: KF Shkëndija
+Q205L: HJK Helsinki
+Q206W: MFK Ruzomberok
+Q206L: Brann Bergen
+Q207W: Dinamo Minsk
+Q207L: Rabotnicki Skopje
+Q208W: Videoton Szekesfehervar
+Q208L: Nomme Kalju
+Q209W: Brøndby IF
+Q209L: Vaasa PS
+Q210W: Rheindorf Altach
+Q210L: Dinamo Brest
+Q211W: Suduva Marijampole
+Q211L: FK Liepaja
+Q212W: Apollon Limassol
+Q212L: Zaria Balti
+Q213W: Östersunds FK
+Q213L: Galatasaray Istanbul
+Q214W: FK Qäbälä
+Q214L: Jagiellonia Bialystok
+Q215W: Lech Posen
+Q215L: FK Haugesund
+Q216W: Odds Ballklubb
+Q216L: FC Vaduz
+Q217W: Astra Giurgiu
+Q217L: FK Zira
+Q218W: FC Utrecht
+Q218L: FC Valletta
+Q219W: AEL Limassol
+Q219L: Progrès Niederkorn
+Q220W: Botew Plowdiw
+Q220L: Beitar Jerusalem
+Q221W: FK Trakai
+Q221L: IFK Norrköping
+Q222W: Lyngby BK
+Q222L: Slovan Bratislava
+Q223W: Sturm Graz
+Q223L: Mladost Podgorica
+Q224W: Hajduk Split
+Q224L: Lewski Sofia
+Q225W: Bne Jehuda Tel Aviv
+Q225L: AS Trencin
+Q226W: FC Aberdeen
+Q226L: Sikori Brijeg
+Q227W: AEK Larnaka
+Q227L: Cork City
+Q228W: NK Osijek
+Q228L: FC Luzern
+Q229W: AIK Solna
+Q229L: Zeljeznicar Sarajevo
+Q230W: Panionios Athen
+Q230L: ND Gorica
+Q231W: FC Midtjylland
+Q231L: Ferencvaros Budapest
+Q232W: Mladá Boleslav
+Q232L: Shamrock Rovers
+Q233W: NK Domzale
+Q233L: Valur Reykjavík
+Q301W: Skënderbeu Korça
+Q301L: Mladá Boleslav
+Q302W: PAOK Thessaloniki
+Q302L: Olimpik Donezk
+Q303W: KF Shkëndija
+Q303L: FK Trakai
+Q304W: Maccabi Tel Aviv
+Q304L: Panionios Athen
+Q305W: FK Krasnodar
+Q305L: Lyngby BK
+Q306W: NK Osijek
+Q306L: PSV Eindhoven
+Q307W: Suduva Marijampole
+Q307L: FC Sion
+Q308W: Östersunds FK
+Q308L: Fola Esch
+Q309W: FC Utrecht
+Q309L: Lech Posen
+Q310W: Fenerbahce Istanbul
+Q310L: Sturm Graz
+Q311W: AEK Larnaka
+Q311L: Dinamo Minsk
+Q312W: Sporting Braga
+Q312L: AIK Solna
+Q313W: Athletic Bilbao
+Q313L: Dinamo Bukarest
+Q314W: PFK Olexandrija
+Q314L: Astra Giurgiu
+Q315W: Marítimo Funchal
+Q315L: Botew Plowdiw
+Q316W: Zenit St. Petersburg
+Q316L: Bne Jehuda Tel Aviv
+Q317W: AC Mailand
+Q317L: CSU Craiova
+Q318W: FC Midtjylland
+Q318L: Arka Gdynia
+Q319W: Hajduk Split
+Q319L: Brøndby IF
+Q320W: Videoton Szekesfehervar
+Q320L: Girondins Bordeaux
+Q321W: Rheindorf Altach
+Q321L: KAA Gent
+Q322W: Panathinaikos Athen
+Q322L: FK Qäbälä
+Q323W: Roter Stern Belgrad
+Q323L: Sparta Prag
+Q324W: Olympique Marseille
+Q324L: KV Ostende
+Q325W: Dinamo Zagreb
+Q325L: Odds Ballklubb
+Q326W: Apollon Limassol
+Q326L: FC Aberdeen
+Q327W: NK Domzale
+Q327L: SC Freiburg
+Q328W: FC Everton
+Q328L: MFK Ruzomberok
+Q329W: Austria Wien
+Q329L: AEL Limassol
+PO01W: Zenit St. Petersburg
+PO01L: FC Utrecht
+PO02W: Roter Stern Belgrad
+PO02L: FK Krasnodar
+PO03W: Skënderbeu Korça
+PO03L: Dinamo Zagreb
+PO04W: Apollon Limassol
+PO04L: FC Midtjylland
+PO05W: BATE Baryssau
+PO05L: PFK Olexandrija
+PO06W: Sporting Braga
+PO06L: FH Hafnarfjörður
+PO07W: Östersunds FK
+PO07L: PAOK Thessaloniki
+PO08W: Vardar Skopje
+PO08L: Fenerbahce Istanbul
+PO09W: Viktoria Pilsen
+PO09L: AEK Larnaka
+PO10W: Maccabi Tel Aviv
+PO10L: Rheindorf Altach
+PO11W: Athletic Bilbao
+PO11L: Panathinaikos Athen
+PO12W: Ludogorez Rasgrad
+PO12L: Suduva Marijampole
+PO13W: Austria Wien
+PO13L: NK Osijek
+PO14W: AC Mailand
+PO14L: KF Shkëndija
+PO15W: Olympique Marseille
+PO15L: NK Domzale
+PO16W: Sheriff Tiraspol
+PO16L: Legia Warschau
+PO17W: FC Salzburg
+PO17L: Viitorul Constanta
+PO18W: Rosenborg Trondheim
+PO18L: Ajax Amsterdam
+PO19W: AEK Athen
+PO19L: FC Brügge
+PO20W: Partizan Belgrad
+PO20L: Videoton Szekesfehervar
+PO21W: FC Everton
+PO21L: Hajduk Split
+PO22W: Dynamo Kiew
+PO22L: Marítimo Funchal
+GA1: EL2017GA1
+GA2: EL2017GA2
+GA3: EL2017GA3
+GA4: EL2017GA4
+GB1: EL2017GB1
+GB2: EL2017GB2
+GB3: EL2017GB3
+GB4: EL2017GB4
+GC1: EL2017GC1
+GC2: EL2017GC2
+GC3: EL2017GC3
+GC4: EL2017GC4
+GD1: EL2017GD1
+GD2: EL2017GD2
+GD3: EL2017GD3
+GD4: EL2017GD4
+GE1: EL2017GE1
+GE2: EL2017GE2
+GE3: EL2017GE3
+GE4: EL2017GE4
+GF1: EL2017GF1
+GF2: EL2017GF2
+GF3: EL2017GF3
+GF4: EL2017GF4
+GG1: EL2017GG1
+GG2: EL2017GG2
+GG3: EL2017GG3
+GG4: EL2017GG4
+GH1: EL2017GH1
+GH2: EL2017GH2
+GH3: EL2017GH3
+GH4: EL2017GH4
+GI1: EL2017GI1
+GI2: EL2017GI2
+GI3: EL2017GI3
+GI4: EL2017GI4
+GJ1: EL2017GJ1
+GJ2: EL2017GJ2
+GJ3: EL2017GJ3
+GJ4: EL2017GJ4
+GK1: EL2017GK1
+GK2: EL2017GK2
+GK3: EL2017GK3
+GK4: EL2017GK4
+GL1: EL2017GL1
+GL2: EL2017GL2
+GL3: EL2017GL3
+GL4: EL2017GL4
+SF01W: EL2017SF01W
+SF01L: EL2017SF01L
+SF02W: EL2017SF02W
+SF02L: EL2017SF02L
+SF03W: EL2017SF03W
+SF03L: EL2017SF03L
+SF04W: EL2017SF04W
+SF04L: EL2017SF04L
+SF05W: EL2017SF05W
+SF05L: EL2017SF05L
+SF06W: EL2017SF06W
+SF06L: EL2017SF06L
+SF07W: EL2017SF07W
+SF07L: EL2017SF07L
+SF08W: EL2017SF08W
+SF08L: EL2017SF08L
+SF09W: EL2017SF09W
+SF09L: EL2017SF09L
+SF10W: EL2017SF10W
+SF10L: EL2017SF10L
+SF11W: EL2017SF11W
+SF11L: EL2017SF11L
+SF12W: EL2017SF12W
+SF12L: EL2017SF12L
+SF13W: EL2017SF13W
+SF13L: EL2017SF13L
+SF14W: EL2017SF14W
+SF14L: EL2017SF14L
+SF15W: EL2017SF15W
+SF15L: EL2017SF15L
+SF16W: EL2017SF16W
+SF16L: EL2017SF16L
+AF01W: EL2017AF01W
+AF01L: EL2017AF01L
+AF02W: EL2017AF02W
+AF02L: EL2017AF02L
+AF03W: EL2017AF03W
+AF03L: EL2017AF03L
+AF04W: EL2017AF04W
+AF04L: EL2017AF04L
+AF05W: EL2017AF05W
+AF05L: EL2017AF05L
+AF06W: EL2017AF06W
+AF06L: EL2017AF06L
+AF07W: EL2017AF07W
+AF07L: EL2017AF07L
+AF08W: EL2017AF08W
+AF08L: EL2017AF08L
+VF01W: EL2017VF01W
+VF01L: EL2017VF01L
+VF02W: EL2017VF02W
+VF02L: EL2017VF02L
+VF03W: EL2017VF03W
+VF03L: EL2017VF03L
+VF04W: EL2017VF04W
+VF04L: EL2017VF04L
+HF01W: EL2017HF01W
+HF01L: EL2017HF01L
+HF02W: EL2017HF02W
+HF02L: EL2017HF02L
+FI01W: EL2017FI01W
+FI01L: EL2017FI01L

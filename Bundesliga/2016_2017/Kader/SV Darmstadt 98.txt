@@ -1,0 +1,38 @@
+Igor;Berezovskyi;null;19900824;Ukraine;Tor;24
+Michael;Esser;null;19871122;Deutschland;Tor;31
+Daniel;'Heuer Fernandes';null;19921113;Portugal;Tor;1
+Can Luka;Aydogan;null;19981231;Deutschland;Abwehr;27
+Patrick;Banggaard;null;19940404;Dänemark;Abwehr;26;20170131-
+Artem;Fedetskyy;null;19850426;Ukraine;Abwehr;7
+György;Garics;null;19840308;Österreich, Ungarn;Abwehr;13;-20160829
+Benjamin;Gorka;null;19840415;Deutschland;Abwehr;5
+Leon;Guwara;null;19960628;Deutschland;Abwehr;2;20160831-
+Immanuel;Höhn;null;19911223;Deutschland;Abwehr;21
+Fabian;Holland;null;19900711;Deutschland;Abwehr;32
+Júnior Enrique;Díaz Campbell;Junior Díaz;19830912;Costa Rica;Abwehr;15;-20160829
+Alexander;Milosevic;null;19920130;Schweden;Abwehr;3
+Sandro;Sirigu;null;19881007;Deutschland, Italien;Abwehr;17
+Aytaç;Sulu;null;19851211;Türkei, Deutschland;Abwehr;4
+Daniel;Thur;null;19980428;Deutschland;Abwehr;38
+Johannes;Wolff;null;19980710;Deutschland;Abwehr;35
+Hamit;Altintop;null;19821208;Türkei;Mittelfeld;34;20170131-
+Änis;Ben-Hatira;null;19880718;Deutschland, Tunesien;Mittelfeld;28;-20170124
+Liam;Fisch;null;19981123;Deutschland;Mittelfeld;37
+Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
+Marcel;Heller;null;19860212;Deutschland;Mittelfeld;20
+Florian;Jungwirth;null;19890127;Deutschland;Mittelfeld;23;-20170130
+Wilson;Kamavuaka;null;19900329;DR Kongo;Mittelfeld;36;20170131-
+László;Kleinheisler;null;19940408;Ungarn;Mittelfeld;30;-20170122
+Peter;Niemeyer;null;19831122;Deutschland;Mittelfeld;18
+Denys;Oliinyk;null;19870616;Ukraine;Mittelfeld;22
+Jan;Rosenthal;null;19860407;Deutschland;Mittelfeld;10
+Sidney;Sam;null;19880131;Deutschland;Mittelfeld;33;20170101-
+Markus;Steinhöfer;null;19860307;Deutschland;Mittelfeld;13;20170101-
+Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;6
+Roman;Bejzak;null;19890221;Slowenien;Sturm;14;20160829-20170213
+Terrence;Boyd;null;19910216;USA;Sturm;15;20170124-
+Antonio-Mirko;Colak;null;19930917;Deutschland, Kroatien;Sturm;16
+Victor;Obinna;null;19870325;Nigeria;Sturm;11;-20170130
+Felix;Platte;null;19960211;Deutschland;Sturm;19
+Sven;Schipplock;null;19881108;Deutschland;Sturm;39
+Dominik;Stroh-Engel;null;19851127;Deutschland;Sturm;9
