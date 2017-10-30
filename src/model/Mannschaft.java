@@ -377,6 +377,7 @@ public class Mannschaft {
 		if (index >= 6 && index <= 8) {
 			int nOfG = 0, nOfCG = 0;
 			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (isElementOf(data[matchday][0], excludedTeams))	continue;
 				nOfG += data[matchday][1];
 				nOfCG += data[matchday][2];
 			}
