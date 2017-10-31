@@ -576,11 +576,11 @@ public class Mannschaft {
 		int halfNumberOfMatchesASO = competition.getNumberOfMatchesAgainstSameOpponent() / 2;
 		String[] resultsOpponent = new String[competition.getNumberOfMatchesAgainstSameOpponent()];
 		for (int i = 0; i < resultsOpponent.length; i++) {
-			resultsOpponent[i] = "2;-:-";
+			resultsOpponent[i] = "-2;--";
 		}
 		if (opponent == this) {
 			for (int i = 0; i < resultsOpponent.length; i++) {
-				resultsOpponent[i] = "2;n/a";
+				resultsOpponent[i] = "-3;n/a";
 			}
 		} else {
 			int counterH = 0, counterA = 0;
@@ -589,7 +589,7 @@ public class Mannschaft {
 					String result = data[i][GOALS] + ":" + data[i][CGOALS];
 					if (results[i] != null) {
 						result = data[i][POINTS] + ";" + result;
-					} else	result = "2;-:-";
+					} else	result = "-1;-:-";
 					if (homeaway[i])	resultsOpponent[counterH++] = result;
 					else				resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
 				}
