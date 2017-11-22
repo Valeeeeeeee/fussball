@@ -21,6 +21,7 @@ Michael;Gregoritsch;null;19940418;Österreich;Mittelfeld;11
 Alen;Halilovic;null;19960618;Kroatien;Mittelfeld;23;-20170125
 Lewis;Holtby;null;19900918;Deutschland;Mittelfeld;8
 Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;14
+Vasilije;Janjicic;null;19981102;Schweiz;Mittelfeld;16;20170101-
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;17
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Finn;Porath;null;19970223;Deutschland;Mittelfeld;34
