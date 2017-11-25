@@ -1,0 +1,21 @@
+Manuel;Neuer;null;19860327;Deutschland;Tor;1
+Sven;Ulreich;null;19880803;Deutschland;Tor;26
+David;Alaba;null;19920624;Österreich;Abwehr;27
+Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;14
+Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
+Mats;Hummels;null;19881216;Deutschland;Abwehr;5
+'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
+Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
+Niklas;Süle;null;19950903;Deutschland;Abwehr;4
+Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
+Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29
+James David;Rodríguez Rubio;James;19910712;Mittelfeld;Mittelfeld;11
+Joshua;Kimmich;null;19950208;Deutschland;Mittelfeld;32
+Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
+Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
+Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19
+Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;35;-20170830
+Corentin;Tolisso;null;19940803;Mittelfeld;Mittelfeld;24
+Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
+Robert;Lewandowski;null;19880821;Polen;Sturm;9
+Thomas;Müller;null;19890913;Deutschland;Sturm;25
