@@ -251,6 +251,21 @@ public class Ergebnis {
 		return true;
 	}
 	
+	public boolean equals(Object object) {
+		if (!(object instanceof Ergebnis))	return false;
+		Ergebnis other = (Ergebnis) object;
+		boolean equals = true;
+		
+		for (int i = 0; i < home.length && equals; i++) {
+			equals = equals && home[i] == other.home[i] && away[i] == other.away[i];
+		}
+		equals = equals && finishedInRegularTime == other.finishedInRegularTime;
+		equals = equals && finishedInExtraTime == other.finishedInExtraTime;
+		equals = equals && amGruenenTisch == other.amGruenenTisch;
+		
+		return equals;
+	}
+	
 	public String toString() {
 		String toString = home(REGULAR) + ":" + away(REGULAR);
 		
