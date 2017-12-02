@@ -571,6 +571,39 @@ public class Mannschaft {
 		
 		return null;
 	}
+
+	public int[] order(int[] unordered, Datum date) {
+		ArrayList<Spieler> eligiblePlayers = getEligiblePlayers(date, false);
+		
+		int counter = 0;
+		int[] ordered = new int[11];
+		boolean[] sqFound = new boolean[11];
+		for (Spieler player : eligiblePlayers) {
+			for (int i = 0; i < unordered.length; i++) {
+				if (unordered[i] == player.getSquadNumber()) {
+					if (sqFound[i]) {
+						message("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
+						log("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
+					}
+					if (counter == 11)	message("Mehr als 11 Spieler gefunden: (s.o.)");
+					ordered[counter++] = unordered[i];
+					sqFound[i] = true;
+				}
+			}
+		}
+		if (counter != 11) {
+			String numbers = "", sep = "";
+			for (int i = 0; i < sqFound.length; i++) {
+				if (!sqFound[i]) {
+					numbers += sep + unordered[i];
+					sep = ", ";
+				}
+			}
+			message("Home - Kein Spieler gefunden für diese Rückennummer(n): " + numbers);
+		}
+		
+		return ordered;
+	}
 	
 	public String[] getResultsAgainst(Mannschaft opponent) {
 		int halfNumberOfMatchesASO = competition.getNumberOfMatchesAgainstSameOpponent() / 2;
