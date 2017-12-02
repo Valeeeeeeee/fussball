@@ -36,3 +36,4 @@ Victor;Obinna;null;19870325;Nigeria;Sturm;11;-20170130
 Felix;Platte;null;19960211;Deutschland;Sturm;19
 Sven;Schipplock;null;19881108;Deutschland;Sturm;39
 Dominik;Stroh-Engel;null;19851127;Deutschland;Sturm;9
+Silas;Zehnder;null;19990628;Deutschland;Sturm;40
