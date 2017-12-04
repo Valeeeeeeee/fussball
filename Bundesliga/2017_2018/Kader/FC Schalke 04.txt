@@ -16,6 +16,7 @@ Johannes;Geis;null;19930817;Deutschland;Mittelfeld;6;-20170831
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Amine;Harit;null;19970618;Frankreich;Mittelfeld;25
 Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11
+Weston;McKennie;null;19980828;USA;Mittelfeld;2
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Sidney;Sam;null;19880131;Deutschland;Mittelfeld;40;-20170830
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;28
