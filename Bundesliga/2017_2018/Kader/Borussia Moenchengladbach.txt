@@ -24,3 +24,4 @@ Josip;Drmic;null;19920808;Schweiz;Sturm;18
 Thorgan;Hazard;null;19930329;Belgien;Sturm;10
 Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
 Lars;Stindl;null;19880826;Deutschland;Sturm;13
+Julio;Villalba;null;19980917;Paraguay;Sturm;20

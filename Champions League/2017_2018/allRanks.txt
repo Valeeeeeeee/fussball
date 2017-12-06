@@ -92,22 +92,22 @@ PO09W: Celtic Glasgow
 PO09L: FK Astana
 PO10W: FC Sevilla
 PO10L: Istanbul Basaksehir
-GA1: CL2017GA1
-GA2: CL2017GA2
-GA3: CL2017GA3
-GA4: CL2017GA4
-GB1: CL2017GB1
-GB2: CL2017GB2
-GB3: CL2017GB3
-GB4: CL2017GB4
-GC1: CL2017GC1
-GC2: CL2017GC2
-GC3: CL2017GC3
-GC4: CL2017GC4
-GD1: CL2017GD1
-GD2: CL2017GD2
-GD3: CL2017GD3
-GD4: CL2017GD4
+GA1: Manchester United
+GA2: FC Basel
+GA3: ZSKA Moskau
+GA4: Benfica Lissbon
+GB1: Paris Saint-Germain
+GB2: Bayern München
+GB3: Celtic Glasgow
+GB4: RSC Anderlecht
+GC1: AS Rom
+GC2: FC Chelsea
+GC3: Atlético Madrid
+GC4: Qarabag Agdam
+GD1: FC Barcelona
+GD2: Juventus Turin
+GD3: Sporting Lissabon
+GD4: Olympiakos Piräus
 GE1: CL2017GE1
 GE2: CL2017GE2
 GE3: CL2017GE3
