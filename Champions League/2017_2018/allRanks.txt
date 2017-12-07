@@ -108,22 +108,22 @@ GD1: FC Barcelona
 GD2: Juventus Turin
 GD3: Sporting Lissabon
 GD4: Olympiakos Piräus
-GE1: CL2017GE1
-GE2: CL2017GE2
-GE3: CL2017GE3
-GE4: CL2017GE4
-GF1: CL2017GF1
-GF2: CL2017GF2
-GF3: CL2017GF3
-GF4: CL2017GF4
-GG1: CL2017GG1
-GG2: CL2017GG2
-GG3: CL2017GG3
-GG4: CL2017GG4
-GH1: CL2017GH1
-GH2: CL2017GH2
-GH3: CL2017GH3
-GH4: CL2017GH4
+GE1: FC Liverpool
+GE2: FC Sevilla
+GE3: Spartak Moskau
+GE4: NK Maribor
+GF1: Manchester City
+GF2: Schachtar Donezk
+GF3: SSC Neapel
+GF4: Feyenoord Rotterdam
+GG1: Besiktas Istanbul
+GG2: FC Porto
+GG3: RB Leipzig
+GG4: AS Monaco
+GH1: Tottenham Hotspurs
+GH2: Real Madrid
+GH3: Borussia Dortmund
+GH4: APOEL Nikosia
 AF01W: CL2017AF01W
 AF01L: CL2017AF01L
 AF02W: CL2017AF02W
