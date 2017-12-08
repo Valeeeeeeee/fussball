@@ -266,54 +266,54 @@ PO21W: FC Everton
 PO21L: Hajduk Split
 PO22W: Dynamo Kiew
 PO22L: Marítimo Funchal
-GA1: EL2017GA1
-GA2: EL2017GA2
-GA3: EL2017GA3
-GA4: EL2017GA4
-GB1: EL2017GB1
-GB2: EL2017GB2
-GB3: EL2017GB3
-GB4: EL2017GB4
-GC1: EL2017GC1
-GC2: EL2017GC2
-GC3: EL2017GC3
-GC4: EL2017GC4
-GD1: EL2017GD1
-GD2: EL2017GD2
-GD3: EL2017GD3
-GD4: EL2017GD4
-GE1: EL2017GE1
-GE2: EL2017GE2
-GE3: EL2017GE3
-GE4: EL2017GE4
-GF1: EL2017GF1
-GF2: EL2017GF2
-GF3: EL2017GF3
-GF4: EL2017GF4
-GG1: EL2017GG1
-GG2: EL2017GG2
-GG3: EL2017GG3
-GG4: EL2017GG4
-GH1: EL2017GH1
-GH2: EL2017GH2
-GH3: EL2017GH3
-GH4: EL2017GH4
-GI1: EL2017GI1
-GI2: EL2017GI2
-GI3: EL2017GI3
-GI4: EL2017GI4
-GJ1: EL2017GJ1
-GJ2: EL2017GJ2
-GJ3: EL2017GJ3
-GJ4: EL2017GJ4
-GK1: EL2017GK1
-GK2: EL2017GK2
-GK3: EL2017GK3
-GK4: EL2017GK4
-GL1: EL2017GL1
-GL2: EL2017GL2
-GL3: EL2017GL3
-GL4: EL2017GL4
+GA1: FC Villarreal
+GA2: FK Astana
+GA3: Slavia Prag
+GA4: Maccabi Tel Aviv
+GB1: Dynamo Kiew
+GB2: Partizan Belgrad
+GB3: Young Boys Bern
+GB4: Skënderbeu Korça
+GC1: Sporting Braga
+GC2: Ludogorez Rasgrad
+GC3: Istanbul Basaksehir
+GC4: TSG 1899 Hoffenheim
+GD1: AC Mailand
+GD2: AEK Athen
+GD3: HNK Rijeka
+GD4: Austria Wien
+GE1: Atalanta Bergamo
+GE2: Olympique Lyon
+GE3: FC Everton
+GE4: Apollon Limassol
+GF1: Lokomotive Moskau
+GF2: FC Kopenhagen
+GF3: Sheriff Tiraspol
+GF4: Fastav Zlín
+GG1: Viktoria Pilsen
+GG2: Steaua Bukarest
+GG3: FC Lugano
+GG4: Hapoel Be'er Sheva
+GH1: FC Arsenal
+GH2: Roter Stern Belgrad
+GH3: 1. FC Köln
+GH4: BATE Baryssau
+GI1: FC Salzburg
+GI2: Olympique Marseille
+GI3: Konyaspor
+GI4: Vitória Guimarães
+GJ1: Athletic Bilbao
+GJ2: Östersunds FK
+GJ3: Sorja Luhansk
+GJ4: Hertha BSC
+GK1: Lazio Rom
+GK2: OGC Nizza
+GK3: Zulte Waregem
+GK4: Vitesse Arnheim
+GL1: Zenit St. Petersburg
+GL2: Real Sociedad San Sebastián
+GL3: Rosenborg Trondheim
+GL4: Vardar Skopje
 SF01W: EL2017SF01W
 SF01L: EL2017SF01L
 SF02W: EL2017SF02W
