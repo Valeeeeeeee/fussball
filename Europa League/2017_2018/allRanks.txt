@@ -314,8 +314,8 @@ GL1: Zenit St. Petersburg
 GL2: Real Sociedad San Sebastián
 GL3: Rosenborg Trondheim
 GL4: Vardar Skopje
-SF01W: EL2017SF01W
-SF01L: EL2017SF01L
+SF01W: ZSKA Moskau
+SF01L: Roter Stern Belgrad
 SF02W: EL2017SF02W
 SF02L: EL2017SF02L
 SF03W: EL2017SF03W
