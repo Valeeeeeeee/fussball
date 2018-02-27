@@ -10,6 +10,7 @@ Timothée;Kolodziejczak;null;19911001;Frankreich;Abwehr;25;-20170905
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
 Oscar;Wendt;null;19851024;Schweden;Abwehr;17
 László;Bénes;null;19970909;Slowakei;Mittelfeld;22
+Michaël;Cuisance;null;19990816;Frankreich;Mittelfeld;27
 Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
 Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;23
