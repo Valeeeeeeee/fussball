@@ -124,10 +124,10 @@ GH1: Tottenham Hotspurs
 GH2: Real Madrid
 GH3: Borussia Dortmund
 GH4: APOEL Nikosia
-AF01W: CL2017AF01W
-AF01L: CL2017AF01L
-AF02W: CL2017AF02W
-AF02L: CL2017AF02L
+AF01W: Manchester City
+AF01L: FC Basel
+AF02W: Juventus Turin
+AF02L: Tottenham Hotspurs
 AF03W: FC Liverpool
 AF03L: FC Porto
 AF04W: Real Madrid
