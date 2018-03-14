@@ -132,10 +132,10 @@ AF03W: FC Liverpool
 AF03L: FC Porto
 AF04W: Real Madrid
 AF04L: Paris Saint-Germain
-AF05W: CL2017AF05W
-AF05L: CL2017AF05L
-AF06W: CL2017AF06W
-AF06L: CL2017AF06L
+AF05W: Bayern München
+AF05L: Besiktas Istanbul
+AF06W: FC Barcelona
+AF06L: FC Chelsea
 AF07W: FC Sevilla
 AF07L: Manchester United
 AF08W: AS Rom
