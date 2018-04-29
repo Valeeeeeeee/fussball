@@ -29,7 +29,7 @@ ttttt;1:0;1:1;0:1;2:4;0:2;
 ttttt;1:1;1:2;2:1;1:0;0:1;
 ttttt;1:0;0:1;2:2;4:0;0:1;
 ttttt;0:1;4:3;4:1;2:2;2:1;
-fffff;
+ttfff;2:1;0:1;null;null;null;
 fffff;
 fffff;
 fffff;
