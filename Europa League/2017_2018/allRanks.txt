@@ -374,5 +374,5 @@ HF01W: Atlético Madrid
 HF01L: FC Arsenal
 HF02W: Olympique Marseille
 HF02L: FC Salzburg
-FI01W: EL2017FI01W
-FI01L: EL2017FI01L
+FI01W: Atlético Madrid
+FI01L: Olympique Marseille
