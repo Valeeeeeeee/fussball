@@ -122,5 +122,5 @@ HF01W: Bayern München
 HF01L: Bayer 04 Leverkusen
 HF02W: Eintracht Frankfurt
 HF02L: FC Schalke 04
-FI01W: DP2017FI01W
-FI01L: DP2017FI01L
+FI01W: Eintracht Frankfurt
+FI01L: Bayern München
