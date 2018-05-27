@@ -7,6 +7,7 @@ Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
 Matthias;Ginter;null;19940119;Deutschland;Abwehr;28
 Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
 Timothée;Kolodziejczak;null;19911001;Frankreich;Abwehr;25;-20170905
+Reece;Oxford;null;19981216;England;Abwehr;3;-20171231,20180131-
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
 Oscar;Wendt;null;19851024;Schweden;Abwehr;17
 László;Bénes;null;19970909;Slowakei;Mittelfeld;22
