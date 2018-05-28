@@ -1,6 +1,7 @@
 Rune;Jarstein;null;19840929;Norwegen;Tor;22
 Nils-Jonathan;Körber;null;19961113;Deutschland;Tor;29
 Thomas;Kraft;null;19880722;Deutschland;Tor;1
+Florian;Baak;null;19990318;Deutschland;Abwehr;39
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
@@ -19,6 +20,7 @@ Genki;Haraguchi;null;19910509;Japan;Mittelfeld;24
 Jens;Hegeler;null;19880122;Deutschland;Mittelfeld;13;-20161231
 Florian;Kohls;null;19950403;Deutschland;Mittelfeld;31
 Sinan;Kurt;null;19960723;Deutschland;Mittelfeld;18
+Arne;Maier;null;19990108;Deutschland;Mittelfeld;33
 Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;Mittelfeld;12;-20160830
 Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
 Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14

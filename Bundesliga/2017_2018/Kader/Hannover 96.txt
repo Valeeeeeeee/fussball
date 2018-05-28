@@ -1,0 +1,25 @@
+Michael;Esser;null;19871122;Deutschland;Tor;23
+Samuel;Sahin-Radlinger;null;19921107;Österreich;Tor;30
+Philipp;Tschauner;null;19851103;Deutschland;Tor;1
+Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
+Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
+Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;5
+Florian;Hübner;null;19910301;Deutschland;Abwehr;19
+Julian;Korb;null;19920321;Deutschland;Abwehr;4
+Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
+Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;20
+Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
+Marvin;Bakalorz;null;19890913;Deutschland;Mittelfeld;6
+Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17
+Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18
+Felix;Klaus;null;19920913;Deutschland;Mittelfeld;11
+Sebastian;Maier;null;19930918;Deutschland;Mittelfeld;10
+Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
+Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
+Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;27
+Ihlas;Bebou;null;19940423;Deutschland, Togo;Sturm;13;20170831-
+Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
+Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
+Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
+Jonathas Cristian;de Jesus Mauricio;Jonathas;19890306;Brasilien;Sturm;9;20170822-
+Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26

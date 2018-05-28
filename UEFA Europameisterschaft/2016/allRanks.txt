@@ -14,8 +14,8 @@ QGC1: Spanien
 QGC2: Slowakei
 QGC3: Ukraine
 QGC4: Weißrussland
-QGC5: Mazedonien
-QGC6: Luxemburg
+QGC5: Luxemburg
+QGC6: Mazedonien
 QGD1: Deutschland
 QGD2: Polen
 QGD3: Irland

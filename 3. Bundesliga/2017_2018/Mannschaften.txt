@@ -5,13 +5,13 @@ Karlsruher SC;01.01.1970
 FSV Zwickau;01.01.1970
 VfL Osnabrück;01.01.1970
 SV Wehen Wiesbaden;01.01.1970
-Chemnitzer FC;01.01.1970
+Chemnitzer FC;01.01.1970;-9
 Preußen Münster;01.01.1970
 SG Sonnenhof Großaspach;01.01.1970
 VfR Aalen;01.01.1970
 Sportfreunde Lotte;01.01.1970
 Hallescher FC;01.01.1970
-Rot-Weiß Erfurt;01.01.1970
+Rot-Weiß Erfurt;01.01.1970;-10
 Hansa Rostock;01.01.1970
 Fortuna Köln;01.01.1970
 Werder Bremen II;01.01.1970

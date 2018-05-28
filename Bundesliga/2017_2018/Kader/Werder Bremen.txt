@@ -1,0 +1,25 @@
+Jaroslav;Drobny;null;19791018;Tschechien;Tor;33
+Jiri;Pavlenka;null;19920414;Tschechien;Tor;1
+Michael;Zetterer;null;19950712;Deutschland;Tor;30
+Ludwig;Augustinsson;null;19940421;Schweden;Abwehr;5
+Robert;Bauer;null;19950409;Deutschland;Abwehr;4
+Luca;Caldirola;null;19910201;Italien;Abwehr;3
+Ulisses;Garcia;null;19960111;Schweiz;Abwehr;20
+Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
+Niklas;Moisander;null;19850929;Finnland;Abwehr;18
+Lamine;Sané;null;19870322;Senegal;Abwehr;26
+Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
+Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
+Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
+Thomas;Delaney;null;19910903;Dänemark;Mittelfeld;6
+Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
+Justin;Eilers;null;19880613;Deutschland;Mittelfeld;17
+Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
+Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;15
+Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
+Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
+Thanos;Petsos;null;19910605;Griechenland;Mittelfeld;25;-20170829
+Ishak;Belfodil;null;19920112;Algerien;Sturm;29;20170831-
+Johannes;Eggestein;null;19980508;Deutschland;Sturm;24
+Aron;Jóhannsson;null;19901110;USA, Island;Sturm;9
+Max;Kruse;null;19880319;Deutschland;Sturm;10

@@ -22,6 +22,7 @@ Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;18;20170125-
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;5
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11;20160830-
+Weston;McKennie;null;19980828;USA;Mittelfeld;2;20160828-
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Sidney;Sam;null;19880131;Deutschland;Mittelfeld;18;-20161231
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;21

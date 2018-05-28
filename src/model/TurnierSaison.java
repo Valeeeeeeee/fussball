@@ -40,6 +40,7 @@ public class TurnierSaison {
 	private boolean hasQKOStage;
 	private boolean hasSecondLegQGroupStage;
 	private boolean goalDifferenceQGroupStage;
+	private int untilRankBestQGroupXths = 5;
 	
 	private Spieltag qOverview;
 	private Gruppe[] qGroups;
@@ -433,7 +434,7 @@ public class TurnierSaison {
 				Gruppe[] grps = isQ ? qGroups : groups;
 				int xBest = (int) teamsorigin.charAt(2) - 48;
 				int placeindex = (int) teamsorigin.charAt(1) - 48;
-				int untilRank = Integer.MAX_VALUE;
+				int untilRank = isQ ? untilRankBestQGroupXths : Integer.MAX_VALUE;
 				ArrayList<Mannschaft> groupXth = new ArrayList<>();
 				ArrayList<Integer> order = new ArrayList<>();
 				for (int i = 0; i < nOfGroups; i++) {
@@ -610,6 +611,7 @@ public class TurnierSaison {
 			hasQGroupStage = true;
 			hasSecondLegQGroupStage = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
 			goalDifferenceQGroupStage = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
+			untilRankBestQGroupXths = Integer.parseInt(qualificationDataFromFile.get(index++));
 			qGroups = new Gruppe[numberOfQGroups];
 			for (int i = 0; i < numberOfQGroups; i++)	qGroups[i] = new Gruppe(this, i, true, goalDifferenceQGroupStage);
 			{
@@ -639,6 +641,7 @@ public class TurnierSaison {
 		if (hasQGroupStage) {
 			qualificationDataFromFile.add("" + hasSecondLegQGroupStage);
 			qualificationDataFromFile.add("" + goalDifferenceQGroupStage);
+			qualificationDataFromFile.add("" + untilRankBestQGroupXths);
 			for (Gruppe group : qGroups)	group.save();
 		}
 		

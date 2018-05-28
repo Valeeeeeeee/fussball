@@ -237,6 +237,8 @@ public class Spiel {
 			if (matchDataSplit.length == 4) {
 				lineupHome = parseLineup(matchDataSplit[2], true);
 				lineupAway = parseLineup(matchDataSplit[3], false);
+				lineupHome = homeTeam.order(lineupHome, date);
+				lineupAway = awayTeam.order(lineupAway, date);
 			}
 		}
 	}

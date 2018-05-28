@@ -1102,6 +1102,7 @@ public class Uebersicht extends JPanel {
 				if (points == 3)		jLblsResultsValues[place][j].setBackground(Color.green);
 				else if (points == 1)	jLblsResultsValues[place][j].setBackground(Color.white);
 				else if (points == 0)	jLblsResultsValues[place][j].setBackground(Color.red);
+				else if (points == -2)	jLblsResultsValues[place][j].setBackground(Color.gray);
 				else					jLblsResultsValues[place][j].setBackground(null);
 				jLblsResultsValues[place][j].setText(split[1]);
 			}

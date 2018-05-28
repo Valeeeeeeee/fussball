@@ -1,0 +1,33 @@
+Roman;Bürki;null;19901114;Schweiz;Tor;38
+Dominik;Reimann;null;19970618;Deutschland;Tor;35
+Roman;Weidenfeller;null;19800806;Deutschland;Tor;1
+Marc;Bartra;null;19910115;Spanien;Abwehr;5
+Erik;Durm;null;19920512;Deutschland;Abwehr;37
+Raphael;Guerreiro;null;19931222;Portugal;Abwehr;13
+Joo-Ho;Park;null;19870116;Südkorea;Abwehr;3;-20171202
+Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
+Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
+Sokratis;Papastathopoulos;Sokratis;19880609;Griechenland;Abwehr;25
+Neven;Subotic;null;19881210;USA, Serbien;Abwehr;4
+Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15;20170830-
+Ömer;Toprak;null;19890721;Deutschland, Türkei;Abwehr;36
+Dan-Axel;Zagadou;null;19990603;Frankreich;Abwehr;2
+Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
+Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;19
+Mario;Götze;null;19920603;Deutschland;Mittelfeld;10
+Shinji;Kagawa;null;19890317;Japan;Mittelfeld;23
+Emre;Mor;null;19970724;Türkei;Mittelfeld;9;-20170827
+Felix;Passlack;null;19980528;Deutschland;Mittelfeld;30;-20170829
+Christian;Pulisic;null;19980918;USA;Mittelfeld;22
+Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
+Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;18
+Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;8
+Jadon;Sancho;null;20000325;England;Mittelfeld;7;20170831-
+André;Schürrle;null;19901106;Deutschland;Mittelfeld;21
+Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
+Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
+Jacob;Bruun Larsen;null;19980919;Dänemark;Sturm;34
+Ousmane;Dembélé;null;19970515;Frankreich;Sturm;7;-20170827
+Alexander;Isak;null;19990921;Schweden, Eritrea;Sturm;14
+Maximilian;Philipp;null;19940301;Deutschland;Sturm;20
+Andrey;Yarmolenko;null;19891023;Ukraine;Sturm;9;20170828-

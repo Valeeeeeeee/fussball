@@ -37,3 +37,4 @@ Bas;Dost;null;19890531;Niederlande;Sturm;12;-20160827
 Mario;Gomez;null;19850710;Deutschland;Sturm;33
 Borja;Mayoral;null;19970405;Spanien;Sturm;17
 Paul-Georges;Ntep de Madiba;null;19920729;Frankreich;Sturm;9;20170101-
+Victor;Osimhen;null;19981229;Nigeria;Sturm;18;20170101-

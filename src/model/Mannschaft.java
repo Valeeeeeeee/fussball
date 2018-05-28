@@ -377,6 +377,7 @@ public class Mannschaft {
 		if (index >= 6 && index <= 8) {
 			int nOfG = 0, nOfCG = 0;
 			for (int matchday = firstMatchday; matchday <= lastMatchday; matchday++) {
+				if (isElementOf(data[matchday][0], excludedTeams))	continue;
 				nOfG += data[matchday][1];
 				nOfCG += data[matchday][2];
 			}
@@ -570,16 +571,49 @@ public class Mannschaft {
 		
 		return null;
 	}
+
+	public int[] order(int[] unordered, Datum date) {
+		ArrayList<Spieler> eligiblePlayers = getEligiblePlayers(date, false);
+		
+		int counter = 0;
+		int[] ordered = new int[11];
+		boolean[] sqFound = new boolean[11];
+		for (Spieler player : eligiblePlayers) {
+			for (int i = 0; i < unordered.length; i++) {
+				if (unordered[i] == player.getSquadNumber()) {
+					if (sqFound[i]) {
+						message("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
+						log("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
+					}
+					if (counter == 11)	message("Mehr als 11 Spieler gefunden: (s.o.)");
+					ordered[counter++] = unordered[i];
+					sqFound[i] = true;
+				}
+			}
+		}
+		if (counter != 11) {
+			String numbers = "", sep = "";
+			for (int i = 0; i < sqFound.length; i++) {
+				if (!sqFound[i]) {
+					numbers += sep + unordered[i];
+					sep = ", ";
+				}
+			}
+			message("Home - Kein Spieler gefunden für diese Rückennummer(n): " + numbers);
+		}
+		
+		return ordered;
+	}
 	
 	public String[] getResultsAgainst(Mannschaft opponent) {
 		int halfNumberOfMatchesASO = competition.getNumberOfMatchesAgainstSameOpponent() / 2;
 		String[] resultsOpponent = new String[competition.getNumberOfMatchesAgainstSameOpponent()];
 		for (int i = 0; i < resultsOpponent.length; i++) {
-			resultsOpponent[i] = "2;-:-";
+			resultsOpponent[i] = "-2;--";
 		}
 		if (opponent == this) {
 			for (int i = 0; i < resultsOpponent.length; i++) {
-				resultsOpponent[i] = "2;n/a";
+				resultsOpponent[i] = "-3;n/a";
 			}
 		} else {
 			int counterH = 0, counterA = 0;
@@ -588,7 +622,7 @@ public class Mannschaft {
 					String result = data[i][GOALS] + ":" + data[i][CGOALS];
 					if (results[i] != null) {
 						result = data[i][POINTS] + ";" + result;
-					} else	result = "2;-:-";
+					} else	result = "-1;-:-";
 					if (homeaway[i])	resultsOpponent[counterH++] = result;
 					else				resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
 				}
