@@ -7,6 +7,7 @@ Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Dominique;Heintz;null;19930815;Deutschland;Abwehr;3
 Jannes;Horn;null;19970206;Deutschland;Abwehr;23
 Lukas;Klünter;null;19960526;Deutschland;Abwehr;24
+Filip;Kusic;null;19960603;Serbien;Abwehr;27
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
 Jorge;Meré;null;19970417;Spanien;Abwehr;22
 Pawel;Olkowski;null;19900213;Polen;Abwehr;16
@@ -14,6 +15,7 @@ Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
 Frederik;Sørensen;null;19920414;Dänemark;Abwehr;4
 Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;21
 Christian;Clemens;null;19910804;Deutschland;Mittelfeld;17
+Chris;Führich;null;19980109;Deutschland;Mittelfeld;26
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;6
 Milos;Jojic;null;19920319;Serbien;Mittelfeld;8
 Matthias;Lehmann;null;19830528;Deutschland;Mittelfeld;33
@@ -25,5 +27,6 @@ Jhon;Córdoba;null;19930511;Kolumbien;Sturm;15
 Sehrou;Guirassy;null;19960312;Frankreich;Sturm;19
 Yuya;Osako;null;19900518;Japan;Sturm;13
 Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;39;20170929-
+Birk;Risa;null;19980213;Norwegen;Sturm;31;-20180330
 Artjoms;Rudnevs;null;19880113;Lettland;Sturm;9;-20170928
 Simon;Zoller;null;19910626;Deutschland;Sturm;11

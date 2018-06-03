@@ -11,6 +11,7 @@ Reece;Oxford;null;19981216;England;Abwehr;3;-20171231,20180131-
 Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
 Oscar;Wendt;null;19851024;Schweden;Abwehr;17
 László;Bénes;null;19970909;Slowakei;Mittelfeld;22
+Marcel;Benger;null;19980702;Deutschland;Mittelfeld;38
 Michaël;Cuisance;null;19990816;Frankreich;Mittelfeld;27
 Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32
 Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7

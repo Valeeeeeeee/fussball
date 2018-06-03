@@ -17,6 +17,7 @@ Justin;Eilers;null;19880613;Deutschland;Mittelfeld;17
 Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;8
 Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;15
 Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
+Ole;Käuper;null;19970109;Deutschland;Mittelfeld;14
 Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
 Thanos;Petsos;null;19910605;Griechenland;Mittelfeld;25;-20170829
 Ishak;Belfodil;null;19920112;Algerien;Sturm;29;20170831-

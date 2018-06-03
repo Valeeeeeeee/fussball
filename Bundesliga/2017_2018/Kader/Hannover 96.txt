@@ -23,3 +23,4 @@ Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
 Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
 Jonathas Cristian;de Jesus Mauricio;Jonathas;19890306;Brasilien;Sturm;9;20170822-
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
+Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
