@@ -13,7 +13,7 @@ Dennis;Geiger;null;19980610;Deutschland;Mittelfeld;32
 Serge;Gnabry;null;19950714;Deutschland;Mittelfeld;29
 Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;11
 Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
-Philipp;Ochs;null;19970417;Deutschland;Mittelfeld;30
+Philipp;Ochs;null;19970417;Deutschland;Mittelfeld;30;-20171231
 Felix;Passlack;null;19980528;Deutschland;Mittelfeld;31;20170830-
 Eugen;Polanski;null;19860317;Deutschland, Polen;Mittelfeld;8
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;7
@@ -24,5 +24,5 @@ Robin;Hack;null;19980827;Deutschland;Sturm;37
 Andrej;Kramaric;null;19910619;Kroatien;Sturm;27
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28
 Mark;Uth;null;19910824;Deutschland;Sturm;19
-Sandro;Wagner;null;19871129;Deutschland;Sturm;14
+Sandro;Wagner;null;19871129;Deutschland;Sturm;14;-20171231
 Robert;Zulj;null;19920205;Österreich;Sturm;20

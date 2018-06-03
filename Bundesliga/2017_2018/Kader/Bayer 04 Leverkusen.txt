@@ -3,7 +3,7 @@ Niklas;Lomb;null;19930728;Deutschland;Tor;36
 Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;28
 Aleksandar;Dragovic;null;19910306;Österreich;Abwehr;6;-20170830
 Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
-André;Ramalho;null;19920216;Brasilien;Abwehr;2
+André;Ramalho;null;19920216;Brasilien;Abwehr;2;-20171231
 Panagiotis;Retsos;null;19980809;Griechenland;Abwehr;3;20170831-
 Jonathan;Tah;null;19960211;Deutschland;Abwehr;4
 Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
@@ -21,6 +21,6 @@ Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;22
 Lucas;Alario;null;19921008;Argentinien;Sturm;13;20170921-
 Leon;Bailey;null;19970809;Jamaika;Sturm;9
 Stefan;Kießling;null;19840125;Deutschland;Sturm;11
-Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
+Admir;Mehmedi;null;19910316;Schweiz;Sturm;14;-20180130
 Joel;Pohjanpalo;null;19940913;Finnland;Sturm;17
 Kevin;Volland;null;19920730;Deutschland;Sturm;31

@@ -1,7 +1,8 @@
 Ralf;Fährmann;null;19880927;Deutschland;Tor;1
 Alexander;Nübel;null;19960930;Deutschland;Tor;35
+Abdul Rahman;Baba;null;19940702;Ghana;Abwehr;14;20180129-
 Joshua;Bitter;null;19970101;Deutschland;Abwehr;39
-Jorge;Andujar Moreno;Coke;19870426;Spanien;Abwehr;23
+Jorge;Andujar Moreno;Coke;19870426;Spanien;Abwehr;23;-20171231
 Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4;-20170829
 Pablo;Insua;null;19930909;Spanien;Abwehr;3
 Thilo;Kehrer;null;19960921;Deutschland;Abwehr;20
@@ -21,8 +22,10 @@ Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
 Sidney;Sam;null;19880131;Deutschland;Mittelfeld;40;-20170830
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;28
 Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
-Donis;Avdijaj;null;19960825;Deutschland;Sturm;33
+Donis;Avdijaj;null;19960825;Deutschland;Sturm;33;-20180114
 Guido;Burgstaller;null;19890429;Österreich;Sturm;19
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
 Breel;Embolo;null;19970214;Schweiz;Sturm;36
-Fabian;Reese;null;19971129;Deutschland;Sturm;16
+Marko;Pjaca;null;19950506;Kroatien;Sturm;22;20180101-
+Fabian;Reese;null;19971129;Deutschland;Sturm;16;-20180120
+Cedric;Teuchert;null;19970114;Deutschland;Sturm;23;20180101-

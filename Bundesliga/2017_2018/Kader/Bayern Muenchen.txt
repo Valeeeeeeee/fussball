@@ -4,7 +4,7 @@ Sven;Ulreich;null;19880803;Deutschland;Tor;26
 David;Alaba;null;19920624;Österreich;Abwehr;27
 Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;14
 Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
-Marco;Friedl;null;19980316;Österreich;Abwehr;34
+Marco;Friedl;null;19980316;Österreich;Abwehr;34;-20180124
 Mats;Hummels;null;19881216;Deutschland;Abwehr;5
 'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
 Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
@@ -21,4 +21,5 @@ Corentin;Tolisso;null;19940803;Mittelfeld;Mittelfeld;24
 Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
 Thomas;Müller;null;19890913;Deutschland;Sturm;25
+Sandro;Wagner;null;19871129;Deutschland;Sturm;2;20180101-
 Okyere;Wriedt;null;19940710;Deutschland;Sturm;28
