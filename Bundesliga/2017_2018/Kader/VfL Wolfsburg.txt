@@ -27,7 +27,7 @@ Josip;Brekalo;null;19980623;Kroatien;Sturm;21;20180101-
 Landry;Dimata;null;19970901;Belgien;Sturm;9
 Mario;Gomez;null;19850710;Deutschland;Sturm;33;-20171231
 Kaylen;Hinds;null;19980128;England;Sturm;32;-20180130
-Admir;Mehmedi;null;19910316;Schweiz;Sturm;14;20180131-
+Admir;Mehmedi;null;19910316;Schweiz;Sturm;22;20180131-
 Paul-Georges;Ntep de Madiba;null;19920729;Frankreich;Sturm;7;-20180116
 Divock;Origi;null;19950418;Belgien;Sturm;14;20170831-
 Victor;Osimhen;null;19981229;Nigeria;Sturm;18
