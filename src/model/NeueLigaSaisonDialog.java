@@ -591,7 +591,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		}
 		kickOffTimes.remove(0);
 		int lastKOT = defaultKickoffTimes[defaultKickoffTimes.length - 1];
-		while (lastKOT + 1 < kickOffTimes.size()) {
+		while (lastKOT < kickOffTimes.size()) {
 			kickOffTimes.remove(lastKOT);
 		}
 	}
