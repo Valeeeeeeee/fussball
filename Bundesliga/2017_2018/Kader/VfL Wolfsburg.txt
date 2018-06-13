@@ -3,6 +3,7 @@ Max;Grün;null;19870405;Deutschland;Tor;20
 John Anthony;Brooks;null;19930128;Deutschland, USA;Abwehr;25
 Jeffrey;Bruma;null;19911113;Niederlande;Abwehr;5
 Gian-Luca;Itter;null;19990105;Deutschland;Abwehr;35
+Paul;Jaeckel;null;19980722;Deutschland;Abwehr;39
 Sebastian;Jung;null;19900622;Deutschland;Abwehr;24
 Robin;Knoche;null;19920522;Deutschland;Abwehr;31
 Marcel;Tisserand;null;19930110;DR Kongo;Abwehr;29;20170822-

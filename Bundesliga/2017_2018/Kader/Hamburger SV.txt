@@ -2,6 +2,7 @@ Andreas;Hirzel;null;19930325;Schweiz;Tor;30
 Christian;Mathenia;null;19920331;Deutschland;Tor;1
 Tom;Mickel;null;19890419;Deutschland;Tor;36
 Julian;Pollersbeck;null;19940816;Deutschland;Tor;13
+Stephan;Ambrosius;null;19981218;Deutschland;Abwehr;46
 Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Gideon;Jung;null;19940912;Deutschland;Abwehr;28
 Mërgim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;5
@@ -10,14 +11,17 @@ Gotoku;Sakai;null;19910314;Japan;Abwehr;24
 Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;Abwehr;6
 Young-Jae;Seo;null;19950523;Südkorea;Abwehr;37
 Bjarne;Thoelke;null;19920411;Deutschland;Abwehr;22
+Josha;Vagnoman;null;20001211;Deutschland;Abwehr;47
 Rick;van Drongelen;null;19981220;Niederlande;Abwehr;4
 Albin;Ekdal;null;19890728;Schweden;Mittelfeld;20
+Mohamed;Gouaida;null;19930515;Frankreich, Tunesien;Mittelfeld;31
 Lewis;Holtby;null;19900918;Deutschland;Mittelfeld;8
 Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;14
 Vasilije;Janjicic;null;19981102;Schweiz;Mittelfeld;16
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;17
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Sejad;Salihovic;null;19841008;Bosnien-Herzegowina;Mittelfeld;23;20170913-
+Ville Matti;Steinmann;null;19950108;Deutschland;Mittelfeld;29
 Walace;Souza Silva;Walace;19950404;Brasilien;Mittelfeld;12
 Jann-Fiete;Arp;null;20000106;Deutschland;Sturm;40
 André;Hahn;null;19900813;Deutschland;Sturm;11

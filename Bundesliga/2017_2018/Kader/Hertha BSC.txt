@@ -18,6 +18,7 @@ Valentino;Lazaro;null;19960324;Österreich;Mittelfeld;20
 Arne;Maier;null;19990108;Deutschland;Mittelfeld;26
 Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
 Valentin;Stocker;null;19890412;Schweiz;Mittelfeld;14;-20171231
+Palko;Dárdai;null;19990424;Deutschland, Ungarn;Sturm;32
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;19
 Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;8
 Mathew;Leckie;null;19910204;Australien;Sturm;11

@@ -12,6 +12,7 @@ Giulio;Donati;null;19900205;Italien;Abwehr;2
 Jean-Philippe;Gbamin;null;19950925;Frankreich;Abwehr;25
 Alexander;Hack;null;19930908;Deutschland;Abwehr;42
 Marin;Sverko;null;19980204;Deutschland;Abwehr;13
+Bote Nzuzi 'Ridle';Baku;null;19980408;Deutschland, DR Kongo;Mittelfeld;34
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32
 Nigel;de Jong;null;19841130;Niederlande;Mittelfeld;5;20180101-
 Fabian;Frei;null;19890108;Schweiz;Mittelfeld;20;-20171231
