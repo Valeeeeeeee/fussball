@@ -1,0 +1,23 @@
+Sherif;Ekramy;null;19830710;Ägypten;Tor;16
+Essam;El-Hadary;null;19730115;Ägypten;Tor;1
+Mohamed;El-Shenawy;null;19881218;Ägypten;Tor;23
+Mohamed;Abdel-Shafy;null;19850701;Ägypten;Abwehr;13
+Ayman;Ashraf;null;19910409;Ägypten;Abwehr;12
+Ahmed;Elmohamady;null;19870909;Ägypten;Abwehr;3
+Ahmed;Fathi;null;19841110;Ägypten;Abwehr;7
+Ali;Gabr;null;19890101;Ägypten;Abwehr;2
+Mahmoud;Hamdy;null;19950601;Ägypten;Abwehr;15
+Ahmed;Hegazy;null;19910125;Ägypten;Abwehr;6
+Samir;Saad;null;19890401;Ägypten;Abwehr;20
+Mohamed;Elneny;null;19920711;Ägypten;Mittelfeld;17
+Omar;Gaber;null;19920130;Ägypten;Mittelfeld;4
+Tarek;Hamed;null;19881024;Ägypten;Mittelfeld;8
+Sam;Morsy;null;19910910;Ägypten;Mittelfeld;5
+Abdalla;Said;null;19850713;Ägypten;Mittelfeld;19
+Mahmoud;Hassan;Trezeguet;19941001;Ägypten;Mittelfeld;21
+Mahmoud;Abdel Moneim;Kahraba;19940413;Ägypten;Sturm;11
+Marwan;Mohsen;null;19890226;Ägypten;Sturm;9
+Mohamed;Salah;null;19920615;Ägypten;Sturm;10
+Mahmoud;Fadlallah;Shikabala;19860305;Ägypten;Sturm;18
+Ramadan;Sobhy;null;19970123;Ägypten;Sturm;14
+Amr;Warda;null;19930917;Ägypten;Sturm;22

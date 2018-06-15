@@ -1,0 +1,23 @@
+António;Bastos;Beto;19820501;Portugal;Tor;22
+Anthony;Lopes;null;19901001;Portugal;Tor;12
+Rui;Patrício;null;19880215;Portugal;Tor;1
+Bruno;Alves;null;19811127;Portugal;Abwehr;2
+Ruben;Dias;null;19970514;Portugal;Abwehr;13
+José;Fonte;null;19831222;Portugal;Abwehr;6
+Raphaël;Guerreiro;null;19931222;Portugal;Abwehr;5
+Képler;Laveran Lima Ferreira;Pepe;19830226;Portugal;Abwehr;3
+Ricardo;Pereira;null;19931006;Portugal;Abwehr;15
+Mario;Rui;null;19910527;Portugal;Abwehr;19
+Cédric;Soares;null;19910831;Portugal;Abwehr;21
+William;Carvalho;null;19920407;Portugal;Mittelfeld;14
+Bruno;Fernandes;null;19940908;Portugal;Mittelfeld;16
+Manuel;Fernandes;null;19860205;Portugal;Mittelfeld;4
+João;Mário;null;19930119;Portugal;Mittelfeld;10
+João;Moutinho;null;19860908;Portugal;Mittelfeld;8
+Ricardo;Quaresma;null;19830926;Portugal;Mittelfeld;20
+Adrien;Silva;null;19890315;Portugal;Mittelfeld;23
+Bernardo;Silva;null;19940810;Portugal;Mittelfeld;11
+Cristiano Ronaldo;dos Santos Aveiro;Cristiano Ronaldo;19850205;Portugal;Sturm;7
+Goncalo;Guedes;null;19961129;Portugal;Sturm;17
+Gelson;Martins;null;19950511;Portugal;Sturm;18
+Andre;Silva;null;19951106;Portugal;Sturm;9

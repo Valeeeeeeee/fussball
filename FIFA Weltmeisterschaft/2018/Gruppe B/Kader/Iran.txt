@@ -1,0 +1,23 @@
+Amir;Abedzadeh;null;19930426;Iran;Tor;22
+Alireza;Beiranvand;null;19920921;Iran;Tor;1
+Rashid;Mazaheri;null;19890518;Iran;Tor;12
+Roozbeh;Cheshmi;null;19930724;Iran;Abwehr;4
+Ehsan;Hajisafi;null;19900225;Iran;Abwehr;3
+Majid;Hosseini;null;19960620;Iran;Abwehr;19
+Mohammad Reza;Khanzadeh;null;19910511;Iran;Abwehr;13
+Milad;Mohammadi;null;19930929;Iran;Abwehr;5
+Pejman;Montazeri;null;19830906;Iran;Abwehr;15
+Morteza;Pouraliganji;null;19920419;Iran;Abwehr;8
+Ramin;Rezaeian;null;19900321;Iran;Abwehr;23
+Vahid;Amiri;null;19880402;Iran;Mittelfeld;11
+Omid;Ebrahimi;null;19870916;Iran;Mittelfeld;9
+Saeid;Ezatolahi;null;19961001;Iran;Mittelfeld;6
+Masoud;Shojaei;null;19840609;Iran;Mittelfeld;7
+Mehdi;Torabi;null;19940910;Iran;Mittelfeld;2
+Karim;Ansarifard;null;19900403;Iran;Sturm;10
+Sardar;Azmoun;null;19950101;Iran;Sturm;20
+Ashkan;Dejagah;null;19860705;Iran;Sturm;21
+Saman;Ghoddos;null;19930906;Iran;Sturm;14
+Reza;Ghoochannejhad;null;19870920;Iran;Sturm;16
+Alireza;Jahanbakhsh;null;19930811;Iran;Sturm;18
+Mehdi;Taremi;null;19920718;Iran;Sturm;17

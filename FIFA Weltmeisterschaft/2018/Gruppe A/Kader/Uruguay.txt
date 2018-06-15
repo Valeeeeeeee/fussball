@@ -1,0 +1,23 @@
+Martín;Campaña;null;19890529;Uruguay;Tor;12
+Fernando;Muslera;null;19860616;Uruguay;Tor;1
+Martín;Silva;null;19830325;Uruguay;Tor;23
+Martín;Cáceres;null;19870407;Uruguay;Abwehr;22
+Sebastián;Coates;null;19901007;Uruguay;Abwehr;19
+José María;Giménez;null;19950120;Uruguay;Abwehr;2
+Diego;Godín;null;19860216;Uruguay;Abwehr;3
+Maximiliano;Pereira;null;19840608;Uruguay;Abwehr;16
+Gastón;Silva;null;19940305;Uruguay;Abwehr;13
+Guillermo;Varela;null;19930324;Uruguay;Abwehr;4
+Rodrigo;Bentancur;null;19970625;Uruguay;Mittelfeld;6
+Diego;Laxalt;null;19930207;Uruguay;Mittelfeld;17
+Nahitan;Nández;null;19951228;Uruguay;Mittelfeld;8
+Cristian;Rodríguez;null;19850930;Uruguay;Mittelfeld;7
+Carlos;Sánchez;null;19841202;Uruguay;Mittelfeld;5
+Lucas;Torreira;null;19960211;Uruguay;Mittelfeld;14
+Matias;Vecino;null;19910824;Uruguay;Mittelfeld;15
+Edinson;Cavani;null;19870214;Uruguay;Sturm;21
+Giorgian;De Arrascaeta;null;19940601;Uruguay;Sturm;10
+Maximiliano;Gómez;null;19960814;Uruguay;Sturm;18
+Christian;Stuani;null;19861012;Uruguay;Sturm;11
+Luis;Suárez;null;19870124;Uruguay;Sturm;9
+Jonathan;Urretaviscaya;null;19900319;Uruguay;Sturm;20
