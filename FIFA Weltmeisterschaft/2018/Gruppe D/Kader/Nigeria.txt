@@ -1,0 +1,23 @@
+Daniel;Akpeyi;null;19860308;Nigeria;Tor;16
+Ikechukwu;Ezenwa;null;19881016;Nigeria;Tor;1
+Francis;Uzoho;null;19981028;Nigeria;Tor;23
+Chidozie;Awaziem;null;19970101;Nigeria;Abwehr;20
+Leon;Balogun;null;19880628;Nigeria;Abwehr;6
+Tyronne;Ebuehi;null;19951216;Nigeria;Abwehr;21
+Elderson;Echiéjilé;null;19880120;Nigeria;Abwehr;3
+William;Troost-'Ekong';null;19930901;Nigeria;Abwehr;5
+Bryan;Idowu;null;19920518;Nigeria;Abwehr;2
+Kenneth;Omeruo;null;19931017;Nigeria;Abwehr;22
+Abdullahi;Shehu;null;19930312;Nigeria;Abwehr;12
+Oghenekaro;Etebo;null;19951109;Nigeria;Mittelfeld;8
+John Michael;Obinna;John Obi Mikel;19870422;Nigeria;Mittelfeld;10
+Wilfred;Ndidi;null;19961216;Nigeria;Mittelfeld;4
+Joel;Obi;null;19910522;Nigeria;Mittelfeld;15
+John;Ogu;null;19880420;Nigeria;Mittelfeld;19
+Ogenyi;Onazi;null;19921225;Nigeria;Mittelfeld;17
+Odion;Ighalo;null;19890616;Nigeria;Sturm;9
+Kelechi;Iheanacho;null;19960310;Nigeria;Sturm;14
+Alex;Iwobi;null;19960503;Nigeria;Sturm;18
+Victor;Moses;null;19901212;Nigeria;Sturm;11
+Ahmed;Musa;null;19921014;Nigeria;Sturm;7
+Simeon;Nwankwo;null;19920507;Nigeria;Sturm;13

@@ -64,8 +64,9 @@ public class Spieler {
 	
 	private void setFirstName(String firstNameFile) {
 		this.firstNameFile = firstNameFile;
-		firstName = firstNameFile.replace("'", "");
+		firstName = firstNameFile;
 		if (firstNameFile.contains("'") && firstNameFile.indexOf("'") < firstNameFile.lastIndexOf("'")) {
+			firstName = firstName.replace("'", "");
 			firstNameShort = firstNameFile.substring(firstNameFile.indexOf("'") + 1, firstNameFile.lastIndexOf("'"));
 		} else {
 			firstNameShort = firstNameFile.split(" ")[0];
