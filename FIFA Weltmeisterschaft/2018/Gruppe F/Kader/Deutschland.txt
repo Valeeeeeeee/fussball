@@ -1,0 +1,23 @@
+Manuel;Neuer;null;19860327;Deutschland;Tor;1
+Marc-André;ter Stegen;null;19920430;Deutschland;Tor;22
+Kevin;Trapp;null;19900708;Deutschland;Tor;12
+Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
+Matthias;Ginter;null;19940119;Deutschland;Abwehr;4
+Jonas;Hector;null;19900527;Deutschland;Abwehr;3
+Mats;Hummels;null;19881216;Deutschland;Abwehr;5
+Joshua;Kimmich;null;19950208;Deutschland;Abwehr;18
+Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;2
+Antonio;Rüdiger;null;19930303;Deutschland;Abwehr;16
+Niklas;Süle;null;19950903;Deutschland;Abwehr;15
+Julian;Brandt;null;19960502;Deutschland;Mittelfeld;20
+Julian;Draxler;null;19930920;Deutschland;Mittelfeld;7
+Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;14
+Ilkay;Gündogan;null;19901024;Deutschland;Mittelfeld;21
+Sami;Khedira;null;19870404;Deutschland;Mittelfeld;6
+Toni;Kroos;null;19900104;Deutschland;Mittelfeld;8
+Thomas;Müller;null;19890913;Deutschland;Mittelfeld;13
+Mesut;Özil;null;19881015;Deutschland;Mittelfeld;10
+Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19
+Mario;Gómez;null;19850710;Deutschland;Sturm;23
+Marco;Reus;null;19890531;Deutschland;Sturm;11
+Timo;Werner;null;19960306;Deutschland;Sturm;9

@@ -1,0 +1,23 @@
+Koen;Casteels;null;19920625;Belgien;Tor;13
+Thibaut;Courtois;null;19920511;Belgien;Tor;1
+Simon;Mignolet;null;19880306;Belgien;Tor;12
+Toby;Alderweireld;null;19890302;Belgien;Abwehr;2
+Dedryck;Boyata;null;19901128;Belgien;Abwehr;20
+Leander;Dendoncker;null;19950415;Belgien;Abwehr;23
+Vincent;Kompany;null;19860410;Belgien;Abwehr;4
+Thomas;Meunier;null;19910912;Belgien;Abwehr;15
+Thomas;Vermaelen;null;19851114;Belgien;Abwehr;3
+Jan;Vertonghen;null;19870424;Belgien;Abwehr;5
+Nacer;Chadli;null;19890802;Belgien;Mittelfeld;22
+Kevin;de Bruyne;null;19910628;Belgien;Mittelfeld;7
+Mousa;Dembélé;null;19870717;Belgien;Mittelfeld;19
+Marouane;Fellaini;null;19871122;Belgien;Mittelfeld;8
+Yannick;'Ferreira Carrasco';null;19930904;Belgien;Mittelfeld;11
+Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;16
+Youri;Tielemans;null;19970507;Belgien;Mittelfeld;17
+Axel;Witsel;null;19890112;Belgien;Mittelfeld;6
+Michy;Batshuayi;null;19931002;Belgien;Sturm;21
+Eden;Hazard;null;19910107;Belgien;Sturm;10
+Adnan;Januzaj;null;19950205;Belgien;Sturm;18
+Romelu;Lukaku;null;19930513;Belgien;Sturm;9
+Dries;Mertens;null;19870506;Belgien;Sturm;14

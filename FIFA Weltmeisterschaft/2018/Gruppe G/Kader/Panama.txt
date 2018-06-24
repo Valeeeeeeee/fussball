@@ -1,0 +1,23 @@
+José;Calderón;null;19850814;Panama;Tor;12
+Jaime;Penedo;null;19810926;Panama;Tor;1
+Alex;Rodríguez;null;19900805;Panama;Tor;22
+Felipe;Baloy;null;19810224;Panama;Abwehr;23
+Hárold;Cummings;null;19920301;Panama;Abwehr;3
+Eric;Davis;null;19910331;Panama;Abwehr;15
+Fidel;Escobar;null;19950109;Panama;Abwehr;4
+Adolfo;Machado;null;19850214;Panama;Abwehr;13
+Michael;Murillo;null;19960211;Panama;Abwehr;2
+Luis;Ovalle;null;19880907;Panama;Abwehr;17
+Román;Torres;null;19860320;Panama;Abwehr;5
+Ricardo;Avila;null;19970204;Panama;Mittelfeld;19
+Edgar;Bárcenas;null;19931023;Panama;Mittelfeld;8
+Armando;Cooper;null;19871126;Panama;Mittelfeld;11
+Aníbal;Godoy;null;19900210;Panama;Mittelfeld;20
+Gabriel;Gómez;null;19840529;Panama;Mittelfeld;6
+Valentin;Pimentel;null;19910530;Panama;Mittelfeld;14
+José Luis;Rodríguez;null;19980619;Panama;Mittelfeld;21
+Abdiel;Arroyo;null;19931213;Panama;Sturm;16
+Ismael;Díaz;null;19970512;Panama;Sturm;10
+Blas;Pérez;null;19810313;Panama;Sturm;7
+Luis;Tejeda;null;19820328;Panama;Sturm;18
+Gabriel;Torres;null;19881031;Panama;Sturm;9

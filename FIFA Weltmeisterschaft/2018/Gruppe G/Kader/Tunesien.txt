@@ -1,0 +1,23 @@
+Farouk;'Ben Mustapha';null;19890701;Tunesien;Tor;1
+Mouez;Hassen;null;19950305;Tunesien;Tor;22
+Aymen;Mathlouthi;null;19840914;Tunesien;Tor;16
+Rami;Bedoui;null;19900119;Tunesien;Abwehr;6
+Syam;'Ben Youssef';null;19890331;Tunesien;Abwehr;2
+Yohan;Benalouane;null;19870328;Tunesien;Abwehr;3
+Dylan;Bronn;null;19950619;Tunesien;Abwehr;11
+Oussama;Haddadi;null;19920128;Tunesien;Abwehr;5
+Ali;Maâloul;null;19900101;Tunesien;Abwehr;12
+Yassine;Meriah;null;19930702;Tunesien;Abwehr;4
+Hamdi;Nagguez;null;19921028;Tunesien;Abwehr;21
+Anice;Badri;null;19900918;Tunesien;Mittelfeld;9
+Mohamed;'Ben Amor';null;19920503;Tunesien;Mittelfeld;14
+Ferjani;Sassi;null;19920318;Tunesien;Mittelfeld;13
+Ellyes;Skhiri;null;19950510;Tunesien;Mittelfeld;17
+Fakhreddine;'Ben Youssef';null;19910623;Tunesien;Sturm;8
+Ghaylen;Chaaleli;null;19940228;Tunesien;Sturm;20
+Saber;Khalifa;null;19861014;Tunesien;Sturm;19
+Ahmed;Khalil;null;19941221;Tunesien;Sturm;15
+Saîf-Eddine;Khaoui;null;19950427;Tunesien;Sturm;7
+Wahbi;Khazri;null;19910208;Tunesien;Sturm;10
+Naïm;Sliti;null;19920727;Tunesien;Sturm;23
+Bassem;Srarfi;null;19970625;Tunesien;Sturm;18

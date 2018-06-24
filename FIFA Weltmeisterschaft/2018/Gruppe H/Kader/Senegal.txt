@@ -1,0 +1,23 @@
+Abdoulaye;Diallo;null;19920330;Senegal;Tor;1
+Alfred;Gomis;null;19930905;Senegal;Tor;23
+Khadim;N'Diaye;null;19850405;Senegal;Tor;16
+Lamine;Gassama;null;19891020;Senegal;Abwehr;21
+Kalidou;Koulibaly;null;19910620;Senegal;Abwehr;3
+Adama;Mbengue;null;19931201;Senegal;Abwehr;2
+Kara;Mbodji;null;19891122;Senegal;Abwehr;4
+Youssouf;Sabaly;null;19930305;Senegal;Abwehr;12
+Moussa;Wagué;null;19981004;Senegal;Abwehr;22
+Idrissa;Gueye;null;19890926;Senegal;Mittelfeld;5
+Cheikhou;Kouyaté;null;19891221;Senegal;Mittelfeld;8
+Alfred;N'Diaye;null;19900306;Senegal;Mittelfeld;13
+Cheikh;N'Doye;null;19860329;Senegal;Mittelfeld;11
+Papa Alioune;Ndiaye;null;19901027;Senegal;Mittelfeld;17
+Salif;Sané;null;19900825;Senegal;Mittelfeld;6
+Keita;Baldé;null;19950308;Senegal;Sturm;20
+Mame;Diouf;null;19871216;Senegal;Sturm;9
+Moussa;Konaté;null;19930403;Senegal;Sturm;14
+Sadio;Mané;null;19920410;Senegal;Sturm;10
+M'Baye;Niang;null;19941219;Senegal;Sturm;19
+Diafra;Sakho;null;19891224;Senegal;Sturm;15
+Ismaïla;Sarr;null;19980225;Senegal;Sturm;18
+Moussa;Sow;null;19860119;Senegal;Sturm;7

@@ -1,0 +1,23 @@
+José;Cuadrado;null;19850601;Kolumbien;Tor;22
+David;Ospina;null;19880831;Kolumbien;Tor;1
+Camilo;Vargas;null;19890309;Kolumbien;Tor;12
+Santiago;Arias;null;19920113;Kolumbien;Abwehr;4
+Farid;Díaz;null;19830720;Kolumbien;Abwehr;18
+Yerry;Mina;null;19940923;Kolumbien;Abwehr;13
+Johan;Mojica;null;19920821;Kolumbien;Abwehr;17
+Óscar;Murillo;null;19880418;Kolumbien;Abwehr;3
+Davinson;Sánchez;null;19960612;Kolumbien;Abwehr;23
+Cristian;Zapata;null;19860930;Kolumbien;Abwehr;2
+Abel;Aguilar;null;19850106;Kolumbien;Mittelfeld;8
+Wilmar;Barrios;null;19931016;Kolumbien;Mittelfeld;5
+Juan;Cuadrado;null;19880526;Kolumbien;Mittelfeld;11
+Jefferson;Lerma;null;19941025;Kolumbien;Mittelfeld;16
+Juan;Quintero;null;19930118;Kolumbien;Mittelfeld;20
+James;Rodríguez;null;19910712;Kolumbien;Mittelfeld;10
+Carlos;Sánchez;null;19860206;Kolumbien;Mittelfeld;6
+Mateus;Uribe;null;19910321;Kolumbien;Mittelfeld;15
+Carlos;Bacca;null;19860908;Kolumbien;Sturm;7
+Miguel;Borja;null;19930126;Kolumbien;Sturm;19
+Radamel Falcao;García Zárate 'Falcao';null;19860210;Kolumbien;Sturm;9
+José;Izquierdo;null;19920707;Kolumbien;Sturm;21
+Luis;Muriel;null;19910416;Kolumbien;Sturm;14

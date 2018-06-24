@@ -1,0 +1,23 @@
+José de Jesús;Corona;null;19810126;Mexiko;Tor;1
+Guillermo;Ochoa;null;19850713;Mexiko;Tor;13
+Alfredo;Talavera;null;19820918;Mexiko;Tor;12
+Edson;Álvarez;null;19971024;Mexiko;Abwehr;21
+Hugo;Ayala;null;19870331;Mexiko;Abwehr;2
+Héctor;Herrera;null;19900419;Mexiko;Abwehr;16
+Rafael;Márquez;null;19790213;Mexiko;Abwehr;4
+Héctor;Moreno;null;19880117;Mexiko;Abwehr;15
+Carlos;Salcedo;null;19930929;Mexiko;Abwehr;3
+Javier;Aquino;null;19900211;Mexiko;Mittelfeld;20
+Jesús;Corona;null;19930106;Mexiko;Mittelfeld;17
+Giovani;dos Santos;null;19890511;Mexiko;Mittelfeld;10
+Jonathan;dos Santos;null;19900426;Mexiko;Mittelfeld;6
+Jesús;Gallardo;null;19940815;Mexiko;Mittelfeld;23
+Andrés;Guardado;null;19869028;Mexiko;Mittelfeld;18
+Erick;Gutiérrez;null;19950615;Mexiko;Mittelfeld;5
+Miguel;Layún;null;19880625;Mexiko;Mittelfeld;7
+Marco;Fabián;null;19890721;Mexiko;Sturm;8
+Javier;Hernández;null;19880601;Mexiko;Sturm;14
+Raúl;Jiménez;null;19910505;Mexiko;Sturm;9
+Hirving;Lozano;null;19950730;Mexiko;Sturm;22
+Oribe;Peralta;null;19840112;Mexiko;Sturm;19
+Carlos;Vela;null;19890301;Mexiko;Sturm;11

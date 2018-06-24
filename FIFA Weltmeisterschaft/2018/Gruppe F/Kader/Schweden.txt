@@ -1,0 +1,23 @@
+Karl-Johan;Johnsson;null;19900128;Schweden;Tor;12
+Kristoffer;Nordfeldt;null;19890623;Schweden;Tor;23
+Robin;Olsen;null;19900108;Schweden;Tor;1
+Ludwig;Augustinsson;null;19940421;Schweden;Abwehr;6
+Andreas;Granqvist;null;19850416;Schweden;Abwehr;4
+Filip;Helander;null;19930422;Schweden;Abwehr;14
+Pontus;Jansson;null;19910213;Schweden;Abwehr;18
+Emil;Krafth;null;19940802;Schweden;Abwehr;16
+Victor;Lindelöf;null;19940717;Schweden;Abwehr;3
+Mikael;Lustig;null;19861213;Schweden;Abwehr;2
+Martin;Olsson;null;19880517;Schweden;Abwehr;5
+Viktor;Claesson;null;19920102;Schweden;Mittelfeld;17
+Jimmy;Durmaz;null;19890322;Schweden;Mittelfeld;21
+Albin;Ekdal;null;19890728;Schweden;Mittelfeld;8
+Emil;Forsberg;null;19911023;Schweden;Mittelfeld;10
+Oscar;Hiljemark;null;19920628;Schweden;Mittelfeld;15
+Sebastian;Larsson;null;19850606;Schweden;Mittelfeld;7
+Marcus;Rohdén;null;19910511;Schweden;Mittelfeld;19
+Gustav;Svensson;null;19870207;Schweden;Mittelfeld;13
+Marcus;Berg;null;19860817;Schweden;Sturm;9
+John;Guidetti;null;19920415;Schweden;Sturm;11
+Isaac Kiese;Thelin;null;19920624;Schweden;Sturm;22
+Ola;Toivonen;null;19860511;Schweden;Sturm;20
