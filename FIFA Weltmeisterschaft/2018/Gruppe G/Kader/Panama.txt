@@ -19,5 +19,5 @@ José Luis;Rodríguez;null;19980619;Panama;Mittelfeld;21
 Abdiel;Arroyo;null;19931213;Panama;Sturm;16
 Ismael;Díaz;null;19970512;Panama;Sturm;10
 Blas;Pérez;null;19810313;Panama;Sturm;7
-Luis;Tejeda;null;19820328;Panama;Sturm;18
+Luis;Tejada;null;19820328;Panama;Sturm;18
 Gabriel;Torres;null;19881031;Panama;Sturm;9
