@@ -30,14 +30,14 @@ Ertis Pawlodar
 Tobyl Qostanai
 NK Maribor
 NK Domzale
-NK Celje
+Rudar Velenje
 Slovan Bratislava
 DAC Dunajská Streda
 AS Trencin
 FC Vaduz
 FC Milsami
 Petrocub Hîncesti
-Dacia Chisinau
+Zaria Balti
 Újpest Budapest
 Ferencváros Budapest
 Honvéd Budapest
@@ -65,15 +65,15 @@ FK Ventspils
 Vardar Skopje
 Rabotnicki Skopje
 FK Shkupi
-Mladost Podgorica
+OFK Titograd
 Buducnost Podgorica
-Grbalj Radanovici
+Rudar Pljevlja
 Levadia Tallinn
 Nomme Kalju
 Trans Narva
 Gandsassar Kapan
 Banants Erewan
-Schirak Gjumri
+Pjunik Erewan
 Union Luxemburg
 Progrès Niederkorn
 Fola Esch
