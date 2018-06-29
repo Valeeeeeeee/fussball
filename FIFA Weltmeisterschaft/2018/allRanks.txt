@@ -76,14 +76,14 @@ GD1: Kroatien
 GD2: Argentinien
 GD3: Nigeria
 GD4: Island
-GE1: WM2018GE1
-GE2: WM2018GE2
-GE3: WM2018GE3
-GE4: WM2018GE4
-GF1: WM2018GF1
-GF2: WM2018GF2
-GF3: WM2018GF3
-GF4: WM2018GF4
+GE1: Brasilien
+GE2: Schweiz
+GE3: Serbien
+GE4: Costa Rica
+GF1: Schweden
+GF2: Mexiko
+GF3: Südkorea
+GF4: Deutschland
 GG1: WM2018GG1
 GG2: WM2018GG2
 GG3: WM2018GG3

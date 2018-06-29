@@ -2,5 +2,5 @@
 1:2={1:1#true-m20-s11-a#false-m50-s14-a23^#false-m31-ytrue-sfalse-p2#true-m47-ytrue-sfalse-p5#false-m65-ytrue-sfalse-p22#false-m68-ytrue-sfalse-p11}={1,14,12,3,2,5,11,15,19,9,10#60:5>>17#67:15>>8#79:9>>20}={1,5,2,13,22,11,15,23,10,14,9#71:11>>17#80:9>>7#87:2>>6}
 1:3={2:0#true-m90+1-s11-a9#true-m90+7-s10-a7^#true-m81-ytrue-sfalse-p10#true-m81-ytrue-sfalse-p11#false-m84-ytrue-sfalse-p2}={1,22,12,3,2,5,11,15,19,9,10#46:19>>7#68:15>>20#90+3:9>>17}={1,2,6,16,3,8,5,20,10,21,11#54:21>>7#75:16>>15#83:20>>17}
 4:2={1:2#true-m5-s9-a10#false-m52-s10-a#false-m90-s23-a18^#true-m34-ytrue-sfalse-p20#true-m39-ytrue-sfalse-p4#true-m45+2-ytrue-sfalse-p21#true-m87-ytrue-sfalse-p9#false-m90+1-ytrue-sfalse-p23}={1,6,11,15,3,17,21,20,4,10,9#64:17>>22#81:4>>18}={1,5,2,13,22,11,15,23,10,14,9#46:9>>18#73:15>>7#90+4:14>>19}
-2:3
-4:1
+2:3={2:2#true-m31-s15-a7#false-m56-s19-a12#true-m88-s19-a17#false-m90+3-s1-a10-og^#false-m11-ytrue-sfalse-p16#false-m29-ytrue-sfalse-p12#true-m37-ytrue-sfalse-p2#true-m75-ytrue-sfalse-p17#true-m83-ytrue-sfalse-p22#false-m89-ytrue-sfalse-p19}={1,5,2,13,22,11,15,23,10,7,18#60:11>>17#69:18>>19#81:23>>6}={1,2,16,3,8,19,5,9,20,10,12#81:9>>13#90+1:20>>14#90+3:16>>4}
+4:1={0:2#false-m36-s15-a11#false-m68-s2-a10^#true-m33-ytrue-sfalse-p22#true-m48-ytrue-sfalse-p21#true-m70-ytrue-sfalse-p9}={1,11,15,2,13,17,22,21,20,10,9#75:22>>7#82:17>>18#89:9>>19}={1,22,12,3,2,5,11,15,19,9,10#10:12>>6#66:15>>17#80:11>>8}
