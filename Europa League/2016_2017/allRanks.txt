@@ -20,7 +20,7 @@ Q110W: Vojvodina Novi Sad
 Q110L: Bokelj Kotor
 Q111W: Dinamo Minsk
 Q111L: Spartaks Jurmala
-Q112W: Videoton Szekesfehervar
+Q112W: Videoton Székesfehérvár
 Q112L: Zaria Balti
 Q113W: Beitar Jerusalem
 Q113L: Sloboda Tuzla
@@ -144,7 +144,7 @@ Q224W: FK Jelgava
 Q224L: Slovan Bratislava
 Q225W: FK Qäbälä
 Q225L: MTK Budapest
-Q226W: Videoton Szekesfehervar
+Q226W: Videoton Székesfehérvár
 Q226L: FK Cukaricki
 Q227W: FC Birkirkara
 Q227L: Heart of Midlothian
@@ -207,7 +207,7 @@ Q322L: Hertha BSC
 Q323W: KAA Gent
 Q323L: Viitorul Constanta
 Q324W: FC Midtjylland
-Q324L: Videoton Szekesfehervar
+Q324L: Videoton Székesfehérvár
 Q325W: AZ Alkmaar
 Q325L: PAS Ioannina
 Q326W: West Ham United

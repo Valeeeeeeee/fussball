@@ -64,7 +64,7 @@ Q132W: Slovan Bratislava
 Q132L: College Europa
 Q133W: Lokomotiva Zagreb
 Q133L: Airbus UK
-Q134W: Ferencvaros Budapest
+Q134W: Ferencváros Budapest
 Q134L: Go Ahead Eagles Deventer
 Q135W: Slask Wroclaw
 Q135L: NK Celje
@@ -145,7 +145,7 @@ Q221L: University College Dublin
 Q222W: Omonia Nikosia
 Q222L: Jagiellonia Bialystok
 Q223W: Zeljeznicar Sarajevo
-Q223L: Ferencvaros Budapest
+Q223L: Ferencváros Budapest
 Q224W: IFK Göteborg
 Q224L: Slask Wroclaw
 Q225W: FK Qäbälä

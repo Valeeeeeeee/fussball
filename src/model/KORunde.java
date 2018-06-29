@@ -31,6 +31,7 @@ public class KORunde implements Wettbewerb {
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
 	private boolean goalDifference = true;
+	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	
 	private boolean teamsAreWinners;
@@ -127,6 +128,10 @@ public class KORunde implements Wettbewerb {
 	
 	public boolean useGoalDifference() {
 		return goalDifference;
+	}
+	
+	public boolean useFairplayRule() {
+		return fairplay;
 	}
 	
 	public void setCheckTeamsFromPreviousRound(boolean check) {

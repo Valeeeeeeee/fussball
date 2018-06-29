@@ -13,6 +13,7 @@ public class LigaSaison implements Wettbewerb {
 	private int seasonIndex;
 	private int year;
 	private boolean goalDifference;
+	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	
 	private int numberOfReferees;
@@ -127,6 +128,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public boolean useGoalDifference() {
 		return goalDifference;
+	}
+	
+	public boolean useFairplayRule() {
+		return fairplay;
 	}
 	
 	public boolean teamsHaveKader() {

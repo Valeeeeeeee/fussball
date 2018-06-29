@@ -24,6 +24,7 @@ public class Gruppe implements Wettbewerb {
 	private TurnierSaison season;
 	private boolean isETPossible = false;
 	private boolean goalDifference;
+	private boolean fairplay;
 	private boolean teamsHaveKader;
 	
 	private Spiel[][] matches;
@@ -54,7 +55,7 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(TurnierSaison season, int id, boolean isQ, boolean goalDifference) {
+	public Gruppe(TurnierSaison season, int id, boolean isQ, boolean goalDifference, boolean fairplay) {
 		this.id = id;
 		this.isQ = isQ;
 		name = "Gruppe " + alphabet[id];
@@ -63,6 +64,7 @@ public class Gruppe implements Wettbewerb {
 		startDate = season.getStartDate(isQ);
 		finalDate = season.getFinalDate(isQ);
 		this.goalDifference = goalDifference;
+		this.fairplay = fairplay;
 		teamsHaveKader = season.teamsHaveKader(isQ);
 		
 		load();
@@ -157,6 +159,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public boolean useGoalDifference() {
 		return goalDifference;
+	}
+	
+	public boolean useFairplayRule() {
+		return fairplay;
 	}
 	
 	public String getDateOfTeam(int matchday, int id) {

@@ -321,6 +321,24 @@ public class Mannschaft {
 		}
 	}
 	
+	public int getFairplayValue() {
+		int value = 0;
+		
+		Iterator<String> iter = matches.keySet().iterator();
+		while (iter.hasNext()) {
+			Spiel match = matches.get(iter.next());
+			for (Karte booking : match.getBookings()) {
+				if (booking.isFirstTeam() == homeaway[match.getMatchday()]) {
+					if (booking.isSecondBooking())		value -= 2;
+					else if (booking.isYellowCard())	value--;
+					else								value -= 4;
+				}
+			}
+		}
+		
+		return value;
+	}
+	
 	private void setValuesForMatchday(int untilMatchday, Tabellenart tableType) {
 		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tableType)	return;
 		
@@ -622,7 +640,7 @@ public class Mannschaft {
 					String result = data[i][GOALS] + ":" + data[i][CGOALS];
 					if (results[i] != null) {
 						result = data[i][POINTS] + ";" + result;
-					} else	result = "-1;-:-";
+					} else	result = "-1;(" + (i + 1) + ")";
 					if (homeaway[i])	resultsOpponent[counterH++] = result;
 					else				resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
 				}
@@ -787,7 +805,12 @@ public class Mannschaft {
 		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
 				if (this.goalDiff == allTeams[id - 1].goalDiff) {
-					if (this.numOfGoals < allTeams[id - 1].numOfGoals)	this.place++;
+					if (this.numOfGoals == allTeams[id - 1].numOfGoals) {
+						if (competition.useFairplayRule()) {
+							if (this.getFairplayValue() < allTeams[id - 1].getFairplayValue())	this.place++;
+						}
+					}
+					else if (this.numOfGoals < allTeams[id - 1].numOfGoals)	this.place++;
 				}
 				else if (this.goalDiff < allTeams[id - 1].goalDiff)	this.place++;
 			}

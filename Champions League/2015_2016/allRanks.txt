@@ -20,7 +20,7 @@ Q206W: Skenderbeu Korça
 Q206L: Crusaders FC
 Q207W: Maccabi Tel Aviv
 Q207L: Hibernians Football Club
-Q208W: Videoton Szekesfehervar
+Q208W: Videoton Székesfehérvár
 Q208L: The New Saints FC
 Q209W: FK Astana
 Q209L: NK Maribor
@@ -55,7 +55,7 @@ Q306L: Panathinaikos Athen
 Q307W: AS Monaco
 Q307L: Young Boys Bern
 Q308W: BATE Baryssau
-Q308L: Videoton Szekesfehervar
+Q308L: Videoton Székesfehérvár
 Q309W: Dinamo Zagreb
 Q309L: Molde FK
 Q310W: FK Astana
