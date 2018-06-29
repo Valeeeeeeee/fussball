@@ -16,7 +16,7 @@ Carlos;Sánchez;null;19841202;Uruguay;Mittelfeld;5
 Lucas;Torreira;null;19960211;Uruguay;Mittelfeld;14
 Matias;Vecino;null;19910824;Uruguay;Mittelfeld;15
 Edinson;Cavani;null;19870214;Uruguay;Sturm;21
-Giorgian;De Arrascaeta;null;19940601;Uruguay;Sturm;10
+Giorgian;'De Arrascaeta';null;19940601;Uruguay;Sturm;10
 Maximiliano;Gómez;null;19960814;Uruguay;Sturm;18
 Christian;Stuani;null;19861012;Uruguay;Sturm;11
 Luis;Suárez;null;19870124;Uruguay;Sturm;9
