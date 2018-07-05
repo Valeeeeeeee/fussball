@@ -22,7 +22,6 @@ public class Gruppe implements Wettbewerb {
 	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private Mannschaft[] teams;
 	private TurnierSaison season;
-	private boolean isETPossible = false;
 	private boolean goalDifference;
 	private boolean fairplay;
 	private boolean teamsHaveKader;
@@ -153,8 +152,12 @@ public class Gruppe implements Wettbewerb {
 		return teams;
 	}
 	
-	public boolean isETPossible() {
-		return isETPossible;
+	public boolean isExtraTimePossible() {
+		return false;
+	}
+	
+	public boolean isFourthSubstitutionPossible() {
+		return false;
 	}
 	
 	public boolean useGoalDifference() {

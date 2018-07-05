@@ -168,7 +168,7 @@ public class SpielInformationen extends JFrame {
 	private static final int PENALTY_OUT = 2;
 	
 	private static final int numberOfPlayersInLineUp = 11;
-	private static final int maximumNumberOfSubstitutions = 3;
+	private static final int maximumNumberOfSubstitutionsRT = 3;
 
 	private int[] boundsLSP = new int[] {5, 5, 135, 21, 130, 20};
 	private int playersPerColumn = 13;
@@ -192,6 +192,9 @@ public class SpielInformationen extends JFrame {
 	private int goalDetails;
 	private int[] lineupHome;
 	private int[] lineupAway;
+	private int maximumNumberOfSubstitutions;
+	private int nOfRTSubsHome;
+	private int nOfRTSubsAway;
 	private ArrayList<Wechsel> substitutionsHome;
 	private ArrayList<Wechsel> substitutionsAway;
 	private ArrayList<Tor> goals;
@@ -206,6 +209,7 @@ public class SpielInformationen extends JFrame {
 	private int typed = -1;
 	
 	private boolean isETpossible = false;
+	private boolean is4thSubPossible = false;
 	
 	private JButton jBtnGo;
 
@@ -222,7 +226,8 @@ public class SpielInformationen extends JFrame {
 		substitutionsAway = match.getSubstitutions(false);
 		bookings = match.getBookings();
 		this.result = result;
-		isETpossible = match.getCompetition().isETPossible();
+		isETpossible = match.getCompetition().isExtraTimePossible();
+		is4thSubPossible = match.getCompetition().isFourthSubstitutionPossible();
 		
 		initGUI();
 		displayGivenValues();
@@ -231,6 +236,7 @@ public class SpielInformationen extends JFrame {
 	public void initGUI() {
 		this.setLayout(null);
 		
+		maximumNumberOfSubstitutions = maximumNumberOfSubstitutionsRT + (is4thSubPossible ? 1 : 0);
 		int maxNumOfPlayers = numberOfPlayersInLineUp + maximumNumberOfSubstitutions;
 		jLblsPlayersHome = new JLabel[maxNumOfPlayers];
 		jLblsPlayersAway = new JLabel[maxNumOfPlayers];
@@ -570,7 +576,7 @@ public class SpielInformationen extends JFrame {
 			jLblsSubsOffMinutesAway[i].setVisible(false);
 			jLblsSubsOffMinutesAway[i].setForeground(playerOffColor);
 		}
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < maximumNumberOfSubstitutions; i++) {
 			jLblsSubsOnMinutesHome[i] = new JLabel();
 			jPnlMatchInformation.add(jLblsSubsOnMinutesHome[i]);
 			jLblsSubsOnMinutesHome[i].setLocation(subMinsLbls[STARTX], subMinsLbls[STARTY] + (numberOfPlayersInLineUp + i) * subMinsLbls[GAPY]);
@@ -659,6 +665,7 @@ public class SpielInformationen extends JFrame {
 			jPnlEntry.add(jBtnEntryCompleted);
 			jBtnEntryCompleted.setBounds(REC_BTNENTRYCOMPL);
 			jBtnEntryCompleted.setText("fertig");
+			jBtnEntryCompleted.setFocusable(false);
 			jBtnEntryCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (enteringSubstitution)	jBtnEnterSubstitutionCompletedActionPerformed();
@@ -1457,8 +1464,8 @@ public class SpielInformationen extends JFrame {
 		if (enteringLineup || enteringGoal || enteringSubstitution || enteringBooking)	return;
 		if ((firstTeam && lineupHome == null) || (!firstTeam && lineupAway == null))	return;
 		
-		if (match.getSubstitutions(firstTeam).size() == 3) {
-			message("You have already submitted all three possible substitutions for this team.");
+		if (match.getSubstitutions(firstTeam).size() == maximumNumberOfSubstitutions) {
+			message("You have already submitted all possible substitutions for this team.");
 			return;
 		}
 		
@@ -1537,12 +1544,36 @@ public class SpielInformationen extends JFrame {
 		if (minute.getRegularTime() > 120) {
 			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
-		} else if (!isETpossible && minute.getRegularTime() > 90) {
-			message("In diesem Spiel kann es keine Verlängerung geben.");
-			return;
+		} else if (minute.getRegularTime() > 90) {
+			if (!isETpossible) {
+				message("In diesem Spiel kann es keine Verlängerung geben.");
+				return;
+			}
+		} else {
+			if (editingFirstTeam) {
+				if (nOfRTSubsHome == maximumNumberOfSubstitutionsRT && (changedSubstitution == null || changedSubstitution.getMinute().getRegularTime() > 90)) {
+					message("Es kann nur " + maximumNumberOfSubstitutionsRT + " Wechsel vor Ablauf der regulären Spielzeit geben.");
+					return;
+				}
+				nOfRTSubsHome++;
+			} else {
+				if (nOfRTSubsAway == maximumNumberOfSubstitutionsRT && (changedSubstitution == null || changedSubstitution.getMinute().getRegularTime() > 90)) {
+					message("Es kann nur " + maximumNumberOfSubstitutionsRT + " Wechsel vor Ablauf der regulären Spielzeit geben.");
+					return;
+				}
+				nOfRTSubsAway++;
+			}
 		}
-		if (changedSubstitution != null)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedSubstitution);
-		changedSubstitution = null;
+		if (changedSubstitution != null) {
+			if (editingFirstTeam) {
+				substitutionsHome.remove(changedSubstitution);
+				if (changedSubstitution.getMinute().getRegularTime() <= 90)	nOfRTSubsHome--;
+			} else {
+				substitutionsAway.remove(changedSubstitution);
+				if (changedSubstitution.getMinute().getRegularTime() <= 90)	nOfRTSubsAway--;
+			}
+			changedSubstitution = null;
+		}
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
 			if (substitution.getMinute().isAfter(minute)) {
 				repaint = true;

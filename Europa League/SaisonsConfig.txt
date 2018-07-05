@@ -1,4 +1,4 @@
-2015;true;20150917;20160518;true;true;true;false;false;
-2016;true;20160915;20170524;true;true;true;false;false;
-2017;true;20170914;20180516;true;true;true;false;false;
-2018;true;20180920;20180529;true;true;true;false;false;
+2015;true;20150917;20160518;true;true;true;false;false;false;
+2016;true;20160915;20170524;true;true;true;false;false;false;
+2017;true;20170914;20180516;true;true;true;false;false;false;
+2018;true;20180920;20190529;true;true;true;false;false;true;

@@ -27,6 +27,7 @@ public class TurnierSaison {
 	private boolean matchForThirdPlace;
 	private boolean teamsHaveKader;
 	private boolean qTeamsHaveKader;
+	private boolean isFourthSubPossible;
 	
 	private Map<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
@@ -158,6 +159,10 @@ public class TurnierSaison {
 	
 	public boolean teamsHaveKader(boolean isQ) {
 		return isQ ? qTeamsHaveKader : teamsHaveKader;
+	}
+	
+	public boolean isFourthSubPossible() {
+		return isFourthSubPossible;
 	}
 	
 	public boolean isETPossible() {
@@ -834,6 +839,7 @@ public class TurnierSaison {
 		toString += hasKOStage + ";";
 		toString += matchForThirdPlace + ";";
 		toString += teamsHaveKader + ";";
+		toString += isFourthSubPossible + ";";
 		
 		return toString;
 	}
@@ -851,5 +857,6 @@ public class TurnierSaison {
 		hasKOStage = Boolean.parseBoolean(split[index++]);
 		matchForThirdPlace = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
+		isFourthSubPossible = Boolean.parseBoolean(split[index++]);
 	}
 }

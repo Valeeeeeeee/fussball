@@ -132,7 +132,7 @@ public class Spieltag extends JPanel {
 		belongsToGroup = false;
 		belongsToKORound = false;
 		isOverview = false;
-		isETPossible = lSeason.isETPossible();
+		isETPossible = lSeason.isExtraTimePossible();
 
 		numberOfMatches = lSeason.getNumberOfMatchesPerMatchday();
 		numberOfTeams = lSeason.getNumberOfTeams();
@@ -151,7 +151,7 @@ public class Spieltag extends JPanel {
 		belongsToGroup = true;
 		belongsToKORound = false;
 		isOverview = false;
-		isETPossible = group.isETPossible();
+		isETPossible = group.isExtraTimePossible();
 
 		numberOfMatches = group.getNumberOfMatchesPerMatchday();
 		numberOfTeams = group.getNumberOfTeams();
@@ -170,7 +170,7 @@ public class Spieltag extends JPanel {
 		belongsToGroup = false;
 		belongsToKORound = true;
 		isOverview = false;
-		isETPossible = koRound.isETPossible();
+		isETPossible = koRound.isExtraTimePossible();
 		
 		numberOfMatches = koRound.getNumberOfMatchesPerMatchday();
 		numberOfTeams = 2 * numberOfMatches;

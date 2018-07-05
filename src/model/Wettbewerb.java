@@ -31,7 +31,8 @@ public interface Wettbewerb {
 	
 	public Mannschaft[] getTeams();
 	
-	public boolean isETPossible();
+	public boolean isExtraTimePossible();
+	public boolean isFourthSubstitutionPossible();
 	
 	/** 
 	 * When two teams have the same amount of points:<br />

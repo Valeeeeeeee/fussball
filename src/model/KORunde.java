@@ -30,6 +30,7 @@ public class KORunde implements Wettbewerb {
 	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
+	private boolean is4thSubPossible = false;
 	private boolean goalDifference = true;
 	private boolean fairplay = false;
 	private boolean teamsHaveKader;
@@ -72,6 +73,7 @@ public class KORunde implements Wettbewerb {
 		startDate = season.getStartDate(isQ);
 		finalDate = season.getFinalDate(isQ);
 		teamsHaveKader = season.teamsHaveKader(isQ);
+		is4thSubPossible = season.isFourthSubPossible();
 		
 		fromString(data);
 		
@@ -122,8 +124,12 @@ public class KORunde implements Wettbewerb {
 		return spieltag;
 	}
 	
-	public boolean isETPossible() {
+	public boolean isExtraTimePossible() {
 		return isETPossible;
+	}
+	
+	public boolean isFourthSubstitutionPossible() {
+		return is4thSubPossible;
 	}
 	
 	public boolean useGoalDifference() {

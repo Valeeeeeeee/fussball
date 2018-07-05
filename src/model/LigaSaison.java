@@ -138,7 +138,11 @@ public class LigaSaison implements Wettbewerb {
 		return teamsHaveKader;
 	}
 	
-	public boolean isETPossible() {
+	public boolean isExtraTimePossible() {
+		return false;
+	}
+	
+	public boolean isFourthSubstitutionPossible() {
 		return false;
 	}
 	

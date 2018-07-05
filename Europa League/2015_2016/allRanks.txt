@@ -267,7 +267,7 @@ PO20L: Vojvodina Novi Sad
 PO21W: FC Midtjylland
 PO21L: FC Southampton
 PO22W: Lech Posen
-PO22L: Videoton Szekesfehervar
+PO22L: Videoton Székesfehérvár
 GA1: Molde FK
 GA2: Fenerbahce Istanbul
 GA3: Ajax Amsterdam
