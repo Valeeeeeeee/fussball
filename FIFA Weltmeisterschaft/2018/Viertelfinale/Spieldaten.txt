@@ -1,4 +1,4 @@
-1:2
-5:6
-3:4
-7:8
+2:1={0:2#false-m40-s4-a7#false-m61-s7-a12^#false-m33-ytrue-sfalse-p21#true-m38-ytrue-sfalse-p6#true-m69-ytrue-sfalse-p7#false-m69-ytrue-sfalse-p10}={1,22,2,3,6,17,8,14,15,11,9#59:11>>18#59:6>>7#73:8>>20}={1,21,2,5,4,13,6,12,9,7,10#80:12>>15#88:10>>11#90+3:7>>18}
+5:6={1:2#false-m13-s17-a22-og#false-m31-s7-a9#true-m76-s8-a11^#false-m47-ytrue-sfalse-p2#false-m71-ytrue-sfalse-p15#true-m85-ytrue-sfalse-p17#true-m90-ytrue-sfalse-p22}={1,22,12,3,2,11,17,15,19,9,10#46:19>>20#58:9>>7#73:15>>8}={1,2,4,15,5,22,7,8,6,10,9#83:22>>3#87:9>>17}
+7:8={0:2#false-m30-s6-a18#false-m59-s20-a7^#false-m87-ytrue-sfalse-p6#true-m87-ytrue-sfalse-p11#true-m90+4-ytrue-sfalse-p7}={1,6,4,16,3,17,8,10,7,9,20#65:20>>11#65:10>>5#85:16>>18}={1,6,5,12,2,18,20,8,7,9,10#77:20>>17#85:8>>4#90+1:10>>19}
+3:4={5:6nE (2:2,1:1)#true-m31-s6-a22#false-m39-s9-a17#false-m101-s21-a10#true-m115-s2-a9^#false-m35-ytrue-sfalse-p6#false-m38-ytrue-sfalse-p3#false-m101-ytrue-sfalse-p21#true-m109-ytrue-sfalse-p8#false-m114-ytrue-sfalse-p22}={1,2,4,13,3,6,17,7,19,11,22#54:19>>21#67:6>>10#79:22>>8#102:17>>9}={23,6,3,21,2,10,7,9,17,4,18#63:4>>11#74:3>>22#88:9>>8#97:2>>5}
