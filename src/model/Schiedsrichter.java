@@ -11,6 +11,7 @@ public class Schiedsrichter {
 	private String firstName;
 	private String lastName;
 	private Datum birthDate;
+	private String nationality;
 	private ArrayList<Spiel> matches = new ArrayList<>();
 	
 	public Schiedsrichter(int id, String firstName, String lastName, Datum birthDate) {
@@ -71,6 +72,7 @@ public class Schiedsrichter {
 		firstName = dataSplit[index++];
 		lastName = dataSplit[index++];
 		birthDate = new Datum(dataSplit[index++]);
+		nationality = dataSplit[index++];
 	}
 	
 	public String toString() {
@@ -79,6 +81,7 @@ public class Schiedsrichter {
 		toString += firstName + trennZeichen;
 		toString += lastName + trennZeichen;
 		toString += birthDate.comparable() + trennZeichen;
+		toString += nationality + trennZeichen;
 		
 		return toString;
 	}
