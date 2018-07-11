@@ -1,2 +1,2 @@
-1:2
+1:2={1:0#true-m51-s5-a7^#false-m63-ytrue-sfalse-p10#false-m71-ytrue-sfalse-p2#true-m87-ytrue-sfalse-p13#true-m90+3-ytrue-sfalse-p10#false-m90+4-ytrue-sfalse-p5}={1,21,2,5,4,13,14,6,9,7,10#85:9>>15#86:14>>12}={1,2,4,5,22,7,19,8,6,10,9#60:19>>14#80:8>>11#90+1:22>>21}
 3:4
