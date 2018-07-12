@@ -13,7 +13,6 @@ public class Spieltag extends JPanel {
 
 	private static final int WIDTH_BORDER = 2;
 	
-	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	private Color colorRand = new Color(0, 192, 0);
 	private Color colorSelection = new Color(16, 255, 16);
 	private Color colorEditing = new Color(255, 255, 0);
