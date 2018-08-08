@@ -161,9 +161,10 @@ public class KORunde implements Wettbewerb {
 		return teamsOrigins[team];
 	}
 	
-	public Mannschaft getPrequalifiedTeam(int index) {
-		if (index >= 0 && index < numberOfTeamsPrequalified)	return teams[index];
-		else													return null;
+	public Mannschaft getInvariantTeam(int index) {
+		if (index >= 0 && index < numberOfTeamsPrequalified)										return teams[index];
+		if (index < numberOfTeams && index + numberOfTeamsFromOtherCompetition >= numberOfTeams)	return teams[index];
+		else																						return null;
 	}
 	
 	private void refreshTeams() {

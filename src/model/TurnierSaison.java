@@ -541,11 +541,11 @@ public class TurnierSaison {
 				if (isQ) {
 					if (teamsAreWinners)	teamIndex = qKORounds[koIndex - 1].getIndexOf(matchIndex, true);
 					else					teamIndex = qKORounds[koIndex - 1].getIndexOf(matchIndex, false);
-					deepestOrigin = qKORounds[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
+					deepestOrigin = qKORounds[koIndex - 1].getInvariantTeam(teamIndex - 1);
 				} else {
 					if (teamsAreWinners)	teamIndex = koRounds[koIndex - 1].getIndexOf(matchIndex, true);
 					else					teamIndex = koRounds[koIndex - 1].getIndexOf(matchIndex, false);
-					deepestOrigin = koRounds[koIndex - 1].getPrequalifiedTeam(teamIndex - 1);
+					deepestOrigin = koRounds[koIndex - 1].getInvariantTeam(teamIndex - 1);
 				}
 				
 				if (deepestOrigin != null) {
