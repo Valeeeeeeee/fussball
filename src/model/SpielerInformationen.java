@@ -965,6 +965,7 @@ public class SpielerInformationen extends JFrame {
 		Mannschaft mannschaft = player.getTeam();
 		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
 		String urlKlein = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
+		String urlKleinPNG = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.png";
 		
 		Image image = null;
 		if (jLblImage != null) {
@@ -982,7 +983,14 @@ public class SpielerInformationen extends JFrame {
 				image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
 				jLblImage = new JLabel(new ImageIcon(image));
 			} catch (Exception e2) {
-				jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
+				try {
+					image = ImageIO.read(new URL(urlKleinPNG));
+					double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
+					image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
+					jLblImage = new JLabel(new ImageIcon(image));
+				} catch (Exception e3) {
+					jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
+				}
 			}
 		}
 		
