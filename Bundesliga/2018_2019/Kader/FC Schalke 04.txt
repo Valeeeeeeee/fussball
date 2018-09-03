@@ -1,0 +1,26 @@
+Ralf;Fährmann;null;19880927;Deutschland;Tor;1
+Alexander;Nübel;null;19960930;Deutschland;Tor;35
+Abdul Rahman;Baba;null;19940702;Ghana;Abwehr;14
+Hamza;Mendyl;null;19971021;Marokko;Abwehr;3
+Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;Abwehr;29
+Matija;Nastasic;null;19930328;Serbien;Abwehr;5
+Bastian;Oczipka;null;19890112;Deutschland;Abwehr;24
+Sascha;Riether;null;19830323;Deutschland;Abwehr;21
+Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;26
+Nabil;Bentaleb;null;19941124;Algerien;Mittelfeld;10
+Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;18
+Johannes;Geis;null;19930817;Deutschland;Mittelfeld;16
+Amine;Harit;null;19970618;Frankreich;Mittelfeld;25
+Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11
+Omar;Mascarell;null;19930202;Spanien;Mittelfeld;6
+Weston;McKennie;null;19980828;USA;Mittelfeld;2
+Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;13;20180827-
+Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;28
+Suat;Serdar;null;19970411;Deutschland;Mittelfeld;8
+Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
+Guido;Burgstaller;null;19890429;Österreich;Sturm;19
+Franco;di Santo;null;19890407;Argentinien;Sturm;9
+Breel;Embolo;null;19970214;Schweiz;Sturm;36
+Steven;Skrzybski;null;19921118;Deutschland;Sturm;22
+Cedric;Teuchert;null;19970114;Deutschland;Sturm;23
+Mark;Uth;null;19910824;Deutschland;Sturm;7

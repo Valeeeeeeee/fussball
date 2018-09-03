@@ -1,0 +1,25 @@
+Fabian;Giefer;null;19900517;Deutschland;Tor;13
+Andreas;Luthe;null;19870310;Deutschland;Tor;1
+Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
+Kevin;Danso;null;19980919;Österreich;Abwehr;38
+Raphael;Framberger;null;19950906;Deutschland;Abwehr;32
+Felix;Götze;null;19980211;Deutschland;Abwehr;4
+Jeffrey;Gouweleeuw;null;19910710;Niederlande;Abwehr;6
+Martin;Hinteregger;null;19920907;Österreich;Abwehr;36
+Christoph;Janker;null;19850214;Deutschland;Abwehr;16
+Philipp;Max;null;19930930;Deutschland;Abwehr;31
+Konstantinos;Stafylidis;null;19931202;Griechenland;Abwehr;3
+Georg;Teigl;null;19910209;Österreich;Abwehr;34
+Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
+Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
+Michael;Gregoritsch;null;19940418;Österreich;Mittelfeld;11
+Rani;Khedira;null;19940127;Deutschland;Mittelfeld;8
+Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19
+Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14
+Jonathan;Schmid;null;19900622;Frankreich;Mittelfeld;17
+Sergio;Córdova;null;19970809;Venezuela;Sturm;21
+Alfreð;Finnbogason;null;19890201;Island;Sturm;27
+André;Hahn;null;19900813;Deutschland;Sturm;28
+Dong-Won;Ji;null;19910528;Südkorea;Sturm;22
+Marco;Richter;null;19971124;Deutschland;Sturm;23
+Julian;Schieber;null;19890213;Deutschland;Sturm;20

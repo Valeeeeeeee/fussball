@@ -1,0 +1,29 @@
+Roman;Bürki;null;19901114;Schweiz;Tor;1
+Marwin;Hitz;null;19870918;Schweiz;Tor;35
+Manuel;Akanji;null;19950719;Schweiz;Abwehr;16
+Abdou;Diallo;null;19960504;Frankreich;Abwehr;4
+Raphael;Guerreiro;null;19931222;Portugal;Abwehr;13
+Achraf;Hakimi;null;19981104;Marokko;Abwehr;5
+Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
+Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
+Jeremy;Toljan;null;19940808;Deutschland;Abwehr;15
+Ömer;Toprak;null;19890721;Deutschland, Türkei;Abwehr;36
+Dan-Axel;Zagadou;null;19990603;Frankreich;Abwehr;2
+Dzenis;Burnic;null;19980522;Deutschland;Mittelfeld;32
+Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;19
+Thomas;Delaney;null;19910903;Dänemark;Mittelfeld;6
+Mario;Götze;null;19920603;Deutschland;Mittelfeld;10
+Shinji;Kagawa;null;19890317;Japan;Mittelfeld;23
+Christian;Pulisic;null;19980918;USA;Mittelfeld;22
+Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
+Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;18
+Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;8;-20180830
+Jadon;Sancho;null;20000325;England;Mittelfeld;7
+Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
+Axel;Witsel;null;19890112;Belgien;Mittelfeld;28
+Paco;Alcácer;null;19930830;Spanien;Sturm;9;20180828-
+Jacob;'Bruun Larsen';null;19980919;Dänemark;Sturm;34
+Sergio;Gomez;null;20000904;Spanien;Sturm;17
+Alexander;Isak;null;19990921;Schweden, Eritrea;Sturm;14
+Maximilian;Philipp;null;19940301;Deutschland;Sturm;20
+Marius;Wolf;null;19950527;Deutschland;Sturm;27

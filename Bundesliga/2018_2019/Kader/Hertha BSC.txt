@@ -1,0 +1,27 @@
+Rune;Jarstein;null;19840929;Norwegen;Tor;22
+Thomas;Kraft;null;19880722;Deutschland;Tor;1
+Javairo;Dilrosun;null;19980622;Niederlande;Abwehr;16
+Lukas;Klünter;null;19960526;Deutschland;Abwehr;13
+Derrick;Luckassen;null;19950703;Niederlande;Abwehr;31;20180828-
+Fabian;Lustenberger;null;19880502;Schweiz;Abwehr;28
+Maximilian;Mittelstädt;null;19970318;Deutschland;Abwehr;17
+Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
+Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;21
+Karim;Rekik;null;19941202;Niederlande;Abwehr;4
+Niklas;Stark;null;19950414;Deutschland;Abwehr;5
+Jordan;Torunarigha;null;19970807;Deutschland;Abwehr;25
+Vladimír;Darida;null;19900808;Tschechien;Mittelfeld;6
+Ondrej;Duda;null;19941205;Slowakei;Mittelfeld;10
+Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;7
+Marko;Grujic;null;19960413;Serbien;Mittelfeld;15
+Sinan;Kurt;null;19960723;Deutschland;Mittelfeld;18
+Valentino;Lazaro;null;19960324;Österreich;Mittelfeld;20
+Arne;Maier;null;19990108;Deutschland;Mittelfeld;23
+Per Ciljan;Skjelbred;null;19870616;Norwegen;Mittelfeld;3
+Palko;Dárdai;null;19990424;Deutschland, Ungarn;Sturm;24
+Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;19
+Dennis;Jastrzembski;null;20000220;Deutschland;Sturm;32
+Salomon;Kalou;null;19850805;Elfenbeinküste;Sturm;8
+Pascal;Köpke;null;19950903;Deutschland;Sturm;14
+Mathew;Leckie;null;19910204;Australien;Sturm;11
+Davie;Selke;null;19950120;Deutschland;Sturm;27

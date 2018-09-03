@@ -1,0 +1,23 @@
+Jens;Grahl;null;19880922;Deutschland;Tor;13
+Alexander;Meyer;null;19910413;Deutschland;Tor;26
+Ron-Robert;Zieler;null;19890212;Deutschland;Tor;1
+Dennis;Aogo;null;19870114;Deutschland;Abwehr;3
+Holger;Badstuber;null;19890313;Deutschland;Abwehr;28
+Timo;Baumgartl;null;19960304;Deutschland;Abwehr;5
+Andreas;Beck;null;19870313;Deutschland;Abwehr;32
+Emiliano;Insúa;null;19890107;Argentinien;Abwehr;2
+Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;4
+Pablo;Maffeo;null;19970712;Spanien;Abwehr;7
+Benjamin;Pavard;null;19960328;Frankreich;Abwehr;21
+Borna;Sosa;null;19980121;Kroatien;Abwehr;24
+Santiago;Ascacibar;null;19970225;Argentinien;Mittelfeld;6
+Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;8
+Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
+Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
+David;Kopacz;null;19990529;Deutschland;Mittelfeld;29
+Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31
+Erik;Thommy;null;19940820;Deutschland;Mittelfeld;17
+Chadrac;Akolo;null;19950401;DR Kongo;Sturm;19
+Anastasios;Donis;null;19960829;Griechenland;Sturm;11
+Mario;Gomez;null;19850710;Deutschland;Sturm;27
+Nicolás;González;null;19980406;Argentinien;Sturm;22

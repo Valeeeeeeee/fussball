@@ -1,0 +1,31 @@
+Frederik;Rønnow;null;19920804;Dänemark;Tor;1
+Kevin;Trapp;null;19900708;Deutschland;Tor;31;20180831-
+Felix;Wiedwald;null;19900315;Deutschland;Tor;29
+Jan;Zimmermann;null;19850419;Deutschland;Tor;37
+David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
+Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
+Danny;da Costa;null;19930713;Deutschland;Abwehr;24
+Simon;Falette;null;19920219;Frankreich;Abwehr;3
+Evan;N'Dicka;null;19990820;Frankreich, Kamerun;Abwehr;2
+Marco;Russ;null;19850804;Deutschland;Abwehr;23
+Carlos;Salcedo;null;19930929;Mexiko;Abwehr;13
+Taleb;Tawatha;null;19920621;Israel;Abwehr;33
+Jetro;Willems;null;19940330;Niederlande;Abwehr;15
+Marijan;Cavar;null;19980202;Bosnien-Herzegowina;Mittelfeld;42;-20180830
+Jonathan;de Guzman;null;19870913;Niederlande;Mittelfeld;6
+Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;38
+Gélson;Fernandes;null;19860902;Schweiz;Mittelfeld;5
+Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
+Francisco;Geraldes;null;19950418;Portugal;Mittelfeld;18
+Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
+Daichi;Kamada;null;19960805;Japan;Mittelfeld;40;-20180830
+Filip;Kostic;null;19921101;Serbien;Mittelfeld;10
+Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
+Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
+Lucas;Torro;null;19940719;Spanien;Mittelfeld;16
+Danny;Blum;null;19910107;Deutschland;Sturm;7;-20180826
+Sebastian;Haller;null;19940622;Frankreich;Sturm;9
+Branimir;Hrgota;null;19930112;Schweden;Sturm;34
+Luka;Jovic;null;19971223;Serbien;Sturm;8
+Gonçalo;Paciencia;null;19940801;Portugal;Sturm;39
+Ante;Rebic;null;19930921;Kroatien;Sturm;4

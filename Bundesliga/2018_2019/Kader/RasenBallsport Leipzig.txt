@@ -1,0 +1,23 @@
+Péter;Gulácsi;null;19900506;Ungarn;Tor;1
+Marius;Müller;null;19930712;Deutschland;Tor;21
+Yvon;Mvogo;null;19940606;Schweiz;Tor;28
+Marcel;Halstenberg;null;19910927;Deutschland;Abwehr;23
+Lukas;Klostermann;null;19960603;Deutschland;Abwehr;16
+Ibrahima;Konaté;null;19990525;Frankreich;Abwehr;6
+Nordi;Mukiele;null;19971101;Frankreich;Abwehr;22
+Atinç;Nukan;null;19930720;Türkei;Abwehr;33
+Willi;Orban;null;19921103;Deutschland;Abwehr;4
+Marcelo;Saracchi;null;19980423;Uruguay;Abwehr;3
+'Dayot'chanculle;Upamecano;null;19981027;Frankreich;Abwehr;5
+Armindo;Tué Na Bangna;Bruma;19941024;Portugal;Mittelfeld;17
+Massimo;Bruno;null;19930917;Belgien;Mittelfeld;35;-20180830
+Diego;Demme;null;19911121;Deutschland;Mittelfeld;31
+Stefan;Ilsanker;null;19890518;Österreich;Mittelfeld;13
+Kevin;Kampl;null;19901009;Slowenien;Mittelfeld;44
+Konrad;Laimer;null;19970527;Österreich;Mittelfeld;27
+Jean-Kévin;Augustin;null;19970616;Frankreich;Sturm;29
+Matheus;Cunha;null;19990527;Brasilien;Sturm;20
+Emil;Forsberg;null;19911023;Schweden;Sturm;10
+Yussuf;Poulsen;null;19940615;Dänemark;Sturm;9
+Marcel;Sabitzer;null;19940317;Österreich;Sturm;7
+Timo;Werner;null;19960306;Deutschland;Sturm;11

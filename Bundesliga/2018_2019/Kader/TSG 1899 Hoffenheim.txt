@@ -1,0 +1,27 @@
+Oliver;Baumann;null;19900602;Deutschland;Tor;1
+Gregor;Kobel;null;19971206;Schweiz;Tor;36
+Alexander;Stolz;null;19831013;Deutschland;Tor;33
+Kasim;Adams;null;19950622;Ghana;Abwehr;15
+Kevin;Akpoguma;null;19950419;Deutschland;Abwehr;25
+Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
+Joshua;Brenet;null;19940320;Niederlande;Abwehr;2
+Benjamin;Hübner;null;19890704;Deutschland;Abwehr;21
+Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
+Stefan;Posch;null;19970514;Österreich;Abwehr;38
+Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
+Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;13
+Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;10
+Dennis;Geiger;null;19980610;Deutschland;Mittelfeld;8
+Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32
+Florian;Grillitsch;null;19950807;Österreich;Mittelfeld;11
+Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
+Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;7
+Nico;Schulz;null;19930401;Deutschland;Mittelfeld;16
+Kevin;Vogt;null;19910923;Deutschland;Mittelfeld;22
+Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
+Ishak;Belfodil;null;19920112;Algerien;Sturm;19
+Robin;Hack;null;19980827;Deutschland;Sturm;37
+Joelinton Cassio;Apolinaro de Lira;Joelinton;19960814;Brasilien;Sturm;34
+Andrej;Kramaric;null;19910619;Kroatien;Sturm;27
+Reiss;Nelson;null;19991210;England;Sturm;9;20180831-
+Ádám;Szalai;null;19871209;Ungarn;Sturm;28
