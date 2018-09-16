@@ -25,7 +25,7 @@ Marvin;Stefaniak;null;19950203;Deutschland;Mittelfeld;34
 Renato;Steffen;null;19911103;Schweiz;Mittelfeld;8
 Josip;Brekalo;null;19980623;Kroatien;Sturm;7
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
-Kaylen;Hinds;null;19980128;England;Sturm;29
+Kaylen;Hinds;null;19980128;England;Sturm;29;-20180905
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;14
 Paul-Georges;Ntep de Madiba;null;19920729;Frankreich;Sturm;21
 Wout;Weghorst;null;19920807;Niederlande;Sturm;9
