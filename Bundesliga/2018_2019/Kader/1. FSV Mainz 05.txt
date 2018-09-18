@@ -8,6 +8,7 @@ Niko;Bungert;null;19861024;Deutschland;Abwehr;26
 Gaëtan;Bussmann;null;19910202;Frankreich;Abwehr;24
 Giulio;Donati;null;19900205;Italien;Abwehr;2
 Jean-Philippe;Gbamin;null;19950925;Frankreich;Abwehr;25
+Ahmet;Gürleyen;null;19990426;Deutschland;Abwehr;31
 Alexander;Hack;null;19930908;Deutschland;Abwehr;42
 Aarón;Martín;null;19970422;Spanien;Abwehr;3
 Philipp;Mwene;null;19940129;Österreich;Abwehr;23
@@ -23,6 +24,7 @@ José;Rodríguez Martínez;null;19941216;Spanien;Mittelfeld;5;-20180826
 Issah;Abass;null;19980926;Ghana;Sturm;28;20180831-
 Emil;Berggreen;null;19930510;Dänemark;Sturm;11
 Jean-Paul;Boëtius;null;19940322;Niederlande, Suriname;Sturm;5;20180827-
+Jonathan;Burkardt;null;20000711;Deutschland;Sturm;29
 Gerrit;Holtmann;null;19950325;Deutschland;Sturm;38
 Jean-Philippe;Mateta;null;19970628;Frankreich, DR Kongo;Sturm;9
 Karim;Onisiwo;null;19920317;Österreich;Sturm;21
