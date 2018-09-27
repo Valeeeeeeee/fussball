@@ -11,6 +11,7 @@ Marco;Russ;null;19850804;Deutschland;Abwehr;23
 Carlos;Salcedo;null;19930929;Mexiko;Abwehr;13
 Taleb;Tawatha;null;19920621;Israel;Abwehr;33
 Jetro;Willems;null;19940330;Niederlande;Abwehr;15
+Allan;Rodrigues de Souza;Allan;19970303;Brasilien;Mittelfeld;28
 Marijan;Cavar;null;19980202;Bosnien-Herzegowina;Mittelfeld;42;-20180830
 Jonathan;de Guzman;null;19870913;Niederlande;Mittelfeld;6
 Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;7
