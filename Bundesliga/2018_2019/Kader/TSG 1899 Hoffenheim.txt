@@ -5,6 +5,7 @@ Kasim;Adams;null;19950622;Ghana;Abwehr;15
 Kevin;Akpoguma;null;19950419;Deutschland;Abwehr;25
 Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
 Joshua;Brenet;null;19940320;Niederlande;Abwehr;2
+Justin;Hoogma;null;19980611;Niederlande;Abwehr;24
 Benjamin;Hübner;null;19890704;Deutschland;Abwehr;21
 Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
 Stefan;Posch;null;19970514;Österreich;Abwehr;38

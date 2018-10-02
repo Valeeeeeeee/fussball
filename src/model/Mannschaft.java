@@ -161,6 +161,13 @@ public class Mannschaft {
 		return squadNumber;
 	}
 	
+	public boolean checkForDuplicate(String firstName, String lastName, Datum birthDate) {
+		for (Spieler player : kader) {
+			if (player.getFirstName().equals(firstName) && player.getLastName().equals(lastName) && player.getBirthDate().equals(birthDate))	return true;
+		}
+		return false;
+	}
+	
 	public void addPlayer(Spieler player) {
 		kader.add(player);
 		numberOfPlayersByPosition[player.getPosition().getID()]++;

@@ -14,6 +14,7 @@ Anderson;Lucoqui;null;19970706;Deutschland;Abwehr;4;-20180830
 Jean;Zimmer;null;19931206;Deutschland;Abwehr;39
 Matthias;Zimmermann;null;19920616;Deutschland;Abwehr;25
 Oliver;Fink;null;19820606;Deutschland;Mittelfeld;7
+Davor;Lovren;null;19981003;Kroatien;Mittelfeld;19
 Alfredo;Morales;null;19900512;USA, Deutschland;Mittelfeld;6
 Benito;Raman;null;19941107;Belgien;Mittelfeld;9
 Marcel;Sobottka;null;19940425;Deutschland;Mittelfeld;31

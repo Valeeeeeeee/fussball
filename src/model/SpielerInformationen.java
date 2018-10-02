@@ -638,6 +638,10 @@ public class SpielerInformationen extends JFrame {
 			if (!atClubSinceEver)	firstDate = new Datum(jCBAtClubSinceDay.getSelectedIndex() + 1, jCBAtClubSinceMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()));
 			if (!atClubUntilEver)	lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
 			secondFDate = player.getSecondFirstDate();
+			if (player.getTeam().checkForDuplicate(firstName, lastName, birthDate)) {
+				message("Ein Spieler mit diesem Namen und Geburtsdatum existiert bereits!");
+				return false;
+			}
 			int squadNumber = 0;
 			try {
 				squadNumber = Integer.parseInt(jTFSquadNumber.getText());
