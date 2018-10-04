@@ -566,7 +566,7 @@ public class LigaSaison implements Wettbewerb {
 				Uhrzeit time = getTime(i, j);
 				if (isMatchSet(i, j) && date != null && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
+					if (nextMatches.size() < Start.numberOfMissingResults || dateAndTime < nextMatches.get(Start.numberOfMissingResults - 1)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 							if (dateAndTime < nextMatches.get(k))	index = k;
@@ -580,7 +580,7 @@ public class LigaSaison implements Wettbewerb {
 		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();
-			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
+			for (int i = 0; i < Start.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
 			inDatei(fileName, nextMatchesString);

@@ -529,9 +529,9 @@ public class Gruppe implements Wettbewerb {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				Datum date = getDate(i, j);
 				Uhrzeit time = getTime(i, j);
-				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j)) && (date.isAfter(startDate) || time.comparable() > 0)) {
+				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
+					if (nextMatches.size() < Start.numberOfMissingResults || dateAndTime < nextMatches.get(Start.numberOfMissingResults - 1)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 							if (dateAndTime < nextMatches.get(k))	index = k;

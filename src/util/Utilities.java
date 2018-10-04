@@ -25,6 +25,7 @@ public class Utilities {
 	public static final Color colorCategory3 = new Color(255, 255, 0);
 	public static final Color colorCategory4 = new Color(255, 128, 0);
 	public static final Color colorCategory5 = new Color(255, 0, 0);
+	public static final Color colorCategory6 = new Color(128, 128, 128);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
 	
 	public static Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);

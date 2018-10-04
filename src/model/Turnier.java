@@ -248,7 +248,7 @@ public class Turnier {
 	}
 	
 	public int[] checkMissingResults() {
-		int countCompleted = 0, countStillRunning = 0;
+		int countNotScheduled = 0, countCompleted = 0, countStillRunning = 0;
 		for (TurnierSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
@@ -256,7 +256,9 @@ public class Turnier {
 				long now = 10000L * Start.today().comparable() + new Uhrzeit().comparable();
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
-					if (match < now) {
+					if (match % 10000 == 9999) {
+						countNotScheduled++;
+					} else if (match < now) {
 						boolean hourPassed = match % 100 >= now % 100;
 						int dayDiff = new Datum((int) match / 10000).daysUntil(new Datum((int) now / 10000));
 						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);
@@ -268,7 +270,7 @@ public class Turnier {
 			}
 		}
 		
-		return new int[] {countCompleted, countStillRunning};
+		return new int[] {countNotScheduled, countCompleted, countStillRunning};
 	}
 	
 	public void load(int index) {

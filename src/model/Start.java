@@ -36,6 +36,7 @@ public class Start extends JFrame {
 	private String[] koRShort = new String[] {"1R", "2R", "AF", "VF", "HF", "P3", "FI"};
 	private char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	private Font fontMissingResults = new Font("Lucida Grande", 1, 24);
+	public static final int numberOfMissingResults = 20;
 	
 	private int numberOfLeagues;
 	private int numberOfTournaments;
@@ -83,9 +84,11 @@ public class Start extends JFrame {
 	private JButton[] jBtnsLeagues;
 	private JLabel[] jLblsRunningMatchesLeagues;
 	private JLabel[] jLblsCompletedMatchesLeagues;
+	private JLabel[] jLblsNotScheduledMatchesLeagues;
 	private JButton[] jBtnsTournaments;
 	private JLabel[] jLblsRunningMatchesTournaments;
 	private JLabel[] jLblsCompletedMatchesTournaments;
+	private JLabel[] jLblsNotScheduledMatchesTournaments;
 	private JButton jBtnAddLeague;
 	private JButton jBtnAddTournament;
 	private JButton jBtnExit;
@@ -256,9 +259,11 @@ public class Start extends JFrame {
 		jBtnsLeagues = new JButton[numberOfLeagues];
 		jLblsRunningMatchesLeagues = new JLabel[numberOfLeagues];
 		jLblsCompletedMatchesLeagues = new JLabel[numberOfLeagues];
+		jLblsNotScheduledMatchesLeagues = new JLabel[numberOfLeagues];
 		jBtnsTournaments = new JButton[numberOfTournaments];
 		jLblsRunningMatchesTournaments = new JLabel[numberOfTournaments];
 		jLblsCompletedMatchesTournaments = new JLabel[numberOfTournaments];
+		jLblsNotScheduledMatchesTournaments = new JLabel[numberOfTournaments];
 		
 		for (int i = 0; i < numberOfLeagues; i++) {
 			final int x = i;
@@ -272,6 +277,15 @@ public class Start extends JFrame {
 					jBtnsLeaguesPressed(x);
 				}
 			});
+			
+			jLblsNotScheduledMatchesLeagues[i] = new JLabel();
+			Homescreen.add(jLblsNotScheduledMatchesLeagues[i]);
+			jLblsNotScheduledMatchesLeagues[i].setBounds(STARTX_BTNS - 3 * (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsNotScheduledMatchesLeagues[i]);
+			jLblsNotScheduledMatchesLeagues[i].setFont(fontMissingResults);
+			jLblsNotScheduledMatchesLeagues[i].setFocusable(false);
+			jLblsNotScheduledMatchesLeagues[i].setBackground(colorCategory6);
+			jLblsNotScheduledMatchesLeagues[i].setOpaque(true);
 			
 			jLblsCompletedMatchesLeagues[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesLeagues[i]);
@@ -303,6 +317,15 @@ public class Start extends JFrame {
 					jBtnsTournamentsPressed(x);
 				}
 			});
+			
+			jLblsNotScheduledMatchesTournaments[i] = new JLabel();
+			Homescreen.add(jLblsNotScheduledMatchesTournaments[i]);
+			jLblsNotScheduledMatchesTournaments[i].setBounds(STARTX_BTNS + 2 * (SIZEX_BTNS + 10) + 2 * (SIZEX_LBLS + 10), STARTY_BTNS + 15 + i * (SIZEY_BTNS + 10), SIZEX_LBLS, SIZEY_LBLS);
+			alignCenter(jLblsNotScheduledMatchesTournaments[i]);
+			jLblsNotScheduledMatchesTournaments[i].setFont(fontMissingResults);
+			jLblsNotScheduledMatchesTournaments[i].setFocusable(false);
+			jLblsNotScheduledMatchesTournaments[i].setBackground(colorCategory6);
+			jLblsNotScheduledMatchesTournaments[i].setOpaque(true);
 			
 			jLblsCompletedMatchesTournaments[i] = new JLabel();
 			Homescreen.add(jLblsCompletedMatchesTournaments[i]);
@@ -532,21 +555,27 @@ public class Start extends JFrame {
 	private void refreshRunningAndCompletedMatches() {
 		for (int i = 0; i < numberOfLeagues; i++) {
 			int[] missing = leagues.get(i).checkMissingResults();
-			jLblsCompletedMatchesLeagues[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
-			jLblsCompletedMatchesLeagues[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesLeagues[i].setVisible(missing[0] != 0);
-			jLblsRunningMatchesLeagues[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
-			jLblsRunningMatchesLeagues[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
-			jLblsRunningMatchesLeagues[i].setVisible(missing[1] != 0);
+			jLblsNotScheduledMatchesLeagues[i].setText(missing[0] + (missing[0] == numberOfMissingResults ? "+" : ""));
+			jLblsNotScheduledMatchesLeagues[i].setToolTipText(missing[0] + (missing[0] == numberOfMissingResults ? " or more" : "") + " not scheduled match" + (missing[0] == 1 ? "" : "es"));
+			jLblsNotScheduledMatchesLeagues[i].setVisible(missing[0] != 0);
+			jLblsCompletedMatchesLeagues[i].setText(missing[1] + (missing[0] + missing[1] == numberOfMissingResults ? "+" : ""));
+			jLblsCompletedMatchesLeagues[i].setToolTipText(missing[1] + (missing[0] + missing[1] == numberOfMissingResults ? " or more" : "") + " finished match" + (missing[1] == 1 ? "" : "es"));
+			jLblsCompletedMatchesLeagues[i].setVisible(missing[1] != 0);
+			jLblsRunningMatchesLeagues[i].setText(missing[2] + (missing[0] + missing[1] + missing[2] == numberOfMissingResults ? "+" : ""));
+			jLblsRunningMatchesLeagues[i].setToolTipText(missing[2] + (missing[0] + missing[1] + missing[2] == numberOfMissingResults ? " or more" : "") + " running match" + (missing[2] == 1 ? "" : "es"));
+			jLblsRunningMatchesLeagues[i].setVisible(missing[2] != 0);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
 			int[] missing = tournaments.get(i).checkMissingResults();
-			jLblsCompletedMatchesTournaments[i].setText(missing[0] + (missing[0] == 10 ? "+" : ""));
-			jLblsCompletedMatchesTournaments[i].setToolTipText(missing[0] + (missing[0] == 10 ? " or more" : "") + " finished match" + (missing[0] == 1 ? "" : "es"));
-			jLblsCompletedMatchesTournaments[i].setVisible(missing[0] != 0);
-			jLblsRunningMatchesTournaments[i].setText(missing[1] + (missing[0] + missing[1] == 10 ? "+" : ""));
-			jLblsRunningMatchesTournaments[i].setToolTipText(missing[1] + (missing[0] + missing[1] == 10 ? " or more" : "") + " running match" + (missing[1] == 1 ? "" : "es"));
-			jLblsRunningMatchesTournaments[i].setVisible(missing[1] != 0);
+			jLblsNotScheduledMatchesTournaments[i].setText(missing[0] + (missing[0] == numberOfMissingResults ? "+" : ""));
+			jLblsNotScheduledMatchesTournaments[i].setToolTipText(missing[0] + (missing[0] == numberOfMissingResults ? " or more" : "") + " not scheduled match" + (missing[0] == 1 ? "" : "es"));
+			jLblsNotScheduledMatchesTournaments[i].setVisible(missing[0] != 0);
+			jLblsCompletedMatchesTournaments[i].setText(missing[1] + (missing[0] + missing[1] == numberOfMissingResults ? "+" : ""));
+			jLblsCompletedMatchesTournaments[i].setToolTipText(missing[1] + (missing[0] + missing[1] == numberOfMissingResults ? " or more" : "") + " finished match" + (missing[1] == 1 ? "" : "es"));
+			jLblsCompletedMatchesTournaments[i].setVisible(missing[1] != 0);
+			jLblsRunningMatchesTournaments[i].setText(missing[2] + (missing[0] + missing[1] + missing[2] == numberOfMissingResults ? "+" : ""));
+			jLblsRunningMatchesTournaments[i].setToolTipText(missing[2] + (missing[0] + missing[1] + missing[2] == numberOfMissingResults ? " or more" : "") + " running match" + (missing[2] == 1 ? "" : "es"));
+			jLblsRunningMatchesTournaments[i].setVisible(missing[2] != 0);
 		}
 	}
 	

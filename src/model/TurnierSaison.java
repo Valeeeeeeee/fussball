@@ -739,7 +739,7 @@ public class TurnierSaison {
 		for (int i = 0; i < allNextMatches.size(); i++) {
 			ArrayList<Long> list = allNextMatches.get(i);
 			for (int j = 0; j < list.size(); j++) {
-				if (nextMatches.size() >= 10 && list.get(j) > nextMatches.get(9))	break;
+				if (nextMatches.size() >= Start.numberOfMissingResults && list.get(j) > nextMatches.get(Start.numberOfMissingResults - 1))	break;
 				int index = nextMatches.size();
 				for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 					if (list.get(j) < nextMatches.get(k))	index = k;
@@ -751,7 +751,7 @@ public class TurnierSaison {
 		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();
-			for (int i = 0; i < 10 && i < nextMatches.size(); i++) {
+			for (int i = 0; i < Start.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
 			inDatei(fileName, nextMatchesString);
