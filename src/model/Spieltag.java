@@ -14,7 +14,7 @@ public class Spieltag extends JPanel {
 	private static final int WIDTH_BORDER = 2;
 	
 	private Color colorRand = new Color(0, 192, 0);
-	private Color colorSelection = new Color(16, 255, 16);
+	private Color colorSelection = new Color(255, 255, 255);
 	private Color colorEditing = new Color(255, 255, 0);
 	private Color colorEdited = new Color(64, 255, 64);
 	private Color colorMatches = new Color(224, 255, 224);
@@ -537,7 +537,7 @@ public class Spieltag extends JPanel {
 			int width = (numberOfMatchdays / 2 - 1) * rrLabels[GAPX] + rrLabels[SIZEX] + 2 * INDENT;
 			int height = rrLabels[STARTY] + rrLabels[GAPY] + rrLabels[SIZEY] + INDENT;
 			REC_PNLRRUNDE = new Rectangle(50, 60, width, height);
-			REC_LBLRRDESCR = new Rectangle(INDENT, INDENT, 530, 20);
+			REC_LBLRRDESCR = new Rectangle(INDENT, INDENT, 570, 20);
 			REC_LBLHRUNDE = new Rectangle(INDENT, rrLabels[STARTY] - 25, 60, 20);
 			REC_LBLRRUNDE = new Rectangle(INDENT, rrLabels[STARTY] - 25 + rrLabels[GAPY], 80, 20);
 			REC_BTNRRCANCEL = new Rectangle(width - 2 * (120 + INDENT), INDENT, 120, 25);
