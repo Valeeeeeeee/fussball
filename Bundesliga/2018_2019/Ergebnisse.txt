@@ -5,7 +5,7 @@ ttttttttt;0:0;1:1;4:2;2:3;1:3;2:0;0:2;1:0;1:1;
 ttttttttt;3:1;1:1;1:3;1:0;1:2;7:0;2:0;3:1;0:0;
 ttttttttt;2:0;1:0;1:2;2:1;2:2;3:0;2:4;4:1;4:1;
 ttttttttt;2:0;4:3;3:1;0:0;0:2;0:3;0:0;1:2;6:0;
-fffffffff;
+tffffffff;7:1;null;null;null;null;null;null;null;null;
 fffffffff;
 fffffffff;
 fffffffff;
