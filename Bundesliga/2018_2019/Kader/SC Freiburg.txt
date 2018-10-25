@@ -7,6 +7,7 @@ Patrick;Kammerbauer;null;19970211;Deutschland;Abwehr;14
 Robin;Koch;null;19960717;Deutschland;Abwehr;25
 Lukas;Kübler;null;19920830;Deutschland;Abwehr;17
 Philipp;Lienhart;null;19960711;Österreich;Abwehr;3
+Chima;Okoroji;null;19970419;Deutschland;Abwehr;36
 Pascal;Stenzel;null;19960320;Deutschland;Abwehr;15
 Amir;Abrashi;null;19900327;Albanien;Mittelfeld;6
 Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
