@@ -13,6 +13,7 @@ Georg;Teigl;null;19910209;Österreich;Abwehr;34
 Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
 Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30
 Michael;Gregoritsch;null;19940418;Österreich;Mittelfeld;11
+Fredrik;Jensen;null;19970909;Finnland;Mittelfeld;24
 Rani;Khedira;null;19940127;Deutschland;Mittelfeld;8
 Ja-Cheol;Koo;null;19890227;Südkorea;Mittelfeld;19
 Jan;Morávek;null;19891101;Tschechien;Mittelfeld;14

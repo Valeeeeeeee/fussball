@@ -16,6 +16,7 @@ Lukas;Jäger;null;19940212;Österreich;Mittelfeld;20
 Sebastian;Kerk;null;19940417;Deutschland;Mittelfeld;10
 Yuya;Kubo;null;19931224;Japan;Mittelfeld;14
 Eduard;Löwen;null;19970128;Deutschland;Mittelfeld;17
+Simon;Rhein;null;19980518;Deutschland;Mittelfeld;38
 Edgar;Salli;null;19920817;Kamerun;Mittelfeld;7
 Enrico;Valentini;null;19890220;Deutschland;Mittelfeld;22
 Mikael;Ishak;null;19930331;Schweden;Sturm;9
