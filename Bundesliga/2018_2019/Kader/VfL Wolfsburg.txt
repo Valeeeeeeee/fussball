@@ -23,6 +23,7 @@ Elvis;Rexhbecaj;null;19971101;Deutschland;Mittelfeld;37
 Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30
 Marvin;Stefaniak;null;19950203;Deutschland;Mittelfeld;34
 Renato;Steffen;null;19911103;Schweiz;Mittelfeld;8
+John;Yeboah;null;20000623;Deutschland, Ghana;Mittelfeld;29
 Josip;Brekalo;null;19980623;Kroatien;Sturm;7
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
 Kaylen;Hinds;null;19980128;England;Sturm;29;-20180905
