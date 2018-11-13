@@ -265,6 +265,6 @@ public class SpielPerformance {
 			if (player.getPosition() == Position.ABWEHR)	impact += (bonusNoGoalConcededDF * numberOfMinutesPlayed / minutesFullMatch);
 			else if (player.getPosition() == Position.TOR)	impact += (bonusNoGoalConcededGK * numberOfMinutesPlayed / minutesFullMatch);
 		}
-		return 0.1 * impact;
+		return 0.1 * impact + 1;
 	}
 }
