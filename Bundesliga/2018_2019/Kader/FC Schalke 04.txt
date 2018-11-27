@@ -24,3 +24,4 @@ Breel;Embolo;null;19970214;Schweiz;Sturm;36
 Steven;Skrzybski;null;19921118;Deutschland;Sturm;22
 Cedric;Teuchert;null;19970114;Deutschland;Sturm;23
 Mark;Uth;null;19910824;Deutschland;Sturm;7
+Haji;Wright;null;19980327;USA;Sturm;40
