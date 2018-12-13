@@ -22,3 +22,4 @@ Aron;Jóhannsson;null;19901110;USA, Island;Sturm;20
 Max;Kruse;null;19880319;Deutschland;Sturm;10
 Yuya;Osako;null;19900518;Japan;Sturm;8
 Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;4
+Joshua;Sargent;null;20000220;USA;Sturm;19

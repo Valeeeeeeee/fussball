@@ -92,38 +92,38 @@ PO05W: AEK Athen
 PO05L: Videoton Székesfehérvár
 PO06W: Ajax Amsterdam
 PO06L: Dynamo Kiew
-GA1: CL2018GA1
-GA2: CL2018GA2
-GA3: CL2018GA3
-GA4: CL2018GA4
-GB1: CL2018GB1
-GB2: CL2018GB2
-GB3: CL2018GB3
-GB4: CL2018GB4
-GC1: CL2018GC1
-GC2: CL2018GC2
-GC3: CL2018GC3
-GC4: CL2018GC4
-GD1: CL2018GD1
-GD2: CL2018GD2
-GD3: CL2018GD3
-GD4: CL2018GD4
-GE1: CL2018GE1
-GE2: CL2018GE2
-GE3: CL2018GE3
-GE4: CL2018GE4
-GF1: CL2018GF1
-GF2: CL2018GF2
-GF3: CL2018GF3
-GF4: CL2018GF4
-GG1: CL2018GG1
-GG2: CL2018GG2
-GG3: CL2018GG3
-GG4: CL2018GG4
-GH1: CL2018GH1
-GH2: CL2018GH2
-GH3: CL2018GH3
-GH4: CL2018GH4
+GA1: Borussia Dortmund
+GA2: Atlético Madrid
+GA3: FC Brügge
+GA4: AS Monaco
+GB1: FC Barcelona
+GB2: Tottenham Hotspurs
+GB3: Inter Mailand
+GB4: PSV Eindhoven
+GC1: Paris Saint-Germain
+GC2: FC Liverpool
+GC3: SSC Neapel
+GC4: Roter Stern Belgrad
+GD1: FC Porto
+GD2: FC Schalke 04
+GD3: Galatasaray Istanbul
+GD4: Lokomotive Moskau
+GE1: Bayern München
+GE2: Ajax Amsterdam
+GE3: Benfica Lissabon
+GE4: AEK Athen
+GF1: Manchester City
+GF2: Olympique Lyon
+GF3: Schachtar Donezk
+GF4: TSG 1899 Hoffenheim
+GG1: Real Madrid
+GG2: AS Rom
+GG3: Viktoria Pilsen
+GG4: ZSKA Moskau
+GH1: Juventus Turin
+GH2: Manchester United
+GH3: FC Valencia
+GH4: Young Boys Bern
 AF01W: CL2018AF01W
 AF01L: CL2018AF01L
 AF02W: CL2018AF02W
