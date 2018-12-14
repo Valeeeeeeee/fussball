@@ -312,54 +312,54 @@ PO20W: Glasgow Rangers
 PO20L: FK Ufa
 PO21W: Rosenborg Trondheim
 PO21L: KF Shkëndija
-GA1: EL2018GA1
-GA2: EL2018GA2
-GA3: EL2018GA3
-GA4: EL2018GA4
-GB1: EL2018GB1
-GB2: EL2018GB2
-GB3: EL2018GB3
-GB4: EL2018GB4
-GC1: EL2018GC1
-GC2: EL2018GC2
-GC3: EL2018GC3
-GC4: EL2018GC4
-GD1: EL2018GD1
-GD2: EL2018GD2
-GD3: EL2018GD3
-GD4: EL2018GD4
-GE1: EL2018GE1
-GE2: EL2018GE2
-GE3: EL2018GE3
-GE4: EL2018GE4
-GF1: EL2018GF1
-GF2: EL2018GF2
-GF3: EL2018GF3
-GF4: EL2018GF4
-GG1: EL2018GG1
-GG2: EL2018GG2
-GG3: EL2018GG3
-GG4: EL2018GG4
-GH1: EL2018GH1
-GH2: EL2018GH2
-GH3: EL2018GH3
-GH4: EL2018GH4
-GI1: EL2018GI1
-GI2: EL2018GI2
-GI3: EL2018GI3
-GI4: EL2018GI4
-GJ1: EL2018GJ1
-GJ2: EL2018GJ2
-GJ3: EL2018GJ3
-GJ4: EL2018GJ4
-GK1: EL2018GK1
-GK2: EL2018GK2
-GK3: EL2018GK3
-GK4: EL2018GK4
-GL1: EL2018GL1
-GL2: EL2018GL2
-GL3: EL2018GL3
-GL4: EL2018GL4
+GA1: Bayer 04 Leverkusen
+GA2: FC Zürich
+GA3: AEK Larnaka
+GA4: Ludogorez Rasgrad
+GB1: FC Salzburg
+GB2: Celtic Glasgow
+GB3: RB Leipzig
+GB4: Rosenborg Trondheim
+GC1: Zenit St. Petersburg
+GC2: Slavia Prag
+GC3: Girondins Bordeaux
+GC4: FC Kopenhagen
+GD1: Dinamo Zagreb
+GD2: Fenerbahce Istanbul
+GD3: Spartak Trnava
+GD4: RSC Anderlecht
+GE1: FC Arsenal
+GE2: Sporting Lissabon
+GE3: Worskla Poltawa
+GE4: Qarabag Agdam
+GF1: Betis Sevilla
+GF2: Olympiakos Piräus
+GF3: AC Mailand
+GF4: F91 Düdelingen
+GG1: FC Villarreal
+GG2: Rapid Wien
+GG3: Glasgow Rangers
+GG4: Spartak Moskau
+GH1: Eintracht Frankfurt
+GH2: Lazio Rom
+GH3: Apollon Limassol
+GH4: Olympique Marseille
+GI1: KRC Genk
+GI2: Malmö FF
+GI3: Besiktas Istanbul
+GI4: Sarpsborg 08 FF
+GJ1: FC Sevilla
+GJ2: FK Krasnodar
+GJ3: Standard Lüttich
+GJ4: Akhisar Belediyespor
+GK1: Dynamo Kiew
+GK2: Stade Rennes
+GK3: FK Astana
+GK4: FK Jablonec
+GL1: FC Chelsea
+GL2: BATE Baryssau
+GL3: Videoton Székesfehérvár
+GL4: PAOK Thessaloniki
 SF01W: EL2018SF01W
 SF01L: EL2018SF01L
 SF02W: EL2018SF02W
