@@ -21,6 +21,7 @@ Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
 Guido;Burgstaller;null;19890429;Österreich;Sturm;19
 Franco;di Santo;null;19890407;Argentinien;Sturm;9
 Breel;Embolo;null;19970214;Schweiz;Sturm;36
+Ahmed;Kutucu;null;20000301;Türkei, Deutschland;Sturm;15
 Steven;Skrzybski;null;19921118;Deutschland;Sturm;22
 Cedric;Teuchert;null;19970114;Deutschland;Sturm;23
 Mark;Uth;null;19910824;Deutschland;Sturm;7
