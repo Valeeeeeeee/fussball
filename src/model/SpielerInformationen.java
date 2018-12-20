@@ -167,6 +167,9 @@ public class SpielerInformationen extends JFrame {
 	
 	private boolean addingNewPlayer;
 	private boolean changingInformation;
+	private String oldFirstName;
+	private String oldLastName;
+	private Datum oldBirthDate;
 	private boolean atClubSinceEver;
 	private boolean atClubUntilEver;
 	private boolean moreDetails;
@@ -626,6 +629,9 @@ public class SpielerInformationen extends JFrame {
 			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate().getDay() - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
 			jLblMoreDetails.setVisible(false);
+			oldFirstName = player.getFirstNameFile();
+			oldLastName = player.getLastNameFile();
+			oldBirthDate = player.getBirthDate();
 		} else {
 			String firstName = jTFFirstNames.getText();
 			String lastName = jTFLastNames.getText();
@@ -639,8 +645,10 @@ public class SpielerInformationen extends JFrame {
 			if (!atClubUntilEver)	lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
 			secondFDate = player.getSecondFirstDate();
 			if (player.getTeam().checkForDuplicate(firstName, lastName, birthDate)) {
-				message("Ein Spieler mit diesem Namen und Geburtsdatum existiert bereits!");
-				return false;
+				if (addingNewPlayer || !firstName.equals(oldFirstName) || !lastName.equals(oldLastName) || !birthDate.equals(oldBirthDate)) {
+					message("Ein Spieler mit diesem Namen und Geburtsdatum existiert bereits!");
+					return false;
+				}
 			}
 			int squadNumber = 0;
 			try {

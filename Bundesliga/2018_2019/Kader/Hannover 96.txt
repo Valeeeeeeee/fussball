@@ -22,6 +22,7 @@ Takuma;Asano;null;19941110;Japan;Sturm;11
 Ihlas;Bebou;null;19940423;Deutschland, Togo;Sturm;13
 Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
 Babacar;Gueye;null;19941231;Senegal;Sturm;29;-20180830
+Benjamin;Hadzic;null;19990304;Bosnien-Herzegowina, Deutschland;Sturm;29;20180831-
 Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
 Hendrik;Weydandt;null;19950716;Deutschland;Sturm;26
 Bobby;Wood;null;19921115;USA;Sturm;17
