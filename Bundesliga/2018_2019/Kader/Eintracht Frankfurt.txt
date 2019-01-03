@@ -25,7 +25,7 @@ Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Lucas;Torro;null;19940719;Spanien;Mittelfeld;16
 Danny;Blum;null;19910107;Deutschland;Sturm;7;-20180826
-Sebastian;Haller;null;19940622;Frankreich;Sturm;9
+Sébastien;Haller;null;19940622;Frankreich;Sturm;9
 Branimir;Hrgota;null;19930112;Schweden;Sturm;34
 Luka;Jovic;null;19971223;Serbien;Sturm;8
 Gonçalo;Paciencia;null;19940801;Portugal;Sturm;39

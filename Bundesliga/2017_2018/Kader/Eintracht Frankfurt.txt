@@ -25,7 +25,7 @@ Omar;Mascarell;null;19930202;Spanien;Mittelfeld;39
 Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25;-20180118
 Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
 Danny;Blum;null;19910107;Deutschland;Sturm;7
-Sebastian;Haller;null;19940622;Frankreich;Sturm;9
+Sébastien;Haller;null;19940622;Frankreich;Sturm;9
 Branimir;Hrgota;null;19930112;Schweden;Sturm;31
 Luka;Jovic;null;19971223;Serbien;Sturm;8
 Alexander;Meier;null;19830117;Deutschland;Sturm;14

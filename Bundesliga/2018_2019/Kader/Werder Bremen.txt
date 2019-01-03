@@ -12,7 +12,7 @@ Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
 Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
-Davy;Klaasen;null;19930221;Niederlande;Mittelfeld;30
+Davy;Klaassen;null;19930221;Niederlande;Mittelfeld;30
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;6
 Milot;Rashica;null;19960628;Kosovo;Mittelfeld;11
 Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;17;20180831-
