@@ -1,13 +1,15 @@
 Fabian;Giefer;null;19900517;Deutschland;Tor;13
+Gregor;Kobel;null;19971206;Schweiz;Tor;40;20190101-
 Andreas;Luthe;null;19870310;Deutschland;Tor;1
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
 Kevin;Danso;null;19980919;Österreich;Abwehr;38
 Raphael;Framberger;null;19950906;Deutschland;Abwehr;32
 Felix;Götze;null;19980211;Deutschland;Abwehr;4
 Jeffrey;Gouweleeuw;null;19910710;Niederlande;Abwehr;6
-Martin;Hinteregger;null;19920907;Österreich;Abwehr;36
+Martin;Hinteregger;null;19920907;Österreich;Abwehr;36;-20190130
 Christoph;Janker;null;19850214;Deutschland;Abwehr;16
 Philipp;Max;null;19930930;Deutschland;Abwehr;31
+Reece;Oxford;null;19981216;England;Abwehr;5;20190131-
 Konstantinos;Stafylidis;null;19931202;Griechenland;Abwehr;3
 Georg;Teigl;null;19910209;Österreich;Abwehr;34
 Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10

@@ -1,3 +1,4 @@
+Jaroslav;Drobny;null;19791018;Tschechien;Tor;16;20190101-
 Michael;Rensing;null;19840514;Deutschland;Tor;1
 Tim;Wiesner;null;19961121;Deutschland;Tor;38
 Raphael;Wolf;null;19880606;Deutschland;Tor;30
@@ -7,10 +8,11 @@ Adam;Bodzek;null;19850907;Deutschland;Abwehr;13
 Robin;Bormuth;null;19950919;Deutschland;Abwehr;32
 Diego;Contento;null;19900501;Italien, Deutschland;Abwehr;26
 Niko;Gießelmann;null;19910926;Deutschland;Abwehr;23
-Gökhan;Gül;null;19980717;Deutschland;Abwehr;18
+Gökhan;Gül;null;19980717;Deutschland;Abwehr;18;-20190121
 André;Hoffmann;null;19930228;Deutschland;Abwehr;3
 Marcin;Kaminski;null;19920115;Polen;Abwehr;35
 Anderson;Lucoqui;null;19970706;Deutschland;Abwehr;4;-20180830
+Markus;Suttner;null;19870416;Österreich;Abwehr;14;20190101-
 Jean;Zimmer;null;19931206;Deutschland;Abwehr;39
 Matthias;Zimmermann;null;19920616;Deutschland;Abwehr;25
 Oliver;Fink;null;19820606;Deutschland;Mittelfeld;7
@@ -22,7 +24,8 @@ Kevin;Stöger;null;19930827;Österreich;Mittelfeld;22
 Marvin;Ducksch;null;19940307;Deutschland;Sturm;10
 Rouwen;Hennings;null;19870828;Deutschland;Sturm;28
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;11
+Dawid;Kownacki;null;19970314;Polen;Sturm;27;20190131-
 Emir;Kujovic;null;19880622;Schweden;Sturm;21
 Dodi;Lukebakio;null;19970924;DR Kongo, Belgien;Sturm;20
-Håvard;Nielsen;null;19930715;Norwegen;Sturm;16
+Håvard;Nielsen;null;19930715;Norwegen;Sturm;16;-20181231
 Takashi;Usami;null;19920506;Japan;Sturm;33

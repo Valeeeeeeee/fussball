@@ -7,6 +7,7 @@ Holger;Badstuber;null;19890313;Deutschland;Abwehr;28
 Timo;Baumgartl;null;19960304;Deutschland;Abwehr;5
 Andreas;Beck;null;19870313;Deutschland;Abwehr;32
 Emiliano;Insúa;null;19890107;Argentinien;Abwehr;2
+Ozan;Kabak;null;20000325;Türkei;Abwehr;18;20190101-
 Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;4
 Pablo;Maffeo;null;19970712;Spanien;Abwehr;7
 Benjamin;Pavard;null;19960328;Frankreich;Abwehr;21
@@ -14,11 +15,13 @@ Borna;Sosa;null;19980121;Kroatien;Abwehr;24
 Santiago;Ascacibar;null;19970225;Argentinien;Mittelfeld;6
 Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;8
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
+Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;14;20190101-
 Christian;Gentner;null;19850814;Deutschland;Mittelfeld;20
 David;Kopacz;null;19990529;Deutschland;Mittelfeld;29
-Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31
-Hans Nunoo;Sarpei;null;19980822;Ghana;Mittelfeld;36
+Berkay;Özcan;null;19980215;Türkei;Mittelfeld;31;-20190123
+Hans Nunoo;Sarpei;null;19980822;Ghana;Mittelfeld;36;-20190122
 Erik;Thommy;null;19940820;Deutschland;Mittelfeld;17
+Steven;Zuber;null;19910817;Schweiz;Mittelfeld;9;20190101-
 Chadrac;Akolo;null;19950401;DR Kongo;Sturm;19
 Leon;Dajaku;null;20010412;Deutschland, Albanien;Sturm;25
 Anastasios;Donis;null;19960829;Griechenland;Sturm;11

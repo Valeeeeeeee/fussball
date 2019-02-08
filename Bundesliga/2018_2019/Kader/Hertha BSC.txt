@@ -12,7 +12,7 @@ Niklas;Stark;null;19950414;Deutschland;Abwehr;5
 Jordan;Torunarigha;null;19970807;Deutschland;Abwehr;25
 Vladimír;Darida;null;19900808;Tschechien;Mittelfeld;6
 Ondrej;Duda;null;19941205;Slowakei;Mittelfeld;10
-Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;7
+Alexander;Esswein;null;19900325;Deutschland;Mittelfeld;7;-20181231
 Marko;Grujic;null;19960413;Serbien;Mittelfeld;15
 Sinan;Kurt;null;19960723;Deutschland;Mittelfeld;18
 Valentino;Lazaro;null;19960324;Österreich;Mittelfeld;20

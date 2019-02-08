@@ -3,7 +3,7 @@ Alexander;Schwolow;null;19920602;Deutschland;Tor;1
 Christian;Günter;null;19930228;Deutschland;Abwehr;30
 Manuel;Gulde;null;19910212;Deutschland;Abwehr;5
 Dominique;Heintz;null;19930815;Deutschland;Abwehr;23
-Patrick;Kammerbauer;null;19970211;Deutschland;Abwehr;14
+Patrick;Kammerbauer;null;19970211;Deutschland;Abwehr;14;-20190127
 Robin;Koch;null;19960717;Deutschland;Abwehr;25
 Lukas;Kübler;null;19920830;Deutschland;Abwehr;17
 Philipp;Lienhart;null;19960711;Österreich;Abwehr;3
@@ -12,10 +12,11 @@ Pascal;Stenzel;null;19960320;Deutschland;Abwehr;15
 Amir;Abrashi;null;19900327;Albanien;Mittelfeld;6
 Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
 Jerôme;Gondorf;null;19880626;Deutschland;Mittelfeld;20
+Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32;20190101-
 Nicolas;Höfler;null;19900309;Deutschland;Mittelfeld;27
 Florian;Kath;null;19941021;Deutschland;Mittelfeld;38
-Yoric;Ravet;null;19890912;Frankreich;Mittelfeld;16
-Caleb;Stanko;null;19930726;USA;Mittelfeld;33
+Yoric;Ravet;null;19890912;Frankreich;Mittelfeld;16;-20190206
+Caleb;Stanko;null;19930726;USA;Mittelfeld;33;-20190122
 Brandon;Borrello;null;19950725;Australien;Sturm;21
 Janik;Haberer;null;19940402;Deutschland;Sturm;19
 Lucas;Höler;null;19940710;Deutschland;Sturm;9

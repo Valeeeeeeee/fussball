@@ -1,7 +1,7 @@
-Jaroslav;Drobny;null;19791018;Tschechien;Tor;33
+Jaroslav;Drobny;null;19791018;Tschechien;Tor;33;-20181231
 Jiri;Pavlenka;null;19920414;Tschechien;Tor;1
 Luca;Plogmann;null;20000310;Deutschland;Tor;40
-Michael;Zetterer;null;19950712;Deutschland;Tor;16
+Michael;Zetterer;null;19950712;Deutschland;Tor;16;-20190205
 Ludwig;Augustinsson;null;19940421;Schweden;Abwehr;5
 Marco;Friedl;null;19980316;Österreich;Abwehr;32
 Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
@@ -11,7 +11,7 @@ Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
-Florian;Kainz;null;19921024;Österreich;Mittelfeld;7
+Florian;Kainz;null;19921024;Österreich;Mittelfeld;7;-20181231
 Davy;Klaassen;null;19930221;Niederlande;Mittelfeld;30
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;6
 Milot;Rashica;null;19960628;Kosovo;Mittelfeld;11
