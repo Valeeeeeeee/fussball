@@ -9,6 +9,8 @@ public class AnstossZeit {
 	private int daysSince;
 	private Uhrzeit time;
 	
+	private String[] weekdays = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
+	
 	public AnstossZeit(int index, int daysSince, Uhrzeit time) {
 		this.index = index;
 		this.daysSince = daysSince;
@@ -46,6 +48,10 @@ public class AnstossZeit {
 		if (daysSince != diff)			return false;
 		if (!time.equals(timeOfNewKOT))	return false;
 		return true;
+	}
+	
+	public String weekdayAndTime(Datum date) {
+		return weekdays[new Datum(date, daysSince).getDayOfWeek() - 1] + " " + getTime().withDividers() + (daysSince < 0 || daysSince > 6 ? " (" + daysSince + "d)" : "");
 	}
 	
 	public String toString() {

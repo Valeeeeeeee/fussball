@@ -80,8 +80,6 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_MINUTETOUR =		new Rectangle(85, 70, 70, 30);
 	private Rectangle REC_GOTOUR =			new Rectangle(255, 40, 70, 30);
 	
-	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
-	
 	public MyDateChooser(LigaSaison season, Spieltag spieltag) {
 		super();
 		this.season = season;
@@ -470,7 +468,7 @@ public class MyDateChooser extends JFrame {
 			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
 			kots[0] = "Keine Angabe";
 			for (int i = 1; i < (kots.length - 1); i++) {
-				kots[i] = wt_kurz[new Datum(date, kickOffTimes.get(i).getDaysSince()).getDayOfWeek() - 1] + " " + kickOffTimes.get(i).getTime().withDividers();
+				kots[i] = kickOffTimes.get(i).weekdayAndTime(date);
 			}
 			kots[kots.length - 1] = "anderes";
 			ComboBoxModel<String> jCBKickOffTimesModel = new DefaultComboBoxModel<>(kots);
