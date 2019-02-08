@@ -8,10 +8,10 @@ VfB Stuttgart;09.09.1893
 Hannover 96;12.04.1896
 VfL Wolfsburg;12.09.1945
 Werder Bremen;04.02.1899
-1.FC Nürnberg;04.05.1900
+1. FC Nürnberg;04.05.1900
 TSG 1899 Hoffenheim;01.07.1899
 SC Freiburg;30.05.1904
-1.FSV Mainz 05;16.03.1905
+1. FSV Mainz 05;16.03.1905
 FC Augsburg;08.08.1907
 Hamburger SV;29.09.1887
 SpVgg Greuther Fürth;23.09.1903
