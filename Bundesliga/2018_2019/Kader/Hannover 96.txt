@@ -13,6 +13,7 @@ Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
 Kevin;Wimmer;null;19921115;Österreich;Abwehr;28
 Marvin;Bakalorz;null;19890913;Deutschland;Mittelfeld;6
 Uffe;Bech;null;19930113;Dänemark;Mittelfeld;33;-20180830,20190101-
+Tim;Dierßen;null;19960115;Deutschland;Mittelfeld;34
 Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18
 Genki;Haraguchi;null;19910509;Japan;Mittelfeld;10
 Linton;Maina;null;19990623;Deutschland;Mittelfeld;40

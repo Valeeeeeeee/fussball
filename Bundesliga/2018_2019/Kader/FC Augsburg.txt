@@ -11,6 +11,7 @@ Christoph;Janker;null;19850214;Deutschland;Abwehr;16
 Philipp;Max;null;19930930;Deutschland;Abwehr;31
 Reece;Oxford;null;19981216;England;Abwehr;5;20190131-
 Konstantinos;Stafylidis;null;19931202;Griechenland;Abwehr;3
+Jozo;Stanic;null;19990406;Kroatien, Deutschland;Abwehr;15
 Georg;Teigl;null;19910209;Österreich;Abwehr;34
 Daniel;Baier;null;19840518;Deutschland;Mittelfeld;10
 Caiuby Francisco;da Silva;Caiuby;19880714;Brasilien;Mittelfeld;30

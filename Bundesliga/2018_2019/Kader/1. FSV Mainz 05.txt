@@ -14,6 +14,7 @@ Aarón;Martín;null;19970422;Spanien;Abwehr;3
 Phillipp;Mwene;null;19940129;Österreich;Abwehr;23
 Moussa;Niakhaté;null;19960308;Frankreich, Mali;Abwehr;19
 Bote Nzuzi 'Ridle';Baku;null;19980408;Deutschland, DR Kongo;Mittelfeld;34
+Leandro;Barreiro Martins;null;20000103;Luxemburg, Portugal;Mittelfeld;35
 Pablo;de Blasis;null;19880204;Argentinien;Mittelfeld;32;-20180829
 Pierre;Kunde;null;19950726;Kamerun;Mittelfeld;14
 Danny;Latza;null;19891207;Deutschland;Mittelfeld;6

@@ -19,6 +19,7 @@ Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19;-20180826
 Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;35
 Meritan;Shabani;null;19990315;Deutschland, Kosovo;Mittelfeld;37
 Corentin;Tolisso;null;19940803;Mittelfeld;Mittelfeld;24
+Alphonso;Davies;null;20001102;Kanada, Liberia;Sturm;19;20190101-
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
 Thomas;Müller;null;19890913;Deutschland;Sturm;25
 Sandro;Wagner;null;19871129;Deutschland;Sturm;2;-20190129

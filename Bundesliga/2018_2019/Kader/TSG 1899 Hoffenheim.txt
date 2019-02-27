@@ -25,4 +25,5 @@ Robin;Hack;null;19980827;Deutschland;Sturm;37
 Joelinton Cassio;Apolinaro de Lira;Joelinton;19960814;Brasilien;Sturm;34
 Andrej;Kramaric;null;19910619;Kroatien;Sturm;27
 Reiss;Nelson;null;19991210;England;Sturm;9;20180831-
+David;Otto;null;19990303;Deutschland;Sturm;26
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28
