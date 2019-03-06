@@ -13,6 +13,7 @@ Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29
 Serge;Gnabry;null;19950714;Deutschland;Mittelfeld;22
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;18
 James David;Rodríguez Rubio;James;19910712;Mittelfeld;Mittelfeld;11
+Wooyeong;Jeong;null;19990920;Südkorea;Mittelfeld;20
 Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
 Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
 Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19;-20180826
