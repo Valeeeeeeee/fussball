@@ -124,10 +124,10 @@ GH1: Juventus Turin
 GH2: Manchester United
 GH3: FC Valencia
 GH4: Young Boys Bern
-AF01W: CL2018AF01W
-AF01L: CL2018AF01L
-AF02W: CL2018AF02W
-AF02L: CL2018AF02L
+AF01W: FC Porto
+AF01L: AS Rom
+AF02W: Manchester United
+AF02L: Paris Saint-Germain
 AF03W: Tottenham Hotspurs
 AF03L: Borussia Dortmund
 AF04W: Ajax Amsterdam
