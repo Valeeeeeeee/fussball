@@ -9,6 +9,7 @@ Lukas;Kübler;null;19920830;Deutschland;Abwehr;17
 Philipp;Lienhart;null;19960711;Österreich;Abwehr;3
 Chima;Okoroji;null;19970419;Deutschland;Abwehr;36
 Keven;Schlotterbeck;null;19970428;Deutschland;Abwehr;31
+Nico;Schlotterbeck;null;19991201;Deutschland;Abwehr;49
 Pascal;Stenzel;null;19960320;Deutschland;Abwehr;15
 Amir;Abrashi;null;19900327;Albanien;Mittelfeld;6
 Mike;Frantz;null;19861014;Deutschland;Mittelfeld;8
