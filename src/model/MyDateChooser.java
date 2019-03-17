@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private Datum defaultDate = new Datum(5, 7, 2018);
-	private Uhrzeit defaultTime = new Uhrzeit(20, 45);
+	private Datum defaultDate;
+	private Uhrzeit defaultTime;
 	private Datum date;
 	private Uhrzeit time;
 	private int kotIndex;
@@ -295,7 +295,19 @@ public class MyDateChooser extends JFrame {
 		}
 	}
 	
+	private void getDefaultDateAndTime() {
+		try {
+			ArrayList<String> dateAndTime = ausDatei("DefaultDate.txt");
+			defaultDate = new Datum(dateAndTime.remove(0));
+			defaultTime = new Uhrzeit(dateAndTime.remove(0));
+		} catch (Exception e) {
+			defaultDate = new Datum();
+			defaultTime = MIDNIGHT;
+		}
+	}
+	
 	public void setDateAndTime(Datum date, Uhrzeit time) {
+		getDefaultDateAndTime();
 		try {
 			jCBYear.setSelectedIndex(date.getYear() - startYear);
 			jCBMonth.setSelectedIndex(date.getMonth() - 1);

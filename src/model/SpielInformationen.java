@@ -113,7 +113,7 @@ public class SpielInformationen extends JFrame {
 	private int[] luLbls = new int[] {155, 160, 515, 25, 125, 20};
 	private int[] sqNumLbls = new int[] {285, 160, 360, 25, 20, 20};
 	private int[] bLbls = new int[] {310, 161, 316, 25, 14, 19};
-	private int[] gLbls = new int[] {370, 160, 50, 25, 160, 20};
+	private int[] gLbls = new int[] {370, 160, 40, 25, 170, 20};
 
 	private int bDeltaX = 10;
 	private int bDeltaY = 2;
