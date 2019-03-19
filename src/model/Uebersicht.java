@@ -978,23 +978,28 @@ public class Uebersicht extends JPanel {
 	
 	private void showMoreLessFromKader() {
 		showingMoreKader = !showingMoreKader;
+		boolean hasPlayers = numberOfEligiblePlayers > 0;
 		for (int i = 0; i < jLblsPositions.length; i++) {
 			jLblsPositions[i].setVisible(showingMoreKader);
 			jLblsPositionVal[i].setVisible(!showingMoreKader);
 			jLblsPosition[i].setVisible(!showingMoreKader);
 		}
+		
 		for (int i = 3; i < NUMBEROFFIELDSKAD; i++) {
-			jLblsKaderHeader[i].setVisible(showingMoreKader);
+			jLblsKaderHeader[i].setVisible(showingMoreKader && hasPlayers);
 		}
+		
 		for (int i = 0; i < jLblsKader.length; i++) {
 			for (int j = 0; j < NUMBEROFFIELDSKAD; j++) {
 				jLblsKader[i][j].setVisible(showingMoreKader);
 			}
 		}
-		jLblAverageAge.setVisible(!showingMoreKader);
-		jLblAverageAgeVal.setVisible(!showingMoreKader);
-		jLblNumberOfPlayers.setVisible(!showingMoreKader);
-		jLblNumberOfUsedPlayers.setVisible(!showingMoreKader);
+		
+		jLblNoData.setVisible(!hasPlayers);
+		jLblAverageAge.setVisible(!showingMoreKader && hasPlayers);
+		jLblAverageAgeVal.setVisible(!showingMoreKader && hasPlayers);
+		jLblNumberOfPlayers.setVisible(!showingMoreKader && hasPlayers);
+		jLblNumberOfUsedPlayers.setVisible(!showingMoreKader && hasPlayers);
 		
 		jLblKaderMoreLess.setText(showingMoreKader ? "< weniger" : "mehr dazu >");
 		jBtnAddPlayer.setVisible(showingMoreKader);

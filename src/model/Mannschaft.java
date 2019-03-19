@@ -195,6 +195,7 @@ public class Mannschaft {
 	
 	private void loadKader() {
 		if (!competition.teamsHaveKader())	return;
+		if (name.contains("Mannschaft "))	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = group.getWorkspace() + "Kader" + File.separator;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
@@ -218,6 +219,7 @@ public class Mannschaft {
 	
 	private void saveKader() {
 		if (!competition.teamsHaveKader())	return;
+		if (name.contains("Mannschaft "))	return;
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
 			players.add(kader.get(i).toString());
