@@ -278,10 +278,12 @@ public class TurnierSaison {
 		int numberOfMatches = 0;
 		if (Start.getInstance().isCurrentlyInQualification()) {
 			for (int i = 0; i < numberOfQGroups; i++) {
+				qGroups[i].changeOrderToChronological(matchday);
 				numberOfMatches += qGroups[i].getNumberOfMatchesPerMatchday();
 			}
 		} else {
 			for (int i = 0; i < numberOfGroups; i++) {
+				groups[i].changeOrderToChronological(matchday);
 				numberOfMatches += groups[i].getNumberOfMatchesPerMatchday();
 			}
 		}

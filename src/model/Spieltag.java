@@ -1028,7 +1028,7 @@ public class Spieltag extends JPanel {
 				
 				matchIDAll++;
 				if (isOverview && matchIDAll == numbersOfMatches[groupID]) {
-					offset += 2 * numbersOfMatches[groupID];
+					offset += numbersOfTeams[groupID];
 					matchIDAll = 0;
 					groupID++;
 				}
@@ -1562,5 +1562,6 @@ public class Spieltag extends JPanel {
 		editedGroupID = -1;
 		jSPTeamsSelection.setVisible(false);
 		clickNextEmptySpot();
+		repaintImmediately(jPnlTeamsSelection);
 	}
 }
