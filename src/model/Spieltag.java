@@ -35,6 +35,7 @@ public class Spieltag extends JPanel {
 	private JButton jBtnNext;
 	private JButton[] jBtnsMatchInfos;
 	private JButton jBtnResetMatchday;
+	private JButton jBtnSecondLeg;
 	private JButton jBtnEnterRueckrunde;
 	private JButton jBtnDefaultKickoff;
 	private JLabel[] jLblsDates;
@@ -522,6 +523,19 @@ public class Spieltag extends JPanel {
 				});
 			}
 			{
+				jBtnSecondLeg = new JButton();
+				this.add(jBtnSecondLeg);
+				jBtnSecondLeg.setBounds(REC_BTNRRUNDE);
+				jBtnSecondLeg.setText("Rückspiele");
+				jBtnSecondLeg.setFocusable(false);
+				jBtnSecondLeg.setVisible(false);
+				jBtnSecondLeg.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						jBtnSecondLegActionPerformed();
+					}
+				});
+			}
+			{
 				jBtnEnterRueckrunde = new JButton();
 				this.add(jBtnEnterRueckrunde);
 				jBtnEnterRueckrunde.setBounds(REC_BTNRRUNDE);
@@ -984,6 +998,7 @@ public class Spieltag extends JPanel {
 		jBtnPrevious.setEnabled(false);
 		jBtnNext.setEnabled(false);
 		jBtnResetMatchday.setVisible(false);
+		jBtnSecondLeg.setVisible(false);
 		jBtnEnterRueckrunde.setVisible(false);
 		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(false);
 		clickNextEmptySpot();
@@ -1048,7 +1063,6 @@ public class Spieltag extends JPanel {
 			jBtnPrevious.setEnabled(true);
 			jBtnNext.setEnabled(true);
 			jBtnResetMatchday.setVisible(true);
-			jBtnEnterRueckrunde.setVisible(true);
 			if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(true);
 			editingMatches = false;
 			showMatchday();
@@ -1110,6 +1124,33 @@ public class Spieltag extends JPanel {
 			tSeason.getResultsFromSpieltag();
 			showMatchday();
 		}
+	}
+	
+	private void jBtnSecondLegActionPerformed() {
+		boolean hasData = false;
+		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday() && !hasData; matchID++) {
+			hasData = koRound.getMatch(1, matchID) != null;
+		}
+		if (hasData && yesNoDialog("Willst du die gespeicherten Daten überschreiben?") != JOptionPane.YES_OPTION)	return;
+		
+		ArrayList<Spiel> secondLegs = new ArrayList<>();
+		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday(); matchID++) {
+			Spiel match = koRound.getMatch(0, matchID), secondLeg = null;
+			if (match != null)	secondLeg = new Spiel(koRound, 1, MAX_DATE, TIME_UNDEFINED, match.away(), match.home());
+			
+			int index = 0;
+			if (secondLeg != null) {
+				for (index = 0; index < secondLegs.size(); index++) {
+					if (secondLegs.get(index) == null || secondLeg.home() < secondLegs.get(index).home())	break;
+				}
+			}
+			secondLegs.add(index, secondLeg);
+		}
+		
+		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday(); matchID++) {
+			koRound.setMatch(1, matchID, secondLegs.get(matchID));
+		}
+		showMatchday();
 	}
 	
 	private void jBtnEnterRueckrundeActionPerformed() {
@@ -1249,8 +1290,8 @@ public class Spieltag extends JPanel {
 			fillTeamsLabelsAndGoalsTFs(currentMatchday);
 			setTFsEditableFromRepresentation();
 			
-			jBtnEnterRueckrunde.setVisible(false);
-			if (belongsToALeague && currentMatchday * 2 == numberOfMatchdays)	jBtnEnterRueckrunde.setVisible(true);
+			jBtnEnterRueckrunde.setVisible(belongsToALeague && currentMatchday * 2 == numberOfMatchdays);
+			jBtnSecondLeg.setVisible(belongsToKORound && currentMatchday == 1);
 		}	
 	}
 	
