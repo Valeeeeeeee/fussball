@@ -19,6 +19,7 @@ Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;13;20180827-
 Alessandro;Schöpf;null;19940207;Österreich;Mittelfeld;28
 Suat;Serdar;null;19970411;Deutschland;Mittelfeld;8
 Benjamin;Stambouli;null;19900813;Frankreich;Mittelfeld;17
+Nassim;Boujellab;null;19990620;Deutschland, Marokko;Sturm;41
 Guido;Burgstaller;null;19890429;Österreich;Sturm;19
 Franco;di Santo;null;19890407;Argentinien;Sturm;9;-20190131
 Breel;Embolo;null;19970214;Schweiz;Sturm;36
