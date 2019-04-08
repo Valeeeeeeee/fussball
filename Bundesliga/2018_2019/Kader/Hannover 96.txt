@@ -29,5 +29,6 @@ Babacar;Gueye;null;19941231;Senegal;Sturm;29;-20180830
 Benjamin;Hadzic;null;19990304;Bosnien-Herzegowina, Deutschland;Sturm;29;20180831-
 Jonathas Cristian;de Jesus Mauricio;Jonathas;19890306;Brasilien;Sturm;9;20190101-
 Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
+Sebastian;Soto;null;20000728;USA;Sturm;16
 Hendrik;Weydandt;null;19950716;Deutschland;Sturm;26
 Bobby;Wood;null;19921115;USA;Sturm;17
