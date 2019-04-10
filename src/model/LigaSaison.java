@@ -236,7 +236,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		Datum today = new Datum(Start.today(), UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
+		Datum today = new Datum(Fussball.today(), UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
 		if (!today.equals(cMatchdaySetForDate)) {
 			if (today.isBefore(getDate(0))) {
@@ -259,7 +259,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		Datum today = Start.today(), nextDate;
+		Datum today = Fussball.today(), nextDate;
 		Uhrzeit time = new Uhrzeit();
 		
 		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
@@ -606,7 +606,7 @@ public class LigaSaison implements Wettbewerb {
 				Uhrzeit time = getTime(i, j);
 				if (isMatchSet(i, j) && date != null && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < Start.numberOfMissingResults || dateAndTime < nextMatches.get(Start.numberOfMissingResults - 1)) {
+					if (nextMatches.size() < Fussball.numberOfMissingResults || dateAndTime < nextMatches.get(Fussball.numberOfMissingResults - 1)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 							if (dateAndTime < nextMatches.get(k))	index = k;
@@ -620,7 +620,7 @@ public class LigaSaison implements Wettbewerb {
 		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();
-			for (int i = 0; i < Start.numberOfMissingResults && i < nextMatches.size(); i++) {
+			for (int i = 0; i < Fussball.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
 			inDatei(fileName, nextMatchesString);
@@ -909,17 +909,17 @@ public class LigaSaison implements Wettbewerb {
 		
 		if (spieltag == null) {
 			spieltag = new Spieltag(this);
-			spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			spieltag.setLocation((Fussball.WIDTH - spieltag.getSize().width) / 2, (Fussball.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			spieltag.setVisible(false);
 		}
 		if (tabelle == null) {
 			tabelle = new Tabelle(this);
-			tabelle.setLocation((Start.WIDTH - tabelle.getSize().width) / 2, 50);
+			tabelle.setLocation((Fussball.WIDTH - tabelle.getSize().width) / 2, 50);
 			tabelle.setVisible(false);
 		}
 		if (statistik == null) {
 			statistik = new LigaStatistik(this);
-			statistik.setLocation((Start.WIDTH - statistik.getSize().width) / 2, 50);
+			statistik.setLocation((Fussball.WIDTH - statistik.getSize().width) / 2, 50);
 			statistik.setVisible(false);
 		}
 		spieltag.resetCurrentMatchday();

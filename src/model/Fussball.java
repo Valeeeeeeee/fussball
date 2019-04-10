@@ -10,7 +10,7 @@ import javax.swing.*;
 
 import static util.Utilities.*;
 
-public class Start extends JFrame {
+public class Fussball extends JFrame {
 	private static final long serialVersionUID = -3201913070768333811L;
 	
 	/**
@@ -23,7 +23,7 @@ public class Start extends JFrame {
 	public static final int HEIGHT = 874;
 	
 	
-	private static Start singleton;
+	private static Fussball singleton;
 	
 	private String workspace;
 	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
@@ -134,14 +134,14 @@ public class Start extends JFrame {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				Start inst = new Start();
+				Fussball inst = new Fussball();
 				inst.setLocationRelativeTo(null);
 				inst.setVisible(true);
 			}
 		});
 	}
 	
-	public Start() {
+	public Fussball() {
 		super();
 
 		singleton = this;
@@ -204,7 +204,7 @@ public class Start extends JFrame {
 		}
 	}
 	
-	public static Start getInstance() {
+	public static Fussball getInstance() {
 		return singleton;
 	}
 	

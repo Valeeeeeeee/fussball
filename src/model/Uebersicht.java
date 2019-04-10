@@ -261,7 +261,7 @@ public class Uebersicht extends JPanel {
 				jBtnBack.setFocusable(false);
 				jBtnBack.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Start.getInstance().jBtnBackActionPerformed();
+						Fussball.getInstance().jBtnBackActionPerformed();
 					}
 				});
 			}
@@ -661,9 +661,9 @@ public class Uebersicht extends JPanel {
 			repaintImmediately(jPnlKader);
 		}
 		
-		eligiblePlayers = team.getEligiblePlayers(Start.today(), true);
+		eligiblePlayers = team.getEligiblePlayers(Fussball.today(), true);
 		numberOfEligiblePlayers = eligiblePlayers.size();
-		ineligiblePlayers = team.getIneligiblePlayers(Start.today(), true);
+		ineligiblePlayers = team.getIneligiblePlayers(Fussball.today(), true);
 		numberOfIneligiblePlayers = ineligiblePlayers.size();
 		int[] nOfPlayersByPosition = new int[numberOfPositions];
 		
@@ -917,12 +917,12 @@ public class Uebersicht extends JPanel {
 	private void showTeam(int tableIndex, boolean home) {
 		String jump = jLblsAllMatches.get(tableIndex)[home ? TEAMHOME : TEAMAWAY].getText();
 		if (!jump.equals(MATCH_NOT_SET) && !jump.equals(SPIELFREI) && !jump.equals(team.getName())) {
-			Start.getInstance().uebersichtAnzeigen(jump);
+			Fussball.getInstance().uebersichtAnzeigen(jump);
 		}
 	}
 	
 	private void showMatchday(int matchday) {
-		Start.getInstance().showMatchday(matchday);
+		Fussball.getInstance().showMatchday(matchday);
 	}
 	
 	private void showMoreLessStatistics() {

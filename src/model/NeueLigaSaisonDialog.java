@@ -653,7 +653,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		Start.getInstance().jBtnNewLeagueSeasonDoneActionPerformed(toString, teamsNames, defaultKickOffTimes);
+		Fussball.getInstance().jBtnNewLeagueSeasonDoneActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

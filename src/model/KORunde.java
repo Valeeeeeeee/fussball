@@ -276,7 +276,7 @@ public class KORunde implements Wettbewerb {
 	
 	public int getCurrentMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Start.today();
+			Datum today = Fussball.today();
 			
 			if (!today.equals(cMatchdaySetForDate)) {
 				if (getDate(0, 0).equals(startDate)) {
@@ -303,7 +303,7 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNewestStartedMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Start.today();
+			Datum today = Fussball.today();
 			Uhrzeit time = new Uhrzeit();
 			
 			if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
@@ -658,7 +658,7 @@ public class KORunde implements Wettbewerb {
 				Uhrzeit time = getTime(i, j);
 				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < Start.numberOfMissingResults || dateAndTime < nextMatches.get(Start.numberOfMissingResults - 1)) {
+					if (nextMatches.size() < Fussball.numberOfMissingResults || dateAndTime < nextMatches.get(Fussball.numberOfMissingResults - 1)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 							if (dateAndTime < nextMatches.get(k))	index = k;
@@ -692,7 +692,7 @@ public class KORunde implements Wettbewerb {
 		
 		if (spieltag == null) {
 			spieltag = new Spieltag(this);
-			spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			spieltag.setLocation((Fussball.WIDTH - spieltag.getSize().width) / 2, (Fussball.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			spieltag.setVisible(false);
 		}
 	}

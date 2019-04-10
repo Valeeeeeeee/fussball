@@ -131,7 +131,7 @@ public class Tabelle extends JPanel {
 								String teamName = jLblsData[x][1].getText();
 								jBtnChangeTableType(Tabellenart.COMPLETE);
 								if (belongsToALeague)	jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
-								Start.getInstance().uebersichtAnzeigen(teamName);
+								Fussball.getInstance().uebersichtAnzeigen(teamName);
 							}
 						});
 					} else {
@@ -397,7 +397,7 @@ public class Tabelle extends JPanel {
 	
 	private void jBtnSaveTableActionPerformed() {
 		String[] order = new String[jLblsData.length];
-		String fileName = Start.getInstance().getWorkspace();
+		String fileName = Fussball.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
 			if (saveTableWithData) {

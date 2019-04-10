@@ -398,7 +398,7 @@ public class Spieltag extends JPanel {
 							jLblsTeams[x % numberOfMatches + numberOfMatches].setBorder(null);
 						} else if (!jLblsTeams[x].getText().equals(TEAM_NOT_SET)) {
 							saveResults();
-							Start.getInstance().uebersichtAnzeigen(jLblsTeams[x].getText());
+							Fussball.getInstance().uebersichtAnzeigen(jLblsTeams[x].getText());
 						}
 					}
 					
@@ -1388,9 +1388,9 @@ public class Spieltag extends JPanel {
 		if (oldIndex < 0) {
 			groupID--;
 		}
-		Start.getInstance().jBtnBackActionPerformed();
-		Start.getInstance().jBtnsGroupsPressed(groupID);
-		Start.getInstance().jBtnMatchdaysActionPerformed();
+		Fussball.getInstance().jBtnBackActionPerformed();
+		Fussball.getInstance().jBtnsGroupsPressed(groupID);
+		Fussball.getInstance().jBtnMatchdaysActionPerformed();
 	}
 	
 	public void datumsLabelClicked(int index) {
@@ -1410,7 +1410,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
 			mdc.setMatch(lSeason, currentMatchday, editedDate);
 			
-			Start.getInstance().toFront();
+			Fussball.getInstance().toFront();
 			mdc.toFront();
 		} else if (belongsToGroup) {
 			MyDateChooser mdc = new MyDateChooser(group, this);
@@ -1419,7 +1419,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(group.getDate(currentMatchday, editedDate), group.getTime(currentMatchday, editedDate));
 			mdc.setMatch(group, currentMatchday, editedDate);
 
-			Start.getInstance().toFront();
+			Fussball.getInstance().toFront();
 			mdc.toFront();
 		} else if (belongsToKORound) {
 			MyDateChooser mdc = new MyDateChooser(koRound, this);
@@ -1428,7 +1428,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(koRound.getDate(currentMatchday, editedDate), koRound.getTime(currentMatchday, editedDate));
 			mdc.setMatch(koRound, currentMatchday, editedDate);
 
-			Start.getInstance().toFront();
+			Fussball.getInstance().toFront();
 			mdc.toFront();
 		} else {
 			// Bestimmung der Gruppe
@@ -1449,7 +1449,7 @@ public class Spieltag extends JPanel {
 			mdc.setDateAndTime(group.getDate(currentMatchday, matchID), group.getTime(currentMatchday, matchID));
 			mdc.setMatch(group, currentMatchday, matchID);
 
-			Start.getInstance().toFront();
+			Fussball.getInstance().toFront();
 			mdc.toFront();
 		}
 	}
@@ -1520,7 +1520,7 @@ public class Spieltag extends JPanel {
 		matchInformation.setVisible(true);
 		openedMatchInfos.add(matchInformation);
 
-		Start.getInstance().toFront();
+		Fussball.getInstance().toFront();
 		matchInformation.toFront();
 	}
 	

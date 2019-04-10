@@ -443,7 +443,7 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void enterPresetValues() {
-		seasonTF.setText("" + Start.today().getYear());
+		seasonTF.setText("" + Fussball.today().getYear());
 		calendarYearNoRB.setSelected(true);
 		goalDifferenceYesRB.setSelected(true);
 		teamsHaveKaderNoRB.setSelected(true);
@@ -599,9 +599,9 @@ public class NewLeagueDialog extends JFrame {
 		KOTsRep = getKOTsRep();
 		defKOTsRep = getDefaultKOTsRep();
 		
-		Start.getInstance().addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
+		Fussball.getInstance().addNewLeague(name, season, isSTSS, numberOfTeams, spGgSGegner, defKOTsRep, goalDifference, teamsHaveKader, anzahlenRep, teamsNames, KOTsRep);
 		
 		this.setVisible(false);
-		Start.getInstance().toFront();
+		Fussball.getInstance().toFront();
 	}
 }

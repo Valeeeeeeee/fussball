@@ -15,7 +15,7 @@ import javax.swing.*;
 
 import model.Datum;
 import model.Spieler;
-import model.Start;
+import model.Fussball;
 import model.Uhrzeit;
 
 public class Utilities {
@@ -252,8 +252,8 @@ public class Utilities {
 	}
 	
 	public static boolean inThePast(Datum date, Uhrzeit time) {
-		if (date.isBefore(Start.today()))	return true;
-		if (date.isAfter(Start.today()))	return false;
+		if (date.isBefore(Fussball.today()))	return true;
+		if (date.isAfter(Fussball.today()))	return false;
 		return time.isBefore(new Uhrzeit());
 	}
 	

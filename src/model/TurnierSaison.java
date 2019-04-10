@@ -216,7 +216,7 @@ public class TurnierSaison {
 	
 	public int getCurrentMatchday() {
 		int matchday = 0, altMD = -1;
-		if (Start.getInstance().isCurrentlyInQualification()) {
+		if (Fussball.getInstance().isCurrentlyInQualification()) {
 			matchday = qGroups[0].getOverviewMatchday();
 			for (int i = 1; i < numberOfQGroups && altMD == -1; i++) {
 				if (matchday != qGroups[i].getOverviewMatchday()) altMD = qGroups[i].getOverviewMatchday();	
@@ -241,7 +241,7 @@ public class TurnierSaison {
 	
 	public void getResultsFromSpieltag() {
 		// when in overview mode
-		if (Start.getInstance().isCurrentlyInQualification()) {
+		if (Fussball.getInstance().isCurrentlyInQualification()) {
 			int matchday = qOverview.getCurrentMatchday();
 			
 			for (int groupID = 0; groupID < qGroups.length; groupID++) {
@@ -276,7 +276,7 @@ public class TurnierSaison {
 	
 	public int[] getChronologicalOrder(int matchday) {
 		int numberOfMatches = 0;
-		if (Start.getInstance().isCurrentlyInQualification()) {
+		if (Fussball.getInstance().isCurrentlyInQualification()) {
 			for (int i = 0; i < numberOfQGroups; i++) {
 				qGroups[i].changeOrderToChronological(matchday);
 				numberOfMatches += qGroups[i].getNumberOfMatchesPerMatchday();
@@ -294,7 +294,7 @@ public class TurnierSaison {
 		Uhrzeit[] times = new Uhrzeit[numberOfMatches];
 		
 		int matchID = 0;
-		for (Gruppe group : Start.getInstance().isCurrentlyInQualification() ? qGroups : groups) {
+		for (Gruppe group : Fussball.getInstance().isCurrentlyInQualification() ? qGroups : groups) {
 			for (int match = 0; match < group.getNumberOfMatchesPerMatchday(); match++) {
 				dates[matchID] = group.getDate(matchday, match);
 				times[matchID] = group.getTime(matchday, match);
@@ -415,7 +415,7 @@ public class TurnierSaison {
 	}
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = Start.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
+		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
 		
 		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
 		for (String team : teams) {
@@ -708,7 +708,7 @@ public class TurnierSaison {
 			for (int i = 0; i < numberOfQGroups; i++)	qGroups[i] = new Gruppe(this, i, true, goalDifferenceQGroupStage, fairplayQGroupStage);
 			{
 				qOverview = new Spieltag(this, true);
-				qOverview.setLocation((Start.WIDTH - qOverview.getSize().width) / 2, (Start.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+				qOverview.setLocation((Fussball.WIDTH - qOverview.getSize().width) / 2, (Fussball.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 				qOverview.setVisible(false);
 			}
 		}
@@ -762,7 +762,7 @@ public class TurnierSaison {
 		for (int i = 0; i < groups.length; i++)	groups[i] = new Gruppe(this, i, false, goalDifferenceGroupStage, fairplayGroupStage);
 		{
 			overview = new Spieltag(this, false);
-			overview.setLocation((Start.WIDTH - overview.getSize().width) / 2, (Start.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			overview.setLocation((Fussball.WIDTH - overview.getSize().width) / 2, (Fussball.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			overview.setVisible(false);
 		}
 	}
@@ -820,7 +820,7 @@ public class TurnierSaison {
 		for (int i = 0; i < allNextMatches.size(); i++) {
 			ArrayList<Long> list = allNextMatches.get(i);
 			for (int j = 0; j < list.size(); j++) {
-				if (nextMatches.size() >= Start.numberOfMissingResults && list.get(j) > nextMatches.get(Start.numberOfMissingResults - 1))	break;
+				if (nextMatches.size() >= Fussball.numberOfMissingResults && list.get(j) > nextMatches.get(Fussball.numberOfMissingResults - 1))	break;
 				int index = nextMatches.size();
 				for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 					if (list.get(j) < nextMatches.get(k))	index = k;
@@ -832,7 +832,7 @@ public class TurnierSaison {
 		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();
-			for (int i = 0; i < Start.numberOfMissingResults && i < nextMatches.size(); i++) {
+			for (int i = 0; i < Fussball.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
 			inDatei(fileName, nextMatchesString);
