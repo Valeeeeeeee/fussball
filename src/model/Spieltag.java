@@ -13,6 +13,9 @@ public class Spieltag extends JPanel {
 
 	private static final int WIDTH_BORDER = 2;
 	
+	private static final String TEAM_NOT_SET = "n. a.";
+	private static final String GOAL_NOT_SET = "-1";
+	
 	private Color colorRand = new Color(0, 192, 0);
 	private Color colorSelection = new Color(255, 255, 255);
 	private Color colorEditing = new Color(255, 255, 0);
@@ -393,10 +396,9 @@ public class Spieltag extends JPanel {
 							mannschaftClicked(x);
 							jLblsTeams[x % numberOfMatches].setBorder(null);
 							jLblsTeams[x % numberOfMatches + numberOfMatches].setBorder(null);
-						} else if (belongsToALeague || belongsToGroup) {
+						} else if (!jLblsTeams[x].getText().equals(TEAM_NOT_SET)) {
 							saveResults();
-							Spiel match = competition.getMatch(currentMatchday, row);
-							if (match != null)	Start.getInstance().uebersichtAnzeigen(column == 0 ? match.home() : match.away());
+							Start.getInstance().uebersichtAnzeigen(jLblsTeams[x].getText());
 						}
 					}
 					
@@ -427,7 +429,7 @@ public class Spieltag extends JPanel {
 					public void keyTyped(KeyEvent arg0) {
 						if (arg0.getKeyChar() == 8) {
 							aValidKeyWasPressed(x, arg0);
-						} else if ((jTFsGoals[x].getText().length() >= 2 && !jTFsGoals[x].getText().equals("-1")) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
+						} else if ((jTFsGoals[x].getText().length() >= 2 && !jTFsGoals[x].getText().equals(GOAL_NOT_SET)) || arg0.getKeyChar() <= 47 || arg0.getKeyChar() >= 58) {
 							arg0.consume();
 						} else {
 							aValidKeyWasPressed(x, arg0);
@@ -747,8 +749,8 @@ public class Spieltag extends JPanel {
 				jLblsAdditionalInfos[index].setText(result.getMore());
 				jLblsAdditionalInfos[index].setToolTipText(result.getTooltipText());
 			} else {
-				jTFsGoals[index].setText("-1");
-				jTFsGoals[index + numberOfMatches].setText("-1");
+				jTFsGoals[index].setText(GOAL_NOT_SET);
+				jTFsGoals[index + numberOfMatches].setText(GOAL_NOT_SET);
 			}
 		}
 	}
@@ -785,7 +787,7 @@ public class Spieltag extends JPanel {
 		
 		if (arg0.getKeyChar() == 8) {
 			if (jTFsGoals[indexOfTF].getText().length() == 0 || jTFsGoals[indexOfTF].getText().equals("-")) {
-				jTFsGoals[indexOfTF].setText("-1");
+				jTFsGoals[indexOfTF].setText(GOAL_NOT_SET);
 				jTFsGoals[indexOfTF].selectAll();
 			}
 			newContent = jTFsGoals[indexOfTF].getText();
@@ -1298,8 +1300,8 @@ public class Spieltag extends JPanel {
 	private void fillTeamsLabelsAndGoalsTFs(int matchday) {
 		// fill with dummy text
 		for (int i = 0; i < jLblsTeams.length; i++) {
-			jLblsTeams[i].setText("n. a.");
-			jTFsGoals[i].setText("-1");
+			jLblsTeams[i].setText(TEAM_NOT_SET);
+			jTFsGoals[i].setText(GOAL_NOT_SET);
 		}
 		if (belongsToALeague) {
 			for (int matchID = 0; matchID < numberOfMatches; matchID++) {

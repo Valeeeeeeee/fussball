@@ -163,7 +163,6 @@ public class SpielerInformationen extends JFrame {
 	
 	private Uebersicht uebersicht;
 	private Spieler player;
-	private Wettbewerb competition;
 	
 	private boolean addingNewPlayer;
 	private boolean changingInformation;
@@ -174,11 +173,10 @@ public class SpielerInformationen extends JFrame {
 	private boolean atClubUntilEver;
 	private boolean moreDetails;
 	
-	public SpielerInformationen(Uebersicht uebersicht, Wettbewerb competition) {
+	public SpielerInformationen(Uebersicht uebersicht) {
 		super();
 		
 		this.uebersicht = uebersicht;
-		this.competition = competition;
 		
 		initGUI();
 	}
@@ -208,15 +206,6 @@ public class SpielerInformationen extends JFrame {
 		String[] monate = new String[12];
 		for (int i = 1; i <= monate.length; i++) {
 			monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
-		}
-		int firstYear = competition.getYear() - maximumAge;
-		String[] jahre = new String[maximumAge - minimumAge + 1];
-		for (int i = 0; i < jahre.length; i++) {
-			jahre[i] = firstYear + i + "";
-		}
-		String[] beimVereinJahre = new String[competition.isSTSS() ? 2 : 1];
-		for (int i = 0; i < beimVereinJahre.length; i++) {
-			beimVereinJahre[i] = competition.getYear() + i + "";
 		}
 		
 		{
@@ -404,7 +393,6 @@ public class SpielerInformationen extends JFrame {
 			jCBBirthYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBBirthYear);
 			jCBBirthYear.setBounds(REC_BIRTHYEAR);
-			jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
 			jCBBirthYear.setVisible(false);
 			jCBBirthYear.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
@@ -458,7 +446,6 @@ public class SpielerInformationen extends JFrame {
 			jCBAtClubSinceYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubSinceYear);
 			jCBAtClubSinceYear.setBounds(REC_ATCLUBSINCEYEAR);
-			jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 			jCBAtClubSinceYear.setVisible(false);
 			jCBAtClubSinceYear.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
@@ -505,7 +492,6 @@ public class SpielerInformationen extends JFrame {
 			jCBAtClubUntilYear = new JComboBox<>();
 			jPnlPlayerInformation.add(jCBAtClubUntilYear);
 			jCBAtClubUntilYear.setBounds(REC_ATCLUBUNTILYEAR);
-			jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 			jCBAtClubUntilYear.setVisible(false);
 			jCBAtClubUntilYear.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
@@ -541,7 +527,6 @@ public class SpielerInformationen extends JFrame {
 			jPnlPlayerInformation.add(jLblCompetition);
 			jLblCompetition.setBounds(REC_COMPETITION);
 			jLblCompetition.setFont(fontCompetition);
-			jLblCompetition.setText(competition.getDescription());
 		}
 		for (int i = 0; i < NUMBEROFPERFORMANCEDATA; i++) {
 			int offset = i >= MATCHES_STARTED && i <= MATCHES_SUB_OFF ? bndsPerf[GAPX] : 0;
@@ -915,7 +900,7 @@ public class SpielerInformationen extends JFrame {
 		addingNewPlayer = true;
 		String firstName = "Vorname";
 		String lastName = "Nachname";
-		Datum birthDate = new Datum(1, 1, competition.getYear() - averageAge);
+		Datum birthDate = new Datum(1, 1, team.getCompetition().getYear() - averageAge);
 		String nationality = "Deutschland";
 		int squadNumber = team.getNextFreeSquadNumber();
 		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
@@ -927,6 +912,21 @@ public class SpielerInformationen extends JFrame {
 		if (moreDetails)	changeMoreDetails();
 		if (changingInformation && !jBtnChangeInformationActionPerformed())	return;
 		this.player = player;
+		
+		Wettbewerb competition = player.getTeam().getCompetition();
+		jLblCompetition.setText(competition.getDescription());
+		int firstYear = competition.getYear() - maximumAge;
+		String[] jahre = new String[maximumAge - minimumAge + 1];
+		for (int i = 0; i < jahre.length; i++) {
+			jahre[i] = firstYear + i + "";
+		}
+		jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
+		String[] beimVereinJahre = new String[competition.isSTSS() ? 2 : 1];
+		for (int i = 0; i < beimVereinJahre.length; i++) {
+			beimVereinJahre[i] = competition.getYear() + i + "";
+		}
+		jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
+		jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 		
 		setPlayerInformation();
 		if (!addingNewPlayer)	setPerformance();

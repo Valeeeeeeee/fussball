@@ -660,8 +660,8 @@ public class Mannschaft {
 	}
 	
 	public String getDateAndTime(int matchday) {
-		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, id);
-		else if (playsInGroup)	return group.getDateOfTeam(matchday, id);
+		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, this);
+		else if (playsInGroup)	return group.getDateOfTeam(matchday, this);
 		else					return "01.01.1970 00:00";
 	}
 	
@@ -868,6 +868,15 @@ public class Mannschaft {
 				else if (points[0] < points[i])	this.place++;
 			}
 		}
+	}
+	
+	public boolean equals(Object object) {
+		if (object instanceof Mannschaft) {
+			Mannschaft team = (Mannschaft) object;
+			if (!name.equals(team.name))	return false;
+			return true;
+		}
+		return false;
 	}
 
 	private void parseString(String data) {

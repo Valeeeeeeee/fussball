@@ -31,6 +31,8 @@ public interface Wettbewerb {
 	
 	public Mannschaft[] getTeams();
 	
+	public ArrayList<String[]> getAllMatches(Mannschaft team);
+	
 	public boolean isExtraTimePossible();
 	public boolean isFourthSubstitutionPossible();
 	

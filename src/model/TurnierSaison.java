@@ -317,6 +317,84 @@ public class TurnierSaison {
 		return newOrder;
 	}
 	
+	public ArrayList<String[]> getAllMatches(Mannschaft team) {
+		ArrayList<String[]> allMatches = new ArrayList<>();
+		
+		for (int i = 0; i < numberOfQGroups; i++) {
+			ArrayList<String[]> matches = qGroups[i].getMatches(team);
+			if (matches.size() > 0) {
+				allMatches.add(new String[] {SUB_CATEGORY, "Gruppenphase"});
+				for (int j = 0; j < matches.size(); j++) {
+					allMatches.add(matches.get(j));
+				}
+				break;
+			}
+		}
+		for (int i = 0; i < numberOfQKORounds; i++) {
+			ArrayList<String[]> matches = qKORounds[i].getMatches(team);
+			if (matches.size() > 0) {
+				allMatches.add(new String[] {SUB_CATEGORY, qKORounds[i].getDescription()});
+				for (int j = 0; j < matches.size(); j++) {
+					allMatches.add(matches.get(j));
+				}
+			}
+		}
+		if (allMatches.size() > 0)	allMatches.add(0, new String[] {MAIN_CATEGORY, "Qualifikation"});
+		for (int i = 0; i < numberOfGroups; i++) {
+			ArrayList<String[]> matches = groups[i].getMatches(team);
+			if (matches.size() > 0) {
+				allMatches.add(new String[] {MAIN_CATEGORY, "Gruppenphase"});
+				for (int j = 0; j < matches.size(); j++) {
+					allMatches.add(matches.get(j));
+				}
+				break;
+			}
+		}
+		for (int i = 0; i < numberOfKORounds; i++) {
+			ArrayList<String[]> matches = koRounds[i].getMatches(team);
+			if (matches.size() > 0) {
+				allMatches.add(new String[] {MAIN_CATEGORY, koRounds[i].getDescription()});
+				for (int j = 0; j < matches.size(); j++) {
+					allMatches.add(matches.get(j));
+				}
+			}
+		}
+		
+		return allMatches;
+	}
+	
+	public Mannschaft getTeamWithName(String teamName) {
+		Mannschaft team = null;
+		if (hasGroupStage) {
+			for (Gruppe gruppe : groups) {
+				team = gruppe.getTeamWithName(teamName);
+				if (team != null)	return team;
+			}
+		}
+		if (hasKOStage) {
+			for (KORunde koRound : koRounds) {
+				team = koRound.getTeamWithName(teamName);
+				if (team != null)	return team;
+			}
+		}
+		if (hasQualification) {
+			if (hasQGroupStage) {
+				for (Gruppe gruppe : qGroups) {
+					team = gruppe.getTeamWithName(teamName);
+					if (team != null)	return team;
+				}
+			}
+			if (hasQKOStage) {
+				for (KORunde koRound : qKORounds) {
+					team = koRound.getTeamWithName(teamName);
+					if (team != null)	return team;
+				}
+			}
+		}
+		
+		return team;
+	}
+	
 	public Mannschaft getTeamFromOtherCompetition(String origin) {
 		if (teamsFromOtherCompetition.containsKey(origin)) {
 			return teamsFromOtherCompetition.get(origin);
@@ -472,6 +550,7 @@ public class TurnierSaison {
 									if (tplus[i] < tplus[j])		order.set(i, order.get(i) + 1);
 									else if (tplus[j] < tplus[i])	order.set(j, order.get(j) + 1);
 									else {
+										// TODO implement tie-breaker
 										order.set(j, order.get(i) + 1);
 									}
 								}

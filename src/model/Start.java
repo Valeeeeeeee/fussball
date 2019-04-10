@@ -165,7 +165,7 @@ public class Start extends JFrame {
 	
 	private void initGUI() {
 		try {
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			getContentPane().setLayout(null);
 			
 			
@@ -187,6 +187,12 @@ public class Start extends JFrame {
 						jBtnBackActionPerformed();
 					}
 				});
+			}
+			{
+				uebersicht = new Uebersicht(currentTSeason);
+				getContentPane().add(uebersicht);
+				uebersicht.setLocation(145, 5);
+				uebersicht.setVisible(false);
 			}
 			
 			pack();
@@ -674,6 +680,7 @@ public class Start extends JFrame {
 			aktuellerSpieltag = currentTSeason.getSpieltag();
 		}
 		
+		isCurrentlyInMatchdayView = false;
 		getContentPane().add(aktuellerSpieltag);
 		aktuellerSpieltag.add(jBtnBack);
 		aktuellerSpieltag.setVisible(true);
@@ -697,12 +704,6 @@ public class Start extends JFrame {
 		getContentPane().add(aktuellerSpieltag);
 		aktuelleTabelle = currentGroup.getTabelle();
 		getContentPane().add(aktuelleTabelle);
-		{
-			uebersicht = new Uebersicht(currentGroup);
-			getContentPane().add(uebersicht);
-			uebersicht.setLocation((WIDTH - uebersicht.getSize().width) / 2, 5);
-			uebersicht.setVisible(false);
-		}
 	}
 	
 	public void jBtnsKORoundsPressed(int index) {
@@ -714,6 +715,7 @@ public class Start extends JFrame {
 			KORoundsHomescreen.setVisible(false);
 		}
 		
+		isCurrentlyInMatchdayView = true;
 		aktuellerSpieltag = currentKORound.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
 		aktuellerSpieltag.add(jBtnBack);
@@ -739,13 +741,6 @@ public class Start extends JFrame {
 	}
 	
 	private void loadLeagueSpecificThings() {
-		{
-			uebersicht = new Uebersicht(currentLSeason);
-			getContentPane().add(uebersicht);
-			uebersicht.setLocation((WIDTH - uebersicht.getSize().width) / 2, 5);
-			uebersicht.setVisible(false);
-		}
-		
 		aktuellerSpieltag = currentLSeason.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
 		aktuelleTabelle = currentLSeason.getTabelle();
@@ -966,11 +961,16 @@ public class Start extends JFrame {
 		jPnlOptions.setVisible(true);
 	}
 	
-	public void uebersichtAnzeigen(int index) {
-		aktuellerSpieltag.setVisible(false);
-		aktuelleTabelle.setVisible(false);
+	public void uebersichtAnzeigen(String teamName) {
+		Mannschaft team = null;
+		if (isCurrentlyALeague)	team = currentLSeason.getTeamWithName(teamName);
+		else					team = currentTSeason.getTeamWithName(teamName);
+		if (team == null)	return;
 		
-		uebersicht.setMannschaft(index);
+		aktuellerSpieltag.setVisible(false);
+		if (aktuelleTabelle != null)	aktuelleTabelle.setVisible(false);
+		
+		uebersicht.setMannschaft(team);
 		uebersicht.setVisible(true);
 	}
 	
@@ -1359,6 +1359,7 @@ public class Start extends JFrame {
 				uebersicht.setVisible(false);
 			} else {
 				LeagueHomescreen.add(jBtnBack);
+				isCurrentlyInMatchdayView = false;
 				aktuellerSpieltag.setVisible(false);
 				aktuelleTabelle.setVisible(false);
 				aktuelleStatistik.setVisible(false);
@@ -1392,6 +1393,11 @@ public class Start extends JFrame {
 			}
 			
 			if (isCurrentlyInOverviewMode) {
+				if (uebersicht.isVisible()) {
+					uebersicht.setVisible(false);
+					aktuellerSpieltag.setVisible(true);
+					return;
+				}
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
 					currentTSeason.getResultsFromSpieltag();
@@ -1430,6 +1436,7 @@ public class Start extends JFrame {
 				
 				currentGroup = null;
 			} else if (isCurrentlyInOverviewMode) {
+				isCurrentlyInMatchdayView = false;
 				aktuellerSpieltag.setVisible(false);
 				if (isCurrentlyInQualification) {
 					QualificationHomescreen.add(jBtnBack);
@@ -1452,6 +1459,7 @@ public class Start extends JFrame {
 					aktuelleTabelle.setVisible(false);
 					jPnlOptions.setVisible(false);
 				}
+				isCurrentlyInMatchdayView = false;
 				aktuellerSpieltag.setVisible(false);
 				QualificationHomescreen.add(jBtnBack);
 				QualificationHomescreen.setVisible(true);
@@ -1459,6 +1467,7 @@ public class Start extends JFrame {
 				currentGroup = null;
 				currentKORound = null;
 			} else if (isCurrentlyInGroupStage) {
+				isCurrentlyInMatchdayView = false;
 				aktuellerSpieltag.setVisible(false);
 				aktuelleTabelle.setVisible(false);
 				jPnlOptions.setVisible(false);
@@ -1466,6 +1475,7 @@ public class Start extends JFrame {
 				LeagueHomescreen.add(jBtnBack);
 				LeagueHomescreen.setVisible(true);
 			} else {
+				isCurrentlyInMatchdayView = false;
 				aktuellerSpieltag.setVisible(false);
 				currentKORound = null;
 				

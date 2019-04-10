@@ -157,6 +157,73 @@ public class KORunde implements Wettbewerb {
 		return teams;
 	}
 	
+	public Mannschaft getTeamWithName(String teamName) {
+		for (Mannschaft team : teams) {
+			if (team != null && team.getName().equals(teamName))	return team;	
+		}
+		return null;
+	}
+	
+	public ArrayList<String[]> getAllMatches(Mannschaft team) {
+		return season.getAllMatches(team);
+	}
+	
+	public ArrayList<String[]> getMatches(Mannschaft team) {
+		ArrayList<String[]> allMatches = new ArrayList<>();
+		
+		boolean foundTeam = false;
+		for (int i = 0; i < teams.length && !foundTeam; i++) {
+			foundTeam = team.equals(teams[i]);
+		}
+		if (foundTeam) {
+			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+				String md = numberOfMatchdays == 1 ? shortName : matchday + 1 + "";
+				String date = getDateOfTeam(matchday, team);
+				String goalsH = "-", goalsA = "-";
+				String sunx = RESULT_NOT_SET;
+				boolean allMatchesSet = true, teamFound = false;
+				for (int matchID = 0; matchID < numberOfMatchesPerMatchday && !teamFound; matchID++) {
+					if (isMatchSet(matchday, matchID)) {
+						Spiel match = getMatch(matchday, matchID);
+						if (teamFound = team.equals(match.getHomeTeam())) {
+							if (isResultSet(matchday, matchID)) {
+								goalsH = "" + getResult(matchday, matchID).home();
+								goalsA = "" + getResult(matchday, matchID).away();
+								sunx = getSUN(getResult(matchday, matchID).home(), getResult(matchday, matchID).away());
+							}
+							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, match.getAwayTeam().getName(), sunx});
+						} else if (teamFound = team.equals(match.getAwayTeam())) {
+							if (isResultSet(matchday, matchID)) {
+								goalsH = "" + getResult(matchday, matchID).home();
+								goalsA = "" + getResult(matchday, matchID).away();
+								sunx = getSUN(getResult(matchday, matchID).away(), getResult(matchday, matchID).home());
+							}
+							allMatches.add(new String[] {md, date, match.getHomeTeam().getName(), goalsH, goalsA, team.getName(), sunx});
+						}
+					}
+					else	allMatchesSet = false;
+				}
+				if (!teamFound) {
+					if (allMatchesSet)	allMatches.add(new String[] {md, date, SPIELFREI, goalsH, goalsA, SPIELFREI, sunx});
+					else				allMatches.add(new String[] {md, date, MATCH_NOT_SET, goalsH, goalsA, MATCH_NOT_SET, sunx});
+				}
+			}
+		}
+		
+		return allMatches;
+	}
+	
+	public String getDateOfTeam(int matchday, Mannschaft team) {
+		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
+			if (isMatchSet(matchday, matchID)) {
+				if (getMatch(matchday, matchID).getHomeTeam().equals(team) || getMatch(matchday, matchID).getAwayTeam().equals(team))
+					return getDateAndTime(matchday, matchID);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
 	public String getTeamsOrigin(int team) {
 		return teamsOrigins[team];
 	}

@@ -51,6 +51,15 @@ public class Utilities {
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
+	public static final String SPIELFREI = "spielfrei";
+	public static final String MATCH_NOT_SET = "n.a.";
+	public static final String MAIN_CATEGORY = "MAIN_CATEGORY";
+	public static final String SUB_CATEGORY = "SUB_CATEGORY";
+	public static final String WIN = "S";
+	public static final String DRAW = "U";
+	public static final String LOSS = "N";
+	public static final String RESULT_NOT_SET = "X";
+	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 	}
@@ -145,6 +154,11 @@ public class Utilities {
 			log(text.substring(i, (i + x < text.length() ? i + x : text.length())));
 		}
 		log();
+	}
+	
+	public static String getSUN(int goalsScored, int goalsConceded) {
+		if (goalsScored == goalsConceded)	return DRAW;
+		return goalsScored > goalsConceded ? WIN : LOSS;
 	}
 	
 	public static String arrowDown() {
