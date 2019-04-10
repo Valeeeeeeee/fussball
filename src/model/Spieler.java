@@ -139,7 +139,7 @@ public class Spieler {
 	}
 
 	public int getAge() {
-		if (age == 0)	age = birthDate.daysUntil(Fussball.today());
+		if (age == 0)	age = birthDate.daysUntil(today);
 		return age;
 	}
 

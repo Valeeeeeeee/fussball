@@ -276,8 +276,6 @@ public class KORunde implements Wettbewerb {
 	
 	public int getCurrentMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Fussball.today();
-			
 			if (!today.equals(cMatchdaySetForDate)) {
 				if (getDate(0, 0).equals(startDate)) {
 					currentMatchday = 0;
@@ -303,7 +301,6 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNewestStartedMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Fussball.today();
 			Uhrzeit time = new Uhrzeit();
 			
 			if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {

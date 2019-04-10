@@ -1529,10 +1529,6 @@ public class Fussball extends JFrame {
 		inDatei(fileConfiguration, configurationFromFile);
 	}
 	
-	public static Datum today() {
-		return new Datum();
-	}
-	
 	public void checkOS() {
 		if (new File(workspaceWIN).isDirectory()) {
 			workspace = workspaceWIN;

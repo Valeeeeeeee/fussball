@@ -74,7 +74,7 @@ public class Liga {
 	
 	public int[] checkMissingResults() {
 		int countNotScheduled = 0, countCompleted = 0, countStillRunning = 0;
-		long now = 10000L * Fussball.today().comparable() + new Uhrzeit().comparable();
+		long now = 10000L * today.comparable() + new Uhrzeit().comparable();
 		for (LigaSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);

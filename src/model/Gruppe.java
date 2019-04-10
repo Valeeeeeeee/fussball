@@ -290,8 +290,6 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		Datum today = Fussball.today();
-		
 		if (!cMatchdaySetForDate.equals(today) || cMatchdaySetForOverview) {
 			if (today.isBefore(getDate(0, 0))) {
 				currentMatchday = 0;
@@ -314,8 +312,6 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getOverviewMatchday() {
-		Datum today = Fussball.today();
-		
 		if (!today.equals(cMatchdaySetForDate) || !cMatchdaySetForOverview) {
 			if (today.isBefore(getDate(0, 0))) {
 				currentMatchday = 0;
@@ -340,7 +336,6 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		Datum today = Fussball.today();
 		Uhrzeit time = new Uhrzeit();
 		
 		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {

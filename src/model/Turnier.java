@@ -253,7 +253,7 @@ public class Turnier {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
 			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
 			if (nextMatchesString.size() > 0) {
-				long now = 10000L * Fussball.today().comparable() + new Uhrzeit().comparable();
+				long now = 10000L * today.comparable() + new Uhrzeit().comparable();
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
 					if (match % 10000 == 9999) {

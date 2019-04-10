@@ -107,7 +107,7 @@ public class Mannschaft {
 	
 	public int getNumberOfPlayers(boolean onlyEligible, boolean forceUpdate) {
 		if (onlyEligible) {
-			updateEligiblePlayers(Fussball.today(), forceUpdate);
+			updateEligiblePlayers(today, forceUpdate);
 			return eligiblePlayers.size();
 		}
 		return kader.size();
@@ -174,8 +174,8 @@ public class Mannschaft {
 		numberOfPlayers++;
 		sortPlayers();
 		distinguishNames();
-		updateEligiblePlayers(Fussball.today(), true);
-		updateIneligiblePlayers(Fussball.today(), true);
+		updateEligiblePlayers(today, true);
+		updateIneligiblePlayers(today, true);
 	}
 	
 	public void playerUpdated() {

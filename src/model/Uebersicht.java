@@ -661,9 +661,9 @@ public class Uebersicht extends JPanel {
 			repaintImmediately(jPnlKader);
 		}
 		
-		eligiblePlayers = team.getEligiblePlayers(Fussball.today(), true);
+		eligiblePlayers = team.getEligiblePlayers(today, true);
 		numberOfEligiblePlayers = eligiblePlayers.size();
-		ineligiblePlayers = team.getIneligiblePlayers(Fussball.today(), true);
+		ineligiblePlayers = team.getIneligiblePlayers(today, true);
 		numberOfIneligiblePlayers = ineligiblePlayers.size();
 		int[] nOfPlayersByPosition = new int[numberOfPositions];
 		

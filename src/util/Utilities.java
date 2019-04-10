@@ -44,6 +44,8 @@ public class Utilities {
 	public static final Datum UNIX_EPOCH = new Datum(1, 1, 1970);
 	public static final Datum MIN_DATE = new Datum(1, 1, 0);
 	public static final Datum MAX_DATE = new Datum(31, 12, 9999);
+	public static final Datum today = new Datum();
+	
 	
 	public static final int UNDEFINED = -1;
 	
@@ -252,8 +254,8 @@ public class Utilities {
 	}
 	
 	public static boolean inThePast(Datum date, Uhrzeit time) {
-		if (date.isBefore(Fussball.today()))	return true;
-		if (date.isAfter(Fussball.today()))	return false;
+		if (date.isBefore(today))	return true;
+		if (date.isAfter(today))	return false;
 		return time.isBefore(new Uhrzeit());
 	}
 	

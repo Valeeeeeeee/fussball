@@ -443,7 +443,7 @@ public class NewLeagueDialog extends JFrame {
 	}
 	
 	private void enterPresetValues() {
-		seasonTF.setText("" + Fussball.today().getYear());
+		seasonTF.setText("" + today.getYear());
 		calendarYearNoRB.setSelected(true);
 		goalDifferenceYesRB.setSelected(true);
 		teamsHaveKaderNoRB.setSelected(true);

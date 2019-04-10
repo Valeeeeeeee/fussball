@@ -236,30 +236,30 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		Datum today = new Datum(Fussball.today(), UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
+		Datum yesterday = new Datum(today, UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
-		if (!today.equals(cMatchdaySetForDate)) {
-			if (today.isBefore(getDate(0))) {
+		if (!yesterday.equals(cMatchdaySetForDate)) {
+			if (yesterday.isBefore(getDate(0))) {
 				currentMatchday = 0;
-			} else if (!today.isBefore(getDate(numberOfMatchdays - 1))) {
+			} else if (!yesterday.isBefore(getDate(numberOfMatchdays - 1))) {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
-				while (!today.isBefore(getDate(currentMatchday))) {
+				while (!yesterday.isBefore(getDate(currentMatchday))) {
 					currentMatchday++;
 				}
-				if (currentMatchday != 0 && getDate(currentMatchday - 1).daysUntil(today) < today.daysUntil(getDate(currentMatchday))) {
+				if (currentMatchday != 0 && getDate(currentMatchday - 1).daysUntil(yesterday) < yesterday.daysUntil(getDate(currentMatchday))) {
 					currentMatchday--;
 				}
 			}
-			cMatchdaySetForDate = today;
+			cMatchdaySetForDate = yesterday;
 		}
 		
 		return currentMatchday;
 	}
 	
 	public int getNewestStartedMatchday() {
-		Datum today = Fussball.today(), nextDate;
+		Datum nextDate;
 		Uhrzeit time = new Uhrzeit();
 		
 		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
