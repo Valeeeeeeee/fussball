@@ -261,11 +261,6 @@ public class Mannschaft {
 		return currentNumberOfPlayersByPosition[position.getID()];
 	}
 	
-	public String getResultOfMatch(int matchday) {
-		if (matchday < 0 || matchday > numberOfMatchdays || data[matchday][OPPONENT] == 0)	return null;
-		return data[matchday][GOALS] + ":" + data[matchday][CGOALS];
-	}
-	
 	public void retrieveMatchPerformances() {
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
@@ -775,29 +770,6 @@ public class Mannschaft {
 		goalDiff = numOfGoals - numOfCGoals;
 	}
 	
-	/**
-	 * Returns an array containing: <br>
-	 * <ol>
-	 * 	<li> an integer representing home or away
-	 * 	<li> an integer representing the opponent
-	 * 	<li> the number of goals scored
-	 * 	<li> the number of goals conceded
-	 * </ol>
-	 * @param matchday The matchday of which the match information is required.
-	 * @return an array with the mentioned content
-	 */
-	public int[] getMatch(int matchday) {
-		int[] match = new int[4];
-
-		if (homeaway[matchday])	match[0] = HOME;
-		else					match[0] = AWAY;
-		match[1] = data[matchday][OPPONENT];
-		match[2] = data[matchday][GOALS];
-		match[3] = data[matchday][CGOALS];
-
-		return match;
-	}
-
 	public void compareWithOtherTeams(Mannschaft[] allTeams, int untilMatchday, Tabellenart tableType) {
 		setValuesForMatchday(untilMatchday, tableType);
 		ArrayList<Integer> teamsSamePoints = new ArrayList<>();

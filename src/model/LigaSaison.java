@@ -780,6 +780,59 @@ public class LigaSaison implements Wettbewerb {
 			errorMessage("Kein Spielplan: " + e.getMessage());
 			e.printStackTrace();
 		}
+		
+		checkAndCorrectOrderOfKOTs();
+	}
+	
+	private void checkAndCorrectOrderOfKOTs() {
+		int lastDefault = 0;
+		for (int i = 0; i < defaultKickoffTimes.length; i++) {
+			if (defaultKickoffTimes[i] > lastDefault)	lastDefault = defaultKickoffTimes[i];
+		}
+		
+		ArrayList<AnstossZeit> newKOTs = new ArrayList<>();
+		for (int i = 0; i <= lastDefault; i++) {
+			newKOTs.add(kickOffTimes.get(i));
+		}
+		
+		ArrayList<ArrayList<Integer>> allOccurrences = new ArrayList<>();
+		for (int i = lastDefault + 1; i <= numberOfKickoffTimes; i++) {
+			allOccurrences.add(getAllOccurrencesOfKOT(i));
+		}
+		
+		int[] newOrder = new int[numberOfKickoffTimes - lastDefault];
+		for (int i = 0; i < allOccurrences.size(); i++) {
+			for (int j = i + 1; j < allOccurrences.size(); j++) {
+				if (allOccurrences.get(j).size() == 0)			newOrder[j]++;
+				else if (allOccurrences.get(i).size() == 0)		newOrder[i]++;
+				else if (allOccurrences.get(i).get(0) > allOccurrences.get(j).get(0))	newOrder[i]++;
+				else																	newOrder[j]++;
+			}
+		}
+		for (int order = 0; order < newOrder.length; order++) {
+			for (int i = 0; i < newOrder.length; i++) {
+				if (newOrder[i] == order) {
+					newKOTs.add(kickOffTimes.get(i + lastDefault + 1));
+					if (i == order)	continue;
+					for (int j = 0; j < allOccurrences.get(i).size(); j++) {
+						int matchday = allOccurrences.get(i).get(j) / 100 - 1, matchID = allOccurrences.get(i).get(j) % 100 - 1;
+						setKOTIndex(matchday, matchID, order + lastDefault + 1);
+					}
+				}
+			}
+		}
+		
+		kickOffTimes = newKOTs;
+	}
+	
+	private ArrayList<Integer> getAllOccurrencesOfKOT(int kotIndex) {
+		ArrayList<Integer> occurrences = new ArrayList<>();
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
+				if (kotIndices[matchday][matchID] == kotIndex)	occurrences.add(100 * (matchday + 1) + (matchID + 1));
+			}
+		}
+		return occurrences;
 	}
 	
 	public void saveMatches() {
