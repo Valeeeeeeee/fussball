@@ -1,4 +1,5 @@
 Jaroslav;Drobny;null;19791018;Tschechien;Tor;33;-20181231
+Stefanos;Kapino;null;19940318;Griechenland;Tor;27
 Jiri;Pavlenka;null;19920414;Tschechien;Tor;1
 Luca;Plogmann;null;20000310;Deutschland;Tor;40
 Michael;Zetterer;null;19950712;Deutschland;Tor;16;-20190205
