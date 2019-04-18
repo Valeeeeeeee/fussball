@@ -140,10 +140,10 @@ AF07W: Juventus Turin
 AF07L: Atlético Madrid
 AF08W: Manchester City
 AF08L: FC Schalke 04
-VF01W: CL2018VF01W
-VF01L: CL2018VF01L
-VF02W: CL2018VF02W
-VF02L: CL2018VF02L
+VF01W: Tottenham Hotspurs
+VF01L: Manchester City
+VF02W: FC Liverpool
+VF02L: FC Porto
 VF03W: FC Barcelona
 VF03L: Manchester United
 VF04W: Ajax Amsterdam
