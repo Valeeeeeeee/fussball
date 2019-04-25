@@ -120,7 +120,7 @@ VF04W: Werder Bremen
 VF04L: FC Schalke 04
 HF01W: RasenBallsport Leipzig
 HF01L: Hamburger SV
-HF02W: DP2018HF02W
-HF02L: DP2018HF02L
+HF02W: Bayern München
+HF02L: Werder Bremen
 FI01W: DP2018FI01W
 FI01L: DP2018FI01L
