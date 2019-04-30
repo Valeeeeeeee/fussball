@@ -20,6 +20,7 @@ Florian;Kath;null;19941021;Deutschland;Mittelfeld;38
 Yoric;Ravet;null;19890912;Frankreich;Mittelfeld;16;-20190206
 Caleb;Stanko;null;19930726;USA;Mittelfeld;33;-20190122
 Brandon;Borrello;null;19950725;Australien;Sturm;21
+Christoph;Daferner;null;19980112;Deutschland;Sturm;39
 Janik;Haberer;null;19940402;Deutschland;Sturm;19
 Lucas;Höler;null;19940710;Deutschland;Sturm;9
 Tim;Kleindienst;null;19950831;Deutschland;Sturm;34
