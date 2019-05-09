@@ -148,8 +148,8 @@ VF03W: FC Barcelona
 VF03L: Manchester United
 VF04W: Ajax Amsterdam
 VF04L: Juventus Turin
-HF01W: CL2018HF01W
-HF01L: CL2018HF01L
+HF01W: Tottenham Hotspurs
+HF01L: Ajax Amsterdam
 HF02W: FC Liverpool
 HF02L: FC Barcelona
 FI01W: CL2018FI01W
