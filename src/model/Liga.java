@@ -8,6 +8,7 @@ import static util.Utilities.*;
 public class Liga {
 	private int id = -1;
 	private String name;
+	private String shortName;
 	
 	private ArrayList<LigaSaison> seasons;
 	private int currentSeasonIndex;
@@ -139,6 +140,10 @@ public class Liga {
 		return name;
 	}
 	
+	public String getShortName() {
+		return shortName;
+	}
+	
 	private void loadSeasons() {
 		workspace = Fussball.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
@@ -162,7 +167,11 @@ public class Liga {
 	}
 	
 	public String toString() {
-		String toString = name;
+		String toString = "";
+		
+		toString += name + ";";
+		toString += shortName + ";";
+		
 		return toString;
 	}
 	
@@ -171,5 +180,6 @@ public class Liga {
 		int index = 0;
 		
 		name = split[index++];
+		shortName = split[index++];
 	}
 }

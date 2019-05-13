@@ -1,0 +1,18 @@
+P1: VfB Stuttgart
+P2: Hannover 96
+P3: Eintracht Braunschweig
+P4: 1. FC Union Berlin
+P5: Dynamo Dresden
+P6: 1. FC Heidenheim
+P7: FC St. Pauli
+P8: SpVgg Greuther Fürth
+P9: VfL Bochum
+P10: SV Sandhausen
+P11: Fortuna Düsseldorf
+P12: 1. FC Nürnberg
+P13: 1. FC Kaiserlautern
+P14: Erzgebirge Aue
+P15: Arminia Bielefeld
+P16: 1860 München
+P17: Würzburger Kickers
+P18: Karlsruher SC

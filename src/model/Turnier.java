@@ -286,13 +286,16 @@ public class Turnier {
 		String[] split = data.split(";");
 		int index = 0;
 		
-		name = split[index++].substring(5);
-		shortName = split[index++].substring(4);
+		name = split[index++];
+		shortName = split[index++];
 	}
 	
 	public String toString() {
-		String toString = "NAME*" + name + ";";
-		toString += "SHN*" + shortName + ";";
+		String toString = "";
+		
+		toString += name + ";";
+		toString += shortName + ";";
+		
 		return toString;
 	}
 }

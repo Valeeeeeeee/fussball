@@ -1,0 +1,20 @@
+P1: Arminia Bielefeld
+P2: MSV Duisburg
+P3: Holstein Kiel
+P4: Stuttgarter Kickers
+P5: Chemnitzer FC
+P6: Dynamo Dresden
+P7: FC Energie Cottbus
+P8: Preußen Münster
+P9: SV Wehen Wiesbaden
+P10: Hallescher FC
+P11: VfL Osnabrück
+P12: Rot-Weiß Erfurt
+P13: VfB Stuttgart II
+P14: Fortuna Köln
+P15: SG Sonnenhof Großaspach
+P16: 1. FSV Mainz 05 II
+P17: Hansa Rostock
+P18: Borussia Dortmund II
+P19: SpVgg Unterhaching
+P20: Jahn Regensburg

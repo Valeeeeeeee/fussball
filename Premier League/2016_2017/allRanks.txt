@@ -1,0 +1,20 @@
+P1: FC Chelsea
+P2: Tottenham Hotspurs
+P3: Manchester City
+P4: FC Liverpool
+P5: FC Arsenal
+P6: Manchester United
+P7: FC Everton
+P8: FC Southampton
+P9: AFC Bournemouth
+P10: West Bromwich Albion
+P11: West Ham United
+P12: Leicester City
+P13: Stoke City
+P14: Crystal Palace
+P15: Swansea City
+P16: FC Burnley
+P17: FC Watford
+P18: Hull City
+P19: FC Middlesbrough
+P20: AFC Sunderland

@@ -1,0 +1,18 @@
+P1: Fortuna Düsseldorf
+P2: 1. FC Nürnberg
+P3: Holstein Kiel
+P4: Arminia Bielefeld
+P5: SSV Jahn Regensburg
+P6: VfL Bochum
+P7: MSV Duisburg
+P8: 1. FC Union Berlin
+P9: FC Ingolstadt 04
+P10: SV Darmstadt 98
+P11: SV Sandhausen
+P12: FC St. Pauli
+P13: 1. FC Heidenheim
+P14: Dynamo Dresden
+P15: SpVgg Greuther Fürth
+P16: Erzgebirge Aue
+P17: Eintracht Braunschweig
+P18: 1. FC Kaiserlautern

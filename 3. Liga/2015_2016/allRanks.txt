@@ -1,0 +1,20 @@
+P1: Dynamo Dresden
+P2: Erzgebirge Aue
+P3: Würzburger Kickers
+P4: 1. FC Magdeburg
+P5: VfL Osnabrück
+P6: Chemnitzer FC
+P7: SG Sonnenhof Großaspach
+P8: Rot-Weiß Erfurt
+P9: Preußen Münster
+P10: Hansa Rostock
+P11: Fortuna Köln
+P12: 1. FSV Mainz 05 II
+P13: Hallescher FC
+P14: Holstein Kiel
+P15: VfR Aalen
+P16: SV Wehen Wiesbaden
+P17: Werder Bremen II
+P18: Stuttgarter Kickers
+P19: FC Energie Cottbus
+P20: VfB Stuttgart II

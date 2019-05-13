@@ -1,0 +1,18 @@
+P1: FC Ingolstadt 04
+P2: SV Darmstadt 98
+P3: Karlsruher SC
+P4: 1. FC Kaiserlautern
+P5: RasenBallsport Leipzig
+P6: Eintracht Braunschweig
+P7: 1. FC Union Berlin
+P8: 1. FC Heidenheim
+P9: 1. FC Nürnberg
+P10: Fortuna Düsseldorf
+P11: VfL Bochum
+P12: SV Sandhausen
+P13: FSV Frankfurt
+P14: SpVgg Greuther Fürth
+P15: FC St. Pauli
+P16: 1860 München
+P17: Erzgebirge Aue
+P18: VfR Aalen

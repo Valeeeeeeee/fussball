@@ -1,0 +1,18 @@
+P1: SC Freiburg
+P2: RasenBallsport Leipzig
+P3: 1. FC Nürnberg
+P4: FC St. Pauli
+P5: VfL Bochum
+P6: 1. FC Union Berlin
+P7: Karlsruher SC
+P8: Eintracht Braunschweig
+P9: SpVgg Greuther Fürth
+P10: 1. FC Kaiserlautern
+P11: 1. FC Heidenheim
+P12: Arminia Bielefeld
+P13: SV Sandhausen
+P14: Fortuna Düsseldorf
+P15: 1860 München
+P16: MSV Duisburg
+P17: FSV Frankfurt
+P18: SC Paderborn

@@ -945,6 +945,48 @@ public class LigaSaison implements Wettbewerb {
 		inDatei(fileMatchData, matchDataFromFile);
 	}
 	
+	public Mannschaft getTeamOnPlace(int place) {
+		if (place < 1 || place > teams.length)	return null;
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			for (int matchID = 0; matchID < getNumberOfMatchesPerMatchday(); matchID++) {
+				if (!isResultSet(matchday, matchID)) 	return null;
+			}
+		}
+		
+		tabelle.refresh();
+		for (Mannschaft ms : teams) {
+			if (ms.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
+		}
+		
+		return null;
+	}
+	
+	public String[] getRanks() {
+		String[] ranks = new String[numberOfTeams];
+		
+		for (int i = 0; i < ranks.length; i++) {
+			String id = "P" + (i + 1);
+			try {
+				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
+			} catch (NullPointerException npe) {
+				ranks[i] = id + ": " + this.getLeague().getShortName() + this.getYear() + id;
+			}
+		}
+		
+		return ranks;
+	}
+	
+	private void saveRanks() {
+		ArrayList<String> allRanks = new ArrayList<>();
+		
+		String[] ranks = getRanks();
+		for (int i = 0; i < ranks.length; i++) {
+			allRanks.add(ranks[i]);
+		}
+		
+		inDatei(workspace + "allRanks.txt", allRanks);
+	}
+	
 	public void load() {
 		fileResults = workspace + "Ergebnisse.txt";
 		fileMatchData = workspace + "Spieldaten.txt";
@@ -988,6 +1030,7 @@ public class LigaSaison implements Wettbewerb {
 		if (!geladen)	return;
 		
 		saveNextMatches();
+		saveRanks();
 		saveReferees();
 		saveTeams();
 		saveMatches();

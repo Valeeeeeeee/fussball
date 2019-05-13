@@ -204,11 +204,6 @@ public class Gruppe implements Wettbewerb {
 		startTime[matchday][matchID] = myTime;
 	}
 	
-	/**
-	 * This method returns the team that finished the group stage on this place
-	 * @param place A place between 1 and the number of teams
-	 * @return The Mannschaft that finished the group stage on that place, null if not finished or out of bounds
-	 */
 	public Mannschaft getTeamOnPlace(int place) {
 		if (place < 1 || place > teams.length)	return null;
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
