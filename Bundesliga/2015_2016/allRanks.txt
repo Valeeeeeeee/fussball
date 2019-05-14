@@ -16,3 +16,5 @@ P15: TSG 1899 Hoffenheim
 P16: Eintracht Frankfurt
 P17: VfB Stuttgart
 P18: Hannover 96
+REL01W: Eintracht Frankfurt
+REL01L: 1. FC Nürnberg

@@ -16,3 +16,5 @@ P15: Arminia Bielefeld
 P16: 1860 München
 P17: Würzburger Kickers
 P18: Karlsruher SC
+REL01W: SSV Jahn Regensburg
+REL01L: 1860 München

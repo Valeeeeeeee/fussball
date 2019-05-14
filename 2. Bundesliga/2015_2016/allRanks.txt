@@ -16,3 +16,5 @@ P15: 1860 München
 P16: MSV Duisburg
 P17: FSV Frankfurt
 P18: SC Paderborn
+REL01W: Würzburger Kickers
+REL01L: MSV Duisburg

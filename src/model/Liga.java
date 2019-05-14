@@ -107,6 +107,14 @@ public class Liga {
 	public void save() {
 		saveSeasons();
 	}
+	
+	public String getWorkspace(int season) {
+		int seasonIndex = 0;
+		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
+			if (seasons.get(seasonIndex).getYear() == season)	break;
+		}
+		return workspace + seasons.get(seasonIndex).getSeasonFull("_") + File.separator;
+	}
 
 	public String getWorkspace() {
 		return workspace;

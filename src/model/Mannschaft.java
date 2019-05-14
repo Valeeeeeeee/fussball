@@ -71,6 +71,7 @@ public class Mannschaft {
 
 	private boolean playsInLeague = false;
 	private boolean playsInGroup = false;
+	private boolean playsInKORound = false;
 
 	public Mannschaft(int id, Wettbewerb competition, String mannschaftsDaten) {
 		this.id = id;
@@ -79,6 +80,7 @@ public class Mannschaft {
 		this.competition = competition;
 		playsInLeague = lSeason != null;
 		playsInGroup = group != null;
+		playsInKORound = competition instanceof KORunde;
 		
 		parseString(mannschaftsDaten);
 		if (competition != null) {
@@ -198,6 +200,7 @@ public class Mannschaft {
 		if (name.contains("Mannschaft "))	return;
 		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
 		else if (playsInGroup)	kaderFileName = group.getWorkspace() + "Kader" + File.separator;
+		else	return;
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
 		kaderFileName += nameForFileSearch + ".txt";
 		
@@ -220,6 +223,7 @@ public class Mannschaft {
 	private void saveKader() {
 		if (!competition.teamsHaveKader())	return;
 		if (name.contains("Mannschaft "))	return;
+		if (playsInKORound)	return;
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
 			players.add(kader.get(i).toString());

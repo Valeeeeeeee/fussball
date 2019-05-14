@@ -16,3 +16,5 @@ P15: Hertha BSC
 P16: Hamburger SV
 P17: SC Freiburg
 P18: SC Paderborn 07
+REL01W: Hamburger SV
+REL01L: Karlsruher SC

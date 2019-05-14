@@ -14,6 +14,7 @@ public interface Wettbewerb {
 	public int getNumberOfMatchdays();
 	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);
+	public String[] getMatchdays();
 	
 	public boolean isMatchSet(int matchday, int matchID);
 	public Spiel getMatch(int matchday, int matchID);

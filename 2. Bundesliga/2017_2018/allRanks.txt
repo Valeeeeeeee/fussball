@@ -16,3 +16,5 @@ P15: SpVgg Greuther Fürth
 P16: Erzgebirge Aue
 P17: Eintracht Braunschweig
 P18: 1. FC Kaiserlautern
+REL01W: Erzgebirge Aue
+REL01L: Karlsruher SC

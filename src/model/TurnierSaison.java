@@ -427,7 +427,7 @@ public class TurnierSaison {
 		return origin;
 	}
 	
-	public Mannschaft[] getMannschaftenInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
+	public Mannschaft[] getTeamsInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
 		if (isQ) {

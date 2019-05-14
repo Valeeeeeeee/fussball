@@ -57,6 +57,7 @@ public class Fussball extends JFrame {
 	private boolean isCurrentlyInQualification = false;
 	private boolean isCurrentlyInGroupStage = false;
 	private boolean isCurrentlyInMatchdayView = false;
+	private boolean isCurrentlyInPlayoffView = false;
 	private boolean isCurrentlyInOverviewMode = false;
 	
 	private static final int SIZEX_BTNS = 400;
@@ -743,6 +744,7 @@ public class Fussball extends JFrame {
 	private void loadLeagueSpecificThings() {
 		aktuellerSpieltag = currentLSeason.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
+		if (currentLSeason.hasPlayoffs())	getContentPane().add(currentLSeason.getPlayoffSpieltag());
 		aktuelleTabelle = currentLSeason.getTabelle();
 		getContentPane().add(aktuelleTabelle);
 		aktuelleStatistik = currentLSeason.getStatistik();
@@ -983,6 +985,26 @@ public class Fussball extends JFrame {
 		isCurrentlyInMatchdayView = true;
 	}
 	
+	public void switchToMainSeason(int matchday) {
+		if (!isCurrentlyALeague)	return;
+		aktuellerSpieltag.setVisible(false);
+		aktuellerSpieltag = currentLSeason.getSpieltag();
+		aktuellerSpieltag.add(jBtnBack);
+		aktuellerSpieltag.setVisible(true);
+		aktuellerSpieltag.showMatchday(matchday);
+		isCurrentlyInPlayoffView = false;
+	}
+	
+	public void switchToPlayoff(int matchday) {
+		if (!isCurrentlyALeague)	return;
+		aktuellerSpieltag.setVisible(false);
+		aktuellerSpieltag = currentLSeason.getPlayoffSpieltag();
+		aktuellerSpieltag.add(jBtnBack);
+		aktuellerSpieltag.setVisible(true);
+		aktuellerSpieltag.showMatchday(matchday);
+		isCurrentlyInPlayoffView = true;
+	}
+	
 	public void teamsVerbessern() {
 		if (isCurrentlyALeague) {
 			for (int i = 0; i < currentLSeason.getNumberOfTeams(); i++) {
@@ -999,6 +1021,17 @@ public class Fussball extends JFrame {
 				}
 			}
 		}
+	}
+	
+	public String getLeagueWorkspaceFromShortName(String shortName, int season) {
+		int index = 0;
+		for (index = 0; index < leagues.size(); index++) {
+			if (leagues.get(index).getShortName().equals(shortName))		break;
+		}
+		if (index != leagues.size()) {
+			return leagues.get(index).getWorkspace(season);
+		}
+		return null;
 	}
 	
 	public String getTournamentWorkspaceFromShortName(String shortName, int season) {
@@ -1323,6 +1356,12 @@ public class Fussball extends JFrame {
 		buildLeaguesButtons();
 		
 		message("Successfully created new tournament.");
+	}
+	
+	public void showGroup(int groupID) {
+		jBtnBackActionPerformed();
+		jBtnsGroupsPressed(groupID);
+		jBtnMatchdaysActionPerformed();
 	}
 	
 	public void jBtnExitActionPerformed() {

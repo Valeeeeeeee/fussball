@@ -4,17 +4,21 @@ import static util.Utilities.*;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class LigaSaison implements Wettbewerb {
 	
 	private Liga league;
 	private boolean isSummerToSpringSeason;
+	private Datum startDate;
+	private Datum finalDate;
 	private int seasonIndex;
 	private int year;
 	private boolean goalDifference;
 	private boolean fairplay = false;
 	private boolean teamsHaveKader;
+	private boolean hasPlayoffs;
 	
 	private int numberOfReferees;
 	private ArrayList<Schiedsrichter> referees;
@@ -29,6 +33,9 @@ public class LigaSaison implements Wettbewerb {
 	private int newestMatchday;
 	private Datum nMatchdaySetForDate;
 	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
+	
+	private KORunde playoffs;
+	private HashMap<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
 	private int[] numberOf;
 	
@@ -72,6 +79,8 @@ public class LigaSaison implements Wettbewerb {
 		this.seasonIndex = seasonIndex;
 		fromString(data);
 		workspace = league.getWorkspace() + getSeasonFull("_") + File.separator;
+		startDate = isSummerToSpringSeason ? new Datum(1, 7, year) : new Datum(1, 1, year);
+		finalDate = isSummerToSpringSeason ? new Datum(30, 6, year + 1) : new Datum(31, 12, year);
 	}
 	
 	public Liga getLeague() {
@@ -98,6 +107,18 @@ public class LigaSaison implements Wettbewerb {
 		return isSummerToSpringSeason;
 	}
 	
+	public boolean hasPlayoffs() {
+		return hasPlayoffs;
+	}
+	
+	public Datum getStartDate() {
+		return startDate;
+	}
+	
+	public Datum getFinalDate() {
+		return finalDate;
+	}
+	
 	public String getSeasonFull(String trennzeichen) {
 		return year + (isSummerToSpringSeason ? trennzeichen + (year + 1) : "");
 	}
@@ -116,6 +137,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public int getNumberOfMatchdays() {
 		return numberOfMatchdays;
+	}
+	
+	public int getNumberOfMatchdaysIncludingPlayoff() {
+		return numberOfMatchdays + (hasPlayoffs ? playoffs.getNumberOfMatchdays() : 0);
 	}
 	
 	public int getNumberOfMatchesPerMatchday() {
@@ -146,8 +171,34 @@ public class LigaSaison implements Wettbewerb {
 		return false;
 	}
 	
+	public String[] getMatchdays() {
+		if (hasPlayoffs) {
+			String[] matchdays = new String[numberOfMatchdays + playoffs.getNumberOfMatchdays()];
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				matchdays[i] = (i + 1) + ". Spieltag";
+			}
+			if (playoffs.hasSecondLeg()) {
+				matchdays[numberOfMatchdays] = playoffs.getDescription() + " Hinspiel";
+				matchdays[numberOfMatchdays + 1] = playoffs.getDescription() + " Rückspiel";
+			} else {
+				matchdays[numberOfMatchdays] = playoffs.getDescription();
+			}
+			return matchdays;
+		} else {
+			String[] matchdays = new String[numberOfMatchdays];
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				matchdays[i] = (i + 1) + ". Spieltag";
+			}
+			return matchdays;
+		}
+	}
+	
 	public Spieltag getSpieltag() {
 		return spieltag;
+	}
+	
+	public Spieltag getPlayoffSpieltag() {
+		return hasPlayoffs ? playoffs.getSpieltag() : null;
 	}
 	
 	public Tabelle getTabelle() {
@@ -466,6 +517,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public void getResultsFromSpieltag() {
 		int matchday = spieltag.getCurrentMatchday();
+		if (hasPlayoffs && matchday >= numberOfMatchdays) {
+			playoffs.getResultsFromSpieltag();
+			return;
+		}
 		
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID)) {
@@ -670,6 +725,41 @@ public class LigaSaison implements Wettbewerb {
 		}
 		
 		return dktimes;
+	}
+	
+	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, String origin) {
+		Mannschaft team = null;
+		
+		if (teamsFromOtherCompetition.containsKey(origin)) {
+			return teamsFromOtherCompetition.get(origin);
+		}
+		team = new Mannschaft(id, competition, getNameOfTeamFromOtherCompetition(origin));
+		teamsFromOtherCompetition.put(origin, team);
+		
+		return team;
+	}
+	
+	private String getNameOfTeamFromOtherCompetition(String origin) {
+		String fileName = Fussball.getInstance().getLeagueWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
+		
+		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		for (String team : teams) {
+			if (origin.substring(8).equals(team.split(": ")[0])) {
+				return team.split(": ")[1];
+			}
+		}
+		
+		return origin;
+	}
+	
+	public Mannschaft[] getTeamsInOrderOfOrigins(String[] origins) {
+		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
+		
+		for (int i = 0; i < origins.length; i++) {
+			orderOfOrigins[i] = getTeamOnPlace(Integer.parseInt(origins[i].substring(1)));
+		}
+		
+		return orderOfOrigins;
 	}
 	
 	private void initializeArrays() {
@@ -984,7 +1074,25 @@ public class LigaSaison implements Wettbewerb {
 			allRanks.add(ranks[i]);
 		}
 		
+		if (hasPlayoffs) {
+			ranks = playoffs.getRanks();
+			for (int i = 0; i < ranks.length; i++) {
+				allRanks.add(ranks[i]);
+			}
+		}
+		
 		inDatei(workspace + "allRanks.txt", allRanks);
+	}
+	
+	private void loadPlayoffs() {
+		if (!hasPlayoffs)	return;
+		
+		playoffs = new KORunde(this, "Relegation;REL;false;true;0;1;1");
+	}
+	
+	private void savePlayoffs() {
+		if (!hasPlayoffs)	return;
+		playoffs.save();
 	}
 	
 	public void load() {
@@ -998,19 +1106,21 @@ public class LigaSaison implements Wettbewerb {
 		loadTeams();
 		initializeArrays();
 		
+		if (tabelle == null) {
+			tabelle = new Tabelle(this);
+			tabelle.setLocation((Fussball.WIDTH - tabelle.getSize().width) / 2, 50);
+			tabelle.setVisible(false);
+		}
+		
 		loadMatches();
 		loadResults();
 		loadMatchData();
+		loadPlayoffs();
 		
 		if (spieltag == null) {
 			spieltag = new Spieltag(this);
 			spieltag.setLocation((Fussball.WIDTH - spieltag.getSize().width) / 2, (Fussball.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			spieltag.setVisible(false);
-		}
-		if (tabelle == null) {
-			tabelle = new Tabelle(this);
-			tabelle.setLocation((Fussball.WIDTH - tabelle.getSize().width) / 2, 50);
-			tabelle.setVisible(false);
 		}
 		if (statistik == null) {
 			statistik = new LigaStatistik(this);
@@ -1036,6 +1146,7 @@ public class LigaSaison implements Wettbewerb {
 		saveMatches();
 		saveResults();
 		saveMatchData();
+		savePlayoffs();
 		
 		geladen = false;
 	}
@@ -1051,6 +1162,7 @@ public class LigaSaison implements Wettbewerb {
 		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
+		toString += hasPlayoffs + ";";
 		
 		return toString;
 	}
@@ -1067,5 +1179,6 @@ public class LigaSaison implements Wettbewerb {
 		goalDifference = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		numberOf = getAnzahlFromString(split[index++]);
+		hasPlayoffs = Boolean.parseBoolean(split[index++]);
 	}
 }

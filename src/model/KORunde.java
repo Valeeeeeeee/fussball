@@ -7,7 +7,9 @@ import static util.Utilities.*;
 
 public class KORunde implements Wettbewerb {
 
-	private TurnierSaison season;
+	private boolean belongsToALeague;
+	private LigaSaison lSeason;
+	private TurnierSaison tSeason;
 	private int id;
 	private boolean isQ;
 	private String name;
@@ -65,8 +67,25 @@ public class KORunde implements Wettbewerb {
 	
 	private Spieltag spieltag;
 	
+	public KORunde(LigaSaison season, String data) {
+		belongsToALeague = true;
+		this.lSeason = season;
+		this.id = 0;
+		this.isQ = false;
+		
+		startDate = season.getStartDate();
+		finalDate = season.getFinalDate();
+		teamsHaveKader = season.teamsHaveKader();
+		is4thSubPossible = false;
+		
+		fromString(data);
+		
+		load();
+	}
+	
 	public KORunde(TurnierSaison season, int id, boolean isQ, String data) {
-		this.season = season;
+		belongsToALeague = false;
+		this.tSeason = season;
 		this.id = id;
 		this.isQ = isQ;
 		
@@ -84,8 +103,16 @@ public class KORunde implements Wettbewerb {
 		return id;
 	}
 	
+	public boolean belongsToALeague() {
+		return belongsToALeague;
+	}
+	
+	public int getNumberOfMatchdaysBeforePlayoff() {
+		return belongsToALeague ? lSeason.getNumberOfMatchdays() : 0;
+	}
+	
 	public int getYear() {
-		return season.getYear();
+		return belongsToALeague ? lSeason.getYear() : tSeason.getYear();
 	}
 	
 	public boolean isQualification() {
@@ -97,7 +124,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public boolean isSTSS() {
-		return season.isSTSS();
+		return belongsToALeague ? lSeason.isSTSS() : tSeason.isSTSS();
 	}
 	
 	public String getWorkspace() {
@@ -105,7 +132,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public String getMatchdayDescription(int matchday) {
-		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rückspiel") : "");
+		return (belongsToALeague ? lSeason.getDescription() : tSeason.getDescription()) + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rückspiel") : "");
 	}
 	
 	public String getShortName() {
@@ -140,16 +167,26 @@ public class KORunde implements Wettbewerb {
 		return fairplay;
 	}
 	
+	public String[] getMatchdays() {
+		if (belongsToALeague)	return lSeason.getMatchdays();
+		
+		String[] matchdays = new String[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdays[i] = (i + 1) + ". Spieltag";
+		}
+		return matchdays;
+	}
+	
 	public void setCheckTeamsFromPreviousRound(boolean check) {
 		checkTeamsFromPreviousRound = check;
 	}
 	
 	public ArrayList<Schiedsrichter> getReferees() {
-		return season.getReferees();
+		return belongsToALeague ? lSeason.getReferees() : tSeason.getReferees();
 	}
 	
 	public String[] getAllReferees() {
-		return season.getAllReferees();
+		return belongsToALeague ? lSeason.getAllReferees() : tSeason.getAllReferees();
 	}
 
 	public Mannschaft[] getTeams() {
@@ -165,7 +202,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public ArrayList<String[]> getAllMatches(Mannschaft team) {
-		return season.getAllMatches(team);
+		return belongsToALeague ? lSeason.getAllMatches(team) : tSeason.getAllMatches(team);
 	}
 	
 	public ArrayList<String[]> getMatches(Mannschaft team) {
@@ -239,7 +276,9 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < partOfOrigins.length; i++) {
 			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
 		}
-		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
+		Mannschaft[] prevRoundTeams;
+		if (belongsToALeague)	prevRoundTeams = lSeason.getTeamsInOrderOfOrigins(partOfOrigins);
+		else					prevRoundTeams = tSeason.getTeamsInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			teams[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
@@ -630,6 +669,7 @@ public class KORunde implements Wettbewerb {
 
 	public String[] getRanks() {
 		String[] ranks = new String[2 * numberOfMatchesPerMatchday];
+		String competition = belongsToALeague ? lSeason.getLeague().getShortName() + lSeason.getYear() : tSeason.getTournament().getShortName() + tSeason.getYear();
 		
 		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
 			String matchID = getShortName() + ((i + 1) / 10) + ((i + 1) % 10);
@@ -637,11 +677,11 @@ public class KORunde implements Wettbewerb {
 			ranks[2 * i + 1] = matchID + "L" + ": ";
 			int index = getIndexOf(i + 1, true);
 			if (index != 0)	ranks[2 * i] += teams[index - 1].getName();
-			else			ranks[2 * i] += season.getTournament().getShortName() + season.getYear() + matchID + "W";
+			else			ranks[2 * i] += competition + matchID + "W";
 			
 			index = getIndexOf(i + 1, false);
 			if (index != 0)	ranks[2 * i + 1] += teams[index - 1].getName();
-			else			ranks[2 * i + 1] += season.getTournament().getShortName() + season.getYear() + matchID + "L";
+			else			ranks[2 * i + 1] += competition + matchID + "L";
 		}
 		
 		return ranks;
@@ -671,7 +711,7 @@ public class KORunde implements Wettbewerb {
 	
 	private void load() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
-		workspace = season.getWorkspace() + isQuali + name + File.separator;
+		workspace = (belongsToALeague ? lSeason.getWorkspace() : tSeason.getWorkspace()) + isQuali + name + File.separator;
 		
 		fileResults = workspace + "Ergebnisse.txt";
 		fileTeams = workspace + "Mannschaften.txt";
@@ -733,7 +773,8 @@ public class KORunde implements Wettbewerb {
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			teams[i] = season.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
 		}
 		
 		refreshTeams();

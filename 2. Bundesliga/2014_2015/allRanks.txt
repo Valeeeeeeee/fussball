@@ -16,3 +16,5 @@ P15: FC St. Pauli
 P16: 1860 München
 P17: Erzgebirge Aue
 P18: VfR Aalen
+REL01W: 1860 München
+REL01L: Holstein Kiel

@@ -16,3 +16,5 @@ P15: 1. FSV Mainz 05
 P16: VfL Wolfsburg
 P17: FC Ingolstadt 04
 P18: SV Darmstadt 98
+REL01W: VfL Wolfsburg
+REL01L: Eintracht Braunschweig

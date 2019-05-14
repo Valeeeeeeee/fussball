@@ -132,6 +132,14 @@ public class Gruppe implements Wettbewerb {
 		return finalDate;
 	}
 	
+	public String[] getMatchdays() {
+		String[] matchdays = new String[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdays[i] = (i + 1) + ". Spieltag";
+		}
+		return matchdays;
+	}
+	
 	public Spieltag getSpieltag() {
 		return spieltag;
 	}
