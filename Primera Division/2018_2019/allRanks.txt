@@ -1,20 +1,20 @@
-P1: ESP12018P1
-P2: ESP12018P2
-P3: ESP12018P3
-P4: ESP12018P4
-P5: ESP12018P5
-P6: ESP12018P6
-P7: ESP12018P7
-P8: ESP12018P8
-P9: ESP12018P9
-P10: ESP12018P10
-P11: ESP12018P11
-P12: ESP12018P12
-P13: ESP12018P13
-P14: ESP12018P14
-P15: ESP12018P15
-P16: ESP12018P16
-P17: ESP12018P17
-P18: ESP12018P18
-P19: ESP12018P19
-P20: ESP12018P20
+P1: FC Barcelona
+P2: Atlético Madrid
+P3: Real Madrid
+P4: FC Valencia
+P5: FC Getafe
+P6: FC Sevilla
+P7: Espanyol Barcelona
+P8: Athletic Bilbao
+P9: Real Sociedad San Sebastián
+P10: Real Betis Sevilla
+P11: Deportivo Alavés
+P12: SD Eibar
+P13: CD Leganés
+P14: FC Villarreal
+P15: UD Levante
+P16: Real Valladolid
+P17: Celta Vigo
+P18: FC Girona
+P19: SD Huesca
+P20: Rayo Vallecano
