@@ -1,20 +1,20 @@
-P1: GER32018P1
-P2: GER32018P2
-P3: GER32018P3
-P4: GER32018P4
-P5: GER32018P5
-P6: GER32018P6
-P7: GER32018P7
-P8: GER32018P8
-P9: GER32018P9
-P10: GER32018P10
-P11: GER32018P11
-P12: GER32018P12
-P13: GER32018P13
-P14: GER32018P14
-P15: GER32018P15
-P16: GER32018P16
-P17: GER32018P17
-P18: GER32018P18
-P19: GER32018P19
-P20: GER32018P20
+P1: VfL Osnabrück
+P2: Karlsruher SC
+P3: SV Wehen Wiesbaden
+P4: Hallescher FC
+P5: Würzburger Kickers
+P6: Hansa Rostock
+P7: FSV Zwickau
+P8: Preußen Münster
+P9: 1. FC Kaiserslautern
+P10: SpVgg Unterhaching
+P11: KFC Uerdingen
+P12: 1860 München
+P13: SV Meppen
+P14: Carl Zeiss Jena
+P15: SG Sonnenhof Großaspach
+P16: Eintracht Braunschweig
+P17: Energie Cottbus
+P18: Sportfreunde Lotte
+P19: Fortuna Köln
+P20: VfR Aalen
