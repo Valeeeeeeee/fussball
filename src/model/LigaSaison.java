@@ -1043,7 +1043,9 @@ public class LigaSaison implements Wettbewerb {
 			}
 		}
 		
-		tabelle.refresh();
+		for (Mannschaft ms : teams) {
+			ms.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
+		}
 		for (Mannschaft ms : teams) {
 			if (ms.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
 		}
