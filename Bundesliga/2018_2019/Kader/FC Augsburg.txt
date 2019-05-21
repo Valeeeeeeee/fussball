@@ -1,6 +1,7 @@
 Fabian;Giefer;null;19900517;Deutschland;Tor;13
 Gregor;Kobel;null;19971206;Schweiz;Tor;40;20190101-
 Andreas;Luthe;null;19870310;Deutschland;Tor;1
+Simon;Asta;null;20010125;Deutschland;Abwehr;26
 Jan-Ingwer;Callsen-Bracker;null;19840923;Deutschland;Abwehr;18
 Kevin;Danso;null;19980919;Österreich;Abwehr;38
 Raphael;Framberger;null;19950906;Deutschland;Abwehr;32

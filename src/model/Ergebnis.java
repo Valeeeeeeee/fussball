@@ -222,9 +222,8 @@ public class Ergebnis {
 			return false;
 		}
 		
-		// if the match was decided agT and the result is 3:0 or 0:3
+		// if the match was decided agT
 		if (amGruenenTisch) {
-			if ((home[REGULAR] + away[REGULAR] != 3 && home[REGULAR] + away[REGULAR] != 2) || home[REGULAR] * away[REGULAR] != 0)	return false;
 			return true;
 		}
 		

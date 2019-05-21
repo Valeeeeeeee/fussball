@@ -11,6 +11,7 @@ Benjamin;Hübner;null;19890704;Deutschland;Abwehr;21
 Pavel;Kaderábek;null;19920425;Tschechien;Abwehr;3
 Stefan;Posch;null;19970514;Österreich;Abwehr;38
 Nadiem;Amiri;null;19961027;Deutschland;Mittelfeld;18
+Christoph;Baumgartner;null;19990801;Österreich;Mittelfeld;42
 Leonardo;Bittencourt;null;19931219;Deutschland;Mittelfeld;13
 Kerem;Demirbay;null;19930703;Deutschland;Mittelfeld;10
 Dennis;Geiger;null;19980610;Deutschland;Mittelfeld;8

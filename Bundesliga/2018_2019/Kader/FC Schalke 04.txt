@@ -9,6 +9,7 @@ Matija;Nastasic;null;19930328;Serbien;Abwehr;5
 Bastian;Oczipka;null;19890112;Deutschland;Abwehr;24
 Sascha;Riether;null;19830323;Deutschland;Abwehr;21
 Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;26
+George;Timotheou;null;19970729;Australien;Abwehr;44
 Nabil;Bentaleb;null;19941124;Algerien;Mittelfeld;10
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;18
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;16;-20181231

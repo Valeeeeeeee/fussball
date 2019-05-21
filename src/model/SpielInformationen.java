@@ -1227,7 +1227,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void setAmGruenenTisch(boolean isHomeTeam) {
-		result = new Ergebnis((isHomeTeam ? "3:0" : "0:3") + " agT");
+		result = new Ergebnis(result.toString() + " agT");
 		setResult();
 	}
 	
