@@ -1,0 +1,19 @@
+18
+Fortuna Düsseldorf;05.05.1895
+SpVgg Greuther Fürth;23.09.1903
+1. FC Kaiserlautern;02.06.1900
+FSV Frankfurt;20.08.1899
+1. FC Köln;13.02.1948
+1860 München;17.05.1860
+1. FC Union Berlin;20.01.1966
+Energie Cottbus;31.01.1966
+VfR Aalen;08.03.1921
+FC St. Pauli;15.05.1910
+SC Paderborn;14.08.1907
+FC Ingolstadt 04;01.07.2004
+VfL Bochum;14.04.1938
+Erzgebirge Aue;24.09.1949
+Dynamo Dresden;12.04.1953
+SV Sandhausen;01.08.1916
+Karlsruher SC;06.06.1894
+Arminia Bielefeld;03.05.1905

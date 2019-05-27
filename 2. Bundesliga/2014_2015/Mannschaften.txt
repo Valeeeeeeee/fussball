@@ -1,19 +1,19 @@
 18
-1. FC Nürnberg;01.01.1970
-Eintracht Braunschweig;01.01.1970
-SpVgg Greuther Fürth;01.01.1970
-1. FC Kaiserlautern;01.01.1970
-Karlsruher SC;01.01.1970
-Fortuna Düsseldorf;01.01.1970
-1860 München;01.01.1970
-FC St. Pauli;01.01.1970
-1. FC Union Berlin;01.01.1970
-FC Ingolstadt 04;01.01.1970
-VfR Aalen;01.01.1970;-2
-SV Sandhausen;01.01.1970;-3
-FSV Frankfurt;01.01.1970
-Erzgebirge Aue;01.01.1970
-VfL Bochum;01.01.1970
-1. FC Heidenheim;01.01.1970
-RasenBallsport Leipzig;01.01.1970
-SV Darmstadt 98;01.01.1970
+1. FC Nürnberg;04.05.1900
+Eintracht Braunschweig;15.12.1895
+SpVgg Greuther Fürth;23.09.1903
+1. FC Kaiserlautern;02.06.1900
+Karlsruher SC;06.06.1894
+Fortuna Düsseldorf;05.05.1895
+1860 München;17.05.1860
+FC St. Pauli;15.05.1910
+1. FC Union Berlin;20.01.1966
+FC Ingolstadt 04;01.07.2004
+VfR Aalen;08.03.1921;-2
+SV Sandhausen;01.08.1916;-3
+FSV Frankfurt;20.08.1899
+Erzgebirge Aue;24.09.1949
+VfL Bochum;14.04.1938
+1. FC Heidenheim;01.01.2007
+RasenBallsport Leipzig;19.05.2009
+SV Darmstadt 98;22.05.1898
