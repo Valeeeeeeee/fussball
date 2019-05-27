@@ -122,5 +122,5 @@ HF01W: RasenBallsport Leipzig
 HF01L: Hamburger SV
 HF02W: Bayern München
 HF02L: Werder Bremen
-FI01W: DP2018FI01W
-FI01L: DP2018FI01L
+FI01W: Bayern München
+FI01L: RasenBallsport Leipzig
