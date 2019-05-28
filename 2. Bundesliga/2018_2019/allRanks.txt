@@ -16,5 +16,5 @@ P15: SV Sandhausen
 P16: FC Ingolstadt 04
 P17: 1. FC Magdeburg
 P18: MSV Duisburg
-REL01W: GER22018REL01W
-REL01L: GER22018REL01L
+REL01W: SV Wehen Wiesbaden
+REL01L: FC Ingolstadt 04
