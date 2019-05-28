@@ -16,5 +16,5 @@ P15: FC Augsburg
 P16: VfB Stuttgart
 P17: Hannover 96
 P18: 1. FC Nürnberg
-REL01W: GER12018REL01W
-REL01L: GER12018REL01L
+REL01W: 1. FC Union Berlin
+REL01L: VfB Stuttgart
