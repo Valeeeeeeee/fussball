@@ -672,6 +672,17 @@ public class LigaSaison implements Wettbewerb {
 			}
 		}
 		
+		if (hasPlayoffs) {
+			ArrayList<Long> nextMatchesPO = playoffs.getNextMatches();
+			for (int i = 0; i < nextMatchesPO.size(); i++) {
+				int index = nextMatches.size();
+				for (int j = 0; j < nextMatches.size() && index == nextMatches.size(); j++) {
+					if (nextMatchesPO.get(i) < nextMatches.get(j))	index = j;
+				}
+				nextMatches.add(index, nextMatchesPO.get(i));
+			}
+		}
+		
 		String fileName = workspace + "nextMatches.txt";
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();

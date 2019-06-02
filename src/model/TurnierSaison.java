@@ -317,6 +317,19 @@ public class TurnierSaison {
 		return newOrder;
 	}
 	
+	public String[] getOverviewMatchdays(boolean isQ) {
+		int numberOfMatchdays = 0;
+		for (Gruppe group : (isQ ? qGroups : groups)) {
+			if (numberOfMatchdays < group.getNumberOfMatchdays())	numberOfMatchdays = group.getNumberOfMatchdays();
+		}
+		
+		String[] matchdays = new String[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdays[i] = (i + 1) + ". Spieltag";
+		}
+		return matchdays;
+	}
+	
 	public ArrayList<String[]> getAllMatches(Mannschaft team) {
 		ArrayList<String[]> allMatches = new ArrayList<>();
 		

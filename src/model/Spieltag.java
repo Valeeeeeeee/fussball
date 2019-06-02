@@ -111,6 +111,7 @@ public class Spieltag extends JPanel {
 	private boolean belongsToKORound = false;
 	private boolean hasPlayoffs = false;
 	private boolean isOverview = false;
+	private boolean isQualification = false;
 	private boolean changeTFs = true;
 	private boolean isETPossible;
 	private boolean nothingToSave = true;
@@ -201,6 +202,7 @@ public class Spieltag extends JPanel {
 		belongsToGroup = false;
 		belongsToKORound = false;
 		isOverview = true;
+		isQualification = isQ;
 		isETPossible = tSeason.isETPossible();
 		
 		numbersOfTeams = new int[isQ ? tSeason.getNumberOfQGroups() : tSeason.getNumberOfGroups()];
@@ -706,7 +708,8 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void matchdays() {
-		jCBMatchdays.setModel(new DefaultComboBoxModel<>(competition.getMatchdays()));
+		if (isOverview)	jCBMatchdays.setModel(new DefaultComboBoxModel<>(tSeason.getOverviewMatchdays(isQualification)));
+		else			jCBMatchdays.setModel(new DefaultComboBoxModel<>(competition.getMatchdays()));
 	}
 
 	public int getNumberOfMatches() {
