@@ -420,5 +420,5 @@ HF01W: FC Arsenal
 HF01L: FC Valencia
 HF02W: FC Chelsea
 HF02L: Eintracht Frankfurt
-FI01W: EL2018FI01W
-FI01L: EL2018FI01L
+FI01W: FC Chelsea
+FI01L: FC Arsenal

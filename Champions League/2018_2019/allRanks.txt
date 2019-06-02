@@ -152,5 +152,5 @@ HF01W: Tottenham Hotspurs
 HF01L: Ajax Amsterdam
 HF02W: FC Liverpool
 HF02L: FC Barcelona
-FI01W: CL2018FI01W
-FI01L: CL2018FI01L
+FI01W: FC Liverpool
+FI01L: Tottenham Hotspurs
