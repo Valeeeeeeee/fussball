@@ -1,18 +1,18 @@
-P1: GER22013P1
-P2: GER22013P2
-P3: GER22013P3
-P4: GER22013P4
-P5: GER22013P5
-P6: GER22013P6
-P7: GER22013P7
-P8: GER22013P8
-P9: GER22013P9
-P10: GER22013P10
-P11: GER22013P11
-P12: GER22013P12
-P13: GER22013P13
-P14: GER22013P14
-P15: GER22013P15
-P16: GER22013P16
-P17: GER22013P17
-P18: GER22013P18
+P1: 1. FC Köln
+P2: SC Paderborn
+P3: SpVgg Greuther Fürth
+P4: 1. FC Kaiserlautern
+P5: Karlsruher SC
+P6: Fortuna Düsseldorf
+P7: 1860 München
+P8: FC St. Pauli
+P9: 1. FC Union Berlin
+P10: FC Ingolstadt 04
+P11: VfR Aalen
+P12: SV Sandhausen
+P13: FSV Frankfurt
+P14: Erzgebirge Aue
+P15: VfL Bochum
+P16: Arminia Bielefeld
+P17: Dynamo Dresden
+P18: Energie Cottbus

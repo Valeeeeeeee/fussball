@@ -16,3 +16,5 @@ P15: VfB Stuttgart
 P16: Hamburger SV
 P17: 1. FC Nürnberg
 P18: Eintracht Braunschweig
+REL01W: Hamburger SV
+REL01L: SpVgg Greuther Fürth
