@@ -1,0 +1,19 @@
+18
+VfB Stuttgart;09.09.1893
+Hannover 96;12.04.1896
+1. FC Nürnberg;04.05.1900
+Hamburger SV;29.09.1887
+1. FC Heidenheim;01.01.2007
+Holstein Kiel;07.10.1900
+Arminia Bielefeld;03.05.1905
+SSV Jahn Regensburg;04.10.1907
+FC St. Pauli;15.05.1910
+SV Darmstadt 98;22.05.1898
+VfL Bochum;14.04.1938
+Dynamo Dresden;12.04.1953
+SpVgg Greuther Fürth;23.09.1903
+Erzgebirge Aue;24.09.1949
+SV Sandhausen;01.08.1916
+VfL Osnabrück;17.04.1899
+Karlsruher SC;06.06.1894
+SV Wehen Wiesbaden;01.01.1926
