@@ -16,3 +16,5 @@ P15: Hamburger SV
 P16: Hertha BSC
 P17: 1. FC Köln
 P18: 1. FC Kaiserslautern
+REL01W: Fortuna Düsseldorf
+REL01L: Hertha BSC

@@ -722,6 +722,7 @@ public class Spieltag extends JPanel {
 
 	public void resetCurrentMatchday() {
 		currentMatchday = -1;
+		nothingToSave = true;
 	}
 	
 	public int getEditedMatchday() {

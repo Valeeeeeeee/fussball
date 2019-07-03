@@ -1,18 +1,18 @@
-P1: GER22011P1
-P2: GER22011P2
-P3: GER22011P3
-P4: GER22011P4
-P5: GER22011P5
-P6: GER22011P6
-P7: GER22011P7
-P8: GER22011P8
-P9: GER22011P9
-P10: GER22011P10
-P11: GER22011P11
-P12: GER22011P12
-P13: GER22011P13
-P14: GER22011P14
-P15: GER22011P15
-P16: GER22011P16
-P17: GER22011P17
-P18: GER22011P18
+P1: SpVgg Greuther Fürth
+P2: Eintracht Frankfurt
+P3: Fortuna Düsseldorf
+P4: FC St. Pauli
+P5: SC Paderborn
+P6: 1860 München
+P7: 1. FC Union Berlin
+P8: Eintracht Braunschweig
+P9: Dynamo Dresden
+P10: MSV Duisburg
+P11: VfL Bochum
+P12: FC Ingolstadt 04
+P13: FSV Frankfurt
+P14: Energie Cottbus
+P15: Erzgebirge Aue
+P16: Karlsruher SC
+P17: Alemannia Aachen
+P18: Hansa Rostock
