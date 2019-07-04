@@ -74,6 +74,9 @@ public class LigaSaison implements Wettbewerb {
 	private String fileMatchData;
 	private ArrayList<String> matchDataFromFile;
 	
+	private String fileKOconfig;
+	private ArrayList<String> koConfigFromFile;
+	
 	public LigaSaison(Liga league, int seasonIndex, String data) {
 		this.league = league;
 		this.seasonIndex = seasonIndex;
@@ -1100,12 +1103,17 @@ public class LigaSaison implements Wettbewerb {
 	private void loadPlayoffs() {
 		if (!hasPlayoffs)	return;
 		
-		playoffs = new KORunde(this, "Relegation;REL;false;true;0;1;1");
+		koConfigFromFile = ausDatei(fileKOconfig);
+		playoffs = new KORunde(this, koConfigFromFile.get(0));
 	}
 	
 	private void savePlayoffs() {
 		if (!hasPlayoffs)	return;
+		koConfigFromFile.clear();
 		playoffs.save();
+		koConfigFromFile.add(playoffs.toString());
+		
+		inDatei(fileKOconfig, koConfigFromFile);
 	}
 	
 	public void load() {
@@ -1114,6 +1122,7 @@ public class LigaSaison implements Wettbewerb {
 		fileMatches = workspace + "Spielplan.txt";
 		fileTeams = workspace + "Mannschaften.txt";
 		fileReferees = workspace + "Schiedsrichter.txt";
+		fileKOconfig = workspace + "KOconfig.txt";
 		
 		loadReferees();
 		loadTeams();

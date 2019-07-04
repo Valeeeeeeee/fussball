@@ -37,6 +37,10 @@ public class Liga {
 		
 		String folder = workspace + newSeason.getSeasonFull("_") + File.separator;
 		(new File(folder)).mkdirs();
+		String folderPlayoffs = workspace + newSeason.getSeasonFull("_") + File.separator + "Relegation" + File.separator;
+		if (newSeason.hasPlayoffs()) {
+			(new File(folderPlayoffs)).mkdirs();
+		}
 		
 		String fileResults = folder + "Ergebnisse.txt";
 		String fileMatchData = folder + "Spieldaten.txt";
