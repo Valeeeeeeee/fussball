@@ -326,6 +326,8 @@ public class MyDateChooser extends JFrame {
 				jCBMinute.setSelectedIndex(defaultTime.getMinute() / 5);
 				this.date = defaultDate;
 			}
+			
+			jCBHour.requestFocus();
 		} catch (Exception e) {
 			jCBYear.setSelectedIndex(defaultDate.getYear() - startYear);
 			jCBMonth.setSelectedIndex(defaultDate.getMonth() - 1);
@@ -335,6 +337,8 @@ public class MyDateChooser extends JFrame {
 			
 			this.date = defaultDate;
 			this.time = defaultTime;
+			
+			jCBHour.requestFocus();
 		}
 	}
 	
