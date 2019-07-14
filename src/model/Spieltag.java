@@ -940,6 +940,7 @@ public class Spieltag extends JPanel {
 	 * Optimized for <code>Gruppe</code> and <code>KORunde</code>
 	 */
 	private void jBtnEditActionPerformed() {
+		saveResults();
 		editingMatches = true;
 		editedMatchday = currentMatchday;
 		
