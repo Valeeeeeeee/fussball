@@ -1,7 +1,7 @@
 Spartak Moskau
 Sporting Braga
 FK Mariupol
-Standard Lüttich
+Royal Antwerpen
 Trabzonspor
 Austria Wien
 FC Thun
@@ -69,4 +69,4 @@ CL2019Q209L
 CL2019Q210L
 CL2019Q211L
 CL2019Q212L
-CL2019Q116L
+CL2019Q105L
