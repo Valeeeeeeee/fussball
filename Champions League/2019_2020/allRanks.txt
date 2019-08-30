@@ -80,12 +80,12 @@ Q309W: CFR Cluj
 Q309L: Celtic Glasgow
 Q310W: Rosenborg Trondheim
 Q310L: NK Maribor
-PO01W: CL2019PO01W
-PO01L: CL2019PO01L
-PO02W: CL2019PO02W
-PO02L: CL2019PO02L
-PO03W: CL2019PO03W
-PO03L: CL2019PO03L
+PO01W: Ajax Amsterdam
+PO01L: APOEL Nikosia
+PO02W: FC Brügge
+PO02L: Linzer ASK
+PO03W: Slavia Prag
+PO03L: CFR Cluj
 PO04W: Roter Stern Belgrad
 PO04L: Young Boys Bern
 PO05W: Dinamo Zagreb
