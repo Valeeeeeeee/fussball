@@ -43,4 +43,5 @@ Sven;Waschitzki;19870226;Deutschland;
 Tobias;Welz;19770711;Deutschland;
 Frank;Willenborg;19790210;Deutschland;
 Guido;Winkmann;19731127;Deutschland;
+Nicolas;Winter;19920115;Deutschland;
 Felix;Zwayer;19810519;Deutschland;
