@@ -13,14 +13,14 @@ Niklas;Süle;null;19950903;Deutschland;Abwehr;4
 Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
 Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29
 Niklas;Dorsch;null;19980115;Deutschland;Mittelfeld;30
-James David;Rodríguez Rubio;James;19910712;Mittelfeld;Mittelfeld;11
+James David;Rodríguez Rubio;James;19910712;Kolumbien;Mittelfeld;11
 Joshua;Kimmich;null;19950208;Deutschland;Mittelfeld;32
 Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
 Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
 Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19
 Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;35;-20170830
 Meritan;Shabani;null;19990315;Deutschland, Kosovo;Mittelfeld;16
-Corentin;Tolisso;null;19940803;Mittelfeld;Mittelfeld;24
+Corentin;Tolisso;null;19940803;Frankreich;Mittelfeld;24
 Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
 Franck;Evina;null;20000705;Deutschland, Kamerun;Sturm;18
 Robert;Lewandowski;null;19880821;Polen;Sturm;9
