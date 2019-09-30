@@ -15,6 +15,6 @@ P14: Dynamo Dresden
 P15: SpVgg Greuther Fürth
 P16: Erzgebirge Aue
 P17: Eintracht Braunschweig
-P18: 1. FC Kaiserlautern
+P18: 1. FC Kaiserslautern
 REL01W: Erzgebirge Aue
 REL01L: Karlsruher SC

@@ -1,7 +1,7 @@
 P1: FC Ingolstadt 04
 P2: SV Darmstadt 98
 P3: Karlsruher SC
-P4: 1. FC Kaiserlautern
+P4: 1. FC Kaiserslautern
 P5: RasenBallsport Leipzig
 P6: Eintracht Braunschweig
 P7: 1. FC Union Berlin

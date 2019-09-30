@@ -19,7 +19,7 @@
 1R10W: Borussia Mönchengladbach
 1R10L: SV Drochtersen/Assel
 1R11W: Hallescher FC
-1R11L: 1. FC Kaiserlautern
+1R11L: 1. FC Kaiserslautern
 1R12W: FC Schalke 04
 1R12L: FC 08 Villingen
 1R13W: 1860 München

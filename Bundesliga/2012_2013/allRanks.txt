@@ -17,4 +17,4 @@ P16: TSG 1899 Hoffenheim
 P17: Fortuna Düsseldorf
 P18: SpVgg Greuther Fürth
 REL01W: TSG 1899 Hoffenheim
-REL01L: 1. FC Kaiserlautern
+REL01L: 1. FC Kaiserslautern

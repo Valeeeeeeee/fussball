@@ -1,7 +1,7 @@
 18
 Hertha BSC;25.07.1892
 1. FC Köln;13.02.1948
-1. FC Kaiserlautern;02.06.1900
+1. FC Kaiserslautern;02.06.1900
 FC St. Pauli;15.05.1910
 SC Paderborn;14.08.1907
 1860 München;17.05.1860

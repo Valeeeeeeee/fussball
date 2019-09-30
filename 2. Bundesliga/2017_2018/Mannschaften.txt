@@ -11,7 +11,7 @@ VfL Bochum;14.04.1938
 SV Sandhausen;01.08.1916
 Fortuna Düsseldorf;05.05.1895
 1. FC Nürnberg;04.05.1900
-1. FC Kaiserlautern;02.06.1900
+1. FC Kaiserslautern;02.06.1900
 Erzgebirge Aue;24.09.1949
 Arminia Bielefeld;03.05.1905
 MSV Duisburg;02.06.1902

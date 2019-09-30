@@ -1,6 +1,6 @@
 P1: Hertha BSC
 P2: Eintracht Braunschweig
-P3: 1. FC Kaiserlautern
+P3: 1. FC Kaiserslautern
 P4: FSV Frankfurt
 P5: 1. FC Köln
 P6: 1860 München

@@ -5,7 +5,7 @@
 1R03W: FC Schalke 04
 1R03L: 1.FC Schweinfurt 05
 1R04W: TSG 1899 Hoffenheim
-1R04L: 1. FC Kaiserlautern
+1R04L: 1. FC Kaiserslautern
 1R05W: Bayer 04 Leverkusen
 1R05L: 1. CfR Pforzheim
 1R06W: MSV Duisburg

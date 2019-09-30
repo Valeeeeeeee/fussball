@@ -16,7 +16,7 @@
 1R08L: SV Drochtersen/Assel
 1R09W: Fortuna Düsseldorf
 1R09L: FC 08 Villingen
-1R10W: 1. FC Kaiserlautern
+1R10W: 1. FC Kaiserslautern
 1R10L: 1. FSV Mainz 05
 1R11W: Erzgebirge Aue
 1R11L: Wacker Nordhausen

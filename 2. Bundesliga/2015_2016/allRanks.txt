@@ -7,7 +7,7 @@ P6: 1. FC Union Berlin
 P7: Karlsruher SC
 P8: Eintracht Braunschweig
 P9: SpVgg Greuther Fürth
-P10: 1. FC Kaiserlautern
+P10: 1. FC Kaiserslautern
 P11: 1. FC Heidenheim
 P12: Arminia Bielefeld
 P13: SV Sandhausen

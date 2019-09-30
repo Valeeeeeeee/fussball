@@ -10,7 +10,7 @@ P9: VfL Bochum
 P10: SV Sandhausen
 P11: Fortuna Düsseldorf
 P12: 1. FC Nürnberg
-P13: 1. FC Kaiserlautern
+P13: 1. FC Kaiserslautern
 P14: Erzgebirge Aue
 P15: Arminia Bielefeld
 P16: 1860 München

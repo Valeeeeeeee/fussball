@@ -16,7 +16,7 @@
 1R08L: Chemnitzer FC
 1R09W: SC Freiburg
 1R09L: VfB Germania Halberstadt
-1R10W: 1. FC Kaiserlautern
+1R10W: 1. FC Kaiserslautern
 1R10L: SV Eichede
 1R11W: Borussia Dortmund
 1R11L: 1. FC Rielasingen-Arlen
@@ -79,7 +79,7 @@
 2R08W: Borussia Dortmund
 2R08L: 1. FC Magdeburg
 2R09W: VfB Stuttgart
-2R09L: 1. FC Kaiserlautern
+2R09L: 1. FC Kaiserslautern
 2R10W: VfL Wolfsburg
 2R10L: Hannover 96
 2R11W: 1. FC Nürnberg
