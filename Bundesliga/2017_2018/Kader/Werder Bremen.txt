@@ -10,7 +10,7 @@ Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15;20180131-
 Niklas;Moisander;null;19850929;Finnland;Abwehr;18
 Lamine;Sané;null;19870322;Senegal;Abwehr;26;-20180219
-Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
+Milos;Veljkovic;null;19950926;Serbien, Schweiz;Abwehr;13
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Thomas;Delaney;null;19910903;Dänemark;Mittelfeld;6

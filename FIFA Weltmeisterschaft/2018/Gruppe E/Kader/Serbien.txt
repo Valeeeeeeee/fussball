@@ -8,7 +8,7 @@ Milan;Rodic;null;19910402;Serbien;Abwehr;14
 Antonio;Rukavina;null;19840126;Serbien;Abwehr;2
 Uros;Spajic;null;19930213;Serbien;Abwehr;5
 Dusko;Tosic;null;19850119;Serbien;Abwehr;3
-Milos;Veljkovic;null;19950926;Serbien;Abwehr;13
+Milos;Veljkovic;null;19950926;Serbien, Schweiz;Abwehr;13
 Marko;Grujic;null;19960413;Serbien;Mittelfeld;16
 Filip;Kostic;null;19921101;Serbien;Mittelfeld;17
 Adem;Ljajic;null;19910929;Serbien;Mittelfeld;22

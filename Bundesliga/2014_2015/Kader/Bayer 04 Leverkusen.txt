@@ -10,7 +10,7 @@ Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;5
 Ömer;Toprak;null;19890721;Deutschland, Türkei;Abwehr;21
 Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
 Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
-Hakan;Çalhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
+Hakan;Çalhanoglu;null;19940208;Türkei, Deutschland;Mittelfeld;10
 Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
 Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15;-20141231
 Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;3

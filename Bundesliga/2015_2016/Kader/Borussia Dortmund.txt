@@ -24,7 +24,7 @@ Henrikh;Mkhitaryan;null;19890121;Armenien;Mittelfeld;10
 Felix;Passlack;null;19980528;Deutschland;Mittelfeld;30
 Christian;Pulisic;null;19980918;USA;Mittelfeld;22
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;18
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;18
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
 Adrián;Ramos;null;19860122;Kolumbien;Sturm;20

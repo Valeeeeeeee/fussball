@@ -4,7 +4,7 @@ Roman;Weidenfeller;null;19800806;Deutschland;Tor;1
 Marc;Bartra;null;19910115;Spanien;Abwehr;5
 Erik;Durm;null;19920512;Deutschland;Abwehr;37
 Matthias;Ginter;null;19940119;Deutschland;Abwehr;28
-Raphael;Guerreiro;null;19931222;Portugal;Abwehr;13
+Raphaël;Guerreiro;null;19931222;Portugal;Abwehr;13
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;3
 Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
 Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
@@ -21,7 +21,7 @@ Felix;Passlack;null;19980528;Deutschland;Mittelfeld;30
 Christian;Pulisic;null;19980918;USA;Mittelfeld;22
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;18
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;8
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;8
 André;Schürrle;null;19901106;Deutschland;Mittelfeld;21
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17

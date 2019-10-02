@@ -7,7 +7,7 @@ Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Johan;Djourou;null;19870118;Schweiz;Abwehr;5
 Ashton-Phillip;Götz;null;19930716;Deutschland;Abwehr;39
 Gideon;Jung;null;19940912;Deutschland;Abwehr;28
-Mërgim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;13;20170101-
+Mërgim;Mavraj;null;19860609;Albanien, Deutschland;Abwehr;13;20170101-
 Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
 Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;9;20170101-
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24

@@ -15,7 +15,7 @@ Nabil;Bentaleb;null;19941124;Algerien;Mittelfeld;10
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;18
 Johannes;Geis;null;19930817;Deutschland;Mittelfeld;6;-20170831
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
-Amine;Harit;null;19970618;Frankreich;Mittelfeld;25
+Amine;Harit;null;19970618;Marokko, Frankreich;Mittelfeld;25
 Yevhen;Konoplyanka;null;19890929;Ukraine;Mittelfeld;11
 Weston;McKennie;null;19980828;USA;Mittelfeld;2
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7

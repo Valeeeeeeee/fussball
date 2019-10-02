@@ -12,7 +12,7 @@ Denis;Glushakov;null;19870127;Russland;Mittelfeld;8
 Aleksandr;Golovin;null;19960530;Russland;Mittelfeld;13
 Oleg;Ivanov;null;19860804;Russland;Mittelfeld;18
 Pavel;Mamaev;null;19880917;Russland;Mittelfeld;11
-Roman;Neustädter;null;19880218;Russland;Mittelfeld;5
+Roman;Neustädter;null;19880218;Russland, Deutschland;Mittelfeld;5
 Aleksandr;Samedov;null;19840719;Russland;Mittelfeld;19
 Oleg;Shatov;null;19900729;Russland;Mittelfeld;17
 Roman;Shirokov;null;19810706;Russland;Mittelfeld;15

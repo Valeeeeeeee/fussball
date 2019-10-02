@@ -15,7 +15,7 @@ Joshua;Kimmich;null;19950208;Deutschland;Mittelfeld;21
 Toni;Kroos;null;19900104;Deutschland;Mittelfeld;18
 Mesut;Özil;null;19881015;Deutschland;Mittelfeld;8
 Leroy;Sané;null;19960111;Deutschland;Mittelfeld;20
-Andre;Schürrle;null;19901106;Deutschland;Mittelfeld;9
+André;Schürrle;null;19901106;Deutschland;Mittelfeld;9
 Bastian;Schweinsteiger;null;19840801;Deutschland;Mittelfeld;7
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;15
 Mario;Gómez;null;19850710;Deutschland;Sturm;23

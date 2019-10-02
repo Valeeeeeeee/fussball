@@ -16,7 +16,7 @@ Aleksandr;Golovin;null;19960530;Russland;Mittelfeld;17
 Daler;Kuziaev;null;19930115;Russland;Mittelfeld;7
 Alexey;Miranchuk;null;19951017;Russland;Mittelfeld;15
 Anton;Miranchuk;null;19951017;Russland;Mittelfeld;16
-Alexander;Samedov;null;19840719;Russland;Mittelfeld;19
+Aleksandr;Samedov;null;19840719;Russland;Mittelfeld;19
 Yury;Zhirkov;null;19830820;Russland;Mittelfeld;18
 Roman;Zobnin;null;19940211;Russland;Mittelfeld;11
 Artem;Dzyuba;null;19880822;Russland;Sturm;22

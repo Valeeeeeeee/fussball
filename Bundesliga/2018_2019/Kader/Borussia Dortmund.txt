@@ -3,7 +3,7 @@ Marwin;Hitz;null;19870918;Schweiz;Tor;35
 Manuel;Akanji;null;19950719;Schweiz;Abwehr;16
 Leonardo;Balerdi;null;19990126;Argentinien;Abwehr;18;20190101-
 Abdou;Diallo;null;19960504;Frankreich;Abwehr;4
-Raphael;Guerreiro;null;19931222;Portugal;Abwehr;13
+Raphaël;Guerreiro;null;19931222;Portugal;Abwehr;13
 Achraf;Hakimi;null;19981104;Marokko;Abwehr;5
 Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
 Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
@@ -18,7 +18,7 @@ Shinji;Kagawa;null;19890317;Japan;Mittelfeld;23;-20190130
 Christian;Pulisic;null;19980918;USA;Mittelfeld;22
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;18;-20181231
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;8;-20180830
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;8;-20180830
 Jadon;Sancho;null;20000325;England;Mittelfeld;7
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
 Axel;Witsel;null;19890112;Belgien;Mittelfeld;28

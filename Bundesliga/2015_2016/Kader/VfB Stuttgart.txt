@@ -25,7 +25,7 @@ Kevin;Stöger;null;19930827;Österreich;Mittelfeld;23;-20150824
 Marvin;Wanitzek;null;19930507;Deutschland;Mittelfeld;28
 Matthias;Zimmermann;null;19920616;Deutschland;Mittelfeld;37
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
-Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
+Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9;-20150829
 Jan;Kliment;null;19930901;Tschechien;Sturm;39
 Artem;Kravets;null;19890603;Ukraine;Sturm;23;20160101-

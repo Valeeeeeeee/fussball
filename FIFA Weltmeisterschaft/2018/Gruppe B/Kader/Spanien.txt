@@ -9,7 +9,7 @@ José Ignacio;Fernández;Nacho;19900118;Spanien;Abwehr;4
 Álvaro;Odriozola;null;19951214;Spanien;Abwehr;12
 Gerard;Piqué;null;19870202;Spanien;Abwehr;3
 Sergio;Ramos;null;19860330;Spanien;Abwehr;15
-Thiago;Alcántara;null;19910411;Spanien;Mittelfeld;10
+Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;10
 Marco;Asensio;null;19960121;Spanien;Mittelfeld;20
 Sergio;Busquets;null;19880716;Spanien;Mittelfeld;5
 Andrés;Iniesta;null;19840511;Spanien;Mittelfeld;6

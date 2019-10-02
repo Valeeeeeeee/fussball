@@ -25,5 +25,5 @@ Steven;Zuber;null;19910817;Schweiz;Mittelfeld;9;20190101-
 Chadrac;Akolo;null;19950401;DR Kongo;Sturm;19
 Leon;Dajaku;null;20010412;Deutschland, Albanien;Sturm;25
 Anastasios;Donis;null;19960829;Griechenland;Sturm;11
-Mario;Gomez;null;19850710;Deutschland;Sturm;27
+Mario;Gómez;null;19850710;Deutschland;Sturm;27
 Nicolás;González;null;19980406;Argentinien;Sturm;22

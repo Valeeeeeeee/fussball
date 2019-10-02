@@ -1,7 +1,7 @@
 Michael;Esser;null;19871122;Deutschland;Tor;23
 Samuel;Sahin-Radlinger;null;19921107;Österreich;Tor;19;20190101-
 Philipp;Tschauner;null;19851103;Deutschland;Tor;1;-20181231
-Kevin;Akpoguma;null;19950419;Deutschland;Abwehr;14;20190101-
+Kevin;Akpoguma;null;19950419;Deutschland, Nigeria;Abwehr;14;20190101-
 Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
 Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
 Josip;Elez;null;19940425;Kroatien;Abwehr;2

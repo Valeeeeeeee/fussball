@@ -11,7 +11,7 @@ Niko;Gießelmann;null;19910926;Deutschland;Abwehr;23
 Gökhan;Gül;null;19980717;Deutschland;Abwehr;18;-20190121
 André;Hoffmann;null;19930228;Deutschland;Abwehr;3
 Marcin;Kaminski;null;19920115;Polen;Abwehr;35
-Anderson;Lucoqui;null;19970706;Deutschland;Abwehr;4;-20180830
+Anderson;Lucoqui;null;19970706;Deutschland, Angola;Abwehr;4;-20180830
 Markus;Suttner;null;19870416;Österreich;Abwehr;14;20190101-
 Jean;Zimmer;null;19931206;Deutschland;Abwehr;39
 Matthias;Zimmermann;null;19920616;Deutschland;Abwehr;25

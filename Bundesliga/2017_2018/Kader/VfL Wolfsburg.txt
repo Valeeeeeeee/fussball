@@ -18,7 +18,7 @@ Ignacio;Camacho;null;19900504;Spanien;Mittelfeld;4
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;11
 Yannick;Gerhardt;null;19940313;Deutschland;Mittelfeld;13
 Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
-Yunus;Malli;null;19920224;Deutschland;Mittelfeld;10
+Yunus;Malli;null;19920224;Türkei, Deutschland;Mittelfeld;10
 Elvis;Rexhbecaj;null;19971101;Deutschland;Mittelfeld;37
 Paul;Seguin;null;19950329;Deutschland;Mittelfeld;30;-20170829
 Marvin;Stefaniak;null;19950203;Deutschland;Mittelfeld;34;-20171231
@@ -26,7 +26,7 @@ Renato;Steffen;null;19911103;Schweiz;Mittelfeld;8;20180101-
 Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8;-20170830
 Josip;Brekalo;null;19980623;Kroatien;Sturm;21;20180101-
 Landry;Dimata;null;19970901;Belgien;Sturm;9
-Mario;Gomez;null;19850710;Deutschland;Sturm;33;-20171231
+Mario;Gómez;null;19850710;Deutschland;Sturm;33;-20171231
 Kaylen;Hinds;null;19980128;England;Sturm;32;-20180130
 Admir;Mehmedi;null;19910316;Schweiz;Sturm;22;20180131-
 Paul-Georges;Ntep de Madiba;null;19920729;Frankreich;Sturm;7;-20180116

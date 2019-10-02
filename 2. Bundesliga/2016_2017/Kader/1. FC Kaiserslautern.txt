@@ -6,8 +6,8 @@ Ewerton José;Almeida Santos;Ewerton;19890323;Brasilien;Abwehr;5;20160829-
 Tim;Heubach;null;19880412;Deutschland;Abwehr;3
 Robin;Koch;null;19960717;Deutschland;Abwehr;25
 Sascha;Mockenhaupt;null;19910910;Deutschland;Abwehr;5;-20160815
-Mensur;Mujdza;null;19840328;Bosnien-Herzegowina;Abwehr;23;20160828-
-Philipp;Mwene;null;19940129;Österreich;Abwehr;21
+Mensur;Mujdza;null;19840328;Bosnien-Herzegowina, Kroatien;Abwehr;23;20160828-
+Phillipp;Mwene;null;19940129;Österreich;Abwehr;21
 Michael;Schulze;null;19890113;Deutschland;Abwehr;7;-20160830
 Stipe;Vucur;null;19920522;Österreich, Kroatien;Abwehr;29
 Patrick;Ziegler;null;19900209;Deutschland;Abwehr;4

@@ -5,7 +5,7 @@ Julian;Pollersbeck;null;19940816;Deutschland;Tor;13
 Stephan;Ambrosius;null;19981218;Deutschland;Abwehr;46
 Dennis;Diekmeier;null;19891020;Deutschland;Abwehr;2
 Gideon;Jung;null;19940912;Deutschland;Abwehr;28
-Mërgim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;5
+Mërgim;Mavraj;null;19860609;Albanien, Deutschland;Abwehr;5
 Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;9
 Gotoku;Sakai;null;19910314;Japan;Abwehr;24
 Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;Abwehr;6

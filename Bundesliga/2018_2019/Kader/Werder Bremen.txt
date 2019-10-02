@@ -8,7 +8,7 @@ Marco;Friedl;null;19980316;Österreich;Abwehr;32
 Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
 Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
 Niklas;Moisander;null;19850929;Finnland;Abwehr;18
-Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
+Milos;Veljkovic;null;19950926;Serbien, Schweiz;Abwehr;13
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
@@ -16,9 +16,9 @@ Florian;Kainz;null;19921024;Österreich;Mittelfeld;7;-20181231
 Davy;Klaassen;null;19930221;Niederlande;Mittelfeld;30
 Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;6
 Milot;Rashica;null;19960628;Kosovo;Mittelfeld;11
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;17;20180831-
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;17;20180831-
 Johannes;Eggestein;null;19980508;Deutschland;Sturm;24
-Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;9
+Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;9
 Aron;Jóhannsson;null;19901110;USA, Island;Sturm;20
 Max;Kruse;null;19880319;Deutschland;Sturm;10
 Yuya;Osako;null;19900518;Japan;Sturm;8

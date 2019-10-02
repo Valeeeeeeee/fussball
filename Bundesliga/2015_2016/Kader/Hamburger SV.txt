@@ -20,7 +20,7 @@ Mohamed;Gouaida;null;19930515;Frankreich, Tunesien;Mittelfeld;25;-20150825
 Lewis;Holtby;null;19900918;Deutschland;Mittelfeld;8
 Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;14;20150831-
 Ivo;Ilicevic;null;19861114;Deutschland, Kroatien;Mittelfeld;7
-Petr;Jiracek;null;19860302;Tschechien;Mittelfeld;19;-20150824
+Petr;Jirácek;null;19860302;Tschechien;Mittelfeld;19;-20150824
 Gojko;Kacar;null;19870126;Serbien;Mittelfeld;40
 Nicolai;Müller;null;19870925;Deutschland;Mittelfeld;27
 Zoltán;Stieber;null;19881016;Ungarn;Mittelfeld;17;-20151231

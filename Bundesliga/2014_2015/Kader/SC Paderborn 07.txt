@@ -15,7 +15,7 @@ Daniel;Brückner;null;19810214;Deutschland;Mittelfeld;21
 Süleyman;Koc;null;19890609;Deutschland;Mittelfeld;30
 Alban;Meha;null;19860426;Albanien;Mittelfeld;17
 Idir;Ouali;null;19880521;Frankreich, Algerien;Mittelfeld;27
-Mirnes;Pepic;null;19951219;Deutschland, Montenegro;Mittelfeld;23
+Mirnes;Pepic;null;19951219;Montenegro, Deutschland;Mittelfeld;23
 Lukas;Rupp;null;19910108;Deutschland;Mittelfeld;4
 Moritz;Stoppelkamp;null;19861211;Deutschland;Mittelfeld;11
 Mario;Vrancic;null;19890523;Deutschland;Mittelfeld;8

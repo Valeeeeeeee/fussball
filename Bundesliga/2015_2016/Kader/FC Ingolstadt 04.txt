@@ -1,5 +1,5 @@
 Ørjan;Nyland;null;19900910;Norwegen;Tor;26
-Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;1
+Ramazan;Özcan;null;19840628;Österreich;Tor;1
 Christian;Ortag;null;19950114;Deutschland;Tor;39
 Romain;Brégerie;null;19860809;Frankreich;Abwehr;18
 Danny;da Costa;null;19930713;Deutschland;Abwehr;21

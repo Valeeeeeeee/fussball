@@ -4,7 +4,7 @@ Jonas;Hector;null;19900527;Deutschland;Abwehr;14
 Dominique;Heintz;null;19930815;Deutschland;Abwehr;3
 Lukas;Klünter;null;19960526;Deutschland;Abwehr;24
 Dominic;Maroh;null;19870304;Deutschland, Slowenien;Abwehr;5
-Mërgim;Mavraj;null;19860609;Deutschland, Albanien;Abwehr;19
+Mërgim;Mavraj;null;19860609;Albanien, Deutschland;Abwehr;19
 Filip;Mladenovic;null;19910815;Serbien;Abwehr;25;20160101-
 Pawel;Olkowski;null;19900213;Polen;Abwehr;16
 Frederik;Sørensen;null;19920414;Dänemark;Abwehr;4

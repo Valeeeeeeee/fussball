@@ -12,7 +12,7 @@ Leon;Guwara;null;19960628;Deutschland;Abwehr;29;-20160830
 Niklas;Moisander;null;19850929;Finnland;Abwehr;18
 Lamine;Sané;null;19870322;Senegal;Abwehr;26
 Janek;Sternberg;null;19921019;Deutschland;Abwehr;37;-20161231
-Milos;Veljkovic;null;19950926;Schweiz, Serbien;Abwehr;13
+Milos;Veljkovic;null;19950926;Serbien, Schweiz;Abwehr;13
 Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
 Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
 Thomas;Delaney;null;19910903;Dänemark;Mittelfeld;6;20170101-

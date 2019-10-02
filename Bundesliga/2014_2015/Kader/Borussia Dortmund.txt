@@ -22,7 +22,7 @@ Oliver;Kirch;null;19820821;Deutschland;Mittelfeld;21
 Mitsuru;Maruoka;null;19960106;Japan;Mittelfeld;31
 Henrikh;Mkhitaryan;null;19890121;Armenien;Mittelfeld;10
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;18
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;18
 Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;Sturm;17
 Ciro;Immobile;null;19900220;Italien;Sturm;9
 Adrián;Ramos;null;19860122;Kolumbien;Sturm;20

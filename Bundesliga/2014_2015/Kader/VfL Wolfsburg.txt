@@ -14,12 +14,12 @@ Maximilian;Arnold;null;19940527;Deutschland;Mittelfeld;27
 Daniel;Caligiuri;null;19880115;Deutschland;Mittelfeld;7
 Kevin;de Bruyne;null;19910628;Belgien;Mittelfeld;14
 Josuha;Guilavogui;null;19900919;Frankreich;Mittelfeld;23
-Aaron;Hunt;null;19860904;Deutschland;Mittelfeld;10
+Aaron;Hunt;null;19860904;Deutschland, England;Mittelfeld;10
 Bernard;Malanda Adje;Junior Malanda;19940828;Belgien;Mittelfeld;19
 Luiz Gustavo;Dias;Luiz Gustavo;19870723;Brasilien;Mittelfeld;22
 Ivan;Perisic;null;19890202;Kroatien;Mittelfeld;9
 André;Schürrle;null;19901106;Deutschland;Mittelfeld;17;20150101-
-Adelino Andre;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
+Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;8
 Xizhe;Zhang;null;19910123;China;Mittelfeld;29;20150101-
 Nicklas;Bendtner;null;19880116;Dänemark;Sturm;3
 Bas;Dost;null;19890531;Niederlande;Sturm;12

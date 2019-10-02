@@ -7,7 +7,7 @@ Jonas;Hector;null;19900527;Deutschland;Abwehr;3
 Mats;Hummels;null;19881216;Deutschland;Abwehr;5
 Joshua;Kimmich;null;19950208;Deutschland;Abwehr;18
 Marvin;Plattenhardt;null;19920126;Deutschland;Abwehr;2
-Antonio;Rüdiger;null;19930303;Deutschland;Abwehr;16
+Antonio;Rüdiger;null;19930303;Deutschland, Sierra Leone;Abwehr;16
 Niklas;Süle;null;19950903;Deutschland;Abwehr;15
 Julian;Brandt;null;19960502;Deutschland;Mittelfeld;20
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;7

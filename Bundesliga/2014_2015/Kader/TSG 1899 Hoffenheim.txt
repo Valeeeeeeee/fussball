@@ -21,5 +21,5 @@ Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;12
 Steven;Zuber;null;19910817;Schweiz;Mittelfeld;17
 Anthony;Modeste;null;19880414;Frankreich;Sturm;27
 Sven;Schipplock;null;19881108;Deutschland;Sturm;9
-Adam;Szalai;null;19871209;Ungarn;Sturm;28
+Ádám;Szalai;null;19871209;Ungarn;Sturm;28
 Kevin;Volland;null;19920730;Deutschland;Sturm;31

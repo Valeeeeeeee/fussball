@@ -1,6 +1,6 @@
 Bernd;Leno;null;19920304;Deutschland;Tor;1
 Niklas;Lomb;null;19930728;Deutschland;Tor;36
-Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;28
+Ramazan;Özcan;null;19840628;Österreich;Tor;28
 Aleksandar;Dragovic;null;19910306;Österreich;Abwehr;6;-20170830
 Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
 André;Ramalho;null;19920216;Brasilien;Abwehr;2;-20171231

@@ -29,6 +29,6 @@ Josip;Brekalo;null;19980623;Kroatien;Sturm;7;-20171231
 Jacob;'Bruun Larsen';null;19980919;Dänemark;Sturm;34;20180123-
 Anastasios;Donis;null;19960829;Griechenland;Sturm;14
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
-Mario;Gomez;null;19850710;Deutschland;Sturm;27;20180101-
+Mario;Gómez;null;19850710;Deutschland;Sturm;27;20180101-
 Carlos;Mané;null;19940311;Portugal;Sturm;15
 Simon;Terodde;null;19880302;Deutschland;Sturm;9;-20171231

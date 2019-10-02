@@ -23,7 +23,7 @@ Pirmin;Schwegler;null;19870309;Schweiz;Mittelfeld;27
 Ihlas;Bebou;null;19940423;Deutschland, Togo;Sturm;13;20170831-
 Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
-Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
+Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;14
 Jonathas Cristian;de Jesus Mauricio;Jonathas;19890306;Brasilien;Sturm;9;20170822-
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37

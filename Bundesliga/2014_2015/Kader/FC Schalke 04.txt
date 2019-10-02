@@ -14,15 +14,15 @@ Matija;Nastasic;null;19930328;Serbien;Abwehr;31;20150101-
 Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;5;-20141231
 Atsuto;Uchida;null;19880327;Japan;Abwehr;22
 Tranquillo;Barnetta;null;19850522;Schweiz;Mittelfeld;27
-Kevin-Prince;Boateng;null;19870306;Deutschland, Ghana;Mittelfeld;9
+Kevin-Prince;Boateng;null;19870306;Ghana, Deutschland;Mittelfeld;9
 Christian;Clemens;null;19910804;Deutschland;Mittelfeld;11;-20141231
 Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10
 Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
 Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
 Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
-Roman;Neustädter;null;19880218;Deutschland;Mittelfeld;33
+Roman;Neustädter;null;19880218;Russland, Deutschland;Mittelfeld;33
 Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
-Jefferson;Farfan;null;19841026;Peru;Sturm;17
+Jefferson;Farfán;null;19841026;Peru;Sturm;17
 Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
 Chinedu;Obasi;null;19860601;Nigeria;Sturm;20
 Felix;Platte;null;19960211;Deutschland;Sturm;36

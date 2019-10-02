@@ -24,7 +24,7 @@ Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
 Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
 Niclas;Füllkrug;null;19930209;Deutschland;Sturm;24
 Babacar;Gueye;null;19941231;Senegal;Sturm;29;-20161231
-Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;14
+Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;14
 Elias;Huth;null;19970210;Deutschland;Sturm;32
 Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37

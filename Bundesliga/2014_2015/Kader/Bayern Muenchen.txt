@@ -1,5 +1,5 @@
 Manuel;Neuer;null;19860327;Deutschland;Tor;1
-José Manuel;Reina;null;19820831;Spanien;Tor;23
+José Manuel 'Pepe';Reina;null;19820831;Spanien;Tor;23
 Tom;Starke;null;19810318;Deutschland;Tor;22
 David;Alaba;null;19920624;Österreich;Abwehr;27
 Holger;Badstuber;null;19890313;Deutschland;Abwehr;28

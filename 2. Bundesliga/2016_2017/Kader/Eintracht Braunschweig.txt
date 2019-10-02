@@ -13,7 +13,7 @@ Julius;Biada;null;19921103;Deutschland;Mittelfeld;9
 Mirko;Boland;null;19870423;Deutschland;Mittelfeld;10
 Jan;Hochscheidt;null;19871004;Deutschland;Mittelfeld;11
 Salim;Khelifi;null;19940126;Schweiz;Mittelfeld;22
-Adam;Matuschyk;null;19890214;Polen;Mittelfeld;8
+Adam;Matuschyk;null;19890214;Polen, Deutschland;Mittelfeld;8
 Quirin;Moll;null;19910121;Deutschland;Mittelfeld;6
 Nik;Omladic;null;19890821;Slowenien;Mittelfeld;12
 Patrick;Schönfeld;null;19890621;Deutschland;Mittelfeld;21

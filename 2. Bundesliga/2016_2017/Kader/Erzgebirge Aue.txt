@@ -16,7 +16,7 @@ Simon;Handle;null;19930125;Deutschland;Mittelfeld;7;-20161231
 Tommy;Käßemodel;null;19880809;Deutschland;Mittelfeld;29
 Fabio;Kaufmann;null;19920908;Deutschland;Mittelfeld;22
 Mario;Kvesic;null;19920112;Bosnien-Herzegowina;Mittelfeld;16
-Mirnes;Pepic;null;19951219;Montenegro;Mittelfeld;6
+Mirnes;Pepic;null;19951219;Montenegro, Deutschland;Mittelfeld;6
 Philipp;Riese;null;19891112;Deutschland;Mittelfeld;17
 Louis;Samson;null;19950703;Deutschland;Mittelfeld;27
 Simon;Skarlatidis;null;19910606;Deutschland;Mittelfeld;10

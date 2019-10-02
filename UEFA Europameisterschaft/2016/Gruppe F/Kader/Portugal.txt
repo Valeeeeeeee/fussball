@@ -16,7 +16,7 @@ Luís Carlos;Almeida da Cunha;Nani;19861117;Portugal;Mittelfeld;17
 Danilo;Pereira;null;19910909;Portugal;Mittelfeld;13
 Ricardo;Quaresma;null;19830926;Portugal;Mittelfeld;20
 Rafael Alexandre Fernandes;Ferreira Silva;Rafa;19930517;Portugal;Mittelfeld;18
-Renato;Sanches;null;19970818;Portugal;Mittelfeld;16
+Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;16
 Adrien;Silva;null;19890315;Portugal;Mittelfeld;23
 Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;11
 Cristiano Ronaldo;dos Santos Aveiro;Cristiano Ronaldo;19850205;Portugal;Sturm;7

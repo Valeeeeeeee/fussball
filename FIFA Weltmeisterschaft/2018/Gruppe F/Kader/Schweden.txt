@@ -6,7 +6,7 @@ Andreas;Granqvist;null;19850416;Schweden;Abwehr;4
 Filip;Helander;null;19930422;Schweden;Abwehr;14
 Pontus;Jansson;null;19910213;Schweden;Abwehr;18
 Emil;Krafth;null;19940802;Schweden;Abwehr;16
-Victor;Lindelöf;null;19940717;Schweden;Abwehr;3
+Victor Nilsson;Lindelöf;null;19940717;Schweden;Abwehr;3
 Mikael;Lustig;null;19861213;Schweden;Abwehr;2
 Martin;Olsson;null;19880517;Schweden;Abwehr;5
 Viktor;Claesson;null;19920102;Schweden;Mittelfeld;17

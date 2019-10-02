@@ -11,7 +11,7 @@ Bacary;Sagna;null;19830214;Frankreich;Abwehr;19
 Samuel;Umtiti;null;19931114;Frankreich;Abwehr;22
 Yohan;Cabaye;null;19860114;Frankreich;Mittelfeld;6
 Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;20
-Ngolo;Kanté;null;19910329;Frankreich;Mittelfeld;5
+N'Golo;Kanté;null;19910329;Frankreich;Mittelfeld;5
 Blaise;Matuidi;null;19870409;Frankreich;Mittelfeld;14
 Dimitri;Payet;null;19870329;Frankreich;Mittelfeld;8
 Paul;Pogba;null;19930315;Frankreich;Mittelfeld;15

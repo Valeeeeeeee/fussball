@@ -9,7 +9,7 @@ Juan Francisco;Torres;Juanfran;19850109;Spanien;Abwehr;16
 Gerard;Piqué;null;19870202;Spanien;Abwehr;3
 Sergio;Ramos;null;19860330;Spanien;Abwehr;15
 Mikel;'San José';null;19890530;Spanien;Abwehr;17
-Thiago;Alcántara;null;19910411;Spanien;Mittelfeld;14
+Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;14
 Sergio;Busquets;null;19880716;Spanien;Mittelfeld;5
 Cesc;Fàbregas;null;19870504;Spanien;Mittelfeld;10
 Andrés;Iniesta;null;19840511;Spanien;Mittelfeld;6

@@ -32,6 +32,6 @@ Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
 Allan;Saint-Maximin;null;19970312;Frankreich;Sturm;14
 Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
 Artur;Sobiech;null;19900612;Polen;Sturm;9
-Valmir;Sulejmani;null;19960201;Deutschland, Albanien;Sturm;38
+Valmir;Sulejmani;null;19960201;Kosovo, Deutschland;Sturm;38
 Ádám;Szalai;null;19871209;Ungarn;Sturm;28;20160101-
 Marius;Wolf;null;19950527;Deutschland;Sturm;21;20160101-

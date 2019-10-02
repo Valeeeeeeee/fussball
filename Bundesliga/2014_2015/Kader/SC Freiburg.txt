@@ -7,7 +7,7 @@ Christopher;Jullien;null;19930322;Frankreich;Abwehr;5
 Marc-Oliver;Kempf;null;19950128;Deutschland;Abwehr;20
 Pavel;Krmas;null;19800303;Tschechien;Abwehr;2
 Stefan;Mitrovic;null;19900522;Serbien;Abwehr;15
-Mensur;Mujdza;null;19840328;Kroatien, Bosnien-Herzegowina;Abwehr;24
+Mensur;Mujdza;null;19840328;Bosnien-Herzegowina, Kroatien;Abwehr;24
 Sascha;Riether;null;19830323;Deutschland;Abwehr;22
 Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
 Marc;Torrejón;null;19860218;Spanien;Abwehr;3

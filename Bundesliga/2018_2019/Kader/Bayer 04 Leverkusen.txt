@@ -1,6 +1,6 @@
 Lukás;Hrádecky;null;19891124;Finnland;Tor;1
 Thorsten;Kirschbaum;null;19870420;Deutschland;Tor;24
-Ramazan;Özcan;null;19840628;Österreich, Türkei;Tor;28
+Ramazan;Özcan;null;19840628;Österreich;Tor;28
 Aleksandar;Dragovic;null;19910306;Österreich;Abwehr;6
 Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
 Panagiotis;Retsos;null;19980809;Griechenland;Abwehr;3

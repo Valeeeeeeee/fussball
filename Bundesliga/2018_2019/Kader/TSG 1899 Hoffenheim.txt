@@ -2,7 +2,7 @@ Oliver;Baumann;null;19900602;Deutschland;Tor;1
 Gregor;Kobel;null;19971206;Schweiz;Tor;36;-20181231
 Alexander;Stolz;null;19831013;Deutschland;Tor;33
 Kasim;Adams;null;19950622;Ghana;Abwehr;15
-Kevin;Akpoguma;null;19950419;Deutschland;Abwehr;25;-20181231
+Kevin;Akpoguma;null;19950419;Deutschland, Nigeria;Abwehr;25;-20181231
 Alfons;Amade;null;19991112;Deutschland, Mosambik;Abwehr;41
 Ermin;Bicakcic;null;19900124;Deutschland, Bosnien-Herzegowina;Abwehr;4
 Joshua;Brenet;null;19940320;Niederlande;Abwehr;2

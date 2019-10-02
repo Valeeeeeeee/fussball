@@ -4,7 +4,7 @@ Roman;Weidenfeller;null;19800806;Deutschland;Tor;1
 Manuel;Akanji;null;19950719;Schweiz;Abwehr;16;20180115-
 Marc;Bartra;null;19910115;Spanien;Abwehr;5;-20180129
 Erik;Durm;null;19920512;Deutschland;Abwehr;37
-Raphael;Guerreiro;null;19931222;Portugal;Abwehr;13
+Raphaël;Guerreiro;null;19931222;Portugal;Abwehr;13
 Joo-Ho;Park;null;19870116;Südkorea;Abwehr;3;-20171202
 Lukasz;Piszczek;null;19850603;Polen;Abwehr;26
 Marcel;Schmelzer;null;19880122;Deutschland;Abwehr;29
@@ -22,7 +22,7 @@ Felix;Passlack;null;19980528;Deutschland;Mittelfeld;30;-20170829
 Christian;Pulisic;null;19980918;USA;Mittelfeld;22
 Marco;Reus;null;19890531;Deutschland;Mittelfeld;11
 Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;18
-Nuri;Sahin;null;19880905;Deutschland, Türkei;Mittelfeld;8
+Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;8
 Jadon;Sancho;null;20000325;England;Mittelfeld;7;20170831-
 André;Schürrle;null;19901106;Deutschland;Mittelfeld;21
 Julian;Weigl;null;19950908;Deutschland;Mittelfeld;33
@@ -33,4 +33,4 @@ Ousmane;Dembélé;null;19970515;Frankreich;Sturm;7;-20170827
 Sergio;Gomez;null;20000904;Spanien;Sturm;34;20180130-
 Alexander;Isak;null;19990921;Schweden, Eritrea;Sturm;14
 Maximilian;Philipp;null;19940301;Deutschland;Sturm;20
-Andrey;Yarmolenko;null;19891023;Ukraine;Sturm;9;20170828-
+Andriy;Yarmolenko;null;19891023;Ukraine;Sturm;9;20170828-

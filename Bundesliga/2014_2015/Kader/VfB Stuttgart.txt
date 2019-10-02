@@ -5,7 +5,7 @@ Timo;Baumgartl;null;19960304;Deutschland;Abwehr;32
 Karim;Haggui;null;19840120;Deutschland, Tunesien;Abwehr;5
 Georg;Niedermeier;null;19860226;Deutschland;Abwehr;6
 Konstantin;Rausch;null;19900315;Deutschland;Abwehr;34
-Antonio;Rüdiger;null;19930303;Deutschland;Abwehr;24
+Antonio;Rüdiger;null;19930303;Deutschland, Sierra Leone;Abwehr;24
 Gotoku;Sakai;null;19910314;Japan;Abwehr;2
 Daniel;Schwaab;null;19880823;Deutschland;Abwehr;3
 Daniel;Didavi;null;19900221;Deutschland;Mittelfeld;10
@@ -18,10 +18,10 @@ Filip;Kostic;null;19921101;Serbien;Mittelfeld;18
 Moritz;Leitner;null;19921208;Deutschland;Mittelfeld;8
 Alexandru;Maxim;null;19900708;Rumänien;Mittelfeld;44
 Oriol;Romeu Vidal;null;19910924;Spanien;Mittelfeld;13
-Sercan;Sararer;null;19891127;Spanien, Türkei;Mittelfeld;23
+Sercan;Sararer;null;19891127;Türkei, Spanien;Mittelfeld;23
 Geoffroy;'Serey Dié';null;19841107;Elfenbeinküste;Mittelfeld;26;20150201-
 Mohammed;Abdellaoue;null;19851023;Norwegen;Sturm;25
 Daniel;Ginczek;null;19910413;Deutschland;Sturm;33
-Martin;Harnik;null;19870610;Deutschland, Österreich;Sturm;7
+Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;7
 Vedad;Ibisevic;null;19840806;USA, Bosnien-Herzegowina;Sturm;9
 Timo;Werner;null;19960306;Deutschland;Sturm;19

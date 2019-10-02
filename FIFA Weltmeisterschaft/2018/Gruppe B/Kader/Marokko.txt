@@ -1,7 +1,7 @@
 Yassine;Bounou;null;19910405;Marokko;Tor;1
 Munir;Mohand;null;19890510;Marokko;Tor;12
 Ahmed;Tagnaouti;null;19960405;Marokko;Tor;22
-Mehdi;Benatia;null;19870417;Marokko;Abwehr;5
+Medhi;Benatia;null;19870417;Marokko;Abwehr;5
 Manuel;da Costa;null;19860506;Marokko;Abwehr;4
 Nabil;Dirar;null;19860225;Marokko;Abwehr;17
 Achraf;Hakimi;null;19981104;Marokko;Abwehr;2
@@ -10,14 +10,14 @@ Romain;Saïss;null;19900326;Marokko;Abwehr;6
 Youssef;'Aït Bennasser';null;19960707;Marokko;Mittelfeld;15
 Noureddine;Amrabat;null;19870331;Marokko;Mittelfeld;16
 Sofyan;Amrabat;null;19960821;Marokko;Mittelfeld;21
-Younès;Belhanda;null;19900225;Marokko;Mittelfeld;10
+Younès;Belhanda;null;19900225;Marokko, Frankreich;Mittelfeld;10
 Mbark;Boussoufa;null;19840815;Marokko;Mittelfeld;14
 Mehdi;Carcela-González;null;19890701;Marokko;Mittelfeld;23
 Karim;'El Ahmadi';null;19850127;Marokko;Mittelfeld;8
 Fayçal;Fajr;null;19880801;Marokko;Mittelfeld;11
-Amine;Harit;null;19970618;Marokko;Mittelfeld;18
+Amine;Harit;null;19970618;Marokko, Frankreich;Mittelfeld;18
 Hakim;Ziyech;null;19930319;Marokko;Mittelfeld;7
-Aziz;Bouhaddouz;null;19870330;Marokko;Sturm;20
+Aziz;Bouhaddouz;null;19870330;Marokko, Deutschland;Sturm;20
 Khalid;Boutaïb;null;19870424;Marokko;Sturm;13
 Ayoub;'El Kaabi';null;19930625;Marokko;Sturm;9
 Youssef;En-Nesyri;null;19970601;Marokko;Sturm;19
