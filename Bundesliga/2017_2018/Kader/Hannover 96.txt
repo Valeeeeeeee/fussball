@@ -9,7 +9,7 @@ Timo;Hübers;null;19960720;Deutschland;Abwehr;15
 Florian;Hübner;null;19910301;Deutschland;Abwehr;19
 Julian;Korb;null;19920321;Deutschland;Abwehr;4
 Matthias;Ostrzolek;null;19900605;Deutschland;Abwehr;22
-Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;20
+Salif;Sané;null;19900825;Senegal, Frankreich;Abwehr;20
 Oliver;Sorg;null;19900529;Deutschland;Abwehr;25
 Marvin;Bakalorz;null;19890913;Deutschland;Mittelfeld;6
 Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17;-20180130

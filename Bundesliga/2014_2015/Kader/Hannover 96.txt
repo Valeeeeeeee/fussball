@@ -8,7 +8,7 @@ Joao Pedro;da Silva Pereira;Joao Pereira;19840225;Portugal;Abwehr;17;20150101-
 Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25
 Christian;Pander;null;19830828;Deutschland;Abwehr;24
 Hiroki;Sakai;null;19900412;Japan;Abwehr;4
-Salif;Sané;null;19900825;Frankreich, Senegal;Abwehr;5
+Salif;Sané;null;19900825;Senegal, Frankreich;Abwehr;5
 Christian;Schulz;null;19830401;Deutschland;Abwehr;19
 Marius;Stankevicius;null;19810715;Litauen;Abwehr;18
 Stefan;Thesker;null;19910411;Deutschland;Abwehr;17;-20141231

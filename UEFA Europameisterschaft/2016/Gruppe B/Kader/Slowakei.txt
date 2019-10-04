@@ -8,7 +8,7 @@ Peter;Pekarík;null;19861030;Slowakei;Abwehr;2
 Kornel;Saláta;null;19850124;Slowakei;Abwehr;16
 Milan;Skriniar;null;19950211;Slowakei;Abwehr;14
 Martin;Skrtel;null;19841215;Slowakei;Abwehr;3
-Ondrej;Duda;null;19941215;Slowakei;Mittelfeld;8
+Ondrej;Duda;null;19941205;Slowakei;Mittelfeld;8
 Ján;Gregus;null;19910129;Slowakei;Mittelfeld;6
 Marek;Hamsík;null;19870727;Slowakei;Mittelfeld;17
 Patrik;Hrosovský;null;19920422;Slowakei;Mittelfeld;13

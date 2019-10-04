@@ -12,7 +12,7 @@ Cheikhou;Kouyaté;null;19891221;Senegal;Mittelfeld;8
 Alfred;N'Diaye;null;19900306;Senegal;Mittelfeld;13
 Cheikh;N'Doye;null;19860329;Senegal;Mittelfeld;11
 Papa Alioune;Ndiaye;null;19901027;Senegal;Mittelfeld;17
-Salif;Sané;null;19900825;Senegal;Mittelfeld;6
+Salif;Sané;null;19900825;Senegal, Frankreich;Mittelfeld;6
 Keita;Baldé;null;19950308;Senegal;Sturm;20
 Mame;Diouf;null;19871216;Senegal;Sturm;9
 Moussa;Konaté;null;19930403;Senegal;Sturm;14
