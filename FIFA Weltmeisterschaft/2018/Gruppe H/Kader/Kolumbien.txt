@@ -11,9 +11,9 @@ Cristian;Zapata;null;19860930;Kolumbien;Abwehr;2
 Abel;Aguilar;null;19850106;Kolumbien;Mittelfeld;8
 Wilmar;Barrios;null;19931016;Kolumbien;Mittelfeld;5
 Juan;Cuadrado;null;19880526;Kolumbien;Mittelfeld;11
+James David;Rodríguez Rubio;James;19910712;Kolumbien;Mittelfeld;10
 Jefferson;Lerma;null;19941025;Kolumbien;Mittelfeld;16
 Juan;Quintero;null;19930118;Kolumbien;Mittelfeld;20
-James David;Rodríguez Rubio;James;19910712;Kolumbien;Mittelfeld;10
 Carlos;Sánchez;null;19860206;Kolumbien;Mittelfeld;6
 Mateus;Uribe;null;19910321;Kolumbien;Mittelfeld;15
 Carlos;Bacca;null;19860908;Kolumbien;Sturm;7
