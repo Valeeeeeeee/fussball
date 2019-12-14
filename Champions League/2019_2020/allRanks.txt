@@ -92,22 +92,22 @@ PO05W: Dinamo Zagreb
 PO05L: Rosenborg Trondheim
 PO06W: Olympiakos Piräus
 PO06L: FK Krasnodar
-GA1: CL2019GA1
-GA2: CL2019GA2
-GA3: CL2019GA3
-GA4: CL2019GA4
-GB1: CL2019GB1
-GB2: CL2019GB2
-GB3: CL2019GB3
-GB4: CL2019GB4
-GC1: CL2019GC1
-GC2: CL2019GC2
-GC3: CL2019GC3
-GC4: CL2019GC4
-GD1: CL2019GD1
-GD2: CL2019GD2
-GD3: CL2019GD3
-GD4: CL2019GD4
+GA1: Paris Saint-Germain
+GA2: Real Madrid
+GA3: FC Brügge
+GA4: Galatasaray Istanbul
+GB1: Bayern München
+GB2: Tottenham Hotspurs
+GB3: Olympiakos Piräus
+GB4: Roter Stern Belgrad
+GC1: Manchester City
+GC2: Atalanta Bergamo
+GC3: Schachtar Donezk
+GC4: Dinamo Zagreb
+GD1: Juventus Turin
+GD2: Atlético Madrid
+GD3: Bayer 04 Leverkusen
+GD4: Lokomotive Moskau
 GE1: FC Liverpool
 GE2: SSC Neapel
 GE3: FC Salzburg

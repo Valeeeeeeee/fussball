@@ -312,54 +312,54 @@ PO20W: Espanyol Barcelona
 PO20L: Sorja Luhansk
 PO21W: Wolverhampton Wanderers
 PO21L: FC Turin
-GA1: EL2019GA1
-GA2: EL2019GA2
-GA3: EL2019GA3
-GA4: EL2019GA4
-GB1: EL2019GB1
-GB2: EL2019GB2
-GB3: EL2019GB3
-GB4: EL2019GB4
-GC1: EL2019GC1
-GC2: EL2019GC2
-GC3: EL2019GC3
-GC4: EL2019GC4
-GD1: EL2019GD1
-GD2: EL2019GD2
-GD3: EL2019GD3
-GD4: EL2019GD4
-GE1: EL2019GE1
-GE2: EL2019GE2
-GE3: EL2019GE3
-GE4: EL2019GE4
-GF1: EL2019GF1
-GF2: EL2019GF2
-GF3: EL2019GF3
-GF4: EL2019GF4
-GG1: EL2019GG1
-GG2: EL2019GG2
-GG3: EL2019GG3
-GG4: EL2019GG4
-GH1: EL2019GH1
-GH2: EL2019GH2
-GH3: EL2019GH3
-GH4: EL2019GH4
-GI1: EL2019GI1
-GI2: EL2019GI2
-GI3: EL2019GI3
-GI4: EL2019GI4
-GJ1: EL2019GJ1
-GJ2: EL2019GJ2
-GJ3: EL2019GJ3
-GJ4: EL2019GJ4
-GK1: EL2019GK1
-GK2: EL2019GK2
-GK3: EL2019GK3
-GK4: EL2019GK4
-GL1: EL2019GL1
-GL2: EL2019GL2
-GL3: EL2019GL3
-GL4: EL2019GL4
+GA1: FC Sevilla
+GA2: APOEL Nikosia
+GA3: Qarabag Agdam
+GA4: F91 Düdelingen
+GB1: Malmö FF
+GB2: FC Kopenhagen
+GB3: Dynamo Kiew
+GB4: FC Lugano
+GC1: FC Basel
+GC2: FC Getafe
+GC3: FK Krasnodar
+GC4: Trabzonspor
+GD1: Linzer ASK
+GD2: Sporting Lissabon
+GD3: PSV Eindhoven
+GD4: Rosenborg Trondheim
+GE1: Celtic Glasgow
+GE2: CFR Cluj
+GE3: Lazio Rom
+GE4: Stade Rennes
+GF1: FC Arsenal
+GF2: Eintracht Frankfurt
+GF3: Standard Lüttich
+GF4: Vitória Guimarães
+GG1: FC Porto
+GG2: Glasgow Rangers
+GG3: Young Boys Bern
+GG4: Feyenoord Rotterdam
+GH1: Espanyol Barcelona
+GH2: Ludogorez Rasgrad
+GH3: Ferencváros Budapest
+GH4: ZSKA Moskau
+GI1: KAA Gent
+GI2: VfL Wolfsburg
+GI3: AS Saint-Étienne
+GI4: PFK Olexandrija
+GJ1: Istanbul Basaksehir
+GJ2: AS Rom
+GJ3: Borussia Mönchengladbach
+GJ4: Wolfsberger AC
+GK1: Sporting Braga
+GK2: Wolverhampton Wanderers
+GK3: Slovan Bratislava
+GK4: Besiktas Istanbul
+GL1: Manchester United
+GL2: AZ Alkmaar
+GL3: Partizan Belgrad
+GL4: FK Astana
 SF01W: EL2019SF01W
 SF01L: EL2019SF01L
 SF02W: EL2019SF02W
