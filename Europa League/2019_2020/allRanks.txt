@@ -368,8 +368,8 @@ SF03W: Istanbul Basaksehir
 SF03L: Sporting Lissabon
 SF04W: FC Sevilla
 SF04L: CFR Cluj
-SF05W: EL2019SF05W
-SF05L: EL2019SF05L
+SF05W: Eintracht Frankfurt
+SF05L: FC Salzburg
 SF06W: Inter Mailand
 SF06L: Ludogorez Rasgrad
 SF07W: Manchester United
