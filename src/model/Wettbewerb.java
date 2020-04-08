@@ -8,6 +8,7 @@ public interface Wettbewerb {
 	public int getYear();
 	public String getDescription();
 	public boolean isSTSS();
+	public boolean isClubCompetition();
 	public String getWorkspace();
 	public int getCurrentMatchday();
 	public int getNewestStartedMatchday();
@@ -15,6 +16,10 @@ public interface Wettbewerb {
 	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);
 	public String[] getMatchdays();
+	
+	public Dauer getDuration();
+	public Datum getStartDate();
+	public Datum getFinalDate();
 	
 	public boolean isMatchSet(int matchday, int matchID);
 	public Spiel getMatch(int matchday, int matchID);

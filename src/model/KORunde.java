@@ -127,6 +127,10 @@ public class KORunde implements Wettbewerb {
 		return belongsToALeague ? lSeason.isSTSS() : tSeason.isSTSS();
 	}
 	
+	public boolean isClubCompetition() {
+		return belongsToALeague ? lSeason.isClubCompetition() : tSeason.isClubCompetition();
+	}
+	
 	public String getWorkspace() {
 		return workspace;
 	}
@@ -137,6 +141,10 @@ public class KORunde implements Wettbewerb {
 	
 	public String getShortName() {
 		return shortName;
+	}
+	
+	public Dauer getDuration() {
+		return new Dauer(startDate, finalDate);
 	}
 	
 	public Datum getStartDate() {

@@ -93,6 +93,10 @@ public class TurnierSaison {
 		return isSummerToSpringSeason;
 	}
 	
+	public boolean isClubCompetition() {
+		return tournament.isClubCompetition();
+	}
+	
 	public String getSeasonFull(String trennzeichen) {
 		return year + (isSummerToSpringSeason ? trennzeichen + (year + 1) : "");
 	}

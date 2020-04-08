@@ -10,10 +10,14 @@ import java.util.Iterator;
 import analyse.SpielPerformance;
 
 public class Mannschaft {
+	
+	private String trennZeichen = ";";
+	
 	private int id;
 	private String name;
 	private String nameForFileSearch;
 	private String foundingDate;
+	private boolean isClub;
 	
 	private int place = -1;
 	private int numOfMatches;
@@ -78,6 +82,7 @@ public class Mannschaft {
 		if (competition instanceof LigaSaison)		lSeason = (LigaSaison) competition;
 		else if (competition instanceof Gruppe)		group = (Gruppe) competition;
 		this.competition = competition;
+		isClub = competition.isClubCompetition();
 		playsInLeague = lSeason != null;
 		playsInGroup = group != null;
 		playsInKORound = competition instanceof KORunde;
@@ -441,6 +446,7 @@ public class Mannschaft {
 		if (index == 7)	return numOfCGoals;
 		if (index == 8)	return goalDiff;
 		if (index == 9)	return points;
+		
 		return -1;
 	}
 	
@@ -526,6 +532,10 @@ public class Mannschaft {
 
 	public void setFoundingDate(String foundingDate) {
 		this.foundingDate = foundingDate;
+	}
+	
+	public boolean isClub() {
+		return isClub;
 	}
 
 	public int getId() {
@@ -625,7 +635,7 @@ public class Mannschaft {
 					sep = ", ";
 				}
 			}
-			message("Home - Kein Spieler gefunden für diese Rückennummer(n): " + numbers);
+			message(name + " (" + date.withDividers() + ")" + " - Kein Spieler gefunden für diese Rückennummer(n): " + numbers);
 		}
 		
 		return ordered;
@@ -847,20 +857,17 @@ public class Mannschaft {
 	}
 	
 	public boolean equals(Object object) {
-		if (object instanceof Mannschaft) {
-			Mannschaft team = (Mannschaft) object;
-			if (!name.equals(team.name))	return false;
-			return true;
-		}
-		return false;
+		if (!(object instanceof Mannschaft))	return false;
+		Mannschaft team = (Mannschaft) object;
+		if (!name.equals(team.name))	return false;
+		return true;
 	}
 
 	private void parseString(String data) {
-		String[] split = data.split(";");
+		String[] split = data.split(trennZeichen);
 		int index = 0;
 		
-		name = split[index++];
-		nameForFileSearch = removeUmlaute(name);
+		setName(split[index++]);
 		if (split.length > 1) {
 			foundingDate = !split[index++].equals("null") ? split[index - 1] : null;
 			if (split.length > 2) {
@@ -873,16 +880,16 @@ public class Mannschaft {
 	public String toString() {
 		String toString = name;
 		if (playsInLeague) {
-			toString += ";" + foundingDate;
+			toString += trennZeichen + foundingDate;
 			if (deductedPoints != 0) {
-				toString += ";" + deductedPoints;
+				toString += trennZeichen + deductedPoints;
 			}
 		} else if (playsInGroup) {
 			if (deductedPoints != 0) {
-				toString += ";null;" + deductedPoints;
+				toString += trennZeichen + "null" + trennZeichen + deductedPoints;
 			}
 		} else if (foundingDate != null) {
-			toString += ";" + foundingDate;
+			toString += trennZeichen + foundingDate;
 		}
 
 		return toString;

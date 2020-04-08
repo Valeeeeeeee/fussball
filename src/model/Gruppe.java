@@ -100,6 +100,10 @@ public class Gruppe implements Wettbewerb {
 		return season.isSTSS();
 	}
 	
+	public boolean isClubCompetition() {
+		return season.isClubCompetition();
+	}
+	
 	public String getTournamentName() {
 		return season.getTournament().getName();
 	}
@@ -122,6 +126,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public boolean teamsHaveKader() {
 		return teamsHaveKader;
+	}
+	
+	public Dauer getDuration() {
+		return new Dauer(startDate, finalDate);
 	}
 	
 	public Datum getStartDate() {

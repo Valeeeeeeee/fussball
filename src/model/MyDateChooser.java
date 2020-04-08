@@ -337,6 +337,7 @@ public class MyDateChooser extends JFrame {
 			
 			this.date = defaultDate;
 			this.time = defaultTime;
+			returnTournamentStyle();
 			
 			jCBHour.requestFocus();
 		}

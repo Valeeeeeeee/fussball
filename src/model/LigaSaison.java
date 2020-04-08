@@ -110,8 +110,16 @@ public class LigaSaison implements Wettbewerb {
 		return isSummerToSpringSeason;
 	}
 	
+	public boolean isClubCompetition() {
+		return league.isClubCompetition();
+	}
+	
 	public boolean hasPlayoffs() {
 		return hasPlayoffs;
+	}
+	
+	public Dauer getDuration() {
+		return new Dauer(startDate, finalDate);
 	}
 	
 	public Datum getStartDate() {
@@ -1109,6 +1117,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	private void savePlayoffs() {
 		if (!hasPlayoffs)	return;
+		
 		koConfigFromFile.clear();
 		playoffs.save();
 		koConfigFromFile.add(playoffs.toString());

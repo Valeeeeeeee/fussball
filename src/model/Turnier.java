@@ -9,6 +9,7 @@ public class Turnier {
 	private int id;
 	private String name;
 	private String shortName;
+	private boolean isClubCompetition;
 	
 	private int currentSeasonIndex;
 	private ArrayList<TurnierSaison> seasons;
@@ -47,6 +48,10 @@ public class Turnier {
 	
 	public String getShortName() {
 		return shortName;
+	}
+	
+	public boolean isClubCompetition() {
+		return isClubCompetition;
 	}
 	
 	/**
@@ -288,6 +293,7 @@ public class Turnier {
 		
 		name = split[index++];
 		shortName = split[index++];
+		isClubCompetition = Boolean.parseBoolean(split[index++]);
 	}
 	
 	public String toString() {
@@ -295,6 +301,7 @@ public class Turnier {
 		
 		toString += name + ";";
 		toString += shortName + ";";
+		toString += isClubCompetition + ";";
 		
 		return toString;
 	}

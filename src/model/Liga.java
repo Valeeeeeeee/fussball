@@ -9,6 +9,7 @@ public class Liga {
 	private int id = -1;
 	private String name;
 	private String shortName;
+	private boolean isClubCompetition;
 	
 	private ArrayList<LigaSaison> seasons;
 	private int currentSeasonIndex;
@@ -156,6 +157,10 @@ public class Liga {
 		return shortName;
 	}
 	
+	public boolean isClubCompetition() {
+		return isClubCompetition;
+	}
+	
 	private void loadSeasons() {
 		workspace = Fussball.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
@@ -177,21 +182,23 @@ public class Liga {
 		
 		inDatei(fileSeasonsData, seasonsDataFromFile);
 	}
-	
-	public String toString() {
-		String toString = "";
-		
-		toString += name + ";";
-		toString += shortName + ";";
-		
-		return toString;
-	}
-	
 	private void fromString(String data) {
 		String[] split = data.split(";");
 		int index = 0;
 		
 		name = split[index++];
 		shortName = split[index++];
+		isClubCompetition = Boolean.parseBoolean(split[index++]);
 	}
+	
+	public String toString() {
+		String toString = "";
+		
+		toString += name + ";";
+		toString += shortName + ";";
+		toString += isClubCompetition + ";";
+		
+		return toString;
+	}
+	
 }
