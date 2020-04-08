@@ -206,11 +206,13 @@ public class Uebersicht extends JPanel {
 	private Mannschaft[] teams;
 	private ArrayList<Integer> matchdayOrder = new ArrayList<>();
 	
+	private Datum date;
+	
 	private boolean noStats;
 	private boolean noTable;
 	
 	private boolean canHaveKader;
-	private ArrayList<Spieler> eligiblePlayers;
+	private ArrayList<TeamAffiliation> eligiblePlayers;
 	private ArrayList<Spieler> ineligiblePlayers;
 	private int numberOfMatchdays;
 	private int numberOfEligiblePlayers;
@@ -661,9 +663,9 @@ public class Uebersicht extends JPanel {
 			repaintImmediately(jPnlKader);
 		}
 		
-		eligiblePlayers = team.getEligiblePlayers(today, true);
+		eligiblePlayers = team.getEligiblePlayers(date, true);
 		numberOfEligiblePlayers = eligiblePlayers.size();
-		ineligiblePlayers = team.getIneligiblePlayers(today, true);
+		ineligiblePlayers = team.getIneligiblePlayers(date, true);
 		numberOfIneligiblePlayers = ineligiblePlayers.size();
 		int[] nOfPlayersByPosition = new int[numberOfPositions];
 		
@@ -698,14 +700,14 @@ public class Uebersicht extends JPanel {
 				jLblsKader[i][j].setCursor(handCursor);
 				jLblsKader[i][j].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
-						showPlayerPhoto(x);
+						showPlayerInformation(x);
 					}
 				});
 			}
-			Spieler player = eligiblePlayers.get(i);
+			Spieler player = eligiblePlayers.get(i).getPlayer();
 			sumOfAges += player.getAge();
 			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
-			jLblsKader[i][SQUADNUMBER].setText("" + player.getSquadNumber());
+			jLblsKader[i][SQUADNUMBER].setText("" + eligiblePlayers.get(i).getSquadNumber());
 			alignCenter(jLblsKader[i][SQUADNUMBER]);
 			jLblsKader[i][NAMES].setText(player.getFullNameShort());
 			jLblsKader[i][BIRTHDATE].setText(player.getBirthDate().withDividers());
@@ -743,13 +745,13 @@ public class Uebersicht extends JPanel {
 				jLblsKader[index][j].setCursor(handCursor);
 				jLblsKader[index][j].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e) {
-						showPlayerPhoto(x);
+						showPlayerInformation(x);
 					}
 				});
 			}
 			Spieler player = ineligiblePlayers.get(i);
 			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
-			jLblsKader[index][SQUADNUMBER].setText("" + player.getSquadNumber());
+			jLblsKader[index][SQUADNUMBER].setText("");
 			alignCenter(jLblsKader[index][SQUADNUMBER]);
 			jLblsKader[index][NAMES].setText(player.getFullNameShort());
 			jLblsKader[index][BIRTHDATE].setText(player.getBirthDate().withDividers());
@@ -798,12 +800,12 @@ public class Uebersicht extends JPanel {
 		}
 	}
 	
-	private void showPlayerPhoto(int playerIndex) {
+	private void showPlayerInformation(int playerIndex) {
 		Spieler player = null;
-		if (playerIndex < numberOfEligiblePlayers)	player = eligiblePlayers.get(playerIndex);
+		if (playerIndex < numberOfEligiblePlayers)	player = eligiblePlayers.get(playerIndex).getPlayer();
 		else										player = ineligiblePlayers.get(playerIndex - numberOfEligiblePlayers);
 		
-		playerInformation.setPlayer(player);
+		playerInformation.setPlayer(player, team);
 		playerInformation.setVisible(true);
 	}
 	
@@ -828,6 +830,8 @@ public class Uebersicht extends JPanel {
 		teamID = team.getId();
 		this.team = team;
 		teams = team.getCompetition().getTeams();
+		playerInformation.setSeasonDuration(team.getCompetition().getStartDate(), team.getCompetition().getFinalDate());
+		date = team.getTodayWithinSeasonBounds();
 		numberOfMatchdays = team.getCompetition().getNumberOfMatchdays();
 		matchdayOrder.clear();
 		for (int i = 0; i < numberOfMatchdays; i++) {

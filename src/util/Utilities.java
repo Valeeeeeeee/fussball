@@ -15,6 +15,7 @@ import javax.swing.*;
 
 import model.Datum;
 import model.Spieler;
+import model.TeamAffiliation;
 import model.Fussball;
 import model.Uhrzeit;
 
@@ -245,6 +246,23 @@ public class Utilities {
 		return false;
 	}
 	
+	public static void addAscending(ArrayList<String> list, String element) {
+		if (list.contains(element))	return;
+		int index;
+		for (index = 0; index < list.size(); index++) {
+			if (list.get(index).compareTo(element) > 0)	break;
+		}
+		list.add(index, element);
+	}
+	
+	public static void addDescending(ArrayList<Integer> list, int number) {
+		int index;
+		for (index = 0; index < list.size(); index++) {
+			if (list.get(index) < number)	break;
+		}
+		list.add(index, number);
+	}
+	
 	public static boolean inThePast(Datum date, Uhrzeit time, int timeDifference) {
 		Uhrzeit shiftedTime = new Uhrzeit(time, timeDifference);
 		if (shiftedTime.isBefore(time)) {
@@ -259,11 +277,11 @@ public class Utilities {
 		return time.isBefore(new Uhrzeit());
 	}
 	
-	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
-		ArrayList<Spieler> clone = new ArrayList<>();
+	public static ArrayList<TeamAffiliation> cloneList(ArrayList<TeamAffiliation> list) {
+		ArrayList<TeamAffiliation> clone = new ArrayList<>();
 		
-		for (Spieler player : list) {
-			clone.add(player);
+		for (TeamAffiliation affiliation : list) {
+			clone.add(affiliation);
 		}
 		
 		return clone;

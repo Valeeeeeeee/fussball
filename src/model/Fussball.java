@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.io.*; 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Set;
 
 import javax.swing.*; 
 
@@ -29,6 +31,9 @@ public class Fussball extends JFrame {
 	private String workspaceWIN = "C:\\Users\\vsh\\myWorkspace\\Fussball";
 	private String workspaceMAC = "/Users/valentinschraub/Documents/workspace/Fussball";
 	
+	private String filePlayers;
+	private ArrayList<String> playersFromFile;
+	
 	private String fileConfiguration;
 	private ArrayList<String> configurationFromFile;
 	
@@ -40,6 +45,8 @@ public class Fussball extends JFrame {
 	
 	private int numberOfLeagues;
 	private int numberOfTournaments;
+	
+	private static HashMap<Integer, Spieler> players;
 	
 	private ArrayList<Liga> leagues;
 	private Liga currentLeague;
@@ -149,6 +156,7 @@ public class Fussball extends JFrame {
 		
 		checkOS();
 		
+		loadPlayers();
 		loadConfiguration();
 		initGUI();
 		
@@ -963,6 +971,27 @@ public class Fussball extends JFrame {
 		jPnlOptions.setVisible(true);
 	}
 	
+	public static Spieler getPlayer(int id) {
+		return players.get(id);
+	}
+	
+	public static boolean addNewPlayer(Spieler newPlayer) {
+		if (players.containsKey(newPlayer.getID())) {
+			message("Der Spieler konnte nicht hinzugefügt werden, weil die ID schon vergeben ist!");
+			return false;
+		}
+		players.put(newPlayer.getID(), newPlayer);
+		message("ok - hinzugefügt");
+		return true;
+	}
+	
+	public static boolean idChanged(Spieler player, int oldID, int newID) {
+		if (getPlayer(oldID) == null || !getPlayer(oldID).equals(player) || getPlayer(newID) != null)	return false;
+		players.remove(oldID);
+		players.put(newID, player);
+		return true;
+	}
+	
 	public void uebersichtAnzeigen(String teamName) {
 		Mannschaft team = null;
 		if (isCurrentlyALeague)	team = currentLSeason.getTeamWithName(teamName);
@@ -1366,6 +1395,7 @@ public class Fussball extends JFrame {
 	
 	public void jBtnExitActionPerformed() {
 		saveConfiguration();
+		savePlayers();
 		System.exit(0);
 	}
 	
@@ -1524,28 +1554,48 @@ public class Fussball extends JFrame {
 		}
 	}
 	
+	private void loadPlayers() {
+		filePlayers = workspace + File.separator + "players.txt";
+		playersFromFile = ausDatei(filePlayers);
+		
+		players = new HashMap<>();
+		
+		for (int i = 0; i < playersFromFile.size(); i++) {
+			Spieler player = new Spieler(playersFromFile.get(i));
+			if (players.containsKey(player.getID()))	message("Doppelt vergebene ID!");
+			players.put(player.getID(), player);
+		}
+	}
+	
+	private void savePlayers() {
+		playersFromFile = new ArrayList<>();
+		
+		Set<Integer> ids = players.keySet();
+		for (Integer id : ids) {
+			addAscending(playersFromFile, players.get(id).toString());
+		}
+		
+		inDatei(filePlayers, playersFromFile);
+	}
+	
 	private void loadConfiguration() {
 		fileConfiguration = workspace + File.separator + "config.txt";
 		configurationFromFile = ausDatei(fileConfiguration);
 		
 		int counter = 0;
 		
-		numberOfLeagues = Integer.parseInt(configurationFromFile.get(counter));
+		numberOfLeagues = Integer.parseInt(configurationFromFile.get(counter++));
 		leagues = new ArrayList<>();
-		counter++;
 		
 		for (int i = 0; i < numberOfLeagues; i++) {
-			leagues.add(new Liga(i, configurationFromFile.get(counter)));
-			counter++;
+			leagues.add(new Liga(i, configurationFromFile.get(counter++)));
 		}
 		
-		numberOfTournaments = Integer.parseInt(configurationFromFile.get(counter));
+		numberOfTournaments = Integer.parseInt(configurationFromFile.get(counter++));
 		tournaments = new ArrayList<>();
-		counter++;
 		
 		for (int i = 0; i < numberOfTournaments; i++) {
-			tournaments.add(new Turnier(i, configurationFromFile.get(counter)));
-			counter++;
+			tournaments.add(new Turnier(i, configurationFromFile.get(counter++)));
 		}
 	}
 	

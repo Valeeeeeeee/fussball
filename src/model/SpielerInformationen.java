@@ -163,6 +163,16 @@ public class SpielerInformationen extends JFrame {
 	
 	private Uebersicht uebersicht;
 	private Spieler player;
+	private Mannschaft team;
+	
+	private ArrayList<TeamAffiliation> teamAffiliations;
+	private TeamAffiliation primaryAffiliation;
+	private TeamAffiliation secondaryAffiliation;
+	private Datum date;
+	
+	private Datum START_OF_SEASON;
+	private Datum END_OF_SEASON;
+	private Dauer seasonDuration;
 	
 	private boolean addingNewPlayer;
 	private boolean changingInformation;
@@ -594,6 +604,8 @@ public class SpielerInformationen extends JFrame {
 			if (moreDetails)	changeMoreDetails();
 			refreshCBACSinceDayModel();
 			refreshCBACUntilDayModel();
+			
+			Spieler player = addingNewPlayer ? new Spieler("Vorname", "Nachname", null, new Datum(1, 1, team.getCompetition().getYear() - averageAge), "Deutschland") : this.player;
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
@@ -603,15 +615,17 @@ public class SpielerInformationen extends JFrame {
 			jCBBirthDay.setSelectedIndex(player.getBirthDate().getDay() - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
 			jTFNationality.setText(jLblNationalityVal.getText());
-			boolean sinceSet = player.getFirstDate() != MIN_DATE, untilSet = player.getLastDate() != MAX_DATE;
+			
+			Datum firstDate = getAffiliation().getDuration().getFromDate(), lastDate = getAffiliation().getDuration().getToDate();
+			boolean sinceSet = !firstDate.equals(START_OF_SEASON), untilSet = !lastDate.equals(END_OF_SEASON);
 			if (sinceSet == atClubSinceEver)	jChBAtClubSinceEver.doClick();
-			jCBAtClubSinceYear.setSelectedItem(sinceSet ? player.getFirstDate().getYear() + "" : "");
-			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? player.getFirstDate().getMonth() - 1 : 0);
-			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? player.getFirstDate().getDay() - 1 : 0);
+			jCBAtClubSinceYear.setSelectedItem(sinceSet ? firstDate.getYear() + "" : "");
+			jCBAtClubSinceMonth.setSelectedIndex(sinceSet ? firstDate.getMonth() - 1 : 0);
+			jCBAtClubSinceDay.setSelectedIndex(sinceSet ? firstDate.getDay() - 1 : 0);
 			if (untilSet == atClubUntilEver)	jChBAtClubUntilEver.doClick();
-			jCBAtClubUntilYear.setSelectedItem(untilSet ? player.getLastDate().getYear() + "" : "");
-			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? player.getLastDate().getMonth() - 1 : 0);
-			jCBAtClubUntilDay.setSelectedIndex(untilSet ? player.getLastDate().getDay() - 1 : 0);
+			jCBAtClubUntilYear.setSelectedItem(untilSet ? lastDate.getYear() + "" : "");
+			jCBAtClubUntilMonth.setSelectedIndex(untilSet ? lastDate.getMonth() - 1 : 0);
+			jCBAtClubUntilDay.setSelectedIndex(untilSet ? lastDate.getDay() - 1 : 0);
 			jBtnChangeInformation.setText("speichern");
 			jLblMoreDetails.setVisible(false);
 			oldFirstName = player.getFirstNameFile();
@@ -624,17 +638,24 @@ public class SpielerInformationen extends JFrame {
 			if (popularName.isEmpty())	popularName = null;
 			Datum birthDate = new Datum(jCBBirthDay.getSelectedIndex() + 1, jCBBirthMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBBirthYear.getSelectedItem()));
 			String nationality = jTFNationality.getText();
-			String position = (String) jCBPositions.getSelectedItem();
-			Datum firstDate = MIN_DATE, lastDate = MAX_DATE, secondFDate = MAX_DATE;
+			Position position = Position.getPositionFromString((String) jCBPositions.getSelectedItem());
+			Datum firstDate = START_OF_SEASON, lastDate = END_OF_SEASON;
 			if (!atClubSinceEver)	firstDate = new Datum(jCBAtClubSinceDay.getSelectedIndex() + 1, jCBAtClubSinceMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()));
 			if (!atClubUntilEver)	lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
-			secondFDate = player.getSecondFirstDate();
-			if (player.getTeam().checkForDuplicate(firstName, lastName, birthDate)) {
+			Dauer duration = new Dauer(firstDate, lastDate);
+			
+			if (!seasonDuration.includes(firstDate) || !seasonDuration.includes(lastDate)) {
+				message("Die Daten müssen im Bereich der Dauer der Saison(" + seasonDuration.withDividers() + ") liegen!");
+				return false;
+			}
+			
+			if (team.checkForDuplicate(firstName, lastName, birthDate)) {
 				if (addingNewPlayer || !firstName.equals(oldFirstName) || !lastName.equals(oldLastName) || !birthDate.equals(oldBirthDate)) {
 					message("Ein Spieler mit diesem Namen und Geburtsdatum existiert bereits!");
 					return false;
 				}
 			}
+			
 			int squadNumber = 0;
 			try {
 				squadNumber = Integer.parseInt(jTFSquadNumber.getText());
@@ -643,26 +664,43 @@ public class SpielerInformationen extends JFrame {
 				return false;
 			}
 			// check if squad number is unique
-			for (Spieler player : player.getTeam().getPlayers()) {
+			for (Spieler player : team.getPlayers()) {
 				if (player == this.player)	continue;
-				if (player.getSquadNumber() == squadNumber) {
-					if (player.playedAtTheSameTimeAs(firstDate, lastDate, secondFDate)) {
-						message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
-						return false;
-					}
+				
+				if (player.hasUsedSquadNumber(squadNumber, team, duration)) {
+					message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
+					return false;
 				}
 			}
-			player.updateInfo(firstName, lastName, popularName, birthDate, nationality, position, squadNumber, firstDate, lastDate, secondFDate);
+			
 			if (addingNewPlayer) {
-				player.getTeam().addPlayer(player);
+				Spieler player = new Spieler(firstName, lastName, popularName, birthDate, nationality);
+				if (!Fussball.addNewPlayer(player)) {
+					message("Der Spieler konnte nicht angelegt werden!");
+					return false;
+				}
+				primaryAffiliation = new TeamAffiliation(team, player, position, squadNumber, duration);
+				player.addTeamAffiliation(primaryAffiliation);
+				team.addPlayer(primaryAffiliation);
 				addingNewPlayer = false;
+				this.player = player;
+			} else {
+				if (player.hasConflictingTeamAffiliation(getAffiliation(), duration)) {
+					message("Der Spieler steht im genannten Zeitraum bei einem anderen Verein unter Vertrag!");
+					return false;
+				}
+				player.updateInfo(firstName, lastName, popularName, birthDate, nationality);
+				getAffiliation().changeValues(duration, squadNumber, position);
 			}
+			
+			team.playerUpdated();
 			uebersicht.showKader();
 			setPlayerInformation();
 			setPerformance();
 			showPhoto();
 			jBtnChangeInformation.setText("ändern");
 		}
+		Datum firstDate = getAffiliation().getDuration().getFromDate(), lastDate = getAffiliation().getDuration().getToDate();
 		changingInformation = !changingInformation;
 		jLblPositionVal.setVisible(!changingInformation);
 		jLblSquadNumber.setVisible(!changingInformation);
@@ -671,8 +709,8 @@ public class SpielerInformationen extends JFrame {
 		jLblPopularName.setVisible(!changingInformation);
 		jLblBirthDateVal.setVisible(!changingInformation);
 		jLblNationalityVal.setVisible(!changingInformation);
-		jLblAtClubSinceVal.setVisible(!changingInformation && player.getFirstDate() != MIN_DATE);
-		jLblAtClubUntilVal.setVisible(!changingInformation && player.getLastDate() != MAX_DATE);
+		jLblAtClubSinceVal.setVisible(!changingInformation && !firstDate.equals(START_OF_SEASON));
+		jLblAtClubUntilVal.setVisible(!changingInformation && !lastDate.equals(END_OF_SEASON));
 		jCBPositions.setVisible(changingInformation);
 		jTFSquadNumber.setVisible(changingInformation);
 		jTFFirstNames.setVisible(changingInformation);
@@ -690,8 +728,8 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilDay.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilMonth.setVisible(changingInformation && !atClubUntilEver);
 		jCBAtClubUntilYear.setVisible(changingInformation && !atClubUntilEver);
-		jLblAtClubSince.setVisible(changingInformation || player.getFirstDate() != MIN_DATE);
-		jLblAtClubUntil.setVisible(changingInformation || player.getLastDate() != MAX_DATE);
+		jLblAtClubSince.setVisible(changingInformation || !firstDate.equals(START_OF_SEASON));
+		jLblAtClubUntil.setVisible(changingInformation || !lastDate.equals(END_OF_SEASON));
 		
 		jLblPerformance.setVisible(!changingInformation);
 		jLblCompetition.setVisible(!changingInformation);
@@ -898,22 +936,27 @@ public class SpielerInformationen extends JFrame {
 			return;
 		}
 		addingNewPlayer = true;
-		String firstName = "Vorname";
-		String lastName = "Nachname";
-		Datum birthDate = new Datum(1, 1, team.getCompetition().getYear() - averageAge);
-		String nationality = "Deutschland";
-		int squadNumber = team.getNextFreeSquadNumber();
-		Spieler newPlayer = new Spieler(firstName, lastName, null, birthDate, nationality, Position.MITTELFELD, team, squadNumber);
-		setPlayer(newPlayer);
+		setPlayer(null, team);
 		jBtnChangeInformation.doClick();
 	}
 	
-	public void setPlayer(Spieler player) {
+	private TeamAffiliation getAffiliation() {
+		return primaryAffiliation;
+	}
+	
+	public void setSeasonDuration(Datum startDate, Datum finalDate) {
+		START_OF_SEASON = startDate;
+		END_OF_SEASON = finalDate;
+		seasonDuration = new Dauer(START_OF_SEASON, END_OF_SEASON);
+	}
+	
+	public void setPlayer(Spieler player, Mannschaft team) {
 		if (moreDetails)	changeMoreDetails();
 		if (changingInformation && !jBtnChangeInformationActionPerformed())	return;
 		this.player = player;
+		this.team = team;
 		
-		Wettbewerb competition = player.getTeam().getCompetition();
+		Wettbewerb competition = team.getCompetition();
 		jLblCompetition.setText(competition.getDescription());
 		int firstYear = competition.getYear() - maximumAge;
 		String[] jahre = new String[maximumAge - minimumAge + 1];
@@ -929,31 +972,56 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
 		
 		setPlayerInformation();
-		if (!addingNewPlayer)	setPerformance();
-		showPhoto();
+		if (!addingNewPlayer) {
+			setPerformance();
+			showPhoto();
+		} else {
+			if (jLblImage != null)	jLblImage.setVisible(false);
+		}
 	}
 	
 	private void setPlayerInformation() {
-		jLblSquadNumber.setText("" + player.getSquadNumber());
-		jLblFirstNames.setText(player.getFirstName());
-		jLblLastNames.setText(player.getLastName());
-		jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
-		jLblLastNames.setFont(player.getLastName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
-		jLblPopularName.setText(player.getPopularName() != null ? player.getPopularName() : "");
-		jLblBirthDateVal.setText(player.getBirthDate().withDividers());
-		jLblPositionVal.setText(player.getPosition().getName());
-		jLblNationalityVal.setText(player.getNationality());
+		primaryAffiliation = null;
+		secondaryAffiliation = null;
+		date = team.getTodayWithinSeasonBounds();
 		
-		Datum atClubSince = player.getFirstDate();
-		Datum atClubUntil = player.getLastDate();
-		boolean sinceSet = atClubSince != MIN_DATE, untilSet = atClubUntil != MAX_DATE;
+		if (addingNewPlayer) {
+			primaryAffiliation = new TeamAffiliation(team, null, Position.MITTELFELD, team.getNextFreeSquadNumber(), seasonDuration);
+			teamAffiliations = new ArrayList<>();
+			teamAffiliations.add(primaryAffiliation);
+			setTitle("Neuer Spieler");
+		} else {
+			teamAffiliations = player.getAllAffiliations(team, seasonDuration);
+			if (teamAffiliations.size() == 1)	primaryAffiliation = teamAffiliations.get(0);
+			else if (teamAffiliations.size() > 1) {
+				for (TeamAffiliation affiliation : teamAffiliations) {
+					if (affiliation.getDuration().includes(date))	primaryAffiliation = affiliation;
+					else											secondaryAffiliation = affiliation;
+				}
+			}
+			
+			jLblFirstNames.setText(player.getFirstName());
+			jLblLastNames.setText(player.getLastName());
+			jLblFirstNames.setFont(player.getFirstName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
+			jLblLastNames.setFont(player.getLastName().length() < maxNumberOfCharacters ? fontNames : fontNamesSmall);
+			jLblPopularName.setText(player.getPopularName() != null ? player.getPopularName() : "");
+			jLblBirthDateVal.setText(player.getBirthDate().withDividers());
+			jLblNationalityVal.setText(player.getNationality());
+			setTitle(player.getFullNameShort() + " (#" + getAffiliation().getSquadNumber() + ")");
+		}
+		
+		jLblSquadNumber.setText("" + getAffiliation().getSquadNumber());
+		jLblPositionVal.setText(getAffiliation().getPosition().getName());
+		
+		Datum atClubSince = getAffiliation().getDuration().getFromDate();
+		Datum atClubUntil = getAffiliation().getDuration().getToDate();
+		boolean sinceSet = !atClubSince.equals(START_OF_SEASON), untilSet = !atClubUntil.equals(END_OF_SEASON);
 		jLblAtClubSinceVal.setText(sinceSet ? atClubSince.withDividers() : "");
 		jLblAtClubSince.setVisible(sinceSet);
 		jLblAtClubSinceVal.setVisible(sinceSet);
 		jLblAtClubUntilVal.setText(untilSet ? atClubUntil.withDividers() : "");
 		jLblAtClubUntil.setVisible(untilSet);
 		jLblAtClubUntilVal.setVisible(untilSet);
-		setTitle(player.getFullNameShort() + " (#" + player.getSquadNumber() + ")");
 	}
 	
 	private void setPerformance() {
@@ -974,10 +1042,9 @@ public class SpielerInformationen extends JFrame {
 	private void showPhoto() {
 		String playerName = removeUmlaute(player.getFullNameShort());
 		playerName = playerName.toLowerCase().replace(' ', '-');
-		Mannschaft mannschaft = player.getTeam();
-		String url = "file:///" + mannschaft.getPhotoDirectory() + playerName + ".jpg";
-		String urlKlein = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
-		String urlKleinPNG = "file:///" + mannschaft.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.png";
+		String url = "file:///" + team.getPhotoDirectory() + playerName + ".jpg";
+		String urlKlein = "file:///" + team.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
+		String urlKleinPNG = "file:///" + team.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.png";
 		
 		Image image = null;
 		if (jLblImage != null) {

@@ -65,9 +65,11 @@ public class Mannschaft {
 	
 	private String kaderFileName;
 	private int numberOfPlayers;
+	private int numberOfTeamAffiliations;
 	private ArrayList<Spieler> kader = new ArrayList<>();
+	private ArrayList<TeamAffiliation> teamAffiliations = new ArrayList<>();
 	private int[] numberOfPlayersByPosition;
-	private ArrayList<Spieler> eligiblePlayers = new ArrayList<Spieler>();
+	private ArrayList<TeamAffiliation> eligiblePlayers = new ArrayList<TeamAffiliation>();
 	private ArrayList<Spieler> ineligiblePlayers = new ArrayList<Spieler>();
 	private Datum lastUpdatedEligibleForDate;
 	private Datum lastUpdatedIneligibleForDate;
@@ -135,21 +137,30 @@ public class Mannschaft {
 	}
 	
 	private void sortPlayers() {
-		ArrayList<Spieler> unsorted = new ArrayList<>();
-		for (Spieler player : kader) {
-			unsorted.add(player);
+		ArrayList<TeamAffiliation> unsorted = new ArrayList<>();
+		for (TeamAffiliation teamAffiliation : teamAffiliations) {
+			unsorted.add(teamAffiliation);
 		}
-		kader.clear();
+		numberOfPlayersByPosition = new int[4];
+		teamAffiliations.clear();
 		int index;
 		for (int i = 0; i < unsorted.size(); i++) {
-			Spieler player = unsorted.get(i);
+			TeamAffiliation teamAffiliation = unsorted.get(i);
 			index = 0;
-			for (int j = 0; j < kader.size(); j++) {
-				if (player.inOrderBefore(kader.get(j)))	break;
+			for (int j = 0; j < teamAffiliations.size(); j++) {
+				if (teamAffiliation.inOrderBefore(teamAffiliations.get(j)))	break;
 				index++;
 			}
-			kader.add(index, player);
+			teamAffiliations.add(index, teamAffiliation);
 		}
+		
+		kader.clear();
+		for (int i = 0; i < numberOfTeamAffiliations; i++) {
+			if (kader.contains(teamAffiliations.get(i).getPlayer()))	continue;
+			kader.add(teamAffiliations.get(i).getPlayer());
+			numberOfPlayersByPosition[teamAffiliations.get(i).getPosition().getID()]++;
+		}
+		numberOfPlayers = kader.size();
 	}
 	
 	public int getNextFreeSquadNumber() {
@@ -158,8 +169,8 @@ public class Mannschaft {
 		
 		for (int i = 0; i < 100; i++) {
 			collision = false;
-			for (int j = 0; j < kader.size() && !collision; j++) {
-				collision = kader.get(j).getSquadNumber() == squadNumber;
+			for (int j = 0; j < teamAffiliations.size() && !collision; j++) {
+				collision = teamAffiliations.get(j).getSquadNumber() == squadNumber;
 			}
 			if (!collision)	return squadNumber;
 			squadNumber++;
@@ -175,10 +186,9 @@ public class Mannschaft {
 		return false;
 	}
 	
-	public void addPlayer(Spieler player) {
-		kader.add(player);
-		numberOfPlayersByPosition[player.getPosition().getID()]++;
-		numberOfPlayers++;
+	public void addPlayer(TeamAffiliation affiliation) {
+		teamAffiliations.add(affiliation);
+		numberOfTeamAffiliations++;
 		sortPlayers();
 		distinguishNames();
 		updateEligiblePlayers(today, true);
@@ -190,14 +200,21 @@ public class Mannschaft {
 		distinguishNames();
 	}
 	
-	public void changeSquadNumber(Spieler player, int newSquadNumber) {
-		int oldSquadNumber = player.getSquadNumber();
+	public void changeSquadNumber(TeamAffiliation affiliation, int newSquadNumber) {
+		if (!affiliation.getTeam().equals(this))	return;
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
 			Spiel match = matches.get(iter.next());
-			if (match == null || !player.isEligible(match.getDate())) continue;
-			match.changeSquadNumberInLineup(match.getHomeTeam() == this, oldSquadNumber, newSquadNumber);
+			if (match == null || !affiliation.getDuration().includes(match.getDate())) continue;
+			match.changeSquadNumberInLineup(match.getHomeTeam() == this, affiliation.getSquadNumber(), newSquadNumber);
 		}
+	}
+	
+	public Datum getTodayWithinSeasonBounds() {
+		Datum today = new Datum();
+		if (today.isBefore(competition.getStartDate()))	return competition.getStartDate();
+		if (today.isAfter(competition.getFinalDate()))	return competition.getFinalDate();
+		return today;
 	}
 	
 	private void loadKader() {
@@ -210,12 +227,14 @@ public class Mannschaft {
 		kaderFileName += nameForFileSearch + ".txt";
 		
 		ArrayList<String> playersFromFile = ausDatei(kaderFileName);
-		numberOfPlayers = playersFromFile.size();
-		numberOfPlayersByPosition = new int[4];
-		kader.clear();
-		for (int i = 0; i < numberOfPlayers; i++) {
-			kader.add(new Spieler(playersFromFile.get(i), this));
-			numberOfPlayersByPosition[kader.get(i).getPosition().getID()]++;
+		numberOfTeamAffiliations = 0;
+		teamAffiliations.clear();
+		
+		for (int i = 0; i < playersFromFile.size(); i++) {
+			TeamAffiliation teamAffiliation = new TeamAffiliation(this, playersFromFile.get(i));
+			teamAffiliation.getPlayer().addTeamAffiliation(teamAffiliation);
+			teamAffiliations.add(teamAffiliation);
+			numberOfTeamAffiliations++;
 		}
 		sortPlayers();
 		distinguishNames();
@@ -230,8 +249,8 @@ public class Mannschaft {
 		if (name.contains("Mannschaft "))	return;
 		if (playsInKORound)	return;
 		ArrayList<String> players = new ArrayList<>();
-		for (int i = 0; i < numberOfPlayers; i++) {
-			players.add(kader.get(i).toString());
+		for (int i = 0; i < numberOfTeamAffiliations; i++) {
+			players.add(teamAffiliations.get(i).toString());
 		}
 		inDatei(kaderFileName, players);
 	}
@@ -276,10 +295,10 @@ public class Mannschaft {
 			Spiel match = matches.get(iter.next());
 			if (match == null)	continue;
 			if (!inThePast(match.getDate(), match.getTime()))	continue;
-			for (Spieler player : kader) {
-				if (!player.isEligible(match.getDate()))	continue;
-				SpielPerformance matchPerformance = match.getMatchPerformance(player);
-				player.getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
+			for (TeamAffiliation affiliation : teamAffiliations) {
+				if (!affiliation.getDuration().includes(match.getDate()))	continue;
+				SpielPerformance matchPerformance = match.getMatchPerformance(affiliation);
+				affiliation.getPlayer().getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
 			}
 		}
 	}
@@ -561,10 +580,11 @@ public class Mannschaft {
 		currentNumberOfPlayersByPosition = new int[4];
 		eligiblePlayers.clear();
 		
-		for (Spieler player : kader) {
-			if (player.isEligible(date)) {
-				eligiblePlayers.add(player);
-				currentNumberOfPlayersByPosition[player.getPosition().getID()]++;
+		for (TeamAffiliation affiliation : teamAffiliations) {
+			if (affiliation.getDuration().includes(date)) {
+				eligiblePlayers.add(affiliation);
+				currentNumberOfPlayersByPosition[affiliation.getPosition().getID()]++;
+				continue;
 			}
 		}
 		
@@ -576,9 +596,9 @@ public class Mannschaft {
 		
 		ineligiblePlayers.clear();
 		
-		for (Spieler player : kader) {
-			if (!player.isEligible(date)) {
-				ineligiblePlayers.add(player);
+		for (TeamAffiliation affiliation : teamAffiliations) {
+			if (!affiliation.getDuration().includes(date)) {
+				ineligiblePlayers.add(affiliation.getPlayer());
 			}
 		}
 		
@@ -590,7 +610,7 @@ public class Mannschaft {
 		return eligiblePlayers.size();
 	}
 	
-	public ArrayList<Spieler> getEligiblePlayers(Datum date, boolean forceUpdate) {
+	public ArrayList<TeamAffiliation> getEligiblePlayers(Datum date, boolean forceUpdate) {
 		updateEligiblePlayers(date, forceUpdate);
 		return eligiblePlayers;
 	}
@@ -600,23 +620,24 @@ public class Mannschaft {
 		return ineligiblePlayers;
 	}
 	
-	public Spieler getPlayer(int squadNumber, Datum date) {
-		for (Spieler player : kader) {
-			if (player.getSquadNumber() == squadNumber && player.isEligible(date))	return player;
+	public TeamAffiliation getAffiliation(int squadNumber, Datum date) {
+		for (TeamAffiliation teamAffiliation : teamAffiliations) {
+			if (teamAffiliation.getSquadNumber() == squadNumber && teamAffiliation.getDuration().includes(date))	return teamAffiliation;
 		}
 		
 		return null;
 	}
 
 	public int[] order(int[] unordered, Datum date) {
-		ArrayList<Spieler> eligiblePlayers = getEligiblePlayers(date, false);
+		ArrayList<TeamAffiliation> eligiblePlayers = getEligiblePlayers(date, false);
 		
 		int counter = 0;
 		int[] ordered = new int[11];
 		boolean[] sqFound = new boolean[11];
-		for (Spieler player : eligiblePlayers) {
+		for (TeamAffiliation affiliation : eligiblePlayers) {
 			for (int i = 0; i < unordered.length; i++) {
-				if (unordered[i] == player.getSquadNumber()) {
+				if (unordered[i] == affiliation.getSquadNumber()) {
+					Spieler player = affiliation.getPlayer();
 					if (sqFound[i]) {
 						message("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
 						log("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());

@@ -202,9 +202,9 @@ public class Spiel {
 		referee.addMatch(this);
 	}
 	
-	public SpielPerformance getMatchPerformance(Spieler player) {
+	public SpielPerformance getMatchPerformance(TeamAffiliation player) {
 		if (result == null)	return null;
-		boolean firstTeam = getTeam(true) == player.getTeam();
+		boolean firstTeam = getTeam(true).equals(player.getTeam());
 		int squadNumber = player.getSquadNumber();
 		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
 		int[] lineup = firstTeam ? lineupHome : lineupAway;
