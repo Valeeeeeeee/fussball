@@ -1,23 +1,23 @@
-Yassine;Bounou;null;19910405;Marokko;Tor;1
-Munir;Mohand;null;19890510;Marokko;Tor;12
-Ahmed;Tagnaouti;null;19960405;Marokko;Tor;22
-Medhi;Benatia;null;19870417;Marokko;Abwehr;5
-Manuel;da Costa;null;19860506;Marokko;Abwehr;4
-Nabil;Dirar;null;19860225;Marokko;Abwehr;17
-Achraf;Hakimi;null;19981104;Marokko;Abwehr;2
-Hamza;Mendyl;null;19971021;Marokko;Abwehr;3
-Romain;Saïss;null;19900326;Marokko;Abwehr;6
-Youssef;'Aït Bennasser';null;19960707;Marokko;Mittelfeld;15
-Noureddine;Amrabat;null;19870331;Marokko;Mittelfeld;16
-Sofyan;Amrabat;null;19960821;Marokko;Mittelfeld;21
-Younès;Belhanda;null;19900225;Marokko, Frankreich;Mittelfeld;10
-Mbark;Boussoufa;null;19840815;Marokko;Mittelfeld;14
-Mehdi;Carcela-González;null;19890701;Marokko;Mittelfeld;23
-Karim;'El Ahmadi';null;19850127;Marokko;Mittelfeld;8
-Fayçal;Fajr;null;19880801;Marokko;Mittelfeld;11
-Amine;Harit;null;19970618;Marokko, Frankreich;Mittelfeld;18
-Hakim;Ziyech;null;19930319;Marokko;Mittelfeld;7
-Aziz;Bouhaddouz;null;19870330;Marokko, Deutschland;Sturm;20
-Khalid;Boutaïb;null;19870424;Marokko;Sturm;13
-Ayoub;'El Kaabi';null;19930625;Marokko;Sturm;9
-Youssef;En-Nesyri;null;19970601;Marokko;Sturm;19
+30185114;Tor;1;20180614-20180715
+30511370;Tor;12;20180614-20180715
+30115158;Tor;22;20180614-20180715
+30173121;Abwehr;5;20180614-20180715
+31377047;Abwehr;4;20180614-20180715
+30335276;Abwehr;17;20180614-20180715
+30273050;Abwehr;2;20180614-20180715
+29720268;Abwehr;3;20180614-20180715
+31809590;Abwehr;6;20180614-20180715
+30068260;Mittelfeld;15;20180614-20180715
+34636246;Mittelfeld;16;20180614-20180715
+30779430;Mittelfeld;21;20180614-20180715
+34802016;Mittelfeld;10;20180614-20180715
+29798240;Mittelfeld;14;20180614-20180715
+30238716;Mittelfeld;23;20180614-20180715
+30955899;Mittelfeld;8;20180614-20180715
+30241604;Mittelfeld;11;20180614-20180715
+29693894;Mittelfeld;18;20180614-20180715
+30488350;Mittelfeld;7;20180614-20180715
+27699738;Sturm;20;20180614-20180715
+30912168;Sturm;13;20180614-20180715
+29682766;Sturm;9;20180614-20180715
+30079774;Sturm;19;20180614-20180715

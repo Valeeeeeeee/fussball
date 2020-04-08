@@ -1,23 +1,23 @@
-Kepa;Arrizabalaga;null;19941003;Spanien;Tor;13
-David;de Gea;null;19901107;Spanien;Tor;1
-José Manuel 'Pepe';Reina;null;19820831;Spanien;Tor;23
-Jordi;Alba;null;19890321;Spanien;Abwehr;18
-César;Azpilicueta;null;19890828;Spanien;Abwehr;14
-'Dani'el;Carvajal;null;19920111;Spanien;Abwehr;2
-Nacho;Monreal;null;19860226;Spanien;Abwehr;16
-José Ignacio;Fernández;Nacho;19900118;Spanien;Abwehr;4
-Álvaro;Odriozola;null;19951214;Spanien;Abwehr;12
-Gerard;Piqué;null;19870202;Spanien;Abwehr;3
-Sergio;Ramos;null;19860330;Spanien;Abwehr;15
-Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;10
-Marco;Asensio;null;19960121;Spanien;Mittelfeld;20
-Sergio;Busquets;null;19880716;Spanien;Mittelfeld;5
-Andrés;Iniesta;null;19840511;Spanien;Mittelfeld;6
-Francisco;Alarcón;Isco;19920421;Spanien;Mittelfeld;22
-Jorge;Resurrección;Koke;19920108;Spanien;Mittelfeld;8
-Saúl;Ñíguez;null;19941121;Spanien;Mittelfeld;7
-Iago;Aspas;null;19870801;Spanien;Sturm;17
-Diego;Costa;null;19881007;Spanien;Sturm;19
-Rodrigo;Moreno;Rodrigo;19910306;Spanien;Sturm;9
-David;Silva;null;19860108;Spanien;Sturm;21
-Lucas;Vázquez;null;19910701;Spanien;Sturm;11
+28395282;Tor;13;20180614-20180715
+30061788;Tor;1;20180614-20180715
+31999464;Tor;23;20180614-20180715
+30637509;Abwehr;18;20180614-20180715
+29238571;Abwehr;14;20180614-20180715
+31563276;Abwehr;2;20180614-20180715
+30443940;Abwehr;16;20180614-20180715
+35405090;Abwehr;4;20180614-20180715
+34523830;Abwehr;12;20180614-20180715
+31911206;Abwehr;3;20180614-20180715
+32039902;Abwehr;15;20180614-20180715
+31758290;Mittelfeld;10;20180614-20180715
+31122548;Mittelfeld;20;20180614-20180715
+31747396;Mittelfeld;5;20180614-20180715
+33119996;Mittelfeld;6;20180614-20180715
+30192132;Mittelfeld;22;20180614-20180715
+30722513;Mittelfeld;8;20180614-20180715
+33363740;Mittelfeld;7;20180614-20180715
+27956952;Sturm;17;20180614-20180715
+29672480;Sturm;19;20180614-20180715
+29075530;Sturm;9;20180614-20180715
+30751335;Sturm;21;20180614-20180715
+30024055;Sturm;11;20180614-20180715

@@ -1,27 +1,27 @@
-Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
-Tobias;Sippel;null;19880322;Deutschland;Tor;21
-Yann;Sommer;null;19881217;Schweiz;Tor;1
-Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
-Andreas;Christensen;null;19960410;Dänemark;Abwehr;3
-Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
-Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
-Martin;Hinteregger;null;19920907;Österreich;Abwehr;5;20160101-
-Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
-Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
-Julian;Korb;null;19920321;Deutschland;Abwehr;27
-Marvin;Schulz;null;19950115;Deutschland;Abwehr;18
-Martin;Stranzl;null;19800616;Österreich;Abwehr;39
-Oscar;Wendt;null;19851024;Schweden;Abwehr;17
-Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;8
-André;Hahn;null;19900813;Deutschland;Mittelfeld;28
-Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;10
-Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
-Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;23;20160101-
-Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;6
-Nico;Schulz;null;19930401;Deutschland;Mittelfeld;14;20150818-
-Lars;Stindl;null;19880826;Deutschland;Mittelfeld;13
-Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
-Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
-Josip;Drmic;null;19920808;Schweiz;Sturm;9;-20160131
-Branimir;Hrgota;null;19930112;Schweden;Sturm;31
-Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
+34434924;Tor;33;20150701-20160630
+31235947;Tor;21;20150701-20160630
+28471008;Tor;1;20150701-20160630
+27914694;Abwehr;4;20150701-20160630
+28353003;Abwehr;3;20150701-20160630
+35382575;Abwehr;15;20150701-20160630
+27838458;Abwehr;30;20150701-20160630
+31338184;Abwehr;5;20160101-20160630
+28505228;Abwehr;24;20150701-20160630
+30270104;Abwehr;19;20150701-20160630
+31225512;Abwehr;27;20150701-20160630
+31936452;Abwehr;18;20150701-20160630
+31538400;Abwehr;39;20150701-20160630
+29902970;Abwehr;17;20150701-20160630
+29853422;Mittelfeld;8;20150701-20160630
+31777182;Mittelfeld;28;20150701-20160630
+29539246;Mittelfeld;10;20150701-20160630
+29888330;Mittelfeld;7;20150701-20160630
+30430301;Mittelfeld;23;20160101-20160630
+30580728;Mittelfeld;6;20150701-20160630
+28059952;Mittelfeld;14;20150818-20160630
+28409380;Mittelfeld;13;20150701-20160630
+32422300;Mittelfeld;16;20150701-20160630
+30466824;Mittelfeld;34;20150701-20160630
+30420865;Sturm;9;20150701-20160131
+32157868;Sturm;31;20150701-20160630
+38206756;Sturm;11;20150701-20160630

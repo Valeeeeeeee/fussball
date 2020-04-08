@@ -1,37 +1,37 @@
-Samuel;Radlinger;null;19921107;Österreich;Tor;30
-Philipp;Tschauner;null;19851103;Deutschland;Tor;13
-Ron-Robert;Zieler;null;19890212;Deutschland;Tor;1
-Miiko;Albornoz;null;19901130;Schweden, Chile;Abwehr;3
-Waldemar;Anton;null;19960720;Deutschland;Abwehr;31
-Fynn;Arkenberg;null;19960304;Deutschland;Abwehr;33;20160201-
-Felipe;Trevizan Martins;Felipe;19870515;Brasilien;Abwehr;20
-André;Hoffmann;null;19930228;Deutschland;Abwehr;15
-Marcelo Antonio;Guedes Filho;Marcelo;19870520;Brasilien;Abwehr;25;-20160131
-Alexander;Milosevic;null;19920130;Schweden;Abwehr;24;20160201-
-Vladimir;Rankovic;null;19930627;Deutschland;Abwehr;27
-Hiroki;Sakai;null;19900412;Japan;Abwehr;4
-Salif;Sané;null;19900825;Senegal, Frankreich;Abwehr;5
-Christian;Schulz;null;19830401;Deutschland;Abwehr;19
-Oliver;Sorg;null;19900529;Deutschland;Abwehr;29
-Leon;Andreasen;null;19830423;Dänemark;Mittelfeld;2
-Mike-Steven;Bähre;null;19950810;Deutschland;Mittelfeld;33;-20160128
-Uffe;Bech;null;19930113;Dänemark;Mittelfeld;17
-Tim;Dierßen;null;19960115;Deutschland;Mittelfeld;34
-Iver;Fossum;null;19960715;Norwegen;Mittelfeld;18;20160101-
-Ceyhun;Gülselam;null;19871225;Türkei;Mittelfeld;6
-Maurice;Hirsch;null;19930530;Deutschland;Mittelfeld;23;-20151231
-Hiroshi;Kiyotake;null;19891112;Japan;Mittelfeld;10
-Felix;Klaus;null;19920913;Deutschland;Mittelfeld;11
-Edgar;Prib;null;19891215;Deutschland;Mittelfeld;7
-Manuel;Schmiedebach;null;19881205;Deutschland;Mittelfeld;8
-Hotaru;Yamaguchi;null;19901006;Japan;Mittelfeld;16;20160101-
-Hugo Miguel;Almeida;null;19840523;Portugal;Sturm;22;20160101-
-Charlison;Benschop;null;19890821;Niederlande, Curaçao;Sturm;35
-Mevlüt;Erdinç;null;19870225;Türkei, Frankreich;Sturm;39;-20151231
-Kenan;Karaman;null;19940305;Deutschland, Türkei;Sturm;26
-Allan;Saint-Maximin;null;19970312;Frankreich;Sturm;14
-Noah-Joel;Sarenren-Bazee;null;19960821;Deutschland;Sturm;37
-Artur;Sobiech;null;19900612;Polen;Sturm;9
-Valmir;Sulejmani;null;19960201;Kosovo, Deutschland;Sturm;38
-Ádám;Szalai;null;19871209;Ungarn;Sturm;28;20160101-
-Marius;Wolf;null;19950527;Deutschland;Sturm;21;20160101-
+31050904;Tor;30;20150701-20160630
+28967258;Tor;13;20150701-20160630
+35358717;Tor;1;20150701-20160630
+29968494;Abwehr;3;20150701-20160630
+32971581;Abwehr;31;20150701-20160630
+28155993;Abwehr;33;20160201-20160630
+31371146;Abwehr;20;20150701-20160630
+32288283;Abwehr;15;20150701-20160630
+38246190;Abwehr;25;20150701-20160131
+30694921;Abwehr;24;20160201-20160630
+32472807;Abwehr;27;20150701-20160630
+31522277;Abwehr;4;20150701-20160630
+30368952;Abwehr;5;20150701-20160630
+31471680;Abwehr;19;20150701-20160630
+31176270;Abwehr;29;20150701-20160630
+28495751;Mittelfeld;2;20150701-20160630
+31217217;Mittelfeld;33;20150701-20160128
+28627652;Mittelfeld;17;20150701-20160630
+29813432;Mittelfeld;34;20150701-20160630
+27713932;Mittelfeld;18;20160101-20160630
+31332358;Mittelfeld;6;20150701-20160630
+29747489;Mittelfeld;23;20150701-20151231
+29279325;Mittelfeld;10;20150701-20160630
+30218846;Mittelfeld;11;20150701-20160630
+29794727;Mittelfeld;7;20150701-20160630
+30886466;Mittelfeld;8;20150701-20160630
+31458479;Mittelfeld;16;20160101-20160630
+30937824;Sturm;22;20160101-20160630
+30433078;Sturm;35;20150701-20160630
+34995252;Sturm;39;20150701-20151231
+30743686;Sturm;26;20150701-20160630
+30369921;Sturm;14;20150701-20160630
+29182474;Sturm;37;20150701-20160630
+30236757;Sturm;9;20150701-20160630
+32034516;Sturm;38;20150701-20160630
+35238219;Sturm;28;20160101-20160630
+32003315;Sturm;21;20160101-20160630

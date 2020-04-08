@@ -1,23 +1,23 @@
-Eduardo;dos Reis Carvalho;Eduardo;19820919;Portugal;Tor;22
-Anthony;Lopes;null;19901001;Portugal;Tor;12
-Rui;Patrício;null;19880215;Portugal;Tor;1
-Bruno;Alves;null;19811127;Portugal;Abwehr;2
-Ricardo;Carvalho;null;19780518;Portugal;Abwehr;6
-Eliseu;Pereira dos Santos;Eliseu;19831001;Portugal;Abwehr;19
-José;Fonte;null;19831222;Portugal;Abwehr;4
-Raphaël;Guerreiro;null;19931222;Portugal;Abwehr;5
-Képler;Laveran Lima Ferreira;Pepe;19830226;Portugal;Abwehr;3
-Cédric;Soares;null;19910831;Portugal;Abwehr;21
-William;Carvalho;null;19920407;Portugal;Mittelfeld;14
-André;Gomes;null;19930730;Portugal;Mittelfeld;15
-João;Mário;null;19930119;Portugal;Mittelfeld;10
-João;Moutinho;null;19860908;Portugal;Mittelfeld;8
-Luís Carlos;Almeida da Cunha;Nani;19861117;Portugal;Mittelfeld;17
-Danilo;Pereira;null;19910909;Portugal;Mittelfeld;13
-Ricardo;Quaresma;null;19830926;Portugal;Mittelfeld;20
-Rafael Alexandre Fernandes;Ferreira Silva;Rafa;19930517;Portugal;Mittelfeld;18
-Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;16
-Adrien;Silva;null;19890315;Portugal;Mittelfeld;23
-Adelino André;Vieira de Freitas;Vieirinha;19860124;Portugal;Mittelfeld;11
-Cristiano Ronaldo;dos Santos Aveiro;Cristiano Ronaldo;19850205;Portugal;Sturm;7
-Éderzito António;Macedo Lopes;Éder;19871222;Portugal;Sturm;9
+29484934;Tor;22;20160610-20160710
+28910036;Tor;12;20160610-20160710
+29455592;Tor;1;20160610-20160710
+29965095;Abwehr;2;20160610-20160710
+29301103;Abwehr;6;20160610-20160710
+30628349;Abwehr;19;20160610-20160710
+27033191;Abwehr;4;20160610-20160710
+30310453;Abwehr;5;20160610-20160710
+30507161;Abwehr;3;20160610-20160710
+29260272;Abwehr;21;20160610-20160710
+29593532;Mittelfeld;14;20160610-20160710
+31836955;Mittelfeld;15;20160610-20160710
+33035670;Mittelfeld;10;20160610-20160710
+32355664;Mittelfeld;8;20160610-20160710
+36000790;Mittelfeld;17;20160610-20160710
+31083061;Mittelfeld;13;20160610-20160710
+29071651;Mittelfeld;20;20160610-20160710
+46979018;Mittelfeld;18;20160610-20160710
+36060483;Mittelfeld;16;20160610-20160710
+31435155;Mittelfeld;23;20160610-20160710
+33851818;Mittelfeld;11;20160610-20160710
+39335306;Sturm;7;20160610-20160710
+38448869;Sturm;9;20160610-20160710

@@ -1,23 +1,23 @@
-Alisson;Ramses Becker;Alisson;19921002;Brasilien;Tor;1
-Cássio;Ramos;Cássio;19870606;Brasilien;Tor;16
-Ederson;Santana de Moraes;null;19930817;Brasilien;Tor;23
-Danilo Luiz;da Silva;Danilo;19910715;Brasilien;Abwehr;14
-Fagner;Conserva Lemos;Fagner;19890611;Brasilien;Abwehr;22
-Filipe Luís;Kasmirski;Filipe Luís;19850809;Brasilien;Abwehr;6
-Pedro;Tonon 'Geromel';null;19850921;Brasilien;Abwehr;4
-Marcelo;Vieira da Silva Junior;Marcelo;19880512;Brasilien;Abwehr;12
-Marcos;Aoás Corrêa;Marquinhos;19940514;Brasilien;Abwehr;13
-João Miranda;de Souza Filho;Miranda;19840907;Brasilien;Abwehr;3
-Thiago Emiliano;da 'Silva';null;19840922;Brasilien;Abwehr;2
-Carlos Henrique;Casimiro;Casemiro;19920223;Brasilien;Mittelfeld;5
-Philippe;Coutinho Correia;null;19920612;Brasilien;Mittelfeld;11
-Fernando Luis;Roza;Fernandinho;19850504;Brasilien;Mittelfeld;17
-Frederico;Rodrigues de Paula Santos;Fred;19930305;Brasilien;Mittelfeld;18
-José Paulo;Bezerra Maciel Júnior;Paulinho;19880725;Brasilien;Mittelfeld;15
-Renato;Soares de Oliveira Augusto;Renato Augusto;19880208;Brasilien;Mittelfeld;8
-Willian;Borges da Silva;Willian;19880809;Brasilien;Mittelfeld;19
-Douglas Costa;de Souza;Douglas Costa;19900914;Brasilien;Sturm;7
-Gabriel Fernando; de 'Jesus';null;19970403;Brasilien;Sturm;9
-Neymar;da Silva Santos Júnior;Neymar;19920205;Brasilien;Sturm;10
-Roberto Firmino;Barbosa de Oliveira;Roberto Firmino;19911002;Brasilien;Sturm;20
-Taison;Barcellos Freda;Taison;19880113;Brasilien;Sturm;21
+28780468;Tor;1;20180614-20180715
+30121029;Tor;16;20180614-20180715
+28930569;Tor;23;20180614-20180715
+33512086;Abwehr;14;20180614-20180715
+31008846;Abwehr;22;20180614-20180715
+37020300;Abwehr;6;20180614-20180715
+30010231;Abwehr;4;20180614-20180715
+29706254;Abwehr;12;20180614-20180715
+32036732;Abwehr;13;20180614-20180715
+39649796;Abwehr;3;20180614-20180715
+39451890;Abwehr;2;20180614-20180715
+40811608;Mittelfeld;5;20180614-20180715
+32145307;Mittelfeld;11;20180614-20180715
+36283255;Mittelfeld;17;20180614-20180715
+30911651;Mittelfeld;18;20180614-20180715
+32271180;Mittelfeld;15;20180614-20180715
+32359803;Mittelfeld;8;20180614-20180715
+29367372;Mittelfeld;19;20180614-20180715
+34652770;Sturm;7;20180614-20180715
+35185188;Sturm;9;20180614-20180715
+32185816;Sturm;10;20180614-20180715
+37174573;Sturm;20;20180614-20180715
+31980724;Sturm;21;20180614-20180715

@@ -1,26 +1,26 @@
-Jaroslav;Drobny;null;19791018;Tschechien;Tor;33;-20181231
-Stefanos;Kapino;null;19940318;Griechenland;Tor;27
-Jiri;Pavlenka;null;19920414;Tschechien;Tor;1
-Luca;Plogmann;null;20000310;Deutschland;Tor;40
-Michael;Zetterer;null;19950712;Deutschland;Tor;16;-20190205
-Ludwig;Augustinsson;null;19940421;Schweden;Abwehr;5
-Marco;Friedl;null;19980316;Österreich;Abwehr;32
-Theodor;'Gebre Selassie';null;19861224;Tschechien;Abwehr;23
-Sebastian;Langkamp;null;19880115;Deutschland;Abwehr;15
-Niklas;Moisander;null;19850929;Finnland;Abwehr;18
-Milos;Veljkovic;null;19950926;Serbien, Schweiz;Abwehr;13
-Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
-Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
-Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
-Florian;Kainz;null;19921024;Österreich;Mittelfeld;7;-20181231
-Davy;Klaassen;null;19930221;Niederlande;Mittelfeld;30
-Kevin;Möhwald;null;19930703;Deutschland;Mittelfeld;6
-Milot;Rashica;null;19960628;Kosovo;Mittelfeld;11
-Nuri;Sahin;null;19880905;Türkei, Deutschland;Mittelfeld;17;20180831-
-Johannes;Eggestein;null;19980508;Deutschland;Sturm;24
-Martin;Harnik;null;19870610;Österreich, Deutschland;Sturm;9
-Aron;Jóhannsson;null;19901110;USA, Island;Sturm;20
-Max;Kruse;null;19880319;Deutschland;Sturm;10
-Yuya;Osako;null;19900518;Japan;Sturm;8
-Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;4
-Joshua;Sargent;null;20000220;USA;Sturm;19
+32802586;Tor;33;20180701-20181231
+32469564;Tor;27;20180701-20190630
+28590912;Tor;1;20180701-20190630
+28081646;Tor;40;20180701-20190630
+28757123;Tor;16;20180701-20190205
+30904992;Abwehr;5;20180701-20190630
+30997082;Abwehr;32;20180701-20190630
+28739849;Abwehr;23;20180701-20190630
+31663540;Abwehr;15;20180701-20190630
+30979120;Abwehr;18;20180701-20190630
+30245926;Abwehr;13;20180701-20190630
+29415199;Mittelfeld;44;20180701-20190630
+29400120;Mittelfeld;22;20180701-20190630
+34374298;Mittelfeld;35;20180701-20190630
+28754062;Mittelfeld;7;20180701-20181231
+28579467;Mittelfeld;30;20180701-20190630
+30679837;Mittelfeld;6;20180701-20190630
+30450084;Mittelfeld;11;20180701-20190630
+28325896;Mittelfeld;17;20180831-20190630
+32701083;Sturm;24;20180701-20190630
+31555309;Sturm;9;20180701-20190630
+27784161;Sturm;20;20180701-20190630
+30008288;Sturm;10;20180701-20190630
+29159371;Sturm;8;20180701-20190630
+28116476;Sturm;4;20180701-20190630
+31903716;Sturm;19;20180701-20190630

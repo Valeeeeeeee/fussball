@@ -1,29 +1,29 @@
-Manuel;Neuer;null;19860327;Deutschland;Tor;1
-José Manuel 'Pepe';Reina;null;19820831;Spanien;Tor;23
-Tom;Starke;null;19810318;Deutschland;Tor;22
-David;Alaba;null;19920624;Österreich;Abwehr;27
-Holger;Badstuber;null;19890313;Deutschland;Abwehr;28
-Medhi;Benatia;null;19870417;Marokko;Abwehr;5
-Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;18
-Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
-Dante Bonfim;Costa Santos;Dante;19831018;Brasilien;Abwehr;4
-Philipp;Lahm;null;19831111;Deutschland;Abwehr;21
-'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
-Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
-Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-'Xabi'er;Alonso Olano;null;19811125;Spanien;Mittelfeld;3
-Gianluca;Gaudino;null;19961111;Deutschland;Mittelfeld;16
-Mario;Götze;null;19920603;Deutschland;Mittelfeld;19
-Pierre-Emile;Højbjerg;null;19950805;Dänemark;Mittelfeld;34;-20141231
-Thomas;Müller;null;19890913;Deutschland;Mittelfeld;25
-Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
-Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
-Sebastian;Rode;null;19901011;Deutschland;Mittelfeld;20
-Bastian;Schweinsteiger;null;19840801;Deutschland;Mittelfeld;31
-Xherdan;Shaqiri;null;19911010;Schweiz;Mittelfeld;11;-20141231
-Rico;Strieder;null;19920706;Deutschland;Mittelfeld;39
-Mitchell;Weiser;null;19940421;Deutschland;Mittelfeld;30
-Lukas;Görtler;null;19940615;Deutschland;Sturm;40
-Sinan;Kurt;null;19960723;Deutschland;Sturm;24
-Robert;Lewandowski;null;19880821;Polen;Sturm;9
-Claudio;Pizarro;null;19781003;Italien, Peru;Sturm;14
+31510684;Tor;1;20140701-20150630
+31999464;Tor;23;20140701-20150630
+29651835;Tor;22;20140701-20150630
+30394973;Abwehr;27;20140701-20150630
+31371655;Abwehr;28;20140701-20150630
+30173121;Abwehr;5;20140701-20150630
+27854775;Abwehr;18;20140701-20150630
+28814504;Abwehr;17;20140701-20150630
+36700890;Abwehr;4;20140701-20150630
+28954904;Abwehr;21;20140701-20150630
+31492782;Abwehr;8;20140701-20150630
+36959870;Abwehr;13;20140701-20150630
+31758290;Mittelfeld;6;20140701-20150630
+30966171;Mittelfeld;3;20140701-20150630
+31326272;Mittelfeld;16;20140701-20150630
+30714792;Mittelfeld;19;20140701-20150630
+36782140;Mittelfeld;34;20140701-20141231
+31282045;Mittelfeld;25;20140701-20150630
+30620237;Mittelfeld;7;20140701-20150630
+30250644;Mittelfeld;10;20140701-20150630
+30952992;Mittelfeld;20;20140701-20150630
+29044074;Mittelfeld;31;20140701-20150630
+28834433;Mittelfeld;11;20140701-20141231
+28064530;Mittelfeld;39;20140701-20150630
+32822516;Mittelfeld;30;20140701-20150630
+30375528;Sturm;40;20140701-20150630
+30652032;Sturm;24;20140701-20150630
+31187776;Sturm;9;20140701-20150630
+28116476;Sturm;14;20140701-20150630

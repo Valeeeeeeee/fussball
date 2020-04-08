@@ -1,23 +1,23 @@
-Leonel;Moreira;null;19900402;Costa Rica;Tor;23
-Keylor;Navas;null;19861215;Costa Rica;Tor;1
-Patrick;Pemberton;null;19820424;Costa Rica;Tor;18
-Johnny;Acosta;null;19830721;Costa Rica;Abwehr;2
-Francisco;Calvo;null;19920708;Costa Rica;Abwehr;15
-Óscar;Duarte;null;19890603;Costa Rica;Abwehr;6
-Cristian;Gamboa;null;19891024;Costa Rica;Abwehr;16
-Giancarlo;González;null;19880208;Costa Rica;Abwehr;3
-Kenner;Gutiérrez;null;19890609;Costa Rica;Abwehr;22
-Bryan;Oviedo;null;19900218;Costa Rica;Abwehr;8
-Ian;Smith;null;19980306;Costa Rica;Abwehr;4
-Kendall;Waston;null;19880101;Costa Rica;Abwehr;19
-Randall;Azofeifa;null;19841230;Costa Rica;Mittelfeld;14
-Christian;Bolaños;null;19840517;Costa Rica;Mittelfeld;7
-Celso;Borges;null;19880527;Costa Rica;Mittelfeld;5
-Daniel;Colindres;null;19850110;Costa Rica;Mittelfeld;9
-David;Guzmán;null;19900218;Costa Rica;Mittelfeld;20
-Bryan;Ruiz;null;19850818;Costa Rica;Mittelfeld;10
-Yeltsin;Tejeda;null;19920317;Costa Rica;Mittelfeld;17
-Rodney;Wallace;null;19880617;Costa Rica;Mittelfeld;13
-Joel;Campbell;null;19920626;Costa Rica;Sturm;12
-Marcos;Ureña;null;19900305;Costa Rica;Sturm;21
-Johan;Venegas;null;19881127;Costa Rica;Sturm;11
+31493319;Tor;23;20180614-20180715
+31430528;Tor;1;20180614-20180715
+29747391;Tor;18;20180614-20180715
+31127070;Abwehr;2;20180614-20180715
+29999138;Abwehr;15;20180614-20180715
+33902735;Abwehr;6;20180614-20180715
+31876293;Abwehr;16;20180614-20180715
+30665157;Abwehr;3;20180614-20180715
+31325355;Abwehr;22;20180614-20180715
+30850146;Abwehr;8;20180614-20180715
+29514667;Abwehr;4;20180614-20180715
+29560970;Abwehr;19;20180614-20180715
+29157654;Mittelfeld;14;20180614-20180715
+31356204;Mittelfeld;7;20180614-20180715
+30142736;Mittelfeld;5;20180614-20180715
+31540487;Mittelfeld;9;20180614-20180715
+30676489;Mittelfeld;20;20180614-20180715
+30431456;Mittelfeld;10;20180614-20180715
+29892916;Mittelfeld;17;20180614-20180715
+31110724;Mittelfeld;13;20180614-20180715
+27916979;Sturm;12;20180614-20180715
+32130516;Sturm;21;20180614-20180715
+29845304;Sturm;11;20180614-20180715

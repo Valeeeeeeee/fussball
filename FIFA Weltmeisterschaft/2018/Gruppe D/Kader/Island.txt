@@ -1,23 +1,23 @@
-Hannes;Halldórsson;null;19840427;Island;Tor;1
-Rúnar;Rúnarsson;null;19950218;Island;Tor;13
-Frederik;Schram;null;19950119;Island;Tor;12
-Kári;Árnason;null;19821013;Island;Abwehr;14
-Hólmar;Eyjólfsson;null;19900806;Island;Abwehr;15
-Sverrir Ingi;Ingason;null;19930805;Island;Abwehr;5
-Hörður;Magnússon;null;19930211;Island;Abwehr;18
-Birkir Már;Sævarsson;null;19841111;Island;Abwehr;2
-Ragnar;Sigurðsson;null;19860619;Island;Abwehr;6
-Ari;Skúlason;null;19870514;Island;Abwehr;23
-Birkir;Bjarnason;null;19880527;Island;Mittelfeld;8
-Samúel;Friðjónsson;null;19960222;Island;Mittelfeld;3
-Rúrik;Gíslason;null;19880225;Island;Mittelfeld;19
-Albert;Guðmundsson;null;19970615;Island;Mittelfeld;4
-Jóhann;Guðmundsson;null;19901027;Island;Mittelfeld;7
-Aron;Gunnarsson;null;19890422;Island;Mittelfeld;17
-Emil;Hallfreðsson;null;19840626;Island;Mittelfeld;20
-Gylfi;Sigurðsson;null;19890908;Island;Mittelfeld;10
-Ólafur;Skúlason;null;19830401;Island;Mittelfeld;16
-Arnór Ingvi;Traustason;null;19930430;Island;Mittelfeld;21
-Jón Daði;Böðvarsson;null;19920525;Island;Sturm;22
-Alfreð;Finnbogason;null;19890201;Island;Sturm;11
-Björn;Sigurðarson;null;19910226;Island;Sturm;9
+31461908;Tor;1;20180614-20180715
+29638337;Tor;13;20180614-20180715
+32298345;Tor;12;20180614-20180715
+27238574;Abwehr;14;20180614-20180715
+29690620;Abwehr;15;20180614-20180715
+35137507;Abwehr;5;20180614-20180715
+29328114;Abwehr;18;20180614-20180715
+33463700;Abwehr;2;20180614-20180715
+31258432;Abwehr;6;20180614-20180715
+28881534;Abwehr;23;20180614-20180715
+31359464;Mittelfeld;8;20180614-20180715
+30486414;Mittelfeld;3;20180614-20180715
+29585148;Mittelfeld;19;20180614-20180715
+30938252;Mittelfeld;4;20180614-20180715
+29787248;Mittelfeld;7;20180614-20180715
+28086722;Mittelfeld;17;20180614-20180715
+28002726;Mittelfeld;20;20180614-20180715
+29876585;Mittelfeld;10;20180614-20180715
+35278116;Mittelfeld;16;20180614-20180715
+32488341;Mittelfeld;21;20180614-20180715
+28486742;Sturm;22;20180614-20180715
+32183418;Sturm;11;20180614-20180715
+35679357;Sturm;9;20180614-20180715

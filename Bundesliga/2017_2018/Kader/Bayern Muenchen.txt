@@ -1,29 +1,29 @@
-Manuel;Neuer;null;19860327;Deutschland;Tor;1
-Tom;Starke;null;19810318;Deutschland;Tor;22
-Sven;Ulreich;null;19880803;Deutschland;Tor;26
-David;Alaba;null;19920624;Österreich;Abwehr;27
-Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;14
-Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
-Marco;Friedl;null;19980316;Österreich;Abwehr;34;-20180124
-Mats;Hummels;null;19881216;Deutschland;Abwehr;5
-Lars 'Lukas';Mai;null;20000331;Deutschland;Abwehr;15
-'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
-Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
-Niklas;Süle;null;19950903;Deutschland;Abwehr;4
-Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29
-Niklas;Dorsch;null;19980115;Deutschland;Mittelfeld;30
-James David;Rodríguez Rubio;James;19910712;Kolumbien;Mittelfeld;11
-Joshua;Kimmich;null;19950208;Deutschland;Mittelfeld;32
-Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
-Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
-Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19
-Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;35;-20170830
-Meritan;Shabani;null;19990315;Deutschland, Kosovo;Mittelfeld;16
-Corentin;Tolisso;null;19940803;Frankreich;Mittelfeld;24
-Arturo;Vidal;null;19870522;Chile;Mittelfeld;23
-Franck;Evina;null;20000705;Deutschland, Kamerun;Sturm;18
-Robert;Lewandowski;null;19880821;Polen;Sturm;9
-Thomas;Müller;null;19890913;Deutschland;Sturm;25
-Sandro;Wagner;null;19871129;Deutschland;Sturm;2;20180101-
-Okyere;Wriedt;null;19940710;Deutschland;Sturm;28
+31510684;Tor;1;20170701-20180630
+29651835;Tor;22;20170701-20180630
+27980460;Tor;26;20170701-20180630
+30394973;Abwehr;27;20170701-20180630
+27854775;Abwehr;14;20170701-20180630
+28814504;Abwehr;17;20170701-20180630
+30997082;Abwehr;34;20170701-20180124
+28309177;Abwehr;5;20170701-20180630
+33289776;Abwehr;15;20170701-20180630
+31492782;Abwehr;8;20170701-20180630
+36959870;Abwehr;13;20170701-20180630
+30981929;Abwehr;4;20170701-20180630
+31758290;Mittelfeld;6;20170701-20180630
+33080936;Mittelfeld;29;20170701-20180630
+31599690;Mittelfeld;30;20170701-20180630
+33224954;Mittelfeld;11;20170701-20180630
+31907874;Mittelfeld;32;20170701-20180630
+30620237;Mittelfeld;7;20170701-20180630
+30250644;Mittelfeld;10;20170701-20180630
+31556379;Mittelfeld;19;20170701-20180630
+36060483;Mittelfeld;35;20170701-20170830
+29817582;Mittelfeld;16;20170701-20180630
+32395072;Mittelfeld;24;20170701-20180630
+31357128;Mittelfeld;23;20170701-20180630
+30401690;Sturm;18;20170701-20180630
+31187776;Sturm;9;20170701-20180630
+31282045;Sturm;25;20170701-20180630
+31468995;Sturm;2;20180101-20180630
+31923884;Sturm;28;20170701-20180630

@@ -1,32 +1,32 @@
-Lukás;Hrádecky;null;19891124;Finnland;Tor;1
-Heinz;Lindner;null;19900717;Österreich;Tor;13
-David;Abraham;null;19860715;Italien, Argentinien;Abwehr;19
-Anderson;Soares de Oliveira;Anderson;19880110;Brasilien;Abwehr;23
-Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;3;20160101-
-Timothy;Chandler;null;19900329;Deutschland, USA;Abwehr;22
-Constant;Djakpa;null;19861017;Elfenbeinküste;Abwehr;15
-Joel;Gerezgiher;null;19951009;Deutschland;Abwehr;32;-20151231
-Aleksandar;Ignjovski;null;19910127;Serbien;Abwehr;27
-David;Kinsombi;null;19951212;Deutschland;Abwehr;31;-20160126
-Bastian;Oczipka;null;19890112;Deutschland;Abwehr;6
-Yanni;Regäsel;null;19960113;Deutschland;Abwehr;2;20160201-
-Carlos;Zambrano;null;19890710;Peru;Abwehr;5
-Stefan;Aigner;null;19870820;Deutschland;Mittelfeld;16
-Änis;Ben-Hatira;null;19880718;Deutschland, Tunesien;Mittelfeld;32;20160201-
-Marco Jhonfai;Fabián de la Mora;null;19890721;Mexiko;Mittelfeld;10;20160101-
-Johannes;Flum;null;19871214;Deutschland;Mittelfeld;18
-Mijat;Gacinovic;null;19950208;Serbien;Mittelfeld;11
-Makoto;Hasebe;null;19840118;Japan;Mittelfeld;20
-Szabolcs;Huszti;null;19830418;Ungarn;Mittelfeld;8;20160101-
-Takashi;Inui;null;19880602;Japan;Mittelfeld;8;-20150825
-Sonny;Kittel;null;19930106;Deutschland;Mittelfeld;28
-Slobodan;Medojevic;null;19901120;Serbien;Mittelfeld;25
-Alexander;Meier;null;19830117;Deutschland;Mittelfeld;14
-Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;7
-Nico;Rinderknecht;null;19971011;Deutschland;Mittelfeld;35
-Marco;Russ;null;19850804;Deutschland;Mittelfeld;4
-Marc;Stendera;null;19951210;Deutschland;Mittelfeld;21
-Luc;Castaignos;null;19920927;Niederlande, Kapverdische Inseln;Sturm;30
-Václav;Kadlec;null;19920520;Tschechien;Sturm;10;-20151231
-Haris;Seferovic;null;19920222;Schweiz;Sturm;9
-Gian-'Luca';Waldschmidt;null;19960519;Deutschland;Sturm;24
+28967338;Tor;1;20150701-20160630
+30288558;Tor;13;20150701-20160630
+30334968;Abwehr;19;20150701-20160630
+32441675;Abwehr;23;20150701-20160630
+27673912;Abwehr;3;20160101-20160630
+29602830;Abwehr;22;20150701-20160630
+31940194;Abwehr;15;20150701-20160630
+27771745;Abwehr;32;20150701-20151231
+34380348;Abwehr;27;20150701-20160630
+30034108;Abwehr;31;20150701-20160126
+29367808;Abwehr;6;20150701-20160630
+31115050;Abwehr;2;20160201-20160630
+31449013;Abwehr;5;20150701-20160630
+30878636;Mittelfeld;16;20150701-20160630
+31367507;Mittelfeld;32;20160201-20160630
+36354605;Mittelfeld;10;20160101-20160630
+32046287;Mittelfeld;18;20150701-20160630
+30808515;Mittelfeld;11;20150701-20160630
+31946968;Mittelfeld;20;20150701-20160630
+32682649;Mittelfeld;8;20160101-20160630
+29841597;Mittelfeld;8;20150701-20150825
+31122041;Mittelfeld;28;20150701-20160630
+32512627;Mittelfeld;25;20150701-20160630
+30680466;Mittelfeld;14;20150701-20160630
+31441917;Mittelfeld;7;20150701-20160630
+27861550;Mittelfeld;35;20150701-20160630
+30645445;Mittelfeld;4;20150701-20160630
+28412210;Mittelfeld;21;20150701-20160630
+28706024;Sturm;30;20150701-20160630
+30099861;Sturm;10;20150701-20151231
+30945777;Sturm;9;20150701-20160630
+29062968;Sturm;24;20150701-20160630

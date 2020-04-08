@@ -1,23 +1,23 @@
-Gianluigi;Buffon;null;19780128;Italien;Tor;1
-Federico;Marchetti;null;19830207;Italien;Tor;13
-Salvatore;Sirigu;null;19870112;Italien;Tor;12
-Andrea;Barzagli;null;19810508;Italien;Abwehr;15
-Leonardo;Bonucci;null;19870501;Italien;Abwehr;19
-Giorgio;Chiellini;null;19840814;Italien;Abwehr;3
-Matteo;Darmian;null;19891202;Italien;Abwehr;4
-Mattia;de Sciglio;null;19921020;Italien;Abwehr;2
-Angelo;Ogbonna Obinze;null;19880523;Italien;Abwehr;5
-Antonio;Candreva;null;19870228;Italien;Mittelfeld;6
-Daniele;de Rossi;null;19830724;Italien;Mittelfeld;16
-Alessandro;Florenzi;null;19910311;Italien;Mittelfeld;8
-Emanuele;Giaccherini;null;19850505;Italien;Mittelfeld;23
-Thiago;Motta;null;19820828;Italien;Mittelfeld;10
-Marco;Parolo;null;19850125;Italien;Mittelfeld;18
-Stefano;Sturaro;null;19930309;Italien;Mittelfeld;14
-Federico;Bernardeschi;null;19940216;Italien;Sturm;21
-Éder;Citadin Martins;Éder;19861115;Italien;Sturm;17
-Stephan;'El Shaarawy';null;19921027;Italien;Sturm;22
-Ciro;Immobile;null;19900220;Italien;Sturm;11
-Lorenzo;Insigne;null;19910604;Italien;Sturm;20
-Graziano;Pellè;null;19850715;Italien;Sturm;9
-Simone;Zaza;null;19910625;Italien;Sturm;7
+31160246;Tor;1;20160610-20160710
+32708501;Tor;13;20160610-20160710
+31995084;Tor;12;20160610-20160710
+30474236;Abwehr;15;20160610-20160710
+32675370;Abwehr;19;20160610-20160710
+28953090;Abwehr;3;20160610-20160710
+31080128;Abwehr;4;20160610-20160710
+31196449;Abwehr;2;20160610-20160710
+30981572;Abwehr;5;20160610-20160710
+29409753;Mittelfeld;6;20160610-20160710
+29206762;Mittelfeld;16;20160610-20160710
+33866955;Mittelfeld;8;20160610-20160710
+31711154;Mittelfeld;23;20160610-20160710
+31315804;Mittelfeld;10;20160610-20160710
+31134157;Mittelfeld;18;20160610-20160710
+29117364;Mittelfeld;14;20160610-20160710
+32743018;Sturm;21;20160610-20160710
+31161474;Sturm;17;20160610-20160710
+28682500;Sturm;22;20160610-20160710
+28413305;Sturm;11;20160610-20160710
+29663914;Sturm;20;20160610-20160710
+31384652;Sturm;9;20160610-20160710
+31511754;Sturm;7;20160610-20160710

@@ -1,30 +1,30 @@
-Ralf;Fährmann;null;19880927;Deutschland;Tor;1
-Fabian;Giefer;null;19900517;Deutschland;Tor;34
-Timon;Wellenreuther;null;19951203;Deutschland;Tor;40
-Christian;Wetklo;null;19800111;Deutschland;Tor;28
-Dennis;Aogo;null;19870114;Deutschland;Abwehr;15
-Kaan;Ayhan;null;19941110;Deutschland, Türkei;Abwehr;24
-Marvin;Friedrich;null;19951213;Deutschland;Abwehr;2
-Christian;Fuchs;null;19860407;Österreich;Abwehr;23
-Benedikt;Höwedes;null;19880229;Deutschland;Abwehr;4
-Jan;Kirchhoff;null;19901001;Deutschland;Abwehr;3
-Sead;Kolasinac;null;19930620;Deutschland, Bosnien-Herzegowina;Abwehr;6
-Joel;Matip;null;19910808;Deutschland, Kamerun;Abwehr;32
-Matija;Nastasic;null;19930328;Serbien;Abwehr;31;20150101-
-Felipe Augusto;Santana;null;19860317;Brasilien;Abwehr;5;-20141231
-Atsuto;Uchida;null;19880327;Japan;Abwehr;22
-Tranquillo;Barnetta;null;19850522;Schweiz;Mittelfeld;27
-Kevin-Prince;Boateng;null;19870306;Ghana, Deutschland;Mittelfeld;9
-Christian;Clemens;null;19910804;Deutschland;Mittelfeld;11;-20141231
-Julian;Draxler;null;19930920;Deutschland;Mittelfeld;10
-Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;8
-Marco;Höger;null;19890916;Deutschland;Mittelfeld;12
-Max;Meyer;null;19950918;Deutschland;Mittelfeld;7
-Roman;Neustädter;null;19880218;Russland, Deutschland;Mittelfeld;33
-Eric-Maxim;Choupo-Moting;null;19890323;Deutschland, Kamerun;Sturm;13
-Jefferson;Farfán;null;19841026;Peru;Sturm;17
-Klaas-Jan;Huntelaar;null;19830812;Niederlande;Sturm;25
-Chinedu;Obasi;null;19860601;Nigeria;Sturm;20
-Felix;Platte;null;19960211;Deutschland;Sturm;36
-Sidney;Sam;null;19880131;Deutschland;Sturm;18
-Leroy;Sané;null;19960111;Deutschland;Sturm;19
+28430528;Tor;1;20140701-20150630
+30773710;Tor;34;20140701-20150630
+30239492;Tor;40;20140701-20150630
+31696272;Tor;28;20140701-20150630
+31590681;Abwehr;15;20140701-20150630
+27673912;Abwehr;24;20140701-20150630
+31063763;Abwehr;2;20140701-20150630
+31451212;Abwehr;23;20140701-20150630
+32648822;Abwehr;4;20140701-20150630
+29163784;Abwehr;3;20140701-20150630
+28177073;Abwehr;6;20140701-20150630
+27814174;Abwehr;32;20140701-20150630
+31882802;Abwehr;31;20150101-20150630
+39015722;Abwehr;5;20140701-20141231
+31500320;Abwehr;22;20140701-20150630
+34558741;Mittelfeld;27;20140701-20150630
+38375307;Mittelfeld;9;20140701-20150630
+31147779;Mittelfeld;11;20140701-20141231
+30766285;Mittelfeld;10;20140701-20150630
+28617585;Mittelfeld;8;20140701-20150630
+30539305;Mittelfeld;12;20140701-20150630
+29641737;Mittelfeld;7;20140701-20150630
+30926503;Mittelfeld;33;20140701-20150630
+33573107;Sturm;13;20140701-20150630
+30716637;Sturm;17;20140701-20150630
+30707802;Sturm;25;20140701-20150630
+28561312;Sturm;20;20140701-20150630
+30708828;Sturm;36;20140701-20150630
+31564396;Sturm;18;20140701-20150630
+31170528;Sturm;19;20140701-20150630

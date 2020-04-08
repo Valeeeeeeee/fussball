@@ -1,26 +1,26 @@
-Manuel;Neuer;null;19860327;Deutschland;Tor;1
-Sven;Ulreich;null;19880803;Deutschland;Tor;26
-David;Alaba;null;19920624;Österreich;Abwehr;27
-Juan;Bernat Velasco;null;19930301;Spanien;Abwehr;14;-20180830
-Jérôme;Boateng;null;19880903;Deutschland;Abwehr;17
-Mats;Hummels;null;19881216;Deutschland;Abwehr;5
-Joshua;Kimmich;null;19950208;Deutschland;Abwehr;32
-'Javi'er;Martínez Aginaga;null;19880902;Spanien;Abwehr;8
-Marcio Rafael;Ferreira de Souza;Rafinha;19850907;Brasilien;Abwehr;13
-Niklas;Süle;null;19950903;Deutschland;Abwehr;4
-Thiago;Alcántara do Nascimento;null;19910411;Spanien;Mittelfeld;6
-Kingsley;Coman;null;19960613;Frankreich;Mittelfeld;29
-Serge;Gnabry;null;19950714;Deutschland;Mittelfeld;22
-Leon;Goretzka;null;19950206;Deutschland;Mittelfeld;18
-James David;Rodríguez Rubio;James;19910712;Kolumbien;Mittelfeld;11
-Wooyeong;Jeong;null;19990920;Südkorea;Mittelfeld;20
-Franck;Ribéry;null;19830407;Frankreich;Mittelfeld;7
-Arjen;Robben;null;19840123;Niederlande;Mittelfeld;10
-Sebastian;Rudy;null;19900228;Deutschland;Mittelfeld;19;-20180826
-Renato Júnior;Luz 'Sanches';null;19970818;Portugal;Mittelfeld;35
-Meritan;Shabani;null;19990315;Deutschland, Kosovo;Mittelfeld;37
-Corentin;Tolisso;null;19940803;Frankreich;Mittelfeld;24
-Alphonso;Davies;null;20001102;Kanada, Liberia;Sturm;19;20190101-
-Robert;Lewandowski;null;19880821;Polen;Sturm;9
-Thomas;Müller;null;19890913;Deutschland;Sturm;25
-Sandro;Wagner;null;19871129;Deutschland;Sturm;2;-20190129
+31510684;Tor;1;20180701-20190630
+27980460;Tor;26;20180701-20190630
+30394973;Abwehr;27;20180701-20190630
+27854775;Abwehr;14;20180701-20180830
+28814504;Abwehr;17;20180701-20190630
+28309177;Abwehr;5;20180701-20190630
+31907874;Abwehr;32;20180701-20190630
+31492782;Abwehr;8;20180701-20190630
+36959870;Abwehr;13;20180701-20190630
+30981929;Abwehr;4;20180701-20190630
+31758290;Mittelfeld;6;20180701-20190630
+33080936;Mittelfeld;29;20180701-20190630
+30615010;Mittelfeld;22;20180701-20190630
+28617585;Mittelfeld;18;20180701-20190630
+33224954;Mittelfeld;11;20180701-20190630
+32055565;Mittelfeld;20;20180701-20190630
+30620237;Mittelfeld;7;20180701-20190630
+30250644;Mittelfeld;10;20180701-20190630
+31556379;Mittelfeld;19;20180701-20180826
+36060483;Mittelfeld;35;20180701-20190630
+29817582;Mittelfeld;37;20180701-20190630
+32395072;Mittelfeld;24;20180701-20190630
+31827778;Sturm;19;20190101-20190630
+31187776;Sturm;9;20180701-20190630
+31282045;Sturm;25;20180701-20190630
+31468995;Sturm;2;20180701-20190129
