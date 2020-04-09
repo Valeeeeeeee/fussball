@@ -64,7 +64,6 @@ public class Mannschaft {
 	private Gruppe group;
 	
 	private String kaderFileName;
-	private int numberOfPlayers;
 	private int numberOfTeamAffiliations;
 	private ArrayList<Spieler> kader = new ArrayList<>();
 	private ArrayList<TeamAffiliation> teamAffiliations = new ArrayList<>();
@@ -136,7 +135,7 @@ public class Mannschaft {
 		return kader;
 	}
 	
-	private void sortPlayers() {
+	private void sortAffiliations() {
 		ArrayList<TeamAffiliation> unsorted = new ArrayList<>();
 		for (TeamAffiliation teamAffiliation : teamAffiliations) {
 			unsorted.add(teamAffiliation);
@@ -160,7 +159,6 @@ public class Mannschaft {
 			kader.add(teamAffiliations.get(i).getPlayer());
 			numberOfPlayersByPosition[teamAffiliations.get(i).getPosition().getID()]++;
 		}
-		numberOfPlayers = kader.size();
 	}
 	
 	public int getNextFreeSquadNumber() {
@@ -186,17 +184,17 @@ public class Mannschaft {
 		return false;
 	}
 	
-	public void addPlayer(TeamAffiliation affiliation) {
+	public void addAffiliation(TeamAffiliation affiliation) {
 		teamAffiliations.add(affiliation);
 		numberOfTeamAffiliations++;
-		sortPlayers();
+		sortAffiliations();
 		distinguishNames();
 		updateEligiblePlayers(today, true);
 		updateIneligiblePlayers(today, true);
 	}
 	
 	public void playerUpdated() {
-		sortPlayers();
+		sortAffiliations();
 		distinguishNames();
 	}
 	
@@ -236,7 +234,7 @@ public class Mannschaft {
 			teamAffiliations.add(teamAffiliation);
 			numberOfTeamAffiliations++;
 		}
-		sortPlayers();
+		sortAffiliations();
 		distinguishNames();
 	}
 	

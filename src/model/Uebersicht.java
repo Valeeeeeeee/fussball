@@ -5,8 +5,10 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
 
 import analyse.SaisonPerformance;
+import util.MyDocumentListener;
 
 import static util.Utilities.*;
 
@@ -61,16 +63,37 @@ public class Uebersicht extends JPanel {
 	private int[] series = new int[] {375, 155, 0, 25, 110, 20};
 	private int[] seriesV = new int[] {500, 155, 0, 25, 20, 20};
 	
+	private int[] bndsSuggestions = new int[] {175, 70, 0, 30, 200, 20};
+	
 	private Rectangle REC_TABLEPNL = new Rectangle(startXStatistics, 240, widthStatistics, 290);
 	private Rectangle REC_LBLNOTABLE = new Rectangle(25, 35, 350, 25);
 	
 	private Rectangle REC_LBLAVERAGEAGE = new Rectangle(20, 135, 125, 20);
 	private Rectangle REC_LBLAVERAGEAGEVAL = new Rectangle(20, 160, 80, 20);
 	private Rectangle REC_LBLNOKADER = new Rectangle(25, 35, 370, 25);
-	private Rectangle REC_BTNADDPLAYER = new Rectangle(235, 5, 120, 25);
+	private Rectangle REC_BTNADDAFFILIATION = new Rectangle(55, 5, 170, 25);
+	private Rectangle REC_BTNADDPLAYER = new Rectangle(265, 5, 120, 25);
+	private Rectangle REC_BTNSAVEAFFILIATION = new Rectangle(415, 5, 110, 25);
 	private Rectangle REC_LBLKADERMORELESS = new Rectangle(445, 5, 80, 25);
 	private Rectangle REC_LBLPLAYERS = new Rectangle(280, 45, 80, 20);
 	private Rectangle REC_LBLUSEDPLAYERS = new Rectangle(280, 70, 140, 20);
+	
+	private Rectangle REC_LBLPLAYER = new Rectangle(25, 40, 80, 20);
+	private Rectangle REC_TFSEARCH = new Rectangle(175, 40, 200, 20);
+	private Rectangle REC_LBLPOSITION = new Rectangle(25, 70, 200, 20);
+	private Rectangle REC_CBPOSITION = new Rectangle(175, 65, 200, 30);
+	private Rectangle REC_LBLSQUADNUMBER = new Rectangle(25, 100, 200, 20);
+	private Rectangle REC_TFSQUADNUMBER = new Rectangle(175, 100, 40, 20);
+	private Rectangle REC_LBLDURATION = new Rectangle(25, 130, 200, 20);
+	private Rectangle REC_CHBENTIRESEASON = new Rectangle(175, 130, 200, 20);
+	private Rectangle REC_LBLFROM = new Rectangle(45, 165, 200, 20);
+	private Rectangle REC_ATCLUBSINCEDAY = new Rectangle(85, 160, 70, 30);
+	private Rectangle REC_ATCLUBSINCEMONTH = new Rectangle(165, 160, 70, 30);
+	private Rectangle REC_ATCLUBSINCEYEAR = new Rectangle(245, 160, 85, 30);
+	private Rectangle REC_LBLTO = new Rectangle(45, 205, 200, 20);
+	private Rectangle REC_ATCLUBUNTILDAY = new Rectangle(85, 200, 70, 30);
+	private Rectangle REC_ATCLUBUNTILMONTH = new Rectangle(165, 200, 70, 30);
+	private Rectangle REC_ATCLUBUNTILYEAR = new Rectangle(245, 200, 85, 30);
 	
 	private Color colorBackground = new Color(255, 128, 128);
 	private Color colorGrey = new Color(128, 128, 128);
@@ -146,8 +169,29 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblNoKader;
 	private JLabel jLblNumberOfPlayers;
 	private JLabel jLblNumberOfUsedPlayers;
+	private JButton jBtnAddAffiliation;
 	private JButton jBtnAddPlayer;
 	private JLabel jLblKaderMoreLess;
+	
+	private JLabel jLblPlayer;
+	private JTextField jTFSearchPlayer;
+	private JLabel jLblSelectedPlayer;
+	private ArrayList<JLabel> jLblsSuggestions;
+	private JLabel jLblPosition;
+	private JComboBox<String> jCBPosition;
+	private JLabel jLblSquadNumber;
+	private JTextField jTFSquadNumber;
+	private JLabel jLblDuration;
+	private JCheckBox jChBEntireSeason;
+	private JLabel jLblFrom;
+	private JLabel jLblTo;
+	private JComboBox<String> jCBAtClubSinceDay;
+	private JComboBox<String> jCBAtClubSinceMonth;
+	private JComboBox<String> jCBAtClubSinceYear;
+	private JComboBox<String> jCBAtClubUntilDay;
+	private JComboBox<String> jCBAtClubUntilMonth;
+	private JComboBox<String> jCBAtClubUntilYear;
+	private JButton jBtnSaveAffiliation;
 
 	private SpielerInformationen playerInformation;
 	
@@ -206,6 +250,7 @@ public class Uebersicht extends JPanel {
 	private Mannschaft[] teams;
 	private ArrayList<Integer> matchdayOrder = new ArrayList<>();
 	
+	private Dauer seasonDuration;
 	private Datum date;
 	
 	private boolean noStats;
@@ -220,6 +265,11 @@ public class Uebersicht extends JPanel {
 	private int numberOfPositions;
 	private boolean showingMoreStats;
 	private boolean showingMoreKader;
+	
+	private int maximumSuggestions = 10;
+	private ArrayList<Spieler> suggestions;
+	private Spieler selectedPlayer;
+	private boolean entireSeason;
 
 	public Uebersicht(LigaSaison season) {
 		super();
@@ -605,6 +655,19 @@ public class Uebersicht extends JPanel {
 				jLblNumberOfUsedPlayers.setBounds(REC_LBLUSEDPLAYERS);
 			}
 			{
+				jBtnAddAffiliation = new JButton();
+				jPnlKader.add(jBtnAddAffiliation);
+				jBtnAddAffiliation.setText("Bestehender Spieler");
+				jBtnAddAffiliation.setBounds(REC_BTNADDAFFILIATION);
+				jBtnAddAffiliation.setFocusable(false);
+				jBtnAddAffiliation.setVisible(false);
+				jBtnAddAffiliation.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						addAffiliation();
+					}
+				});
+			}
+			{
 				jBtnAddPlayer = new JButton();
 				jPnlKader.add(jBtnAddPlayer);
 				jBtnAddPlayer.setText("Neuer Spieler");
@@ -618,6 +681,19 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			{
+				jBtnSaveAffiliation = new JButton();
+				jPnlKader.add(jBtnSaveAffiliation);
+				jBtnSaveAffiliation.setText("Speichern");
+				jBtnSaveAffiliation.setBounds(REC_BTNSAVEAFFILIATION);
+				jBtnSaveAffiliation.setFocusable(false);
+				jBtnSaveAffiliation.setVisible(false);
+				jBtnSaveAffiliation.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						saveAffiliation();
+					}
+				});
+			}
+			{
 				jLblKaderMoreLess = new JLabel();
 				jPnlKader.add(jLblKaderMoreLess);
 				alignRight(jLblKaderMoreLess);
@@ -627,6 +703,165 @@ public class Uebersicht extends JPanel {
 				jLblKaderMoreLess.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
 						showMoreLessFromKader();
+					}
+				});
+			}
+			String[] positionen = new String[Position.values().length];
+			for (int i = 0; i < positionen.length; i++) {
+				positionen[i] = Position.values()[i].getName();
+			}
+			String[] monate = new String[12];
+			for (int i = 1; i <= monate.length; i++) {
+				monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
+			}
+			{
+				jLblPlayer = new JLabel();
+				jPnlKader.add(jLblPlayer);
+				jLblPlayer.setBounds(REC_LBLPLAYER);
+				jLblPlayer.setText("Spieler");
+				jLblPlayer.setVisible(false);
+			}
+			{
+				jTFSearchPlayer = new JTextField();
+				jPnlKader.add(jTFSearchPlayer);
+				jTFSearchPlayer.setBounds(REC_TFSEARCH);
+				jTFSearchPlayer.setVisible(false);
+				jTFSearchPlayer.getDocument().addDocumentListener(new MyDocumentListener() {
+					public void onAllUpdates(DocumentEvent e) {
+						searchSuggestion();
+					}
+				});
+			}
+			{
+				jLblSelectedPlayer = new JLabel();
+				jPnlKader.add(jLblSelectedPlayer);
+				jLblSelectedPlayer.setBounds(REC_TFSEARCH);
+				jLblSelectedPlayer.setVisible(false);
+			}
+			{
+				jLblPosition = new JLabel();
+				jPnlKader.add(jLblPosition);
+				jLblPosition.setBounds(REC_LBLPOSITION);
+				jLblPosition.setText("Position");
+				jLblPosition.setVisible(false);
+			}
+			{
+				jCBPosition = new JComboBox<>();
+				jPnlKader.add(jCBPosition);
+				jCBPosition.setBounds(REC_CBPOSITION);
+				jCBPosition.setModel(new DefaultComboBoxModel<>(positionen));
+				jCBPosition.setVisible(false);
+			}
+			{
+				jLblSquadNumber = new JLabel();
+				jPnlKader.add(jLblSquadNumber);
+				jLblSquadNumber.setBounds(REC_LBLSQUADNUMBER);
+				jLblSquadNumber.setText("Rückennummer");
+				jLblSquadNumber.setVisible(false);
+			}
+			{
+				jTFSquadNumber = new JTextField();
+				jPnlKader.add(jTFSquadNumber);
+				jTFSquadNumber.setBounds(REC_TFSQUADNUMBER);
+				jTFSquadNumber.setVisible(false);
+			}
+			{
+				jLblDuration = new JLabel();
+				jPnlKader.add(jLblDuration);
+				jLblDuration.setBounds(REC_LBLDURATION);
+				jLblDuration.setText("Dauer");
+				jLblDuration.setVisible(false);
+			}
+			{
+				jChBEntireSeason = new JCheckBox();
+				jPnlKader.add(jChBEntireSeason);
+				jChBEntireSeason.setBounds(REC_CHBENTIRESEASON);
+				jChBEntireSeason.setText("gesamte Saison");
+				jChBEntireSeason.setFocusable(false);
+				jChBEntireSeason.setVisible(false);
+				jChBEntireSeason.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						toggleEntireSeason();
+					}
+				});
+			}
+			{
+				jLblFrom = new JLabel();
+				jPnlKader.add(jLblFrom);
+				jLblFrom.setBounds(REC_LBLFROM);
+				jLblFrom.setText("von:");
+				jLblFrom.setVisible(false);
+			}
+			{
+				jCBAtClubSinceDay = new JComboBox<>();
+				jPnlKader.add(jCBAtClubSinceDay);
+				jCBAtClubSinceDay.setBounds(REC_ATCLUBSINCEDAY);
+				jCBAtClubSinceDay.setVisible(false);
+			}
+			{
+				jCBAtClubSinceMonth = new JComboBox<>();
+				jPnlKader.add(jCBAtClubSinceMonth);
+				jCBAtClubSinceMonth.setBounds(REC_ATCLUBSINCEMONTH);
+				jCBAtClubSinceMonth.setModel(new DefaultComboBoxModel<>(monate));
+				jCBAtClubSinceMonth.setVisible(false);
+				jCBAtClubSinceMonth.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							refreshSinceDayModel();
+						}
+					}
+				});
+			}
+			{
+				jCBAtClubSinceYear = new JComboBox<>();
+				jPnlKader.add(jCBAtClubSinceYear);
+				jCBAtClubSinceYear.setBounds(REC_ATCLUBSINCEYEAR);
+				jCBAtClubSinceYear.setVisible(false);
+				jCBAtClubSinceYear.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							refreshSinceDayModel();
+						}
+					}
+				});
+			}
+			{
+				jLblTo = new JLabel();
+				jPnlKader.add(jLblTo);
+				jLblTo.setBounds(REC_LBLTO);
+				jLblTo.setText("bis:");
+				jLblTo.setVisible(false);
+			}
+			{
+				jCBAtClubUntilDay = new JComboBox<>();
+				jPnlKader.add(jCBAtClubUntilDay);
+				jCBAtClubUntilDay.setBounds(REC_ATCLUBUNTILDAY);
+				jCBAtClubUntilDay.setVisible(false);
+			}
+			{
+				jCBAtClubUntilMonth = new JComboBox<>();
+				jPnlKader.add(jCBAtClubUntilMonth);
+				jCBAtClubUntilMonth.setBounds(REC_ATCLUBUNTILMONTH);
+				jCBAtClubUntilMonth.setModel(new DefaultComboBoxModel<>(monate));
+				jCBAtClubUntilMonth.setVisible(false);
+				jCBAtClubUntilMonth.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							refreshUntilDayModel();
+						}
+					}
+				});
+			}
+			{
+				jCBAtClubUntilYear = new JComboBox<>();
+				jPnlKader.add(jCBAtClubUntilYear);
+				jCBAtClubUntilYear.setBounds(REC_ATCLUBUNTILYEAR);
+				jCBAtClubUntilYear.setVisible(false);
+				jCBAtClubUntilYear.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							refreshUntilDayModel();
+						}
 					}
 				});
 			}
@@ -830,7 +1065,8 @@ public class Uebersicht extends JPanel {
 		teamID = team.getId();
 		this.team = team;
 		teams = team.getCompetition().getTeams();
-		playerInformation.setSeasonDuration(team.getCompetition().getStartDate(), team.getCompetition().getFinalDate());
+		seasonDuration = team.getCompetition().getDuration();
+		playerInformation.setSeasonDuration(seasonDuration);
 		date = team.getTodayWithinSeasonBounds();
 		numberOfMatchdays = team.getCompetition().getNumberOfMatchdays();
 		matchdayOrder.clear();
@@ -846,6 +1082,13 @@ public class Uebersicht extends JPanel {
 		showKader();
 		noStats = team.getCompetition() instanceof KORunde;
 		noTable = team.getCompetition() instanceof KORunde;
+		
+		String[] possibleYears = new String[seasonDuration.getToDate().getYear() - seasonDuration.getFromDate().getYear() + 1];
+		for (int i = 0; i < possibleYears.length; i++) {
+			possibleYears[i] = seasonDuration.getFromDate().getYear() + i + "";
+		}
+		jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(possibleYears));
+		jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(possibleYears));
 		
 		fillLabels();
 		showStatistics();
@@ -964,6 +1207,7 @@ public class Uebersicht extends JPanel {
 		jLblNumberOfUsedPlayers.setVisible(!showingMoreKader && hasPlayers);
 		
 		jLblKaderMoreLess.setText(showingMoreKader ? "< weniger" : "mehr dazu >");
+		jBtnAddAffiliation.setVisible(showingMoreKader);
 		jBtnAddPlayer.setVisible(showingMoreKader);
 		int numberOfPlayers = numberOfEligiblePlayers + 4;
 		if (numberOfIneligiblePlayers > 0)	numberOfPlayers += numberOfIneligiblePlayers + 1;
@@ -973,6 +1217,202 @@ public class Uebersicht extends JPanel {
 		jSPKader.setBounds(marginX + widthMatches + marginMiddle, showingMoreKader ? 120 : 535, widthStatistics, getHeight() - (showingMoreKader ? 125 : 540));
 		jPnlStatistics.setVisible(!showingMoreKader);
 		jPnlTableExcerpt.setVisible(!showingMoreKader);
+	}
+	
+	private void addAffiliation() {
+		for (int i = 0; i < jLblsPositions.length; i++) {
+			jLblsPositions[i].setVisible(false);
+		}
+		for (int i = 0; i < jLblsKaderHeader.length; i++) {
+			jLblsKaderHeader[i].setVisible(false);
+		}
+		for (int i = 0; i < jLblsKader.length; i++) {
+			for (int j = 0; j < jLblsKader[i].length; j++) {
+				jLblsKader[i][j].setVisible(false);
+			}
+		}
+		jBtnAddAffiliation.setEnabled(false);
+		jBtnAddPlayer.setEnabled(false);
+		jLblNoKader.setVisible(false);
+		jLblKaderMoreLess.setVisible(false);
+		
+		jLblPlayer.setVisible(true);
+		jTFSearchPlayer.setVisible(true);
+		jBtnSaveAffiliation.setVisible(true);
+		jBtnSaveAffiliation.setEnabled(false);
+		
+		suggestions = new ArrayList<>();
+		jLblsSuggestions = new ArrayList<>();
+		jTFSearchPlayer.setText("");
+		jTFSearchPlayer.requestFocus();
+	}
+	
+	private void searchSuggestion() {
+		for (int i = 0; i < jLblsSuggestions.size(); i++) {
+			jLblsSuggestions.get(i).setVisible(false);
+		}
+		suggestions.clear();
+		jLblsSuggestions.clear();
+		
+		String search = jTFSearchPlayer.getText();
+		if (search.length() < 4)	return;
+		suggestions = Fussball.getMatchingPlayers(search);
+		
+		for (int i = 0; i < suggestions.size() && i < maximumSuggestions; i++) {
+			final int x = i;
+			JLabel label = new JLabel();
+			jPnlKader.add(label);
+			label.setCursor(handCursor);
+			label.setBounds(bndsSuggestions[STARTX], bndsSuggestions[STARTY] + i * bndsSuggestions[GAPY], bndsSuggestions[SIZEX], bndsSuggestions[SIZEY]);
+			label.setText(suggestions.get(i).getFullNameShort());
+			label.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					selectPlayer(x);
+				}
+			});
+			jLblsSuggestions.add(label);
+		}
+		if (suggestions.size() > maximumSuggestions) {
+			JLabel label = new JLabel();
+			jPnlKader.add(label);
+			label.setCursor(handCursor);
+			label.setBounds(bndsSuggestions[STARTX], bndsSuggestions[STARTY] + maximumSuggestions * bndsSuggestions[GAPY], bndsSuggestions[SIZEX], bndsSuggestions[SIZEY]);
+			label.setText(" und " + (suggestions.size() - maximumSuggestions) + " weitere");
+			jLblsSuggestions.add(label);
+		}
+	}
+	
+	private void selectPlayer(int index) {
+		if (index < 0 || index >= suggestions.size())	return;
+		
+		for (int i = 0; i < jLblsSuggestions.size(); i++) {
+			jLblsSuggestions.get(i).setVisible(false);
+		}
+		jTFSearchPlayer.setVisible(false);
+		
+		selectedPlayer = suggestions.get(index);
+		jLblSelectedPlayer.setText(selectedPlayer.getFullNameShort());
+		jCBPosition.setSelectedIndex(2);
+		jTFSquadNumber.setText("" + team.getNextFreeSquadNumber());
+		
+		jCBAtClubSinceYear.setSelectedItem("" + seasonDuration.getFromDate().getYear());
+		jCBAtClubSinceMonth.setSelectedIndex(seasonDuration.getFromDate().getMonth() - 1);
+		jCBAtClubSinceDay.setSelectedIndex(seasonDuration.getFromDate().getDay() - 1);
+		jCBAtClubUntilYear.setSelectedItem("" + seasonDuration.getToDate().getYear());
+		jCBAtClubUntilMonth.setSelectedIndex(seasonDuration.getToDate().getMonth() - 1);
+		jCBAtClubUntilDay.setSelectedIndex(seasonDuration.getToDate().getDay() - 1);
+		
+		jBtnSaveAffiliation.setEnabled(true);
+		jLblSelectedPlayer.setVisible(true);
+		jLblPosition.setVisible(true);
+		jCBPosition.setVisible(true);
+		jLblSquadNumber.setVisible(true);
+		jTFSquadNumber.setVisible(true);
+		jLblDuration.setVisible(true);
+		jChBEntireSeason.setVisible(true);
+		jChBEntireSeason.setSelected(true);
+		entireSeason = false;
+		toggleEntireSeason();
+		jCBPosition.requestFocus();
+	}
+	
+	private void toggleEntireSeason() {
+		entireSeason = !entireSeason;
+		jLblFrom.setVisible(!entireSeason);
+		jCBAtClubSinceDay.setVisible(!entireSeason);
+		jCBAtClubSinceMonth.setVisible(!entireSeason);
+		jCBAtClubSinceYear.setVisible(!entireSeason);
+		jLblTo.setVisible(!entireSeason);
+		jCBAtClubUntilDay.setVisible(!entireSeason);
+		jCBAtClubUntilMonth.setVisible(!entireSeason);
+		jCBAtClubUntilYear.setVisible(!entireSeason);
+	}
+	
+	private void refreshSinceDayModel() {
+		int month = jCBAtClubSinceMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem());
+		int daysInMonth = numberOfDaysInMonth(month, year);
+		String[] days = new String[daysInMonth];
+		for (int i = 1; i <= days.length; i++) {
+			days[i - 1] = (i / 10) + "" + (i % 10) + ".";
+		}
+		int day = jCBAtClubSinceDay.getSelectedIndex();
+		jCBAtClubSinceDay.setModel(new DefaultComboBoxModel<>(days));
+		jCBAtClubSinceDay.setSelectedIndex(Math.min(day, days.length - 1));
+	}
+	
+	private void refreshUntilDayModel() {
+		int month = jCBAtClubUntilMonth.getSelectedIndex() + 1, year = Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem());
+		int daysInMonth = numberOfDaysInMonth(month, year);
+		String[] days = new String[daysInMonth];
+		for (int i = 1; i <= days.length; i++) {
+			days[i - 1] = (i / 10) + "" + (i % 10) + ".";
+		}
+		int day = jCBAtClubUntilDay.getSelectedIndex();
+		jCBAtClubUntilDay.setModel(new DefaultComboBoxModel<>(days));
+		jCBAtClubUntilDay.setSelectedIndex(Math.min(day, days.length - 1));
+	}
+	
+	private void saveAffiliation() {
+		Position position = Position.getPositionFromString((String) jCBPosition.getSelectedItem());
+		int squadNumber = 0;
+		try {
+			squadNumber = Integer.parseInt(jTFSquadNumber.getText());
+		} catch(NumberFormatException nfe) {
+			message("Bitte eine gültige Rückennummer angeben.");
+			return;
+		}
+		Dauer duration = null;
+		if (!entireSeason) {
+			Datum firstDate = new Datum(jCBAtClubSinceDay.getSelectedIndex() + 1, jCBAtClubSinceMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubSinceYear.getSelectedItem()));
+			Datum lastDate = new Datum(jCBAtClubUntilDay.getSelectedIndex() + 1, jCBAtClubUntilMonth.getSelectedIndex() + 1, Integer.parseInt((String) jCBAtClubUntilYear.getSelectedItem()));
+			if (!seasonDuration.includes(firstDate) || !seasonDuration.includes(lastDate)) {
+				message("Die Daten müssen im Bereich der Dauer der Saison (" + seasonDuration.withDividers() + ") liegen!");
+				return;
+			}
+			duration = new Dauer(firstDate, lastDate);
+		} else {
+			duration = seasonDuration;
+		}
+		for (Spieler player : team.getPlayers()) {
+			if (player.hasUsedSquadNumber(squadNumber, team, duration)) {
+				message("Diese Rückennummer kann nicht verwendet werden, da sie bereits einem anderen Spieler zugeteilt ist.");
+				return;
+			}
+		}
+		
+		TeamAffiliation affiliation = new TeamAffiliation(team, selectedPlayer, position, squadNumber, duration);
+		if (selectedPlayer.hasConflictingTeamAffiliation(affiliation, duration)) {
+			message("Der Spieler steht im genannten Zeitraum bei einem anderen Verein unter Vertrag!");
+			return;
+		}
+		
+		selectedPlayer.addTeamAffiliation(affiliation);
+		team.addAffiliation(affiliation);
+		team.playerUpdated();
+		
+		jLblPlayer.setVisible(false);
+		jLblSelectedPlayer.setVisible(false);
+		jLblPosition.setVisible(false);
+		jCBPosition.setVisible(false);
+		jLblSquadNumber.setVisible(false);
+		jTFSquadNumber.setVisible(false);
+		jLblDuration.setVisible(false);
+		jChBEntireSeason.setVisible(false);
+		jLblFrom.setVisible(false);
+		jCBAtClubSinceDay.setVisible(false);
+		jCBAtClubSinceMonth.setVisible(false);
+		jCBAtClubSinceYear.setVisible(false);
+		jLblTo.setVisible(false);
+		jCBAtClubUntilDay.setVisible(false);
+		jCBAtClubUntilMonth.setVisible(false);
+		jCBAtClubUntilYear.setVisible(false);
+		jBtnSaveAffiliation.setVisible(false);
+		
+		jBtnAddAffiliation.setEnabled(true);
+		jBtnAddPlayer.setEnabled(true);
+		jLblKaderMoreLess.setVisible(true);
+		
+		showKader();
 	}
 	
 	private void addPlayer() {

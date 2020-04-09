@@ -645,7 +645,7 @@ public class SpielerInformationen extends JFrame {
 			Dauer duration = new Dauer(firstDate, lastDate);
 			
 			if (!seasonDuration.includes(firstDate) || !seasonDuration.includes(lastDate)) {
-				message("Die Daten müssen im Bereich der Dauer der Saison(" + seasonDuration.withDividers() + ") liegen!");
+				message("Die Daten müssen im Bereich der Dauer der Saison (" + seasonDuration.withDividers() + ") liegen!");
 				return false;
 			}
 			
@@ -681,7 +681,7 @@ public class SpielerInformationen extends JFrame {
 				}
 				primaryAffiliation = new TeamAffiliation(team, player, position, squadNumber, duration);
 				player.addTeamAffiliation(primaryAffiliation);
-				team.addPlayer(primaryAffiliation);
+				team.addAffiliation(primaryAffiliation);
 				addingNewPlayer = false;
 				this.player = player;
 			} else {
@@ -944,10 +944,10 @@ public class SpielerInformationen extends JFrame {
 		return primaryAffiliation;
 	}
 	
-	public void setSeasonDuration(Datum startDate, Datum finalDate) {
-		START_OF_SEASON = startDate;
-		END_OF_SEASON = finalDate;
-		seasonDuration = new Dauer(START_OF_SEASON, END_OF_SEASON);
+	public void setSeasonDuration(Dauer duration) {
+		seasonDuration = duration;
+		START_OF_SEASON = seasonDuration.getFromDate();
+		END_OF_SEASON = seasonDuration.getToDate();
 	}
 	
 	public void setPlayer(Spieler player, Mannschaft team) {

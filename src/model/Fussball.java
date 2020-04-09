@@ -975,13 +975,24 @@ public class Fussball extends JFrame {
 		return players.get(id);
 	}
 	
+	public static ArrayList<Spieler> getMatchingPlayers(String search) {
+		ArrayList<Spieler> matchingPlayers = new ArrayList<>();
+		
+		Set<Integer> ids = players.keySet();
+		for (Integer id : ids) {
+			Spieler player = players.get(id);
+			if (removeUmlaute(player.getFullNameShort().toLowerCase()).contains(removeUmlaute(search.toLowerCase())))	matchingPlayers.add(player);
+		}
+		
+		return matchingPlayers;
+	}
+	
 	public static boolean addNewPlayer(Spieler newPlayer) {
 		if (players.containsKey(newPlayer.getID())) {
 			message("Der Spieler konnte nicht hinzugefügt werden, weil die ID schon vergeben ist!");
 			return false;
 		}
 		players.put(newPlayer.getID(), newPlayer);
-		message("ok - hinzugefügt");
 		return true;
 	}
 	
