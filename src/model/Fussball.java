@@ -1426,6 +1426,7 @@ public class Fussball extends JFrame {
 			
 			if (LeagueHomescreen.isVisible()) {
 				currentLeague.save();
+				savePlayers();
 				refreshRunningAndCompletedMatches();
 				LeagueHomescreen.setVisible(false);
 				Homescreen.setVisible(true);
@@ -1491,6 +1492,7 @@ public class Fussball extends JFrame {
 			
 			if (TournamentHomescreen.isVisible()) {
 				currentTournament.save();
+				savePlayers();
 				refreshRunningAndCompletedMatches();
 				TournamentHomescreen.setVisible(false);
 				Homescreen.setVisible(true);

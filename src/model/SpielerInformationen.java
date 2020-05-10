@@ -609,12 +609,12 @@ public class SpielerInformationen extends JFrame {
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
-			jTFPopularName.setText(jLblPopularName.getText());
+			jTFPopularName.setText(player.getPopularName() != null ? player.getPopularName() : "");
 			jCBBirthYear.setSelectedItem(player.getBirthDate().getYear() + "");
 			jCBBirthMonth.setSelectedIndex(player.getBirthDate().getMonth() - 1);
 			jCBBirthDay.setSelectedIndex(player.getBirthDate().getDay() - 1);
 			jCBPositions.setSelectedItem(jLblPositionVal.getText());
-			jTFNationality.setText(jLblNationalityVal.getText());
+			jTFNationality.setText(player.getNationality());
 			
 			Datum firstDate = getAffiliation().getDuration().getFromDate(), lastDate = getAffiliation().getDuration().getToDate();
 			boolean sinceSet = !firstDate.equals(START_OF_SEASON), untilSet = !lastDate.equals(END_OF_SEASON);
