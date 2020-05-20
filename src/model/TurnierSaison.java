@@ -165,6 +165,10 @@ public class TurnierSaison {
 		return isQ ? qTeamsHaveKader : teamsHaveKader;
 	}
 	
+	public int getNumberOfRegularSubstitutions() {
+		return Fussball.numberOfRegularSubstitutions;
+	}
+	
 	public boolean isFourthSubPossible() {
 		return isFourthSubPossible;
 	}

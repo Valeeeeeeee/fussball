@@ -172,6 +172,10 @@ public class Gruppe implements Wettbewerb {
 		return false;
 	}
 	
+	public int getNumberOfRegularSubstitutions() {
+		return season.getNumberOfRegularSubstitutions();
+	}
+	
 	public boolean isFourthSubstitutionPossible() {
 		return false;
 	}

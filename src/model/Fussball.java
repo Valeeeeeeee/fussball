@@ -43,6 +43,8 @@ public class Fussball extends JFrame {
 	private Font fontMissingResults = new Font("Lucida Grande", 1, 24);
 	public static final int numberOfMissingResults = 20;
 	
+	public static final int numberOfRegularSubstitutions = 3;
+	
 	private int numberOfLeagues;
 	private int numberOfTournaments;
 	

@@ -168,7 +168,6 @@ public class SpielInformationen extends JFrame {
 	private static final int PENALTY_OUT = 2;
 	
 	private static final int numberOfPlayersInLineUp = 11;
-	private static final int maximumNumberOfSubstitutionsRT = 3;
 
 	private int[] boundsLSP = new int[] {5, 5, 135, 21, 130, 20};
 	private int playersPerColumn = 13;
@@ -210,6 +209,7 @@ public class SpielInformationen extends JFrame {
 	
 	private boolean isETpossible = false;
 	private boolean is4thSubPossible = false;
+	private int maximumNumberOfSubstitutionsRT;
 	
 	private JButton jBtnGo;
 
@@ -227,6 +227,7 @@ public class SpielInformationen extends JFrame {
 		bookings = match.getBookings();
 		this.result = result;
 		isETpossible = match.getCompetition().isExtraTimePossible();
+		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions();
 		is4thSubPossible = match.getCompetition().isFourthSubstitutionPossible();
 		
 		initGUI();

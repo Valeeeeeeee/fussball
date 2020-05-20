@@ -178,6 +178,10 @@ public class LigaSaison implements Wettbewerb {
 		return false;
 	}
 	
+	public int getNumberOfRegularSubstitutions() {
+		return Fussball.numberOfRegularSubstitutions;
+	}
+	
 	public boolean isFourthSubstitutionPossible() {
 		return false;
 	}
