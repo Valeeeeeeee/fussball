@@ -163,8 +163,8 @@ public class KORunde implements Wettbewerb {
 		return isETPossible;
 	}
 	
-	public int getNumberOfRegularSubstitutions() {
-		return tSeason.getNumberOfRegularSubstitutions();
+	public int getNumberOfRegularSubstitutions(Datum date) {
+		return tSeason.getNumberOfRegularSubstitutions(date);
 	}
 	
 	public boolean isFourthSubstitutionPossible() {

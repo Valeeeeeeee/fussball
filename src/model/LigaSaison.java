@@ -5,6 +5,7 @@ import static util.Utilities.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 
 public class LigaSaison implements Wettbewerb {
@@ -19,6 +20,8 @@ public class LigaSaison implements Wettbewerb {
 	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	private boolean hasPlayoffs;
+	
+	private HashMap<Dauer, Integer> numberOfSubstitutions;
 	
 	private int numberOfReferees;
 	private ArrayList<Schiedsrichter> referees;
@@ -178,7 +181,13 @@ public class LigaSaison implements Wettbewerb {
 		return false;
 	}
 	
-	public int getNumberOfRegularSubstitutions() {
+	public int getNumberOfRegularSubstitutions(Datum date) {
+		if (!numberOfSubstitutions.isEmpty()) {
+			Set<Dauer> durations = numberOfSubstitutions.keySet();
+			for (Dauer duration : durations) {
+				if (duration.includes(date))	return numberOfSubstitutions.get(duration);
+			}
+		}
 		return Fussball.numberOfRegularSubstitutions;
 	}
 	
@@ -1199,6 +1208,20 @@ public class LigaSaison implements Wettbewerb {
 		toString += getAnzahlRepresentation() + ";";
 		toString += hasPlayoffs + ";";
 		
+		if (!numberOfSubstitutions.isEmpty()) {
+			ArrayList<String> subs = new ArrayList<>();
+			Set<Dauer> durations = numberOfSubstitutions.keySet();
+			for (Dauer duration : durations) {
+				addAscending(subs, duration.toString() + ":" + numberOfSubstitutions.get(duration));
+			}
+			String addData = "", sep = "";
+			for (int i = 0; i < subs.size(); i++) {
+				addData += sep + subs.get(i);
+				sep = ",";
+			}
+			toString += addData;
+		}
+		
 		return toString;
 	}
 	
@@ -1215,5 +1238,14 @@ public class LigaSaison implements Wettbewerb {
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		numberOf = getAnzahlFromString(split[index++]);
 		hasPlayoffs = Boolean.parseBoolean(split[index++]);
+		
+		numberOfSubstitutions = new HashMap<>();
+		if (split.length > index) {
+			String[] addData = split[index].split(",");
+			for (int i = 0; i < addData.length; i++) {
+				String[] addDataSplit = addData[i].split(":");
+				numberOfSubstitutions.put(new Dauer(addDataSplit[0]), Integer.parseInt(addDataSplit[1]));
+			}
+		}
 	}
 }

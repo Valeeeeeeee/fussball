@@ -73,6 +73,7 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_LBLNOKADER = new Rectangle(25, 35, 370, 25);
 	private Rectangle REC_BTNADDAFFILIATION = new Rectangle(55, 5, 170, 25);
 	private Rectangle REC_BTNADDPLAYER = new Rectangle(265, 5, 120, 25);
+	private Rectangle REC_BTNCANCEL = new Rectangle(415, 5, 110, 25);
 	private Rectangle REC_BTNSAVEAFFILIATION = new Rectangle(415, 5, 110, 25);
 	private Rectangle REC_LBLKADERMORELESS = new Rectangle(445, 5, 80, 25);
 	private Rectangle REC_LBLPLAYERS = new Rectangle(280, 45, 80, 20);
@@ -191,6 +192,7 @@ public class Uebersicht extends JPanel {
 	private JComboBox<String> jCBAtClubUntilDay;
 	private JComboBox<String> jCBAtClubUntilMonth;
 	private JComboBox<String> jCBAtClubUntilYear;
+	private JButton jBtnCancelAffiliation;
 	private JButton jBtnSaveAffiliation;
 
 	private SpielerInformationen playerInformation;
@@ -681,6 +683,19 @@ public class Uebersicht extends JPanel {
 				});
 			}
 			{
+				jBtnCancelAffiliation = new JButton();
+				jPnlKader.add(jBtnCancelAffiliation);
+				jBtnCancelAffiliation.setText("abbrechen");
+				jBtnCancelAffiliation.setBounds(REC_BTNCANCEL);
+				jBtnCancelAffiliation.setFocusable(false);
+				jBtnCancelAffiliation.setVisible(false);
+				jBtnCancelAffiliation.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent evt) {
+						cancelAffiliation();
+					}
+				});
+			}
+			{
 				jBtnSaveAffiliation = new JButton();
 				jPnlKader.add(jBtnSaveAffiliation);
 				jBtnSaveAffiliation.setText("Speichern");
@@ -1006,7 +1021,7 @@ public class Uebersicht extends JPanel {
 		
 		boolean hasPlayers = numberOfEligiblePlayers > 0;
 		jLblKaderMoreLess.setVisible(hasPlayers || canHaveKader);
-		jLblNoKader.setVisible(!showingMoreKader && !hasPlayers);
+		jLblNoKader.setVisible(!hasPlayers);
 		jLblAverageAge.setVisible(!showingMoreKader && hasPlayers);
 		jLblAverageAgeVal.setVisible(!showingMoreKader && hasPlayers);
 		jLblNumberOfPlayers.setVisible(!showingMoreKader && hasPlayers);
@@ -1238,8 +1253,7 @@ public class Uebersicht extends JPanel {
 		
 		jLblPlayer.setVisible(true);
 		jTFSearchPlayer.setVisible(true);
-		jBtnSaveAffiliation.setVisible(true);
-		jBtnSaveAffiliation.setEnabled(false);
+		jBtnCancelAffiliation.setVisible(true);
 		
 		suggestions = new ArrayList<>();
 		jLblsSuggestions = new ArrayList<>();
@@ -1302,7 +1316,8 @@ public class Uebersicht extends JPanel {
 		jCBAtClubUntilMonth.setSelectedIndex(seasonDuration.getToDate().getMonth() - 1);
 		jCBAtClubUntilDay.setSelectedIndex(seasonDuration.getToDate().getDay() - 1);
 		
-		jBtnSaveAffiliation.setEnabled(true);
+		jBtnCancelAffiliation.setVisible(false);
+		jBtnSaveAffiliation.setVisible(true);
 		jLblSelectedPlayer.setVisible(true);
 		jLblPosition.setVisible(true);
 		jCBPosition.setVisible(true);
@@ -1350,6 +1365,22 @@ public class Uebersicht extends JPanel {
 		int day = jCBAtClubUntilDay.getSelectedIndex();
 		jCBAtClubUntilDay.setModel(new DefaultComboBoxModel<>(days));
 		jCBAtClubUntilDay.setSelectedIndex(Math.min(day, days.length - 1));
+	}
+	
+	private void cancelAffiliation() {
+		jLblPlayer.setVisible(false);
+		jTFSearchPlayer.setVisible(false);
+		jBtnCancelAffiliation.setVisible(false);
+		
+		for (int i = 0; i < jLblsSuggestions.size(); i++) {
+			jLblsSuggestions.get(i).setVisible(false);
+		}
+		
+		jBtnAddAffiliation.setEnabled(true);
+		jBtnAddPlayer.setEnabled(true);
+		jLblKaderMoreLess.setVisible(true);
+		
+		showKader();
 	}
 	
 	private void saveAffiliation() {

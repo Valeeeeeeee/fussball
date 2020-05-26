@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static util.Utilities.*;
 
@@ -28,6 +29,8 @@ public class TurnierSaison {
 	private boolean teamsHaveKader;
 	private boolean qTeamsHaveKader;
 	private boolean isFourthSubPossible;
+	
+	private HashMap<Dauer, Integer> numberOfSubstitutions;
 	
 	private Map<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
@@ -165,7 +168,13 @@ public class TurnierSaison {
 		return isQ ? qTeamsHaveKader : teamsHaveKader;
 	}
 	
-	public int getNumberOfRegularSubstitutions() {
+	public int getNumberOfRegularSubstitutions(Datum date) {
+		if (!numberOfSubstitutions.isEmpty()) {
+			Set<Dauer> durations = numberOfSubstitutions.keySet();
+			for (Dauer duration : durations) {
+				if (duration.includes(date))	return numberOfSubstitutions.get(duration);
+			}
+		}
 		return Fussball.numberOfRegularSubstitutions;
 	}
 	
@@ -943,6 +952,20 @@ public class TurnierSaison {
 		toString += teamsHaveKader + ";";
 		toString += isFourthSubPossible + ";";
 		
+		if (!numberOfSubstitutions.isEmpty()) {
+			ArrayList<String> subs = new ArrayList<>();
+			Set<Dauer> durations = numberOfSubstitutions.keySet();
+			for (Dauer duration : durations) {
+				addAscending(subs, duration.toString() + ":" + numberOfSubstitutions.get(duration));
+			}
+			String addData = "", sep = "";
+			for (int i = 0; i < subs.size(); i++) {
+				addData += sep + subs.get(i);
+				sep = ",";
+			}
+			toString += addData;
+		}
+		
 		return toString;
 	}
 	
@@ -960,5 +983,14 @@ public class TurnierSaison {
 		matchForThirdPlace = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		isFourthSubPossible = Boolean.parseBoolean(split[index++]);
+		
+		numberOfSubstitutions = new HashMap<>();
+		if (split.length > index) {
+			String[] addData = split[index].split(",");
+			for (int i = 0; i < addData.length; i++) {
+				String[] addDataSplit = addData[i].split(":");
+				numberOfSubstitutions.put(new Dauer(addDataSplit[0]), Integer.parseInt(addDataSplit[1]));
+			}
+		}
 	}
 }

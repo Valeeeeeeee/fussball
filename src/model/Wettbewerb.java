@@ -40,7 +40,7 @@ public interface Wettbewerb {
 	public ArrayList<String[]> getAllMatches(Mannschaft team);
 	
 	public boolean isExtraTimePossible();
-	public int getNumberOfRegularSubstitutions();
+	public int getNumberOfRegularSubstitutions(Datum date);
 	public boolean isFourthSubstitutionPossible();
 	
 	/** 

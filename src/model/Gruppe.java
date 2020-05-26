@@ -172,8 +172,8 @@ public class Gruppe implements Wettbewerb {
 		return false;
 	}
 	
-	public int getNumberOfRegularSubstitutions() {
-		return season.getNumberOfRegularSubstitutions();
+	public int getNumberOfRegularSubstitutions(Datum date) {
+		return season.getNumberOfRegularSubstitutions(date);
 	}
 	
 	public boolean isFourthSubstitutionPossible() {

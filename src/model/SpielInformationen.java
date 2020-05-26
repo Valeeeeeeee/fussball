@@ -227,7 +227,7 @@ public class SpielInformationen extends JFrame {
 		bookings = match.getBookings();
 		this.result = result;
 		isETpossible = match.getCompetition().isExtraTimePossible();
-		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions();
+		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions(match.getDate());
 		is4thSubPossible = match.getCompetition().isFourthSubstitutionPossible();
 		
 		initGUI();
