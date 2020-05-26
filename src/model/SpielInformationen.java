@@ -12,7 +12,7 @@ public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
 	private static final int WIDTH = 950;
-	private static final int HEIGHT = 550;
+	private static final int HEIGHT = 600;
 	
 	private int matchIndex;
 	private Spiel match;
@@ -84,15 +84,15 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnPenaltiesCompleted;
 	
 	// Obere Labels
-	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, 950, 550);
+	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, WIDTH, HEIGHT);
 	private Rectangle REC_LBLCOMPETITION = new Rectangle(275, 10, 400, 20);
 	private Rectangle REC_LBLDATE = new Rectangle(415, 35, 120, 25);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(100, 60, 330, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(435, 60, 80, 40);
 	private Rectangle REC_LBLZUSATZ = new Rectangle(445, 90, 60, 20);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(520, 60, 330, 40);
-	private Rectangle REC_LBLREFEREE = new Rectangle(425, 485, 100, 20);
-	private Rectangle REC_CBREFEREES = new Rectangle(375, 510, 200, 25);
+	private Rectangle REC_LBLREFEREE = new Rectangle(425, 535, 100, 20);
+	private Rectangle REC_CBREFEREES = new Rectangle(375, 560, 200, 25);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(335, 35, 70, 25);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(545, 35, 70, 25);
 	
