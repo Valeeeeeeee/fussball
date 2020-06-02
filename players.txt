@@ -258,6 +258,7 @@
 28386147;Andreas;Cornelius;null;19930316;Dänemark;
 28390014;Josh;Magennis;null;19900815;Nordirland;
 28391043;Leon;Balogun;null;19880628;Nigeria, Deutschland;
+28391555;Braydon;Manu;null;19970328;Deutschland, Ghana;
 28391877;Yong;Lee;null;19861224;Südkorea;
 28392960;Luke;McCullough;null;19940215;Nordirland;
 28395282;Kepa;Arrizabalaga;null;19941003;Spanien;
@@ -845,6 +846,7 @@
 29766929;Patrick;Banggaard;null;19940404;Dänemark;
 29767435;Oussama;Haddadi;null;19920128;Tunesien;
 29768559;Péter;Gulácsi;null;19900506;Ungarn;
+29771964;Melayro;Bogarde;null;20020528;Niederlande, Suriname;
 29773317;Hendrik;Bonmann;null;19940122;Deutschland;
 29778605;Javairo;Dilrosun;null;19980622;Niederlande;
 29778972;Taulant;Xhaka;null;19910328;Albanien;
@@ -1861,6 +1863,7 @@
 31170528;Leroy;Sané;null;19960111;Deutschland;
 31173790;Steven;Zellner;null;19910314;Deutschland;
 31173950;Julian;Schauerte;null;19880402;Deutschland;
+31173992;Mateu;Morey;null;20000302;Spanien;
 31174689;Christoph;Hemlein;null;19901216;Deutschland;
 31174738;Julian;Schuster;null;19850415;Deutschland;
 31176270;Oliver;Sorg;null;19900529;Deutschland;
@@ -2065,6 +2068,7 @@
 31457108;Stefan;Wannenwetsch;null;19920119;Deutschland;
 31458479;Hotaru;Yamaguchi;null;19901006;Japan;
 31459724;Baboucarr;Gaye;null;19980224;Deutschland;
+31461337;Oliver;'Batista Meier';null;20010216;Deutschland, Brasilien;
 31461908;Hannes;Halldórsson;null;19840427;Island;
 31463328;Martin;Lanig;null;19840711;Deutschland;
 31463682;Christian;Gartner;null;19940403;Österreich;
@@ -2178,6 +2182,7 @@
 31603858;Christian;Eriksen;null;19920214;Dänemark;
 31604454;Makana;Baku;null;19980408;Deutschland, DR Kongo;
 31606144;László;Sepsi;null;19870607;Rumänien;
+31607333;Njegos;Kupusovic;null;20010222;Serbien;
 31612416;Viktor;Fischer;null;19940609;Dänemark;
 31613923;Rafael;Márquez;null;19790213;Mexiko;
 31616191;Ousman;Manneh;null;19970310;Gambia;
@@ -2720,6 +2725,7 @@
 35382575;Álvaro;Domínguez Soto;null;19890515;Spanien;
 35387239;Pierre-Michel;Lasogga;null;19911215;Deutschland;
 35405090;José Ignacio;Fernández;Nacho;19900118;Spanien;
+35412238;Maximilian;Franzke;null;19990305;Deutschland;
 35417356;Papa Alioune;Ndiaye;null;19901027;Senegal;
 35420154;Maximilian;Dittgen;null;19950303;Deutschland;
 35421266;Maximilian;Philipp;null;19940301;Deutschland;
