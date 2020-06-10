@@ -2120,6 +2120,7 @@
 31531597;Jonjoe;Kenny;null;19970315;England;
 31531944;Daniel;Gordon;null;19850116;Jamaika;
 31532076;Jin-Hyeon;Kim;null;19870706;Südkorea;
+31534638;Christian;Viet;null;19990327;Deutschland;
 31538400;Martin;Stranzl;null;19800616;Österreich;
 31538936;Victor;Obinna;null;19870325;Nigeria;
 31539548;Robert;Almer;null;19840320;Österreich;
@@ -2347,6 +2348,7 @@
 31940194;Constant;Djakpa;null;19861017;Elfenbeinküste;
 31940593;Marcel;Heller;null;19860212;Deutschland;
 31942487;Pontus;Jansson;null;19910213;Schweden;
+31946314;Marvin;Senger;null;20000106;Deutschland;
 31946410;Silvère;Ganvoula;null;19960629;Kongo;
 31946968;Makoto;Hasebe;null;19840118;Japan;
 31947805;Marius;Gersbeck;null;19950620;Deutschland;
