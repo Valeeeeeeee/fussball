@@ -639,6 +639,7 @@
 29309374;Hal;Robson-Kanu;null;19890521;Wales;
 29310186;Maurice;Trapp;null;19911231;Deutschland;
 29317520;Lennart;Thy;null;19920225;Deutschland;
+29320638;Can;Bozdogan;null;20010405;Deutschland;
 29324039;Thorben;Marx;null;19810601;Deutschland;
 29328114;Hörður;Magnússon;null;19930211;Island;
 29329495;Massimo;Bruno;null;19930917;Belgien;
@@ -1565,6 +1566,7 @@
 30779430;Sofyan;Amrabat;null;19960821;Marokko;
 30780109;Mario;Vrancic;null;19890523;Deutschland;
 30781028;Lasse;Sobiech;null;19910118;Deutschland;
+30781414;Jonas;Hofmann;null;19970207;Deutschland;
 30782382;Julian;Weigl;null;19950908;Deutschland;
 30783432;Mateo;Klimowicz;null;20000706;Argentinien, Deutschland;
 30785172;Karim;Bellarabi;null;19900408;Deutschland;
@@ -2342,7 +2344,7 @@
 31917412;Thomas;Kessler;null;19860120;Deutschland;
 31921680;Thomas;Eisfeld;null;19930118;Deutschland;
 31923780;Seung-Gyu;Kim;null;19900930;Südkorea;
-31923884;Okyere;Wriedt;null;19940710;Deutschland;
+31923884;Okyere;Wriedt;null;19940710;Ghana, Deutschland;
 31936452;Marvin;Schulz;null;19950115;Deutschland;
 31938924;Markus;Schubert;null;19980612;Deutschland;
 31940194;Constant;Djakpa;null;19861017;Elfenbeinküste;
@@ -2472,6 +2474,7 @@
 32288283;André;Hoffmann;null;19930228;Deutschland;
 32294000;Benjamin;Gorka;null;19840415;Deutschland;
 32298345;Frederik;Schram;null;19950119;Island;
+32307501;Jan-Luca;Rumpf;null;19990708;Deutschland;
 32312930;Vasileios;Lampropoulos;null;19900331;Griechenland;
 32313527;Kristian;Pedersen;null;19940804;Dänemark;
 32319169;Tomasz;Holota;null;19910121;Polen;
