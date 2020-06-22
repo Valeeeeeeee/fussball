@@ -1262,6 +1262,7 @@
 30418470;Lukas;Podolski;null;19850604;Deutschland;
 30420865;Josip;Drmic;null;19920808;Schweiz;
 30421429;Marco;Sailer;null;19851116;Deutschland;
+30423502;Ensar;Arslan;null;20010801;Deutschland, Türkei;
 30426687;Naser;Aliji;null;19931227;Albanien;
 30426726;Olcay;Sahan;null;19870526;Türkei;
 30427632;Georg;Teigl;null;19910209;Österreich;
@@ -1390,6 +1391,7 @@
 30565302;Kenan;Mujezinovic;null;19950603;Deutschland;
 30568058;Jonas;Hector;null;19900527;Deutschland;
 30571168;Hanno;Behrens;null;19900326;Deutschland;
+30571656;Jonas;Sterner;null;20020513;Deutschland;
 30572402;Oleksandr;Kucher;null;19821022;Ukraine;
 30576215;Tarek;Hamed;null;19881024;Ägypten;
 30577860;Vitus;Eicher;null;19901105;Deutschland;
@@ -1527,6 +1529,7 @@
 30730632;Kevin;Großkreutz;null;19880719;Deutschland;
 30730745;Wayne;Rooney;null;19851024;England;
 30731396;Jimmy;Durmaz;null;19890322;Schweden;
+30736529;Jamal;Musiala;null;20030226;England, Deutschland;
 30737642;Guillermo;Ochoa;null;19850713;Mexiko;
 30740320;Mahir;Saglik;null;19830118;Deutschland, Türkei;
 30741616;Lukas;Rupp;null;19910108;Deutschland;
@@ -1535,6 +1538,7 @@
 30744307;Kevin;de Bruyne;null;19910628;Belgien;
 30745252;Robbie;Kruse;null;19881005;Australien;
 30746005;Dzenis;Burnic;null;19980522;Deutschland;
+30749607;Roman;Hauk;null;19990415;Deutschland;
 30751020;Zlatan;Ibrahimovic;null;19811003;Schweden;
 30751335;David;Silva;null;19860108;Spanien;
 30753446;Alexandru;Chipciu;null;19890518;Rumänien;
@@ -1712,6 +1716,7 @@
 30965174;Sebastian;Griesbeck;null;19901003;Deutschland;
 30965867;Kevin;Müller;null;19910315;Deutschland;
 30966171;'Xabi'er;Alonso Olano;null;19811125;Spanien;
+30970857;Keanan;Bennetts;null;19990309;England, Deutschland;
 30973110;Karim;Haggui;null;19840120;Deutschland, Tunesien;
 30973489;Marco;Knaller;null;19870326;Österreich;
 30975210;Kevin;Wolze;null;19900309;Deutschland;
@@ -2179,6 +2184,7 @@
 31596243;Lukasz;Teodorczyk;null;19910603;Polen;
 31597474;Manuel;Gulde;null;19910212;Deutschland;
 31599690;Niklas;Dorsch;null;19980115;Deutschland;
+31601113;Torben;Müsel;null;19990725;Deutschland;
 31601244;Christian;Tiffert;null;19820218;Deutschland;
 31601688;Sascha;Horvath;null;19960822;Österreich;
 31602790;Nikola;Kalinic;null;19880105;Kroatien;
@@ -2643,6 +2649,7 @@
 33709960;Raúl;Ruidíaz;null;19900725;Peru;
 33748816;Christopher;Jullien;null;19930322;Frankreich;
 33773972;Anastasios;Lagos;null;19920412;Griechenland;
+33782684;'Chris'topher;Richards;null;20000328;USA;
 33793000;Maximiliano;Gómez;null;19960814;Uruguay;
 33808481;Ville Matti;Steinmann;null;19950108;Deutschland;
 33819689;Ángel;'Di María';null;19880214;Argentinien;
