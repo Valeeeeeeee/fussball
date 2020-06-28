@@ -1228,6 +1228,7 @@
 30380652;Lucas;Torreira;null;19960211;Uruguay;
 30384831;Kenan;Kodro;null;19930819;Bosnien-Herzegowina;
 30386361;Jakub;Bednarczyk;null;19990102;Polen, Deutschland;
+30386710;Enser;Arslan;null;20010801;Deutschland, Türkei;
 30390289;Bekim;Balaj;null;19910111;Albanien;
 30391337;Jimmy;Briand;null;19850802;Frankreich;
 30393089;Alexander;Schwolow;null;19920602;Deutschland;
@@ -1262,7 +1263,6 @@
 30418470;Lukas;Podolski;null;19850604;Deutschland;
 30420865;Josip;Drmic;null;19920808;Schweiz;
 30421429;Marco;Sailer;null;19851116;Deutschland;
-30423502;Ensar;Arslan;null;20010801;Deutschland, Türkei;
 30426687;Naser;Aliji;null;19931227;Albanien;
 30426726;Olcay;Sahan;null;19870526;Türkei;
 30427632;Georg;Teigl;null;19910209;Österreich;
@@ -2662,7 +2662,6 @@
 33893584;Christopher;Antwi-Adjei;null;19940207;Ghana, Deutschland;
 33902735;Óscar;Duarte;null;19890603;Costa Rica;
 33911334;Ørjan;Nyland;null;19900910;Norwegen;
-33949905;Prince Osei;Owusu;null;19970107;Deutschland, Ghana;
 33958992;Christopher;Nöthe;null;19880103;Deutschland;
 33964819;Raúl;Jiménez;null;19910505;Mexiko;
 33967878;Alessandro;Schöpf;null;19940207;Österreich;
