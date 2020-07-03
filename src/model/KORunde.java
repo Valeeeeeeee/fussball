@@ -164,7 +164,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public int getNumberOfRegularSubstitutions(Datum date) {
-		return tSeason.getNumberOfRegularSubstitutions(date);
+		return belongsToALeague ? lSeason.getNumberOfRegularSubstitutions(date) : tSeason.getNumberOfRegularSubstitutions(date);
 	}
 	
 	public boolean isFourthSubstitutionPossible() {
