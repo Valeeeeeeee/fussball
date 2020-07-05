@@ -122,5 +122,5 @@ HF01W: Bayer 04 Leverkusen
 HF01L: 1. FC Saarbrücken
 HF02W: Bayern München
 HF02L: Eintracht Frankfurt
-FI01W: DP2019FI01W
-FI01L: DP2019FI01L
+FI01W: Bayern München
+FI01L: Bayer 04 Leverkusen
