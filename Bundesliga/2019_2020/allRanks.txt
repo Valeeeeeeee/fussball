@@ -16,5 +16,5 @@ P15: FC Augsburg
 P16: Werder Bremen
 P17: Fortuna Düsseldorf
 P18: SC Paderborn
-REL01W: GER12019REL01W
-REL01L: GER12019REL01L
+REL01W: Werder Bremen
+REL01L: 1. FC Heidenheim
