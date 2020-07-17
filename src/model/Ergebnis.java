@@ -9,6 +9,7 @@ public class Ergebnis {
 	private boolean finishedInRegularTime = false;
 	private boolean finishedInExtraTime = false;
 	private boolean amGruenenTisch = false;
+	private boolean annulliert = false;
 	
 	private int[] home = new int[4];
 	private int[] away = new int[4];
@@ -61,7 +62,11 @@ public class Ergebnis {
 	
 	public Ergebnis(String data) {
 		try {
-			if (data.indexOf("agT") != -1) {
+			if (data.equals("ann.")) {
+				annulliert = true;
+				home[REGULAR] = -1;
+				away[REGULAR] = -1;
+			} else if (data.indexOf("agT") != -1) {
 				// >3:0 agT< / >0:2 agT<
 				amGruenenTisch = true;
 				
@@ -132,7 +137,6 @@ public class Ergebnis {
 			home = new int[4];
 			away = new int[4];
 			log("Der übergebene String war formal korrekt, aber falsch.");
-			
 		} catch (Exception e) {
 			home = new int[4];
 			away = new int[4];
@@ -141,6 +145,7 @@ public class Ergebnis {
 	}
 	
 	public String fromPerspective(boolean firstTeam) {
+		if (annulliert)	return "annul.";
 		if (firstTeam)	return home() + ":" + away();
 		else			return away() + ":" + home();
 	}
@@ -150,6 +155,7 @@ public class Ergebnis {
 	}
 	
 	public String getMore() {
+		if (annulliert)	return "ann.";
 		if (amGruenenTisch)	return "a.g.T.";
 		if (finishedInRegularTime)	return "";
 		if (finishedInExtraTime)	return "n.V.";
@@ -157,6 +163,7 @@ public class Ergebnis {
 	}
 	
 	public String getTooltipText() {
+		if (annulliert)	return "annulliert";
 		if (amGruenenTisch)	return "am grünen Tisch";
 		if (finishedInRegularTime)	return "";
 		if (finishedInExtraTime)	return "nach Verlängerung";
@@ -164,6 +171,7 @@ public class Ergebnis {
 	}
 	
 	public int home() {
+		if (annulliert)				return -1;
 		if (amGruenenTisch)			return home(REGULAR);
 		if (finishedInRegularTime)	return home(REGULAR);
 		if (finishedInExtraTime)	return home(EXTRATIME);
@@ -175,6 +183,7 @@ public class Ergebnis {
 	}
 	
 	public int away() {
+		if (annulliert)				return -1;
 		if (amGruenenTisch)			return away(REGULAR);
 		if (finishedInRegularTime)	return away(REGULAR);
 		if (finishedInExtraTime)	return away(EXTRATIME);
@@ -183,6 +192,10 @@ public class Ergebnis {
 	
 	public int away(int i) {
 		return away[i];
+	}
+	
+	public boolean isCancelled() {
+		return annulliert;
 	}
 	
 	private boolean validate() {
@@ -215,6 +228,11 @@ public class Ergebnis {
 //		e.g. 11:4nE (3:3,1:1) error		(8:1 iE not possible)
 //		e.g. 7:4nE (2:2, 0:0) error		(5:2 iE not possible)
 //		e.g. 6:3nE (2:2, 0:0) correct	(4:1 iE possible)
+		
+		// if the match was not held
+		if (annulliert) {
+			return true;
+		}
 		
 		// if standings after RT are lower than at HT
 		if (home[REGULAR] < home[0] || away[REGULAR] < away[0]) {
@@ -267,6 +285,8 @@ public class Ergebnis {
 	
 	public String toString() {
 		String toString = home(REGULAR) + ":" + away(REGULAR);
+		
+		if (annulliert)	return "ann.";
 		
 		if (amGruenenTisch)	return toString + " agT";
 		

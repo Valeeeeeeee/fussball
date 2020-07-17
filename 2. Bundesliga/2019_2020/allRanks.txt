@@ -16,5 +16,5 @@ P15: Karlsruher SC
 P16: 1. FC Nürnberg
 P17: SV Wehen Wiesbaden
 P18: Dynamo Dresden
-REL01W: GER22019REL01W
-REL01L: GER22019REL01L
+REL01W: 1. FC Nürnberg
+REL01L: FC Ingolstadt 04

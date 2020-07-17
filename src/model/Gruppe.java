@@ -273,14 +273,14 @@ public class Gruppe implements Wettbewerb {
 					if (isMatchSet(matchday, matchID)) {
 						Spiel match = getMatch(matchday, matchID);
 						if (teamFound = team.equals(match.getHomeTeam())) {
-							if (isResultSet(matchday, matchID)) {
+							if (isResultSet(matchday, matchID) && !getResult(matchday, matchID).isCancelled()) {
 								goalsH = "" + getResult(matchday, matchID).home();
 								goalsA = "" + getResult(matchday, matchID).away();
 								sunx = getSUN(getResult(matchday, matchID).home(), getResult(matchday, matchID).away());
 							}
 							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, match.getAwayTeam().getName(), sunx});
 						} else if (teamFound = team.equals(match.getAwayTeam())) {
-							if (isResultSet(matchday, matchID)) {
+							if (isResultSet(matchday, matchID) && !getResult(matchday, matchID).isCancelled()) {
 								goalsH = "" + getResult(matchday, matchID).home();
 								goalsA = "" + getResult(matchday, matchID).away();
 								sunx = getSUN(getResult(matchday, matchID).away(), getResult(matchday, matchID).home());
@@ -590,6 +590,7 @@ public class Gruppe implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isResultSet(i, j) && getResult(i, j).isCancelled())	continue;
 				Datum date = getDate(i, j);
 				Uhrzeit time = getTime(i, j);
 				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j))) {

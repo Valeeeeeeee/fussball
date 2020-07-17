@@ -1294,9 +1294,13 @@ public class Spieltag extends JPanel {
 	
 	private void fillTeamsLabelsAndGoalsTFs() {
 		// fill with dummy text
-		for (int i = 0; i < jLblsTeams.length; i++) {
+		for (int i = 0; i < 2 * numberOfMatches; i++) {
 			jLblsTeams[i].setText(TEAM_NOT_SET);
 			jTFsGoals[i].setText(GOAL_NOT_SET);
+		}
+		for (int i = 0; i < numberOfMatches; i++) {
+			jLblsAdditionalInfos[i].setText("");
+			jLblsAdditionalInfos[i].setToolTipText("");
 		}
 		if (belongsToALeague) {
 			for (int matchID = 0; matchID < numberOfMatches; matchID++) {
@@ -1400,8 +1404,8 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(lSeason, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
 			mdc.setMatch(lSeason, currentMatchday, editedDate);
+			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
 			
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1409,8 +1413,8 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(group, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setDateAndTime(group.getDate(currentMatchday, editedDate), group.getTime(currentMatchday, editedDate));
 			mdc.setMatch(group, currentMatchday, editedDate);
+			mdc.setDateAndTime(group.getDate(currentMatchday, editedDate), group.getTime(currentMatchday, editedDate));
 
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1418,8 +1422,8 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(koRound, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setDateAndTime(koRound.getDate(currentMatchday, editedDate), koRound.getTime(currentMatchday, editedDate));
 			mdc.setMatch(koRound, currentMatchday, editedDate);
+			mdc.setDateAndTime(koRound.getDate(currentMatchday, editedDate), koRound.getTime(currentMatchday, editedDate));
 
 			Fussball.getInstance().toFront();
 			mdc.toFront();
