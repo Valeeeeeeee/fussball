@@ -816,6 +816,7 @@ public class Mannschaft {
 			else if (this.points < other.points)	this.place++;
 		}
 		
+		boolean awayGoals = lSeason == null || !lSeason.getLeague().getShortName().equals("ESP1");
 		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
 				if (this.goalDiff == allTeams[id - 1].goalDiff) {
@@ -857,7 +858,9 @@ public class Mannschaft {
 					if (goals[0] - goalsOpp[0] == goals[i] - goalsOpp[i]) {
 						if (goals[0] < goals[i])	this.place++;
 						else if (goals[0] == goals[i]) {
-							if (goalsAway[0] == goalsAway[i]) {
+							if (awayGoals && goalsAway[0] != goalsAway[i]) {
+								if (goalsAway[0] < goalsAway[i])	this.place++;
+							} else {
 								// use goal difference anyway
 								int otherID = teamsSamePoints.get(i);
 								if (this.goalDiff == allTeams[otherID - 1].goalDiff) {
@@ -865,7 +868,6 @@ public class Mannschaft {
 								}
 								else if (this.goalDiff < allTeams[otherID - 1].goalDiff)	this.place++;
 							}
-							else if (goalsAway[0] < goalsAway[i])	this.place++;
 						}
 					}
 					else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.place++;
