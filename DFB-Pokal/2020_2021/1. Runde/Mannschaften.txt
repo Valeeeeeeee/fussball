@@ -1,0 +1,64 @@
+Bayern München
+Borussia Dortmund
+RasenBallsport Leipzig
+Borussia Mönchengladbach
+Bayer 04 Leverkusen
+TSG 1899 Hoffenheim
+VfL Wolfsburg
+SC Freiburg
+Eintracht Frankfurt
+Hertha BSC
+1. FC Union Berlin
+FC Schalke 04
+1. FSV Mainz 05
+1.FC Köln
+FC Augsburg
+Werder Bremen
+Fortuna Düsseldorf
+SC Paderborn 07
+Arminia Bielefeld
+VfB Stuttgart
+1. FC Heidenheim
+Hamburger SV
+SV Darmstadt 98
+Hannover 96
+Erzgebirge Aue
+VfL Bochum
+SpVgg Greuther Fürth
+SV Sandhausen
+Holstein Kiel
+SSV Jahn Regensburg
+VfL Osnabrück
+FC St. Pauli
+Karlsruher SC
+1. FC Nürnberg
+SV Wehen Wiesbaden
+Dynamo Dresden
+Würzburger Kickers
+Eintracht Braunschweig
+FC Ingolstadt 04
+MSV Duisburg
+Baden
+Bayern 1
+Bayern 2
+Berlin
+Brandenburg
+Bremen
+Hamburg
+Hessen
+Mecklenburg-Vorpommern
+Mittelrhein
+Niederrhein
+Niedersachsen 1
+Niedersachsen 2
+Rheinland
+Saarland
+Sachsen
+Sachsen-Anhalt
+Schleswig-Holstein
+Südbaden
+Südwest
+Thüringen
+Westfalen 1
+Westfalen 2
+Württemberg
