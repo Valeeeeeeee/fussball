@@ -1,2 +1,2 @@
-ffff;
+ttff;1:2;2:1;null;null;
 tttt;ann.;ann.;ann.;ann.;
