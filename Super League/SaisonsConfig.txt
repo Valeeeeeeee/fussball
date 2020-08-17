@@ -2,5 +2,5 @@
 2015;true;10;4;1,2,3,3,4;true;false;1,1,2,0,1;false;
 2016;true;10;4;1,2,3,3,4;true;false;1,1,2,0,1;false;
 2017;true;10;4;1,1,2,2,2;true;false;0,2,2,0,1;false;
-2018;true;10;4;1,1,2,2,2;true;false;0,2,2,0,1;false;
-2019;true;10;4;1,1,2,2,2;true;false;0,2,2,0,1;false;
+2018;true;10;4;1,1,2,2,2;true;false;0,2,2,1,1;false;
+2019;true;10;4;1,1,2,2,2;true;false;0,2,2,1,1;false;

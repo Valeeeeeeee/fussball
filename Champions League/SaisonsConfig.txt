@@ -3,4 +3,5 @@
 2016;true;20160913;20170603;true;true;true;false;false;false;
 2017;true;20170912;20180526;true;true;true;false;false;false;
 2018;true;20180918;20190601;true;true;true;false;false;true;
-2019;true;20190917;20200530;true;true;true;false;false;true;
+2019;true;20190917;20200823;true;true;true;false;false;true;
+2020;true;20201020;20210529;true;true;true;false;false;true;
