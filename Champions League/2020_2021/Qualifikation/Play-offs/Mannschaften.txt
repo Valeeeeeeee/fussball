@@ -1,5 +1,6 @@
-Ajax Amsterdam
 FC Salzburg
+Slavia Prag
+Olympiakos Piräus
 FK Krasnodar
 Q301
 Q302
@@ -9,4 +10,3 @@ Q305
 Q306
 Q307
 Q308
-Q309

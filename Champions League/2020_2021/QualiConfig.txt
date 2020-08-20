@@ -7,5 +7,5 @@ false
 2. Vorqualifikationsrunde;V2;true;false;0;2;0;
 1. Qualifikationsrunde;Q1;true;false;33;1;0;
 2. Qualifikationsrunde;Q2;true;false;9;17;0;
-3. Qualifikationsrunde;Q3;true;false;5;13;0;
-Play-offs;PO;true;true;3;9;0;
+3. Qualifikationsrunde;Q3;true;false;3;13;0;
+Play-offs;PO;true;true;4;8;0;
