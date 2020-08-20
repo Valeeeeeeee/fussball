@@ -418,7 +418,7 @@ VF04W: FC Sevilla
 VF04L: Wolverhampton Wanderers
 HF01W: FC Sevilla
 HF01L: Manchester United
-HF02W: EL2019HF02W
-HF02L: EL2019HF02L
+HF02W: Inter Mailand
+HF02L: Schachtar Donezk
 FI01W: EL2019FI01W
 FI01L: EL2019FI01L
