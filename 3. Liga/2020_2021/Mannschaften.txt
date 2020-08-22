@@ -1,0 +1,21 @@
+20
+SV Wehen Wiesbaden;01.01.1970
+Dynamo Dresden;01.01.1970
+Bayern München II;01.01.1970
+FC Ingolstadt 04;01.01.1970
+MSV Duisburg;01.01.1970
+Hansa Rostock;01.01.1970
+SV Meppen;01.01.1970
+1860 München;01.01.1970
+Waldhof Mannheim;01.01.1970
+1. FC Kaiserslautern;01.01.1970
+SpVgg Unterhaching;01.01.1970
+Viktoria Köln;01.01.1970
+KFC Uerdingen;01.01.1970
+1. FC Magdeburg;01.01.1970
+Hallescher FC;01.01.1970
+FSV Zwickau;01.01.1970
+1. FC Saarbrücken;01.01.1970
+SC Verl;01.01.1970
+Türkgücü München;01.01.1970
+VfB Lübeck;01.01.1970
