@@ -152,5 +152,5 @@ HF01W: Paris Saint-Germain
 HF01L: RB Leipzig
 HF02W: Bayern München
 HF02L: Olympique Lyon
-FI01W: CL2019FI01W
-FI01L: CL2019FI01L
+FI01W: Bayern München
+FI01L: Paris Saint-Germain
