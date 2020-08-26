@@ -49,8 +49,8 @@ TSV Steinbach
 Hansa Rostock
 1. FC Düren
 Rot-Weiss Essen
+TSV Havelse
 MTV Eintracht Celle
-Niedersachsen 2
 FV Engers 07
 SV Elversberg
 Chemnitzer FC
@@ -60,5 +60,5 @@ SV Todesfelde
 1. FC Kaiserslautern
 FC Carl Zeiss Jena
 RSV Meinerzhagen
-Westfalen 2
+SC Wiedenbrück
 SSV Ulm 1846
