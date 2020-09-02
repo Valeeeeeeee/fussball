@@ -28,86 +28,86 @@ Q106W: Teuta Durrës
 Q106L: Beitar Jerusalem
 Q107W: Borac Banja Luka
 Q107L: Sutjeska Niksic
-Q108W: EL2020Q108W
-Q108L: EL2020Q108L
-Q109W: Piast Gliwice
-Q109L: Dinamo Minsk
-Q110W: Lincoln Red Imps FC
-Q110L: Union Titus Petingen
-Q111W: Apollon Limassol
-Q111L: Saburtalo Tiflis
-Q112W: FK Bodø/Glimt
-Q112L: FK Kauno Zalgiris
-Q113W: Neftçi Baku
-Q113L: FK Shkupi
-Q114W: KF Shkëndija
-Q114L: Sumqayit PFK
-Q115W: Renova Dzepciste
-Q115L: Alashkert Martuni
-Q116W: Olimpija Ljubljana
-Q116L: Víkingur Reykjavík
-Q117W: FC Székesfehérvár
-Q117L: Bohemians Dublin
-Q118W: Aarhus GF
-Q118L: Honka Espoo
-Q119W: Malmö FF
-Q119L: KS Cracovia
-Q120W: Hammarby IF
-Q120L: Puskás Akadémia FC
-Q121W: Rosenborg Trondheim
-Q121L: Breiðablik Kópavogur
-Q122W: KF Laçi
-Q122L: FK Keslä
-Q123W: EL2020Q123W
-Q123L: EL2020Q123L
-Q124W: ZSKA Sofia
-Q124L: FC Sirens
-Q125W: Hibernians Football Club
-Q125L: FC Vaduz
-Q126W: Zalgiris Vilnius
-Q126L: Paide Linnameeskond
-Q127W: Lokomotive Tiflis
-Q127L: CSU Craiova
-Q128W: APOEL Nikosia
-Q128L: KF Gjilani
-Q129W: DAC Dunajská Streda
-Q129L: FH Hafnarfjörður
-Q130W: Sfântul Gheorghe Suruceni
-Q130L: Schachzjor Salihorsk
-Q131W: The New Saints FC
-Q131L: MSK Zilina
-Q132W: Hapoel Be'er Scheva
-Q132L: Dinamo Batumi
-Q133W: TSC Backa Topola
-Q133L: Petrocub Hîncesti
-Q134W: FK Kukësi
-Q134L: Slawia Sofia
-Q135W: Zrinjski Mostar
-Q135L: FC Differdingen
-Q136W: Bala Town
-Q136L: FC Valletta
-Q137W: B36 Tórshavn
-Q137L: Levadia Tallinn
-Q138W: Lokomotive Plowdiw
-Q138L: Iskra Danilovgrad
-Q139W: Servette Genf
-Q139L: MFK Ruzomberok
-Q140W: Steaua Bukarest
-Q140L: Schirak Gjumri
-Q141W: FC Motherwell
-Q141L: Glentoran FC
-Q142W: FC Aberdeen
-Q142L: NSÍ Runavík
-Q143W: Coleraine FC
-Q143L: NK Maribor
-Q144W: Partizan Belgrad
-Q144L: FK Rigas FS
-Q145W: Lech Posen
-Q145L: Valmieras FK
-Q146W: Honvéd Budapest
-Q146L: Inter Turku
-Q147W: Shamrock Rovers
-Q147L: Tampereen Ilves
+Q108W: Piast Gliwice
+Q108L: Dinamo Minsk
+Q109W: Lincoln Red Imps FC
+Q109L: Union Titus Petingen
+Q110W: Apollon Limassol
+Q110L: Saburtalo Tiflis
+Q111W: FK Bodø/Glimt
+Q111L: FK Kauno Zalgiris
+Q112W: Neftçi Baku
+Q112L: FK Shkupi
+Q113W: KF Shkëndija
+Q113L: Sumqayit PFK
+Q114W: Renova Dzepciste
+Q114L: Alashkert Martuni
+Q115W: Olimpija Ljubljana
+Q115L: Víkingur Reykjavík
+Q116W: FC Székesfehérvár
+Q116L: Bohemians Dublin
+Q117W: Aarhus GF
+Q117L: Honka Espoo
+Q118W: Malmö FF
+Q118L: KS Cracovia
+Q119W: Hammarby IF
+Q119L: Puskás Akadémia FC
+Q120W: Rosenborg Trondheim
+Q120L: Breiðablik Kópavogur
+Q121W: KF Laçi
+Q121L: FK Keslä
+Q122W: ZSKA Sofia
+Q122L: FC Sirens
+Q123W: Hibernians Football Club
+Q123L: FC Vaduz
+Q124W: Zalgiris Vilnius
+Q124L: Paide Linnameeskond
+Q125W: Lokomotive Tiflis
+Q125L: CSU Craiova
+Q126W: APOEL Nikosia
+Q126L: KF Gjilani
+Q127W: DAC Dunajská Streda
+Q127L: FH Hafnarfjörður
+Q128W: Sfântul Gheorghe Suruceni
+Q128L: Schachzjor Salihorsk
+Q129W: The New Saints FC
+Q129L: MSK Zilina
+Q130W: Hapoel Be'er Scheva
+Q130L: Dinamo Batumi
+Q131W: TSC Backa Topola
+Q131L: Petrocub Hîncesti
+Q132W: FK Kukësi
+Q132L: Slawia Sofia
+Q133W: Zrinjski Mostar
+Q133L: FC Differdingen
+Q134W: Bala Town
+Q134L: FC Valletta
+Q135W: B36 Tórshavn
+Q135L: Levadia Tallinn
+Q136W: Lokomotive Plowdiw
+Q136L: Iskra Danilovgrad
+Q137W: Servette Genf
+Q137L: MFK Ruzomberok
+Q138W: Steaua Bukarest
+Q138L: Schirak Gjumri
+Q139W: FC Motherwell
+Q139L: Glentoran FC
+Q140W: FC Aberdeen
+Q140L: NSÍ Runavík
+Q141W: Coleraine FC
+Q141L: NK Maribor
+Q142W: Partizan Belgrad
+Q142L: FK Rigas FS
+Q143W: Lech Posen
+Q143L: Valmieras FK
+Q144W: Honvéd Budapest
+Q144L: Inter Turku
+Q145W: Shamrock Rovers
+Q145L: Tampereen Ilves
+Q146W: EL2020Q146W
+Q146L: EL2020Q146L
+Q147W: EL2020Q147W
+Q147L: EL2020Q147L
 Q201W: EL2020Q201W
 Q201L: EL2020Q201L
 Q202W: EL2020Q202W
