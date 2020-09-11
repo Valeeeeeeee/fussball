@@ -15,7 +15,7 @@ Hannover 96
 SC Freiburg
 VfL Wolfsburg
 Hamburger SV
-1.FC Köln
+1. FC Köln
 Fortuna Düsseldorf
 1. FC Nürnberg
 Holstein Kiel
@@ -40,7 +40,7 @@ Karlsruher SC
 SV Wehen Wiesbaden
 1. CfR Pforzheim
 1860 München
-1.FC Schweinfurt 05
+1. FC Schweinfurt 05
 BFC Dynamo
 Energie Cottbus
 BSC Hastedt

@@ -2,7 +2,7 @@ Bayern München
 RasenBallsport Leipzig
 Borussia Dortmund
 TSG 1899 Hoffenheim
-1.FC Köln
+1. FC Köln
 Hertha BSC
 SC Freiburg
 Werder Bremen
@@ -40,7 +40,7 @@ SSV Jahn Regensburg
 1. FC Magdeburg
 FC Nöttingen
 SpVgg Unterhaching
-1.FC Schweinfurt 05
+1. FC Schweinfurt 05
 BFC Dynamo
 Energie Cottbus
 Leher TS
