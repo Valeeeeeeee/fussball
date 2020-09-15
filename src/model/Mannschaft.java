@@ -80,16 +80,17 @@ public class Mannschaft {
 
 	public Mannschaft(int id, Wettbewerb competition, String mannschaftsDaten) {
 		this.id = id;
-		if (competition instanceof LigaSaison)		lSeason = (LigaSaison) competition;
-		else if (competition instanceof Gruppe)		group = (Gruppe) competition;
 		this.competition = competition;
-		isClub = competition.isClubCompetition();
-		playsInLeague = lSeason != null;
-		playsInGroup = group != null;
-		playsInKORound = competition instanceof KORunde;
-		
 		parseString(mannschaftsDaten);
+		
 		if (competition != null) {
+			isClub = competition.isClubCompetition();
+			if (competition instanceof LigaSaison)		lSeason = (LigaSaison) competition;
+			else if (competition instanceof Gruppe)		group = (Gruppe) competition;
+			playsInLeague = lSeason != null;
+			playsInGroup = group != null;
+			playsInKORound = competition instanceof KORunde;
+			
 			initializeArrays();
 			loadKader();
 		}

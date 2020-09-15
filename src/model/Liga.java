@@ -118,6 +118,7 @@ public class Liga {
 		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
 			if (seasons.get(seasonIndex).getYear() == season)	break;
 		}
+		if (seasonIndex >= seasons.size())	return null;
 		return workspace + seasons.get(seasonIndex).getSeasonFull("_") + File.separator;
 	}
 

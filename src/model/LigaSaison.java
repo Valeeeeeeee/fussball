@@ -614,8 +614,8 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (times[m].isUndefined() && !times[m2].isUndefined())			hilfsarray[m2]++;
-				else if (times[m2].isUndefined() && !times[m].isUndefined())	hilfsarray[m]++;
+				if (times[m].isUndefined() && !times[m2].isUndefined())			hilfsarray[m]++;
+				else if (times[m2].isUndefined() && !times[m].isUndefined())	hilfsarray[m2]++;
 				else if (dates[m2].isAfter(dates[m]))							hilfsarray[m2]++;
 				else if (dates[m2].isBefore(dates[m]))							hilfsarray[m]++;
 				else if (times[m2].isAfter(times[m]))							hilfsarray[m2]++;
@@ -777,6 +777,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
 		String fileName = Fussball.getInstance().getLeagueWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
+		if (fileName == null)	return origin;
 		
 		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
 		for (String team : teams) {

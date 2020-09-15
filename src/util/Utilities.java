@@ -54,6 +54,7 @@ public class Utilities {
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
+	public static final String TO_BE_DATED = "TBD";
 	public static final String SPIELFREI = "spielfrei";
 	public static final String MATCH_NOT_SET = "n.a.";
 	public static final String MAIN_CATEGORY = "MAIN_CATEGORY";
