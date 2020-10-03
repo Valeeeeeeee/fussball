@@ -1,5 +1,5 @@
 20190321
-20191119
+20201112
 false
 10
 true
@@ -7,5 +7,5 @@ false
 false
 5
 2
-Play-off-Halbfinale;PH;true;true;16;0;0;
-Play-offs;PO;true;true;0;8;0;
+Play-off-Halbfinale;PH;true;false;16;0;0;
+Play-offs;PO;true;false;0;8;0;
