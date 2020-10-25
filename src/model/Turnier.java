@@ -253,6 +253,7 @@ public class Turnier {
 	}
 	
 	public int[] checkMissingResults() {
+		Datum today = new Datum();
 		int countNotScheduled = 0, countCompleted = 0, countStillRunning = 0;
 		for (TurnierSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
