@@ -4,7 +4,7 @@ tttttttttt;2:3;1:2;3:3;0:1;0:1;1:1;2:5;4:0;0:3;3:1;
 tttttttttt;4:0;4:2;1:1;3:1;0:3;2:0;1:0;2:1;1:6;7:2;
 tttttttttt;2:2;3:3;1:0;1:4;1:1;1:1;3:3;0:1;0:0;0:1;
 tttttttttt;0:3;1:1;1:2;0:0;2:1;2:0;1:1;0:1;1:1;0:1;
-tfffffffff;2:0;null;null;null;null;null;null;null;null;null;
+ttttffffff;2:0;0:1;0:3;2:1;null;null;null;null;null;null;
 ffffffffff;
 ffffffffff;
 ffffffffff;
