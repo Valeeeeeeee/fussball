@@ -941,7 +941,6 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void saveMatchData() {
-		if (!teamsHaveKader)	return;
 		matchDataFromFile.clear();
 		
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {

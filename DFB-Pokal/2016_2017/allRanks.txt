@@ -8,7 +8,7 @@
 1R04L: RasenBallsport Leipzig
 1R05W: Würzburger Kickers
 1R05L: Eintracht Braunschweig
-1R06W: 1.FC Köln
+1R06W: 1. FC Köln
 1R06L: BFC Preußen
 1R07W: SC Freiburg
 1R07L: SV Babelsberg 03
@@ -88,14 +88,14 @@
 2R12L: Fortuna Düsseldorf
 2R13W: Bayern München
 2R13L: FC Augsburg
-2R14W: 1.FC Köln
+2R14W: 1. FC Köln
 2R14L: TSG 1899 Hoffenheim
 2R15W: FC Schalke 04
 2R15L: 1. FC Nürnberg
 2R16W: Borussia Dortmund
 2R16L: 1. FC Union Berlin
 AF01W: Hamburger SV
-AF01L: 1.FC Köln
+AF01L: 1. FC Köln
 AF02W: Arminia Bielefeld
 AF02L: FC-Astoria Walldorf
 AF03W: Borussia Mönchengladbach

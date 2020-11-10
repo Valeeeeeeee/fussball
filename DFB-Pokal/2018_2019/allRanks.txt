@@ -3,7 +3,7 @@
 1R02W: SV Wehen Wiesbaden
 1R02L: FC St. Pauli
 1R03W: FC Schalke 04
-1R03L: 1.FC Schweinfurt 05
+1R03L: 1. FC Schweinfurt 05
 1R04W: TSG 1899 Hoffenheim
 1R04L: 1. FC Kaiserslautern
 1R05W: Bayer 04 Leverkusen
@@ -32,7 +32,7 @@
 1R16L: VfB Stuttgart
 1R17W: Hannover 96
 1R17L: Karlsruher SC
-1R18W: 1.FC Köln
+1R18W: 1. FC Köln
 1R18L: BFC Dynamo
 1R19W: FC Augsburg
 1R19L: TSV Steinbach
@@ -81,7 +81,7 @@
 2R09W: 1. FC Nürnberg
 2R09L: Hansa Rostock
 2R10W: FC Schalke 04
-2R10L: 1.FC Köln
+2R10L: 1. FC Köln
 2R11W: Werder Bremen
 2R11L: SC Weiche Flensburg 08
 2R12W: Borussia Dortmund

@@ -16,7 +16,7 @@
 1R08L: Bremer SV
 1R09W: FC Viktoria Köln
 1R09L: 1. FC Union Berlin
-1R10W: 1.FC Köln
+1R10W: 1. FC Köln
 1R10L: SV Meppen
 1R11W: Eintracht Braunschweig
 1R11L: Hallescher FC
@@ -89,7 +89,7 @@
 2R13W: Borussia Mönchengladbach
 2R13L: FC Schalke 04
 2R14W: Werder Bremen
-2R14L: 1.FC Köln
+2R14L: 1. FC Köln
 2R15W: Eintracht Braunschweig
 2R15L: SSV Reutlingen 05
 2R16W: VfB Stuttgart
