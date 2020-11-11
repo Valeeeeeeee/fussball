@@ -36,7 +36,7 @@ public class Mannschaft {
 	private int[][] data;
 	private int[] matchdayOrder;
 	private HashMap<String, Spiel> matches;
-	private Ergebnis[] results;
+	private HashMap<String, Ergebnis> results;
 	
 	public final static int OPPONENT = 0;
 	public final static int GOALS = 1;
@@ -103,7 +103,7 @@ public class Mannschaft {
 		data = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 		matches = new HashMap<>();
-		results = new Ergebnis[numberOfMatchdays];
+		results = new HashMap<>();
 	}
 	
 	public Wettbewerb getCompetition() {
@@ -291,13 +291,14 @@ public class Mannschaft {
 	public void retrieveMatchPerformances() {
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
-			Spiel match = matches.get(iter.next());
+			String key = iter.next();
+			Spiel match = matches.get(key);
 			if (match == null)	continue;
 			if (!inThePast(match.getDate(), match.getTime()))	continue;
 			for (TeamAffiliation affiliation : teamAffiliations) {
 				if (!affiliation.getDuration().includes(match.getDate()))	continue;
 				SpielPerformance matchPerformance = match.getMatchPerformance(affiliation);
-				affiliation.getPlayer().getSeasonPerformance().addMatchPerformance(match.getMatchday(), matchPerformance);
+				affiliation.getPlayer().getSeasonPerformance().addMatchPerformance(key, matchPerformance);
 			}
 		}
 	}
@@ -335,7 +336,7 @@ public class Mannschaft {
 		Datum[] dates = new Datum[numberOfMatchdays];
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
-			if (matches.containsKey(getKey(i)))	dates[i] = matches.get(getKey(i)).getDate();
+			if (matches.containsKey(competition.getKey(i)))	dates[i] = matches.get(competition.getKey(i)).getDate();
 		}
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
@@ -525,13 +526,13 @@ public class Mannschaft {
 		this.place = place;
 	}
 	
-	public boolean isMatchSet(int matchday) {
-		if (matches.containsKey(getKey(matchday)))	return true;
+	public boolean isMatchSet(String key) {
+		if (matches.containsKey(key))	return true;
 		return false;
 	}
 	
-	public boolean isResultSet(int matchday) {
-		if (results[matchday] != null)	return true;
+	public boolean isResultSet(String key) {
+		if (results.containsKey(key))	return true;
 		return false;
 	}
 
@@ -676,7 +677,7 @@ public class Mannschaft {
 			for (int i = 0; i < numberOfMatchdays; i++) {
 				if (data[i][OPPONENT] == opponent.getId()) {
 					String result = data[i][GOALS] + ":" + data[i][CGOALS];
-					if (results[i] != null) {
+					if (isResultSet(competition.getKey(i))) {
 						result = data[i][POINTS] + ";" + result;
 					} else	result = "-1;(" + (i + 1) + ")";
 					if (homeaway[i])	resultsOpponent[counterH++] = result;
@@ -694,35 +695,14 @@ public class Mannschaft {
 		else					return "01.01.1970 00:00";
 	}
 	
-	public void resetMatch(int matchday) {
-		setResult(matchday, null);
-		resetOpponent(matchday);
+	public void resetMatch(String key) {
+		setMatch(key, null);
+		setResult(key, null);
 	}
 
 	public void resetOpponent(int matchday) {
 		homeaway[matchday] = false;
 		data[matchday][OPPONENT] = 0;
-	}
-	
-	public static String getKey(int matchday) {
-		return "SP" + matchday;
-	}
-	
-	public void setMatch(int matchday, Spiel match) {
-		String key = getKey(matchday);
-		if (match != null) {
-			matches.put(key, match);
-			if (id == match.home()) {
-				setOpponent(matchday, true, match.away());
-			} else if (id == match.away()) {
-				setOpponent(matchday, false, match.home());
-			} else {
-				log("This match came to the wrong team.");
-				matches.remove(key);
-			}
-		} else {
-			matches.remove(key);
-		}
 	}
 	
 	public void setMatch(String key, Spiel match) {
@@ -731,6 +711,18 @@ public class Mannschaft {
 		} else {
 			matches.remove(key);
 		}
+		
+		if (key.contains("RR")) {
+			int matchday = Integer.parseInt(key.replace("RR", ""));
+			
+			if (match == null) {
+				resetOpponent(matchday);
+			} else if (id == match.home()) {
+				setOpponent(matchday, true, match.away());
+			} else if (id == match.away()) {
+				setOpponent(matchday, false, match.home());
+			}
+		}
 	}
 	
 	private void setOpponent(int matchday, boolean homeoraway, int opponent) {
@@ -738,17 +730,26 @@ public class Mannschaft {
 		data[matchday][OPPONENT] = opponent;
 	}
 
-	public void setResult(int matchday, Ergebnis result) {
-		results[matchday] = result;
-		if (result == null) {
-			setResult(matchday, -1, -1);
-			return;
+	public void setResult(String key, Ergebnis result) {
+		if (result != null) {
+			results.put(key, result);
+		} else {
+			results.remove(key);
 		}
 		
-		if (homeaway[matchday]) {
-			setResult(matchday, result.home(), result.away());
-		} else {
-			setResult(matchday, result.away(), result.home());
+		if (key.contains("RR")) {
+			int matchday = Integer.parseInt(key.replace("RR", ""));
+			
+			if (result == null) {
+				setResult(matchday, -1, -1);
+				return;
+			}
+			
+			if (homeaway[matchday]) {
+				setResult(matchday, result.home(), result.away());
+			} else {
+				setResult(matchday, result.away(), result.home());
+			}
 		}
 	}
 

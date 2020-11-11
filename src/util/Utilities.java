@@ -64,6 +64,11 @@ public class Utilities {
 	public static final String LOSS = "N";
 	public static final String RESULT_NOT_SET = "X";
 	
+	public static String twoDigit(int number) {
+		number = number % 100;
+		return number / 10 + "" + number % 10;
+	}
+	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 	}
@@ -273,6 +278,7 @@ public class Utilities {
 	}
 	
 	public static boolean inThePast(Datum date, Uhrzeit time) {
+		Datum today = new Datum();
 		if (date.isBefore(today))	return true;
 		if (date.isAfter(today))	return false;
 		return time.isBefore(new Uhrzeit());

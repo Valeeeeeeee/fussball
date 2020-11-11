@@ -17,6 +17,8 @@ public interface Wettbewerb {
 	public String getMatchdayDescription(int matchday);
 	public String[] getMatchdays();
 	
+	public String getKey(int matchday);
+	
 	public Dauer getDuration();
 	public Datum getStartDate();
 	public Datum getFinalDate();

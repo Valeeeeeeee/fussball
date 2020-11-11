@@ -268,8 +268,6 @@ public class TurnierSaison {
 						Ergebnis result = qOverview.getResult(groupID, match);
 						
 						group.setResult(matchday, match, result);
-						group.getTeams()[group.getMatch(matchday, match).home() - 1].setResult(matchday, result);
-						group.getTeams()[group.getMatch(matchday, match).away() - 1].setResult(matchday, result);
 					}
 				}
 			}
@@ -283,8 +281,6 @@ public class TurnierSaison {
 						Ergebnis result = overview.getResult(groupID, match);
 						
 						group.setResult(matchday, match, result);
-						group.getTeams()[group.getMatch(matchday, match).home() - 1].setResult(matchday, result);
-						group.getTeams()[group.getMatch(matchday, match).away() - 1].setResult(matchday, result);
 					}
 				}
 			}

@@ -63,6 +63,10 @@ public class Spiel {
 		return matchday;
 	}
 	
+	public String getMatchdayKey() {
+		return competition.getKey(matchday);
+	}
+	
 	public Datum getDate() {
 		return date;
 	}
@@ -87,6 +91,10 @@ public class Spiel {
 		return awayTeam;
 	}
 	
+	public boolean hasResult() {
+		return getResult() != null;
+	}
+	
 	public Ergebnis getResult() {
 		return result;
 	}
@@ -97,6 +105,8 @@ public class Spiel {
 	
 	public void setResult(Ergebnis result) {
 		this.result = result;
+		if (homeTeam != null)	homeTeam.setResult(getMatchdayKey(), result);
+		if (awayTeam != null)	awayTeam.setResult(getMatchdayKey(), result);
 	}
 	
 	public int[] getLineupHome() {
@@ -134,14 +144,14 @@ public class Spiel {
 				if (!goals.get(i).getMinute().isAfter(goal.getMinute()))	index++;
 			}
 			goals.add(index, goal);
-			result = new Ergebnis(goals);
+			setResult(new Ergebnis(goals));
 		}
 	}
 	
 	public void removeGoal(Tor goal) {
 		if (goal != null) {
 			goals.remove(goal);
-			result = new Ergebnis(goals);
+			setResult(new Ergebnis(goals));
 		}
 	}
 	
@@ -203,10 +213,10 @@ public class Spiel {
 	}
 	
 	public SpielPerformance getMatchPerformance(TeamAffiliation player) {
-		if (result == null)	return null;
+		if (getResult() == null)	return null;
 		boolean firstTeam = getTeam(true).equals(player.getTeam());
 		int squadNumber = player.getSquadNumber();
-		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), result.fromPerspective(firstTeam));
+		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), getResult().fromPerspective(firstTeam));
 		int[] lineup = firstTeam ? lineupHome : lineupAway;
 		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
 		if (lineup == null)	return null;
@@ -240,6 +250,9 @@ public class Spiel {
 				lineupHome = homeTeam.order(lineupHome, date);
 				lineupAway = awayTeam.order(lineupAway, date);
 			}
+			
+			homeTeam.setResult(competition.getKey(matchday), getResult());
+			awayTeam.setResult(competition.getKey(matchday), getResult());
 		}
 	}
 	
@@ -249,7 +262,7 @@ public class Spiel {
 		if (lineupHome != null || lineupAway != null) {
 			matchData += "={" + matchDataToString() + "}";
 			matchData += "={" + lineupToString(lineupHome, substitutionsHome) + "}={" + lineupToString(lineupAway, substitutionsAway) + "}";
-		} else if (result != null) {
+		} else if (hasResult()) {
 			matchData += "={" + matchDataToString() + "}";
 		} else if (referee != null) {
 			matchData += "={" + referee.getID() + "}";
@@ -261,10 +274,10 @@ public class Spiel {
 	private String matchDataToString() {
 		String matchData = "";
 		
-		if (referee != null)					matchData += referee.getID();
-		if (referee != null && result != null)	matchData += "_";
-		if (result != null)						matchData += result;
-		if (!competition.teamsHaveKader())	return matchData;
+		if (referee != null)				matchData += referee.getID();
+		if (referee != null && hasResult())	matchData += "_";
+		if (hasResult())					matchData += getResult();
+		if (!competition.teamsHaveKader() || !hasData())	return matchData;
 		
 		for (Tor goal : goals) {
 			matchData += "#" + goal;
@@ -277,6 +290,14 @@ public class Spiel {
 		}
 		
 		return matchData;
+	}
+	
+	private boolean hasData() {
+		if (bookings.size() > 0)	return true;
+		for (Tor goal : goals) {
+			if (goal.getScorer() != null)	return true;
+		}
+		return false;
 	}
 	
 	private String lineupToString(int[] lineup, ArrayList<Wechsel> substitutions) {
@@ -310,7 +331,7 @@ public class Spiel {
 		String[] matchDataSplit = matchData.split("\\^");
 		String allGoals = matchDataSplit[0];
 		String[] goalsSplit = allGoals.split("#");
-		if(!goalsSplit[0].equals("null"))	result = new Ergebnis(goalsSplit[0]);
+		if(!goalsSplit[0].equals("null"))	setResult(new Ergebnis(goalsSplit[0]));
 		if (goalsSplit.length > 1) {
 			for (int i = 1; i < goalsSplit.length; i++) {
 				goals.add(new Tor(this, goalsSplit[i]));

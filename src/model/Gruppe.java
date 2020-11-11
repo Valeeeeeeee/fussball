@@ -29,9 +29,6 @@ public class Gruppe implements Wettbewerb {
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
 	
-	private Ergebnis[][] results;
-	private boolean[][] resultsSet;
-	
 	private String workspace;
 	
 	private String fileTeams;
@@ -39,9 +36,6 @@ public class Gruppe implements Wettbewerb {
 	
 	private String fileMatches;
 	private ArrayList<String> matchesFromFile;
-	
-	private String fileResults;
-	private ArrayList<String> resultsFromFile;
 	
 	private String fileMatchData;
 	private ArrayList<String> matchDataFromFile;
@@ -444,11 +438,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public boolean isResultSet(int matchday, int matchID) {
-		return resultsSet[matchday][matchID];
-	}
-	
-	public void setResultSet(int matchday, int matchID, boolean isSet) {
-		resultsSet[matchday][matchID] = isSet;
+		return isMatchSet(matchday, matchID) && getMatch(matchday, matchID).hasResult();
 	}
 	
 	public String getResultsSetRepresentation(int matchday) {
@@ -462,33 +452,14 @@ public class Gruppe implements Wettbewerb {
 		return representation;
 	}
 	
-	public void setResultsSetFromRepresentation(int matchday, String representation) {
-		if (representation.equals("true")) {
-			representation = "";
-			for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++)	representation += "t";
-		} else if (representation.equals("false")) {
-			representation = "";
-			for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++)	representation += "f";
-		}
-		
-		if (representation.length() != numberOfMatchesPerMatchday)	return;
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (representation.charAt(matchID) == 't')		setResultSet(matchday, matchID, true);
-			else if (representation.charAt(matchID) == 'f')	setResultSet(matchday, matchID, false);
-		}
-	}
-	
 	// Ergebnisplan
 	
 	public Ergebnis getResult(int matchday, int matchID) {
-		return results[matchday][matchID];
+		if (isMatchSet(matchday, matchID))	return getMatch(matchday, matchID).getResult();
+		return null;
 	}
 	
 	public void setResult(int matchday, int matchID, Ergebnis result) {
-		if (result != null)	setResultSet(matchday, matchID, true);
-		else					setResultSet(matchday, matchID, false);
-		results[matchday][matchID] = result;
 		if (isMatchSet(matchday, matchID))	getMatch(matchday, matchID).setResult(result);
 	}
 	
@@ -499,13 +470,29 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void setMatch(int matchday, int matchID, Spiel match) {
+		String key = getKey(matchday);
 		if (match != null) {
-			setMatchSet(matchday, matchID, true);
-			teams[match.home() - 1].setMatch(matchday, match);
-			teams[match.away() - 1].setMatch(matchday, match);
+			match.getHomeTeam().setMatch(key, match);
+			match.getAwayTeam().setMatch(key, match);
+		} else {
+			if (isMatchSet(matchday, matchID)) {
+				Spiel previousMatch = getMatch(matchday, matchID);
+				previousMatch.getHomeTeam().resetMatch(key);
+				previousMatch.getAwayTeam().resetMatch(key);
+			}
 		}
-		else				setMatchSet(matchday, matchID, false);
 		matches[matchday][matchID] = match;
+		setMatchSet(matchday, matchID, match != null);
+	}
+	
+	public String getKey(int matchday) {
+		return "RR" + twoDigit(matchday);
+	}
+	
+	public void resetMatchday(int matchday) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			setMatch(matchday, match, null);
+		}
 	}
 	
 	public void changeOrderToChronological(int matchday) {
@@ -580,8 +567,6 @@ public class Gruppe implements Wettbewerb {
 				Ergebnis result = spieltag.getResult(matchID);
 				
 				setResult(matchday, matchID, result);
-				teams[getMatch(matchday, matchID).home() - 1].setResult(matchday, result);
-				teams[getMatch(matchday, matchID).away() - 1].setResult(matchday, result);
 			}
 		}
 	}
@@ -613,7 +598,6 @@ public class Gruppe implements Wettbewerb {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
 		workspace = season.getWorkspace() + isQuali + name + File.separator;
 		
-		fileResults = workspace + "Ergebnisse.txt";
 		fileMatchData = workspace + "Spieldaten.txt";
 		fileMatches = workspace + "Spielplan.txt";
 		fileTeams = workspace + "Mannschaften.txt";
@@ -622,7 +606,6 @@ public class Gruppe implements Wettbewerb {
 		initializeArrays();
 		
 		loadMatches();
-		loadResults();
 		loadMatchData();
 
 		if (spieltag == null) {
@@ -639,7 +622,6 @@ public class Gruppe implements Wettbewerb {
 	
 	public void save() {
 		saveMatches();
-		saveResults();
 		saveMatchData();
 		saveTeams();
 	}
@@ -684,15 +666,11 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	private void initializeArrays() {
-		// Alle Array werden initialisiert
-		
-		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
-		results = new Ergebnis[numberOfMatchdays][numberOfMatchesPerMatchday];
 		daysSinceFirstDay = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
 		startTime = new Uhrzeit[numberOfMatchdays][numberOfMatchesPerMatchday];
 		
+		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
-		resultsSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 	}
 	
 	private void loadMatches() {
@@ -765,58 +743,7 @@ public class Gruppe implements Wettbewerb {
 		inDatei(fileMatches, matchesFromFile);
 	}
 	
-	private void loadResults() {
-		try {
-			resultsFromFile = ausDatei(fileResults);
-			
-			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-				String[] split = resultsFromFile.get(matchday).split(";");
-				setResultsSetFromRepresentation(matchday, split[0]);
-				
-				int matchID = 0;
-				if (!isNoMatchSet(matchday) && !isNoResultSet(matchday)) {
-					for (matchID = 0; (matchID + 1) < split.length; matchID++) {
-						if (isMatchSet(matchday, matchID)) {
-							Ergebnis result = null;
-							if (isResultSet(matchday, matchID))	result = new Ergebnis(split[matchID + 1]);
-							
-							setResult(matchday, matchID, result);
-							
-							teams[getMatch(matchday, matchID).home() - 1].setResult(matchday, result);
-							teams[getMatch(matchday, matchID).away() - 1].setResult(matchday, result);
-						}
-					}
-				}
-				
-				while (matchID < numberOfMatchesPerMatchday) {
-					setResult(matchday, matchID, null);
-					matchID++;
-				}
-			}
-		} catch (Exception e) {
-			errorMessage("Kein Ergebnisplan: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
-	private void saveResults() {
-		resultsFromFile = new ArrayList<>();
-		
-		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-			String row = getResultsSetRepresentation(matchday) + ";";
-			if (!isNoResultSet(matchday)) {
-				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-					row += getResult(matchday, matchID) + ";";
-				}
-			}
-			resultsFromFile.add(row);
-		}
-		
-		inDatei(fileResults, resultsFromFile);
-	}
-	
 	private void loadMatchData() {
-		if (!teamsHaveKader)	return;
 		try {
 			matchDataFromFile = ausDatei(fileMatchData);
 			
