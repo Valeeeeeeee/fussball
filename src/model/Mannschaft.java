@@ -217,13 +217,7 @@ public class Mannschaft {
 	}
 	
 	private void loadKader() {
-		if (!competition.teamsHaveKader())	return;
-		if (name.contains("Mannschaft "))	return;
-		if (playsInLeague)		kaderFileName = lSeason.getWorkspace() + "Kader" + File.separator;
-		else if (playsInGroup)	kaderFileName = group.getWorkspace() + "Kader" + File.separator;
-		else	return;
-		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
-		kaderFileName += nameForFileSearch + ".txt";
+		if (!proceedWithKaderFileName())	return;
 		
 		ArrayList<String> playersFromFile = readFile(kaderFileName);
 		numberOfTeamAffiliations = 0;
@@ -239,14 +233,28 @@ public class Mannschaft {
 		distinguishNames();
 	}
 	
+	private boolean proceedWithKaderFileName() {
+		if (name.contains("Mannschaft "))	return false;
+		if (!competition.teamsHaveKader())	return false;
+		if (playsInKORound)					return false;
+		determineKaderFileName();
+		
+		return true;
+	}
+	
+	private void determineKaderFileName() {
+		kaderFileName = competition.getWorkspace() + "Kader" + File.separator;
+		new File(kaderFileName).mkdirs();
+		kaderFileName += nameForFileSearch + ".txt";
+	}
+	
 	public void save() {
 		saveKader();
 	}
 	
 	private void saveKader() {
-		if (!competition.teamsHaveKader())	return;
-		if (name.contains("Mannschaft "))	return;
-		if (playsInKORound)	return;
+		if (!proceedWithKaderFileName())	return;
+		
 		ArrayList<String> players = new ArrayList<>();
 		for (int i = 0; i < numberOfTeamAffiliations; i++) {
 			players.add(teamAffiliations.get(i).toString());
