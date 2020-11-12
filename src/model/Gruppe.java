@@ -627,7 +627,7 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void loadTeams() {
-		teamsFromFile = ausDatei(fileTeams);
+		teamsFromFile = readFile(fileTeams);
 		
 		numberOfTeams = teamsFromFile.size();
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
@@ -647,7 +647,7 @@ public class Gruppe implements Wettbewerb {
 			teams[i].save();
 			teamsFromFile.add(teams[i].toString());
 		}
-		inDatei(fileTeams, teamsFromFile);
+		writeFile(fileTeams, teamsFromFile);
 	}
 	
 	public String[] getRanks() {
@@ -675,7 +675,7 @@ public class Gruppe implements Wettbewerb {
 	
 	private void loadMatches() {
 		try {
-			matchesFromFile = ausDatei(fileMatches); 
+			matchesFromFile = readFile(fileMatches); 
 			
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 				String[] split = matchesFromFile.get(matchday).split(";");
@@ -740,12 +740,12 @@ public class Gruppe implements Wettbewerb {
 			matchesFromFile.add(row);
 		}
 		
-		inDatei(fileMatches, matchesFromFile);
+		writeFile(fileMatches, matchesFromFile);
 	}
 	
 	private void loadMatchData() {
 		try {
-			matchDataFromFile = ausDatei(fileMatchData);
+			matchDataFromFile = readFile(fileMatchData);
 			
 			for (int matchday = 0; matchday < numberOfMatchdays && matchday < matchDataFromFile.size(); matchday++) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
@@ -770,6 +770,6 @@ public class Gruppe implements Wettbewerb {
 			}
 		}
 		
-		inDatei(fileMatchData, matchDataFromFile);
+		writeFile(fileMatchData, matchDataFromFile);
 	}
 }

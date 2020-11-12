@@ -14,9 +14,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Datum;
-import model.Spieler;
 import model.TeamAffiliation;
-import model.Fussball;
 import model.Uhrzeit;
 
 public class Utilities {
@@ -294,69 +292,31 @@ public class Utilities {
 		return clone;
 	}
 	
-	public static String[] ausDateiArray(String dateiname) {
-		ArrayList<String> arraylist = new ArrayList<String>();
-		try {
-			File datei = new File(dateiname);
-			BufferedReader in = null;
-			if (!datei.exists()) {
-				datei.createNewFile();
-				log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
-			} else {
-				String element;
-				try {
-					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
-					while ((element = in.readLine()) != null) {
-						if (!element.isEmpty()) {
-							arraylist.add(element);
-						}
-					}
-				} catch (Exception e) {
-					log("Fehler beim Laden!");
-					e.printStackTrace();
-				} finally {
-					if (in != null) {
-						try {
-							in.close();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}
-		} catch (IOException ioe) {
-			log("No such file or directory: " + dateiname);
-//			ioe.printStackTrace();
-		}
-		String[] zielarray = new String[arraylist.size()];
-		for (int i = 0; i < arraylist.size(); i++) {
-			zielarray[i] = arraylist.get(i);
-		}
-		
-		return zielarray;
+	public static ArrayList<String> readFile(String fileName) {
+		return readFile(fileName, true);
 	}
 	
-	public static ArrayList<String> ausDatei(String dateiname) {
-		return ausDatei(dateiname, true);
-	}
-	
-	public static ArrayList<String> ausDatei(String dateiname, boolean createIfNotExists) {
-		ArrayList<String> arraylist = new ArrayList<String>();
+	public static ArrayList<String> readFile(String fileName, boolean createIfNotExists) {
+		ArrayList<String> arrayList = new ArrayList<String>();
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return arrayList;
+		}
 		try {
-			File datei = new File(dateiname);
+			File file = new File(fileName);
 			BufferedReader in = null;
-			if (!datei.exists()) {
+			if (!file.exists()) {
 				if (createIfNotExists) {
-					datei.createNewFile();
-					log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
+					file.createNewFile();
+					log(" >>> File did not exist but was created! --> " + file.getAbsolutePath());
 				}
 			} else {
 				String element;
 				try {
-					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
+					in = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 					while ((element = in.readLine()) != null) {
 						if (!element.isEmpty()) {
-							arraylist.add(element.replace("" + (char) 65279, ""));
+							arrayList.add(element.replace("" + (char) 65279, ""));
 						}
 					}
 				} catch (Exception e) {
@@ -373,29 +333,32 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log("No such file or directory: " + dateiname);
-//			ioe.printStackTrace();
+			log("No such file or directory: " + fileName);
 		}
 		
-		return arraylist;
+		return arrayList;
 	}
 	
-	public static void inDatei(String dateiname, String[] strings) {
+	public static void writeFile(String fileName, String[] strings) {
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return;
+		}
 		try {
-			File file = new File(dateiname);
+			File file = new File(fileName);
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			
 			BufferedWriter out = null;
 			try {
-				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
 				for (int i = 0; i < strings.length; i++) {
 					out.write(strings[i]);
 					out.newLine();
 				}
 			} catch (Exception e) {
-				log(e.getClass().getName() + " while writing in file " + dateiname);
+				log(e.getClass().getName() + " while writing in file " + fileName);
 			} finally {
 				if (out != null) {
 					try {
@@ -406,27 +369,30 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
-//			ioe.printStackTrace();
+			log(" >> inDatei >> No such file or directory: " + fileName + "\n");
 		}
 	}
 	
-	public static void inDatei(String dateiname, ArrayList<String> strings) {
+	public static void writeFile(String fileName, ArrayList<String> strings) {
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return;
+		}
 		try {
-			File file = new File(dateiname);
+			File file = new File(fileName);
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			
 			BufferedWriter out = null;
 			try {
-				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
 				for (int i = 0; i < strings.size(); i++) {
 					out.write(strings.get(i));
 					out.newLine();
 				}
 			} catch (Exception e) {
-				log(e.getClass().getName() + " while writing in file " + dateiname);
+				log(e.getClass().getName() + " while writing in file " + fileName);
 			} finally {
 				if (out != null) {
 					try {
@@ -437,8 +403,7 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
-//			ioe.printStackTrace();
+			log(" >> inDatei >> No such file or directory: " + fileName + "\n");
 		}
 	}
 	

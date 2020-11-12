@@ -225,7 +225,7 @@ public class Mannschaft {
 		(new File(kaderFileName)).mkdirs(); // if directory does not exist, creates directory
 		kaderFileName += nameForFileSearch + ".txt";
 		
-		ArrayList<String> playersFromFile = ausDatei(kaderFileName);
+		ArrayList<String> playersFromFile = readFile(kaderFileName);
 		numberOfTeamAffiliations = 0;
 		teamAffiliations.clear();
 		
@@ -251,7 +251,7 @@ public class Mannschaft {
 		for (int i = 0; i < numberOfTeamAffiliations; i++) {
 			players.add(teamAffiliations.get(i).toString());
 		}
-		inDatei(kaderFileName, players);
+		writeFile(kaderFileName, players);
 	}
 	
 	private void distinguishNames() {

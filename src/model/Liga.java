@@ -70,10 +70,10 @@ public class Liga {
 		
 		teams.add(0, "" + teams.size());
 		
-		inDatei(fileResults, results);
-		inDatei(fileMatchData, matchData);
-		inDatei(fileMatches, matches);
-		inDatei(fileTeams, teams);
+		writeFile(fileResults, results);
+		writeFile(fileMatchData, matchData);
+		writeFile(fileMatches, matches);
+		writeFile(fileTeams, teams);
 		
 		return true;
 	}
@@ -84,7 +84,7 @@ public class Liga {
 		long now = 10000L * today.comparable() + new Uhrzeit().comparable();
 		for (LigaSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
-			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
+			ArrayList<String> nextMatchesString = readFile(fileName, false);
 			if (nextMatchesString.size() > 0) {
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
@@ -167,7 +167,7 @@ public class Liga {
 		workspace = Fussball.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		fileSeasonsData = workspace + "SaisonsConfig.txt";
-		seasonsDataFromFile = ausDatei(fileSeasonsData);
+		seasonsDataFromFile = readFile(fileSeasonsData);
 		
 		seasons = new ArrayList<>();
 		for (int i = 0; i < seasonsDataFromFile.size(); i++) {
@@ -182,7 +182,7 @@ public class Liga {
 			seasonsDataFromFile.add(seasons.get(i).toString());
 		}
 		
-		inDatei(fileSeasonsData, seasonsDataFromFile);
+		writeFile(fileSeasonsData, seasonsDataFromFile);
 	}
 	private void fromString(String data) {
 		String[] split = data.split(";");

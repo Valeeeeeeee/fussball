@@ -297,7 +297,7 @@ public class MyDateChooser extends JFrame {
 	
 	private void getDefaultDateAndTime() {
 		try {
-			ArrayList<String> dateAndTime = ausDatei("DefaultDate.txt");
+			ArrayList<String> dateAndTime = readFile("DefaultDate.txt");
 			defaultDate = new Datum(dateAndTime.remove(0));
 			defaultTime = new Uhrzeit(dateAndTime.remove(0));
 		} catch (Exception e) {

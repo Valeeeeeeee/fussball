@@ -707,7 +707,7 @@ public class LigaSaison implements Wettbewerb {
 			for (int i = 0; i < Fussball.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
-			inDatei(fileName, nextMatchesString);
+			writeFile(fileName, nextMatchesString);
 		} else {
 			new File(fileName).delete();
 		}
@@ -772,7 +772,7 @@ public class LigaSaison implements Wettbewerb {
 		String fileName = Fussball.getInstance().getLeagueWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
 		if (fileName == null)	return origin;
 		
-		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		ArrayList<String> teams = readFile(fileName + "allRanks.txt");
 		for (String team : teams) {
 			if (origin.substring(8).equals(team.split(": ")[0])) {
 				return team.split(": ")[1];
@@ -801,7 +801,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public void loadReferees() {
-		refereesFromFile = ausDatei(fileReferees, false);
+		refereesFromFile = readFile(fileReferees, false);
 		
 		numberOfReferees = refereesFromFile.size();
 		referees = new ArrayList<>();
@@ -817,11 +817,11 @@ public class LigaSaison implements Wettbewerb {
 			refereesFromFile.add(referees.get(i).toString());
 		}
 		
-		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+		if (refereesFromFile.size() > 0)	writeFile(fileReferees, refereesFromFile);
 	}
 	
 	public void loadTeams() {
-		teamsFromFile = ausDatei(fileTeams);
+		teamsFromFile = readFile(fileTeams);
 		
 		halfNOfTeamsUp = (1 + numberOfTeams) / 2;
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
@@ -843,14 +843,14 @@ public class LigaSaison implements Wettbewerb {
 			teamsFromFile.add(teams[i].toString());
 		}
 		
-		inDatei(fileTeams, teamsFromFile);
+		writeFile(fileTeams, teamsFromFile);
 	}
 	
 	public void loadMatches() {
-		matchesFromFile = ausDatei(fileMatches);
+		matchesFromFile = readFile(fileMatches);
 		
 		try {
-			matchesFromFile = ausDatei(fileMatches); 
+			matchesFromFile = readFile(fileMatches); 
 			
 			// Anstoßzeiten / Spieltermine
 			String allKickoffTimes = matchesFromFile.get(0);
@@ -979,12 +979,12 @@ public class LigaSaison implements Wettbewerb {
 			matchesFromFile.add(row);
 		}
 		
-		inDatei(fileMatches, matchesFromFile);
+		writeFile(fileMatches, matchesFromFile);
 	}
 	
 	private void loadMatchData() {
 		try {
-			matchDataFromFile = ausDatei(fileMatchData);
+			matchDataFromFile = readFile(fileMatchData);
 			
 			for (int matchday = 0; matchday < numberOfMatchdays && matchday < matchDataFromFile.size(); matchday++) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
@@ -1009,7 +1009,7 @@ public class LigaSaison implements Wettbewerb {
 			}
 		}
 		
-		inDatei(fileMatchData, matchDataFromFile);
+		writeFile(fileMatchData, matchDataFromFile);
 	}
 	
 	public Mannschaft getTeamOnPlace(int place) {
@@ -1060,13 +1060,13 @@ public class LigaSaison implements Wettbewerb {
 			}
 		}
 		
-		inDatei(workspace + "allRanks.txt", allRanks);
+		writeFile(workspace + "allRanks.txt", allRanks);
 	}
 	
 	private void loadPlayoffs() {
 		if (!hasPlayoffs)	return;
 		
-		koConfigFromFile = ausDatei(fileKOconfig);
+		koConfigFromFile = readFile(fileKOconfig);
 		playoffs = new KORunde(this, koConfigFromFile.get(0));
 	}
 	
@@ -1077,7 +1077,7 @@ public class LigaSaison implements Wettbewerb {
 		playoffs.save();
 		koConfigFromFile.add(playoffs.toString());
 		
-		inDatei(fileKOconfig, koConfigFromFile);
+		writeFile(fileKOconfig, koConfigFromFile);
 	}
 	
 	public void load() {

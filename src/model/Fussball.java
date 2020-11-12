@@ -1296,9 +1296,9 @@ public class Fussball extends JFrame {
 					groupFile.mkdir();
 					
 					// Speicherung des Spielplans und des Ergebnisplans
-					inDatei(groupFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teams);
-					inDatei(groupFile.getAbsolutePath() + File.separator + "Spielplan.txt", matches);
-					inDatei(groupFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", results);
+					writeFile(groupFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teams);
+					writeFile(groupFile.getAbsolutePath() + File.separator + "Spielplan.txt", matches);
+					writeFile(groupFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", results);
 				}
 			} catch (Exception e) {
 				error("Error while creating group root directory!");
@@ -1378,11 +1378,11 @@ public class Fussball extends JFrame {
 					koFile.mkdir();
 					
 					// Speicherung des Spielplans und des Ergebnisplans
-					inDatei(koFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teams);
-					inDatei(koFile.getAbsolutePath() + File.separator + "Spielplan.txt", matches);
-					inDatei(koFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", results);
+					writeFile(koFile.getAbsolutePath() + File.separator + "Mannschaften.txt", teams);
+					writeFile(koFile.getAbsolutePath() + File.separator + "Spielplan.txt", matches);
+					writeFile(koFile.getAbsolutePath() + File.separator + "Ergebnisse.txt", results);
 				}
-				inDatei(seasonFile.getAbsolutePath() + File.separator + "KOconfig.txt", koConfig);
+				writeFile(seasonFile.getAbsolutePath() + File.separator + "KOconfig.txt", koConfig);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -1571,7 +1571,7 @@ public class Fussball extends JFrame {
 	
 	private void loadPlayers() {
 		filePlayers = workspace + File.separator + "players.txt";
-		playersFromFile = ausDatei(filePlayers);
+		playersFromFile = readFile(filePlayers);
 		
 		players = new HashMap<>();
 		
@@ -1590,12 +1590,12 @@ public class Fussball extends JFrame {
 			addAscending(playersFromFile, players.get(id).toString());
 		}
 		
-		inDatei(filePlayers, playersFromFile);
+		writeFile(filePlayers, playersFromFile);
 	}
 	
 	private void loadConfiguration() {
 		fileConfiguration = workspace + File.separator + "config.txt";
-		configurationFromFile = ausDatei(fileConfiguration);
+		configurationFromFile = readFile(fileConfiguration);
 		
 		int counter = 0;
 		
@@ -1630,7 +1630,7 @@ public class Fussball extends JFrame {
 			configurationFromFile.add(tournaments.get(i).toString());
 		}
 		
-		inDatei(fileConfiguration, configurationFromFile);
+		writeFile(fileConfiguration, configurationFromFile);
 	}
 	
 	public void checkOS() {

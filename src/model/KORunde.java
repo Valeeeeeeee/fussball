@@ -748,7 +748,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void loadTeams() {
-		teamsFromFile = ausDatei(fileTeams);
+		teamsFromFile = readFile(fileTeams);
 		
 		numberOfTeams = teamsFromFile.size();
 		teams = new Mannschaft[numberOfTeams];
@@ -781,12 +781,12 @@ public class KORunde implements Wettbewerb {
 			if (teams[i] != null)	teams[i].save();
 			teamsFromFile.add(teamsOrigins[i]); //.toString());
 		}
-		inDatei(fileTeams, teamsFromFile);
+		writeFile(fileTeams, teamsFromFile);
 	}
 	
 	private void loadMatches() {
 		try {
-			matchesFromFile = ausDatei(fileMatches);
+			matchesFromFile = readFile(fileMatches);
 			
 			for (int matchday = 0; matchday < matchesFromFile.size(); matchday++) {
 				String[] split = matchesFromFile.get(matchday).split(";");
@@ -852,12 +852,12 @@ public class KORunde implements Wettbewerb {
 			matchesFromFile.add(row);
 		}
 		
-		inDatei(fileMatches, matchesFromFile);
+		writeFile(fileMatches, matchesFromFile);
 	}
 	
 	private void loadMatchData() {
 		try {
-			matchDataFromFile = ausDatei(fileMatchData);
+			matchDataFromFile = readFile(fileMatchData);
 			
 			for (int matchday = 0; matchday < numberOfMatchdays && matchday < matchDataFromFile.size(); matchday++) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
@@ -882,7 +882,7 @@ public class KORunde implements Wettbewerb {
 			}
 		}
 		
-		inDatei(fileMatchData, matchDataFromFile);
+		writeFile(fileMatchData, matchDataFromFile);
 	}
 	
 	public String toString() {

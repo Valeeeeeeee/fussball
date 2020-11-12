@@ -443,7 +443,7 @@ public class TurnierSaison {
 	private String getNameOfTeamFromOtherCompetition(String origin) {
 		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
 		
-		ArrayList<String> teams = ausDatei(fileName + "allRanks.txt");
+		ArrayList<String> teams = readFile(fileName + "allRanks.txt");
 		for (String team : teams) {
 			if (origin.substring(6).equals(team.split(": ")[0])) {
 				return team.split(": ")[1];
@@ -696,7 +696,7 @@ public class TurnierSaison {
 	// Laden / Speichern
 	
 	public void loadReferees() {
-		refereesFromFile = ausDatei(fileReferees, false);
+		refereesFromFile = readFile(fileReferees, false);
 		
 		numberOfReferees = refereesFromFile.size();
 		referees = new ArrayList<>();
@@ -712,12 +712,12 @@ public class TurnierSaison {
 			refereesFromFile.add(referees.get(i).toString());
 		}
 		
-		if (refereesFromFile.size() > 0)	inDatei(fileReferees, refereesFromFile);
+		if (refereesFromFile.size() > 0)	writeFile(fileReferees, refereesFromFile);
 	}
 	
 	public void loadQualification() {
 		if (!hasQualification)	return;
-		qualificationDataFromFile = ausDatei(fileQualificationData);
+		qualificationDataFromFile = readFile(fileQualificationData);
 		int index = 0;
 		
 		qStartDate = new Datum(qualificationDataFromFile.get(index++));
@@ -772,12 +772,12 @@ public class TurnierSaison {
 			}
 		}
 		
-		inDatei(fileQualificationData, qualificationDataFromFile);
+		writeFile(fileQualificationData, qualificationDataFromFile);
 	}
 	
 	public void loadGroups() {
 		if (!hasGroupStage)	return;
-		groupsDataFromFile = ausDatei(fileGroupsData);
+		groupsDataFromFile = readFile(fileGroupsData);
 		int index = 0;
 		
 		numberOfGroups = Integer.parseInt(groupsDataFromFile.get(index++));
@@ -804,12 +804,12 @@ public class TurnierSaison {
 		groupsDataFromFile.add("" + goalDifferenceGroupStage);
 		groupsDataFromFile.add("" + fairplayGroupStage);
 		
-		inDatei(fileGroupsData, groupsDataFromFile);
+		writeFile(fileGroupsData, groupsDataFromFile);
 	}
 	
 	public void loadKORounds() {
 		if (!hasKOStage)	return;
-		koRoundsDataFromFile = ausDatei(fileKORoundsData);
+		koRoundsDataFromFile = readFile(fileKORoundsData);
 		numberOfKORounds = koRoundsDataFromFile.size();
 		
 		koRounds = new KORunde[numberOfKORounds];
@@ -825,7 +825,7 @@ public class TurnierSaison {
 			koRoundsDataFromFile.add(koRounds[i].toString());
 		}
 		
-		inDatei(fileKORoundsData, koRoundsDataFromFile);
+		writeFile(fileKORoundsData, koRoundsDataFromFile);
 	}
 	
 	private void saveNextMatches() {
@@ -861,7 +861,7 @@ public class TurnierSaison {
 			for (int i = 0; i < Fussball.numberOfMissingResults && i < nextMatches.size(); i++) {
 				nextMatchesString.add("" + nextMatches.get(i));
 			}
-			inDatei(fileName, nextMatchesString);
+			writeFile(fileName, nextMatchesString);
 		} else {
 			new File(fileName).delete();
 		}
@@ -903,7 +903,7 @@ public class TurnierSaison {
 			}
 		}
 		
-		inDatei(workspace + "allRanks.txt", allRanks);
+		writeFile(workspace + "allRanks.txt", allRanks);
 	}
 	
 	public void load() {

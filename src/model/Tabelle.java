@@ -414,7 +414,7 @@ public class Tabelle extends JPanel {
 			fileName += group.getWorkspace() + "Tabelle.txt";
 		}
 		log(fileName);
-		inDatei(fileName, order);
+		writeFile(fileName, order);
 	}
 	
 	private void jBtnChangeTableType(Tabellenart tableType) {
