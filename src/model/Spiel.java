@@ -320,6 +320,10 @@ public class Spiel {
 	
 	private void parseMatchData(String matchData) {
 		matchData = matchData.replace("{", "").replace("}", "");
+		if (matchData.equals(Ergebnis.ANNULLIERT)) {
+			setResult(new Ergebnis(matchData));
+			return;
+		}
 		if (matchData.indexOf("_") != -1) {
 			setReferee(competition.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
 		}

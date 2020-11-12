@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class Ergebnis {
 
+	public static final String ANNULLIERT = "ann.";
+	public static final String AGT = " agT";
+	public static final String AFTER_EXTRA_TIME = "nV ";
+	public static final String AFTER_PENALTIES = "nE ";
+	
 	private boolean finishedInRegularTime = false;
 	private boolean finishedInExtraTime = false;
 	private boolean amGruenenTisch = false;
@@ -62,7 +67,7 @@ public class Ergebnis {
 	
 	public Ergebnis(String data) {
 		try {
-			if (data.equals("ann.")) {
+			if (data.equals(ANNULLIERT)) {
 				annulliert = true;
 				home[REGULAR] = -1;
 				away[REGULAR] = -1;
@@ -74,10 +79,10 @@ public class Ergebnis {
 				home[REGULAR] = Integer.parseInt(split[0]);
 				away[REGULAR] = Integer.parseInt(split[1]);
 				
-			} else if (data.indexOf("nE") != -1) {
+			} else if (data.indexOf(AFTER_PENALTIES) != -1) {
 				// Beispiel: >2:1nE (1:1,0:0)<
 				
-				String[] split = data.split("nE ");
+				String[] split = data.split(AFTER_PENALTIES);
 				split[1] = split[1].substring(1, split[1].length() - 1);
 				
 				// teile[0] = 2:1
@@ -94,11 +99,11 @@ public class Ergebnis {
 				home[REGULAR] = Integer.parseInt(goals[0]);
 				away[REGULAR] = Integer.parseInt(goals[1]);
 				
-			} else if (data.indexOf("nV") != -1) {
+			} else if (data.indexOf(AFTER_EXTRA_TIME) != -1) {
 				// Beispiel: >3:2nV (2:2)<
 				finishedInExtraTime = true;
 				
-				String[] split = data.split("nV ");
+				String[] split = data.split(AFTER_EXTRA_TIME);
 				split[1] = split[1].substring(1, split[1].length() - 1);
 				
 				// teile[0] = 3:2
@@ -284,20 +289,20 @@ public class Ergebnis {
 	}
 	
 	public String toString() {
+		if (annulliert)	return ANNULLIERT;
+		
 		String toString = home(REGULAR) + ":" + away(REGULAR);
 		
-		if (annulliert)	return "ann.";
-		
-		if (amGruenenTisch)	return toString + " agT";
+		if (amGruenenTisch)	return toString + AGT;
 		
 		if (finishedInRegularTime)	return toString;
 		
 		if (finishedInExtraTime) {
-			toString = home(EXTRATIME) + ":" + away(EXTRATIME) + "nV (" + toString + ")";
+			toString = home(EXTRATIME) + ":" + away(EXTRATIME) + AFTER_EXTRA_TIME + "(" + toString + ")";
 			return toString;
 		}
 		
-		toString = home(PENALTIES) + ":" + away(PENALTIES) + "nE (" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + toString + ")";
+		toString = home(PENALTIES) + ":" + away(PENALTIES) + AFTER_PENALTIES + "(" + home(EXTRATIME) + ":" + away(EXTRATIME) + "," + toString + ")";
 		return toString;
 	}
 }
