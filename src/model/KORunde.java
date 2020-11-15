@@ -587,18 +587,6 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
-	public void getResultsFromSpieltag() {
-		int matchday = spieltag.getCurrentMatchday();
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (isMatchSet(matchday, matchID)) {
-				Ergebnis result = spieltag.getResult(matchID);
-				
-				setResult(matchday, matchID, result);
-			}
-		}
-	}
-	
 	/**
 	 * Returns a String representing the origin of the team winning this match/these matches.
 	 * @param match The index of the match, beginning from 1

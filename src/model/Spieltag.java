@@ -771,12 +771,21 @@ public class Spieltag extends JPanel {
 		}
 	}
 	
-	private void saveResults() {
+	public void saveResults() {
 		if (nothingToSave)	return;
-		if (belongsToALeague)		lSeason.getResultsFromSpieltag();
-		else if (belongsToGroup)	group.getResultsFromSpieltag();
-		else if (belongsToKORound)	koRound.getResultsFromSpieltag();
-		else						tSeason.getResultsFromSpieltag();
+		
+		if (isOverview) {
+			for (int groupID = 0; groupID < allGroups.length; groupID++) {
+				Gruppe group = allGroups[groupID];
+				for (int matchID = 0; matchID < numbersOfMatches[groupID]; matchID++) {
+					group.setResult(currentMatchday, matchID, getResult(groupID, matchID));
+				}
+			}
+		} else {
+			for (int matchID = 0; matchID < numberOfMatches; matchID++) {
+				competition.setResult(currentMatchday, matchID, getResult(matchID));
+			}
+		}
 	}
 
 	private void jCBMatchdaysItemStateChanged(ItemEvent evt) {
@@ -1091,22 +1100,21 @@ public class Spieltag extends JPanel {
 	private void resetMatchdayActionPerformed() {
 		if (yesNoDialog("Do you really want to reset this matchday? This is irrevocable.") == JOptionPane.NO_OPTION) return;
 		
-		if (belongsToALeague) {
-			lSeason.resetMatchday(currentMatchday);
-			lSeason.getResultsFromSpieltag();
-		} else if (belongsToGroup) {
-			group.resetMatchday(currentMatchday);
-			group.getResultsFromSpieltag();
-		} else if (belongsToKORound) {
-			koRound.resetMatchday(currentMatchday);
-			koRound.getResultsFromSpieltag();
-		} else {
+		if (isOverview) {
 			for (Gruppe group : allGroups) {
 				group.resetMatchday(currentMatchday);
 			}
-			
-			tSeason.getResultsFromSpieltag();
+		} else {
+//			competition.resetMatchday(currentMatchday);
+			if (belongsToALeague) {
+				lSeason.resetMatchday(currentMatchday);
+			} else if (belongsToGroup) {
+				group.resetMatchday(currentMatchday);
+			} else if (belongsToKORound) {
+				koRound.resetMatchday(currentMatchday);
+			}
 		}
+		
 		showMatchday();
 	}
 	
@@ -1210,7 +1218,7 @@ public class Spieltag extends JPanel {
 		else if (belongsToGroup)	group.changeOrderToChronological(currentMatchday);
 		else if (belongsToKORound)	koRound.changeOrderToChronological(currentMatchday);
 		else if (isOverview) {
-			oldOrder = tSeason.getChronologicalOrder(currentMatchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
+			oldOrder = tSeason.getChronologicalOrder(isQualification, currentMatchday); // beinhaltet die alten Indizes in der neuen Reihenfolge
 			newOrder = new int[oldOrder.length]; // beinhaltet die neuen Indizes in der alten Reihenfolge
 			for (int i = 0; i < oldOrder.length; i++) {
 				newOrder[oldOrder[i]] = i;
@@ -1224,7 +1232,7 @@ public class Spieltag extends JPanel {
 			if (belongsToALeague)		currentMatchday = lSeason.getCurrentMatchday();
 			else if (belongsToGroup)	currentMatchday = group.getCurrentMatchday();
 			else if (belongsToKORound)	currentMatchday = koRound.getCurrentMatchday();
-			else 						currentMatchday = tSeason.getCurrentMatchday();
+			else 						currentMatchday = tSeason.getCurrentMatchday(isQualification);
 			
 			if (currentMatchday == jCBMatchdays.getSelectedIndex()) {
 				// dann gibt es keinen ItemStateChange und die Methode wird nicht aufgerufen

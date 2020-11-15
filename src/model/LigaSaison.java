@@ -534,22 +534,6 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	public void getResultsFromSpieltag() {
-		int matchday = spieltag.getCurrentMatchday();
-		if (hasPlayoffs && matchday >= numberOfMatchdays) {
-			playoffs.getResultsFromSpieltag();
-			return;
-		}
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (isMatchSet(matchday, matchID)) {
-				Ergebnis result = spieltag.getResult(matchID);
-				
-				setResult(matchday, matchID, result);
-			}
-		}
-	}
-	
 	public void setRueckrundeToOrder(int[] orderOfRueckRunde) {
 		if (2 * orderOfRueckRunde.length != numberOfMatchdays) {
 			errorMessage("Your Rueckrunde does not match the expected number of matchdays.");

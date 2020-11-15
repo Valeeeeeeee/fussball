@@ -565,10 +565,6 @@ public class Fussball extends JFrame {
 		return addingNewSeason;
 	}
 	
-	public boolean isCurrentlyInQualification() {
-		return isCurrentlyInQualification;
-	}
-	
 	private void refreshRunningAndCompletedMatches() {
 		for (int i = 0; i < numberOfLeagues; i++) {
 			int[] missing = leagues.get(i).checkMissingResults();
@@ -1418,7 +1414,7 @@ public class Fussball extends JFrame {
 			if (aktuellerSpieltag.isVisible()) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					currentLSeason.getResultsFromSpieltag();
+					aktuellerSpieltag.saveResults();
 				} else {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						return;
@@ -1454,7 +1450,7 @@ public class Fussball extends JFrame {
 			if (currentGroup != null && isCurrentlyInMatchdayView) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					currentGroup.getResultsFromSpieltag();
+					aktuellerSpieltag.saveResults();
 				} else {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
@@ -1466,7 +1462,7 @@ public class Fussball extends JFrame {
 			if (currentKORound != null) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					currentKORound.getResultsFromSpieltag();
+					aktuellerSpieltag.saveResults();
 				} else {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
@@ -1483,7 +1479,7 @@ public class Fussball extends JFrame {
 				}
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
 				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					currentTSeason.getResultsFromSpieltag();
+					aktuellerSpieltag.saveResults();
 				} else {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");

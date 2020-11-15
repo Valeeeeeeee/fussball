@@ -231,9 +231,9 @@ public class TurnierSaison {
 		return allReferees;
 	}
 	
-	public int getCurrentMatchday() {
+	public int getCurrentMatchday(boolean isQualification) {
 		int matchday = 0, altMD = -1;
-		if (Fussball.getInstance().isCurrentlyInQualification()) {
+		if (isQualification) {
 			matchday = qGroups[0].getOverviewMatchday();
 			for (int i = 1; i < numberOfQGroups && altMD == -1; i++) {
 				if (matchday != qGroups[i].getOverviewMatchday()) altMD = qGroups[i].getOverviewMatchday();	
@@ -256,40 +256,9 @@ public class TurnierSaison {
 		return matchday;
 	}
 	
-	public void getResultsFromSpieltag() {
-		// when in overview mode
-		if (Fussball.getInstance().isCurrentlyInQualification()) {
-			int matchday = qOverview.getCurrentMatchday();
-			
-			for (int groupID = 0; groupID < qGroups.length; groupID++) {
-				Gruppe group = qGroups[groupID];
-				for (int match = 0; match < group.getNumberOfMatchesPerMatchday(); match++) {
-					if (group.isMatchSet(matchday, match)) {
-						Ergebnis result = qOverview.getResult(groupID, match);
-						
-						group.setResult(matchday, match, result);
-					}
-				}
-			}
-		} else {
-			int matchday = overview.getCurrentMatchday();
-			
-			for (int groupID = 0; groupID < groups.length; groupID++) {
-				Gruppe group = groups[groupID];
-				for (int match = 0; match < group.getNumberOfMatchesPerMatchday(); match++) {
-					if (group.isMatchSet(matchday, match)) {
-						Ergebnis result = overview.getResult(groupID, match);
-						
-						group.setResult(matchday, match, result);
-					}
-				}
-			}
-		}
-	}
-	
-	public int[] getChronologicalOrder(int matchday) {
+	public int[] getChronologicalOrder(boolean isQualification, int matchday) {
 		int numberOfMatches = 0;
-		if (Fussball.getInstance().isCurrentlyInQualification()) {
+		if (isQualification) {
 			for (int i = 0; i < numberOfQGroups; i++) {
 				qGroups[i].changeOrderToChronological(matchday);
 				numberOfMatches += qGroups[i].getNumberOfMatchesPerMatchday();
@@ -307,7 +276,7 @@ public class TurnierSaison {
 		Uhrzeit[] times = new Uhrzeit[numberOfMatches];
 		
 		int matchID = 0;
-		for (Gruppe group : Fussball.getInstance().isCurrentlyInQualification() ? qGroups : groups) {
+		for (Gruppe group : isQualification ? qGroups : groups) {
 			for (int match = 0; match < group.getNumberOfMatchesPerMatchday(); match++) {
 				dates[matchID] = group.getDate(matchday, match);
 				times[matchID] = group.getTime(matchday, match);

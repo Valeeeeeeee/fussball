@@ -559,18 +559,6 @@ public class Gruppe implements Wettbewerb {
 		}
 	}
 	
-	public void getResultsFromSpieltag() {
-		int matchday = spieltag.getCurrentMatchday();
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (isMatchSet(matchday, matchID)) {
-				Ergebnis result = spieltag.getResult(matchID);
-				
-				setResult(matchday, matchID, result);
-			}
-		}
-	}
-	
 	public ArrayList<Long> getNextMatches() {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
