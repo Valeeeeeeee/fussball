@@ -369,7 +369,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchID) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday) != MAX_DATE)
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && !getDate(matchday).equals(DATE_UNDEFINED))
 			return kickOffTimes.get(getKOTIndex(matchday, matchID)).getDateAndTime(getDate(matchday));
 		else
 			return "nicht terminiert";
@@ -855,7 +855,7 @@ public class LigaSaison implements Wettbewerb {
 				if (!isNoMatchSet(matchday)) {
 					// Daten und Uhrzeiten
 					String[] koTimes = split[1].split(":");
-					setDate(matchday, koTimes[0].equals("0") ? MAX_DATE : new Datum(koTimes[0]));
+					setDate(matchday, koTimes[0].equals("0") ? DATE_UNDEFINED : new Datum(koTimes[0]));
 					for (matchID = 0; (matchID + 1) < koTimes.length; matchID++) {
 						setKOTIndex(matchday, matchID, Integer.parseInt(koTimes[matchID + 1]));
 					}
@@ -871,7 +871,7 @@ public class LigaSaison implements Wettbewerb {
 						setMatch(matchday, matchID, match);
 					}
 				}
-				else	setDate(matchday, MAX_DATE);
+				else	setDate(matchday, DATE_UNDEFINED);
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
@@ -950,7 +950,7 @@ public class LigaSaison implements Wettbewerb {
 			row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
 				Datum date = getDate(matchday);
-				row += date == MAX_DATE ? 0 : date.comparable();
+				row += date.equals(DATE_UNDEFINED) ? 0 : date.comparable();
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 					row += ":" + getKOTIndex(matchday, matchID);
 				}

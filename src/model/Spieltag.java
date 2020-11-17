@@ -1128,7 +1128,7 @@ public class Spieltag extends JPanel {
 		ArrayList<Spiel> secondLegs = new ArrayList<>();
 		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday(); matchID++) {
 			Spiel match = koRound.getMatch(0, matchID), secondLeg = null;
-			if (match != null)	secondLeg = new Spiel(koRound, 1, MAX_DATE, TIME_UNDEFINED, match.away(), match.home());
+			if (match != null)	secondLeg = new Spiel(koRound, 1, DATE_UNDEFINED, TIME_UNDEFINED, match.away(), match.home());
 			
 			int index = 0;
 			if (secondLeg != null) {

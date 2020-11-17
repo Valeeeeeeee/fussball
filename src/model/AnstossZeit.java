@@ -1,6 +1,6 @@
 package model;
 
-import static util.Utilities.MAX_DATE;
+import static util.Utilities.DATE_UNDEFINED;
 import static util.Utilities.UNDEFINED;
 
 public class AnstossZeit {
@@ -32,7 +32,7 @@ public class AnstossZeit {
 	}
 	
 	public Datum getDate(Datum startDate) {
-		if (startDate == MAX_DATE)	return MAX_DATE;
+		if (startDate.equals(DATE_UNDEFINED))	return DATE_UNDEFINED;
 		return new Datum(startDate, daysSince);
 	}
 	

@@ -194,14 +194,14 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchID) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != MAX_DATE)
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != DATE_UNDEFINED)
 			return getDate(matchday, matchID).withDividers() + " " + getTime(matchday, matchID).withDividers();
 		else 
 			return "nicht terminiert";
 	}
 	
 	public Datum getDate(int matchday, int matchID) {
-		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return MAX_DATE;
+		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return DATE_UNDEFINED;
 		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
@@ -210,8 +210,8 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public void setDate(int matchday, int matchID, Datum myDate) {
-		if (myDate == MAX_DATE)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
-		else					daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
+		if (myDate == DATE_UNDEFINED)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+		else							daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
 	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
@@ -675,11 +675,11 @@ public class Gruppe implements Wettbewerb {
 					String[] koTimes = split[1].split(":");
 					for (matchID = 0; matchID < koTimes.length; matchID++) {
 						if (koTimes[matchID].equals(TO_BE_DATED)) {
-							daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+							setDate(matchday, matchID, DATE_UNDEFINED);
 							setTime(matchday, matchID, TIME_UNDEFINED);
 						} else {
 							String[] dateAndTime = koTimes[matchID].split(",");
-							daysSinceFirstDay[matchday][matchID] = Integer.parseInt(dateAndTime[0]);
+							setDate(matchday, matchID, new Datum(startDate, Integer.parseInt(dateAndTime[0])));
 							setTime(matchday, matchID, new Uhrzeit(dateAndTime[1]));
 						}
 					}
@@ -697,7 +697,7 @@ public class Gruppe implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
-					daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+					setDate(matchday, matchID, DATE_UNDEFINED);
 					setTime(matchday, matchID, TIME_UNDEFINED);
 					matchID++;
 				}
@@ -715,8 +715,8 @@ public class Gruppe implements Wettbewerb {
 			String row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-					if (daysSinceFirstDay[matchday][matchID] == UNDEFINED && getTime(matchday, matchID).equals(TIME_UNDEFINED))	row += TO_BE_DATED;
-					else	row += daysSinceFirstDay[matchday][matchID] + "," + getTime(matchday, matchID).comparable();
+					if (getDate(matchday, matchID).equals(DATE_UNDEFINED) && getTime(matchday, matchID).equals(TIME_UNDEFINED))	row += TO_BE_DATED;
+					else	row += startDate.daysUntil(getDate(matchday, matchID)) + "," + getTime(matchday, matchID).comparable();
 					if (matchID + 1 < numberOfMatchesPerMatchday)	row += ":";
 					else											row += ";";
 				}
