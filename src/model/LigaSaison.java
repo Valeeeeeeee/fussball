@@ -518,6 +518,7 @@ public class LigaSaison implements Wettbewerb {
 				Spiel previousMatch = getMatch(matchday, matchID);
 				previousMatch.getHomeTeam().resetMatch(key);
 				previousMatch.getAwayTeam().resetMatch(key);
+				setKOTIndex(matchday, matchID, 0);
 			}
 		}
 		matches[matchday][matchID] = match;

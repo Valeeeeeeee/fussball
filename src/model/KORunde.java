@@ -494,6 +494,8 @@ public class KORunde implements Wettbewerb {
 				Spiel previousMatch = getMatch(matchday, matchID);
 				if (teams[previousMatch.home() - 1] != null)	teams[previousMatch.home() - 1].resetMatch(key);
 				if (teams[previousMatch.away() - 1] != null)	teams[previousMatch.away() - 1].resetMatch(key);
+				setDate(matchday, matchID, DATE_UNDEFINED);
+				setTime(matchday, matchID, TIME_UNDEFINED);
 			}
 		}
 		matches[matchday][matchID] = match;

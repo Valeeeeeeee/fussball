@@ -479,6 +479,8 @@ public class Gruppe implements Wettbewerb {
 				Spiel previousMatch = getMatch(matchday, matchID);
 				previousMatch.getHomeTeam().resetMatch(key);
 				previousMatch.getAwayTeam().resetMatch(key);
+				setDate(matchday, matchID, DATE_UNDEFINED);
+				setTime(matchday, matchID, TIME_UNDEFINED);
 			}
 		}
 		matches[matchday][matchID] = match;
