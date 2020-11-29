@@ -1,3 +1,4 @@
+Arne;Aarnink;19850131;Deutschland;
 Deniz;Aytekin;19780721;Deutschland;
 Florian;Badstübner;19910202;Deutschland;
 Benjamin;Brand;19890710;Deutschland;
