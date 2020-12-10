@@ -92,22 +92,22 @@ PO05W: Dynamo Kiew
 PO05L: KAA Gent
 PO06W: Ferencváros Budapest
 PO06L: Molde FK
-GA1: CL2020GA1
-GA2: CL2020GA2
-GA3: CL2020GA3
-GA4: CL2020GA4
-GB1: CL2020GB1
-GB2: CL2020GB2
-GB3: CL2020GB3
-GB4: CL2020GB4
-GC1: CL2020GC1
-GC2: CL2020GC2
-GC3: CL2020GC3
-GC4: CL2020GC4
-GD1: CL2020GD1
-GD2: CL2020GD2
-GD3: CL2020GD3
-GD4: CL2020GD4
+GA1: Bayern München
+GA2: Atlético Madrid
+GA3: FC Salzburg
+GA4: Lokomotive Moskau
+GB1: Real Madrid
+GB2: Borussia Mönchengladbach
+GB3: Schachtar Donezk
+GB4: Inter Mailand
+GC1: Manchester City
+GC2: FC Porto
+GC3: Olympiakos Piräus
+GC4: Olympique Marseille
+GD1: FC Liverpool
+GD2: Atalanta Bergamo
+GD3: Ajax Amsterdam
+GD4: FC Midtjylland
 GE1: FC Chelsea
 GE2: FC Sevilla
 GE3: FK Krasnodar
@@ -120,10 +120,10 @@ GG1: Juventus Turin
 GG2: FC Barcelona
 GG3: Dynamo Kiew
 GG4: Ferencváros Budapest
-GH1: CL2020GH1
-GH2: CL2020GH2
-GH3: CL2020GH3
-GH4: CL2020GH4
+GH1: Paris Saint-Germain
+GH2: RB Leipzig
+GH3: Manchester United
+GH4: Istanbul Basaksehir
 AF01W: CL2020AF01W
 AF01L: CL2020AF01L
 AF02W: CL2020AF02W
