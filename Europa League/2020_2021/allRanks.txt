@@ -344,10 +344,10 @@ GH1: AC Mailand
 GH2: OSC Lille
 GH3: Sparta Prag
 GH4: Celtic Glasgow
-GI1: EL2020GI1
-GI2: EL2020GI2
-GI3: EL2020GI3
-GI4: EL2020GI4
+GI1: FC Villarreal
+GI2: Maccabi Tel Aviv
+GI3: Sivasspor
+GI4: Qarabag Agdam
 GJ1: Tottenham Hotspurs
 GJ2: Royal Antwerpen
 GJ3: Linzer ASK
