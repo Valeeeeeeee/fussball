@@ -790,10 +790,14 @@ public class Spieltag extends JPanel {
 
 	private void jCBMatchdaysItemStateChanged(ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			ensureNoOpenedMatchInfos();
-			saveResults();
-			showMatchday();
+			safelyShowMatchday();
 		}
+	}
+	
+	private void safelyShowMatchday() {
+		ensureNoOpenedMatchInfos();
+		saveResults();
+		showMatchday();
 	}
 	
 	private void aValidKeyWasPressed(int indexOfTF, KeyEvent arg0) {
@@ -1292,7 +1296,9 @@ public class Spieltag extends JPanel {
 					try {
 						displayMatchInfo(matchID, koRound.getMatch(currentMatchday, matchID), koRound.getResult(currentMatchday, matchID), matchID);
 					} catch (NullPointerException npe) {
-						displayTeams(matchID, koRound.getTeamsOrigin(match.home() - 1), koRound.getTeamsOrigin(match.away() - 1));
+						String homeTeam = match != null && match.getHomeTeam() != null ? match.getHomeTeam().getName() : koRound.getTeamsOrigin(match.home() - 1);
+						String awayTeam = match != null && match.getAwayTeam() != null ? match.getAwayTeam().getName() : koRound.getTeamsOrigin(match.away() - 1);
+						displayTeams(matchID, homeTeam, awayTeam);
 					}
 				}
 			}
@@ -1428,7 +1434,7 @@ public class Spieltag extends JPanel {
 		lSeason.setDate(currentMatchday, startDate);
 		lSeason.setKOTIndex(currentMatchday, editedDate, KOTindex);
 		dateChooserClosed();
-		fillDates();
+		safelyShowMatchday();
 	}
 	
 	public void dateEnteredTournamentStyle(Datum date, Uhrzeit time) {
@@ -1455,7 +1461,7 @@ public class Spieltag extends JPanel {
 			group.setTime(currentMatchday, matchID, time);
 		}
 		dateChooserClosed();
-		fillDates();
+		safelyShowMatchday();
 	}
 	
 	public void dateChooserClosed() {
