@@ -1,0 +1,18 @@
+P1: Bayern München
+P2: Werder Bremen
+P3: FC Schalke 04
+P4: Hamburger SV
+P5: VfL Wolfsburg
+P6: VfB Stuttgart
+P7: Bayer 04 Leverkusen
+P8: Hannover 96
+P9: Eintracht Frankfurt
+P10: Hertha BSC
+P11: Karlsruher SC
+P12: VfL Bochum
+P13: Borussia Dortmund
+P14: Energie Cottbus
+P15: Arminia Bielefeld
+P16: 1. FC Nürnberg
+P17: Hansa Rostock
+P18: MSV Duisburg

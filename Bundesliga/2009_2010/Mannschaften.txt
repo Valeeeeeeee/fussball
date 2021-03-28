@@ -1,0 +1,19 @@
+18
+VfL Wolfsburg;12.09.1945
+Bayern München;27.02.1900
+VfB Stuttgart;09.09.1893
+Hertha BSC;25.07.1892
+Hamburger SV;29.09.1887
+Borussia Dortmund;19.12.1909
+TSG 1899 Hoffenheim;01.07.1899
+FC Schalke 04;04.05.1904
+Bayer 04 Leverkusen;01.07.1904
+Werder Bremen;04.02.1899
+Hannover 96;12.04.1896
+1. FC Köln;13.02.1948
+Eintracht Frankfurt;08.03.1899
+VfL Bochum;14.04.1938
+Borussia Mönchengladbach;01.08.1900
+SC Freiburg;30.05.1904
+1. FSV Mainz 05;16.03.1905
+1. FC Nürnberg;04.05.1900

@@ -1,0 +1,20 @@
+P1: VfL Wolfsburg
+P2: Bayern München
+P3: VfB Stuttgart
+P4: Hertha BSC
+P5: Hamburger SV
+P6: Borussia Dortmund
+P7: TSG 1899 Hoffenheim
+P8: FC Schalke 04
+P9: Bayer 04 Leverkusen
+P10: Werder Bremen
+P11: Hannover 96
+P12: 1. FC Köln
+P13: Eintracht Frankfurt
+P14: VfL Bochum
+P15: Borussia Mönchengladbach
+P16: Energie Cottbus
+P17: Karlsruher SC
+P18: Arminia Bielefeld
+REL01W: GER22008P3
+REL01L: Energie Cottbus
