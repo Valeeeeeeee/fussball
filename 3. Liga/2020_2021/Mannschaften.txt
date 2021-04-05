@@ -11,7 +11,7 @@ Waldhof Mannheim;01.01.1970
 1. FC Kaiserslautern;01.01.1970
 SpVgg Unterhaching;01.01.1970
 Viktoria Köln;01.01.1970
-KFC Uerdingen;01.01.1970
+KFC Uerdingen;01.01.1970;-3
 1. FC Magdeburg;01.01.1970
 Hallescher FC;01.01.1970
 FSV Zwickau;01.01.1970
