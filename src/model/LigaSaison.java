@@ -413,8 +413,18 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public void useDefaultKickoffTimes(int matchday) {
+		ArrayList<Integer> unsetMatches = new ArrayList<>(), unsetKOTs = new ArrayList<>();
 		for (int i = 0; i < defaultKickoffTimes.length; i++) {
-			setKOTIndex(matchday, i, defaultKickoffTimes[i]);
+			unsetKOTs.add(defaultKickoffTimes[i]);
+		}
+		
+		for (int i = 0; i < defaultKickoffTimes.length; i++) {
+			if (unsetKOTs.contains(getKOTIndex(matchday, i)))	unsetKOTs.remove(new Integer(getKOTIndex(matchday, i)));
+			else												unsetMatches.add(i);
+		}
+		
+		for (int i = 0; i < unsetKOTs.size(); i++) {
+			setKOTIndex(matchday, unsetMatches.get(i), unsetKOTs.get(i));
 		}
 	}
 	
