@@ -1,0 +1,20 @@
+P1: Bayern München II
+P2: Würzburger Kickers
+P3: Eintracht Braunschweig
+P4: FC Ingolstadt 04
+P5: MSV Duisburg
+P6: Hansa Rostock
+P7: SV Meppen
+P8: 1860 München
+P9: Waldhof Mannheim
+P10: 1. FC Kaiserslautern
+P11: SpVgg Unterhaching
+P12: Viktoria Köln
+P13: KFC Uerdingen
+P14: 1. FC Magdeburg
+P15: Hallescher FC
+P16: FSV Zwickau
+P17: Chemnitzer FC
+P18: Preußen Münster
+P19: SG Sonnenhof Großaspach
+P20: Carl Zeiss Jena

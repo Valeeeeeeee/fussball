@@ -1,0 +1,18 @@
+P1: Hertha BSC
+P2: Eintracht Braunschweig
+P3: 1. FC Kaiserslautern
+P4: FSV Frankfurt
+P5: 1. FC Köln
+P6: 1860 München
+P7: 1. FC Union Berlin
+P8: Energie Cottbus
+P9: VfR Aalen
+P10: FC St. Pauli
+P11: MSV Duisburg
+P12: SC Paderborn
+P13: FC Ingolstadt 04
+P14: VfL Bochum
+P15: Erzgebirge Aue
+P16: Dynamo Dresden
+P17: SV Sandhausen
+P18: SSV Jahn Regensburg

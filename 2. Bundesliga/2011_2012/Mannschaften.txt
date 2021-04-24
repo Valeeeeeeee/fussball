@@ -1,0 +1,19 @@
+18
+Eintracht Frankfurt;08.03.1899
+FC St. Pauli;15.05.1910
+VfL Bochum;14.04.1938
+SpVgg Greuther Fürth;23.09.1903
+Erzgebirge Aue;24.09.1949
+Energie Cottbus;31.01.1966
+Fortuna Düsseldorf;05.05.1895
+MSV Duisburg;17.09.1902
+1860 München;17.05.1860
+Alemannia Aachen;16.12.1900
+1. FC Union Berlin;20.01.1966
+SC Paderborn;14.08.1907
+FSV Frankfurt;20.08.1899
+FC Ingolstadt 04;01.07.2004
+Karlsruher SC;06.06.1894
+Eintracht Braunschweig;15.12.1895
+Hansa Rostock;28.12.1965
+Dynamo Dresden;12.04.1953

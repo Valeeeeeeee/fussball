@@ -8,10 +8,10 @@ public class Wechsel {
 	private Spiel match;
 	private boolean firstTeam;
 	private Minute minute;
-	private Spieler playerOff;
-	private Spieler playerOn;
+	private TeamAffiliation playerOff;
+	private TeamAffiliation playerOn;
 	
-	public Wechsel(Spiel match, boolean firstTeam, Minute minute, Spieler playerOff, Spieler playerOn) {
+	public Wechsel(Spiel match, boolean firstTeam, Minute minute, TeamAffiliation playerOff, TeamAffiliation playerOn) {
 		this.match = match;
 		this.firstTeam = firstTeam;
 		this.minute = minute;
@@ -19,8 +19,8 @@ public class Wechsel {
 		this.playerOn = playerOn;
 		
 		log("Substitution by " + match.getTeam(firstTeam).getName() + 
-				", in the " + minute + ". minute " + playerOff.getPopularOrLastName() + 
-				" leaves the pitch and is replaced by " + playerOn.getPopularOrLastName());
+				", in the " + minute + ". minute " + playerOff.getPlayer().getPopularOrLastName() + 
+				" leaves the pitch and is replaced by " + playerOn.getPlayer().getPopularOrLastName());
 	}
 	
 	public Wechsel(Spiel match, boolean firstTeam, String data) {
@@ -41,11 +41,11 @@ public class Wechsel {
 		return minute;
 	}
 
-	public Spieler getPlayerOff() {
+	public TeamAffiliation getPlayerOff() {
 		return playerOff;
 	}
 
-	public Spieler getPlayerOn() {
+	public TeamAffiliation getPlayerOn() {
 		return playerOn;
 	}
 
@@ -60,9 +60,9 @@ public class Wechsel {
 	private void parseString(String data) {
 		minute = Minute.parse(data.substring(0, data.indexOf(":")));
 		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));
-		playerOff = match.getTeam(firstTeam).getPlayer(sqOff, match.getDate());
+		playerOff = match.getTeam(firstTeam).getAffiliation(sqOff, match.getDate());
 		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
-		playerOn = match.getTeam(firstTeam).getPlayer(sqOn, match.getDate());
+		playerOn = match.getTeam(firstTeam).getAffiliation(sqOn, match.getDate());
 		if (playerOff == null || playerOn == null) {
 			message("Fehler beim Parsen der Wechsel des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
 			if (playerOff == null)	log("Es konnte der Rückennummer " + sqOff + " kein spielberechtigter Spieler zugeordnet werden.");

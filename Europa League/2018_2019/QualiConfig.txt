@@ -1,0 +1,10 @@
+20180626
+20180830
+false
+0
+5
+1. Vorqualifikationsrunde;V1;true;true;14;0;0;
+1. Qualifikationsrunde;Q1;true;true;87;7;0;
+2. Qualifikationsrunde;Q2;true;true;27;47;18;
+3. Qualifikationsrunde;Q3;true;true;13;46;13;
+Play-offs;PO;true;true;0;36;6;

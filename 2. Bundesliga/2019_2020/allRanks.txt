@@ -1,0 +1,20 @@
+P1: Arminia Bielefeld
+P2: VfB Stuttgart
+P3: 1. FC Heidenheim
+P4: Hamburger SV
+P5: SV Darmstadt 98
+P6: Hannover 96
+P7: Erzgebirge Aue
+P8: VfL Bochum
+P9: SpVgg Greuther Fürth
+P10: SV Sandhausen
+P11: Holstein Kiel
+P12: SSV Jahn Regensburg
+P13: VfL Osnabrück
+P14: FC St. Pauli
+P15: Karlsruher SC
+P16: 1. FC Nürnberg
+P17: SV Wehen Wiesbaden
+P18: Dynamo Dresden
+REL01W: 1. FC Nürnberg
+REL01L: FC Ingolstadt 04

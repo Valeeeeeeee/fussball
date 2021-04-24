@@ -32,7 +32,7 @@ Q116W: Nomme Kalju
 Q116L: B36 Tórshavn
 Q117W: Beitar Jerusalem
 Q117L: Vasas Budapest
-Q118W: Ferencvaros Budapest
+Q118W: Ferencváros Budapest
 Q118L: FK Jelgava
 Q119W: AEK Larnaka
 Q119L: Lincoln Red Imps FC
@@ -84,7 +84,7 @@ Q142W: Progrès Niederkorn
 Q142L: Glasgow Rangers
 Q143W: FK Trakai
 Q143L: FC St. Johnstone
-Q144W: Videoton Szekesfehervar
+Q144W: Videoton Székesfehérvár
 Q144L: FC Balzan
 Q145W: Zeljeznicar Sarajevo
 Q145L: Zeta Golubovci
@@ -112,7 +112,7 @@ Q206W: MFK Ruzomberok
 Q206L: Brann Bergen
 Q207W: Dinamo Minsk
 Q207L: Rabotnicki Skopje
-Q208W: Videoton Szekesfehervar
+Q208W: Videoton Székesfehérvár
 Q208L: Nomme Kalju
 Q209W: Brøndby IF
 Q209L: Vaasa PS
@@ -159,7 +159,7 @@ Q229L: Zeljeznicar Sarajevo
 Q230W: Panionios Athen
 Q230L: ND Gorica
 Q231W: FC Midtjylland
-Q231L: Ferencvaros Budapest
+Q231L: Ferencváros Budapest
 Q232W: Mladá Boleslav
 Q232L: Shamrock Rovers
 Q233W: NK Domzale
@@ -202,7 +202,7 @@ Q318W: FC Midtjylland
 Q318L: Arka Gdynia
 Q319W: Hajduk Split
 Q319L: Brøndby IF
-Q320W: Videoton Szekesfehervar
+Q320W: Videoton Székesfehérvár
 Q320L: Girondins Bordeaux
 Q321W: Rheindorf Altach
 Q321L: KAA Gent
@@ -261,7 +261,7 @@ PO18L: Ajax Amsterdam
 PO19W: AEK Athen
 PO19L: FC Brügge
 PO20W: Partizan Belgrad
-PO20L: Videoton Szekesfehervar
+PO20L: Videoton Székesfehérvár
 PO21W: FC Everton
 PO21L: Hajduk Split
 PO22W: Dynamo Kiew

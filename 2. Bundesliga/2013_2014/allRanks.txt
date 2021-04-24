@@ -1,0 +1,18 @@
+P1: 1. FC Köln
+P2: SC Paderborn
+P3: SpVgg Greuther Fürth
+P4: 1. FC Kaiserslautern
+P5: Karlsruher SC
+P6: Fortuna Düsseldorf
+P7: 1860 München
+P8: FC St. Pauli
+P9: 1. FC Union Berlin
+P10: FC Ingolstadt 04
+P11: VfR Aalen
+P12: SV Sandhausen
+P13: FSV Frankfurt
+P14: Erzgebirge Aue
+P15: VfL Bochum
+P16: Arminia Bielefeld
+P17: Dynamo Dresden
+P18: Energie Cottbus

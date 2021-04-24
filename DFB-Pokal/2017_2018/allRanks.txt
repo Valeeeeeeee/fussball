@@ -8,7 +8,7 @@
 1R04L: Rot-Weiss Essen
 1R05W: 1. FC Heidenheim
 1R05L: SpVgg Unterhaching
-1R06W: 1.FC Köln
+1R06W: 1. FC Köln
 1R06L: Leher TS
 1R07W: 1. FSV Mainz 05
 1R07L: Lüneburger SK Hansa
@@ -16,7 +16,7 @@
 1R08L: Chemnitzer FC
 1R09W: SC Freiburg
 1R09L: VfB Germania Halberstadt
-1R10W: 1. FC Kaiserlautern
+1R10W: 1. FC Kaiserslautern
 1R10L: SV Eichede
 1R11W: Borussia Dortmund
 1R11L: 1. FC Rielasingen-Arlen
@@ -34,7 +34,7 @@
 1R17L: 1860 München
 1R18W: VfL Bochum
 1R18L: FC Nöttingen
-1R19W: 1.FC Schweinfurt 05
+1R19W: 1. FC Schweinfurt 05
 1R19L: SV Sandhausen
 1R20W: VfL Wolfsburg
 1R20L: Eintracht Norderstedt
@@ -73,18 +73,18 @@
 2R05W: 1. FSV Mainz 05
 2R05L: Holstein Kiel
 2R06W: Eintracht Frankfurt
-2R06L: 1.FC Schweinfurt 05
+2R06L: 1. FC Schweinfurt 05
 2R07W: FC Ingolstadt 04
 2R07L: SpVgg Greuther Fürth
 2R08W: Borussia Dortmund
 2R08L: 1. FC Magdeburg
 2R09W: VfB Stuttgart
-2R09L: 1. FC Kaiserlautern
+2R09L: 1. FC Kaiserslautern
 2R10W: VfL Wolfsburg
 2R10L: Hannover 96
 2R11W: 1. FC Nürnberg
 2R11L: VfL Osnabrück
-2R12W: 1.FC Köln
+2R12W: 1. FC Köln
 2R12L: Hertha BSC
 2R13W: SC Freiburg
 2R13L: Dynamo Dresden
@@ -99,7 +99,7 @@ AF01L: FC Ingolstadt 04
 AF02W: 1. FSV Mainz 05
 AF02L: VfB Stuttgart
 AF03W: FC Schalke 04
-AF03L: 1.FC Köln
+AF03L: 1. FC Köln
 AF04W: VfL Wolfsburg
 AF04L: 1. FC Nürnberg
 AF05W: Bayer 04 Leverkusen

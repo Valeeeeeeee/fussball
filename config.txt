@@ -1,14 +1,14 @@
 6
-Bundesliga
-2. Bundesliga
-3. Bundesliga
-Premier League
-Primera Division
-Super League
+Bundesliga;GER1;true;
+2. Bundesliga;GER2;true;
+3. Liga;GER3;true;
+Premier League;ENG1;true;
+Primera Division;ESP1;true;
+Super League;SUI1;true;
 6
-NAME*FIFA Weltmeisterschaft;SHN*WM;
-NAME*Champions League;SHN*CL;
-NAME*Europa League;SHN*EL;
-NAME*UEFA Europameisterschaft;SHN*EM;
-NAME*DFB-Pokal;SHN*DP;
-NAME*Copa America;SHN*CA;
+DFB-Pokal;DP;true;
+Champions League;CL;true;
+Europa League;EL;true;
+FIFA Weltmeisterschaft;WM;false;
+UEFA Europameisterschaft;EM;false;
+Copa America;CA;false;

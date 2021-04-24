@@ -12,7 +12,7 @@ public class SpielInformationen extends JFrame {
 	private static final long serialVersionUID = 7503825008840407522L;
 	
 	private static final int WIDTH = 950;
-	private static final int HEIGHT = 550;
+	private static final int HEIGHT = 600;
 	
 	private int matchIndex;
 	private Spiel match;
@@ -84,15 +84,15 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnPenaltiesCompleted;
 	
 	// Obere Labels
-	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, 950, 550);
+	private Rectangle REC_PNLMATCHINFO = new Rectangle(0, 0, WIDTH, HEIGHT);
 	private Rectangle REC_LBLCOMPETITION = new Rectangle(275, 10, 400, 20);
 	private Rectangle REC_LBLDATE = new Rectangle(415, 35, 120, 25);
 	private Rectangle REC_LBLHOMENAME = new Rectangle(100, 60, 330, 40);
 	private Rectangle REC_LBLRESULT = new Rectangle(435, 60, 80, 40);
 	private Rectangle REC_LBLZUSATZ = new Rectangle(445, 90, 60, 20);
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(520, 60, 330, 40);
-	private Rectangle REC_LBLREFEREE = new Rectangle(425, 485, 100, 20);
-	private Rectangle REC_CBREFEREES = new Rectangle(375, 510, 200, 25);
+	private Rectangle REC_LBLREFEREE = new Rectangle(425, 535, 100, 20);
+	private Rectangle REC_CBREFEREES = new Rectangle(375, 560, 200, 25);
 	private Rectangle REC_BTNAGTHOME = new Rectangle(335, 35, 70, 25);
 	private Rectangle REC_BTNAGTAWAY = new Rectangle(545, 35, 70, 25);
 	
@@ -113,7 +113,7 @@ public class SpielInformationen extends JFrame {
 	private int[] luLbls = new int[] {155, 160, 515, 25, 125, 20};
 	private int[] sqNumLbls = new int[] {285, 160, 360, 25, 20, 20};
 	private int[] bLbls = new int[] {310, 161, 316, 25, 14, 19};
-	private int[] gLbls = new int[] {370, 160, 50, 25, 160, 20};
+	private int[] gLbls = new int[] {370, 160, 40, 25, 170, 20};
 
 	private int bDeltaX = 10;
 	private int bDeltaY = 2;
@@ -168,17 +168,16 @@ public class SpielInformationen extends JFrame {
 	private static final int PENALTY_OUT = 2;
 	
 	private static final int numberOfPlayersInLineUp = 11;
-	private static final int maximumNumberOfSubstitutions = 3;
 
 	private int[] boundsLSP = new int[] {5, 5, 135, 21, 130, 20};
 	private int playersPerColumn = 13;
 	
 	private Spieltag spieltag;
 	private Ergebnis result;
-	private ArrayList<Spieler> kaderHome;
-	private ArrayList<Spieler> kaderAway;
-	private ArrayList<Spieler> eligiblePlayersListUpper  = new ArrayList<>();
-	private ArrayList<Spieler> eligiblePlayersListLower  = new ArrayList<>();
+	private ArrayList<TeamAffiliation> kaderHome;
+	private ArrayList<TeamAffiliation> kaderAway;
+	private ArrayList<TeamAffiliation> eligiblePlayersListUpper  = new ArrayList<>();
+	private ArrayList<TeamAffiliation> eligiblePlayersListLower  = new ArrayList<>();
 	private boolean[] playerSelected;
 	private int numberOfSelectedPlayers;
 	private int squadNumberToSelect;
@@ -192,6 +191,9 @@ public class SpielInformationen extends JFrame {
 	private int goalDetails;
 	private int[] lineupHome;
 	private int[] lineupAway;
+	private int maximumNumberOfSubstitutions;
+	private int nOfRTSubsHome;
+	private int nOfRTSubsAway;
 	private ArrayList<Wechsel> substitutionsHome;
 	private ArrayList<Wechsel> substitutionsAway;
 	private ArrayList<Tor> goals;
@@ -206,6 +208,8 @@ public class SpielInformationen extends JFrame {
 	private int typed = -1;
 	
 	private boolean isETpossible = false;
+	private boolean is4thSubPossible = false;
+	private int maximumNumberOfSubstitutionsRT;
 	
 	private JButton jBtnGo;
 
@@ -222,7 +226,9 @@ public class SpielInformationen extends JFrame {
 		substitutionsAway = match.getSubstitutions(false);
 		bookings = match.getBookings();
 		this.result = result;
-		isETpossible = match.getCompetition().isETPossible();
+		isETpossible = match.getCompetition().isExtraTimePossible();
+		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions(match.getDate());
+		is4thSubPossible = match.getCompetition().isFourthSubstitutionPossible();
 		
 		initGUI();
 		displayGivenValues();
@@ -231,6 +237,7 @@ public class SpielInformationen extends JFrame {
 	public void initGUI() {
 		this.setLayout(null);
 		
+		maximumNumberOfSubstitutions = maximumNumberOfSubstitutionsRT + (is4thSubPossible ? 1 : 0);
 		int maxNumOfPlayers = numberOfPlayersInLineUp + maximumNumberOfSubstitutions;
 		jLblsPlayersHome = new JLabel[maxNumOfPlayers];
 		jLblsPlayersAway = new JLabel[maxNumOfPlayers];
@@ -570,7 +577,7 @@ public class SpielInformationen extends JFrame {
 			jLblsSubsOffMinutesAway[i].setVisible(false);
 			jLblsSubsOffMinutesAway[i].setForeground(playerOffColor);
 		}
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < maximumNumberOfSubstitutions; i++) {
 			jLblsSubsOnMinutesHome[i] = new JLabel();
 			jPnlMatchInformation.add(jLblsSubsOnMinutesHome[i]);
 			jLblsSubsOnMinutesHome[i].setLocation(subMinsLbls[STARTX], subMinsLbls[STARTY] + (numberOfPlayersInLineUp + i) * subMinsLbls[GAPY]);
@@ -659,6 +666,7 @@ public class SpielInformationen extends JFrame {
 			jPnlEntry.add(jBtnEntryCompleted);
 			jBtnEntryCompleted.setBounds(REC_BTNENTRYCOMPL);
 			jBtnEntryCompleted.setText("fertig");
+			jBtnEntryCompleted.setFocusable(false);
 			jBtnEntryCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (enteringSubstitution)	jBtnEnterSubstitutionCompletedActionPerformed();
@@ -828,15 +836,15 @@ public class SpielInformationen extends JFrame {
 		
 		for (int i = 0; i < numberOfPlayersInLineUp; i++) {
 			if (lineupHome != null) {
-				jLblsPlayersHome[i].setText(match.getHomeTeam().getPlayer(lineupHome[i], match.getDate()).getPopularOrLastName());
+				jLblsPlayersHome[i].setText(match.getHomeTeam().getAffiliation(lineupHome[i], match.getDate()).getPlayer().getPopularOrLastName());
 				jLblsPlayersHome[i].setVisible(true);
-				jLblsSquadNumbersHome[i].setText("" + match.getHomeTeam().getPlayer(lineupHome[i], match.getDate()).getSquadNumber());
+				jLblsSquadNumbersHome[i].setText("" + match.getHomeTeam().getAffiliation(lineupHome[i], match.getDate()).getSquadNumber());
 				jLblsSquadNumbersHome[i].setVisible(true);
 			}
 			if (lineupAway != null) {
-				jLblsPlayersAway[i].setText(match.getAwayTeam().getPlayer(lineupAway[i], match.getDate()).getPopularOrLastName());
+				jLblsPlayersAway[i].setText(match.getAwayTeam().getAffiliation(lineupAway[i], match.getDate()).getPlayer().getPopularOrLastName());
 				jLblsPlayersAway[i].setVisible(true);
-				jLblsSquadNumbersAway[i].setText("" + match.getAwayTeam().getPlayer(lineupAway[i], match.getDate()).getSquadNumber());
+				jLblsSquadNumbersAway[i].setText("" + match.getAwayTeam().getAffiliation(lineupAway[i], match.getDate()).getSquadNumber());
 				jLblsSquadNumbersAway[i].setVisible(true);
 			}
 		}
@@ -973,7 +981,7 @@ public class SpielInformationen extends JFrame {
 	
 	private void displayGoal(Tor goal, final int index) {
 		String zusatz = goal.isPenalty() ? " (11m)" : (goal.isOwnGoal() ? " (ET)" : "");
-		String scorer = (goal.getScorer() != null ? goal.getScorer().getPopularOrLastName() : "n/a"), minute = goal.getMinute().asString();
+		String scorer = (goal.getScorer() != null ? goal.getScorer().getPlayer().getPopularOrLastName() : "n/a"), minute = goal.getMinute().asString();
 		JLabel jLblNewGoal = new JLabel();
 		jPnlMatchInformation.add(jLblNewGoal);
 		jLblNewGoal.setLocation(gLbls[STARTX] + (goal.isFirstTeam() ? 0 : gLbls[GAPX]), gLbls[STARTY] + index * gLbls[GAPY]);
@@ -995,7 +1003,7 @@ public class SpielInformationen extends JFrame {
 	private void displaySubstitution(Wechsel substitution, final int index) {
 		int squadNumberOff = substitution.getPlayerOff().getSquadNumber();
 		String squadNumberOn = "" + substitution.getPlayerOn().getSquadNumber();
-		String subOn = substitution.getPlayerOn().getPopularOrLastName();
+		String subOn = substitution.getPlayerOn().getPlayer().getPopularOrLastName();
 		String minute = substitution.getMinute().asString();
 		final boolean firstTeam = substitution.isFirstTeam();
 		JLabel[] names = firstTeam ? jLblsPlayersHome : jLblsPlayersAway;
@@ -1101,7 +1109,7 @@ public class SpielInformationen extends JFrame {
 		enteringGoal = true;
 		editingFirstTeam = changedGoal.isFirstTeam();
 		
-		log("You want to change the goal of " + (changedGoal.getScorer() == null ? "n/a" : changedGoal.getScorer().getPopularOrLastName()) + "(" + changedGoal.getMinute().asString() + ")");
+		log("You want to change the goal of " + (changedGoal.getScorer() == null ? "n/a" : changedGoal.getScorer().getPlayer().getPopularOrLastName()) + "(" + changedGoal.getMinute().asString() + ")");
 		
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
@@ -1123,8 +1131,8 @@ public class SpielInformationen extends JFrame {
 		jLblBottom.setText("Vorbereiter");
 		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayers(false)));
 		
-		if (changedGoal.getScorer() != null)	jCBTop.setSelectedItem(changedGoal.getScorer().getPopularOrLastName());
-		if (changedGoal.getAssister() != null)	jCBBottom.setSelectedItem(changedGoal.getAssister().getPopularOrLastName());
+		if (changedGoal.getScorer() != null)	jCBTop.setSelectedItem(changedGoal.getScorer().getPlayer().getPopularOrLastName());
+		if (changedGoal.getAssister() != null)	jCBBottom.setSelectedItem(changedGoal.getAssister().getPlayer().getPopularOrLastName());
 		jTFMinute.setText("" + changedGoal.getMinute().toString());
 		
 		if (editingFirstTeam)	jPnlEntry.setLocation(LOC_PNLENTRYHOME);
@@ -1142,8 +1150,8 @@ public class SpielInformationen extends JFrame {
 		enteringSubstitution = true;
 		editingFirstTeam = firstTeam;
 		
-		log("You want to change the substitution " + changedSubstitution.getPlayerOff().getPopularOrLastName() + "(" + changedSubstitution.getMinute().toString() + ". " + 
-				changedSubstitution.getPlayerOn().getPopularOrLastName() + ")");
+		log("You want to change the substitution " + changedSubstitution.getPlayerOff().getPlayer().getPopularOrLastName() + "(" + changedSubstitution.getMinute().toString() + ". " + 
+				changedSubstitution.getPlayerOn().getPlayer().getPopularOrLastName() + ")");
 		
 		int playerPos = -1, squadNumber = changedSubstitution.getPlayerOff().getSquadNumber();
 		for (int j = 0; j < numberOfPlayersInLineUp && playerPos == -1; j++) {
@@ -1169,8 +1177,8 @@ public class SpielInformationen extends JFrame {
 		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayersSub(false)));
 		match.addSubstitution(changedSubstitution);
 		
-		jCBTop.setSelectedItem(changedSubstitution.getPlayerOff().getPopularOrLastName());
-		jCBBottom.setSelectedItem(changedSubstitution.getPlayerOn().getPopularOrLastName());
+		jCBTop.setSelectedItem(changedSubstitution.getPlayerOff().getPlayer().getPopularOrLastName());
+		jCBBottom.setSelectedItem(changedSubstitution.getPlayerOn().getPlayer().getPopularOrLastName());
 		jTFMinute.setText("" + changedSubstitution.getMinute().toString());
 		
 		if (editingFirstTeam)	jPnlEntry.setLocation(LOC_PNLENTRYHOME);
@@ -1186,7 +1194,7 @@ public class SpielInformationen extends JFrame {
 		enteringBooking = true;
 		editingFirstTeam = changedBooking.isFirstTeam();
 		
-		log("You want to change the booking of " + changedBooking.getBookedPlayer().getPopularOrLastName() + "(" + changedBooking.getMinute() + ")");
+		log("You want to change the booking of " + changedBooking.getBookedPlayer().getPlayer().getPopularOrLastName() + "(" + changedBooking.getMinute() + ")");
 		
 		setLabelsVisible(false);
 		jBtnPenaltyShootout.setVisible(false);
@@ -1199,7 +1207,7 @@ public class SpielInformationen extends JFrame {
 		bookedAfterTheMatch = changedBooking.isAfterTheMatch();
 		jLblBottom.setText("Spieler");
 		jCBBottom.setModel(new DefaultComboBoxModel<>(getEligiblePlayersBooking()));
-		jCBBottom.setSelectedItem(changedBooking.getBookedPlayer().getPopularOrLastName());
+		jCBBottom.setSelectedItem(changedBooking.getBookedPlayer().getPlayer().getPopularOrLastName());
 		
 		jChBLeft.setText("gelbe Karte");
 		jChBRight.setText("rote Karte");
@@ -1220,7 +1228,7 @@ public class SpielInformationen extends JFrame {
 	}
 	
 	private void setAmGruenenTisch(boolean isHomeTeam) {
-		result = new Ergebnis((isHomeTeam ? "3:0" : "0:3") + " agT");
+		result = new Ergebnis(result.toString() + " agT");
 		setResult();
 	}
 	
@@ -1457,8 +1465,8 @@ public class SpielInformationen extends JFrame {
 		if (enteringLineup || enteringGoal || enteringSubstitution || enteringBooking)	return;
 		if ((firstTeam && lineupHome == null) || (!firstTeam && lineupAway == null))	return;
 		
-		if (match.getSubstitutions(firstTeam).size() == 3) {
-			message("You have already submitted all three possible substitutions for this team.");
+		if (match.getSubstitutions(firstTeam).size() == maximumNumberOfSubstitutions) {
+			message("You have already submitted all possible substitutions for this team.");
 			return;
 		}
 		
@@ -1492,7 +1500,7 @@ public class SpielInformationen extends JFrame {
 		if (subOff) {
 			eligiblePlayersListUpper.clear();
 			for (int i = 0; i < lineup.length; i++) {
-				eligiblePlayersListUpper.add(team.getPlayer(lineup[i], match.getDate()));
+				eligiblePlayersListUpper.add(team.getAffiliation(lineup[i], match.getDate()));
 			}
 			for (Wechsel substitution : substitutions) {
 				eligiblePlayersListUpper.remove(substitution.getPlayerOff());
@@ -1500,19 +1508,19 @@ public class SpielInformationen extends JFrame {
 			}
 			eligiblePlayers = new String[eligiblePlayersListUpper.size()];
 			for (int i = 0; i < eligiblePlayers.length; i++) {
-				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPopularOrLastName();
+				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPlayer().getPopularOrLastName();
 			}
 		} else {
 			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(match.getDate(), false));
 			for (int i = 0; i < lineup.length; i++) {
-				eligiblePlayersListLower.remove(team.getPlayer(lineup[i], match.getDate()));
+				eligiblePlayersListLower.remove(team.getAffiliation(lineup[i], match.getDate()));
 			}
 			for (Wechsel substitution : substitutions) {
 				eligiblePlayersListLower.remove(substitution.getPlayerOn());
 			}
 			eligiblePlayers = new String[eligiblePlayersListLower.size()];
 			for (int i = 0; i < eligiblePlayers.length; i++) {
-				eligiblePlayers[i] = eligiblePlayersListLower.get(i).getPopularOrLastName();
+				eligiblePlayers[i] = eligiblePlayersListLower.get(i).getPlayer().getPopularOrLastName();
 			}
 		}
 		
@@ -1537,19 +1545,43 @@ public class SpielInformationen extends JFrame {
 		if (minute.getRegularTime() > 120) {
 			message("Ein Wechsel kann nicht nach der 120. Minute erfolgen.");
 			return;
-		} else if (!isETpossible && minute.getRegularTime() > 90) {
-			message("In diesem Spiel kann es keine Verlängerung geben.");
-			return;
+		} else if (minute.getRegularTime() > 90) {
+			if (!isETpossible) {
+				message("In diesem Spiel kann es keine Verlängerung geben.");
+				return;
+			}
+		} else {
+			if (editingFirstTeam) {
+				if (nOfRTSubsHome == maximumNumberOfSubstitutionsRT && (changedSubstitution == null || changedSubstitution.getMinute().getRegularTime() > 90)) {
+					message("Es kann nur " + maximumNumberOfSubstitutionsRT + " Wechsel vor Ablauf der regulären Spielzeit geben.");
+					return;
+				}
+				nOfRTSubsHome++;
+			} else {
+				if (nOfRTSubsAway == maximumNumberOfSubstitutionsRT && (changedSubstitution == null || changedSubstitution.getMinute().getRegularTime() > 90)) {
+					message("Es kann nur " + maximumNumberOfSubstitutionsRT + " Wechsel vor Ablauf der regulären Spielzeit geben.");
+					return;
+				}
+				nOfRTSubsAway++;
+			}
 		}
-		if (changedSubstitution != null)	(editingFirstTeam ? substitutionsHome : substitutionsAway).remove(changedSubstitution);
-		changedSubstitution = null;
+		if (changedSubstitution != null) {
+			if (editingFirstTeam) {
+				substitutionsHome.remove(changedSubstitution);
+				if (changedSubstitution.getMinute().getRegularTime() <= 90)	nOfRTSubsHome--;
+			} else {
+				substitutionsAway.remove(changedSubstitution);
+				if (changedSubstitution.getMinute().getRegularTime() <= 90)	nOfRTSubsAway--;
+			}
+			changedSubstitution = null;
+		}
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
 			if (substitution.getMinute().isAfter(minute)) {
 				repaint = true;
 			}
 		}
-		Spieler playerOff = eligiblePlayersListUpper.get(jCBTop.getSelectedIndex());
-		Spieler playerOn = eligiblePlayersListLower.get(jCBBottom.getSelectedIndex());
+		TeamAffiliation playerOff = eligiblePlayersListUpper.get(jCBTop.getSelectedIndex());
+		TeamAffiliation playerOn = eligiblePlayersListLower.get(jCBBottom.getSelectedIndex());
 		
 		Wechsel substitution = new Wechsel(match, editingFirstTeam, minute, playerOff, playerOn);
 		int index = match.addSubstitution(substitution);
@@ -1645,12 +1677,12 @@ public class SpielInformationen extends JFrame {
 			eligiblePlayersListLower.clear();
 			
 			if (bookedOnTheBench || bookedAfterTheMatch) {
-				ArrayList<Spieler> eligPlayers = bookedTeam.getEligiblePlayers(match.getDate(), false);
+				ArrayList<TeamAffiliation> eligPlayers = bookedTeam.getEligiblePlayers(match.getDate(), false);
 				eligiblePlayers = new String[1 + eligPlayers.size()];
 				int count = 1;
-				for (Spieler player : eligPlayers) {
-					eligiblePlayersListLower.add(player);
-					eligiblePlayers[count++] = player.getPopularOrLastName();
+				for (TeamAffiliation affiliation : eligPlayers) {
+					eligiblePlayersListLower.add(affiliation);
+					eligiblePlayers[count++] = affiliation.getPlayer().getPopularOrLastName();
 				}
 			} else {
 				int[] bookedTeamLineup = firstTeam ? lineupHome : lineupAway;
@@ -1658,12 +1690,12 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 			
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListLower.add(bookedTeam.getPlayer(bookedTeamLineup[i], match.getDate()));
-					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPopularOrLastName();
+					eligiblePlayersListLower.add(bookedTeam.getAffiliation(bookedTeamLineup[i], match.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
 					eligiblePlayersListLower.add(substitutions.get(i).getPlayerOn());
-					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListLower.get(numberOfPlayersInLineUp + i).getPopularOrLastName();
+					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListLower.get(numberOfPlayersInLineUp + i).getPlayer().getPopularOrLastName();
 				}
 			}
 		} else {
@@ -1688,12 +1720,12 @@ public class SpielInformationen extends JFrame {
 				ArrayList<Wechsel> substitutions = match.getSubstitutions(firstTeam);
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListUpper.add(scoringTeam.getPlayer(scoringLineup[i], match.getDate()));
-					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPopularOrLastName();
+					eligiblePlayersListUpper.add(scoringTeam.getAffiliation(scoringLineup[i], match.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
 					eligiblePlayersListUpper.add(substitutions.get(i).getPlayerOn());
-					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListUpper.get(numberOfPlayersInLineUp + i).getPopularOrLastName();
+					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListUpper.get(numberOfPlayersInLineUp + i).getPlayer().getPopularOrLastName();
 				}
 			} else {
 				eligiblePlayers = new String[1];
@@ -1708,12 +1740,12 @@ public class SpielInformationen extends JFrame {
 				ArrayList<Wechsel> substitutions = match.getSubstitutions(firstTeam);
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListLower.add(assistingTeam.getPlayer(assistingLineup[i], match.getDate()));
-					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPopularOrLastName();
+					eligiblePlayersListLower.add(assistingTeam.getAffiliation(assistingLineup[i], match.getDate()));
+					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
 					eligiblePlayersListLower.add(substitutions.get(i).getPlayerOn());
-					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListLower.get(numberOfPlayersInLineUp + i).getPopularOrLastName();
+					eligiblePlayers[1 + numberOfPlayersInLineUp + i] = eligiblePlayersListLower.get(numberOfPlayersInLineUp + i).getPlayer().getPopularOrLastName();
 				}
 			} else {
 				eligiblePlayers = new String[1];
@@ -1756,24 +1788,24 @@ public class SpielInformationen extends JFrame {
 		boolean penalty = jChBLeft.isSelected();
 		boolean ownGoal = jChBRight.isSelected();
 		int index;
-		Spieler scorer = null;
+		TeamAffiliation scorer = null;
 		if ((index = jCBTop.getSelectedIndex()) != 0) {
 			scorer = eligiblePlayersListUpper.get(index - 1);
 			for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
 				if (substitution.getPlayerOff() == scorer && minute.isAfter(substitution.getMinute()) || 
 						substitution.getPlayerOn() == scorer && minute.isBefore(substitution.getMinute())) {
-					message("The player " + scorer.getPopularOrLastName() + " was not on the pitch in the given minute.");
+					message("The player " + scorer.getPlayer().getPopularOrLastName() + " was not on the pitch in the given minute.");
 					return;
 				}
 			}
 		}
-		Spieler assister = null;
+		TeamAffiliation assister = null;
 		if ((index = jCBBottom.getSelectedIndex()) != 0) {
 			assister = eligiblePlayersListLower.get(index - 1);
 			for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
 				if (substitution.getPlayerOff() == assister && minute.isAfter(substitution.getMinute()) || 
 						substitution.getPlayerOn() == assister && minute.isBefore(substitution.getMinute())) {
-					message("The player " + assister.getPopularOrLastName() + " was not on the pitch in the given minute.");
+					message("The player " + assister.getPlayer().getPopularOrLastName() + " was not on the pitch in the given minute.");
 					return;
 				}
 			}
@@ -1877,13 +1909,13 @@ public class SpielInformationen extends JFrame {
 		boolean onTheBench = jChBBench.isSelected();
 		
 		int index = jCBBottom.getSelectedIndex();
-		Spieler bookedPlayer = eligiblePlayersListLower.get(index - 1);
+		TeamAffiliation bookedPlayer = eligiblePlayersListLower.get(index - 1);
 		boolean onThePitch = checkPlayerOnPitch(bookedPlayer, minute);
 		if (onThePitch && onTheBench) {
-			message("Der Spieler " + bookedPlayer.getPopularOrLastName() + " war in der angegebenen Minute auf dem Spielfeld, kann also nicht auf der Bank sitzen.");
+			message("Der Spieler " + bookedPlayer.getPlayer().getPopularOrLastName() + " war in der angegebenen Minute auf dem Spielfeld, kann also nicht auf der Bank sitzen.");
 			return;
 		} else if (!onThePitch && !onTheBench) {
-			message("Der Spieler " + bookedPlayer.getPopularOrLastName() + " war in der angegebenen Minute nicht auf dem Spielfeld.");
+			message("Der Spieler " + bookedPlayer.getPlayer().getPopularOrLastName() + " war in der angegebenen Minute nicht auf dem Spielfeld.");
 			return;
 		}
 		
@@ -1911,7 +1943,7 @@ public class SpielInformationen extends JFrame {
 		requestFocus();
 	}
 	
-	private boolean checkPlayerOnPitch(Spieler player, Minute minute) {
+	private boolean checkPlayerOnPitch(TeamAffiliation player, Minute minute) {
 		boolean subOn = false;
 		for (Wechsel substitution : match.getSubstitutions(editingFirstTeam)) {
 			if (substitution.getPlayerOff() == player && minute.isAfter(substitution.getMinute())) {
@@ -1930,7 +1962,7 @@ public class SpielInformationen extends JFrame {
 		return false;
 	}
 	
-	private boolean addBooking(Minute minute, boolean yellowCard, boolean onTheBench, boolean afterTheMatch, Spieler bookedPlayer) {
+	private boolean addBooking(Minute minute, boolean yellowCard, boolean onTheBench, boolean afterTheMatch, TeamAffiliation bookedPlayer) {
 		boolean isSecondBooking = false;
 		ArrayList<Karte> playersBookings = new ArrayList<>();
 		ArrayList<Karte> otherBookings = new ArrayList<>();
@@ -1980,7 +2012,7 @@ public class SpielInformationen extends JFrame {
 	
 	private void enterNewLineup(boolean firstTeam) {
 		if (enteringLineup || enteringGoal || enteringSubstitution || enteringBooking)	return;
-		ArrayList<Spieler> kader;
+		ArrayList<TeamAffiliation> kader;
 		enteringLineup = true;
 		editingFirstTeam = firstTeam;
 		int[] lineup = editingFirstTeam ? lineupHome : lineupAway;
@@ -2002,7 +2034,7 @@ public class SpielInformationen extends JFrame {
 			jLblsLineupSelectionPlayers[i].setSize(boundsLSP[SIZEX], boundsLSP[SIZEY]);
 			jLblsLineupSelectionPlayers[i].setLocation(boundsLSP[STARTX] + (i / playersPerColumn) * boundsLSP[GAPX], 
 														boundsLSP[STARTY] + (i % playersPerColumn) * boundsLSP[GAPY]);
-			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPopularOrLastName());
+			jLblsLineupSelectionPlayers[i].setText(kader.get(i).getSquadNumber() + " " + kader.get(i).getPlayer().getPopularOrLastName());
 			jLblsLineupSelectionPlayers[i].setBackground(playerSelectedColor);
 			jLblsLineupSelectionPlayers[i].setCursor(handCursor);
 			jLblsLineupSelectionPlayers[i].addMouseListener(new MouseAdapter() {
@@ -2095,13 +2127,13 @@ public class SpielInformationen extends JFrame {
 			if (playerSelected[i]) {
 				if (editingFirstTeam) {
 					lineupHome[counter] = kaderHome.get(i).getSquadNumber();
-					jLblsPlayersHome[counter].setText(kaderHome.get(i).getPopularOrLastName());
+					jLblsPlayersHome[counter].setText(kaderHome.get(i).getPlayer().getPopularOrLastName());
 					jLblsPlayersHome[counter].setVisible(true);
 					jLblsSquadNumbersHome[counter].setText("" + lineupHome[counter]);
 					jLblsSquadNumbersHome[counter++].setVisible(true);
 				} else {
 					lineupAway[counter] = kaderAway.get(i).getSquadNumber();
-					jLblsPlayersAway[counter].setText(kaderAway.get(i).getPopularOrLastName());
+					jLblsPlayersAway[counter].setText(kaderAway.get(i).getPlayer().getPopularOrLastName());
 					jLblsPlayersAway[counter].setVisible(true);
 					jLblsSquadNumbersAway[counter].setText("" + lineupAway[counter]);
 					jLblsSquadNumbersAway[counter++].setVisible(true);

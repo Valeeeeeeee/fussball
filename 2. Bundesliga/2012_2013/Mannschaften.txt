@@ -1,0 +1,19 @@
+18
+Hertha BSC;25.07.1892
+1. FC Köln;13.02.1948
+1. FC Kaiserslautern;02.06.1900
+FC St. Pauli;15.05.1910
+SC Paderborn;14.08.1907
+1860 München;17.05.1860
+1. FC Union Berlin;20.01.1966
+Eintracht Braunschweig;15.12.1895
+Dynamo Dresden;12.04.1953
+MSV Duisburg;17.09.1902
+VfL Bochum;14.04.1938
+FC Ingolstadt 04;01.07.2004
+FSV Frankfurt;20.08.1899
+Energie Cottbus;31.01.1966
+Erzgebirge Aue;24.09.1949
+SV Sandhausen;01.08.1916
+VfR Aalen;08.03.1921
+SSV Jahn Regensburg;04.10.1907

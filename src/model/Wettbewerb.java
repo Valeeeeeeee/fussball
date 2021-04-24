@@ -8,12 +8,20 @@ public interface Wettbewerb {
 	public int getYear();
 	public String getDescription();
 	public boolean isSTSS();
+	public boolean isClubCompetition();
 	public String getWorkspace();
 	public int getCurrentMatchday();
 	public int getNewestStartedMatchday();
 	public int getNumberOfMatchdays();
 	public int getNumberOfMatchesAgainstSameOpponent();
 	public String getMatchdayDescription(int matchday);
+	public String[] getMatchdays();
+	
+	public String getKey(int matchday);
+	
+	public Dauer getDuration();
+	public Datum getStartDate();
+	public Datum getFinalDate();
 	
 	public boolean isMatchSet(int matchday, int matchID);
 	public Spiel getMatch(int matchday, int matchID);
@@ -31,7 +39,11 @@ public interface Wettbewerb {
 	
 	public Mannschaft[] getTeams();
 	
-	public boolean isETPossible();
+	public ArrayList<String[]> getAllMatches(Mannschaft team);
+	
+	public boolean isExtraTimePossible();
+	public int getNumberOfRegularSubstitutions(Datum date);
+	public boolean isFourthSubstitutionPossible();
 	
 	/** 
 	 * When two teams have the same amount of points:<br />
@@ -39,6 +51,7 @@ public interface Wettbewerb {
 	 * If false, all matches between these two teams are compared.
 	 * */
 	public boolean useGoalDifference();
+	public boolean useFairplayRule();
 	public boolean teamsHaveKader();
 	
 }

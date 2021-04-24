@@ -33,7 +33,7 @@ Q212L: Zalgiris Vilnius
 Q213W: Ludogorez Rasgrad
 Q213L: Mladost Podgorica
 Q214W: Partizani Tirana
-Q214L: Ferencvaros Budapest
+Q214L: Ferencváros Budapest
 Q215W: FC Kopenhagen
 Q215L: Crusaders FC
 Q216W: AS Trencin

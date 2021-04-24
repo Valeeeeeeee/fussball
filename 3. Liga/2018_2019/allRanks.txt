@@ -1,0 +1,20 @@
+P1: VfL Osnabrück
+P2: Karlsruher SC
+P3: SV Wehen Wiesbaden
+P4: Hallescher FC
+P5: Würzburger Kickers
+P6: Hansa Rostock
+P7: FSV Zwickau
+P8: Preußen Münster
+P9: 1. FC Kaiserslautern
+P10: SpVgg Unterhaching
+P11: KFC Uerdingen
+P12: 1860 München
+P13: SV Meppen
+P14: Carl Zeiss Jena
+P15: SG Sonnenhof Großaspach
+P16: Eintracht Braunschweig
+P17: Energie Cottbus
+P18: Sportfreunde Lotte
+P19: Fortuna Köln
+P20: VfR Aalen

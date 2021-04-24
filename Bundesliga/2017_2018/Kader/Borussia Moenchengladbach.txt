@@ -1,28 +1,33 @@
-Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
-Moritz;Nicolas;null;19971021;Deutschland;Tor;35
-Tobias;Sippel;null;19880322;Deutschland;Tor;21
-Yann;Sommer;null;19881217;Schweiz;Tor;1
-Mamadou;Doucouré;null;19980521;Senegal, Frankreich;Abwehr;29
-Nico;Elvedi;null;19960930;Schweiz;Abwehr;30
-Matthias;Ginter;null;19940119;Deutschland;Abwehr;28
-Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
-Timothée;Kolodziejczak;null;19911001;Frankreich;Abwehr;25;-20170905
-Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;4
-Oscar;Wendt;null;19851024;Schweden;Abwehr;17
-László;Bénes;null;19970909;Slowakei;Mittelfeld;22
-Michaël;Cuisance;null;19990816;Frankreich;Mittelfeld;27
-Vincenzo;Grifo;null;19930407;Italien;Mittelfeld;32
-Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
-Jonas;Hofmann;null;19920714;Deutschland;Mittelfeld;23
-Fabian;Johnson;null;19871211;Deutschland, USA;Mittelfeld;19
-Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;6
-Ba-Muaka;Simakala;null;19970128;Deutschland, DR Kongo;Mittelfeld;31
-Tobias;Strobl;null;19900512;Deutschland;Mittelfeld;5
-Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;16
-Denis;Zakaria;null;19961120;Schweiz;Mittelfeld;8
-Raúl;Bobadilla;null;19870618;Argentinien;Sturm;26
-Josip;Drmic;null;19920808;Schweiz;Sturm;18
-Thorgan;Hazard;null;19930329;Belgien;Sturm;10
-Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
-Lars;Stindl;null;19880826;Deutschland;Sturm;13
-Julio;Villalba;null;19980917;Paraguay;Sturm;20
+34434924;Tor;33;20170701-20180630
+31493698;Tor;35;20170701-20180630
+31235947;Tor;21;20170701-20180630
+28471008;Tor;1;20170701-20180630
+29384498;Abwehr;29;20170701-20180630
+29524722;Abwehr;2;20170701-20180630
+27838458;Abwehr;30;20170701-20180630
+33472708;Abwehr;28;20170701-20180630
+28505228;Abwehr;24;20170701-20180630
+29973519;Abwehr;25;20170701-20170905
+29139946;Abwehr;42;20170701-20180630
+29814237;Abwehr;3;20170701-20171231
+29814237;Abwehr;3;20180131-20180630
+31225788;Abwehr;4;20170701-20180630
+29902970;Abwehr;17;20170701-20180630
+31347880;Mittelfeld;22;20170701-20180630
+31550013;Mittelfeld;38;20170701-20180630
+29897733;Mittelfeld;27;20170701-20180630
+32693103;Mittelfeld;32;20170701-20180630
+29888330;Mittelfeld;7;20170701-20180630
+30430301;Mittelfeld;23;20170701-20180630
+30270104;Mittelfeld;19;20170701-20180630
+31992545;Mittelfeld;6;20170701-20180630
+30184622;Mittelfeld;31;20170701-20180630
+31095551;Mittelfeld;5;20170701-20180630
+32422300;Mittelfeld;16;20170701-20180630
+30014159;Mittelfeld;8;20170701-20180630
+33850560;Sturm;26;20170701-20180630
+30420865;Sturm;18;20170701-20180630
+29539246;Sturm;10;20170701-20180630
+38206756;Sturm;11;20170701-20180630
+28409380;Sturm;13;20170701-20180630
+30054716;Sturm;20;20170701-20180630

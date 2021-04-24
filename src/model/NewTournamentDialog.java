@@ -2466,7 +2466,7 @@ public class NewTournamentDialog extends JFrame {
 			teamsGrp = getTeamsGrp();
 			teamsKO = getTeamsKO();
 
-			Start.getInstance().addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
+			Fussball.getInstance().addNewTournament(name, shortName, season, isSTSS, stDate, fiDate, hasQ, hasGrp, hasKO, has3pl, qConfig, teamsQG, teamsQKO, grpConfig, teamsGrp, koConfig, teamsKO);
 			this.setVisible(false);
 		}
 		updateGUI();

@@ -1,0 +1,21 @@
+20
+Eintracht Braunschweig;01.01.1970
+1. FC Kaiserslautern;01.01.1970
+Karlsruher SC;01.01.1970
+SV Wehen Wiesbaden;01.01.1970
+Würzburger Kickers;01.01.1970
+Hansa Rostock;01.01.1970
+SV Meppen;01.01.1970
+Fortuna Köln;01.01.1970
+SpVgg Unterhaching;01.01.1970
+Preußen Münster;01.01.1970
+Carl Zeiss Jena;01.01.1970
+VfR Aalen;01.01.1970
+Hallescher FC;01.01.1970
+SG Sonnenhof Großaspach;01.01.1970
+FSV Zwickau;01.01.1970
+Sportfreunde Lotte;01.01.1970
+VfL Osnabrück;01.01.1970
+1860 München;01.01.1970
+Energie Cottbus;01.01.1970
+KFC Uerdingen;01.01.1970

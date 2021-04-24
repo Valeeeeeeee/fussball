@@ -1,0 +1,20 @@
+P1: 1. FC Köln
+P2: SC Paderborn
+P3: 1. FC Union Berlin
+P4: Hamburger SV
+P5: 1. FC Heidenheim
+P6: Holstein Kiel
+P7: Arminia Bielefeld
+P8: SSV Jahn Regensburg
+P9: FC St. Pauli
+P10: SV Darmstadt 98
+P11: VfL Bochum
+P12: Dynamo Dresden
+P13: SpVgg Greuther Fürth
+P14: Erzgebirge Aue
+P15: SV Sandhausen
+P16: FC Ingolstadt 04
+P17: 1. FC Magdeburg
+P18: MSV Duisburg
+REL01W: SV Wehen Wiesbaden
+REL01L: FC Ingolstadt 04

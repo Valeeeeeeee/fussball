@@ -16,7 +16,7 @@
 1R08L: Bremer SV
 1R09W: FC Viktoria Köln
 1R09L: 1. FC Union Berlin
-1R10W: 1.FC Köln
+1R10W: 1. FC Köln
 1R10L: SV Meppen
 1R11W: Eintracht Braunschweig
 1R11L: Hallescher FC
@@ -50,7 +50,7 @@
 1R25L: FK Pirmasens
 1R26W: Hannover 96
 1R26L: KSV Hessen Kassel
-1R27W: 1. FC Kaiserlautern
+1R27W: 1. FC Kaiserslautern
 1R27L: Hansa Rostock
 1R28W: 1. FSV Mainz 05
 1R28L: FC Energie Cottbus
@@ -75,7 +75,7 @@
 2R06W: Bayern München
 2R06L: VfL Wolfsburg
 2R07W: VfL Bochum
-2R07L: 1. FC Kaiserlautern
+2R07L: 1. FC Kaiserslautern
 2R08W: SpVgg Unterhaching
 2R08L: RasenBallsport Leipzig
 2R09W: Bayer 04 Leverkusen
@@ -89,7 +89,7 @@
 2R13W: Borussia Mönchengladbach
 2R13L: FC Schalke 04
 2R14W: Werder Bremen
-2R14L: 1.FC Köln
+2R14L: 1. FC Köln
 2R15W: Eintracht Braunschweig
 2R15L: SSV Reutlingen 05
 2R16W: VfB Stuttgart

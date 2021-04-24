@@ -9,6 +9,7 @@ public class Turnier {
 	private int id;
 	private String name;
 	private String shortName;
+	private boolean isClubCompetition;
 	
 	private int currentSeasonIndex;
 	private ArrayList<TurnierSaison> seasons;
@@ -49,6 +50,10 @@ public class Turnier {
 		return shortName;
 	}
 	
+	public boolean isClubCompetition() {
+		return isClubCompetition;
+	}
+	
 	/**
 	 * This method returns all available seasons in the format "2014/2015" if isSTSS, otherwise "2014".
 	 * @return a String array containing all available seasons
@@ -83,7 +88,7 @@ public class Turnier {
 		(new File(folder)).mkdirs();
 		
 		if (newSeason.hasQualification()) {
-			inDatei(folder + "QualiConfig.txt", qConfig);
+			writeFile(folder + "QualiConfig.txt", qConfig);
 			String qFolder = folder + "Qualifikation" + File.separator;
 			(new File(qFolder)).mkdirs();
 			// remove startDate and finalDate
@@ -116,9 +121,9 @@ public class Turnier {
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsQG[i][j]);
 				}
-				inDatei(grpFolder + "Mannschaften.txt", teams);
-				inDatei(grpFolder + "Spielplan.txt", matches);
-				inDatei(grpFolder + "Ergebnisse.txt", results);
+				writeFile(grpFolder + "Mannschaften.txt", teams);
+				writeFile(grpFolder + "Spielplan.txt", matches);
+				writeFile(grpFolder + "Ergebnisse.txt", results);
 			}
 			
 			// KO-Runden
@@ -149,13 +154,13 @@ public class Turnier {
 					teams.add(teamsQKO[i][j]);
 				}
 				
-				inDatei(koFolder + "Mannschaften.txt", teams);
-				inDatei(koFolder + "Spielplan.txt", matches);
-				inDatei(koFolder + "Ergebnisse.txt", results);
+				writeFile(koFolder + "Mannschaften.txt", teams);
+				writeFile(koFolder + "Spielplan.txt", matches);
+				writeFile(koFolder + "Ergebnisse.txt", results);
 			}
 		}
 		if (newSeason.hasGroupStage()) {
-			inDatei(folder + "GruppenConfig.txt", grpConfig);
+			writeFile(folder + "GruppenConfig.txt", grpConfig);
 			
 			int nOfGrps = Integer.parseInt(grpConfig.remove(0));
 			int nOfMASO = Boolean.parseBoolean(grpConfig.remove(0)) ? 2 : 1;
@@ -181,13 +186,13 @@ public class Turnier {
 				for (int j = 0; j < nOfTeams; j++) {
 					teams.add(teamsGrp[i][j]);
 				}
-				inDatei(grpFolder + "Mannschaften.txt", teams);
-				inDatei(grpFolder + "Spielplan.txt", matches);
-				inDatei(grpFolder + "Ergebnisse.txt", results);
+				writeFile(grpFolder + "Mannschaften.txt", teams);
+				writeFile(grpFolder + "Spielplan.txt", matches);
+				writeFile(grpFolder + "Ergebnisse.txt", results);
 			}
 		}
 		if (newSeason.hasKOStage()) {
-			inDatei(folder + "KOconfig.txt", koConfig);
+			writeFile(folder + "KOconfig.txt", koConfig);
 			
 			int nOfKORds = koConfig.size();
 			for (int i = 0; i < nOfKORds; i++) {
@@ -216,9 +221,9 @@ public class Turnier {
 					teams.add(teamsKO[i][j]);
 				}
 				
-				inDatei(koFolder + "Mannschaften.txt", teams);
-				inDatei(koFolder + "Spielplan.txt", matches);
-				inDatei(koFolder + "Ergebnisse.txt", results);
+				writeFile(koFolder + "Mannschaften.txt", teams);
+				writeFile(koFolder + "Spielplan.txt", matches);
+				writeFile(koFolder + "Ergebnisse.txt", results);
 			}
 		}
 		
@@ -226,10 +231,10 @@ public class Turnier {
 	}
 	
 	private void loadSeasons() {
-		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
+		workspace = Fussball.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		fileSeasonsData = workspace + "SaisonsConfig.txt";
-		seasonsDataFromFile = ausDatei(fileSeasonsData);
+		seasonsDataFromFile = readFile(fileSeasonsData);
 		
 		seasons = new ArrayList<>();
 		for (int i = 0; i < seasonsDataFromFile.size(); i++) {
@@ -244,19 +249,22 @@ public class Turnier {
 			seasonsDataFromFile.add(seasons.get(i).toString());
 		}
 		
-		inDatei(fileSeasonsData, seasonsDataFromFile);
+		writeFile(fileSeasonsData, seasonsDataFromFile);
 	}
 	
 	public int[] checkMissingResults() {
-		int countCompleted = 0, countStillRunning = 0;
+		Datum today = new Datum();
+		int countNotScheduled = 0, countCompleted = 0, countStillRunning = 0;
 		for (TurnierSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
-			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
+			ArrayList<String> nextMatchesString = readFile(fileName, false);
 			if (nextMatchesString.size() > 0) {
-				long now = 10000L * Start.today().comparable() + new Uhrzeit().comparable();
+				long now = 10000L * today.comparable() + new Uhrzeit().comparable();
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
-					if (match < now) {
+					if (match % 10000 == 9999) {
+						countNotScheduled++;
+					} else if (match < now) {
 						boolean hourPassed = match % 100 >= now % 100;
 						int dayDiff = new Datum((int) match / 10000).daysUntil(new Datum((int) now / 10000));
 						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);
@@ -268,7 +276,7 @@ public class Turnier {
 			}
 		}
 		
-		return new int[] {countCompleted, countStillRunning};
+		return new int[] {countNotScheduled, countCompleted, countStillRunning};
 	}
 	
 	public void load(int index) {
@@ -284,13 +292,18 @@ public class Turnier {
 		String[] split = data.split(";");
 		int index = 0;
 		
-		name = split[index++].substring(5);
-		shortName = split[index++].substring(4);
+		name = split[index++];
+		shortName = split[index++];
+		isClubCompetition = Boolean.parseBoolean(split[index++]);
 	}
 	
 	public String toString() {
-		String toString = "NAME*" + name + ";";
-		toString += "SHN*" + shortName + ";";
+		String toString = "";
+		
+		toString += name + ";";
+		toString += shortName + ";";
+		toString += isClubCompetition + ";";
+		
 		return toString;
 	}
 }

@@ -1,0 +1,20 @@
+P1: 1. FC Magdeburg
+P2: SC Paderborn
+P3: Karlsruher SC
+P4: SV Wehen Wiesbaden
+P5: Würzburger Kickers
+P6: Hansa Rostock
+P7: SV Meppen
+P8: Fortuna Köln
+P9: SpVgg Unterhaching
+P10: Preußen Münster
+P11: Carl Zeiss Jena
+P12: VfR Aalen
+P13: Hallescher FC
+P14: SG Sonnenhof Großaspach
+P15: FSV Zwickau
+P16: Sportfreunde Lotte
+P17: VfL Osnabrück
+P18: Werder Bremen II
+P19: Chemnitzer FC
+P20: Rot-Weiß Erfurt

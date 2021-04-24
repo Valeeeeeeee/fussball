@@ -1,0 +1,10 @@
+20200818
+20201001
+false
+0
+5
+1. Vorqualifikationsrunde;V1;true;false;16;0;0;
+1. Qualifikationsrunde;Q1;true;false;86;8;0;
+2. Qualifikationsrunde;Q2;true;false;25;47;20;
+3. Qualifikationsrunde;Q3;true;false;13;46;11;
+Play-offs;PO;true;false;0;35;7;

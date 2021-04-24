@@ -5,6 +5,7 @@ import model.Minute;
 import model.Position;
 import model.Spiel;
 import model.Spieler;
+import model.TeamAffiliation;
 import model.Tor;
 
 public class SpielPerformance {
@@ -20,7 +21,7 @@ public class SpielPerformance {
 	
 	private int minutesFullMatch = 90;
 	
-	private Spieler player;
+	private TeamAffiliation player;
 	private Spiel match;
 	private int matchday;
 	private boolean home;
@@ -53,7 +54,7 @@ public class SpielPerformance {
 	private int numberOfConcededGoalsFullMatch;
 	private int numberOfConcededGoalsWhileOnPitch;
 	
-	public SpielPerformance(Spieler player, Spiel match, boolean home, String opponentName, String result) {
+	public SpielPerformance(TeamAffiliation player, Spiel match, boolean home, String opponentName, String result) {
 		this.player = player;
 		this.match = match;
 		this.matchday = match.getMatchday();
@@ -265,6 +266,6 @@ public class SpielPerformance {
 			if (player.getPosition() == Position.ABWEHR)	impact += (bonusNoGoalConcededDF * numberOfMinutesPlayed / minutesFullMatch);
 			else if (player.getPosition() == Position.TOR)	impact += (bonusNoGoalConcededGK * numberOfMinutesPlayed / minutesFullMatch);
 		}
-		return 0.1 * impact;
+		return 0.1 * impact + 1;
 	}
 }

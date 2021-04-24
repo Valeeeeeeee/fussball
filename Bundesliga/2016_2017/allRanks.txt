@@ -1,0 +1,20 @@
+P1: Bayern München
+P2: RasenBallsport Leipzig
+P3: Borussia Dortmund
+P4: TSG 1899 Hoffenheim
+P5: 1. FC Köln
+P6: Hertha BSC
+P7: SC Freiburg
+P8: Werder Bremen
+P9: Borussia Mönchengladbach
+P10: FC Schalke 04
+P11: Eintracht Frankfurt
+P12: Bayer 04 Leverkusen
+P13: FC Augsburg
+P14: Hamburger SV
+P15: 1. FSV Mainz 05
+P16: VfL Wolfsburg
+P17: FC Ingolstadt 04
+P18: SV Darmstadt 98
+REL01W: VfL Wolfsburg
+REL01L: Eintracht Braunschweig

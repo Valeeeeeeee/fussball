@@ -1,0 +1,20 @@
+P1: FC Barcelona
+P2: Atlético Madrid
+P3: Real Madrid
+P4: FC Valencia
+P5: FC Villarreal
+P6: Real Betis Sevilla
+P7: FC Sevilla
+P8: FC Getafe
+P9: SD Eibar
+P10: FC Girona
+P11: Espanyol Barcelona
+P12: Celta Vigo
+P13: Real Sociedad San Sebastián
+P14: Deportivo Alavés
+P15: UD Levante
+P16: Athletic Bilbao
+P17: CD Leganés
+P18: Deportivo La Coruña
+P19: UD Las Palmas
+P20: FC Málaga

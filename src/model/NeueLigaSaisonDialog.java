@@ -52,6 +52,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	private int[] anzahl;
+	private boolean hasPlayoffs;
 	
 	private Rectangle REC_LBLSEASON = new Rectangle(25, 15, 85, 25);
 	private Rectangle REC_TFSEASON = new Rectangle(90, 15, 50, 25);
@@ -563,6 +564,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		goalDifference = lSeason.useGoalDifference();
 		teamsHaveKader = lSeason.teamsHaveKader();
 		setAnzahlen(lSeason);
+		hasPlayoffs = lSeason.hasPlayoffs();
 		
 		// TODO create more textfields, radiobuttons etc. to enable changing the config
 		jLblSeason.setText("Saison " + season);
@@ -591,7 +593,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		}
 		kickOffTimes.remove(0);
 		int lastKOT = defaultKickoffTimes[defaultKickoffTimes.length - 1];
-		while (lastKOT + 1 < kickOffTimes.size()) {
+		while (lastKOT < kickOffTimes.size()) {
 			kickOffTimes.remove(lastKOT);
 		}
 	}
@@ -642,6 +644,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
+		toString += hasPlayoffs + ";";
 		
 		ArrayList<String> teamsNames = new ArrayList<>();
 		for (int i = 0; i < newSeasonTeamsOrder.size(); i++) {
@@ -653,7 +656,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		for (int i = 0; i < numberOfDKOT; i++) {
 			defaultKickOffTimes += kickOffTimes.get(i) + ";";
 		}
-		Start.getInstance().jBtnNewLeagueSeasonDoneActionPerformed(toString, teamsNames, defaultKickOffTimes);
+		Fussball.getInstance().jBtnNewLeagueSeasonDoneActionPerformed(toString, teamsNames, defaultKickOffTimes);
 		setVisible(false);
 	}
 }

@@ -8,6 +8,8 @@ import static util.Utilities.*;
 public class Liga {
 	private int id = -1;
 	private String name;
+	private String shortName;
+	private boolean isClubCompetition;
 	
 	private ArrayList<LigaSaison> seasons;
 	private int currentSeasonIndex;
@@ -36,6 +38,10 @@ public class Liga {
 		
 		String folder = workspace + newSeason.getSeasonFull("_") + File.separator;
 		(new File(folder)).mkdirs();
+		String folderPlayoffs = workspace + newSeason.getSeasonFull("_") + File.separator + "Relegation" + File.separator;
+		if (newSeason.hasPlayoffs()) {
+			(new File(folderPlayoffs)).mkdirs();
+		}
 		
 		String fileResults = folder + "Ergebnisse.txt";
 		String fileMatchData = folder + "Spieldaten.txt";
@@ -64,24 +70,27 @@ public class Liga {
 		
 		teams.add(0, "" + teams.size());
 		
-		inDatei(fileResults, results);
-		inDatei(fileMatchData, matchData);
-		inDatei(fileMatches, matches);
-		inDatei(fileTeams, teams);
+		writeFile(fileResults, results);
+		writeFile(fileMatchData, matchData);
+		writeFile(fileMatches, matches);
+		writeFile(fileTeams, teams);
 		
 		return true;
 	}
 	
 	public int[] checkMissingResults() {
-		int countCompleted = 0, countStillRunning = 0;
-		long now = 10000L * Start.today().comparable() + new Uhrzeit().comparable();
+		Datum today = new Datum();
+		int countNotScheduled = 0, countCompleted = 0, countStillRunning = 0;
+		long now = 10000L * today.comparable() + new Uhrzeit().comparable();
 		for (LigaSaison season : seasons) {
 			String fileName = season.getWorkspace() + "nextMatches.txt";
-			ArrayList<String> nextMatchesString = ausDatei(fileName, false);
+			ArrayList<String> nextMatchesString = readFile(fileName, false);
 			if (nextMatchesString.size() > 0) {
 				for (int i = 0; i < nextMatchesString.size(); i++) {
 					long match = Long.parseLong(nextMatchesString.get(i));
-					if (match <= now) {
+					if (match % 10000 == 9999) {
+						countNotScheduled++;
+					} else if (match <= now) {
 						boolean hourPassed = match % 100 >= now % 100;
 						int dayDiff = new Datum((int) (match / 10000)).daysUntil(new Datum((int) (now / 10000)));
 						long diff = (now % 10000) - (match % 10000) + dayDiff * 2400 - (hourPassed ? 40 : 0);
@@ -93,7 +102,7 @@ public class Liga {
 			}
 		}
 		
-		return new int[] {countCompleted, countStillRunning};
+		return new int[] {countNotScheduled, countCompleted, countStillRunning};
 	}
 	
 	public void load(int index) {
@@ -103,6 +112,15 @@ public class Liga {
 	
 	public void save() {
 		saveSeasons();
+	}
+	
+	public String getWorkspace(int season) {
+		int seasonIndex = 0;
+		for (seasonIndex = 0; seasonIndex < seasons.size(); seasonIndex++) {
+			if (seasons.get(seasonIndex).getYear() == season)	break;
+		}
+		if (seasonIndex >= seasons.size())	return null;
+		return workspace + seasons.get(seasonIndex).getSeasonFull("_") + File.separator;
 	}
 
 	public String getWorkspace() {
@@ -137,11 +155,19 @@ public class Liga {
 		return name;
 	}
 	
+	public String getShortName() {
+		return shortName;
+	}
+	
+	public boolean isClubCompetition() {
+		return isClubCompetition;
+	}
+	
 	private void loadSeasons() {
-		workspace = Start.getInstance().getWorkspace() + File.separator + name + File.separator;
+		workspace = Fussball.getInstance().getWorkspace() + File.separator + name + File.separator;
 		
 		fileSeasonsData = workspace + "SaisonsConfig.txt";
-		seasonsDataFromFile = ausDatei(fileSeasonsData);
+		seasonsDataFromFile = readFile(fileSeasonsData);
 		
 		seasons = new ArrayList<>();
 		for (int i = 0; i < seasonsDataFromFile.size(); i++) {
@@ -156,18 +182,25 @@ public class Liga {
 			seasonsDataFromFile.add(seasons.get(i).toString());
 		}
 		
-		inDatei(fileSeasonsData, seasonsDataFromFile);
+		writeFile(fileSeasonsData, seasonsDataFromFile);
 	}
-	
-	public String toString() {
-		String toString = name;
-		return toString;
-	}
-	
 	private void fromString(String data) {
 		String[] split = data.split(";");
 		int index = 0;
 		
 		name = split[index++];
+		shortName = split[index++];
+		isClubCompetition = Boolean.parseBoolean(split[index++]);
 	}
+	
+	public String toString() {
+		String toString = "";
+		
+		toString += name + ";";
+		toString += shortName + ";";
+		toString += isClubCompetition + ";";
+		
+		return toString;
+	}
+	
 }

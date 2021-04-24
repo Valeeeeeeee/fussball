@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Datum;
-import model.Spieler;
-import model.Start;
+import model.TeamAffiliation;
 import model.Uhrzeit;
 
 public class Utilities {
@@ -25,6 +24,7 @@ public class Utilities {
 	public static final Color colorCategory3 = new Color(255, 255, 0);
 	public static final Color colorCategory4 = new Color(255, 128, 0);
 	public static final Color colorCategory5 = new Color(255, 0, 0);
+	public static final Color colorCategory6 = new Color(128, 128, 128);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
 	
 	public static Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
@@ -42,13 +42,30 @@ public class Utilities {
 	
 	public static final Datum UNIX_EPOCH = new Datum(1, 1, 1970);
 	public static final Datum MIN_DATE = new Datum(1, 1, 0);
-	public static final Datum MAX_DATE = new Datum(31, 12, 9999);
+	public static final Datum DATE_UNDEFINED = new Datum(0, 0, 9999);
+	public static final Datum today = new Datum();
+	
 	
 	public static final int UNDEFINED = -1;
 	
 	public static final Uhrzeit TIME_UNDEFINED = new Uhrzeit(UNDEFINED);
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
+	
+	public static final String TO_BE_DATED = "TBD";
+	public static final String SPIELFREI = "spielfrei";
+	public static final String MATCH_NOT_SET = "n.a.";
+	public static final String MAIN_CATEGORY = "MAIN_CATEGORY";
+	public static final String SUB_CATEGORY = "SUB_CATEGORY";
+	public static final String WIN = "S";
+	public static final String DRAW = "U";
+	public static final String LOSS = "N";
+	public static final String RESULT_NOT_SET = "X";
+	
+	public static String twoDigit(int number) {
+		number = number % 100;
+		return number / 10 + "" + number % 10;
+	}
 	
 	public static void alignLeft(JLabel label) {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
@@ -146,6 +163,11 @@ public class Utilities {
 		log();
 	}
 	
+	public static String getSUN(int goalsScored, int goalsConceded) {
+		if (goalsScored == goalsConceded)	return DRAW;
+		return goalsScored > goalsConceded ? WIN : LOSS;
+	}
+	
 	public static String arrowDown() {
 		return macOS ? "\u2b07" : "\u2193";
 	}
@@ -228,6 +250,23 @@ public class Utilities {
 		return false;
 	}
 	
+	public static void addAscending(ArrayList<String> list, String element) {
+		if (list.contains(element))	return;
+		int index;
+		for (index = 0; index < list.size(); index++) {
+			if (list.get(index).compareTo(element) > 0)	break;
+		}
+		list.add(index, element);
+	}
+	
+	public static void addDescending(ArrayList<Integer> list, int number) {
+		int index;
+		for (index = 0; index < list.size(); index++) {
+			if (list.get(index) < number)	break;
+		}
+		list.add(index, number);
+	}
+	
 	public static boolean inThePast(Datum date, Uhrzeit time, int timeDifference) {
 		Uhrzeit shiftedTime = new Uhrzeit(time, timeDifference);
 		if (shiftedTime.isBefore(time)) {
@@ -237,84 +276,47 @@ public class Utilities {
 	}
 	
 	public static boolean inThePast(Datum date, Uhrzeit time) {
-		if (date.isBefore(Start.today()))	return true;
-		if (date.isAfter(Start.today()))	return false;
+		Datum today = new Datum();
+		if (date.isBefore(today))	return true;
+		if (date.isAfter(today))	return false;
 		return time.isBefore(new Uhrzeit());
 	}
 	
-	public static ArrayList<Spieler> cloneList(ArrayList<Spieler> list) {
-		ArrayList<Spieler> clone = new ArrayList<>();
+	public static ArrayList<TeamAffiliation> cloneList(ArrayList<TeamAffiliation> list) {
+		ArrayList<TeamAffiliation> clone = new ArrayList<>();
 		
-		for (Spieler player : list) {
-			clone.add(player);
+		for (TeamAffiliation affiliation : list) {
+			clone.add(affiliation);
 		}
 		
 		return clone;
 	}
 	
-	public static String[] ausDateiArray(String dateiname) {
-		ArrayList<String> arraylist = new ArrayList<String>();
-		try {
-			File datei = new File(dateiname);
-			BufferedReader in = null;
-			if (!datei.exists()) {
-				datei.createNewFile();
-				log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
-			} else {
-				String element;
-				try {
-					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
-					while ((element = in.readLine()) != null) {
-						if (!element.isEmpty()) {
-							arraylist.add(element);
-						}
-					}
-				} catch (Exception e) {
-					log("Fehler beim Laden!");
-					e.printStackTrace();
-				} finally {
-					if (in != null) {
-						try {
-							in.close();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}
-		} catch (IOException ioe) {
-			log("No such file or directory: " + dateiname);
-//			ioe.printStackTrace();
-		}
-		String[] zielarray = new String[arraylist.size()];
-		for (int i = 0; i < arraylist.size(); i++) {
-			zielarray[i] = arraylist.get(i);
-		}
-		
-		return zielarray;
+	public static ArrayList<String> readFile(String fileName) {
+		return readFile(fileName, true);
 	}
 	
-	public static ArrayList<String> ausDatei(String dateiname) {
-		return ausDatei(dateiname, true);
-	}
-	
-	public static ArrayList<String> ausDatei(String dateiname, boolean createIfNotExists) {
-		ArrayList<String> arraylist = new ArrayList<String>();
+	public static ArrayList<String> readFile(String fileName, boolean createIfNotExists) {
+		ArrayList<String> arrayList = new ArrayList<String>();
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return arrayList;
+		}
 		try {
-			File datei = new File(dateiname);
+			File file = new File(fileName);
 			BufferedReader in = null;
-			if (!datei.exists()) {
+			if (!file.exists()) {
 				if (createIfNotExists) {
-					datei.createNewFile();
-					log(" >>> File did not exist but was created! --> " + datei.getAbsolutePath());
+					file.createNewFile();
+					log(" >>> File did not exist but was created! --> " + file.getAbsolutePath());
 				}
 			} else {
 				String element;
 				try {
-					in = new BufferedReader(new InputStreamReader(new FileInputStream(dateiname), "UTF-8"));
+					in = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 					while ((element = in.readLine()) != null) {
 						if (!element.isEmpty()) {
-							arraylist.add(element.replace("" + (char) 65279, ""));
+							arrayList.add(element.replace("" + (char) 65279, ""));
 						}
 					}
 				} catch (Exception e) {
@@ -331,29 +333,32 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log("No such file or directory: " + dateiname);
-//			ioe.printStackTrace();
+			log("No such file or directory: " + fileName);
 		}
 		
-		return arraylist;
+		return arrayList;
 	}
 	
-	public static void inDatei(String dateiname, String[] strings) {
+	public static void writeFile(String fileName, String[] strings) {
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return;
+		}
 		try {
-			File file = new File(dateiname);
+			File file = new File(fileName);
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			
 			BufferedWriter out = null;
 			try {
-				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
 				for (int i = 0; i < strings.length; i++) {
 					out.write(strings[i]);
 					out.newLine();
 				}
 			} catch (Exception e) {
-				log(e.getClass().getName() + " while writing in file " + dateiname);
+				log(e.getClass().getName() + " while writing in file " + fileName);
 			} finally {
 				if (out != null) {
 					try {
@@ -364,27 +369,30 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
-//			ioe.printStackTrace();
+			log(" >> inDatei >> No such file or directory: " + fileName + "\n");
 		}
 	}
 	
-	public static void inDatei(String dateiname, ArrayList<String> strings) {
+	public static void writeFile(String fileName, ArrayList<String> strings) {
+		if (fileName == null) {
+			message("Der übergebene Dateiname ist null.");
+			return;
+		}
 		try {
-			File file = new File(dateiname);
+			File file = new File(fileName);
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			
 			BufferedWriter out = null;
 			try {
-				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dateiname), "UTF-8"));
+				out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
 				for (int i = 0; i < strings.size(); i++) {
 					out.write(strings.get(i));
 					out.newLine();
 				}
 			} catch (Exception e) {
-				log(e.getClass().getName() + " while writing in file " + dateiname);
+				log(e.getClass().getName() + " while writing in file " + fileName);
 			} finally {
 				if (out != null) {
 					try {
@@ -395,8 +403,7 @@ public class Utilities {
 				}
 			}
 		} catch (IOException ioe) {
-			log(" >> inDatei >> No such file or directory: " + dateiname + "\n");
-//			ioe.printStackTrace();
+			log(" >> inDatei >> No such file or directory: " + fileName + "\n");
 		}
 	}
 	

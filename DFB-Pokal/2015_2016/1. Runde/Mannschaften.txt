@@ -9,7 +9,7 @@ TSG 1899 Hoffenheim
 Eintracht Frankfurt
 Werder Bremen
 1. FSV Mainz 05
-1.FC Köln
+1. FC Köln
 Hannover 96
 VfB Stuttgart
 Hertha BSC
@@ -19,7 +19,7 @@ SC Paderborn 07
 FC Ingolstadt 04
 SV Darmstadt 98
 Karlsruher SC
-1. FC Kaiserlautern
+1. FC Kaiserslautern
 RasenBallsport Leipzig
 Eintracht Braunschweig
 1. FC Union Berlin

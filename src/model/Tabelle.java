@@ -128,10 +128,10 @@ public class Tabelle extends JPanel {
 						jLblsData[i][j].setCursor(handCursor);
 						jLblsData[i][j].addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent evt) {
-								int index = teamIndices[x];
+								String teamName = jLblsData[x][1].getText();
 								jBtnChangeTableType(Tabellenart.COMPLETE);
 								if (belongsToALeague)	jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
-								Start.getInstance().uebersichtAnzeigen(index);
+								Fussball.getInstance().uebersichtAnzeigen(teamName);
 							}
 						});
 					} else {
@@ -397,7 +397,7 @@ public class Tabelle extends JPanel {
 	
 	private void jBtnSaveTableActionPerformed() {
 		String[] order = new String[jLblsData.length];
-		String fileName = Start.getInstance().getWorkspace();
+		String fileName = Fussball.getInstance().getWorkspace();
 		log("There are " + order.length + " teams.");
 		for (int i = 0; i < order.length; i++) {
 			if (saveTableWithData) {
@@ -414,7 +414,7 @@ public class Tabelle extends JPanel {
 			fileName += group.getWorkspace() + "Tabelle.txt";
 		}
 		log(fileName);
-		inDatei(fileName, order);
+		writeFile(fileName, order);
 	}
 	
 	private void jBtnChangeTableType(Tabellenart tableType) {

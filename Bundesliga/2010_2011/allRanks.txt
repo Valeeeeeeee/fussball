@@ -1,0 +1,20 @@
+P1: Borussia Dortmund
+P2: Bayer 04 Leverkusen
+P3: Bayern München
+P4: Hannover 96
+P5: 1. FSV Mainz 05
+P6: 1. FC Nürnberg
+P7: 1. FC Kaiserslautern
+P8: Hamburger SV
+P9: SC Freiburg
+P10: 1. FC Köln
+P11: TSG 1899 Hoffenheim
+P12: VfB Stuttgart
+P13: Werder Bremen
+P14: FC Schalke 04
+P15: VfL Wolfsburg
+P16: Borussia Mönchengladbach
+P17: Eintracht Frankfurt
+P18: FC St. Pauli
+REL01W: Borussia Mönchengladbach
+REL01L: GER22010P3

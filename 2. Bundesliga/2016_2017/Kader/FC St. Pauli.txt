@@ -1,33 +1,33 @@
-Svend Arvid;Brodersen;null;19970322;Deutschland;Tor;33
-Philipp;Heerwagen;null;19830413;Deutschland;Tor;1
-Robin;Himmelmann;null;19890205;Deutschland;Tor;30
-Daniel;Buballa;null;19900511;Deutschland;Abwehr;15
-Jeremy;Dudziak;null;19950828;Deutschland;Abwehr;8
-Sören;Gonther;null;19861215;Deutschland;Abwehr;26
-Vegar Eggen;Hedenstad;null;19910626;Norwegen;Abwehr;2;-20170208
-Marc;Hornschuh;null;19910302;Deutschland;Abwehr;16
-Jan-Philipp;Kalla;null;19860806;Deutschland;Abwehr;27
-Joël;Keller;null;19950306;Schweiz;Abwehr;5
-Brian;Koglin;null;19970107;Deutschland;Abwehr;35
-Jacob;Rasmussen;null;19970528;Dänemark;Abwehr;19;-20161231
-Lasse;Sobiech;null;19910118;Deutschland;Abwehr;3
-Philipp;Ziereis;null;19930314;Deutschland;Abwehr;4
-Christopher;Avevor;null;19920211;Deutschland, Ghana;Mittelfeld;6
-Christopher;Buchtmann;null;19920425;Deutschland;Mittelfeld;10
-Kyoung-Rok;Choi;null;19950315;Südkorea;Mittelfeld;37
-Johannes;Flum;null;19871214;Deutschland;Mittelfeld;23;20170101-
-Maurice Jerome;Litka;null;19960102;Deutschland;Mittelfeld;31
-Ryo;Miyaichi;null;19921214;Japan;Mittelfeld;13
-Mats;'Møller Dæhli';null;19950302;Dänemark;Mittelfeld;14;20170101-
-Bernd;Nehrig;null;19860928;Deutschland;Mittelfeld;7
-Richard;Neudecker;null;19961029;Deutschland;Mittelfeld;20
-Yi-Young;Park;null;19940628;Südkorea;Mittelfeld;39
-Dennis;Rosin;null;19960627;Deutschland;Mittelfeld;25
-Enver 'Cenk';Sahin;null;19940922;Türkei;Mittelfeld;22
-Waldemar;Sobota;null;19870519;Polen;Mittelfeld;28
-Aziz;Bouhaddouz;null;19870330;Deutschland;Sturm;11
-Marvin;Ducksch;null;19940307;Deutschland;Sturm;34;-20161231
-Nico;Empen;null;19960111;Deutschland;Sturm;24
-Fabrice-Jean;Picault;null;19910223;USA;Sturm;9;-20170130
-Jan-Marc;Schneider;null;19940325;Deutschland;Sturm;29
-Lennart;Thy;null;19920225;Deutschland;Sturm;18;20170101-
+33507876;Tor;33;20160701-20170630
+29345629;Tor;1;20160701-20170630
+30406494;Tor;30;20160701-20170630
+31220344;Abwehr;15;20160701-20170630
+31561026;Abwehr;8;20160701-20170630
+29152634;Abwehr;26;20160701-20170630
+33458995;Abwehr;2;20160701-20170208
+28856526;Abwehr;16;20160701-20170630
+33484202;Abwehr;27;20160701-20170630
+33226771;Abwehr;5;20160701-20170630
+30297043;Abwehr;35;20160701-20170630
+29845563;Abwehr;19;20160701-20161231
+30781028;Abwehr;3;20160701-20170630
+29391889;Abwehr;4;20160701-20170630
+33867816;Mittelfeld;6;20160701-20170630
+33662068;Mittelfeld;10;20160701-20170630
+34987760;Mittelfeld;37;20160701-20170630
+32046287;Mittelfeld;23;20170101-20170630
+37469589;Mittelfeld;31;20160701-20170630
+29091444;Mittelfeld;13;20160701-20170630
+28790839;Mittelfeld;14;20170101-20170630
+29919718;Mittelfeld;7;20160701-20170630
+28972680;Mittelfeld;20;20160701-20170630
+30505123;Mittelfeld;39;20160701-20170630
+31198416;Mittelfeld;25;20160701-20170630
+34183900;Mittelfeld;22;20160701-20170630
+33168129;Mittelfeld;28;20160701-20170630
+27699738;Sturm;11;20160701-20170630
+31763356;Sturm;34;20160701-20161231
+28167840;Sturm;24;20160701-20170630
+35927513;Sturm;9;20160701-20170130
+32259106;Sturm;29;20160701-20170630
+29317520;Sturm;18;20170101-20170630

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import model.Mannschaft;
 import model.Spieler;
 
 public class SaisonPerformance {
@@ -20,9 +19,9 @@ public class SaisonPerformance {
 		return player;
 	}
 	
-	public SpielPerformance getMatchPerformance(int matchday) {
-		if (!matchPerformances.containsKey(Mannschaft.getKey(matchday)))	return null;
-		return matchPerformances.get(Mannschaft.getKey(matchday));
+	public SpielPerformance getMatchPerformance(String matchdayKey) {
+		if (!matchPerformances.containsKey(matchdayKey))	return null;
+		return matchPerformances.get(matchdayKey);
 	}
 	
 	public ArrayList<SpielPerformance> asSortedList() {
@@ -42,9 +41,9 @@ public class SaisonPerformance {
 		return sortedMatchPerformances;
 	}
 	
-	public void addMatchPerformance(int matchday, SpielPerformance matchPerformance) {
-		if (matchPerformance == null)	matchPerformances.remove(Mannschaft.getKey(matchday));
-		else							matchPerformances.put(Mannschaft.getKey(matchday), matchPerformance);
+	public void addMatchPerformance(String matchdayKey, SpielPerformance matchPerformance) {
+		if (matchPerformance == null)	matchPerformances.remove(matchdayKey);
+		else							matchPerformances.put(matchdayKey, matchPerformance);
 	}
 	
 	public boolean hasData() {

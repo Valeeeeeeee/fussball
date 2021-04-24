@@ -1,24 +1,24 @@
-Dario;Kresic;null;19840111;Kroatien;Tor;25
-Bernd;Leno;null;19920304;Deutschland;Tor;1
-David;Yelldell;null;19811001;Deutschland, USA;Tor;22
-Sebastian;Boenisch;null;19870201;Deutschland, Polen;Abwehr;17
-Giulio;Donati;null;19900205;Italien;Abwehr;26
-Roberto;Hilbert;null;19841016;Deutschland;Abwehr;13
-Tin;Jedvaj;null;19951128;Kroatien;Abwehr;16
-Kyriakos;Papadopoulos;null;19920223;Griechenland;Abwehr;14
-Emir;Spahic;null;19800818;Bosnien-Herzegowina;Abwehr;5
-Ömer;Toprak;null;19890721;Deutschland, Türkei;Abwehr;21
-Wendell;Nascimento Borges;Wendell;19930720;Brasilien;Abwehr;18
-Lars;Bender;null;19890427;Deutschland;Mittelfeld;8
-Hakan;Çalhanoglu;null;19940208;Deutschland, Türkei;Mittelfeld;10
-Gonzalo;Castro;null;19870611;Deutschland;Mittelfeld;27
-Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;15;-20141231
-Stefan;Reinartz;null;19890101;Deutschland;Mittelfeld;3
-Simon;Rolfes;null;19820121;Deutschland;Mittelfeld;6
-Vladlen;Yurchenko;null;19940122;Ukraine;Mittelfeld;35
-Karim;Bellarabi;null;19900408;Deutschland;Sturm;38
-Julian;Brandt;null;19960502;Deutschland;Sturm;19
-Josip;Drmic;null;19920808;Schweiz;Sturm;9
-Stefan;Kießling;null;19840125;Deutschland;Sturm;11
-Robbie;Kruse;null;19881005;Australien;Sturm;23
-Heung-Min;Son;null;19920708;Südkorea;Sturm;7
+30811416;Tor;25;20140701-20150630
+30327992;Tor;1;20140701-20150630
+30169096;Tor;22;20140701-20150630
+31592517;Abwehr;17;20140701-20150630
+31826460;Abwehr;26;20140701-20150630
+29016225;Abwehr;13;20140701-20150630
+29279490;Abwehr;16;20140701-20150630
+32770028;Abwehr;14;20140701-20150630
+27781768;Abwehr;5;20140701-20150630
+31719453;Abwehr;21;20140701-20150630
+29703996;Abwehr;18;20140701-20150630
+28598992;Mittelfeld;8;20140701-20150630
+30710069;Mittelfeld;10;20140701-20150630
+28803303;Mittelfeld;27;20140701-20150630
+31056204;Mittelfeld;15;20140701-20141231
+31441917;Mittelfeld;3;20140701-20150630
+30896250;Mittelfeld;6;20140701-20150630
+29410486;Mittelfeld;35;20140701-20150630
+30785172;Sturm;38;20140701-20150630
+31089110;Sturm;19;20140701-20150630
+30420865;Sturm;9;20140701-20150630
+31421230;Sturm;11;20140701-20150630
+30745252;Sturm;23;20140701-20150630
+31319840;Sturm;7;20140701-20150630

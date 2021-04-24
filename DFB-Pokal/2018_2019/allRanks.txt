@@ -1,0 +1,126 @@
+1R01W: SV Darmstadt 98
+1R01L: 1. FC Magdeburg
+1R02W: SV Wehen Wiesbaden
+1R02L: FC St. Pauli
+1R03W: FC Schalke 04
+1R03L: 1. FC Schweinfurt 05
+1R04W: TSG 1899 Hoffenheim
+1R04L: 1. FC Kaiserslautern
+1R05W: Bayer 04 Leverkusen
+1R05L: 1. CfR Pforzheim
+1R06W: MSV Duisburg
+1R06L: TuS Dassendorf
+1R07W: Bayern München
+1R07L: SV Drochtersen/Assel
+1R08W: VfL Wolfsburg
+1R08L: SV Elversberg
+1R09W: 1. FC Nürnberg
+1R09L: SV Linx
+1R10W: Werder Bremen
+1R10L: Wormatia Worms
+1R11W: SV Rödinghausen
+1R11L: Dynamo Dresden
+1R12W: SSV Ulm 1846
+1R12L: Eintracht Frankfurt
+1R13W: 1. FSV Mainz 05
+1R13L: Erzgebirge Aue
+1R14W: SV Sandhausen
+1R14L: Rot-Weiss Oberhausen
+1R15W: Hamburger SV
+1R15L: TuS Erndtebrück
+1R16W: Hansa Rostock
+1R16L: VfB Stuttgart
+1R17W: Hannover 96
+1R17L: Karlsruher SC
+1R18W: 1. FC Köln
+1R18L: BFC Dynamo
+1R19W: FC Augsburg
+1R19L: TSV Steinbach
+1R20W: RasenBallsport Leipzig
+1R20L: FC Viktoria Köln
+1R21W: 1. FC Heidenheim
+1R21L: SSV Jeddeloh
+1R22W: Fortuna Düsseldorf
+1R22L: Rot-Weiß Koblenz
+1R23W: BSG Chemie Leipzig
+1R23L: SSV Jahn Regensburg
+1R24W: Arminia Bielefeld
+1R24L: 1. FC Lok Stendal
+1R25W: SC Weiche Flensburg 08
+1R25L: VfL Bochum
+1R26W: Holstein Kiel
+1R26L: 1860 München
+1R27W: Borussia Mönchengladbach
+1R27L: BSC Hastedt
+1R28W: 1. FC Union Berlin
+1R28L: FC Carl Zeiss Jena
+1R29W: Hertha BSC
+1R29L: Eintracht Braunschweig
+1R30W: SC Paderborn 07
+1R30L: FC Ingolstadt 04
+1R31W: SC Freiburg
+1R31L: Energie Cottbus
+1R32W: Borussia Dortmund
+1R32L: SpVgg Greuther Fürth
+2R01W: Hertha BSC
+2R01L: SV Darmstadt 98
+2R02W: Fortuna Düsseldorf
+2R02L: SSV Ulm 1846
+2R03W: VfL Wolfsburg
+2R03L: Hannover 96
+2R04W: SC Paderborn 07
+2R04L: BSG Chemie Leipzig
+2R05W: Hamburger SV
+2R05L: SV Wehen Wiesbaden
+2R06W: Bayern München
+2R06L: SV Rödinghausen
+2R07W: FC Augsburg
+2R07L: 1. FSV Mainz 05
+2R08W: 1. FC Heidenheim
+2R08L: SV Sandhausen
+2R09W: 1. FC Nürnberg
+2R09L: Hansa Rostock
+2R10W: FC Schalke 04
+2R10L: 1. FC Köln
+2R11W: Werder Bremen
+2R11L: SC Weiche Flensburg 08
+2R12W: Borussia Dortmund
+2R12L: 1. FC Union Berlin
+2R13W: RasenBallsport Leipzig
+2R13L: TSG 1899 Hoffenheim
+2R14W: MSV Duisburg
+2R14L: Arminia Bielefeld
+2R15W: Holstein Kiel
+2R15L: SC Freiburg
+2R16W: Bayer 04 Leverkusen
+2R16L: Borussia Mönchengladbach
+AF01W: Hamburger SV
+AF01L: 1. FC Nürnberg
+AF02W: 1. FC Heidenheim
+AF02L: Bayer 04 Leverkusen
+AF03W: Werder Bremen
+AF03L: Borussia Dortmund
+AF04W: SC Paderborn 07
+AF04L: MSV Duisburg
+AF05W: RasenBallsport Leipzig
+AF05L: VfL Wolfsburg
+AF06W: FC Augsburg
+AF06L: Holstein Kiel
+AF07W: Bayern München
+AF07L: Hertha BSC
+AF08W: FC Schalke 04
+AF08L: Fortuna Düsseldorf
+VF01W: Hamburger SV
+VF01L: SC Paderborn 07
+VF02W: RasenBallsport Leipzig
+VF02L: FC Augsburg
+VF03W: Bayern München
+VF03L: 1. FC Heidenheim
+VF04W: Werder Bremen
+VF04L: FC Schalke 04
+HF01W: RasenBallsport Leipzig
+HF01L: Hamburger SV
+HF02W: Bayern München
+HF02L: Werder Bremen
+FI01W: Bayern München
+FI01L: RasenBallsport Leipzig

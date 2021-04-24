@@ -7,7 +7,9 @@ import static util.Utilities.*;
 
 public class KORunde implements Wettbewerb {
 
-	private TurnierSaison season;
+	private boolean belongsToALeague;
+	private LigaSaison lSeason;
+	private TurnierSaison tSeason;
 	private int id;
 	private boolean isQ;
 	private String name;
@@ -30,7 +32,9 @@ public class KORunde implements Wettbewerb {
 	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
+	private boolean is4thSubPossible = false;
 	private boolean goalDifference = true;
+	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	
 	private boolean teamsAreWinners;
@@ -39,9 +43,6 @@ public class KORunde implements Wettbewerb {
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
 	
-	private Ergebnis[][] results;
-	private boolean[][] resultsSet;
-	
 	private String workspace;
 	
 	private String fileTeams;
@@ -49,9 +50,6 @@ public class KORunde implements Wettbewerb {
 	
 	private String fileMatches;
 	private ArrayList<String> matchesFromFile;
-	
-	private String fileResults;
-	private ArrayList<String> resultsFromFile;
 	
 	private String fileMatchData;
 	private ArrayList<String> matchDataFromFile;
@@ -63,14 +61,32 @@ public class KORunde implements Wettbewerb {
 	
 	private Spieltag spieltag;
 	
+	public KORunde(LigaSaison season, String data) {
+		belongsToALeague = true;
+		this.lSeason = season;
+		this.id = 0;
+		this.isQ = false;
+		
+		startDate = season.getStartDate();
+		finalDate = season.getFinalDate();
+		teamsHaveKader = season.teamsHaveKader();
+		is4thSubPossible = false;
+		
+		fromString(data);
+		
+		load();
+	}
+	
 	public KORunde(TurnierSaison season, int id, boolean isQ, String data) {
-		this.season = season;
+		belongsToALeague = false;
+		this.tSeason = season;
 		this.id = id;
 		this.isQ = isQ;
 		
 		startDate = season.getStartDate(isQ);
 		finalDate = season.getFinalDate(isQ);
 		teamsHaveKader = season.teamsHaveKader(isQ);
+		is4thSubPossible = season.isFourthSubPossible();
 		
 		fromString(data);
 		
@@ -81,8 +97,16 @@ public class KORunde implements Wettbewerb {
 		return id;
 	}
 	
+	public boolean belongsToALeague() {
+		return belongsToALeague;
+	}
+	
+	public int getNumberOfMatchdaysBeforePlayoff() {
+		return belongsToALeague ? lSeason.getNumberOfMatchdays() : 0;
+	}
+	
 	public int getYear() {
-		return season.getYear();
+		return belongsToALeague ? lSeason.getYear() : tSeason.getYear();
 	}
 	
 	public boolean isQualification() {
@@ -94,7 +118,11 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public boolean isSTSS() {
-		return season.isSTSS();
+		return belongsToALeague ? lSeason.isSTSS() : tSeason.isSTSS();
+	}
+	
+	public boolean isClubCompetition() {
+		return belongsToALeague ? lSeason.isClubCompetition() : tSeason.isClubCompetition();
 	}
 	
 	public String getWorkspace() {
@@ -102,11 +130,15 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public String getMatchdayDescription(int matchday) {
-		return season.getDescription() + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rückspiel") : "");
+		return (belongsToALeague ? lSeason.getDescription() : tSeason.getDescription()) + ", " + name + (numberOfMatchdays != 1 ? ", " + (matchday == 0 ? "Hinspiel" : "Rückspiel") : "");
 	}
 	
 	public String getShortName() {
 		return shortName;
+	}
+	
+	public Dauer getDuration() {
+		return new Dauer(startDate, finalDate);
 	}
 	
 	public Datum getStartDate() {
@@ -121,12 +153,34 @@ public class KORunde implements Wettbewerb {
 		return spieltag;
 	}
 	
-	public boolean isETPossible() {
+	public boolean isExtraTimePossible() {
 		return isETPossible;
+	}
+	
+	public int getNumberOfRegularSubstitutions(Datum date) {
+		return belongsToALeague ? lSeason.getNumberOfRegularSubstitutions(date) : tSeason.getNumberOfRegularSubstitutions(date);
+	}
+	
+	public boolean isFourthSubstitutionPossible() {
+		return is4thSubPossible;
 	}
 	
 	public boolean useGoalDifference() {
 		return goalDifference;
+	}
+	
+	public boolean useFairplayRule() {
+		return fairplay;
+	}
+	
+	public String[] getMatchdays() {
+		if (belongsToALeague)	return lSeason.getMatchdays();
+		
+		String[] matchdays = new String[numberOfMatchdays];
+		for (int i = 0; i < numberOfMatchdays; i++) {
+			matchdays[i] = (i + 1) + ". Spieltag";
+		}
+		return matchdays;
 	}
 	
 	public void setCheckTeamsFromPreviousRound(boolean check) {
@@ -134,11 +188,11 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public ArrayList<Schiedsrichter> getReferees() {
-		return season.getReferees();
+		return belongsToALeague ? lSeason.getReferees() : tSeason.getReferees();
 	}
 	
 	public String[] getAllReferees() {
-		return season.getAllReferees();
+		return belongsToALeague ? lSeason.getAllReferees() : tSeason.getAllReferees();
 	}
 
 	public Mannschaft[] getTeams() {
@@ -146,13 +200,81 @@ public class KORunde implements Wettbewerb {
 		return teams;
 	}
 	
+	public Mannschaft getTeamWithName(String teamName) {
+		for (Mannschaft team : teams) {
+			if (team != null && team.getName().equals(teamName))	return team;	
+		}
+		return null;
+	}
+	
+	public ArrayList<String[]> getAllMatches(Mannschaft team) {
+		return belongsToALeague ? lSeason.getAllMatches(team) : tSeason.getAllMatches(team);
+	}
+	
+	public ArrayList<String[]> getMatches(Mannschaft team) {
+		ArrayList<String[]> allMatches = new ArrayList<>();
+		
+		boolean foundTeam = false;
+		for (int i = 0; i < teams.length && !foundTeam; i++) {
+			foundTeam = team.equals(teams[i]);
+		}
+		if (foundTeam) {
+			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+				String md = numberOfMatchdays == 1 ? shortName : matchday + 1 + "";
+				String date = getDateOfTeam(matchday, team);
+				String goalsH = "-", goalsA = "-";
+				String sunx = RESULT_NOT_SET;
+				boolean allMatchesSet = true, teamFound = false;
+				for (int matchID = 0; matchID < numberOfMatchesPerMatchday && !teamFound; matchID++) {
+					if (isMatchSet(matchday, matchID)) {
+						Spiel match = getMatch(matchday, matchID);
+						if (teamFound = team.equals(match.getHomeTeam())) {
+							if (isResultSet(matchday, matchID) && !getResult(matchday, matchID).isCancelled()) {
+								goalsH = "" + getResult(matchday, matchID).home();
+								goalsA = "" + getResult(matchday, matchID).away();
+								sunx = getSUN(getResult(matchday, matchID).home(), getResult(matchday, matchID).away());
+							}
+							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, match.getAwayTeam().getName(), sunx});
+						} else if (teamFound = team.equals(match.getAwayTeam())) {
+							if (isResultSet(matchday, matchID) && !getResult(matchday, matchID).isCancelled()) {
+								goalsH = "" + getResult(matchday, matchID).home();
+								goalsA = "" + getResult(matchday, matchID).away();
+								sunx = getSUN(getResult(matchday, matchID).away(), getResult(matchday, matchID).home());
+							}
+							allMatches.add(new String[] {md, date, match.getHomeTeam().getName(), goalsH, goalsA, team.getName(), sunx});
+						}
+					}
+					else	allMatchesSet = false;
+				}
+				if (!teamFound) {
+					if (allMatchesSet)	allMatches.add(new String[] {md, date, SPIELFREI, goalsH, goalsA, SPIELFREI, sunx});
+					else				allMatches.add(new String[] {md, date, MATCH_NOT_SET, goalsH, goalsA, MATCH_NOT_SET, sunx});
+				}
+			}
+		}
+		
+		return allMatches;
+	}
+	
+	public String getDateOfTeam(int matchday, Mannschaft team) {
+		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
+			if (isMatchSet(matchday, matchID)) {
+				if (getMatch(matchday, matchID).getHomeTeam().equals(team) || getMatch(matchday, matchID).getAwayTeam().equals(team))
+					return getDateAndTime(matchday, matchID);
+			}
+		}
+		
+		return "n.a.";
+	}
+	
 	public String getTeamsOrigin(int team) {
 		return teamsOrigins[team];
 	}
 	
-	public Mannschaft getPrequalifiedTeam(int index) {
-		if (index >= 0 && index < numberOfTeamsPrequalified)	return teams[index];
-		else													return null;
+	public Mannschaft getInvariantTeam(int index) {
+		if (index >= 0 && index < numberOfTeamsPrequalified)										return teams[index];
+		if (index < numberOfTeams && index + numberOfTeamsFromOtherCompetition >= numberOfTeams)	return teams[index];
+		else																						return null;
 	}
 	
 	private void refreshTeams() {
@@ -160,7 +282,9 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < partOfOrigins.length; i++) {
 			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
 		}
-		Mannschaft[] prevRoundTeams = season.getMannschaftenInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
+		Mannschaft[] prevRoundTeams;
+		if (belongsToALeague)	prevRoundTeams = lSeason.getTeamsInOrderOfOrigins(partOfOrigins);
+		else					prevRoundTeams = tSeason.getTeamsInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
 		
 		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
 			teams[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
@@ -197,8 +321,6 @@ public class KORunde implements Wettbewerb {
 	
 	public int getCurrentMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Start.today();
-			
 			if (!today.equals(cMatchdaySetForDate)) {
 				if (getDate(0, 0).equals(startDate)) {
 					currentMatchday = 0;
@@ -224,7 +346,6 @@ public class KORunde implements Wettbewerb {
 	
 	public int getNewestStartedMatchday() {
 		if (numberOfMatchdays == 2) {
-			Datum today = Start.today();
 			Uhrzeit time = new Uhrzeit();
 			
 			if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
@@ -253,14 +374,14 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchID) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != MAX_DATE)
+		if (matchday >= 0 && matchday < numberOfMatchdays && matchID >= 0 && matchID < numberOfMatchesPerMatchday && getDate(matchday, matchID) != DATE_UNDEFINED)
 			return getDate(matchday, matchID).withDividers() + " " + getTime(matchday, matchID).withDividers();
 		else 
 			return "nicht terminiert";
 	}
 	
 	public Datum getDate(int matchday, int matchID) {
-		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return MAX_DATE;
+		if (daysSinceFirstDay[matchday][matchID] == UNDEFINED)	return DATE_UNDEFINED;
 		return new Datum(startDate, daysSinceFirstDay[matchday][matchID]);
 	}
 	
@@ -269,8 +390,8 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void setDate(int matchday, int matchID, Datum myDate) {
-		if (myDate == MAX_DATE)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
-		else					daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
+		if (myDate == DATE_UNDEFINED)	daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+		else							daysSinceFirstDay[matchday][matchID] = startDate.daysUntil(myDate);
 	}
 	
 	public void setTime(int matchday, int matchID, Uhrzeit myTime) {
@@ -332,11 +453,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public boolean isResultSet(int matchday, int matchID) {
-		return resultsSet[matchday][matchID];
-	}
-	
-	public void setResultSet(int matchday, int matchID, boolean isSet) {
-		resultsSet[matchday][matchID] = isSet;
+		return isMatchSet(matchday, matchID) && getMatch(matchday, matchID).hasResult();
 	}
 	
 	public String getResultsSetRepresentation(int matchday) {
@@ -350,33 +467,14 @@ public class KORunde implements Wettbewerb {
 		return representation;
 	}
 	
-	public void setResultsSetFromRepresentation(int matchday, String representation) {
-		if (representation.equals("true")) {
-			representation = "";
-			for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++)	representation += "t";
-		} else if (representation.equals("false")) {
-			representation = "";
-			for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++)	representation += "f";
-		}
-		
-		if (representation.length() != numberOfMatchesPerMatchday)	return;
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (representation.charAt(matchID) == 't')		setResultSet(matchday, matchID, true);
-			else if (representation.charAt(matchID) == 'f')	setResultSet(matchday, matchID, false);
-		}
-	}
-	
 	// Ergebnisplan
 	
 	public Ergebnis getResult(int matchday, int matchID) {
-		return results[matchday][matchID];
+		if (isMatchSet(matchday, matchID))	return getMatch(matchday, matchID).getResult();
+		return null;
 	}
 	
 	public void setResult(int matchday, int matchID, Ergebnis result) {
-		if (result != null)	setResultSet(matchday, matchID, true);
-		else					setResultSet(matchday, matchID, false);
-		results[matchday][matchID] = result;
 		if (isMatchSet(matchday, matchID))	getMatch(matchday, matchID).setResult(result);
 	}
 	
@@ -387,9 +485,31 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public void setMatch(int matchday, int matchID, Spiel match) {
-		if (match != null)	setMatchSet(matchday, matchID, true);
-		else				setMatchSet(matchday, matchID, false);
+		String key = getKey(matchday);
+		if (match != null) {
+			if (teams[match.home() - 1] != null)	teams[match.home() - 1].setMatch(key, match);
+			if (teams[match.away() - 1] != null)	teams[match.away() - 1].setMatch(key, match);
+		} else {
+			if (isMatchSet(matchday, matchID)) {
+				Spiel previousMatch = getMatch(matchday, matchID);
+				if (teams[previousMatch.home() - 1] != null)	teams[previousMatch.home() - 1].resetMatch(key);
+				if (teams[previousMatch.away() - 1] != null)	teams[previousMatch.away() - 1].resetMatch(key);
+				setDate(matchday, matchID, DATE_UNDEFINED);
+				setTime(matchday, matchID, TIME_UNDEFINED);
+			}
+		}
 		matches[matchday][matchID] = match;
+		setMatchSet(matchday, matchID, match != null);
+	}
+	
+	public String getKey(int matchday) {
+		return shortName + twoDigit(matchday);
+	}
+	
+	public void resetMatchday(int matchday) {
+		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
+			setMatch(matchday, match, null);
+		}
 	}
 	
 	public void changeOrderToChronological(int matchday) {
@@ -469,21 +589,6 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
-	public void getResultsFromSpieltag() {
-		int matchday = spieltag.getCurrentMatchday();
-		
-		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-			if (isMatchSet(matchday, matchID)) {
-				Ergebnis result = spieltag.getResult(matchID);
-				
-				setResult(matchday, matchID, result);
-//				TODO aktuell werden fuer KO-Phasen Matches keine Ergebnisse an die Mannschaften weitergeleitet
-//				mannschaften[spiele[matchday][match][0] - 1].setResult(matchday, result);
-//				mannschaften[spiele[matchday][match][1] - 1].setResult(matchday, result);
-			}
-		}
-	}
-	
 	/**
 	 * Returns a String representing the origin of the team winning this match/these matches.
 	 * @param match The index of the match, beginning from 1
@@ -554,6 +659,7 @@ public class KORunde implements Wettbewerb {
 
 	public String[] getRanks() {
 		String[] ranks = new String[2 * numberOfMatchesPerMatchday];
+		String competition = belongsToALeague ? lSeason.getLeague().getShortName() + lSeason.getYear() : tSeason.getTournament().getShortName() + tSeason.getYear();
 		
 		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
 			String matchID = getShortName() + ((i + 1) / 10) + ((i + 1) % 10);
@@ -561,11 +667,11 @@ public class KORunde implements Wettbewerb {
 			ranks[2 * i + 1] = matchID + "L" + ": ";
 			int index = getIndexOf(i + 1, true);
 			if (index != 0)	ranks[2 * i] += teams[index - 1].getName();
-			else			ranks[2 * i] += season.getTournament().getShortName() + season.getYear() + matchID + "W";
+			else			ranks[2 * i] += competition + matchID + "W";
 			
 			index = getIndexOf(i + 1, false);
 			if (index != 0)	ranks[2 * i + 1] += teams[index - 1].getName();
-			else			ranks[2 * i + 1] += season.getTournament().getShortName() + season.getYear() + matchID + "L";
+			else			ranks[2 * i + 1] += competition + matchID + "L";
 		}
 		
 		return ranks;
@@ -575,11 +681,12 @@ public class KORunde implements Wettbewerb {
 		ArrayList<Long> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				if (isResultSet(i, j) && getResult(i, j).isCancelled())	continue;
 				Datum date = getDate(i, j);
 				Uhrzeit time = getTime(i, j);
-				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j)) && (date.isAfter(startDate) || time.comparable() > 0)) {
+				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < 10 || dateAndTime < nextMatches.get(9)) {
+					if (nextMatches.size() < Fussball.numberOfMissingResults || dateAndTime < nextMatches.get(Fussball.numberOfMissingResults - 1)) {
 						int index = nextMatches.size();
 						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
 							if (dateAndTime < nextMatches.get(k))	index = k;
@@ -595,9 +702,8 @@ public class KORunde implements Wettbewerb {
 	
 	private void load() {
 		String isQuali = isQ ? "Qualifikation" + File.separator : "";
-		workspace = season.getWorkspace() + isQuali + name + File.separator;
+		workspace = (belongsToALeague ? lSeason.getWorkspace() : tSeason.getWorkspace()) + isQuali + name + File.separator;
 		
-		fileResults = workspace + "Ergebnisse.txt";
 		fileTeams = workspace + "Mannschaften.txt";
 		fileMatchData = workspace + "Spieldaten.txt";
 		fileMatches = workspace + "Spielplan.txt";
@@ -608,19 +714,17 @@ public class KORunde implements Wettbewerb {
 		setCheckTeamsFromPreviousRound(false);
 		loadMatches();
 		setCheckTeamsFromPreviousRound(true);
-		loadResults();
 		loadMatchData();
 		
 		if (spieltag == null) {
 			spieltag = new Spieltag(this);
-			spieltag.setLocation((Start.WIDTH - spieltag.getSize().width) / 2, (Start.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
+			spieltag.setLocation((Fussball.WIDTH - spieltag.getSize().width) / 2, (Fussball.HEIGHT - 28 - spieltag.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			spieltag.setVisible(false);
 		}
 	}
 	
 	public void save() {
 		saveMatches();
-		saveResults();
 		saveMatchData();
 		saveTeams();
 	}
@@ -631,13 +735,10 @@ public class KORunde implements Wettbewerb {
 		
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
-		
-		results = new Ergebnis[numberOfMatchdays][numberOfMatchesPerMatchday];
-		resultsSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
 	}
 	
 	private void loadTeams() {
-		teamsFromFile = ausDatei(fileTeams);
+		teamsFromFile = readFile(fileTeams);
 		
 		numberOfTeams = teamsFromFile.size();
 		teams = new Mannschaft[numberOfTeams];
@@ -657,7 +758,8 @@ public class KORunde implements Wettbewerb {
 		// testGNOTFOC();
 		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			teams[i] = season.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
 		}
 		
 		refreshTeams();
@@ -669,12 +771,12 @@ public class KORunde implements Wettbewerb {
 			if (teams[i] != null)	teams[i].save();
 			teamsFromFile.add(teamsOrigins[i]); //.toString());
 		}
-		inDatei(fileTeams, teamsFromFile);
+		writeFile(fileTeams, teamsFromFile);
 	}
 	
 	private void loadMatches() {
 		try {
-			matchesFromFile = ausDatei(fileMatches);
+			matchesFromFile = readFile(fileMatches);
 			
 			for (int matchday = 0; matchday < matchesFromFile.size(); matchday++) {
 				String[] split = matchesFromFile.get(matchday).split(";");
@@ -686,9 +788,14 @@ public class KORunde implements Wettbewerb {
 					// Spieltagsdaten
 					String[] koTimes = split[1].split(":");
 					for (matchID = 0; matchID < koTimes.length; matchID++) {
-						String dateAndTime[] = koTimes[matchID].split(",");
-						daysSinceFirstDay[matchday][matchID] = Integer.parseInt(dateAndTime[0]);
-						setTime(matchday, matchID, new Uhrzeit(dateAndTime[1]));
+						if (koTimes[matchID].equals(TO_BE_DATED)) {
+							setDate(matchday, matchID, DATE_UNDEFINED);
+							setTime(matchday, matchID, TIME_UNDEFINED);
+						} else {
+							String[] dateAndTime = koTimes[matchID].split(",");
+							setDate(matchday, matchID, new Datum(startDate, Integer.parseInt(dateAndTime[0])));
+							setTime(matchday, matchID, new Uhrzeit(dateAndTime[1]));
+						}
 					}
 					
 					// Herkunften der Mannschaften
@@ -704,13 +811,13 @@ public class KORunde implements Wettbewerb {
 				
 				while(matchID < numberOfMatchesPerMatchday) {
 					setMatch(matchday, matchID, null);
-					daysSinceFirstDay[matchday][matchID] = UNDEFINED;
+					setDate(matchday, matchID, DATE_UNDEFINED);
 					setTime(matchday, matchID, TIME_UNDEFINED);
 					matchID++;
 				}
 			}
 		} catch (Exception e) {
-			errorMessage("Kein Spielplan: " + e.getMessage());
+			errorMessage(name + " - Kein Spielplan: " + e.getClass());
 			e.printStackTrace();
 		}
 	}
@@ -722,7 +829,8 @@ public class KORunde implements Wettbewerb {
 			String row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-					row += daysSinceFirstDay[matchday][matchID] + "," + getTime(matchday, matchID).comparable();
+					if (getDate(matchday, matchID).equals(DATE_UNDEFINED) && getTime(matchday, matchID).equals(TIME_UNDEFINED))	row += TO_BE_DATED;
+					else	row += startDate.daysUntil(getDate(matchday, matchID)) + "," + getTime(matchday, matchID).comparable();
 					if (matchID + 1 < numberOfMatchesPerMatchday)	row += ":";
 					else											row += ";";
 				}
@@ -734,61 +842,12 @@ public class KORunde implements Wettbewerb {
 			matchesFromFile.add(row);
 		}
 		
-		inDatei(fileMatches, matchesFromFile);
-	}
-	
-	private void loadResults() {
-		try {
-			resultsFromFile = ausDatei(fileResults);
-			
-			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-				String[] split = resultsFromFile.get(matchday).split(";");
-				
-				setResultsSetFromRepresentation(matchday, split[0]);
-				
-				int matchID = 0;
-				if (!isNoMatchSet(matchday) && !isNoResultSet(matchday)) {
-					for (matchID = 0; (matchID + 1) < split.length; matchID++) {
-						if (isMatchSet(matchday, matchID)) {
-							Ergebnis result = null;
-							if (isResultSet(matchday, matchID))	result = new Ergebnis(split[matchID + 1]);
-							
-							setResult(matchday, matchID, result);
-						}
-					}
-				}
-				
-				while (matchID < numberOfMatchesPerMatchday) {
-					setResult(matchday, matchID, null);
-					matchID++;
-				}
-			}
-		} catch (Exception e) {
-			errorMessage("Kein Ergebnisplan: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	private void saveResults() {
-		resultsFromFile = new ArrayList<>();
-		
-		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-			String row = getResultsSetRepresentation(matchday) + ";";
-			if (!isNoResultSet(matchday)) {
-				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
-					row += getResult(matchday, matchID) + ";";
-				}
-			}
-			resultsFromFile.add(row);
-		}
-		
-		inDatei(fileResults, resultsFromFile);
+		writeFile(fileMatches, matchesFromFile);
 	}
 	
 	private void loadMatchData() {
-		if (!teamsHaveKader)	return;
 		try {
-			matchDataFromFile = ausDatei(fileMatchData);
+			matchDataFromFile = readFile(fileMatchData);
 			
 			for (int matchday = 0; matchday < numberOfMatchdays && matchday < matchDataFromFile.size(); matchday++) {
 				for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
@@ -805,7 +864,6 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void saveMatchData() {
-		if (!teamsHaveKader)	return;
 		matchDataFromFile.clear();
 		
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -814,7 +872,7 @@ public class KORunde implements Wettbewerb {
 			}
 		}
 		
-		inDatei(fileMatchData, matchDataFromFile);
+		writeFile(fileMatchData, matchDataFromFile);
 	}
 	
 	public String toString() {

@@ -1,23 +1,23 @@
-Iker;Casillas;null;19810520;Spanien;Tor;1
-David;de Gea;null;19901107;Spanien;Tor;13
-Sergio;Rico;null;19930901;Spanien;Tor;23
-Jordi;Alba;null;19890321;Spanien;Abwehr;18
-César;Azpilicueta;null;19890828;Spanien;Abwehr;2
-Marc;Bartra;null;19910115;Spanien;Abwehr;4
-Héctor;Bellerín;null;19950319;Spanien;Abwehr;12
-Juan Francisco;Torres;Juanfran;19850109;Spanien;Abwehr;16
-Gerard;Piqué;null;19870202;Spanien;Abwehr;3
-Sergio;Ramos;null;19860330;Spanien;Abwehr;15
-Mikel;'San José';null;19890530;Spanien;Abwehr;17
-Thiago;Alcántara;null;19910411;Spanien;Mittelfeld;14
-Sergio;Busquets;null;19880716;Spanien;Mittelfeld;5
-Cesc;Fàbregas;null;19870504;Spanien;Mittelfeld;10
-Andrés;Iniesta;null;19840511;Spanien;Mittelfeld;6
-Jorge;Resurrección;Koke;19920108;Spanien;Mittelfeld;8
-David;Silva;null;19860108;Spanien;Mittelfeld;21
-Bruno;Soriano;null;19840612;Spanien;Mittelfeld;19
-Lucas;Vázquez;null;19910701;Spanien;Mittelfeld;9
-Aritz;Aduriz;null;19810211;Spanien;Sturm;20
-Álvaro;Morata;null;19921023;Spanien;Sturm;7
-Manuel;Agudo Durán;Nolito;19861015;Spanien;Sturm;22
-Pedro;Rodríguez;Pedro;19870728;Spanien;Sturm;11
+27908657;Tor;1;20160610-20160710
+30061788;Tor;13;20160610-20160710
+31576947;Tor;23;20160610-20160710
+30637509;Abwehr;18;20160610-20160710
+29238571;Abwehr;2;20160610-20160710
+28936442;Abwehr;4;20160610-20160710
+29911215;Abwehr;12;20160610-20160710
+36496815;Abwehr;16;20160610-20160710
+31911206;Abwehr;3;20160610-20160710
+32039902;Abwehr;15;20160610-20160710
+30476446;Abwehr;17;20160610-20160710
+31758290;Mittelfeld;14;20160610-20160710
+31747396;Mittelfeld;5;20160610-20160710
+28465809;Mittelfeld;10;20160610-20160710
+33119996;Mittelfeld;6;20160610-20160710
+30722513;Mittelfeld;8;20160610-20160710
+30751335;Mittelfeld;21;20160610-20160710
+30314427;Mittelfeld;19;20160610-20160710
+30024055;Mittelfeld;9;20160610-20160710
+30247550;Sturm;20;20160610-20160710
+34733564;Sturm;7;20160610-20160710
+31023666;Sturm;22;20160610-20160710
+30080014;Sturm;11;20160610-20160710

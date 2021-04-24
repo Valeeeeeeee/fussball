@@ -1,0 +1,10 @@
+P1: Young Boys Bern
+P2: FC St. Gallen
+P3: FC Basel
+P4: Servette FC
+P5: FC Lugano
+P6: FC Luzern
+P7: FC Zürich
+P8: FC Sion
+P9: FC Thun
+P10: Neuchâtel Xamax

@@ -1,31 +1,31 @@
-Koen;Casteels;null;19920625;Belgien;Tor;20;20150101-
-Richard;Strebinger;null;19930214;Österreich;Tor;30;-20141231
-Raphael;Wolf;null;19880606;Deutschland;Tor;1
-Marnon;Busch;null;19941208;Deutschland;Abwehr;38
-Luca;Caldirola;null;19910201;Italien;Abwehr;3
-Clemens;Fritz;null;19801207;Deutschland;Abwehr;8
-Alejandro;Gálvez;null;19890606;Spanien;Abwehr;4
-Santiago;García;null;19880708;Italien, Argentinien;Abwehr;2
-Oliver;Hüsing;null;19930217;Deutschland;Abwehr;25;-20141231
-Assani;Lukimya;null;19860125;Deutschland, DR Kongo;Abwehr;5
-Sebastian;Prödl;null;19870621;Österreich;Abwehr;15
-Janek;Sternberg;null;19921019;Deutschland;Abwehr;37
-Jannik;Vestergaard;null;19920803;Dänemark;Abwehr;7;20150101-
-Levent;Ayçiçek;null;19940212;Deutschland;Mittelfeld;21
-Philipp;Bargfrede;null;19890303;Deutschland;Mittelfeld;44
-Fin;Bartels;null;19870207;Deutschland;Mittelfeld;22
-Maximilian;Eggestein;null;19961208;Deutschland;Mittelfeld;35
-Eljero;Elia;null;19870213;Niederlande;Mittelfeld;11;-20141231
-Lukas;Fröde;null;19950123;Deutschland;Mittelfeld;39
-Theodor;'Gebre Selassie';null;19861224;Tschechien;Mittelfeld;23
-Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;Mittelfeld;14
-Zlatko;Junuzovic;null;19870926;Österreich;Mittelfeld;16
-Felix;Kroos;null;19910312;Deutschland;Mittelfeld;18
-Cédric;Makiadi;null;19840223;Deutschland, DR Kongo;Mittelfeld;6
-Ludovic;Obraniak;null;19841110;Frankreich, Polen;Mittelfeld;7;-20141231
-Levin;Öztunali;null;19960315;Deutschland;Mittelfeld;11;20150101-
-Özkan;Yildirim;null;19930410;Deutschland;Mittelfeld;17
-Franco;di Santo;null;19890407;Argentinien;Sturm;9
-Melvyn;Lorenzen;null;19941126;Deutschland;Sturm;28
-Nils;Petersen;null;19881206;Deutschland;Sturm;24;-20141231
-Davie;Selke;null;19950120;Deutschland;Sturm;27
+27930444;Tor;20;20150101-20150630
+29439928;Tor;30;20140701-20141231
+29481931;Tor;1;20140701-20150630
+31224878;Abwehr;38;20140701-20150630
+28110517;Abwehr;3;20140701-20150630
+28220984;Abwehr;8;20140701-20150630
+30881851;Abwehr;4;20140701-20150630
+32560114;Abwehr;2;20140701-20150630
+31397559;Abwehr;25;20140701-20141231
+31675414;Abwehr;5;20140701-20150630
+31279629;Abwehr;15;20140701-20150630
+30188724;Abwehr;37;20140701-20150630
+31225788;Abwehr;7;20150101-20150630
+32275318;Mittelfeld;21;20140701-20150630
+29415199;Mittelfeld;44;20140701-20150630
+29400120;Mittelfeld;22;20140701-20150630
+34374298;Mittelfeld;35;20140701-20150630
+31544664;Mittelfeld;11;20140701-20141231
+30759012;Mittelfeld;39;20140701-20150630
+28739849;Mittelfeld;23;20140701-20150630
+27639281;Mittelfeld;14;20140701-20150630
+30990783;Mittelfeld;16;20140701-20150630
+30630517;Mittelfeld;18;20140701-20150630
+29595136;Mittelfeld;6;20140701-20150630
+28949934;Mittelfeld;7;20140701-20141231
+31056204;Mittelfeld;11;20150101-20150630
+34386212;Mittelfeld;17;20140701-20150630
+30654456;Sturm;9;20140701-20150630
+31185048;Sturm;28;20140701-20150630
+28022498;Sturm;24;20140701-20141231
+30765599;Sturm;27;20140701-20150630

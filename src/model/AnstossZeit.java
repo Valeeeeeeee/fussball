@@ -1,6 +1,6 @@
 package model;
 
-import static util.Utilities.MAX_DATE;
+import static util.Utilities.DATE_UNDEFINED;
 import static util.Utilities.UNDEFINED;
 
 public class AnstossZeit {
@@ -8,6 +8,8 @@ public class AnstossZeit {
 	private int index;
 	private int daysSince;
 	private Uhrzeit time;
+	
+	private String[] weekdays = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
 	public AnstossZeit(int index, int daysSince, Uhrzeit time) {
 		this.index = index;
@@ -30,7 +32,7 @@ public class AnstossZeit {
 	}
 	
 	public Datum getDate(Datum startDate) {
-		if (startDate == MAX_DATE)	return MAX_DATE;
+		if (startDate.equals(DATE_UNDEFINED))	return DATE_UNDEFINED;
 		return new Datum(startDate, daysSince);
 	}
 	
@@ -46,6 +48,10 @@ public class AnstossZeit {
 		if (daysSince != diff)			return false;
 		if (!time.equals(timeOfNewKOT))	return false;
 		return true;
+	}
+	
+	public String weekdayAndTime(Datum date) {
+		return weekdays[new Datum(date, daysSince).getDayOfWeek() - 1] + " " + getTime().withDividers() + (daysSince < 0 || daysSince > 6 ? " (" + daysSince + "d)" : "");
 	}
 	
 	public String toString() {

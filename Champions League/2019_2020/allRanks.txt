@@ -1,0 +1,156 @@
+V101W: FC Santa Coloma
+V101L: SP Tre Penne
+V102W: KF Feronikeli
+V102L: Lincoln Red Imps FC
+V201W: KF Feronikeli
+V201L: FC Santa Coloma
+Q101W: CFR Cluj
+Q101L: FK Astana
+Q102W: AIK Solna
+Q102L: FC Ararat-Armenia
+Q103W: HJK Helsinki
+Q103L: HB Tórshavn
+Q104W: Nomme Kalju
+Q104L: KF Shkëndija
+Q105W: Celtic Glasgow
+Q105L: FK Sarajevo
+Q106W: Roter Stern Belgrad
+Q106L: Suduva Marijampole
+Q107W: FC Valletta
+Q107L: F91 Düdelingen
+Q108W: The New Saints FC
+Q108L: KF Feronikeli
+Q109W: Qarabag Agdam
+Q109L: Partizani Tirana
+Q110W: BATE Baryssau
+Q110L: Piast Gliwice
+Q111W: Saburtalo Tiflis
+Q111L: Sheriff Tiraspol
+Q112W: Ferencváros Budapest
+Q112L: Ludogorez Rasgrad
+Q113W: Sutjeska Niksic
+Q113L: Slovan Bratislava
+Q114W: Dundalk FC
+Q114L: Riga FC
+Q115W: Rosenborg Trondheim
+Q115L: Linfield FC
+Q116W: NK Maribor
+Q116L: Valur Reykjavík
+Q201W: Olympiakos Piräus
+Q201L: Viktoria Pilsen
+Q202W: Dinamo Zagreb
+Q202L: Saburtalo Tiflis
+Q203W: FC Basel
+Q203L: PSV Eindhoven
+Q204W: FC Kopenhagen
+Q204L: The New Saints FC
+Q205W: APOEL Nikosia
+Q205L: Sutjeska Niksic
+Q206W: Rosenborg Trondheim
+Q206L: BATE Baryssau
+Q207W: CFR Cluj
+Q207L: Maccabi Tel Aviv
+Q208W: Ferencváros Budapest
+Q208L: FC Valletta
+Q209W: NK Maribor
+Q209L: AIK Solna
+Q210W: Celtic Glasgow
+Q210L: Nomme Kalju
+Q211W: Roter Stern Belgrad
+Q211L: HJK Helsinki
+Q212W: Qarabag Agdam
+Q212L: Dundalk FC
+Q301W: Ajax Amsterdam
+Q301L: PAOK Thessaloniki
+Q302W: APOEL Nikosia
+Q302L: Qarabag Agdam
+Q303W: Dinamo Zagreb
+Q303L: Ferencváros Budapest
+Q304W: FC Brügge
+Q304L: Dynamo Kiew
+Q305W: Roter Stern Belgrad
+Q305L: FC Kopenhagen
+Q306W: FK Krasnodar
+Q306L: FC Porto
+Q307W: Olympiakos Piräus
+Q307L: Istanbul Basaksehir
+Q308W: Linzer ASK
+Q308L: FC Basel
+Q309W: CFR Cluj
+Q309L: Celtic Glasgow
+Q310W: Rosenborg Trondheim
+Q310L: NK Maribor
+PO01W: Ajax Amsterdam
+PO01L: APOEL Nikosia
+PO02W: FC Brügge
+PO02L: Linzer ASK
+PO03W: Slavia Prag
+PO03L: CFR Cluj
+PO04W: Roter Stern Belgrad
+PO04L: Young Boys Bern
+PO05W: Dinamo Zagreb
+PO05L: Rosenborg Trondheim
+PO06W: Olympiakos Piräus
+PO06L: FK Krasnodar
+GA1: Paris Saint-Germain
+GA2: Real Madrid
+GA3: FC Brügge
+GA4: Galatasaray Istanbul
+GB1: Bayern München
+GB2: Tottenham Hotspurs
+GB3: Olympiakos Piräus
+GB4: Roter Stern Belgrad
+GC1: Manchester City
+GC2: Atalanta Bergamo
+GC3: Schachtar Donezk
+GC4: Dinamo Zagreb
+GD1: Juventus Turin
+GD2: Atlético Madrid
+GD3: Bayer 04 Leverkusen
+GD4: Lokomotive Moskau
+GE1: FC Liverpool
+GE2: SSC Neapel
+GE3: FC Salzburg
+GE4: KRC Genk
+GF1: FC Barcelona
+GF2: Borussia Dortmund
+GF3: Inter Mailand
+GF4: Slavia Prag
+GG1: RB Leipzig
+GG2: Olympique Lyon
+GG3: Benfica Lissabon
+GG4: Zenit St. Petersburg
+GH1: FC Valencia
+GH2: FC Chelsea
+GH3: Ajax Amsterdam
+GH4: OSC Lille
+AF01W: Atlético Madrid
+AF01L: FC Liverpool
+AF02W: Paris Saint-Germain
+AF02L: Borussia Dortmund
+AF03W: RB Leipzig
+AF03L: Tottenham Hotspurs
+AF04W: Atalanta Bergamo
+AF04L: FC Valencia
+AF05W: FC Barcelona
+AF05L: SSC Neapel
+AF06W: Bayern München
+AF06L: FC Chelsea
+AF07W: Manchester City
+AF07L: Real Madrid
+AF08W: Olympique Lyon
+AF08L: Juventus Turin
+VF01W: Paris Saint-Germain
+VF01L: Atalanta Bergamo
+VF02W: RB Leipzig
+VF02L: Atlético Madrid
+VF03W: Bayern München
+VF03L: FC Barcelona
+VF04W: Olympique Lyon
+VF04L: Manchester City
+HF01W: Paris Saint-Germain
+HF01L: RB Leipzig
+HF02W: Bayern München
+HF02L: Olympique Lyon
+FI01W: Bayern München
+FI01L: Paris Saint-Germain

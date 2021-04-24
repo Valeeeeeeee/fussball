@@ -37,8 +37,8 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
-	private Datum defaultDate = new Datum(24, 10, 2017);
-	private Uhrzeit defaultTime = new Uhrzeit(20, 45);
+	private Datum defaultDate;
+	private Uhrzeit defaultTime;
 	private Datum date;
 	private Uhrzeit time;
 	private int kotIndex;
@@ -79,8 +79,6 @@ public class MyDateChooser extends JFrame {
 	private Rectangle REC_HOURTOUR =		new Rectangle(15, 70, 70, 30);
 	private Rectangle REC_MINUTETOUR =		new Rectangle(85, 70, 70, 30);
 	private Rectangle REC_GOTOUR =			new Rectangle(255, 40, 70, 30);
-	
-	private String[] wt_kurz = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
 	
 	public MyDateChooser(LigaSaison season, Spieltag spieltag) {
 		super();
@@ -288,7 +286,7 @@ public class MyDateChooser extends JFrame {
 		} catch (IllegalArgumentException iae) {
 			Datum guess = MIN_DATE;
 			if (spieltag.getCurrentMatchday() > 0)	guess = new Datum(season.getDate(spieltag.getCurrentMatchday() - 1), 7);
-			if (guess.getYear() > MAX_DATE.getYear() || guess == MIN_DATE)	guess = new Datum(1, 8, startYear);
+			if (guess.getYear() >= DATE_UNDEFINED.getYear() || guess == MIN_DATE)	guess = new Datum(1, 8, startYear);
 			jCBStYear.setSelectedIndex(guess.getYear() - startYear);
 			jCBStMonth.setSelectedIndex(guess.getMonth() - 1);
 			jCBStDay.setSelectedIndex(guess.getDay() - 1);
@@ -297,7 +295,19 @@ public class MyDateChooser extends JFrame {
 		}
 	}
 	
+	private void getDefaultDateAndTime() {
+		try {
+			ArrayList<String> dateAndTime = readFile("DefaultDate.txt");
+			defaultDate = new Datum(dateAndTime.remove(0));
+			defaultTime = new Uhrzeit(dateAndTime.remove(0));
+		} catch (Exception e) {
+			defaultDate = new Datum();
+			defaultTime = MIDNIGHT;
+		}
+	}
+	
 	public void setDateAndTime(Datum date, Uhrzeit time) {
+		getDefaultDateAndTime();
 		try {
 			jCBYear.setSelectedIndex(date.getYear() - startYear);
 			jCBMonth.setSelectedIndex(date.getMonth() - 1);
@@ -316,6 +326,8 @@ public class MyDateChooser extends JFrame {
 				jCBMinute.setSelectedIndex(defaultTime.getMinute() / 5);
 				this.date = defaultDate;
 			}
+			
+			jCBHour.requestFocus();
 		} catch (Exception e) {
 			jCBYear.setSelectedIndex(defaultDate.getYear() - startYear);
 			jCBMonth.setSelectedIndex(defaultDate.getMonth() - 1);
@@ -325,6 +337,9 @@ public class MyDateChooser extends JFrame {
 			
 			this.date = defaultDate;
 			this.time = defaultTime;
+			returnTournamentStyle();
+			
+			jCBHour.requestFocus();
 		}
 	}
 	
@@ -470,7 +485,7 @@ public class MyDateChooser extends JFrame {
 			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
 			kots[0] = "Keine Angabe";
 			for (int i = 1; i < (kots.length - 1); i++) {
-				kots[i] = wt_kurz[new Datum(date, kickOffTimes.get(i).getDaysSince()).getDayOfWeek() - 1] + " " + kickOffTimes.get(i).getTime().withDividers();
+				kots[i] = kickOffTimes.get(i).weekdayAndTime(date);
 			}
 			kots[kots.length - 1] = "anderes";
 			ComboBoxModel<String> jCBKickOffTimesModel = new DefaultComboBoxModel<>(kots);

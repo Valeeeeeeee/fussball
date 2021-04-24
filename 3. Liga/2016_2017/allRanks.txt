@@ -1,0 +1,20 @@
+P1: MSV Duisburg
+P2: Holstein Kiel
+P3: SSV Jahn Regensburg
+P4: 1. FC Magdeburg
+P5: FSV Zwickau
+P6: VfL Osnabrück
+P7: SV Wehen Wiesbaden
+P8: Chemnitzer FC
+P9: Preußen Münster
+P10: SG Sonnenhof Großaspach
+P11: VfR Aalen
+P12: Sportfreunde Lotte
+P13: Hallescher FC
+P14: Rot-Weiß Erfurt
+P15: Hansa Rostock
+P16: Fortuna Köln
+P17: Werder Bremen II
+P18: SC Paderborn
+P19: 1. FSV Mainz 05 II
+P20: FSV Frankfurt

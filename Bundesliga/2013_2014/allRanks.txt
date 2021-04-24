@@ -1,0 +1,20 @@
+P1: Bayern München
+P2: Borussia Dortmund
+P3: FC Schalke 04
+P4: Bayer 04 Leverkusen
+P5: VfL Wolfsburg
+P6: Borussia Mönchengladbach
+P7: 1. FSV Mainz 05
+P8: FC Augsburg
+P9: TSG 1899 Hoffenheim
+P10: Hannover 96
+P11: Hertha BSC
+P12: Werder Bremen
+P13: Eintracht Frankfurt
+P14: SC Freiburg
+P15: VfB Stuttgart
+P16: Hamburger SV
+P17: 1. FC Nürnberg
+P18: Eintracht Braunschweig
+REL01W: Hamburger SV
+REL01L: SpVgg Greuther Fürth

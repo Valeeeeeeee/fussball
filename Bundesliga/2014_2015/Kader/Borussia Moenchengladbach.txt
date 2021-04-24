@@ -1,23 +1,23 @@
-Janis;Blaswich;null;19910502;Deutschland;Tor;21
-Christofer;Heimeroth;null;19810801;Deutschland;Tor;33
-Yann;Sommer;null;19881217;Schweiz;Tor;1
-Roel;Brouwers;null;19811128;Niederlande;Abwehr;4
-Filip;Daems;null;19781031;Belgien;Abwehr;3
-Álvaro;Domínguez Soto;null;19890515;Spanien;Abwehr;15
-Tony;Jantschke;null;19900407;Deutschland;Abwehr;24
-Fabian;Johnson;null;19871211;Deutschland, USA;Abwehr;19
-Julian;Korb;null;19920321;Deutschland;Abwehr;27
-Martin;Stranzl;null;19800616;Österreich;Abwehr;39
-Oscar;Wendt;null;19851024;Schweden;Abwehr;17
-Mahmoud;Dahoud;null;19960101;Deutschland;Mittelfeld;6
-André;Hahn;null;19900813;Deutschland;Mittelfeld;28
-Thorgan;Hazard;null;19930329;Belgien;Mittelfeld;26
-Patrick;Herrmann;null;19910212;Deutschland;Mittelfeld;7
-Christoph;Kramer;null;19910219;Deutschland;Mittelfeld;23
-Thorben;Marx;null;19810601;Deutschland;Mittelfeld;14
-Håvard;Nordtveit;null;19900621;Norwegen;Mittelfeld;16
-Ibrahima;Traoré;null;19880421;Frankreich, Guinea;Mittelfeld;8
-Granit;Xhaka;null;19920927;Schweiz;Mittelfeld;34
-Branimir;Hrgota;null;19930112;Schweden;Sturm;31
-Max;Kruse;null;19880319;Deutschland;Sturm;10
-Raffael Caetano;de Araujo;Raffael;19850328;Brasilien;Sturm;11
+30658382;Tor;21;20140701-20150630
+34434924;Tor;33;20140701-20150630
+28471008;Tor;1;20140701-20150630
+27914694;Abwehr;4;20140701-20150630
+29954446;Abwehr;3;20140701-20150630
+35382575;Abwehr;15;20140701-20150630
+28505228;Abwehr;24;20140701-20150630
+30270104;Abwehr;19;20140701-20150630
+31225512;Abwehr;27;20140701-20150630
+31538400;Abwehr;39;20140701-20150630
+29902970;Abwehr;17;20140701-20150630
+29853422;Mittelfeld;6;20140701-20150630
+31777182;Mittelfeld;28;20140701-20150630
+29539246;Mittelfeld;26;20140701-20150630
+29888330;Mittelfeld;7;20140701-20150630
+31992545;Mittelfeld;23;20140701-20150630
+29324039;Mittelfeld;14;20140701-20150630
+30580728;Mittelfeld;16;20140701-20150630
+32422300;Mittelfeld;8;20140701-20150630
+30466824;Mittelfeld;34;20140701-20150630
+32157868;Sturm;31;20140701-20150630
+30008288;Sturm;10;20140701-20150630
+38206756;Sturm;11;20140701-20150630

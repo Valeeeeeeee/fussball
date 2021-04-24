@@ -14,7 +14,7 @@
 1R07L: Bremer SV
 1R08W: Hertha BSC
 1R08L: FC Viktoria Köln
-1R09W: 1.FC Köln
+1R09W: 1. FC Köln
 1R09L: FT Braunschweig
 1R10W: Borussia Mönchengladbach
 1R10L: FC 08 Homburg
@@ -22,7 +22,7 @@
 1R11L: SV Waldkirch
 1R12W: Borussia Dortmund
 1R12L: Stuttgarter Kickers
-1R13W: 1. FC Kaiserlautern
+1R13W: 1. FC Kaiserslautern
 1R13L: SV Wehen Wiesbaden
 1R14W: Eintracht Frankfurt
 1R14L: FC Viktoria 1889 Berlin
@@ -70,11 +70,11 @@
 2R03L: Hertha BSC
 2R04W: Kickers Offenbach
 2R04L: Karlsruher SC
-2R05W: 1.FC Köln
+2R05W: 1. FC Köln
 2R05L: MSV Duisburg
 2R06W: Borussia Dortmund
 2R06L: FC St. Pauli
-2R07W: 1. FC Kaiserlautern
+2R07W: 1. FC Kaiserslautern
 2R07L: SpVgg Greuther Fürth
 2R08W: Dynamo Dresden
 2R08L: VfL Bochum
@@ -97,11 +97,11 @@
 AF01W: TSG 1899 Hoffenheim
 AF01L: VfR Aalen
 AF02W: Bayer 04 Leverkusen
-AF02L: 1. FC Kaiserlautern
+AF02L: 1. FC Kaiserslautern
 AF03W: Borussia Dortmund
 AF03L: Dynamo Dresden
 AF04W: SC Freiburg
-AF04L: 1.FC Köln
+AF04L: 1. FC Köln
 AF05W: Arminia Bielefeld
 AF05L: Werder Bremen
 AF06W: VfL Wolfsburg

@@ -152,5 +152,5 @@ HF01W: FC Liverpool
 HF01L: AS Rom
 HF02W: Real Madrid
 HF02L: Bayern München
-FI01W: CL2017FI01W
-FI01L: CL2017FI01L
+FI01W: Real Madrid
+FI01L: FC Liverpool
