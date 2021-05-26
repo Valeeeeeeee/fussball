@@ -420,5 +420,5 @@ HF01W: FC Villarreal
 HF01L: FC Arsenal
 HF02W: Manchester United
 HF02L: AS Rom
-FI01W: EL2020FI01W
-FI01L: EL2020FI01L
+FI01W: FC Villarreal
+FI01L: Manchester United
