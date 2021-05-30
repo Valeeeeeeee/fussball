@@ -152,5 +152,5 @@ HF01W: FC Chelsea
 HF01L: Real Madrid
 HF02W: Manchester City
 HF02L: Paris Saint-Germain
-FI01W: CL2020FI01W
-FI01L: CL2020FI01L
+FI01W: FC Chelsea
+FI01L: Manchester City

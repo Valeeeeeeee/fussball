@@ -16,5 +16,5 @@ P15: SV Sandhausen
 P16: VfL Osnabrück
 P17: Eintracht Braunschweig
 P18: Würzburger Kickers
-REL01W: GER22020REL01W
-REL01L: GER22020REL01L
+REL01W: FC Ingolstadt 04
+REL01L: VfL Osnabrück

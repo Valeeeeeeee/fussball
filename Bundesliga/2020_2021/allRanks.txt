@@ -16,5 +16,5 @@ P15: Arminia Bielefeld
 P16: 1. FC Köln
 P17: Werder Bremen
 P18: FC Schalke 04
-REL01W: GER12020REL01W
-REL01L: GER12020REL01L
+REL01W: 1. FC Köln
+REL01L: Holstein Kiel
