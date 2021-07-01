@@ -185,7 +185,7 @@ public class Gruppe implements Wettbewerb {
 	public String getDateOfTeam(int matchday, Mannschaft team) {
 		for (int matchID = 0; matchID < numberOfMatchesPerMatchday; matchID++) {
 			if (isMatchSet(matchday, matchID)) {
-				if (getMatch(matchday, matchID).getHomeTeam().equals(team) || getMatch(matchday, matchID).getAwayTeam().equals(team))
+				if (team.equals(getMatch(matchday, matchID).getHomeTeam()) || team.equals(getMatch(matchday, matchID).getAwayTeam()))
 					return getDateAndTime(matchday, matchID);
 			}
 		}
@@ -272,14 +272,16 @@ public class Gruppe implements Wettbewerb {
 								goalsA = "" + getResult(matchday, matchID).away();
 								sunx = getSUN(getResult(matchday, matchID).home(), getResult(matchday, matchID).away());
 							}
-							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, match.getAwayTeam().getName(), sunx});
+							String otherTeamName = match.getAwayTeam() == null ? MATCH_NOT_SET : match.getAwayTeam().getName();
+							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, otherTeamName, sunx});
 						} else if (teamFound = team.equals(match.getAwayTeam())) {
 							if (isResultSet(matchday, matchID) && !getResult(matchday, matchID).isCancelled()) {
 								goalsH = "" + getResult(matchday, matchID).home();
 								goalsA = "" + getResult(matchday, matchID).away();
 								sunx = getSUN(getResult(matchday, matchID).away(), getResult(matchday, matchID).home());
 							}
-							allMatches.add(new String[] {md, date, match.getHomeTeam().getName(), goalsH, goalsA, team.getName(), sunx});
+							String otherTeamName = match.getHomeTeam() == null ? MATCH_NOT_SET : match.getHomeTeam().getName();
+							allMatches.add(new String[] {md, date, otherTeamName, goalsH, goalsA, team.getName(), sunx});
 						}
 					}
 					else	allMatchesSet = false;

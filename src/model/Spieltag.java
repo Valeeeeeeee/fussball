@@ -1214,7 +1214,7 @@ public class Spieltag extends JPanel {
 		} else {
 			message("Nicht vorgesehen für Gruppenübersicht");
 		}
-		fillDates();
+		safelyShowMatchday();
 	}
 
 	private void changeOrderToChronological() {

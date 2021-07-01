@@ -826,7 +826,7 @@ public class Mannschaft {
 			else if (this.points < other.points)	this.place++;
 		}
 		
-		boolean awayGoals = lSeason == null || !lSeason.getLeague().getShortName().equals("ESP1");
+		boolean awayGoals = competition.getNumberOfMatchesAgainstSameOpponent() > 1 && (lSeason == null || !lSeason.getLeague().getShortName().equals("ESP1"));
 		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
 				if (this.goalDiff == allTeams[id - 1].goalDiff) {

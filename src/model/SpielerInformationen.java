@@ -964,12 +964,12 @@ public class SpielerInformationen extends JFrame {
 			jahre[i] = firstYear + i + "";
 		}
 		jCBBirthYear.setModel(new DefaultComboBoxModel<>(jahre));
-		String[] beimVereinJahre = new String[competition.isSTSS() ? 2 : 1];
-		for (int i = 0; i < beimVereinJahre.length; i++) {
-			beimVereinJahre[i] = competition.getYear() + i + "";
+		String[] possibleYears = new String[END_OF_SEASON.getYear() - START_OF_SEASON.getYear() + 1];
+		for (int i = 0; i < possibleYears.length; i++) {
+			possibleYears[i] = START_OF_SEASON.getYear() + i + "";
 		}
-		jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
-		jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(beimVereinJahre));
+		jCBAtClubSinceYear.setModel(new DefaultComboBoxModel<>(possibleYears));
+		jCBAtClubUntilYear.setModel(new DefaultComboBoxModel<>(possibleYears));
 		
 		setPlayerInformation();
 		if (!addingNewPlayer) {
