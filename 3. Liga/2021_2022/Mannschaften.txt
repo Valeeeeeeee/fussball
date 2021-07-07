@@ -1,0 +1,21 @@
+20
+VfL Osnabrück;01.01.1970
+Eintracht Braunschweig;01.01.1970
+Würzburger Kickers;01.01.1970
+1860 München;01.01.1970
+1. FC Saarbrücken;01.01.1970
+SV Wehen Wiesbaden;01.01.1970
+SC Verl;01.01.1970
+Waldhof Mannheim;01.01.1970
+Hallescher FC;01.01.1970
+FSV Zwickau;01.01.1970
+1. FC Magdeburg;01.01.1970
+Viktoria Köln;01.01.1970
+Türkgücü München;01.01.1970
+1. FC Kaiserslautern;01.01.1970
+MSV Duisburg;01.01.1970
+SV Meppen;01.01.1970
+Borussia Dortmund II;01.01.1970
+FC Viktoria 1889 Berlin;01.01.1970
+SC Freiburg II;01.01.1970
+TSV Havelse;01.01.1970

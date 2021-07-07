@@ -3,5 +3,6 @@
 2016;true;10;4;1,2,3,3,4;true;false;1,1,2,0,1;false;
 2017;true;10;4;1,1,2,2,2;true;false;0,2,2,0,1;false;
 2018;true;10;4;1,1,2,2,2;true;false;0,2,2,1,1;false;
-2019;true;10;4;1,1,2,2,2;true;false;0,1,2,1,1;false;20200619-20200803:5
+2019;true;10;4;1,1,2,2,2;true;false;0,1,2,1,1;false;
 2020;true;10;4;1,2,3,3,3;true;false;0,1,2,1,1;false;
+2021;true;10;4;1,2,3,3,3;true;false;0,1,2,1,1;false;
