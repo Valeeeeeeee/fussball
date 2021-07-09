@@ -410,11 +410,11 @@ public class TurnierSaison {
 	}
 	
 	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 2), Integer.parseInt(origin.substring(2,6)));
+		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
 		
 		ArrayList<String> teams = readFile(fileName + "allRanks.txt");
 		for (String team : teams) {
-			if (origin.substring(6).equals(team.split(": ")[0])) {
+			if (origin.substring(8).equals(team.split(": ")[0])) {
 				return team.split(": ")[1];
 			}
 		}

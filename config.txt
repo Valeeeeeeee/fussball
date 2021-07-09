@@ -6,9 +6,9 @@ Premier League;ENG1;true;
 Primera Division;ESP1;true;
 Super League;SUI1;true;
 6
-DFB-Pokal;DP;true;
-Champions League;CL;true;
-Europa League;EL;true;
-FIFA Weltmeisterschaft;WM;false;
-UEFA Europameisterschaft;EM;false;
-Copa America;CA;false;
+DFB-Pokal;DPOK;true;
+Champions League;CHAL;true;
+Europa League;EURL;true;
+FIFA Weltmeisterschaft;WCUP;false;
+UEFA Europameisterschaft;EURO;false;
+Copa America;COPA;false;
