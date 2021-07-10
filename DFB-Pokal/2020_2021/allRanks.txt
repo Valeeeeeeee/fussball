@@ -122,5 +122,5 @@ HF01W: RasenBallsport Leipzig
 HF01L: Werder Bremen
 HF02W: Borussia Dortmund
 HF02L: Holstein Kiel
-FI01W: DP2020FI01W
-FI01L: DP2020FI01L
+FI01W: Borussia Dortmund
+FI01L: RasenBallsport Leipzig
