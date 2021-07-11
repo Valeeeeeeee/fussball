@@ -5,3 +5,4 @@
 2018;true;20180918;20190601;true;true;true;false;false;true;
 2019;true;20190917;20200823;true;true;true;false;false;true;
 2020;true;20201020;20210529;true;true;true;false;false;true;
+2021;true;20210914;20220528;true;true;true;false;false;true;
