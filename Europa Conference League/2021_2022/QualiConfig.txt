@@ -1,0 +1,9 @@
+20210706
+20210826
+false
+0
+4
+1. Qualifikationsrunde;Q1;true;true;66;0;0;
+2. Qualifikationsrunde;Q2;true;true;57;33;18;
+3. Qualifikationsrunde;Q3;true;true;9;54;1;
+Play-offs;PO;true;true;4;32;8;
