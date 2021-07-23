@@ -22,5 +22,5 @@ HF02W: Argentinien
 HF02L: Kolumbien
 P301W: Kolumbien
 P301L: Peru
-FI01W: COPA2021FI01W
-FI01L: COPA2021FI01L
+FI01W: Argentinien
+FI01L: Brasilien

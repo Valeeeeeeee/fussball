@@ -129,5 +129,5 @@ HF01W: Italien
 HF01L: Spanien
 HF02W: England
 HF02L: Dänemark
-FI01W: EURO2020FI01W
-FI01L: EURO2020FI01L
+FI01W: Italien
+FI01L: England

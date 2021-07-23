@@ -1,1 +1,1 @@
-1:2
+1:2={9_4:3nE (1:1,1:1)#false-m2-s3-a12#true-m67-s19-a6^#true-m47-ytrue-sfalse-p18#true-m55-ytrue-sfalse-p19#true-m84-ytrue-sfalse-p10#true-m90+6-ytrue-sfalse-p3#false-m106-ytrue-sfalse-p6#true-m114-ytrue-sfalse-p8}={21,19,3,2,13,18,14,8,6,17,10#54:18>>16#54:17>>11#86:14>>20#91:10>>9#96:6>>5#118:13>>24}={1,6,3,5,12,2,19,14,4,9,10#70:12>>25#74:4>>8#99:19>>7#120:8>>11#120:2>>17}
