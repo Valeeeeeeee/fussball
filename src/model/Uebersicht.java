@@ -1278,7 +1278,7 @@ public class Uebersicht extends JPanel {
 			jPnlKader.add(label);
 			label.setCursor(handCursor);
 			label.setBounds(bndsSuggestions[STARTX], bndsSuggestions[STARTY] + i * bndsSuggestions[GAPY], bndsSuggestions[SIZEX], bndsSuggestions[SIZEY]);
-			label.setText(suggestions.get(i).getFullNameShort());
+			label.setText(suggestions.get(i).getFullNameShort() + " (" + suggestions.get(i).getBirthDate().withDividers() + ")");
 			label.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
 					selectPlayer(x);
