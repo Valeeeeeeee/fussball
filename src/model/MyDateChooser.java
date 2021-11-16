@@ -282,6 +282,7 @@ public class MyDateChooser extends JFrame {
 			jCBKickOffTimes.setSelectedIndex(kotIndex);
 			
 			this.date = date;
+			jCBKickOffTimes.requestFocus();
 			userCanMakeChanges = true;
 		} catch (IllegalArgumentException iae) {
 			Datum guess = MIN_DATE;

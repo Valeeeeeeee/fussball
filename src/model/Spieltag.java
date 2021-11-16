@@ -55,6 +55,7 @@ public class Spieltag extends JPanel {
 	private Ergebnis[] results;
 	private int editedDate = -1;
 	private int editedLabel = -1;
+	private int nextEditedLabel = -1;
 	private int editedGroupID = -1;
 	private int editedMatchday = -1;
 	private int currentMatchday = -1;
@@ -1531,7 +1532,18 @@ public class Spieltag extends JPanel {
 		}
 	}
 	
+	private void determineNextEditedLabel() {
+		if (editedLabel >= numberOfMatches)	return;
+		if (array[editedLabel][1] != -1)	return;
+		nextEditedLabel = editedLabel + numberOfMatches;
+	}
+	
 	private void clickNextEmptySpot() {
+		if (nextEditedLabel != -1) {
+			mannschaftClicked(nextEditedLabel);
+			nextEditedLabel = -1;
+			return;
+		}
 		int index = -1;
 		for (int row = 0; row < array.length && index == -1; row++) {
 			for (int column = 0; column < array[row].length; column++) {
@@ -1577,6 +1589,7 @@ public class Spieltag extends JPanel {
 		array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] = index + 1;
 		jBtnsMannschaften[index].setEnabled(false);
 		jLblsTeams[editedLabel].setBackground(colorEdited);
+		determineNextEditedLabel();
 		editedLabel = -1;
 		editedGroupID = -1;
 		jSPTeamsSelection.setVisible(false);

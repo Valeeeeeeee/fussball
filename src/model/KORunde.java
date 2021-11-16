@@ -757,8 +757,6 @@ public class KORunde implements Wettbewerb {
 			teams[i] = new Mannschaft(i, this, teamsOrigins[i]);
 		}
 		
-		// testGNOTFOC();
-		
 		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
 			if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
 			else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
@@ -771,7 +769,7 @@ public class KORunde implements Wettbewerb {
 		teamsFromFile = new ArrayList<>();
 		for (int i = 0; i < numberOfTeams; i++) {
 			if (teams[i] != null)	teams[i].save();
-			teamsFromFile.add(teamsOrigins[i]); //.toString());
+			teamsFromFile.add(teamsOrigins[i]);
 		}
 		writeFile(fileTeams, teamsFromFile);
 	}
