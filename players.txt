@@ -1322,7 +1322,6 @@
 30232786;Jadon;Sancho;null;20000325;England;
 30233545;Ilkay;Gündogan;null;19901024;Deutschland;
 30233879;Farid;Díaz;null;19830720;Kolumbien;
-30233919;Artem;Dovbyk;null;19970721;Ukraine;
 30236757;Artur;Sobiech;null;19900612;Polen;
 30236761;Lukas;Kübler;null;19920830;Deutschland;
 30238716;Mehdi;Carcela-González;null;19890701;Marokko;
@@ -1381,6 +1380,7 @@
 30298595;Alfred;Gomis;null;19930905;Senegal;
 30299686;Alexander;Brunst;null;19950707;Deutschland;
 30300602;David;Buchholz;null;19840805;Deutschland;
+30300619;Artem;Dovbyk;null;19970621;Ukraine;
 30300765;Jonas;Meffert;null;19940904;Deutschland;
 30303498;Anssi;Jaakkola;null;19870313;Finnland;
 30305060;Robin;Ziegele;null;19970313;Deutschland;
