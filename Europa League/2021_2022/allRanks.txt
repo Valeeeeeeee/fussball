@@ -34,38 +34,38 @@ PO09W: Glasgow Rangers
 PO09L: Alashkert Martuni
 PO10W: Olympiakos Piräus
 PO10L: Slovan Bratislava
-GA1: EURL2021GA1
-GA2: EURL2021GA2
-GA3: EURL2021GA3
-GA4: EURL2021GA4
-GB1: EURL2021GB1
-GB2: EURL2021GB2
-GB3: EURL2021GB3
-GB4: EURL2021GB4
-GC1: EURL2021GC1
-GC2: EURL2021GC2
-GC3: EURL2021GC3
-GC4: EURL2021GC4
-GD1: EURL2021GD1
-GD2: EURL2021GD2
-GD3: EURL2021GD3
-GD4: EURL2021GD4
-GE1: EURL2021GE1
-GE2: EURL2021GE2
-GE3: EURL2021GE3
-GE4: EURL2021GE4
-GF1: EURL2021GF1
-GF2: EURL2021GF2
-GF3: EURL2021GF3
-GF4: EURL2021GF4
-GG1: EURL2021GG1
-GG2: EURL2021GG2
-GG3: EURL2021GG3
-GG4: EURL2021GG4
-GH1: EURL2021GH1
-GH2: EURL2021GH2
-GH3: EURL2021GH3
-GH4: EURL2021GH4
+GA1: Olympique Lyon
+GA2: Glasgow Rangers
+GA3: Sparta Prag
+GA4: Brøndby IF
+GB1: AS Monaco
+GB2: Real Sociedad San Sebastián
+GB3: PSV Eindhoven
+GB4: Sturm Graz
+GC1: Spartak Moskau
+GC2: SSC Neapel
+GC3: Leicester City
+GC4: Legia Warschau
+GD1: Eintracht Frankfurt
+GD2: Olympiakos Piräus
+GD3: Fenerbahce Istanbul
+GD4: Royal Antwerpen
+GE1: Galatasaray Istanbul
+GE2: Lazio Rom
+GE3: Olympique Marseille
+GE4: Lokomotive Moskau
+GF1: Roter Stern Belgrad
+GF2: Sporting Braga
+GF3: FC Midtjylland
+GF4: Ludogorez Rasgrad
+GG1: Bayer 04 Leverkusen
+GG2: Real Betis Sevilla
+GG3: Celtic Glasgow
+GG4: Ferencváros Budapest
+GH1: West Ham United
+GH2: Dinamo Zagreb
+GH3: Rapid Wien
+GH4: KRC Genk
 PK01W: EURL2021PK01W
 PK01L: EURL2021PK01L
 PK02W: EURL2021PK02W
