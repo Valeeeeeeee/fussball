@@ -304,10 +304,10 @@ GF1: FC Kopenhagen
 GF2: PAOK Thessaloniki
 GF3: Slovan Bratislava
 GF4: Lincoln Red Imps FC
-GG1: CONF2021GG1
-GG2: CONF2021GG2
-GG3: CONF2021GG3
-GG4: CONF2021GG4
+GG1: Stade Rennes
+GG2: Vitesse Arnheim
+GG3: Tottenham Hotspurs
+GG4: NS Mura
 GH1: FC Basel
 GH2: Qarabag Agdam
 GH3: Omonia Nikosia
