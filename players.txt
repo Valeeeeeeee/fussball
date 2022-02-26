@@ -1702,6 +1702,7 @@
 30593217;Kerem;Demirbay;null;19930703;Deutschland;
 30593560;Filip;Bradaric;null;19920111;Kroatien;
 30596331;Marek;Hamsík;null;19870727;Slowakei;
+30599398;Anton;Kade;null;20040117;Deutschland;
 30601417;Steven;Skrzybski;null;19921118;Deutschland;
 30602136;Sérgio;Oliveira;null;19920602;Portugal;
 30602670;Kieran;Trippier;null;19900919;England;
