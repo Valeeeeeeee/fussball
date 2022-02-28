@@ -6,7 +6,6 @@ import static model.Mannschaft.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +15,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
+import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -1040,14 +1039,9 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	private void showPhoto() {
-		String playerName = removeUmlaute(player.getFullNameShort());
-		playerName = playerName.toLowerCase().replace(' ', '-');
-		String url = "file:///" + team.getPhotoDirectory() + playerName + ".jpg";
-		String urlKlein = "file:///" + team.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.jpg";
-		String urlKleinPNG = "file:///" + team.getPhotoDirectory() + "klein" + File.separator + playerName + "_klein.png";
-		String urlID = "file:///" + team.getPhotoDirectory() + player.getID() + ".png";
+		String url = "file:///" + team.getPhotoDirectory() + player.getID() + ".png";
 		
-		Image image = null;
+		BufferedImage image = null;
 		if (jLblImage != null) {
 			jLblImage.setVisible(false);
 		}
@@ -1057,28 +1051,7 @@ public class SpielerInformationen extends JFrame {
 			image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
 			jLblImage = new JLabel(new ImageIcon(image));
 		} catch (Exception e) {
-			try {
-				image = ImageIO.read(new URL(urlKlein));
-				double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
-				image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
-				jLblImage = new JLabel(new ImageIcon(image));
-			} catch (Exception e2) {
-				try {
-					image = ImageIO.read(new URL(urlKleinPNG));
-					double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
-					image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
-					jLblImage = new JLabel(new ImageIcon(image));
-				} catch (Exception e3) {
-					try {
-						image = ImageIO.read(new URL(urlID));
-						double factor = Math.min((double) 350 / image.getWidth(null), (double) 800 / image.getHeight(null));
-						image = resizeImage(image, (int) (image.getWidth(null) * factor), (int) (image.getHeight(null) * factor));
-						jLblImage = new JLabel(new ImageIcon(image));
-					} catch (Exception e4) {
-						jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
-					}
-				}
-			}
+			jLblImage = new JLabel("Es wurde kein Foto zu diesem Spieler gefunden.");
 		}
 		
 		jLblImage.setBounds(20, 10, 350, 800);

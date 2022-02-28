@@ -91,7 +91,7 @@ public class Utilities {
 		textField.setHorizontalAlignment(SwingConstants.RIGHT);
 	}
 	
-	public static Image resizeImage(Image image, int width, int height) {
+	public static BufferedImage resizeImage(Image image, int width, int height) {
 		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = resizedImage.createGraphics();
 
