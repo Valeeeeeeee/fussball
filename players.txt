@@ -271,6 +271,7 @@
 28222755;Luis;Suárez;null;19870124;Uruguay;
 28229102;Chul;Hong;null;19900917;Südkorea;
 28229820;Arne;Maier;null;19990108;Deutschland;
+28230204;Cimo;Röcker;null;19940121;Deutschland;
 28230795;Sven;Müller;null;19960216;Deutschland;
 28235636;Papy;Djilobodji;null;19881201;Senegal;
 28236994;Iago;Amaral Borduchi;Iago;19970323;Brasilien;
@@ -2677,6 +2678,7 @@
 31681221;André;Weis;null;19890930;Deutschland;
 31682990;Streli;Mamba;null;19940617;Deutschland, DR Kongo;
 31685307;Moritz;Kuhn;null;19910801;Deutschland;
+31686322;Marcel;Lotka;null;20010525;Polen, Deutschland;
 31687162;Thomas;Heaton;null;19860415;England;
 31687758;Marcel;Correia;null;19890516;Portugal;
 31688135;Christian;Ortag;null;19950114;Deutschland;
