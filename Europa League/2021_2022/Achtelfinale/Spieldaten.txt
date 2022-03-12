@@ -1,16 +1,16 @@
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
+12:4={1:2}
+14:1={0:1}
+13:3={2:0 agT}
+16:8={1:0}
+9:6={3:0}
+10:2={2:0}
+11:5={0:0}
+15:7={3:2}
+2:10
+5:11
+6:9
+7:15
+1:14
+3:13={0:2 agT}
+4:12
+8:16
