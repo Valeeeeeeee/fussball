@@ -936,7 +936,7 @@ public class Spieltag extends JPanel {
 				try {
 					jBtnsMannschaften[i].setText(teams[i].getName());
 				} catch (NullPointerException npe) {
-					jBtnsMannschaften[i].setText(koRound.getTeamsOrigin(i));
+					jBtnsMannschaften[i].setText(koRound.getTeamsOrigin(i).getOrigin());
 				}
 			} else {
 				jBtnsMannschaften[i].setText(allGroups[groupID].getTeams()[teamID].getName());
@@ -1297,8 +1297,8 @@ public class Spieltag extends JPanel {
 					try {
 						displayMatchInfo(matchID, koRound.getMatch(currentMatchday, matchID), koRound.getResult(currentMatchday, matchID), matchID);
 					} catch (NullPointerException npe) {
-						String homeTeam = match != null && match.getHomeTeam() != null ? match.getHomeTeam().getName() : koRound.getTeamsOrigin(match.home() - 1);
-						String awayTeam = match != null && match.getAwayTeam() != null ? match.getAwayTeam().getName() : koRound.getTeamsOrigin(match.away() - 1);
+						String homeTeam = match != null && match.getHomeTeam() != null ? match.getHomeTeam().getName() : koRound.getTeamsOrigin(match.home() - 1).getOrigin();
+						String awayTeam = match != null && match.getAwayTeam() != null ? match.getAwayTeam().getName() : koRound.getTeamsOrigin(match.away() - 1).getOrigin();
 						displayTeams(matchID, homeTeam, awayTeam);
 					}
 				}
@@ -1563,7 +1563,7 @@ public class Spieltag extends JPanel {
 			try {
 				jLblsTeams[editedLabel].setText(teams[index].getName());
 			} catch (NullPointerException npe) {
-				jLblsTeams[editedLabel].setText(koRound.getTeamsOrigin(index));
+				jLblsTeams[editedLabel].setText(koRound.getTeamsOrigin(index).getOrigin());
 			}
 		} else {
 			int groupID = 0, teamID = index;

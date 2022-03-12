@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import model.tournament.KOOrigin;
+import model.tournament.KOOriginPreviousLeague;
+
 
 public class LigaSaison implements Wettbewerb {
 	
@@ -753,37 +756,39 @@ public class LigaSaison implements Wettbewerb {
 		return dktimes;
 	}
 	
-	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, String origin) {
+	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, KOOrigin origin) {
 		Mannschaft team = null;
 		
-		if (teamsFromOtherCompetition.containsKey(origin)) {
-			return teamsFromOtherCompetition.get(origin);
+		if (teamsFromOtherCompetition.containsKey(origin.getOrigin())) {
+			return teamsFromOtherCompetition.get(origin.getOrigin());
 		}
 		team = new Mannschaft(id, competition, getNameOfTeamFromOtherCompetition(origin));
-		teamsFromOtherCompetition.put(origin, team);
+		teamsFromOtherCompetition.put(origin.getOrigin(), team);
 		
 		return team;
 	}
 	
-	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = Fussball.getInstance().getLeagueWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
-		if (fileName == null)	return origin;
+	private String getNameOfTeamFromOtherCompetition(KOOrigin origin) {
+		String teamOrigin = origin.getOrigin();
+		String fileName = Fussball.getInstance().getLeagueWorkspaceFromShortName(teamOrigin.substring(0, 4), Integer.parseInt(teamOrigin.substring(4, 8)));
+		if (fileName == null)	return teamOrigin;
 		
 		ArrayList<String> teams = readFile(fileName + "allRanks.txt");
 		for (String team : teams) {
-			if (origin.substring(8).equals(team.split(": ")[0])) {
+			if (teamOrigin.substring(8).equals(team.split(": ")[0])) {
 				return team.split(": ")[1];
 			}
 		}
 		
-		return origin;
+		return teamOrigin;
 	}
 	
-	public Mannschaft[] getTeamsInOrderOfOrigins(String[] origins) {
+	public Mannschaft[] getTeamsInOrderOfOrigins(KOOrigin[] origins) {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
 		for (int i = 0; i < origins.length; i++) {
-			orderOfOrigins[i] = getTeamOnPlace(Integer.parseInt(origins[i].substring(1)));
+			KOOriginPreviousLeague origin = (KOOriginPreviousLeague) origins[i];
+			orderOfOrigins[i] = getTeamOnPlace(origin.getPlaceIndex());
 		}
 		
 		return orderOfOrigins;

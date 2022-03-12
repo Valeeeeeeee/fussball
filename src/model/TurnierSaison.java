@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+
+import model.tournament.KOOrigin;
 
 import static util.Utilities.*;
 
@@ -390,44 +393,45 @@ public class TurnierSaison {
 		return team;
 	}
 	
-	public Mannschaft getTeamFromOtherCompetition(String origin) {
-		if (teamsFromOtherCompetition.containsKey(origin)) {
-			return teamsFromOtherCompetition.get(origin);
+	public Mannschaft getTeamFromOtherCompetition(KOOrigin origin) {
+		if (teamsFromOtherCompetition.containsKey(origin.getOrigin())) {
+			return teamsFromOtherCompetition.get(origin.getOrigin());
 		}
 		return null;
 	}
 	
-	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, String origin) {
+	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, KOOrigin origin) {
 		Mannschaft team = null;
 		
-		if (teamsFromOtherCompetition.containsKey(origin)) {
-			return teamsFromOtherCompetition.get(origin);
+		if (teamsFromOtherCompetition.containsKey(origin.getOrigin())) {
+			return teamsFromOtherCompetition.get(origin.getOrigin());
 		}
 		team = new Mannschaft(id, competition, getNameOfTeamFromOtherCompetition(origin));
-		teamsFromOtherCompetition.put(origin, team);
+		teamsFromOtherCompetition.put(origin.getOrigin(), team);
 		
 		return team;
 	}
 	
-	private String getNameOfTeamFromOtherCompetition(String origin) {
-		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(origin.substring(0, 4), Integer.parseInt(origin.substring(4, 8)));
+	private String getNameOfTeamFromOtherCompetition(KOOrigin origin) {
+		String teamOrigin = origin.getOrigin();
+		String fileName = Fussball.getInstance().getTournamentWorkspaceFromShortName(teamOrigin.substring(0, 4), Integer.parseInt(teamOrigin.substring(4, 8)));
 		
 		ArrayList<String> teams = readFile(fileName + "allRanks.txt");
 		for (String team : teams) {
-			if (origin.substring(8).equals(team.split(": ")[0])) {
+			if (teamOrigin.substring(8).equals(team.split(": ")[0])) {
 				return team.split(": ")[1];
 			}
 		}
 		
-		return origin;
+		return teamOrigin;
 	}
 	
-	public Mannschaft[] getTeamsInOrderOfOrigins(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
+	public Mannschaft[] getTeamsInOrderOfOrigins(KOOrigin[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
 		
 		if (isQ) {
 			if (hasQGroupStage) {
-				String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
+				KOOrigin[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
 				
 				for (int i = 0; i < orderOfOrigins.length; i++) {
 					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
@@ -439,7 +443,7 @@ public class TurnierSaison {
 			}
 		} else {
 			if (hasGroupStage) {
-				String[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
+				KOOrigin[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
 				
 				for (int i = 0; i < orderOfOrigins.length; i++) {
 					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
@@ -463,7 +467,7 @@ public class TurnierSaison {
 	 * @param KORound
 	 * @return
 	 */
-	private String[] getGroupStageOriginsOfTeams(String[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
+	private KOOrigin[] getGroupStageOriginsOfTeams(KOOrigin[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
 		if (KORound < 0 || (isQ && KORound >= numberOfQKORounds) || (!isQ && KORound >= numberOfKORounds)) {
 			log("just returned null because KORound = " + KORound + " which is less than 0 or greater than or equal to " + (isQ ? numberOfQKORounds : numberOfKORounds));
 			return null;
@@ -476,16 +480,19 @@ public class TurnierSaison {
 		if (!isQ && matchForThirdPlace && KORound == numberOfKORounds - 1)	skipARound = 1;
 		int koIndex = KORound - 1 - skipARound;
 		
-		String[] olderOrigins = new String[origins.length];
+		KOOrigin[] olderOrigins = new KOOrigin[origins.length];
 		for (int i = 0; i < olderOrigins.length; i++) {
-			if (origins[i] == null) {
+			String origin = Optional.ofNullable(origins[i]).map(KOOrigin::getOrigin).orElse(null);
+			if (origin == null) {
 				olderOrigins[i] = null;
+			} else if (origin.startsWith("G")) {
+				olderOrigins[i] = origins[i];
 			} else if (teamsAreWinners) {
-				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
-				else		olderOrigins[i] = koRounds[koIndex].getOriginOfWinnerOf(Integer.parseInt(origins[i].substring(2)));
+				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfWinnerOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
+				else		olderOrigins[i] = koRounds[koIndex].getOriginOfWinnerOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
 			} else {
-				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
-				else		olderOrigins[i] = koRounds[koIndex].getOriginOfLoserOf(Integer.parseInt(origins[i].substring(2)));
+				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfLoserOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
+				else		olderOrigins[i] = koRounds[koIndex].getOriginOfLoserOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
 			}
 		}
 		
@@ -497,12 +504,13 @@ public class TurnierSaison {
 	 * @param teamsorigin origin of the team in the format 'GG1'
 	 * @return
 	 */
-	public Mannschaft getTeamFromGroupstageOrigin(String teamsorigin, boolean isQ) {
+	public Mannschaft getTeamFromGroupstageOrigin(KOOrigin origin, boolean isQ) {
 		Mannschaft mannschaft = null;
 		
+		String teamsorigin = Optional.ofNullable(origin).map(KOOrigin::getOrigin).orElse(null);
 		if (teamsorigin != null && teamsorigin.length() > 8) {
 			// aus anderem Wettbewerb
-			mannschaft = getTeamFromOtherCompetition(teamsorigin);
+			mannschaft = getTeamFromOtherCompetition(origin);
 		} else if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
 			// Bestimmen des Indexes der Gruppe
 			int groupindex;
@@ -592,14 +600,14 @@ public class TurnierSaison {
 		return team;
 	}
 	
-	public Mannschaft getDeepestOrigin(String origin, boolean teamsAreWinners, int KORound, boolean isQ) {
+	public Mannschaft getDeepestOrigin(KOOrigin origin, boolean teamsAreWinners, int KORound, boolean isQ) {
 		Mannschaft deepestOrigin = null;
 		boolean teamFound = false;
 		int koIndex = -1;
 		
 		while (origin != null && !teamFound) {
-			String origKOround = origin.substring(0, 2);
-			int matchIndex = Integer.parseInt(origin.substring(2));
+			String origKOround = origin.getOrigin().substring(0, 2);
+			int matchIndex = Integer.parseInt(origin.getOrigin().substring(2));
 			
 			boolean foundKO = false;
 			if (isQ) {
@@ -628,11 +636,11 @@ public class TurnierSaison {
 					teamFound = true;
 				} else {
 					if (isQ) {
-						if (teamsAreWinners)	origin = qKORounds[koIndex - 1].getOriginOfWinnerOf(matchIndex);
-						else					origin = qKORounds[koIndex - 1].getOriginOfLoserOf(matchIndex);
+						if (teamsAreWinners)	origin = qKORounds[koIndex - 1].getOriginOfWinnerOfTie(matchIndex).orElse(null);
+						else					origin = qKORounds[koIndex - 1].getOriginOfLoserOfTie(matchIndex).orElse(null);
 					} else {
-						if (teamsAreWinners)	origin = koRounds[koIndex - 1].getOriginOfWinnerOf(matchIndex);
-						else					origin = koRounds[koIndex - 1].getOriginOfLoserOf(matchIndex);
+						if (teamsAreWinners)	origin = koRounds[koIndex - 1].getOriginOfWinnerOfTie(matchIndex).orElse(null);
+						else					origin = koRounds[koIndex - 1].getOriginOfLoserOfTie(matchIndex).orElse(null);
 					}
 					teamsAreWinners = true;
 				}

@@ -2,6 +2,9 @@ package model;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Optional;
+
+import model.tournament.*;
 
 import static util.Utilities.*;
 
@@ -38,7 +41,7 @@ public class KORunde implements Wettbewerb {
 	private boolean teamsHaveKader;
 	
 	private boolean teamsAreWinners;
-	private String[] teamsOrigins;
+	private KOOrigin[] teamsOrigins;
 	
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
@@ -269,7 +272,7 @@ public class KORunde implements Wettbewerb {
 		return "n.a.";
 	}
 	
-	public String getTeamsOrigin(int team) {
+	public KOOrigin getTeamsOrigin(int team) {
 		return teamsOrigins[team];
 	}
 	
@@ -280,7 +283,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	private void refreshTeams() {
-		String[] partOfOrigins = new String[numberOfTeamsFromPreviousRound];
+		KOOrigin[] partOfOrigins = new KOOrigin[numberOfTeamsFromPreviousRound];
 		for (int i = 0; i < partOfOrigins.length; i++) {
 			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
 		}
@@ -592,23 +595,21 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	/**
-	 * Returns a String representing the origin of the team winning this match/these matches.
+	 * Returns the optional KOOrigin of the team winning this tie.
 	 * @param match The index of the match, beginning from 1
 	 * @return
 	 */
-	public String getOriginOfWinnerOf(int matchID) {
-		int index;
-		return ((index = getIndexOf(matchID, true)) == 0 ? null : teamsOrigins[index - 1]);
+	public Optional<KOOrigin> getOriginOfWinnerOfTie(int matchID) {
+		return Optional.of(getIndexOf(matchID, true)).filter(index -> index != 0).map(index -> teamsOrigins[index - 1]);
 	}
 	
 	/**
-	 * Returns a String representing the origin of the team losing this match/these matches.
+	 * Returns the optional KOOrigin of the team losing this tie.
 	 * @param match The index of the match, beginning from 1
 	 * @return
 	 */
-	public String getOriginOfLoserOf(int matchID) {
-		int index;
-		return ((index = getIndexOf(matchID, false)) == 0 ? null : teamsOrigins[index - 1]);
+	public Optional<KOOrigin> getOriginOfLoserOfTie(int matchID) {
+		return Optional.of(getIndexOf(matchID, false)).filter(index -> index != 0).map(index -> teamsOrigins[index - 1]);
 	}
 	
 	public int getIndexOf(int matchID, boolean isWinnerRequested) {
@@ -748,18 +749,27 @@ public class KORunde implements Wettbewerb {
 		numberOfMatchdays = hasSecondLeg ? 2 : 1;
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
 		
-		teamsOrigins = new String[numberOfTeams];
+		teamsOrigins = new KOOrigin[numberOfTeams];
 		for (int i = 0; i < teamsOrigins.length; i++) {
-			teamsOrigins[i] = teamsFromFile.get(i);
-		}
-		
-		for (int i = 0; i < numberOfTeamsPrequalified; i++) {
-			teams[i] = new Mannschaft(i, this, teamsOrigins[i]);
-		}
-		
-		for (int i = numberOfTeams - numberOfTeamsFromOtherCompetition; i < numberOfTeams; i++) {
-			if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
-			else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			String origin = teamsFromFile.get(i);
+			if (i < numberOfTeamsPrequalified) {
+				teamsOrigins[i] = new KOOriginPrequalified(origin);
+				teams[i] = new Mannschaft(i, this, origin);
+			} else if (i + numberOfTeamsFromOtherCompetition >= numberOfTeams) {
+				teamsOrigins[i] = new KOOriginOtherCompetition(origin);
+				if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+				else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+			} else {
+				if (belongsToALeague) {
+					teamsOrigins[i] = new KOOriginPreviousLeague(origin);
+				} else if (isQ) {
+					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousQualificationGroupStage(origin);
+					else						teamsOrigins[i] = new KOOriginPreviousQualificationKnockoutRound(origin);
+				} else {
+					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousGroupStage(origin);
+					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin);
+				}
+			}
 		}
 		
 		refreshTeams();
@@ -769,7 +779,7 @@ public class KORunde implements Wettbewerb {
 		teamsFromFile = new ArrayList<>();
 		for (int i = 0; i < numberOfTeams; i++) {
 			if (teams[i] != null)	teams[i].save();
-			teamsFromFile.add(teamsOrigins[i]);
+			teamsFromFile.add(teamsOrigins[i].toString());
 		}
 		writeFile(fileTeams, teamsFromFile);
 	}
