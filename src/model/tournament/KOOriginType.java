@@ -1,11 +1,19 @@
 package model.tournament;
 
 public enum KOOriginType {
-	PREQUALIFIED,
-	PREVIOUS_GROUP_STAGE,
-	PREVIOUS_KNOCKOUT_ROUND,
-	PREVIOUS_LEAGUE,
-	PREVIOUS_QUALIFICATION_GROUP_STAGE,
-	PREVIOUS_QUALIFICATION_KNOCKOUT_ROUND,
-	OTHER_COMPETITION;
+	PREQUALIFIED(false),
+	PREVIOUS_GROUP_STAGE(true),
+	PREVIOUS_KNOCKOUT_ROUND(true),
+	PREVIOUS_LEAGUE(true),
+	OTHER_COMPETITION(false);
+	
+	private boolean fromPreviousRound;
+	
+	KOOriginType(boolean fromPreviousRound) {
+		this.fromPreviousRound = fromPreviousRound;
+	}
+	
+	public boolean isFromPreviousRound() {
+		return fromPreviousRound;
+	}
 }

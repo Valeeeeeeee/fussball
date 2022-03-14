@@ -276,23 +276,17 @@ public class KORunde implements Wettbewerb {
 		return teamsOrigins[team];
 	}
 	
-	public Mannschaft getInvariantTeam(int index) {
-		if (index >= 0 && index < numberOfTeamsPrequalified)										return teams[index];
-		if (index < numberOfTeams && index + numberOfTeamsFromOtherCompetition >= numberOfTeams)	return teams[index];
-		else																						return null;
+	public Optional<Mannschaft> getInvariantTeam(int index) {
+		if (teamsOrigins[index].getKOOriginType().isFromPreviousRound())	return Optional.empty();
+		return Optional.of(teams[index]);
 	}
 	
 	private void refreshTeams() {
-		KOOrigin[] partOfOrigins = new KOOrigin[numberOfTeamsFromPreviousRound];
-		for (int i = 0; i < partOfOrigins.length; i++) {
-			partOfOrigins[i] = teamsOrigins[numberOfTeamsPrequalified + i];
-		}
-		Mannschaft[] prevRoundTeams;
-		if (belongsToALeague)	prevRoundTeams = lSeason.getTeamsInOrderOfOrigins(partOfOrigins);
-		else					prevRoundTeams = tSeason.getTeamsInOrderOfOrigins(partOfOrigins, teamsAreWinners, id, isQ);
-		
-		for (int i = 0; i < numberOfTeamsFromPreviousRound; i++) {
-			teams[i + numberOfTeamsPrequalified] = prevRoundTeams[i];
+		for (int i = 0; i < teamsOrigins.length; i++) {
+			if (teamsOrigins[i].getKOOriginType().isFromPreviousRound()) {
+				if (belongsToALeague)	teams[i] = lSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null);
+				else					teams[i] = tSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null);
+			}
 		}
 	}
 	
@@ -753,21 +747,18 @@ public class KORunde implements Wettbewerb {
 		for (int i = 0; i < teamsOrigins.length; i++) {
 			String origin = teamsFromFile.get(i);
 			if (i < numberOfTeamsPrequalified) {
-				teamsOrigins[i] = new KOOriginPrequalified(origin);
+				teamsOrigins[i] = new KOOriginPrequalified(origin, this, i);
 				teams[i] = new Mannschaft(i, this, origin);
 			} else if (i + numberOfTeamsFromOtherCompetition >= numberOfTeams) {
-				teamsOrigins[i] = new KOOriginOtherCompetition(origin);
+				teamsOrigins[i] = new KOOriginOtherCompetition(origin, this, i);
 				if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
 				else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
 			} else {
 				if (belongsToALeague) {
 					teamsOrigins[i] = new KOOriginPreviousLeague(origin);
-				} else if (isQ) {
-					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousQualificationGroupStage(origin);
-					else						teamsOrigins[i] = new KOOriginPreviousQualificationKnockoutRound(origin);
 				} else {
-					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousGroupStage(origin);
-					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin);
+					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
+					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ, teamsAreWinners);
 				}
 			}
 		}

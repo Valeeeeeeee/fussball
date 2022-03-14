@@ -6,8 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import model.tournament.KOOrigin;
+import model.tournament.KOOriginOtherCompetition;
+import model.tournament.KOOriginPrequalified;
+import model.tournament.KOOriginPreviousGroupStage;
+import model.tournament.KOOriginPreviousKnockoutRound;
 
 import static util.Utilities.*;
 
@@ -393,13 +398,6 @@ public class TurnierSaison {
 		return team;
 	}
 	
-	public Mannschaft getTeamFromOtherCompetition(KOOrigin origin) {
-		if (teamsFromOtherCompetition.containsKey(origin.getOrigin())) {
-			return teamsFromOtherCompetition.get(origin.getOrigin());
-		}
-		return null;
-	}
-	
 	public Mannschaft getTeamFromOtherCompetition(int id, Wettbewerb competition, KOOrigin origin) {
 		Mannschaft team = null;
 		
@@ -426,228 +424,122 @@ public class TurnierSaison {
 		return teamOrigin;
 	}
 	
-	public Mannschaft[] getTeamsInOrderOfOrigins(KOOrigin[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
-		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
+	public Optional<Mannschaft> getTeamFromOrigin(KOOrigin origin) {
+		if (origin == null)	return Optional.empty();
 		
-		if (isQ) {
-			if (hasQGroupStage) {
-				KOOrigin[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
-				
-				for (int i = 0; i < orderOfOrigins.length; i++) {
-					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
-				}
-			} else {
-				for (int i = 0; i < orderOfOrigins.length; i++) {
-					orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
-				}
-			}
-		} else {
-			if (hasGroupStage) {
-				KOOrigin[] groupOrigins = getGroupStageOriginsOfTeams(origins, teamsAreWinners, KORound, isQ);
-				
-				for (int i = 0; i < orderOfOrigins.length; i++) {
-					orderOfOrigins[i] = getTeamFromGroupstageOrigin(groupOrigins[i], isQ);
-				}
-			} else {
-				for (int i = 0; i < orderOfOrigins.length; i++) {
-					orderOfOrigins[i] = getDeepestOrigin(origins[i], teamsAreWinners, KORound, isQ);
-				}
-			}
+		switch (origin.getKOOriginType()) {
+			case PREQUALIFIED:
+				KOOriginPrequalified pqOrigin = (KOOriginPrequalified) origin;
+				KORunde knockoutRound = pqOrigin.getKnockoutRound();
+				int teamIndex = pqOrigin.getTeamIndex();
+				return knockoutRound.getInvariantTeam(teamIndex);
+			case OTHER_COMPETITION:
+				KOOriginOtherCompetition ocOrigin = (KOOriginOtherCompetition) origin;
+				knockoutRound = ocOrigin.getKnockoutRound();
+				teamIndex = ocOrigin.getTeamIndex();
+				return knockoutRound.getInvariantTeam(teamIndex);
+			case PREVIOUS_GROUP_STAGE:
+				KOOriginPreviousGroupStage pgsOrigin = (KOOriginPreviousGroupStage) origin;
+				boolean isQ = pgsOrigin.isQualification();
+				String group = pgsOrigin.getPreviousGroupStageIndex();
+				int placeIndex = pgsOrigin.getPlaceIndex();
+				if (pgsOrigin.isGroupXth())	return getTeamFromGroupXthOrigin(isQ, Integer.parseInt(group), placeIndex);
+				else						return getTeamFromGroupStageOrigin(isQ, group.charAt(0), placeIndex);
+			case PREVIOUS_KNOCKOUT_ROUND:
+				KOOriginPreviousKnockoutRound pkoOrigin = (KOOriginPreviousKnockoutRound) origin;
+				isQ = pkoOrigin.isQualification();
+				String shortNameKORound = pkoOrigin.getPreviousKnockoutRound();
+				int matchIndex = pkoOrigin.getMatchIndex();
+				boolean teamIsWinner = pkoOrigin.teamIsWinner();
+				return getDeeperOrigin(isQ, shortNameKORound, matchIndex, teamIsWinner).map(this::getTeamFromOrigin).orElse(Optional.empty());
+			default:
+				break;
 		}
 		
-		
-		return orderOfOrigins;
+		return Optional.empty();
 	}
 	
-	/**
-	 * Returns, if possible, the group stage representations of the teams with the given later origins. 
-	 * The teams in origins must be all from the same KORunde, the one whose winners advance to the KORunde with the id KOround.
-	 * @param origins
-	 * @param teamsAreWinners
-	 * @param KORound
-	 * @return
-	 */
-	private KOOrigin[] getGroupStageOriginsOfTeams(KOOrigin[] origins, boolean teamsAreWinners, int KORound, boolean isQ) {
-		if (KORound < 0 || (isQ && KORound >= numberOfQKORounds) || (!isQ && KORound >= numberOfKORounds)) {
-			log("just returned null because KORound = " + KORound + " which is less than 0 or greater than or equal to " + (isQ ? numberOfQKORounds : numberOfKORounds));
-			return null;
+	private Optional<Mannschaft> getTeamFromGroupXthOrigin(boolean isQ, int placeInGroup, int xthBest) {
+		int nOfGroups = isQ ? numberOfQGroups : numberOfGroups;
+		Gruppe[] grps = isQ ? qGroups : groups;
+		int untilRank = isQ ? untilRankBestQGroupXths : Integer.MAX_VALUE;
+		ArrayList<Optional<Mannschaft>> groupXth = new ArrayList<>();
+		for (int i = 0; i < nOfGroups; i++) {
+			groupXth.add(getTeamFromGroupStageOrigin(isQ, alphabet[i], placeInGroup));
+			untilRank = Math.min(untilRank, grps[i].getNumberOfTeams());
 		}
 		
-		if (KORound == 0)	return origins; // Rekursionsabbruch
+		int[] points = new int[nOfGroups], goalDiff = new int[nOfGroups], goalsFor = new int[nOfGroups];
+		for (int i = 0; i < nOfGroups; i++) {
+			if (!groupXth.get(i).isPresent())	continue;
+			points[i] = groupXth.get(i).get().get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+			goalDiff[i] = groupXth.get(i).get().get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+			goalsFor[i] = groupXth.get(i).get().get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+		}
 		
-		int skipARound = 0;
-		// in case of a match for the third place, there is a gap of two rounds between the final and the semifinals
-		if (!isQ && matchForThirdPlace && KORound == numberOfKORounds - 1)	skipARound = 1;
-		int koIndex = KORound - 1 - skipARound;
+		ArrayList<Integer> order = getOrder(groupXth, points, goalDiff, goalsFor);
 		
-		KOOrigin[] olderOrigins = new KOOrigin[origins.length];
-		for (int i = 0; i < olderOrigins.length; i++) {
-			String origin = Optional.ofNullable(origins[i]).map(KOOrigin::getOrigin).orElse(null);
-			if (origin == null) {
-				olderOrigins[i] = null;
-			} else if (origin.startsWith("G")) {
-				olderOrigins[i] = origins[i];
-			} else if (teamsAreWinners) {
-				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfWinnerOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
-				else		olderOrigins[i] = koRounds[koIndex].getOriginOfWinnerOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
-			} else {
-				if (isQ)	olderOrigins[i] = qKORounds[koIndex].getOriginOfLoserOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
-				else		olderOrigins[i] = koRounds[koIndex].getOriginOfLoserOfTie(Integer.parseInt(origin.substring(2))).orElse(null);
+		for (int i = 0; i < order.size(); i++) {
+			if (order.get(i) == xthBest) {
+				return groupXth.get(i);
 			}
 		}
 		
-		return getGroupStageOriginsOfTeams(olderOrigins, true, KORound - 1 - skipARound, isQ);
+		return Optional.empty();
 	}
 	
-	/**
-	 * This method returns the team with the given origin.
-	 * @param teamsorigin origin of the team in the format 'GG1'
-	 * @return
-	 */
-	public Mannschaft getTeamFromGroupstageOrigin(KOOrigin origin, boolean isQ) {
-		Mannschaft mannschaft = null;
+	private ArrayList<Integer> getOrder(ArrayList<Optional<Mannschaft>> groupXth, int[] points, int[] goalDiff, int[] goalsFor) {
+		ArrayList<Integer> order = new ArrayList<>();
 		
-		String teamsorigin = Optional.ofNullable(origin).map(KOOrigin::getOrigin).orElse(null);
-		if (teamsorigin != null && teamsorigin.length() > 8) {
-			// aus anderem Wettbewerb
-			mannschaft = getTeamFromOtherCompetition(origin);
-		} else if (teamsorigin != null && teamsorigin.charAt(0) == 'G') {
-			// Bestimmen des Indexes der Gruppe
-			int groupindex;
-			for (groupindex = 0; groupindex < alphabet.length; groupindex++) {
-				if (teamsorigin.charAt(1) == alphabet[groupindex])	break;
-			}
-			
-			if (groupindex == alphabet.length) {
-				// check for best x-th-placed team
-				int nOfGroups = isQ ? numberOfQGroups : numberOfGroups;
-				Gruppe[] grps = isQ ? qGroups : groups;
-				int xBest = (int) teamsorigin.charAt(2) - 48;
-				int placeindex = (int) teamsorigin.charAt(1) - 48;
-				int untilRank = isQ ? untilRankBestQGroupXths : Integer.MAX_VALUE;
-				ArrayList<Mannschaft> groupXth = new ArrayList<>();
-				ArrayList<Integer> order = new ArrayList<>();
-				for (int i = 0; i < nOfGroups; i++) {
-					groupXth.add(getTeamFromGroupstageOrigin(i, placeindex, isQ));
-					order.add(1);
-					untilRank = Math.min(untilRank, grps[i].getNumberOfTeams());
-				}
-				
-				int[] points = new int[nOfGroups], tdiff = new int[nOfGroups], tplus = new int[nOfGroups];
-				for (int i = 0; i < nOfGroups; i++) {
-					if (groupXth.get(i) == null)	continue;
-					points[i] = groupXth.get(i).get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-					tdiff[i] = groupXth.get(i).get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-					tplus[i] = groupXth.get(i).get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-				}
-				
-				for (int i = 0; i < nOfGroups - 1; i++) {
-					for (int j = i + 1; j < nOfGroups; j++) {
-						if (groupXth.get(i) != null && groupXth.get(j) != null) {
-							if (points[i] < points[j])		order.set(i, order.get(i) + 1);
-							else if (points[j] < points[i])	order.set(j, order.get(j) + 1);
+		int nOfGroups = groupXth.size();
+		
+		for (int i = 0; i < nOfGroups; i++) {
+			order.add(1);
+		}
+		
+		for (int i = 0; i < nOfGroups - 1; i++) {
+			for (int j = i + 1; j < nOfGroups; j++) {
+				if (groupXth.get(i).isPresent() && groupXth.get(j).isPresent()) {
+					if (points[i] < points[j])		order.set(i, order.get(i) + 1);
+					else if (points[j] < points[i])	order.set(j, order.get(j) + 1);
+					else {
+						if (goalDiff[i] < goalDiff[j])		order.set(i, order.get(i) + 1);
+						else if (goalDiff[j] < goalDiff[i])	order.set(j, order.get(j) + 1);
+						else {
+							if (goalsFor[i] < goalsFor[j])		order.set(i, order.get(i) + 1);
+							else if (goalsFor[j] < goalsFor[i])	order.set(j, order.get(j) + 1);
 							else {
-								if (tdiff[i] < tdiff[j])		order.set(i, order.get(i) + 1);
-								else if (tdiff[j] < tdiff[i])	order.set(j, order.get(j) + 1);
-								else {
-									if (tplus[i] < tplus[j])		order.set(i, order.get(i) + 1);
-									else if (tplus[j] < tplus[i])	order.set(j, order.get(j) + 1);
-									else {
-										// TODO implement tie-breaker
-										order.set(j, order.get(i) + 1);
-									}
-								}
+								// TODO implement tie-breaker
+								order.set(j, order.get(j) + 1);
 							}
-						} else if (groupXth.get(i) != null) {
-							order.set(j, order.get(j) + 1);
-						} else if (groupXth.get(j) != null) {
-							order.set(i, order.get(i) + 1);
 						}
 					}
+				} else if (groupXth.get(i).isPresent()) {
+					order.set(j, order.get(j) + 1);
+				} else if (groupXth.get(j).isPresent()) {
+					order.set(i, order.get(i) + 1);
 				}
-				
-				for (int i = 0; i < order.size(); i++) {
-					if (order.get(i) == xBest) {
-						return groupXth.get(i);
-					}
-				}
-				
-				groupindex = (0 < placeindex && placeindex < 10 ? Integer.MAX_VALUE : -1);
 			}
-			
-			if (groupindex == -1) {
-				error("\tungültiger Gruppenindex:  " + groupindex + " für Zeichen  " + teamsorigin.charAt(1));
-				return null;
-			}
-			
-			int placeindex = (int) teamsorigin.charAt(2) - 48;
-			
-			mannschaft = getTeamFromGroupstageOrigin(groupindex, placeindex, isQ);
 		}
 		
-		return mannschaft;
+		return order;
 	}
 	
-	private Mannschaft getTeamFromGroupstageOrigin(int groupindex, int placeindex, boolean isQ) {
-		Mannschaft team = null;
-		
-		if (isQ && groupindex >= 0 && groupindex < numberOfQGroups) {
-			team = qGroups[groupindex].getTeamOnPlace(placeindex);
-		} else if (!isQ && groupindex >= 0 && groupindex < numberOfGroups) {
-			team = groups[groupindex].getTeamOnPlace(placeindex);
-		}
-		
-		return team;
+	private Optional<Mannschaft> getTeamFromGroupStageOrigin(boolean isQ, char group, int place) {
+		return getGroup(isQ, group).map(g -> g.getTeamOnPlace(place));
 	}
 	
-	public Mannschaft getDeepestOrigin(KOOrigin origin, boolean teamsAreWinners, int KORound, boolean isQ) {
-		Mannschaft deepestOrigin = null;
-		boolean teamFound = false;
-		int koIndex = -1;
-		
-		while (origin != null && !teamFound) {
-			String origKOround = origin.getOrigin().substring(0, 2);
-			int matchIndex = Integer.parseInt(origin.getOrigin().substring(2));
-			
-			boolean foundKO = false;
-			if (isQ) {
-				for (koIndex = 0; koIndex < qKORounds.length && !foundKO; koIndex++) {
-					if (qKORounds[koIndex].getShortName().equals(origKOround))	foundKO = true;
-				}
-			} else {
-				for (koIndex = 0; koIndex < koRounds.length && !foundKO; koIndex++) {
-					if (koRounds[koIndex].getShortName().equals(origKOround))	foundKO = true;
-				}
-			}
-			
-			if (foundKO) {
-				int teamIndex = 0;
-				if (isQ) {
-					if (teamsAreWinners)	teamIndex = qKORounds[koIndex - 1].getIndexOf(matchIndex, true);
-					else					teamIndex = qKORounds[koIndex - 1].getIndexOf(matchIndex, false);
-					deepestOrigin = qKORounds[koIndex - 1].getInvariantTeam(teamIndex - 1);
-				} else {
-					if (teamsAreWinners)	teamIndex = koRounds[koIndex - 1].getIndexOf(matchIndex, true);
-					else					teamIndex = koRounds[koIndex - 1].getIndexOf(matchIndex, false);
-					deepestOrigin = koRounds[koIndex - 1].getInvariantTeam(teamIndex - 1);
-				}
-				
-				if (deepestOrigin != null) {
-					teamFound = true;
-				} else {
-					if (isQ) {
-						if (teamsAreWinners)	origin = qKORounds[koIndex - 1].getOriginOfWinnerOfTie(matchIndex).orElse(null);
-						else					origin = qKORounds[koIndex - 1].getOriginOfLoserOfTie(matchIndex).orElse(null);
-					} else {
-						if (teamsAreWinners)	origin = koRounds[koIndex - 1].getOriginOfWinnerOfTie(matchIndex).orElse(null);
-						else					origin = koRounds[koIndex - 1].getOriginOfLoserOfTie(matchIndex).orElse(null);
-					}
-					teamsAreWinners = true;
-				}
-			}
-		}
-		
-		return deepestOrigin;
+	private Optional<Gruppe> getGroup(boolean isQ, char group) {
+		return Stream.of(isQ ? qGroups : groups).filter(g -> group == alphabet[g.getID()]).findAny();
+	}
+	
+	private Optional<KOOrigin> getDeeperOrigin(boolean isQ, String shortName, int matchIndex, boolean teamIsWinner) {
+		if (teamIsWinner)	return getKORound(isQ, shortName).map(k -> k.getOriginOfWinnerOfTie(matchIndex).orElse(null));
+		else				return getKORound(isQ, shortName).map(k -> k.getOriginOfLoserOfTie(matchIndex).orElse(null));
+	}
+	
+	private Optional<KORunde> getKORound(boolean isQ, String shortName) {
+		return Stream.of(isQ ? qKORounds : koRounds).filter(k -> shortName.equals(k.getShortName())).findAny();
 	}
 	
 	private void testGetGroupStageOriginsOfTeams() {

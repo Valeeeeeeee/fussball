@@ -5,6 +5,7 @@ import static util.Utilities.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.Set;
 
 import model.tournament.KOOrigin;
@@ -783,15 +784,9 @@ public class LigaSaison implements Wettbewerb {
 		return teamOrigin;
 	}
 	
-	public Mannschaft[] getTeamsInOrderOfOrigins(KOOrigin[] origins) {
-		Mannschaft[] orderOfOrigins = new Mannschaft[origins.length];
-		
-		for (int i = 0; i < origins.length; i++) {
-			KOOriginPreviousLeague origin = (KOOriginPreviousLeague) origins[i];
-			orderOfOrigins[i] = getTeamOnPlace(origin.getPlaceIndex());
-		}
-		
-		return orderOfOrigins;
+	public Optional<Mannschaft> getTeamFromOrigin(KOOrigin origin) {
+		KOOriginPreviousLeague teamOrigin = (KOOriginPreviousLeague) origin;
+		return getTeamOnPlace(teamOrigin.getPlaceIndex());
 	}
 	
 	private void initializeArrays() {
@@ -1014,22 +1009,22 @@ public class LigaSaison implements Wettbewerb {
 		writeFile(fileMatchData, matchDataFromFile);
 	}
 	
-	public Mannschaft getTeamOnPlace(int place) {
-		if (place < 1 || place > teams.length)	return null;
+	public Optional<Mannschaft> getTeamOnPlace(int place) {
+		if (place < 1 || place > teams.length)	return Optional.empty();
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			for (int matchID = 0; matchID < getNumberOfMatchesPerMatchday(); matchID++) {
-				if (!isResultSet(matchday, matchID)) 	return null;
+				if (!isResultSet(matchday, matchID)) 	return Optional.empty();
 			}
 		}
 		
-		for (Mannschaft ms : teams) {
-			ms.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
+		for (Mannschaft team : teams) {
+			team.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
 		}
-		for (Mannschaft ms : teams) {
-			if (ms.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
+		for (Mannschaft team : teams) {
+			if (team.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);
 		}
 		
-		return null;
+		return Optional.empty();
 	}
 	
 	public String[] getRanks() {
@@ -1037,11 +1032,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		for (int i = 0; i < ranks.length; i++) {
 			String id = "P" + (i + 1);
-			try {
-				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
-			} catch (NullPointerException npe) {
-				ranks[i] = id + ": " + this.getLeague().getShortName() + this.getYear() + id;
-			}
+			ranks[i] = id + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(league.getShortName() + year + id);
 		}
 		
 		return ranks;
