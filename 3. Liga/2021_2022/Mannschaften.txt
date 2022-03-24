@@ -11,7 +11,7 @@ Hallescher FC;01.01.1970
 FSV Zwickau;01.01.1970
 1. FC Magdeburg;01.01.1970
 Viktoria Köln;01.01.1970
-Türkgücü München;01.01.1970;-2
+Türkgücü München;01.01.1970
 1. FC Kaiserslautern;01.01.1970
 MSV Duisburg;01.01.1970
 SV Meppen;01.01.1970
