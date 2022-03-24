@@ -810,6 +810,7 @@
 29375368;Edinson;Cavani;null;19870214;Uruguay;
 29375798;Mohamed;Dräger;null;19960625;Tunesien;
 29377368;Dominic;Volkmer;null;19960427;Deutschland;
+29379528;Vincent;Vermeij;null;19940809;Niederlande;
 29380251;Philipp;Hofmann;null;19930330;Deutschland;
 29381325;Dominic;Baumann;null;19950424;Deutschland;
 29383562;Bas;Dost;null;19890531;Niederlande;
@@ -869,6 +870,7 @@
 29464784;Jacob;Laursen;null;19941117;Dänemark;
 29469898;Hendrik;Weydandt;null;19950716;Deutschland;
 29475298;Douglas;dos 'Santos' Justino de Melo;null;19940322;Brasilien;
+29475395;Tom;Bischof;null;20050628;Deutschland;
 29477659;János;Hahn;null;19950315;Ungarn;
 29481931;Raphael;Wolf;null;19880606;Deutschland;
 29484178;Tamás;Priskin;null;19860927;Ungarn;
@@ -949,6 +951,7 @@
 29641737;Max;Meyer;null;19950918;Deutschland;
 29641876;Matheus;Pereira;null;19960505;Brasilien;
 29642139;Ahmed;Fathi;null;19841110;Ägypten;
+29642667;Mathias;Olesen;null;20010321;Luxemburg;
 29643055;Jesús;Corona;null;19930106;Mexiko;
 29643920;Jacob;'Bruun Larsen';null;19980919;Dänemark;
 29646571;Patrick;Schönfeld;null;19890621;Deutschland;
@@ -1671,6 +1674,7 @@
 30552182;Simon;Zoller;null;19910626;Deutschland;
 30554821;David;Raum;null;19980422;Deutschland;
 30555585;Roman;Shirokov;null;19810706;Russland;
+30555813;Burak;Ince;null;20040120;Türkei;
 30556513;Gregor;Kobel;null;19971206;Schweiz;
 30558586;Dragos;Grigore;null;19860907;Rumänien;
 30558950;Piero;Hincapié;null;20020109;Ecuador;
@@ -2026,6 +2030,7 @@
 30914510;Fabian;Bredlow;null;19950302;Deutschland;
 30914713;Maksim;Mukhin;null;20011104;Russland;
 30916100;Robert;Sánchez;null;19971118;Spanien;
+30917383;Justin;Che;null;20031118;USA, Deutschland;
 30919490;Christian;Ramos;null;19881104;Peru;
 30920197;James;Milner;null;19860104;England;
 30923169;Michal;Sadílek;null;19990531;Tschechien;
