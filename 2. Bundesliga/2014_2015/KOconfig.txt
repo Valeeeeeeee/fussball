@@ -1,1 +1,1 @@
-Relegation;REL;false;true;0;1;1;
+Relegation;REL;true;0;1;1;
