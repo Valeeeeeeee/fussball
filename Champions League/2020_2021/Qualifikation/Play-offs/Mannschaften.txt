@@ -2,11 +2,11 @@ FC Salzburg
 Slavia Prag
 Olympiakos Piräus
 FK Krasnodar
-Q301
-Q302
-Q303
-Q304
-Q305
-Q306
-Q307
-Q308
+Q301W
+Q302W
+Q303W
+Q304W
+Q305W
+Q306W
+Q307W
+Q308W

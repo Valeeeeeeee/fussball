@@ -7,4 +7,4 @@ false
 false
 5
 1
-Play-offs;PO;true;true;0;8;0;
+Play-offs;PO;true;0;8;0;

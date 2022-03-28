@@ -85,10 +85,10 @@ Zalgiris Vilnius
 FC Balzan
 Gap Connah's Quay
 NSÍ Runavík
-V101
-V102
-V103
-V104
-V105
-V106
-V107
+V101W
+V102W
+V103W
+V104W
+V105W
+V106W
+V107W

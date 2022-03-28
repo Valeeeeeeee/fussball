@@ -28,7 +28,7 @@ F91 Düdelingen
 Crusaders FC
 Zalgiris Vilnius
 FK Liepaja
-Q101
-Q102
-Q103
-Q104
+Q101W
+Q102W
+Q103W
+Q104W

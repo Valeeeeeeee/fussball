@@ -3,7 +3,7 @@
 false
 0
 4
-1. Qualifikationsrunde;Q1;true;true;10;0;0;
-2. Qualifikationsrunde;Q2;true;true;29;5;0;
-3. Qualifikationsrunde;Q3;true;true;13;17;0;
-Play-offs;PO;true;true;5;15;0;
+1. Qualifikationsrunde;Q1;true;10;0;0;
+2. Qualifikationsrunde;Q2;true;29;5;0;
+3. Qualifikationsrunde;Q3;true;13;17;0;
+Play-offs;PO;true;5;15;0;

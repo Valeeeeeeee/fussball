@@ -40,7 +40,6 @@ public class KORunde implements Wettbewerb {
 	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	
-	private boolean teamsAreWinners;
 	private KOOrigin[] teamsOrigins;
 	
 	private Spiel[][] matches;
@@ -300,10 +299,6 @@ public class KORunde implements Wettbewerb {
 	
 	public boolean hasSecondLeg() {
 		return hasSecondLeg;
-	}
-	
-	public boolean teamsAreWinners() {
-		return teamsAreWinners;
 	}
 	
 	public int getNumberOfMatchdays() {
@@ -758,7 +753,7 @@ public class KORunde implements Wettbewerb {
 					teamsOrigins[i] = new KOOriginPreviousLeague(origin);
 				} else {
 					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
-					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ, teamsAreWinners);
+					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ);
 				}
 			}
 		}
@@ -879,7 +874,6 @@ public class KORunde implements Wettbewerb {
 	public String toString() {
 		String toString = name + ";";
 		toString += shortName + ";";
-		toString += teamsAreWinners + ";";
 		toString += hasSecondLeg + ";";
 		toString += numberOfTeamsPrequalified + ";";
 		toString += numberOfTeamsFromPreviousRound + ";";
@@ -894,7 +888,6 @@ public class KORunde implements Wettbewerb {
 		
 		name = split[index++];
 		shortName = split[index++];
-		teamsAreWinners = Boolean.parseBoolean(split[index++]);
 		hasSecondLeg = Boolean.parseBoolean(split[index++]);
 		numberOfTeamsPrequalified = Integer.parseInt(split[index++]);
 		numberOfTeamsFromPreviousRound = Integer.parseInt(split[index++]);
