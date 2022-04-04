@@ -47,6 +47,10 @@ public class Spiel {
 		parseString(data);
 	}
 	
+	public Spiel getReverseFixture(int matchday) {
+		return new Spiel(competition, matchday, DATE_UNDEFINED, TIME_UNDEFINED, awayTeamIndex, homeTeamIndex);
+	}
+	
 	public Wettbewerb getCompetition() {
 		return competition;
 	}
@@ -408,8 +412,26 @@ public class Spiel {
 	}
 	
 	public boolean sameAs(Spiel other) {
+		if (other == null)	return false;
 		if (this.homeTeamIndex != other.homeTeamIndex)	return false;
 		if (this.awayTeamIndex != other.awayTeamIndex)	return false;
 		return true;
+	}
+	
+	public boolean sameAs(int home, int away) {
+		if (this.homeTeamIndex != home)	return false;
+		if (this.awayTeamIndex != away)	return false;
+		return true;
+	}
+	
+	public boolean isReverse(Spiel other) {
+		if (other == null)	return false;
+		if (this.homeTeamIndex != other.awayTeamIndex)	return false;
+		if (this.awayTeamIndex != other.homeTeamIndex)	return false;
+		return true;	
+	}
+	
+	public boolean isInOrderBefore(Spiel other) {
+		return other == null || homeTeamIndex < other.homeTeamIndex;
 	}
 }

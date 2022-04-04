@@ -3,6 +3,7 @@ package model;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.swing.*;
 
@@ -972,13 +973,9 @@ public class Spieltag extends JPanel {
 			else if (belongsToKORound)	match = koRound.getMatch(editedMatchday, i);
 			else {
 				int groupID = 0, matchID = i;
-				while (matchID > 0) {
+				while (matchID >= numbersOfMatches[groupID]) {
 					matchID -= numbersOfMatches[groupID];
 					groupID++;
-				}
-				if (matchID < 0) {
-					groupID--;
-					matchID += numbersOfMatches[groupID];
 				}
 				
 				match = allGroups[groupID].getMatch(editedMatchday, matchID);
@@ -1124,29 +1121,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void jBtnSecondLegActionPerformed() {
-		boolean hasData = false;
-		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday() && !hasData; matchID++) {
-			hasData = koRound.getMatch(1, matchID) != null;
-		}
-		if (hasData && yesNoDialog("Willst du die gespeicherten Daten überschreiben?") != JOptionPane.YES_OPTION)	return;
-		
-		ArrayList<Spiel> secondLegs = new ArrayList<>();
-		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday(); matchID++) {
-			Spiel match = koRound.getMatch(0, matchID), secondLeg = null;
-			if (match != null)	secondLeg = new Spiel(koRound, 1, DATE_UNDEFINED, TIME_UNDEFINED, match.away(), match.home());
-			
-			int index = 0;
-			if (secondLeg != null) {
-				for (index = 0; index < secondLegs.size(); index++) {
-					if (secondLegs.get(index) == null || secondLeg.home() < secondLegs.get(index).home())	break;
-				}
-			}
-			secondLegs.add(index, secondLeg);
-		}
-		
-		for (int matchID = 0; matchID < koRound.getNumberOfMatchesPerMatchday(); matchID++) {
-			koRound.setMatch(1, matchID, secondLegs.get(matchID));
-		}
+		koRound.createSecondLegs();
 		showMatchday();
 	}
 	
@@ -1191,7 +1166,7 @@ public class Spieltag extends JPanel {
 		}
 		
 		showRueckrundePanel(false);
-		lSeason.setRueckrundeToOrder(rueckrundeOrder);
+		lSeason.createReverseFixtures(rueckrundeOrder);
 		showMatchday();
 	}
 	
@@ -1297,8 +1272,8 @@ public class Spieltag extends JPanel {
 					try {
 						displayMatchInfo(matchID, koRound.getMatch(currentMatchday, matchID), koRound.getResult(currentMatchday, matchID), matchID);
 					} catch (NullPointerException npe) {
-						String homeTeam = match != null && match.getHomeTeam() != null ? match.getHomeTeam().getName() : koRound.getTeamsOrigin(match.home() - 1).getOrigin();
-						String awayTeam = match != null && match.getAwayTeam() != null ? match.getAwayTeam().getName() : koRound.getTeamsOrigin(match.away() - 1).getOrigin();
+						String homeTeam = Optional.ofNullable(match.getHomeTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.home() - 1).getOrigin());
+						String awayTeam = Optional.ofNullable(match.getAwayTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.away() - 1).getOrigin());
 						displayTeams(matchID, homeTeam, awayTeam);
 					}
 				}

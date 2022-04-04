@@ -24,7 +24,7 @@ public class Karte {
 		this.afterTheMatch = afterTheMatch;
 		this.bookedPlayer = bookedPlayer;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
+		id = match.toString() + "-h" + firstTeam + "-m" + minute + "-y" + isYellowCard + "-s" + isSecondBooking + "-p" + bookedPlayer.getSquadNumber()
 					+ (onTheBench ? "-b" : "") + (afterTheMatch ? "-am" : "");
 		log("Booking for " + match.getTeam(firstTeam).getName() + " in the " + minute + ". minute: " + 
 				bookedPlayer.getPlayer().getPopularOrLastName() + (onTheBench ? " (on the bench)" : "") + (afterTheMatch ? " (after the match)" : ""));
@@ -93,7 +93,7 @@ public class Karte {
 			if (bookedPlayer == null)	log("Es konnte der Rückennummer " + squadNumber + " kein spielberechtigter Spieler zugeordnet werden.");
 		}
 		
-		id = match.home() + "v" + match.away() + "-h" + data;
+		id = match.toString() + "-h" + data;
 	}
 	
 	public String toString() {

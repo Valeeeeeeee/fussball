@@ -551,45 +551,44 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	public void setRueckrundeToOrder(int[] orderOfRueckRunde) {
-		if (2 * orderOfRueckRunde.length != numberOfMatchdays) {
-			errorMessage("Your Rueckrunde does not match the expected number of matchdays.");
+	public void createReverseFixtures(int[] orderOfReverseFixtures) {
+		if (2 * orderOfReverseFixtures.length != numberOfMatchdays) {
+			errorMessage("The given reverse fixtures order does not match the expected number of matchdays.");
 			return;
 		}
-		boolean[] inHinrunde = new boolean[numberOfMatchdays];
-		for (int i = 0; i < orderOfRueckRunde.length; i++) {
-			if (inHinrunde[orderOfRueckRunde[i] - 1] == true) {
-				errorMessage("Some matchday appears to be twice in the Rueckrunde.");
+		
+		boolean[] isFirstFixture = new boolean[numberOfMatchdays];
+		for (int i = 0; i < orderOfReverseFixtures.length; i++) {
+			if (isFirstFixture[orderOfReverseFixtures[i] - 1] == true) {
+				errorMessage("Some matchday appears to be twice in the reverse fixtures order.");
 				return;
 			}
-			inHinrunde[orderOfRueckRunde[i] - 1] = true;
+			isFirstFixture[orderOfReverseFixtures[i] - 1] = true;
 		}
 		
-		int matchdayOld, matchdayNew = 0;
-		Uhrzeit time = MIDNIGHT;
-		for (int i = 0; i < orderOfRueckRunde.length; i++) {
-			Spiel[] matchesInNewOrder = new Spiel[numberOfMatchesPerMatchday];
-			matchdayOld = orderOfRueckRunde[i] - 1;
-			while (inHinrunde[matchdayNew]) {
-				matchdayNew++;
-			}
-			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
-				Spiel oldMatch = getMatch(matchdayOld, j);
-				if (oldMatch != null) {
-					matchesInNewOrder[j] = new Spiel(this, matchdayNew, getDate(matchdayNew), time, oldMatch.away(), oldMatch.home());
-				}
-			}
-			for (int j = 0; j < matchesInNewOrder.length; j++) {
-				for (int k = j + 1; k < matchesInNewOrder.length; k++) {
-					if (matchesInNewOrder[k] != null && (matchesInNewOrder[j] == null || matchesInNewOrder[j].home() > matchesInNewOrder[k].home())) {
-						Spiel temp = matchesInNewOrder[j];
-						matchesInNewOrder[j] = matchesInNewOrder[k];
-						matchesInNewOrder[k] = temp;
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			if (isFirstFixture[matchday]) {
+				for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+					if (!isMatchSet(matchday, matchIndex)) {
+						errorMessage("You can't create reverse fixtures when some of the first fixtures are still missing.");
+						return;
 					}
 				}
 			}
-			for (int j = 0; j < matchesInNewOrder.length; j++) {
-				setMatch(matchdayNew, j, matchesInNewOrder[j]);
+		}
+		
+		int matchdayOld, matchdayNew = 0;
+		for (int i = 0; i < orderOfReverseFixtures.length; i++) {
+			ArrayList<Spiel> reverseFixtures = new ArrayList<>();
+			matchdayOld = orderOfReverseFixtures[i] - 1;
+			while (isFirstFixture[matchdayNew]) {
+				matchdayNew++;
+			}
+			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
+				addInOrder(reverseFixtures, getMatch(matchdayOld, j).getReverseFixture(matchdayNew));
+			}
+			for (int j = 0; j < reverseFixtures.size(); j++) {
+				setMatch(matchdayNew, j, reverseFixtures.get(j));
 			}
 			matchdayNew++;
 		}

@@ -20,7 +20,7 @@ public class Tor {
 		this.ownGoal = ownGoal;
 		this.minute = minute;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = match.toString() + "-h" + firstTeam + "-m" + minute.toString() + "-s-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
 			" in the " + minute + ". minute");
 	}
@@ -33,7 +33,7 @@ public class Tor {
 		this.minute = minute;
 		this.scorer = scorer;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = match.toString() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPlayer().getPopularOrLastName());
 	}
@@ -47,7 +47,7 @@ public class Tor {
 		this.scorer = scorer;
 		this.assister = assister;
 		
-		id = match.home() + "v" + match.away() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + assister.getSquadNumber()
+		id = match.toString() + "-h" + firstTeam + "-m" + minute.toString() + "-s" + scorer.getSquadNumber() + "-a" + assister.getSquadNumber()
 					+ (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 		log("GOOOAL for " + match.getTeam(firstTeam).getName() + 
 			" in the " + minute + ". minute scored by " + scorer.getPlayer().getPopularOrLastName() + 
@@ -118,7 +118,7 @@ public class Tor {
 			assister = match.getTeam(firstTeam).getAffiliation(sqAssist, match.getDate());
 		}
 		
-		id = match.home() + "v" + match.away() + "-h" + data + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
+		id = match.toString() + "-h" + data + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");
 	}
 	
 	public String toString() {

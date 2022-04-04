@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import javax.swing.JOptionPane;
+
 import model.tournament.*;
 
 import static util.Utilities.*;
@@ -200,6 +202,11 @@ public class KORunde implements Wettbewerb {
 	public Mannschaft[] getTeams() {
 		if (checkTeamsFromPreviousRound)	refreshTeams();
 		return teams;
+	}
+
+	public Mannschaft getTeamFromId(int id) {
+		if (checkTeamsFromPreviousRound)	refreshTeams();
+		return teams[id - 1];
 	}
 	
 	public Mannschaft getTeamWithName(String teamName) {
@@ -506,6 +513,32 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
+	public void createSecondLegs() {
+		if (numberOfMatchdays == 1)	return;
+		
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+			if (!isMatchSet(0, matchIndex)) {
+				message("Es sind nicht alle Hinspiele eingegeben.");
+				return;
+			}
+		}
+		
+		boolean hasData = false;
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday && !hasData; matchIndex++) {
+			hasData = isMatchSet(1, matchIndex);
+		}
+		if (hasData && yesNoDialog("Willst du die gespeicherten Daten überschreiben?") != JOptionPane.YES_OPTION)	return;
+		
+		ArrayList<Spiel> secondLegs = new ArrayList<>();
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+			addInOrder(secondLegs, getMatch(0, matchIndex).getReverseFixture(1));
+		}
+		
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+			setMatch(1, matchIndex, secondLegs.get(matchIndex));
+		}
+	}
+	
 	public void changeOrderToChronological(int matchday) {
 		int[] newOrder = new int[numberOfMatchesPerMatchday];
 		int[] hilfsarray = new int[numberOfMatchesPerMatchday];
@@ -589,7 +622,7 @@ public class KORunde implements Wettbewerb {
 	 * @return
 	 */
 	public Optional<KOOrigin> getOriginOfWinnerOfTie(int matchID) {
-		return Optional.of(getIndexOf(matchID, true)).filter(index -> index != 0).map(index -> teamsOrigins[index - 1]);
+		return Optional.of(getTeamIDOf(matchID, true)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
 	}
 	
 	/**
@@ -598,18 +631,19 @@ public class KORunde implements Wettbewerb {
 	 * @return
 	 */
 	public Optional<KOOrigin> getOriginOfLoserOfTie(int matchID) {
-		return Optional.of(getIndexOf(matchID, false)).filter(index -> index != 0).map(index -> teamsOrigins[index - 1]);
+		return Optional.of(getTeamIDOf(matchID, false)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
 	}
 	
-	public int getIndexOf(int matchID, boolean isWinnerRequested) {
-		if (!isResultSet(0, matchID - 1)) {
-			return 0;
+	private int getTeamIDOf(int matchID, boolean isWinnerRequested) {
+		int matchIndex = matchID - 1;
+		if (!isResultSet(0, matchIndex)) {
+			return UNDEFINED;
 		}
 		
 		// find out involved teams
-		int teamHomeFirstLeg = getMatch(0, matchID - 1).home();
-		int teamAwayFirstLeg = getMatch(0, matchID - 1).away();
-		Ergebnis firstLeg = getResult(0, matchID - 1);
+		int teamHomeFirstLeg = getMatch(0, matchIndex).home();
+		int teamAwayFirstLeg = getMatch(0, matchIndex).away();
+		Ergebnis firstLeg = getResult(0, matchIndex);
 		
 		if (hasSecondLeg) {
 			// first and second leg don't have to be in the same position on the plan and most likely they aren't!!
@@ -646,7 +680,7 @@ public class KORunde implements Wettbewerb {
 		}
 		
 		// if there is no second leg / result is tied / other problem
-		return 0;
+		return UNDEFINED;
 	}
 
 	public String[] getRanks() {
@@ -657,13 +691,13 @@ public class KORunde implements Wettbewerb {
 			String matchID = getShortName() + ((i + 1) / 10) + ((i + 1) % 10);
 			ranks[2 * i] = matchID + "W" + ": ";
 			ranks[2 * i + 1] = matchID + "L" + ": ";
-			int index = getIndexOf(i + 1, true);
-			if (index != 0)	ranks[2 * i] += teams[index - 1].getName();
-			else			ranks[2 * i] += competition + matchID + "W";
+			int id = getTeamIDOf(i + 1, true);
+			if (id != UNDEFINED)	ranks[2 * i] += getTeamFromId(id).getName();
+			else					ranks[2 * i] += competition + matchID + "W";
 			
-			index = getIndexOf(i + 1, false);
-			if (index != 0)	ranks[2 * i + 1] += teams[index - 1].getName();
-			else			ranks[2 * i + 1] += competition + matchID + "L";
+			id = getTeamIDOf(i + 1, false);
+			if (id != UNDEFINED)	ranks[2 * i + 1] += getTeamFromId(id).getName();
+			else					ranks[2 * i + 1] += competition + matchID + "L";
 		}
 		
 		return ranks;
