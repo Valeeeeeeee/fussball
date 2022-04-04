@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Datum;
+import model.Spiel;
 import model.TeamAffiliation;
 import model.Uhrzeit;
 
@@ -248,6 +249,14 @@ public class Utilities {
 			if (obj.equals(list.get(i)))	return true;
 		}
 		return false;
+	}
+	
+	public static void addInOrder(ArrayList<Spiel> list, Spiel match) {
+		int index = 0;
+		for (index = 0; index < list.size(); index++) {
+			if (match.isInOrderBefore(list.get(index)))	break;
+		}
+		list.add(index, match);
 	}
 	
 	public static void addAscending(ArrayList<String> list, String element) {
