@@ -97,6 +97,7 @@
 27801588;Ryan;Bertrand;null;19890805;England;
 27803785;Noah;Weißhaupt;null;20010920;Deutschland;
 27807948;Joel;Pohjanpalo;null;19940913;Finnland;
+27808036;Hugo;Siquet;null;20020709;Belgien;
 27812646;Erik;Thommy;null;19940820;Deutschland;
 27814174;Joel;Matip;null;19910808;Deutschland, Kamerun;
 27815379;Luca;Kilian;null;19990901;Deutschland;
