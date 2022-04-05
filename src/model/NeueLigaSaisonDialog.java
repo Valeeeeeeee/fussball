@@ -48,7 +48,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private boolean isSummerToSpringSeason;
 	private int numberOfMatchesAgainstSameOpponent;
 	private int[] defaultKickoffTimes;
-	private ArrayList<AnstossZeit> kickOffTimes;
+	private ArrayList<RelativeAnstossZeit> kickOffTimes;
 	private boolean goalDifference;
 	private boolean teamsHaveKader;
 	private int[] anzahl;
@@ -588,7 +588,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	private void setKickoffTimes(LigaSaison lSeason) {
 		defaultKickoffTimes = lSeason.getDefaultKickoffTimes();
 		kickOffTimes = new ArrayList<>();
-		for (AnstossZeit kot : lSeason.getKickOffTimes()) {
+		for (RelativeAnstossZeit kot : lSeason.getRelativeKickOffTimes()) {
 			kickOffTimes.add(kot);
 		}
 		kickOffTimes.remove(0);

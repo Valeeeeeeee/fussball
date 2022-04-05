@@ -102,20 +102,19 @@ public class Tor {
 	}
 	
 	private void parseString(String data) {
-		firstTeam = Boolean.parseBoolean(data.substring(0, data.indexOf("-m")));
 		penalty = data.indexOf("-p") != -1;
-		if (penalty)	data = data.substring(0, data.indexOf("-p"));
 		ownGoal = data.indexOf("-og") != -1;
-		if (ownGoal)	data = data.substring(0, data.indexOf("-og"));
+		data = data.replace("-p", "").replace("-og", "");
+		firstTeam = Boolean.parseBoolean(data.substring(0, data.indexOf("-m")));
 		minute = Minute.parse(data.substring(data.indexOf("-m") + 2, data.indexOf("-s")));
 		String substring;
 		if ((substring = data.substring(data.indexOf("-s") + 2, data.indexOf("-a"))).length() > 0) {
 			int sqScorer = Integer.parseInt(substring);
-			scorer = match.getTeam(firstTeam ^ ownGoal).getAffiliation(sqScorer, match.getDate());
+			scorer = match.getTeam(firstTeam ^ ownGoal).getAffiliation(sqScorer, match.getKickOffTime().getDate());
 		}
 		if ((substring = data.substring(data.indexOf("-a") + 2)).length() > 0) {
 			int sqAssist = Integer.parseInt(substring);
-			assister = match.getTeam(firstTeam).getAffiliation(sqAssist, match.getDate());
+			assister = match.getTeam(firstTeam).getAffiliation(sqAssist, match.getKickOffTime().getDate());
 		}
 		
 		id = match.toString() + "-h" + data + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");

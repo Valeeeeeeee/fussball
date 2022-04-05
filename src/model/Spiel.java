@@ -9,8 +9,7 @@ import analyse.SpielPerformance;
 public class Spiel {
 	
 	private int matchday;
-	private Datum date;
-	private Uhrzeit time;
+	private AnstossZeit kickOffTime;
 	private int homeTeamIndex;
 	private int awayTeamIndex;
 	
@@ -27,11 +26,10 @@ public class Spiel {
 	private ArrayList<Wechsel> substitutionsAway = new ArrayList<>();
 	private ArrayList<Karte> bookings = new ArrayList<>();
 	
-	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, int homeTeamIndex, int awayTeamIndex) {
+	public Spiel(Wettbewerb competition, int matchday, AnstossZeit kickOffTime, int homeTeamIndex, int awayTeamIndex) {
 		this.competition = competition;
 		this.matchday = matchday;
-		this.date = date;
-		this.time = time;
+		this.kickOffTime = kickOffTime;
 		
 		this.homeTeamIndex = homeTeamIndex;
 		homeTeam = competition.getTeams()[homeTeamIndex - 1];
@@ -39,16 +37,15 @@ public class Spiel {
 		awayTeam = competition.getTeams()[awayTeamIndex - 1];
 	}
 	
-	public Spiel(Wettbewerb competition, int matchday, Datum date, Uhrzeit time, String data) {
+	public Spiel(Wettbewerb competition, int matchday, AnstossZeit kickOffTime, String data) {
 		this.competition = competition;
 		this.matchday = matchday;
-		this.date = date;
-		this.time = time;
+		this.kickOffTime = kickOffTime;
 		parseString(data);
 	}
 	
 	public Spiel getReverseFixture(int matchday) {
-		return new Spiel(competition, matchday, DATE_UNDEFINED, TIME_UNDEFINED, awayTeamIndex, homeTeamIndex);
+		return new Spiel(competition, matchday, KICK_OFF_TIME_UNDEFINED, awayTeamIndex, homeTeamIndex);
 	}
 	
 	public Wettbewerb getCompetition() {
@@ -60,7 +57,7 @@ public class Spiel {
 	}
 	
 	public String getDateAndTime() {
-		return date.withDividers() + " " + time.withDividers();
+		return kickOffTime.toDisplay();
 	}
 	
 	public int getMatchday() {
@@ -71,12 +68,8 @@ public class Spiel {
 		return competition.getKey(matchday);
 	}
 	
-	public Datum getDate() {
-		return date;
-	}
-	
-	public Uhrzeit getTime() {
-		return time;
+	public AnstossZeit getKickOffTime() {
+		return kickOffTime;
 	}
 	
 	public int home() {
@@ -251,8 +244,8 @@ public class Spiel {
 			if (matchDataSplit.length == 4) {
 				lineupHome = parseLineup(matchDataSplit[2], true);
 				lineupAway = parseLineup(matchDataSplit[3], false);
-				lineupHome = homeTeam.order(lineupHome, date);
-				lineupAway = awayTeam.order(lineupAway, date);
+				lineupHome = homeTeam.order(lineupHome, kickOffTime.getDate());
+				lineupAway = awayTeam.order(lineupAway, kickOffTime.getDate());
 			}
 			
 			homeTeam.setResult(competition.getKey(matchday), getResult());

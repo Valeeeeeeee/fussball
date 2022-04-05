@@ -204,7 +204,7 @@ public class Mannschaft {
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
 			Spiel match = matches.get(iter.next());
-			if (match == null || !affiliation.getDuration().includes(match.getDate())) continue;
+			if (match == null || !affiliation.getDuration().includes(match.getKickOffTime().getDate())) continue;
 			match.changeSquadNumberInLineup(match.getHomeTeam() == this, affiliation.getSquadNumber(), newSquadNumber);
 		}
 	}
@@ -302,9 +302,9 @@ public class Mannschaft {
 			String key = iter.next();
 			Spiel match = matches.get(key);
 			if (match == null)	continue;
-			if (!inThePast(match.getDate(), match.getTime()))	continue;
+			if (!inThePast(match.getKickOffTime().getDate(), match.getKickOffTime().getTime()))	continue;
 			for (TeamAffiliation affiliation : teamAffiliations) {
-				if (!affiliation.getDuration().includes(match.getDate()))	continue;
+				if (!affiliation.getDuration().includes(match.getKickOffTime().getDate()))	continue;
 				SpielPerformance matchPerformance = match.getMatchPerformance(affiliation);
 				affiliation.getPlayer().getSeasonPerformance().addMatchPerformance(key, matchPerformance);
 			}
@@ -341,16 +341,16 @@ public class Mannschaft {
 		if (matchdayOrder != null)	return;
 		
 		int[] array = new int[numberOfMatchdays];
-		Datum[] dates = new Datum[numberOfMatchdays];
+		AnstossZeit[] kickOffTimes = new AnstossZeit[numberOfMatchdays];
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
-			if (matches.containsKey(competition.getKey(i)))	dates[i] = matches.get(competition.getKey(i)).getDate();
+			if (matches.containsKey(competition.getKey(i)))	kickOffTimes[i] = matches.get(competition.getKey(i)).getKickOffTime();
 		}
 		
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = i + 1; j < numberOfMatchdays; j++) {
-				if (dates[i] == null || dates[j] == null)	array[j]++;
-				else if (dates[j].isBefore(dates[i]))		array[i]++;
+				if (kickOffTimes[i] == null || kickOffTimes[j] == null)	array[j]++;
+				else if (kickOffTimes[j].isBefore(kickOffTimes[i]))		array[i]++;
 				else										array[j]++;
 			}
 		}

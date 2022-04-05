@@ -49,7 +49,7 @@ public class Schiedsrichter {
 	public void addMatch(Spiel match) {
 		int index = 0;
 		for (int i = 0; i < matches.size(); i++) {
-			if (matches.get(i).getDate().isBefore(match.getDate()))	index++;
+			if (matches.get(i).getKickOffTime().isBefore(match.getKickOffTime()))	index++;
 		}
 		matches.add(index, match);
 	}

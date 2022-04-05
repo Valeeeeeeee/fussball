@@ -280,23 +280,20 @@ public class TurnierSaison {
 		
 		int[] newOrder = new int[numberOfMatches];
 		int[] hilfsarray = new int[numberOfMatches];
-		Datum[] dates = new Datum[numberOfMatches];
-		Uhrzeit[] times = new Uhrzeit[numberOfMatches];
+		AnstossZeit[] kickOffTimes = new AnstossZeit[numberOfMatches];
 		
 		int counter = 0;
 		for (Gruppe group : isQualification ? qGroups : groups) {
 			for (int matchIndex = 0; matchIndex < group.getNumberOfMatchesPerMatchday(); matchIndex++) {
-				dates[counter] = group.getDate(matchday, matchIndex);
-				times[counter] = group.getTime(matchday, matchIndex);
+				kickOffTimes[counter] = group.getKickOffTime(matchday, matchIndex);
 				counter++;
 			}
 		}
 		
 		for (int m = 0; m < numberOfMatches; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatches; m2++) {
-				if (dates[m2].isAfter(dates[m]))										hilfsarray[m2]++;
-				else if (dates[m2].equals(dates[m]) && !times[m2].isBefore(times[m]))	hilfsarray[m2]++;
-				else																	hilfsarray[m]++;
+				if (kickOffTimes[m].isAfter(kickOffTimes[m2]))	hilfsarray[m]++;
+				else											hilfsarray[m2]++;
 			}
 		}
 		

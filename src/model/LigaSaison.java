@@ -47,11 +47,11 @@ public class LigaSaison implements Wettbewerb {
 	private int[] numberOf;
 	
 	private Datum[] dates;
-	private int[][] kotIndices;
+	private int[][] rkotIndices;
 	
-	private int numberOfKickoffTimes;
-	private ArrayList<AnstossZeit> kickOffTimes;
-	private int[] defaultKickoffTimes;
+	private int numberOfRelativeKickoffTimes;
+	private ArrayList<RelativeAnstossZeit> relativeKickOffTimes;
+	private int[] defaultRelativeKickoffTimes;
 	
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
@@ -335,8 +335,8 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getNewestStartedMatchday() {
-		Datum nextDate;
 		Uhrzeit time = new Uhrzeit();
+		Zeitpunkt now = new Zeitpunkt(today, time);
 		
 		if (!today.equals(nMatchdaySetForDate) || !time.isBefore(nMatchdaySetUntilTime)) {
 			nMatchdaySetUntilTime = END_OF_DAY;
@@ -346,13 +346,12 @@ public class LigaSaison implements Wettbewerb {
 				newestMatchday = numberOfMatchdays - 1;
 			} else {
 				newestMatchday = 0;
-				nextDate = getDate(newestMatchday + 1, 0);
-				while (today.isAfter(nextDate) || (today.equals(nextDate) && !time.isBefore(getTime(newestMatchday + 1, 0)))) {
+				AnstossZeit nextKickOffTime;
+				while (now.isAfter(nextKickOffTime = getKickOffTime(newestMatchday + 1, 0))) {
 					newestMatchday++;
-					nextDate = getDate(newestMatchday + 1, 0);
 				}
-				if (today.equals(getDate(newestMatchday + 1, 0))) {
-					nMatchdaySetUntilTime = getTime(newestMatchday + 1, 0);
+				if (today.equals(nextKickOffTime.getDate())) {
+					nMatchdaySetUntilTime = nextKickOffTime.getTime();
 				}
 			}
 			
@@ -376,75 +375,72 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public String getDateAndTime(int matchday, int matchIndex) {
-		if (matchday >= 0 && matchday < numberOfMatchdays && matchIndex >= 0 && matchIndex < numberOfMatchesPerMatchday && !getDate(matchday).equals(DATE_UNDEFINED))
-			return kickOffTimes.get(getKOTIndex(matchday, matchIndex)).getDateAndTime(getDate(matchday));
-		else
-			return "nicht terminiert";
+		return getKickOffTime(matchday, matchIndex).toDisplay();
 	}
 	
 	public Datum getDate(int matchday) {
 		return dates[matchday];
 	}
 	
-	public int getKOTIndex(int matchday, int matchIndex) {
-		return kotIndices[matchday][matchIndex];
+	public int getRKOTIndex(int matchday, int matchIndex) {
+		return rkotIndices[matchday][matchIndex];
 	}
 	
 	public void setDate(int matchday, Datum date) {
 		dates[matchday] = date;
 	}
 	
-	public void setKOTIndex(int matchday, int matchIndex, int index) {
-		kotIndices[matchday][matchIndex] = index;
+	public void setRKOTIndex(int matchday, int matchIndex, int index) {
+		rkotIndices[matchday][matchIndex] = index;
+	}
+	
+	public AnstossZeit getKickOffTime(int matchday, int matchIndex) {
+		return relativeKickOffTimes.get(getRKOTIndex(matchday, matchIndex)).getKickOffTime(dates[matchday]);
 	}
 	
 	public Datum getDate(int matchday, int matchIndex) {
-		return kickOffTimes.get(kotIndices[matchday][matchIndex]).getDate(dates[matchday]);
+		return getKickOffTime(matchday, matchIndex).getDate();
 	}
 	
-	public Uhrzeit getTime(int matchday, int matchIndex) {
-		return kickOffTimes.get(kotIndices[matchday][matchIndex]).getTime();
+	public int addNewRelativeKickoffTime(int daysSince, Uhrzeit time) {
+		numberOfRelativeKickoffTimes++;
+		relativeKickOffTimes.add(new RelativeAnstossZeit(numberOfRelativeKickoffTimes, daysSince, time));
+		return numberOfRelativeKickoffTimes;
 	}
 	
-	public int addNewKickoffTime(int daysSince, Uhrzeit time) {
-		numberOfKickoffTimes++;
-		kickOffTimes.add(new AnstossZeit(numberOfKickoffTimes, daysSince, time));
-		return numberOfKickoffTimes;
-	}
-	
-	public int getIndexOfKOT(int diff, Uhrzeit timeOfNewKOT) {
-		for (AnstossZeit az : kickOffTimes) {
-			if (az.matches(diff, timeOfNewKOT))	return az.getIndex();
+	public int getIndexOfKOT(int daysSince, Uhrzeit time) {
+		for (RelativeAnstossZeit az : relativeKickOffTimes) {
+			if (az.matches(daysSince, time))	return az.getIndex();
 		}
 		return UNDEFINED;
 	}
 	
 	public void useDefaultKickoffTimes(int matchday) {
 		ArrayList<Integer> unsetMatches = new ArrayList<>(), unsetKOTs = new ArrayList<>();
-		for (int i = 0; i < defaultKickoffTimes.length; i++) {
-			unsetKOTs.add(defaultKickoffTimes[i]);
+		for (int i = 0; i < defaultRelativeKickoffTimes.length; i++) {
+			unsetKOTs.add(defaultRelativeKickoffTimes[i]);
 		}
 		
-		for (int i = 0; i < defaultKickoffTimes.length; i++) {
-			if (unsetKOTs.contains(getKOTIndex(matchday, i)))	unsetKOTs.remove(new Integer(getKOTIndex(matchday, i)));
+		for (int i = 0; i < defaultRelativeKickoffTimes.length; i++) {
+			if (unsetKOTs.contains(getRKOTIndex(matchday, i)))	unsetKOTs.remove(new Integer(getRKOTIndex(matchday, i)));
 			else												unsetMatches.add(i);
 		}
 		
 		for (int i = 0; i < unsetKOTs.size(); i++) {
-			setKOTIndex(matchday, unsetMatches.get(i), unsetKOTs.get(i));
+			setRKOTIndex(matchday, unsetMatches.get(i), unsetKOTs.get(i));
 		}
 	}
 	
 	public int[] getDefaultKickoffTimes() {
-		return defaultKickoffTimes;
+		return defaultRelativeKickoffTimes;
 	}
 	
-	public ArrayList<AnstossZeit> getKickOffTimes() {
-		return kickOffTimes;
+	public ArrayList<RelativeAnstossZeit> getRelativeKickOffTimes() {
+		return relativeKickOffTimes;
 	}
 	
-	public int getNumberOfKickoffTimes() {
-		return numberOfKickoffTimes;
+	public int getNumberOfRelativeKickoffTimes() {
+		return numberOfRelativeKickoffTimes;
 	}
 	
 	// Spielplan eingetragen
@@ -535,7 +531,7 @@ public class LigaSaison implements Wettbewerb {
 				Spiel previousMatch = getMatch(matchday, matchIndex);
 				previousMatch.getHomeTeam().resetMatch(key);
 				previousMatch.getAwayTeam().resetMatch(key);
-				setKOTIndex(matchday, matchIndex, 0);
+				setRKOTIndex(matchday, matchIndex, 0);
 			}
 		}
 		matches[matchday][matchIndex] = match;
@@ -598,25 +594,21 @@ public class LigaSaison implements Wettbewerb {
 	public void changeOrderToChronological(int matchday) {
 		int[] newOrder = new int[numberOfMatchesPerMatchday];
 		int[] hilfsarray = new int[numberOfMatchesPerMatchday];
-		Datum[] dates = new Datum[numberOfMatchesPerMatchday];
-		Uhrzeit[] times = new Uhrzeit[numberOfMatchesPerMatchday];
+		AnstossZeit[] kickOffTimes = new AnstossZeit[numberOfMatchesPerMatchday];
 		
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-			dates[matchIndex] = kickOffTimes.get(getKOTIndex(matchday, matchIndex)).getDate(getDate(matchday));
-			times[matchIndex] = kickOffTimes.get(getKOTIndex(matchday, matchIndex)).getTime();
+			kickOffTimes[matchIndex] = getKickOffTime(matchday, matchIndex);
 		}
 		
 		for (int m = 0; m < numberOfMatchesPerMatchday; m++) {
 			for (int m2 = m + 1; m2 < numberOfMatchesPerMatchday; m2++) {
-				if (times[m].isUndefined() && !times[m2].isUndefined())			hilfsarray[m]++;
-				else if (times[m2].isUndefined() && !times[m].isUndefined())	hilfsarray[m2]++;
-				else if (dates[m2].isAfter(dates[m]))							hilfsarray[m2]++;
-				else if (dates[m2].isBefore(dates[m]))							hilfsarray[m]++;
-				else if (times[m2].isAfter(times[m]))							hilfsarray[m2]++;
-				else if (times[m2].isBefore(times[m]))							hilfsarray[m]++;
+				if (kickOffTimes[m].getTime().isUndefined() && !kickOffTimes[m2].getTime().isUndefined())		hilfsarray[m]++;
+				else if (kickOffTimes[m2].getTime().isUndefined() && !kickOffTimes[m].getTime().isUndefined())	hilfsarray[m2]++;
+				else if (kickOffTimes[m2].isAfter(kickOffTimes[m]))												hilfsarray[m2]++;
+				else if (kickOffTimes[m2].isBefore(kickOffTimes[m]))											hilfsarray[m]++;
 				else {
 					Spiel sp1 = getMatch(matchday, m), sp2 = getMatch(matchday, m2);
-					if (sp1 != null && sp2 != null && sp1.getHomeTeam().getId() > sp2.getHomeTeam().getId())	hilfsarray[m]++;
+					if (sp2 != null && sp2.isInOrderBefore(sp1))	hilfsarray[m]++;
 					else	hilfsarray[m2]++;
 				}
 			}
@@ -661,13 +653,13 @@ public class LigaSaison implements Wettbewerb {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
 			oldMatches[matchIndex] = getMatch(matchday, matchIndex);
 			oldResults[matchIndex] = getResult(matchday, matchIndex);
-			oldKOTindices[matchIndex] = kotIndices[matchday][matchIndex];
+			oldKOTindices[matchIndex] = rkotIndices[matchday][matchIndex];
 		}
 		
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
 			setMatch(matchday, matchIndex, oldMatches[oldIndicesInNewOrder[matchIndex]]);
 			setResult(matchday, matchIndex, oldResults[oldIndicesInNewOrder[matchIndex]]);
-			kotIndices[matchday][matchIndex] = oldKOTindices[oldIndicesInNewOrder[matchIndex]];
+			rkotIndices[matchday][matchIndex] = oldKOTindices[oldIndicesInNewOrder[matchIndex]];
 		}
 	}
 	
@@ -676,8 +668,9 @@ public class LigaSaison implements Wettbewerb {
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				if (isResultSet(i, j) && getResult(i, j).isCancelled())	continue;
-				Datum date = getDate(i, j);
-				Uhrzeit time = getTime(i, j);
+				AnstossZeit kickOffTime = getKickOffTime(i, j);
+				Datum date = kickOffTime.getDate();
+				Uhrzeit time = kickOffTime.getTime();
 				if (isMatchSet(i, j) && date != null && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
 					long dateAndTime = 10000L * date.comparable() + time.comparable();
 					if (nextMatches.size() < Fussball.numberOfMissingResults || dateAndTime < nextMatches.get(Fussball.numberOfMissingResults - 1)) {
@@ -739,18 +732,18 @@ public class LigaSaison implements Wettbewerb {
 	private void initDefaultKickoffTimes(String DKTAsString) {
 		// kommt als 0,1,1,1,1,1,2,3,4
 		String[] split = DKTAsString.split(",");
-		defaultKickoffTimes = new int[split.length];
+		defaultRelativeKickoffTimes = new int[split.length];
 		for (int i = 0; i < split.length; i++) {
-			defaultKickoffTimes[i] = Integer.parseInt(split[i]);
+			defaultRelativeKickoffTimes[i] = Integer.parseInt(split[i]);
 		}
 	}
 	
 	private String getDefaultKickoffTimesRepresentation() {
 		String dktimes = "";
-		if (defaultKickoffTimes.length >= 1) {
-			dktimes += defaultKickoffTimes[0];
-			for (int i = 1; i < defaultKickoffTimes.length; i++) {
-				dktimes += "," + defaultKickoffTimes[i];
+		if (defaultRelativeKickoffTimes.length >= 1) {
+			dktimes += defaultRelativeKickoffTimes[0];
+			for (int i = 1; i < defaultRelativeKickoffTimes.length; i++) {
+				dktimes += "," + defaultRelativeKickoffTimes[i];
 			}
 		}
 		
@@ -791,7 +784,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	private void initializeArrays() {
 		dates = new Datum[numberOfMatchdays];
-		kotIndices = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
+		rkotIndices = new int[numberOfMatchdays][numberOfMatchesPerMatchday];
 		
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
@@ -852,11 +845,11 @@ public class LigaSaison implements Wettbewerb {
 			// Anstoßzeiten / Spieltermine
 			String allKickoffTimes = matchesFromFile.get(0);
 			String[] split = allKickoffTimes.split(";");
-			numberOfKickoffTimes = Integer.parseInt(split[0]);
-			kickOffTimes = new ArrayList<>();
-			kickOffTimes.add(new AnstossZeit(0, UNDEFINED, TIME_UNDEFINED));
-			for (int counter = 1; counter <= numberOfKickoffTimes; counter++) {
-				kickOffTimes.add(new AnstossZeit(counter, split[counter]));
+			numberOfRelativeKickoffTimes = Integer.parseInt(split[0]);
+			relativeKickOffTimes = new ArrayList<>();
+			relativeKickOffTimes.add(new RelativeAnstossZeit(0, UNDEFINED, TIME_UNDEFINED));
+			for (int counter = 1; counter <= numberOfRelativeKickoffTimes; counter++) {
+				relativeKickOffTimes.add(new RelativeAnstossZeit(counter, split[counter]));
 			}
 			
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -870,7 +863,7 @@ public class LigaSaison implements Wettbewerb {
 					String[] koTimes = split[1].split(":");
 					setDate(matchday, koTimes[0].equals("0") ? DATE_UNDEFINED : new Datum(koTimes[0]));
 					for (matchIndex = 0; (matchIndex + 1) < koTimes.length; matchIndex++) {
-						setKOTIndex(matchday, matchIndex, Integer.parseInt(koTimes[matchIndex + 1]));
+						setRKOTIndex(matchday, matchIndex, Integer.parseInt(koTimes[matchIndex + 1]));
 					}
 					
 					// Spielplan
@@ -878,7 +871,7 @@ public class LigaSaison implements Wettbewerb {
 						Spiel match = null;
 						
 						if (isMatchSet(matchday, matchIndex)) {
-							match = new Spiel(this, matchday, getDate(matchday, matchIndex), getTime(matchday, matchIndex), split[matchIndex + 2]);
+							match = new Spiel(this, matchday, getKickOffTime(matchday, matchIndex), split[matchIndex + 2]);
 						}
 						
 						setMatch(matchday, matchIndex, match);
@@ -901,21 +894,21 @@ public class LigaSaison implements Wettbewerb {
 	
 	private void checkAndCorrectOrderOfKOTs() {
 		int lastDefault = 0;
-		for (int i = 0; i < defaultKickoffTimes.length; i++) {
-			if (defaultKickoffTimes[i] > lastDefault)	lastDefault = defaultKickoffTimes[i];
+		for (int i = 0; i < defaultRelativeKickoffTimes.length; i++) {
+			if (defaultRelativeKickoffTimes[i] > lastDefault)	lastDefault = defaultRelativeKickoffTimes[i];
 		}
 		
-		ArrayList<AnstossZeit> newKOTs = new ArrayList<>();
+		ArrayList<RelativeAnstossZeit> newKOTs = new ArrayList<>();
 		for (int i = 0; i <= lastDefault; i++) {
-			newKOTs.add(kickOffTimes.get(i));
+			newKOTs.add(relativeKickOffTimes.get(i));
 		}
 		
 		ArrayList<ArrayList<Integer>> allOccurrences = new ArrayList<>();
-		for (int i = lastDefault + 1; i <= numberOfKickoffTimes; i++) {
+		for (int i = lastDefault + 1; i <= numberOfRelativeKickoffTimes; i++) {
 			allOccurrences.add(getAllOccurrencesOfKOT(i));
 		}
 		
-		int[] newOrder = new int[numberOfKickoffTimes - lastDefault];
+		int[] newOrder = new int[numberOfRelativeKickoffTimes - lastDefault];
 		for (int i = 0; i < allOccurrences.size(); i++) {
 			for (int j = i + 1; j < allOccurrences.size(); j++) {
 				if (allOccurrences.get(j).size() == 0)			newOrder[j]++;
@@ -927,24 +920,24 @@ public class LigaSaison implements Wettbewerb {
 		for (int order = 0; order < newOrder.length; order++) {
 			for (int i = 0; i < newOrder.length; i++) {
 				if (newOrder[i] == order) {
-					newKOTs.add(kickOffTimes.get(i + lastDefault + 1));
+					newKOTs.add(relativeKickOffTimes.get(i + lastDefault + 1));
 					if (i == order)	continue;
 					for (int j = 0; j < allOccurrences.get(i).size(); j++) {
 						int matchday = allOccurrences.get(i).get(j) / 100 - 1, matchIndex = allOccurrences.get(i).get(j) % 100 - 1;
-						setKOTIndex(matchday, matchIndex, order + lastDefault + 1);
+						setRKOTIndex(matchday, matchIndex, order + lastDefault + 1);
 					}
 				}
 			}
 		}
 		
-		kickOffTimes = newKOTs;
+		relativeKickOffTimes = newKOTs;
 	}
 	
 	private ArrayList<Integer> getAllOccurrencesOfKOT(int kotIndex) {
 		ArrayList<Integer> occurrences = new ArrayList<>();
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-				if (kotIndices[matchday][matchIndex] == kotIndex)	occurrences.add(100 * (matchday + 1) + (matchIndex + 1));
+				if (rkotIndices[matchday][matchIndex] == kotIndex)	occurrences.add(100 * (matchday + 1) + (matchIndex + 1));
 			}
 		}
 		return occurrences;
@@ -953,9 +946,9 @@ public class LigaSaison implements Wettbewerb {
 	public void saveMatches() {
 		matchesFromFile.clear();
 		
-		String row = numberOfKickoffTimes + ";";
-		for (int i = 0; i < numberOfKickoffTimes; i++) {
-			row = row + kickOffTimes.get(i + 1) + ";";
+		String row = numberOfRelativeKickoffTimes + ";";
+		for (int i = 0; i < numberOfRelativeKickoffTimes; i++) {
+			row = row + relativeKickOffTimes.get(i + 1) + ";";
 		}
 		matchesFromFile.add(row);
 		
@@ -965,7 +958,7 @@ public class LigaSaison implements Wettbewerb {
 				Datum date = getDate(matchday);
 				row += date.equals(DATE_UNDEFINED) ? 0 : date.comparable();
 				for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-					row += ":" + getKOTIndex(matchday, matchIndex);
+					row += ":" + getRKOTIndex(matchday, matchIndex);
 				}
 				row += ";";
 				for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {

@@ -174,6 +174,7 @@ public class SpielInformationen extends JFrame {
 	
 	private Spieltag spieltag;
 	private Ergebnis result;
+	private Datum date;
 	private ArrayList<TeamAffiliation> kaderHome;
 	private ArrayList<TeamAffiliation> kaderAway;
 	private ArrayList<TeamAffiliation> eligiblePlayersListUpper  = new ArrayList<>();
@@ -227,7 +228,8 @@ public class SpielInformationen extends JFrame {
 		bookings = match.getBookings();
 		this.result = result;
 		isETpossible = match.getCompetition().isExtraTimePossible();
-		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions(match.getDate());
+		date = match.getKickOffTime().getDate();
+		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions(date);
 		is4thSubPossible = match.getCompetition().isFourthSubstitutionPossible();
 		
 		initGUI();
@@ -836,15 +838,15 @@ public class SpielInformationen extends JFrame {
 		
 		for (int i = 0; i < numberOfPlayersInLineUp; i++) {
 			if (lineupHome != null) {
-				jLblsPlayersHome[i].setText(match.getHomeTeam().getAffiliation(lineupHome[i], match.getDate()).getPlayer().getPopularOrLastName());
+				jLblsPlayersHome[i].setText(match.getHomeTeam().getAffiliation(lineupHome[i], date).getPlayer().getPopularOrLastName());
 				jLblsPlayersHome[i].setVisible(true);
-				jLblsSquadNumbersHome[i].setText("" + match.getHomeTeam().getAffiliation(lineupHome[i], match.getDate()).getSquadNumber());
+				jLblsSquadNumbersHome[i].setText("" + match.getHomeTeam().getAffiliation(lineupHome[i], date).getSquadNumber());
 				jLblsSquadNumbersHome[i].setVisible(true);
 			}
 			if (lineupAway != null) {
-				jLblsPlayersAway[i].setText(match.getAwayTeam().getAffiliation(lineupAway[i], match.getDate()).getPlayer().getPopularOrLastName());
+				jLblsPlayersAway[i].setText(match.getAwayTeam().getAffiliation(lineupAway[i], date).getPlayer().getPopularOrLastName());
 				jLblsPlayersAway[i].setVisible(true);
-				jLblsSquadNumbersAway[i].setText("" + match.getAwayTeam().getAffiliation(lineupAway[i], match.getDate()).getSquadNumber());
+				jLblsSquadNumbersAway[i].setText("" + match.getAwayTeam().getAffiliation(lineupAway[i], date).getSquadNumber());
 				jLblsSquadNumbersAway[i].setVisible(true);
 			}
 		}
@@ -858,7 +860,7 @@ public class SpielInformationen extends JFrame {
 		paintBookings();
 		
 		if (goals.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0 || 
-				inThePast(match.getDate(), match.getTime()))	startMatch();
+				inThePast(date, match.getKickOffTime().getTime()))	startMatch();
 	}
 	
 	private void createPseudoGoals() {
@@ -1500,7 +1502,7 @@ public class SpielInformationen extends JFrame {
 		if (subOff) {
 			eligiblePlayersListUpper.clear();
 			for (int i = 0; i < lineup.length; i++) {
-				eligiblePlayersListUpper.add(team.getAffiliation(lineup[i], match.getDate()));
+				eligiblePlayersListUpper.add(team.getAffiliation(lineup[i], date));
 			}
 			for (Wechsel substitution : substitutions) {
 				eligiblePlayersListUpper.remove(substitution.getPlayerOff());
@@ -1511,9 +1513,9 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers[i] = eligiblePlayersListUpper.get(i).getPlayer().getPopularOrLastName();
 			}
 		} else {
-			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(match.getDate(), false));
+			eligiblePlayersListLower = cloneList(team.getEligiblePlayers(date, false));
 			for (int i = 0; i < lineup.length; i++) {
-				eligiblePlayersListLower.remove(team.getAffiliation(lineup[i], match.getDate()));
+				eligiblePlayersListLower.remove(team.getAffiliation(lineup[i], date));
 			}
 			for (Wechsel substitution : substitutions) {
 				eligiblePlayersListLower.remove(substitution.getPlayerOn());
@@ -1677,7 +1679,7 @@ public class SpielInformationen extends JFrame {
 			eligiblePlayersListLower.clear();
 			
 			if (bookedOnTheBench || bookedAfterTheMatch) {
-				ArrayList<TeamAffiliation> eligPlayers = bookedTeam.getEligiblePlayers(match.getDate(), false);
+				ArrayList<TeamAffiliation> eligPlayers = bookedTeam.getEligiblePlayers(date, false);
 				eligiblePlayers = new String[1 + eligPlayers.size()];
 				int count = 1;
 				for (TeamAffiliation affiliation : eligPlayers) {
@@ -1690,7 +1692,7 @@ public class SpielInformationen extends JFrame {
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 			
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListLower.add(bookedTeam.getAffiliation(bookedTeamLineup[i], match.getDate()));
+					eligiblePlayersListLower.add(bookedTeam.getAffiliation(bookedTeamLineup[i], date));
 					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
@@ -1720,7 +1722,7 @@ public class SpielInformationen extends JFrame {
 				ArrayList<Wechsel> substitutions = match.getSubstitutions(firstTeam);
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListUpper.add(scoringTeam.getAffiliation(scoringLineup[i], match.getDate()));
+					eligiblePlayersListUpper.add(scoringTeam.getAffiliation(scoringLineup[i], date));
 					eligiblePlayers[1 + i] = eligiblePlayersListUpper.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
@@ -1740,7 +1742,7 @@ public class SpielInformationen extends JFrame {
 				ArrayList<Wechsel> substitutions = match.getSubstitutions(firstTeam);
 				eligiblePlayers = new String[1 + numberOfPlayersInLineUp + substitutions.size()];
 				for (int i = 0; i < numberOfPlayersInLineUp; i++) {
-					eligiblePlayersListLower.add(assistingTeam.getAffiliation(assistingLineup[i], match.getDate()));
+					eligiblePlayersListLower.add(assistingTeam.getAffiliation(assistingLineup[i], date));
 					eligiblePlayers[1 + i] = eligiblePlayersListLower.get(i).getPlayer().getPopularOrLastName();
 				}
 				for (int i = 0; i < substitutions.size(); i++) {
@@ -2016,8 +2018,8 @@ public class SpielInformationen extends JFrame {
 		enteringLineup = true;
 		editingFirstTeam = firstTeam;
 		int[] lineup = editingFirstTeam ? lineupHome : lineupAway;
-		if (editingFirstTeam)	kader = kaderHome = match.getHomeTeam().getEligiblePlayers(match.getDate(), false);
-		else					kader = kaderAway = match.getAwayTeam().getEligiblePlayers(match.getDate(), false);
+		if (editingFirstTeam)	kader = kaderHome = match.getHomeTeam().getEligiblePlayers(date, false);
+		else					kader = kaderAway = match.getAwayTeam().getEligiblePlayers(date, false);
 		
 		// hide lineup labels
 		setLabelsVisible(false);

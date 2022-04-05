@@ -60,9 +60,9 @@ public class Wechsel {
 	private void parseString(String data) {
 		minute = Minute.parse(data.substring(0, data.indexOf(":")));
 		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));
-		playerOff = match.getTeam(firstTeam).getAffiliation(sqOff, match.getDate());
+		playerOff = match.getTeam(firstTeam).getAffiliation(sqOff, match.getKickOffTime().getDate());
 		int sqOn = Integer.parseInt(data.substring(data.indexOf(">>") + 2));
-		playerOn = match.getTeam(firstTeam).getAffiliation(sqOn, match.getDate());
+		playerOn = match.getTeam(firstTeam).getAffiliation(sqOn, match.getKickOffTime().getDate());
 		if (playerOff == null || playerOn == null) {
 			message("Fehler beim Parsen der Wechsel des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
 			if (playerOff == null)	log("Es konnte der Rückennummer " + sqOff + " kein spielberechtigter Spieler zugeordnet werden.");

@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import model.AnstossZeit;
 import model.Datum;
+import model.RelativeAnstossZeit;
 import model.Spiel;
 import model.TeamAffiliation;
 import model.Uhrzeit;
@@ -46,12 +48,13 @@ public class Utilities {
 	public static final Datum DATE_UNDEFINED = new Datum(0, 0, 9999);
 	public static final Datum today = new Datum();
 	
-	
 	public static final int UNDEFINED = -1;
 	
 	public static final Uhrzeit TIME_UNDEFINED = new Uhrzeit(UNDEFINED);
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
+	
+	public static final AnstossZeit KICK_OFF_TIME_UNDEFINED = new AnstossZeit(new RelativeAnstossZeit(0, 0, TIME_UNDEFINED), DATE_UNDEFINED);
 	
 	public static final String TO_BE_DATED = "TBD";
 	public static final String SPIELFREI = "spielfrei";

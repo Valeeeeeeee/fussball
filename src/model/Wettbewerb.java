@@ -31,8 +31,7 @@ public interface Wettbewerb {
 	public Ergebnis getResult(int matchday, int matchIndex);
 	public void setResult(int matchday, int matchIndex, Ergebnis result);
 	
-	public Datum getDate(int matchday, int matchIndex);
-	public Uhrzeit getTime(int matchday, int matchIndex);
+	public AnstossZeit getKickOffTime(int matchday, int matchIndex);
 	
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();

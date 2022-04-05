@@ -1049,8 +1049,7 @@ public class Spieltag extends JPanel {
 				other = competition.getMatch(editedMatchday, matchIndex);
 				
 				if ((home = array[aggrMatchIndex][0]) != -1 && (away = array[aggrMatchIndex][1]) != -1) {
-					match = new Spiel(competition, editedMatchday, competition.getDate(editedMatchday, matchIndex), 
-								competition.getTime(editedMatchday, matchIndex), home - offset, away - offset);
+					match = new Spiel(competition, editedMatchday, competition.getKickOffTime(editedMatchday, matchIndex), home - offset, away - offset);
 				}
 				
 				if (match != null && other != null && match.sameAs(other))	match = other;
@@ -1355,7 +1354,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setMatch(lSeason, currentMatchday, editedDate);
-			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getKOTIndex(currentMatchday, editedDate));
+			mdc.setDateAndKOTIndex(lSeason.getDate(currentMatchday), lSeason.getRKOTIndex(currentMatchday, editedDate));
 			
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1364,7 +1363,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setMatch(group, currentMatchday, editedDate);
-			mdc.setDateAndTime(group.getDate(currentMatchday, editedDate), group.getTime(currentMatchday, editedDate));
+			mdc.setKickOffTime(group.getKickOffTime(currentMatchday, editedDate));
 
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1373,7 +1372,7 @@ public class Spieltag extends JPanel {
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
 			mdc.setMatch(koRound, currentMatchday, editedDate);
-			mdc.setDateAndTime(koRound.getDate(currentMatchday, editedDate), koRound.getTime(currentMatchday, editedDate));
+			mdc.setKickOffTime(koRound.getKickOffTime(currentMatchday, editedDate));
 
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1389,7 +1388,7 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(group, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setDateAndTime(group.getDate(currentMatchday, matchIndex), group.getTime(currentMatchday, matchIndex));
+			mdc.setKickOffTime(group.getKickOffTime(currentMatchday, matchIndex));
 			mdc.setMatch(group, currentMatchday, matchIndex);
 
 			Fussball.getInstance().toFront();
@@ -1399,18 +1398,16 @@ public class Spieltag extends JPanel {
 	
 	public void dateEnteredLeagueStyle(Datum startDate, int KOTindex) {
 		lSeason.setDate(currentMatchday, startDate);
-		lSeason.setKOTIndex(currentMatchday, editedDate, KOTindex);
+		lSeason.setRKOTIndex(currentMatchday, editedDate, KOTindex);
 		dateChooserClosed();
 		safelyShowMatchday();
 	}
 	
-	public void dateEnteredTournamentStyle(Datum date, Uhrzeit time) {
+	public void dateEnteredTournamentStyle(RelativeAnstossZeit relativeKickOffTime) {
 		if (belongsToGroup) {
-			group.setDate(currentMatchday, editedDate, date);
-			group.setTime(currentMatchday, editedDate, time);
+			group.setRelativeKickOffTime(currentMatchday, editedDate, relativeKickOffTime);
 		} else if (belongsToKORound) {
-			koRound.setDate(currentMatchday, editedDate, date);
-			koRound.setTime(currentMatchday, editedDate, time);
+			koRound.setRelativeKickOffTime(currentMatchday, editedDate, relativeKickOffTime);
 		} else {
 			// Bestimmung der Gruppe
 			int groupID = 0, matchIndex = editedDate;
@@ -1420,11 +1417,28 @@ public class Spieltag extends JPanel {
 			}
 			
 			Gruppe group = allGroups[groupID];
-			group.setDate(currentMatchday, matchIndex, date);
-			group.setTime(currentMatchday, matchIndex, time);
+			group.setRelativeKickOffTime(currentMatchday, matchIndex, relativeKickOffTime);
 		}
 		dateChooserClosed();
 		safelyShowMatchday();
+	}
+	
+	public void dateEnteredTournamentStyle(Datum date, Uhrzeit time) {
+		Datum startDate;
+		if (belongsToGroup) {
+			startDate = group.getStartDate();
+		} else if (belongsToKORound) {
+			startDate = koRound.getStartDate();
+		} else {
+			int groupID = 0, matchIndex = editedDate;
+			while (matchIndex >= numbersOfMatches[groupID]) {
+				matchIndex -= numbersOfMatches[groupID];
+				groupID++;
+			}
+			
+			startDate = allGroups[groupID].getStartDate();
+		}
+		dateEnteredTournamentStyle(new RelativeAnstossZeit(0, startDate.daysUntil(date), time));
 	}
 	
 	public void dateChooserClosed() {

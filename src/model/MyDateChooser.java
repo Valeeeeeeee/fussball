@@ -307,7 +307,9 @@ public class MyDateChooser extends JFrame {
 		}
 	}
 	
-	public void setDateAndTime(Datum date, Uhrzeit time) {
+	public void setKickOffTime(AnstossZeit kickOffTime) {
+		Datum date = kickOffTime.getDate();
+		Uhrzeit time = kickOffTime.getTime();
 		getDefaultDateAndTime();
 		try {
 			jCBYear.setSelectedIndex(date.getYear() - startYear);
@@ -368,10 +370,10 @@ public class MyDateChooser extends JFrame {
 			Uhrzeit timeOfNewKOT = new Uhrzeit(jCBHour.getSelectedIndex(), 5 * jCBMinute.getSelectedIndex());
 			
 			// herausfinden, ob die Anstoßzeit bereits existiert
-			int diff = date.daysUntil(dateOfNewKOT);
-			kotIndex = season.getIndexOfKOT(diff, timeOfNewKOT);
+			int daysSince = date.daysUntil(dateOfNewKOT);
+			kotIndex = season.getIndexOfKOT(daysSince, timeOfNewKOT);
 			
-			if (kotIndex == -1)	kotIndex = season.addNewKickoffTime(diff, timeOfNewKOT);
+			if (kotIndex == -1)	kotIndex = season.addNewRelativeKickoffTime(daysSince, timeOfNewKOT);
 			else				message("Diese Anstoßzeit gibt es bereits.");
 		}
 		
@@ -478,8 +480,8 @@ public class MyDateChooser extends JFrame {
 	public void refreshKickOffTimesComboBox() {
 		if (belongsToLeague) {
 			Datum date = new Datum(jCBStDay.getSelectedIndex() + 1, jCBStMonth.getSelectedIndex() + 1, jCBStYear.getSelectedIndex() + startYear);
-			String[] kots = new String[season.getNumberOfKickoffTimes() + 2];
-			ArrayList<AnstossZeit> kickOffTimes = season.getKickOffTimes();
+			String[] kots = new String[season.getNumberOfRelativeKickoffTimes() + 2];
+			ArrayList<RelativeAnstossZeit> kickOffTimes = season.getRelativeKickOffTimes();
 			kots[0] = "Keine Angabe";
 			for (int i = 1; i < (kots.length - 1); i++) {
 				kots[i] = kickOffTimes.get(i).weekdayAndTime(date);
