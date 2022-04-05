@@ -283,12 +283,12 @@ public class TurnierSaison {
 		Datum[] dates = new Datum[numberOfMatches];
 		Uhrzeit[] times = new Uhrzeit[numberOfMatches];
 		
-		int matchID = 0;
+		int counter = 0;
 		for (Gruppe group : isQualification ? qGroups : groups) {
-			for (int match = 0; match < group.getNumberOfMatchesPerMatchday(); match++) {
-				dates[matchID] = group.getDate(matchday, match);
-				times[matchID] = group.getTime(matchday, match);
-				matchID++;
+			for (int matchIndex = 0; matchIndex < group.getNumberOfMatchesPerMatchday(); matchIndex++) {
+				dates[counter] = group.getDate(matchday, matchIndex);
+				times[counter] = group.getTime(matchday, matchIndex);
+				counter++;
 			}
 		}
 		

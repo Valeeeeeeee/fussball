@@ -344,13 +344,9 @@ public class MyDateChooser extends JFrame {
 		}
 	}
 	
-	public void setMatch(Wettbewerb competition, int matchday, int matchID) {
-		Spiel match = competition.getMatch(matchday, matchID);
-		String matchStr = "";
-		matchStr += match != null && match.getHomeTeam() != null ? match.getHomeTeam().getName() : "n/a";
-		matchStr += " gegen ";
-		matchStr += match != null && match.getAwayTeam() != null ? match.getAwayTeam().getName() : "n/a";
-		
+	public void setMatch(Wettbewerb competition, int matchday, int matchIndex) {
+		Optional<Spiel> match = Optional.ofNullable(competition.getMatch(matchday, matchIndex));
+		String matchStr = match.map(Spiel::getHomeTeam).map(Mannschaft::getName).orElse("n/a") + " gegen " + match.map(Spiel::getAwayTeam).map(Mannschaft::getName).orElse("n/a");
 		jLblMatch.setText(matchStr);
 	}
 	

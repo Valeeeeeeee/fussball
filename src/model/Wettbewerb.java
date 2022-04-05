@@ -23,16 +23,16 @@ public interface Wettbewerb {
 	public Datum getStartDate();
 	public Datum getFinalDate();
 	
-	public boolean isMatchSet(int matchday, int matchID);
-	public Spiel getMatch(int matchday, int matchID);
-	public void setMatch(int matchday, int matchID, Spiel match);
+	public boolean isMatchSet(int matchday, int matchIndex);
+	public Spiel getMatch(int matchday, int matchIndex);
+	public void setMatch(int matchday, int matchIndex, Spiel match);
 	
-	public boolean isResultSet(int matchday, int matchID);
-	public Ergebnis getResult(int matchday, int matchID);
-	public void setResult(int matchday, int matchID, Ergebnis result);
+	public boolean isResultSet(int matchday, int matchIndex);
+	public Ergebnis getResult(int matchday, int matchIndex);
+	public void setResult(int matchday, int matchIndex, Ergebnis result);
 	
-	public Datum getDate(int matchday, int matchID);
-	public Uhrzeit getTime(int matchday, int matchID);
+	public Datum getDate(int matchday, int matchIndex);
+	public Uhrzeit getTime(int matchday, int matchIndex);
 	
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();
