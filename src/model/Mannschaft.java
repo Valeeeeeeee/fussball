@@ -302,7 +302,7 @@ public class Mannschaft {
 			String key = iter.next();
 			Spiel match = matches.get(key);
 			if (match == null)	continue;
-			if (!inThePast(match.getKickOffTime().getDate(), match.getKickOffTime().getTime()))	continue;
+			if (!inThePast(match.getKickOffTime()))	continue;
 			for (TeamAffiliation affiliation : teamAffiliations) {
 				if (!affiliation.getDuration().includes(match.getKickOffTime().getDate()))	continue;
 				SpielPerformance matchPerformance = match.getMatchPerformance(affiliation);

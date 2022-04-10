@@ -570,22 +570,15 @@ public class Gruppe implements Wettbewerb {
 		}
 	}
 	
-	public ArrayList<Long> getNextMatches() {
-		ArrayList<Long> nextMatches = new ArrayList<>();
+	public ArrayList<AnstossZeit> getNextMatches() {
+		ArrayList<AnstossZeit> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				if (isResultSet(i, j) && getResult(i, j).isCancelled())	continue;
 				AnstossZeit kickOffTime = getKickOffTime(i, j);
-				Datum date = kickOffTime.getDate();
-				Uhrzeit time = kickOffTime.getTime();
-				if (isMatchSet(i, j) && (!inThePast(date, time, 105) || !isResultSet(i, j))) {
-					long dateAndTime = 10000L * date.comparable() + time.comparable();
-					if (nextMatches.size() < Fussball.numberOfMissingResults || dateAndTime < nextMatches.get(Fussball.numberOfMissingResults - 1)) {
-						int index = nextMatches.size();
-						for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
-							if (dateAndTime < nextMatches.get(k))	index = k;
-						}
-						nextMatches.add(index, dateAndTime);
+				if (isMatchSet(i, j) && (!inThePast(kickOffTime.plusMinutes(105)) || !isResultSet(i, j))) {
+					if (nextMatches.size() < Fussball.numberOfMissingResults || kickOffTime.isBefore(nextMatches.get(Fussball.numberOfMissingResults - 1))) {
+						addInOrder(nextMatches, kickOffTime);
 					}
 				}
 			}

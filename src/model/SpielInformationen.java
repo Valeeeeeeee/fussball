@@ -216,7 +216,7 @@ public class SpielInformationen extends JFrame {
 
 	private Rectangle RECGO = new Rectangle(850, 10, 90, 40);
 	
-	public SpielInformationen(Spieltag spieltag, int matchIndex, Spiel match, Ergebnis result) {
+	public SpielInformationen(Spieltag spieltag, int matchIndex, Spiel match) {
 		super();
 		
 		this.spieltag = spieltag;
@@ -226,7 +226,7 @@ public class SpielInformationen extends JFrame {
 		substitutionsHome = match.getSubstitutions(true);
 		substitutionsAway = match.getSubstitutions(false);
 		bookings = match.getBookings();
-		this.result = result;
+		this.result = match.getResult();
 		isETpossible = match.getCompetition().isExtraTimePossible();
 		date = match.getKickOffTime().getDate();
 		maximumNumberOfSubstitutionsRT = match.getCompetition().getNumberOfRegularSubstitutions(date);
@@ -860,7 +860,7 @@ public class SpielInformationen extends JFrame {
 		paintBookings();
 		
 		if (goals.size() > 0 || substitutionsHome.size() > 0 || substitutionsAway.size() > 0 || 
-				inThePast(date, match.getKickOffTime().getTime()))	startMatch();
+				inThePast(match.getKickOffTime()))	startMatch();
 	}
 	
 	private void createPseudoGoals() {

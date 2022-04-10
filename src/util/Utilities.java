@@ -19,6 +19,7 @@ import model.RelativeAnstossZeit;
 import model.Spiel;
 import model.TeamAffiliation;
 import model.Uhrzeit;
+import model.Zeitpunkt;
 
 public class Utilities {
 	
@@ -254,6 +255,14 @@ public class Utilities {
 		return false;
 	}
 	
+	public static void addInOrder(ArrayList<AnstossZeit> list, AnstossZeit kickOffTime) {
+		int index = 0;
+		for (index = 0; index < list.size(); index++) {
+			if (kickOffTime.isBefore(list.get(index)))	break;
+		}
+		list.add(index, kickOffTime);
+	}
+	
 	public static void addInOrder(ArrayList<Spiel> list, Spiel match) {
 		int index = 0;
 		for (index = 0; index < list.size(); index++) {
@@ -279,19 +288,8 @@ public class Utilities {
 		list.add(index, number);
 	}
 	
-	public static boolean inThePast(Datum date, Uhrzeit time, int timeDifference) {
-		Uhrzeit shiftedTime = new Uhrzeit(time, timeDifference);
-		if (shiftedTime.isBefore(time)) {
-			date = new Datum(date, 1);
-		}
-		return inThePast(date, shiftedTime);
-	}
-	
-	public static boolean inThePast(Datum date, Uhrzeit time) {
-		Datum today = new Datum();
-		if (date.isBefore(today))	return true;
-		if (date.isAfter(today))	return false;
-		return time.isBefore(new Uhrzeit());
+	public static boolean inThePast(Zeitpunkt moment) {
+		return moment.isBefore(Zeitpunkt.now());
 	}
 	
 	public static ArrayList<TeamAffiliation> cloneList(ArrayList<TeamAffiliation> list) {

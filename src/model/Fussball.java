@@ -1413,9 +1413,7 @@ public class Fussball extends JFrame {
 			// is a league
 			if (aktuellerSpieltag.isVisible()) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
-				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuellerSpieltag.saveResults();
-				} else {
+				if (aktuellerSpieltag.getEditedMatchday() != -1) {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						return;
 					}
@@ -1449,9 +1447,7 @@ public class Fussball extends JFrame {
 			// is a tournament
 			if (currentGroup != null && isCurrentlyInMatchdayView) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
-				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuellerSpieltag.saveResults();
-				} else {
+				if (aktuellerSpieltag.getEditedMatchday() != -1) {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;
@@ -1461,9 +1457,7 @@ public class Fussball extends JFrame {
 			
 			if (currentKORound != null) {
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
-				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuellerSpieltag.saveResults();
-				} else {
+				if (aktuellerSpieltag.getEditedMatchday() != -1) {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;
@@ -1478,9 +1472,7 @@ public class Fussball extends JFrame {
 					return;
 				}
 				aktuellerSpieltag.ensureNoOpenedMatchInfos();
-				if (aktuellerSpieltag.getEditedMatchday() == -1) {
-					aktuellerSpieltag.saveResults();
-				} else {
+				if (aktuellerSpieltag.getEditedMatchday() != -1) {
 					if (aktuellerSpieltag.jBtnDoneActionPerformed() != 0) {
 						message("Ein Fehler ist aufgetreten, zurück gehen war nicht möglich.");
 						return;

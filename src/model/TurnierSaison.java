@@ -695,8 +695,8 @@ public class TurnierSaison {
 	}
 	
 	private void saveNextMatches() {
-		ArrayList<ArrayList<Long>> allNextMatches = new ArrayList<>();
-		ArrayList<Long> nextMatches = new ArrayList<>();
+		ArrayList<ArrayList<AnstossZeit>> allNextMatches = new ArrayList<>();
+		ArrayList<AnstossZeit> nextMatches = new ArrayList<>();
 		for (int i = 0; i < numberOfQGroups; i++) {
 			allNextMatches.add(qGroups[i].getNextMatches());
 		}
@@ -710,12 +710,12 @@ public class TurnierSaison {
 			allNextMatches.add(koRounds[i].getNextMatches());
 		}
 		for (int i = 0; i < allNextMatches.size(); i++) {
-			ArrayList<Long> list = allNextMatches.get(i);
+			ArrayList<AnstossZeit> list = allNextMatches.get(i);
 			for (int j = 0; j < list.size(); j++) {
-				if (nextMatches.size() >= Fussball.numberOfMissingResults && list.get(j) > nextMatches.get(Fussball.numberOfMissingResults - 1))	break;
+				if (nextMatches.size() >= Fussball.numberOfMissingResults && !list.get(j).isBefore(nextMatches.get(Fussball.numberOfMissingResults - 1)))	break;
 				int index = nextMatches.size();
 				for (int k = 0; k < nextMatches.size() && index == nextMatches.size(); k++) {
-					if (list.get(j) < nextMatches.get(k))	index = k;
+					if (list.get(j).isBefore(nextMatches.get(k)))	index = k;
 				}
 				nextMatches.add(index, list.get(j));
 			}
@@ -725,7 +725,7 @@ public class TurnierSaison {
 		if (nextMatches.size() > 0) {
 			ArrayList<String> nextMatchesString = new ArrayList<>();
 			for (int i = 0; i < Fussball.numberOfMissingResults && i < nextMatches.size(); i++) {
-				nextMatchesString.add("" + nextMatches.get(i));
+				nextMatchesString.add("" + nextMatches.get(i).comparable());
 			}
 			writeFile(fileName, nextMatchesString);
 		} else {
