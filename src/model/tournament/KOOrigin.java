@@ -13,5 +13,7 @@ public abstract class KOOrigin {
 	public String getOrigin() {
 		return origin;
 	}
+	
+	public abstract String toDisplay();
 }
 

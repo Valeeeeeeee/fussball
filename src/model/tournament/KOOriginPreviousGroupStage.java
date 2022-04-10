@@ -10,6 +10,8 @@ public class KOOriginPreviousGroupStage extends KOOrigin {
 	
 	private boolean groupXth;
 	
+	private final String displayString;
+	
 	public KOOriginPreviousGroupStage(String origin, boolean qualification) {
 		this.koOriginType = KOOriginType.PREVIOUS_GROUP_STAGE;
 		this.origin = origin;
@@ -18,6 +20,12 @@ public class KOOriginPreviousGroupStage extends KOOrigin {
 		this.qualification = qualification;
 		int secondChar = (int) origin.charAt(1);
 		groupXth = secondChar >= 48 && secondChar <= 57;
+		
+		if (groupXth) {
+			this.displayString = String.format("%d.-bester Gruppen-%c.", this.placeIndex, origin.charAt(1));
+		} else {
+			this.displayString = String.format("%d. Gruppe %c", this.placeIndex, origin.charAt(1));
+		}
 	}
 	
 	public String getPreviousGroupStageIndex() {
@@ -34,6 +42,10 @@ public class KOOriginPreviousGroupStage extends KOOrigin {
 
 	public boolean isGroupXth() {
 		return groupXth;
+	}
+	
+	public String toDisplay() {
+		return displayString;
 	}
 	
 	public String toString() {

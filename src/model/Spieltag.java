@@ -1266,8 +1266,8 @@ public class Spieltag extends JPanel {
 					try {
 						displayMatchInfo(matchIndex, koRound.getMatch(currentMatchday, matchIndex), koRound.getResult(currentMatchday, matchIndex), matchIndex);
 					} catch (NullPointerException npe) {
-						String homeTeam = Optional.ofNullable(match.getHomeTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.home() - 1).getOrigin());
-						String awayTeam = Optional.ofNullable(match.getAwayTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.away() - 1).getOrigin());
+						String homeTeam = Optional.ofNullable(match.getHomeTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.home() - 1).toDisplay());
+						String awayTeam = Optional.ofNullable(match.getAwayTeam()).map(Mannschaft::getName).orElse(koRound.getTeamsOrigin(match.away() - 1).toDisplay());
 						displayTeams(matchIndex, homeTeam, awayTeam);
 					}
 				}

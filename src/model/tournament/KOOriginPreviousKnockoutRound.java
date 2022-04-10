@@ -12,6 +12,8 @@ public class KOOriginPreviousKnockoutRound extends KOOrigin {
 	
 	private boolean teamIsWinner;
 	
+	private final String displayString;
+	
 	public KOOriginPreviousKnockoutRound(String origin, boolean qualification) {
 		this.koOriginType = KOOriginType.PREVIOUS_KNOCKOUT_ROUND;
 		this.origin = origin;
@@ -25,6 +27,8 @@ public class KOOriginPreviousKnockoutRound extends KOOrigin {
 		this.previousKnockoutRound = origin.substring(0, 2);
 		this.matchIndex = Integer.parseInt(origin.substring(2));
 		this.qualification = qualification;
+		
+		this.displayString = String.format("%s %s %d", this.teamIsWinner ? "Sieger" : "Verlierer", this.previousKnockoutRound, this.matchIndex);
 	}
 	
 	public String getPreviousKnockoutRound() {
@@ -41,6 +45,10 @@ public class KOOriginPreviousKnockoutRound extends KOOrigin {
 	
 	public boolean teamIsWinner() {
 		return teamIsWinner;
+	}
+	
+	public String toDisplay() {
+		return displayString;
 	}
 	
 	public String toString() {
