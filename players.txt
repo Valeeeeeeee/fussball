@@ -1953,6 +1953,7 @@
 30835710;Fabian;Lustenberger;null;19880502;Schweiz;
 30836230;Baris;Atik;null;19950109;Deutschland;
 30836504;Jonny;Evans;null;19880102;Nordirland;
+30837369;Kevin;Paredes;null;20030507;USA, Dominikanische Republik;
 30838076;Daniel;'Heuer Fernandes';null;19921113;Portugal;
 30839548;Daniel;Opare;null;19901018;Ghana;
 30841491;Daniel;Kolár;null;19851027;Tschechien;
@@ -2360,6 +2361,7 @@
 31299463;Marvin;Mehlem;null;19970911;Deutschland;
 31300476;Martin;Amedick;null;19820906;Deutschland;
 31300970;Volkan;Sen;null;19870707;Türkei;
+31302252;Julian;Eitschberger;null;20040305;Deutschland;
 31305232;Ailton;Ferreira Silva;Ailton;19950316;Brasilien;
 31307052;Daniel;Thur;null;19980428;Deutschland;
 31307508;Florin;Andone;null;19930411;Rumänien;
