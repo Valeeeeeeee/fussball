@@ -75,8 +75,8 @@ public class Karte {
 		return bookedPlayer;
 	}
 
-	public boolean isBookedPlayer(int squadNumber) {
-		return bookedPlayer.getSquadNumber() == squadNumber;
+	public boolean isBookedPlayer(TeamAffiliation player) {
+		return bookedPlayer.equals(player);
 	}
 	
 	private void parseString(String data) {

@@ -16,8 +16,8 @@ public class Spiel {
 	private Wettbewerb competition;
 	private Mannschaft homeTeam;
 	private Mannschaft awayTeam;
-	private int[] lineupHome;
-	private int[] lineupAway;
+	private Aufstellung lineupHome;
+	private Aufstellung lineupAway;
 	
 	private Schiedsrichter referee;
 	private Ergebnis result;
@@ -106,19 +106,19 @@ public class Spiel {
 		if (awayTeam != null)	awayTeam.setResult(getMatchdayKey(), result);
 	}
 	
-	public int[] getLineupHome() {
+	public Aufstellung getLineupHome() {
 		return lineupHome;
 	}
 	
-	public void setLineupHome(int[] lineupHome) {
+	public void setLineupHome(Aufstellung lineupHome) {
 		this.lineupHome = lineupHome;
 	}
 	
-	public int[] getLineupAway() {
+	public Aufstellung getLineupAway() {
 		return lineupAway;
 	}
 	
-	public void setLineupAway(int[] lineupAway) {
+	public void setLineupAway(Aufstellung lineupAway) {
 		this.lineupAway = lineupAway;
 	}
 	
@@ -192,14 +192,6 @@ public class Spiel {
 		return referee;
 	}
 	
-	public void changeSquadNumberInLineup(boolean firstTeam, int oldSquadNumber, int newSquadNumber) {
-		int[] lineup = firstTeam ? lineupHome : lineupAway;
-		if (lineup == null)	return;
-		for (int i = 0; i < lineup.length; i++) {
-			if (lineup[i] == oldSquadNumber)	lineup[i] = newSquadNumber;
-		}
-	}
-	
 	public void setReferee(int refereeID) {
 		setReferee(refereeID == 0 ? null : competition.getReferees().get(refereeID - 1));
 	}
@@ -212,22 +204,20 @@ public class Spiel {
 	public SpielPerformance getMatchPerformance(TeamAffiliation player) {
 		if (getResult() == null)	return null;
 		boolean firstTeam = getTeam(true).equals(player.getTeam());
-		int squadNumber = player.getSquadNumber();
 		SpielPerformance matchPerformance = new SpielPerformance(player, this, firstTeam, getTeam(!firstTeam).getName(), getResult().fromPerspective(firstTeam));
-		int[] lineup = firstTeam ? lineupHome : lineupAway;
+		Aufstellung lineup = firstTeam ? lineupHome : lineupAway;
 		ArrayList<Wechsel> substitutions = firstTeam ? substitutionsHome : substitutionsAway;
 		if (lineup == null)	return null;
 		
-		for (int sqNumber : lineup) {
-			if (sqNumber == squadNumber)	matchPerformance.started();
-		}
+		if (lineup.contains(player))	matchPerformance.started();
+		
 		for (Wechsel sub : substitutions) {
-			if (sub.isPlayerOff(squadNumber))		matchPerformance.subbedOff(sub.getMinute());
-			else if (sub.isPlayerOn(squadNumber))	matchPerformance.subbedOn(sub.getMinute());
+			if (sub.isPlayerOff(player))		matchPerformance.subbedOff(sub.getMinute());
+			else if (sub.isPlayerOn(player))	matchPerformance.subbedOn(sub.getMinute());
 		}
 		for (Karte booking : bookings) {
 			if (booking.isFirstTeam() != firstTeam)	continue;
-			if (booking.isBookedPlayer(squadNumber))	matchPerformance.booked(booking);
+			if (booking.isBookedPlayer(player))	matchPerformance.booked(booking);
 		}
 		for (Tor goal : goals) {
 			matchPerformance.goal(goal);
@@ -242,10 +232,8 @@ public class Spiel {
 		if (matchDataSplit.length > 1) {
 			parseMatchData(matchDataSplit[1]);
 			if (matchDataSplit.length == 4) {
-				lineupHome = parseLineup(matchDataSplit[2], true);
-				lineupAway = parseLineup(matchDataSplit[3], false);
-				lineupHome = homeTeam.order(lineupHome, kickOffTime.getDate());
-				lineupAway = awayTeam.order(lineupAway, kickOffTime.getDate());
+				lineupHome = parseLineup(matchDataSplit[2], true, homeTeam);
+				lineupAway = parseLineup(matchDataSplit[3], false, awayTeam);
 			}
 			
 			homeTeam.setResult(competition.getKey(matchday), getResult());
@@ -297,14 +285,11 @@ public class Spiel {
 		return false;
 	}
 	
-	private String lineupToString(int[] lineup, ArrayList<Wechsel> substitutions) {
+	private String lineupToString(Aufstellung lineup, ArrayList<Wechsel> substitutions) {
 		String lineupString = "";
 		
 		if (lineup != null) {
-			for (int i = 0; i < lineup.length; i++) {
-				lineupString += lineup[i];
-				if (i < lineup.length - 1)	lineupString += ",";
-			}
+			lineupString += lineup.toString();
 			for (Wechsel substitution : substitutions) {
 				lineupString += "#" + substitution.toString();
 			}
@@ -347,16 +332,13 @@ public class Spiel {
 		}
 	}
 	
-	private int[] parseLineup(String lineupString, boolean firstTeam) {
-		int[] lineup = null;
+	private Aufstellung parseLineup(String lineupString, boolean firstTeam, Mannschaft team) {
+		Aufstellung lineup = null;
 		
 		if (!lineupString.equals("{null}")) {
 			String[] hashSplit = lineupString.replace("{", "").replace("}", "").split("#");
-			String[] lineupSplit = hashSplit[0].split(",");
-			lineup = new int[lineupSplit.length];
-			for (int i = 0; i < lineupSplit.length; i++) {
-				lineup[i] = Integer.parseInt(lineupSplit[i]);
-			}
+			lineup = new Aufstellung(team, this, hashSplit[0]);
+			
 			for (int i = 1; i < hashSplit.length; i++) {
 				Wechsel substitution = new Wechsel(this, firstTeam, hashSplit[i]);
 				addSubstitution(substitution);
@@ -366,7 +348,7 @@ public class Spiel {
 		return checkLineup(lineup);
 	}
 	
-	private int[] checkLineup(int[] lineup) {
+	private Aufstellung checkLineup(Aufstellung lineup) {
 		boolean isValid = true;
 		// TODO check validity
 		return isValid ? lineup : null;

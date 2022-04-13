@@ -49,14 +49,14 @@ public class Wechsel {
 		return playerOn;
 	}
 
-	public boolean isPlayerOff(int squadNumber) {
-		return playerOff.getSquadNumber() == squadNumber;
+	public boolean isPlayerOff(TeamAffiliation player) {
+		return playerOff.equals(player);
 	}
-
-	public boolean isPlayerOn(int squadNumber) {
-		return playerOn.getSquadNumber() == squadNumber;
+	
+	public boolean isPlayerOn(TeamAffiliation player) {
+		return playerOn.equals(player);
 	}
-
+	
 	private void parseString(String data) {
 		minute = Minute.parse(data.substring(0, data.indexOf(":")));
 		int sqOff = Integer.parseInt(data.substring(data.indexOf(":") + 1, data.indexOf(">>")));

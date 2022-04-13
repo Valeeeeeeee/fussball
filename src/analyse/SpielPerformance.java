@@ -4,7 +4,6 @@ import model.Karte;
 import model.Minute;
 import model.Position;
 import model.Spiel;
-import model.Spieler;
 import model.TeamAffiliation;
 import model.Tor;
 
@@ -131,7 +130,6 @@ public class SpielPerformance {
 		return numberOfOwnGoals;
 	}
 	
-	
 	public boolean hasBeenBooked() {
 		return booked;
 	}
@@ -210,14 +208,14 @@ public class SpielPerformance {
 			if (onPitch(goal.getMinute())) {
 				numberOfScoredGoalsWhileOnPitch++;
 				if (goal.isOwnGoal())	return;
-				if (goal.isScorer(player.getSquadNumber()))	goalScored();
-				if (goal.isAssister(player.getSquadNumber()))	goalAssisted();
+				if (goal.isScorer(player))		goalScored();
+				if (goal.isAssister(player))	goalAssisted();
 			}
 		} else {
 			numberOfConcededGoalsFullMatch++;
 			if (onPitch(goal.getMinute())) {
 				numberOfConcededGoalsWhileOnPitch++;
-				if (goal.isOwnGoal() && goal.isScorer(player.getSquadNumber()))	numberOfOwnGoals++;
+				if (goal.isOwnGoal() && goal.isScorer(player))	numberOfOwnGoals++;
 			}
 		}
 	}

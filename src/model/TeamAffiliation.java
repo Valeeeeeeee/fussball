@@ -44,7 +44,6 @@ public class TeamAffiliation {
 	}
 	
 	public void changeValues(Dauer duration, int squadNumber, Position position) {
-		team.changeSquadNumber(this, squadNumber);
 		this.position = position;
 		this.squadNumber = squadNumber;
 		this.duration = duration;

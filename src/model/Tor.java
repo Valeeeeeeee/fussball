@@ -91,14 +91,14 @@ public class Tor {
 		return assister;
 	}
 
-	public boolean isScorer(int squadNumber) {
+	public boolean isScorer(TeamAffiliation player) {
 		if (scorer == null)	return false;
-		return scorer.getSquadNumber() == squadNumber;
+		return scorer.equals(player);
 	}
 
-	public boolean isAssister(int squadNumber) {
+	public boolean isAssister(TeamAffiliation player) {
 		if (assister == null)	return false;
-		return assister.getSquadNumber() == squadNumber;
+		return assister.equals(player);
 	}
 	
 	private void parseString(String data) {

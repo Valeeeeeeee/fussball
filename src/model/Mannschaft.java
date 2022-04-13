@@ -199,16 +199,6 @@ public class Mannschaft {
 		distinguishNames();
 	}
 	
-	public void changeSquadNumber(TeamAffiliation affiliation, int newSquadNumber) {
-		if (!affiliation.getTeam().equals(this))	return;
-		Iterator<String> iter = matches.keySet().iterator();
-		while (iter.hasNext()) {
-			Spiel match = matches.get(iter.next());
-			if (match == null || !affiliation.getDuration().includes(match.getKickOffTime().getDate())) continue;
-			match.changeSquadNumberInLineup(match.getHomeTeam() == this, affiliation.getSquadNumber(), newSquadNumber);
-		}
-	}
-	
 	public Datum getTodayWithinSeasonBounds() {
 		Datum today = new Datum();
 		if (today.isBefore(competition.getStartDate()))	return competition.getStartDate();
@@ -636,22 +626,21 @@ public class Mannschaft {
 		return null;
 	}
 
-	public int[] order(int[] unordered, Datum date) {
+	public TeamAffiliation[] getLineup(int[] unordered, Datum date) {
 		ArrayList<TeamAffiliation> eligiblePlayers = getEligiblePlayers(date, false);
 		
 		int counter = 0;
-		int[] ordered = new int[11];
+		TeamAffiliation[] ordered = new TeamAffiliation[Aufstellung.numberOfPlayersInLineUp];
 		boolean[] sqFound = new boolean[11];
 		for (TeamAffiliation affiliation : eligiblePlayers) {
 			for (int i = 0; i < unordered.length; i++) {
 				if (unordered[i] == affiliation.getSquadNumber()) {
-					Spieler player = affiliation.getPlayer();
 					if (sqFound[i]) {
-						message("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
-						log("double alert: " + unordered[i] + ", 2. Treffer: " + player.getFirstName() + " " + player.getLastName());
+						Spieler player = affiliation.getPlayer();
+						message("Mehrere Spieler mit derselben Rückennummer " + unordered[i] + ", u.a.: " + player.getFullNameShort());
 					}
 					if (counter == 11)	message("Mehr als 11 Spieler gefunden: (s.o.)");
-					ordered[counter++] = unordered[i];
+					ordered[counter++] = affiliation;
 					sqFound[i] = true;
 				}
 			}
