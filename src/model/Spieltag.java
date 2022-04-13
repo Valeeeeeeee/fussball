@@ -805,38 +805,50 @@ public class Spieltag extends JPanel {
 		for (JTextField tf : jTFsGoals)	tf.setEditable(false);
 	}
 	
-	private void setTFsEditableFromRepresentation() {
-		String representation;
-		if (belongsToALeague)		representation = lSeason.getMatchesSetRepresentation(currentMatchday);
-		else if (belongsToGroup)	representation = group.getMatchesSetRepresentation(currentMatchday);
-		else if (belongsToKORound)	representation = koRound.getMatchesSetRepresentation(currentMatchday);
-		else {
-			String groupOrder = "";
-			for (Gruppe group : allGroups) {
-				groupOrder += group.getMatchesSetRepresentation(currentMatchday);
-			}
-			char[] groupsChars = groupOrder.toCharArray();
-			representation = "";
+	private void setTFsEditable() {
+		int indexOfFocusedMatch = UNDEFINED;
+		if (isOverview) {
+			int groupID = 0, matchIndex = 0;
 			for (int i = 0; i < numberOfMatches; i++) {
-				representation += groupsChars[oldOrder[i]];
+				Gruppe group = allGroups[groupID];
+				boolean editable = group.isMatchSet(currentMatchday, matchIndex);
+				if (editable) {
+					if (!group.isResultSet(currentMatchday, matchIndex)) {
+						if (indexOfFocusedMatch == UNDEFINED || newOrder[i] < indexOfFocusedMatch)	indexOfFocusedMatch = newOrder[i];
+					} else if (group.getResult(currentMatchday, matchIndex).isCancelled()) {
+						editable = false;
+					}
+				}
+				jTFsGoals[newOrder[i]].setEditable(editable);
+				jTFsGoals[newOrder[i]].setFocusable(editable);
+				jTFsGoals[newOrder[i] + numberOfMatches].setEditable(editable);
+				jTFsGoals[newOrder[i] + numberOfMatches].setFocusable(editable);
+				
+				matchIndex++;
+				if (matchIndex == numbersOfMatches[groupID]) {
+					matchIndex = 0;
+					groupID++;
+				}
+			}
+		} else {
+			for (int match = 0; match < numberOfMatches; match++) {
+				boolean editable = competition.isMatchSet(currentMatchday, match);
+				if (editable) {
+					if (!competition.isResultSet(currentMatchday, match)) {
+						if (indexOfFocusedMatch == UNDEFINED)	indexOfFocusedMatch = match;
+					} else if (competition.getResult(currentMatchday, match).isCancelled()) {
+						editable = false;
+					}
+				}
+				jTFsGoals[match].setEditable(editable);
+				jTFsGoals[match].setFocusable(editable);
+				jTFsGoals[match + numberOfMatches].setEditable(editable);
+				jTFsGoals[match + numberOfMatches].setFocusable(editable);
 			}
 		}
-		
-		for (int match = 0; match < numberOfMatches; match++) {
-			if (representation.charAt(match) == 't') {
-				jTFsGoals[match].setEditable(true);
-				jTFsGoals[match + numberOfMatches].setEditable(true);
-			} else if (representation.charAt(match) == 'f') {
-				jTFsGoals[match].setEditable(false);
-				jTFsGoals[match + numberOfMatches].setEditable(false);
-			}
-		}
-		for (int match = 0; match < numberOfMatches; match++) {
-			if (jTFsGoals[match].isEditable()) {
-				jTFsGoals[match].selectAll();
-				break;
-			}
-		}
+		indexOfFocusedMatch = Math.max(0, indexOfFocusedMatch);
+		jTFsGoals[indexOfFocusedMatch].requestFocus();
+		jTFsGoals[indexOfFocusedMatch].selectAll();
 	}
 	
 	private void fillDatesGroupOrder() {
@@ -1025,7 +1037,7 @@ public class Spieltag extends JPanel {
 			
 			setLabelsOpaque();
 			setButtonsEnabled(true);
-			setTFsEditableFromRepresentation();
+			setTFsEditable();
 			jBtnDone.setVisible(false);
 			jSPTeamsSelection.setVisible(false);
 			
@@ -1192,7 +1204,7 @@ public class Spieltag extends JPanel {
 			fillDates();
 			
 			fillTeamsLabelsAndGoalsTFs();
-			setTFsEditableFromRepresentation();
+			setTFsEditable();
 			
 			jBtnEnterRueckrunde.setVisible(belongsToALeague && currentMatchday * 2 == numberOfMatchdays);
 			jBtnSecondLeg.setVisible(belongsToKORound && currentMatchday == 1);
