@@ -1,14 +1,14 @@
-FK Trakai
-Gzira United
-FC Birkirkara
-Bala Town
-Cefn Druids AFC
-KÍ Klaksvík
-B36 Tórshavn
-Europa FC
-St Joseph's FC
-UE Engordany
-UE Sant Julià
-SS Folgore/Falciano
-SP Tre Fiori
-FC Prishtina
+PQ:FK Trakai
+PQ:Gzira United
+PQ:FC Birkirkara
+PQ:Bala Town
+PQ:Cefn Druids AFC
+PQ:KÍ Klaksvík
+PQ:B36 Tórshavn
+PQ:Europa FC
+PQ:St Joseph's FC
+PQ:UE Engordany
+PQ:UE Sant Julià
+PQ:SS Folgore/Falciano
+PQ:SP Tre Fiori
+PQ:FC Prishtina

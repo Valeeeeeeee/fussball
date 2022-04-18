@@ -1,102 +1,102 @@
-West Ham United
-Go Ahead Eagles Deventer
-FC Botosani
-Beitar Jerusalem
-Apollon Limassol
-Omonia Nikosia
-Bröndby IF
-Randers FC
-Hajduk Split
-Lokomotiva Zagreb
-Jagiellonia Bialystok
-Slask Wroclaw
-Schachzjor Salihorsk
-Torpedo Schodsina
-FC Aberdeen
-FC St. Johnstone
-AIK Solna
-IF Elfsborg
-Beroe Stara Sagora
-Litex Lovech
-Rosenborg Trondheim
-Odds Ballklubb
-Strömsgodset Toppfotball
-Roter Stern Belgrad
-Vojvodina Novi Sad
-FK Cukaricki
-MTK Budapest
-VSC Debrecen
-Ferencváros Budapest
-NK Celje
-NK Domzale
-FC Koper
-MSK Zilina
-Slovan Bratislava
-Spartak Trnava
-Dacia Chisinau
-Saxan Ceadîr-Lunga
-Sheriff Tiraspol
-Inter Baku
-FK Qäbälä
-Neftci Baku
-Dinamo Batumi
-Spartaki Zchinwali
-Dinamo Tiflis
-FK Aqtöbe
-Ordabassy Schymkent
-Qairat Almaty
-Zeljeznicar Sarajevo
-Zrinjski Mostar
-Olimpic Sarajevo
-Seinäjoen Jalkapallokerho
-FC Lahti
-Vaasa PS
-FH Hafnarfjördur
-Víkingur Reykjavík
-KR Reykjavík
-Skonto Riga
-Spartaks Jurmala
-FK Jelgava
-Sutjeska Niksic
-Buducnost Podgorica
-Mladost Podgorica
-FK Kukesi
-Partizani Tirana
-KF Laci
-Kruoja Pakruojis
-Atlantas Klaipeda
-FK Trakai
-KF Shkendija
-Renova Dzepciste
-Rabotnicki Skopje
-Cork City
-Shamrock Rovers
-St. Patrick's Athletic
-University College Dublin
-F91 Düdelingen
-Progrès Niederkorn
-FC Differdingen
-FC Valletta
-FC Balzan
-FC Birkirkara
-FC Vaduz
-Linfield FC
-Glenavon FC
-Glentoran FC
-Bala Town
-Airbus UK
-Newtown AFC
-Ulisses Erewan
-Schirak Gjumri
-Alaschkert Martuni
-Kalev Sillamäe
-Flora Tallinn
-Nömme Kalju
-HB Tórshavn
-NSÍ Runavík
-Víkingur Göta
-AC Juvenes/Dogana
-SP La Fiorita
-FC Lusitanos
-UE Sant Julià
-College Europa
+PQ:West Ham United
+PQ:Go Ahead Eagles Deventer
+PQ:FC Botosani
+PQ:Beitar Jerusalem
+PQ:Apollon Limassol
+PQ:Omonia Nikosia
+PQ:Bröndby IF
+PQ:Randers FC
+PQ:Hajduk Split
+PQ:Lokomotiva Zagreb
+PQ:Jagiellonia Bialystok
+PQ:Slask Wroclaw
+PQ:Schachzjor Salihorsk
+PQ:Torpedo Schodsina
+PQ:FC Aberdeen
+PQ:FC St. Johnstone
+PQ:AIK Solna
+PQ:IF Elfsborg
+PQ:Beroe Stara Sagora
+PQ:Litex Lovech
+PQ:Rosenborg Trondheim
+PQ:Odds Ballklubb
+PQ:Strömsgodset Toppfotball
+PQ:Roter Stern Belgrad
+PQ:Vojvodina Novi Sad
+PQ:FK Cukaricki
+PQ:MTK Budapest
+PQ:VSC Debrecen
+PQ:Ferencváros Budapest
+PQ:NK Celje
+PQ:NK Domzale
+PQ:FC Koper
+PQ:MSK Zilina
+PQ:Slovan Bratislava
+PQ:Spartak Trnava
+PQ:Dacia Chisinau
+PQ:Saxan Ceadîr-Lunga
+PQ:Sheriff Tiraspol
+PQ:Inter Baku
+PQ:FK Qäbälä
+PQ:Neftci Baku
+PQ:Dinamo Batumi
+PQ:Spartaki Zchinwali
+PQ:Dinamo Tiflis
+PQ:FK Aqtöbe
+PQ:Ordabassy Schymkent
+PQ:Qairat Almaty
+PQ:Zeljeznicar Sarajevo
+PQ:Zrinjski Mostar
+PQ:Olimpic Sarajevo
+PQ:Seinäjoen Jalkapallokerho
+PQ:FC Lahti
+PQ:Vaasa PS
+PQ:FH Hafnarfjördur
+PQ:Víkingur Reykjavík
+PQ:KR Reykjavík
+PQ:Skonto Riga
+PQ:Spartaks Jurmala
+PQ:FK Jelgava
+PQ:Sutjeska Niksic
+PQ:Buducnost Podgorica
+PQ:Mladost Podgorica
+PQ:FK Kukesi
+PQ:Partizani Tirana
+PQ:KF Laci
+PQ:Kruoja Pakruojis
+PQ:Atlantas Klaipeda
+PQ:FK Trakai
+PQ:KF Shkendija
+PQ:Renova Dzepciste
+PQ:Rabotnicki Skopje
+PQ:Cork City
+PQ:Shamrock Rovers
+PQ:St. Patrick's Athletic
+PQ:University College Dublin
+PQ:F91 Düdelingen
+PQ:Progrès Niederkorn
+PQ:FC Differdingen
+PQ:FC Valletta
+PQ:FC Balzan
+PQ:FC Birkirkara
+PQ:FC Vaduz
+PQ:Linfield FC
+PQ:Glenavon FC
+PQ:Glentoran FC
+PQ:Bala Town
+PQ:Airbus UK
+PQ:Newtown AFC
+PQ:Ulisses Erewan
+PQ:Schirak Gjumri
+PQ:Alaschkert Martuni
+PQ:Kalev Sillamäe
+PQ:Flora Tallinn
+PQ:Nömme Kalju
+PQ:HB Tórshavn
+PQ:NSÍ Runavík
+PQ:Víkingur Göta
+PQ:AC Juvenes/Dogana
+PQ:SP La Fiorita
+PQ:FC Lusitanos
+PQ:UE Sant Julià
+PQ:College Europa

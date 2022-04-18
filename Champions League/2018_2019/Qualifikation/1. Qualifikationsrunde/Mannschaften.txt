@@ -1,32 +1,32 @@
-Legia Warschau
-Malmö FF
-Hapoel Be'er Scheva
-Celtic Glasgow
-APOEL Nikosia
-Rosenborg Trondheim
-Qarabag Agdam
-Ludogorez Rasgrad
-Roter Stern Belgrad
-FK Astana
-Olimpija Ljubljana
-Spartak Trnava
-Sheriff Tiraspol
-Videoton Székesfehérvár
-Valur Reykjavík
-HJK Helsinki
-FK Kukësi
-Cork City
-Zrinjski Mostar
-Torpedo Kutaissi
-Spartaks Jurmala
-KF Shkëndija
-Sutjeska Niksic
-Flora Tallinn
-Alashkert Martuni
-F91 Düdelingen
-Crusaders FC
-Suduva Marijampole
-FC Valletta
-The New Saints FC
-Víkingur Gøta
-V201W
+PQ:Legia Warschau
+PQ:Malmö FF
+PQ:Hapoel Be'er Scheva
+PQ:Celtic Glasgow
+PQ:APOEL Nikosia
+PQ:Rosenborg Trondheim
+PQ:Qarabag Agdam
+PQ:Ludogorez Rasgrad
+PQ:Roter Stern Belgrad
+PQ:FK Astana
+PQ:Olimpija Ljubljana
+PQ:Spartak Trnava
+PQ:Sheriff Tiraspol
+PQ:Videoton Székesfehérvár
+PQ:Valur Reykjavík
+PQ:HJK Helsinki
+PQ:FK Kukësi
+PQ:Cork City
+PQ:Zrinjski Mostar
+PQ:Torpedo Kutaissi
+PQ:Spartaks Jurmala
+PQ:KF Shkëndija
+PQ:Sutjeska Niksic
+PQ:Flora Tallinn
+PQ:Alashkert Martuni
+PQ:F91 Düdelingen
+PQ:Crusaders FC
+PQ:Suduva Marijampole
+PQ:FC Valletta
+PQ:The New Saints FC
+PQ:Víkingur Gøta
+PK:V201W

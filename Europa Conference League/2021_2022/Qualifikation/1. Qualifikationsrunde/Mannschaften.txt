@@ -1,66 +1,66 @@
-Slask Wroclaw
-Spartak Trnava
-MSK Zilina
-NK Maribor
-NK Domzale
-Puskás Akadémia FC
-FC Székesfehérvár
-Swift Hesperingen
-Union Luxemburg
-Suduva Marijampole
-FK Kauno Zalgiris
-Ararat Erewan
-Noah Erewan
-Urartu Erewan
-FK Liepaja
-FK Rigas FS
-Valmieras FK
-Vllaznia Shkodra
-Partizani Tirana
-KF Laçi
-Sileks Kratovo
-FK Shkupi
-FC Struga
-FK Sarajevo
-Velez Mostar
-Sikori Brijeg
-Sfântul Gheorghe Suruceni
-Petrocub Hîncesti
-FC Milsami
-Dundalk FC
-Bohemians Dublin
-Sligo Rovers
-Inter Turku
-Kuopion PS
-Honka Espoo
-Gagra Tiflis
-Dinamo Batumi
-Dila Gori
-Gzira United
-FC Birkirkara
-FC Mosta
-FH Hafnarfjörður
-UMF Stjarnan
-Breiðablik Kópavogur
-The New Saints FC
-Bala Town
-Newtown AFC
-Coleraine FC
-Glentoran FC
-Larne FC
-Europa FC
-St Joseph's FC
-Mons Calpe SC
-Sutjeska Niksic
-Decic Tuzi
-FK Podgorica
-Levadia Tallinn
-Paide Linnameeskond
-KF Llapi
-KF Drita
-NSÍ Runavík
-KÍ Klaksvík
-UE Sant Julià
-FC Santa Coloma
-SP La Fiorita
-SP Tre Penne
+PQ:Slask Wroclaw
+PQ:Spartak Trnava
+PQ:MSK Zilina
+PQ:NK Maribor
+PQ:NK Domzale
+PQ:Puskás Akadémia FC
+PQ:FC Székesfehérvár
+PQ:Swift Hesperingen
+PQ:Union Luxemburg
+PQ:Suduva Marijampole
+PQ:FK Kauno Zalgiris
+PQ:Ararat Erewan
+PQ:Noah Erewan
+PQ:Urartu Erewan
+PQ:FK Liepaja
+PQ:FK Rigas FS
+PQ:Valmieras FK
+PQ:Vllaznia Shkodra
+PQ:Partizani Tirana
+PQ:KF Laçi
+PQ:Sileks Kratovo
+PQ:FK Shkupi
+PQ:FC Struga
+PQ:FK Sarajevo
+PQ:Velez Mostar
+PQ:Sikori Brijeg
+PQ:Sfântul Gheorghe Suruceni
+PQ:Petrocub Hîncesti
+PQ:FC Milsami
+PQ:Dundalk FC
+PQ:Bohemians Dublin
+PQ:Sligo Rovers
+PQ:Inter Turku
+PQ:Kuopion PS
+PQ:Honka Espoo
+PQ:Gagra Tiflis
+PQ:Dinamo Batumi
+PQ:Dila Gori
+PQ:Gzira United
+PQ:FC Birkirkara
+PQ:FC Mosta
+PQ:FH Hafnarfjörður
+PQ:UMF Stjarnan
+PQ:Breiðablik Kópavogur
+PQ:The New Saints FC
+PQ:Bala Town
+PQ:Newtown AFC
+PQ:Coleraine FC
+PQ:Glentoran FC
+PQ:Larne FC
+PQ:Europa FC
+PQ:St Joseph's FC
+PQ:Mons Calpe SC
+PQ:Sutjeska Niksic
+PQ:Decic Tuzi
+PQ:FK Podgorica
+PQ:Levadia Tallinn
+PQ:Paide Linnameeskond
+PQ:KF Llapi
+PQ:KF Drita
+PQ:NSÍ Runavík
+PQ:KÍ Klaksvík
+PQ:UE Sant Julià
+PQ:FC Santa Coloma
+PQ:SP La Fiorita
+PQ:SP Tre Penne

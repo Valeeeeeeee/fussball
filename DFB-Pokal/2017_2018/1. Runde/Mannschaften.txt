@@ -1,64 +1,64 @@
-Bayern München
-RasenBallsport Leipzig
-Borussia Dortmund
-TSG 1899 Hoffenheim
-1. FC Köln
-Hertha BSC
-SC Freiburg
-Werder Bremen
-Borussia Mönchengladbach
-FC Schalke 04
-Eintracht Frankfurt
-Bayer 04 Leverkusen
-FC Augsburg
-Hamburger SV
-1. FSV Mainz 05
-VfL Wolfsburg
-FC Ingolstadt 04
-SV Darmstadt 98
-VfB Stuttgart
-Hannover 96
-Eintracht Braunschweig
-1. FC Union Berlin
-Dynamo Dresden
-1. FC Heidenheim
-FC St. Pauli
-SpVgg Greuther Fürth
-VfL Bochum
-SV Sandhausen
-Fortuna Düsseldorf
-1. FC Nürnberg
-1. FC Kaiserslautern
-Erzgebirge Aue
-Arminia Bielefeld
-1860 München
-Würzburger Kickers
-Karlsruher SC
-MSV Duisburg
-Holstein Kiel
-SSV Jahn Regensburg
-1. FC Magdeburg
-FC Nöttingen
-SpVgg Unterhaching
-1. FC Schweinfurt 05
-BFC Dynamo
-Energie Cottbus
-Leher TS
-Eintracht Norderstedt
-SV Wehen Wiesbaden
-Hansa Rostock
-Bonner SC
-Rot-Weiss Essen
-VfL Osnabrück
-Lüneburger SK Hansa
-TuS Koblenz
-1. FC Saarbrücken
-Chemnitzer FC
-VfB Germania Halberstadt
-SV Eichede
-1. FC Rielasingen-Arlen
-SV Morlautern
-Rot-Weiß Erfurt
-SC Paderborn 07
-TuS Erndtebrück
-Sportfreunde Dorfmerkingen
+PQ:Bayern München
+PQ:RasenBallsport Leipzig
+PQ:Borussia Dortmund
+PQ:TSG 1899 Hoffenheim
+PQ:1. FC Köln
+PQ:Hertha BSC
+PQ:SC Freiburg
+PQ:Werder Bremen
+PQ:Borussia Mönchengladbach
+PQ:FC Schalke 04
+PQ:Eintracht Frankfurt
+PQ:Bayer 04 Leverkusen
+PQ:FC Augsburg
+PQ:Hamburger SV
+PQ:1. FSV Mainz 05
+PQ:VfL Wolfsburg
+PQ:FC Ingolstadt 04
+PQ:SV Darmstadt 98
+PQ:VfB Stuttgart
+PQ:Hannover 96
+PQ:Eintracht Braunschweig
+PQ:1. FC Union Berlin
+PQ:Dynamo Dresden
+PQ:1. FC Heidenheim
+PQ:FC St. Pauli
+PQ:SpVgg Greuther Fürth
+PQ:VfL Bochum
+PQ:SV Sandhausen
+PQ:Fortuna Düsseldorf
+PQ:1. FC Nürnberg
+PQ:1. FC Kaiserslautern
+PQ:Erzgebirge Aue
+PQ:Arminia Bielefeld
+PQ:1860 München
+PQ:Würzburger Kickers
+PQ:Karlsruher SC
+PQ:MSV Duisburg
+PQ:Holstein Kiel
+PQ:SSV Jahn Regensburg
+PQ:1. FC Magdeburg
+PQ:FC Nöttingen
+PQ:SpVgg Unterhaching
+PQ:1. FC Schweinfurt 05
+PQ:BFC Dynamo
+PQ:Energie Cottbus
+PQ:Leher TS
+PQ:Eintracht Norderstedt
+PQ:SV Wehen Wiesbaden
+PQ:Hansa Rostock
+PQ:Bonner SC
+PQ:Rot-Weiss Essen
+PQ:VfL Osnabrück
+PQ:Lüneburger SK Hansa
+PQ:TuS Koblenz
+PQ:1. FC Saarbrücken
+PQ:Chemnitzer FC
+PQ:VfB Germania Halberstadt
+PQ:SV Eichede
+PQ:1. FC Rielasingen-Arlen
+PQ:SV Morlautern
+PQ:Rot-Weiß Erfurt
+PQ:SC Paderborn 07
+PQ:TuS Erndtebrück
+PQ:Sportfreunde Dorfmerkingen

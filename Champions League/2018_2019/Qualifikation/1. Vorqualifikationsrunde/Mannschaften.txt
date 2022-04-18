@@ -1,4 +1,4 @@
-Lincoln Red Imps FC
-FC Santa Coloma
-SP La Fiorita
-KF Drita
+PQ:Lincoln Red Imps FC
+PQ:FC Santa Coloma
+PQ:SP La Fiorita
+PQ:KF Drita

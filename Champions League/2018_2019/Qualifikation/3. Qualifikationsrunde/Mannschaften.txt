@@ -1,20 +1,20 @@
-AEK Athen
-FC Salzburg
-Benfica Lissabon
-Dynamo Kiew
-Standard Lüttich
-Fenerbahce Istanbul
-Slavia Prag
-Spartak Moskau
-Q201W
-Q202W
-Q203W
-Q204W
-Q205W
-Q206W
-Q207W
-Q208W
-Q209W
-Q210W
-Q211W
-Q212W
+PQ:AEK Athen
+PQ:FC Salzburg
+PQ:Benfica Lissabon
+PQ:Dynamo Kiew
+PQ:Standard Lüttich
+PQ:Fenerbahce Istanbul
+PQ:Slavia Prag
+PQ:Spartak Moskau
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W

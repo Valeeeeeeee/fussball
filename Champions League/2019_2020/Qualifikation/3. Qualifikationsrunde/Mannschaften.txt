@@ -1,20 +1,20 @@
-Ajax Amsterdam
-PAOK Thessaloniki
-FK Krasnodar
-FC Porto
-Dynamo Kiew
-FC Brügge
-Istanbul Basaksehir
-Linzer ASK
-Q201W
-Q202W
-Q203W
-Q204W
-Q205W
-Q206W
-Q207W
-Q208W
-Q209W
-Q210W
-Q211W
-Q212W
+PQ:Ajax Amsterdam
+PQ:PAOK Thessaloniki
+PQ:FK Krasnodar
+PQ:FC Porto
+PQ:Dynamo Kiew
+PQ:FC Brügge
+PQ:Istanbul Basaksehir
+PQ:Linzer ASK
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W

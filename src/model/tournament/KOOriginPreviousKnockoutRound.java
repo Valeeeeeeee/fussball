@@ -52,6 +52,6 @@ public class KOOriginPreviousKnockoutRound extends KOOrigin {
 	}
 	
 	public String toString() {
-		return String.format("%s%s%s", previousKnockoutRound, twoDigit(matchIndex), teamIsWinner ? "W" : "L");
+		return String.format("%s%s%s%s", koOriginType.getPrefix(), previousKnockoutRound, twoDigit(matchIndex), teamIsWinner ? "W" : "L");
 	}
 }

@@ -1,14 +1,14 @@
-Progrès Niederkorn
-Ballymena United
-Cliftonville FC
-Barry Town United
-Cardiff Metropolitan
-NSÍ Runavík
-KÍ Klaksvík
-Europa FC
-St Joseph's FC
-UE Engordany
-UE Sant Julià
-SP Tre Fiori
-SP La Fiorita
-FC Prishtina
+PQ:Progrès Niederkorn
+PQ:Ballymena United
+PQ:Cliftonville FC
+PQ:Barry Town United
+PQ:Cardiff Metropolitan
+PQ:NSÍ Runavík
+PQ:KÍ Klaksvík
+PQ:Europa FC
+PQ:St Joseph's FC
+PQ:UE Engordany
+PQ:UE Sant Julià
+PQ:SP Tre Fiori
+PQ:SP La Fiorita
+PQ:FC Prishtina

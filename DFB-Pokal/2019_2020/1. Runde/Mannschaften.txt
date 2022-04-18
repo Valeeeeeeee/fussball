@@ -1,64 +1,64 @@
-Bayern München
-Borussia Dortmund
-RasenBallsport Leipzig
-Bayer 04 Leverkusen
-Borussia Mönchengladbach
-VfL Wolfsburg
-Eintracht Frankfurt
-Werder Bremen
-TSG 1899 Hoffenheim
-Fortuna Düsseldorf
-Hertha BSC
-1. FSV Mainz 05
-SC Freiburg
-FC Schalke 04
-FC Augsburg
-VfB Stuttgart
-Hannover 96
-1. FC Nürnberg
-1. FC Köln
-SC Paderborn 07
-1. FC Union Berlin
-Hamburger SV
-1. FC Heidenheim
-Holstein Kiel
-Arminia Bielefeld
-SSV Jahn Regensburg
-FC St. Pauli
-SV Darmstadt 98
-VfL Bochum
-Dynamo Dresden
-SpVgg Greuther Fürth
-Erzgebirge Aue
-SV Sandhausen
-FC Ingolstadt 04
-1. FC Magdeburg
-MSV Duisburg
-VfL Osnabrück
-Karlsruher SC
-SV Wehen Wiesbaden
-Hallescher FC
-SV Waldhof Mannheim
-Würzburger Kickers
-VfB Eichstätt
-FC Viktoria 1889 Berlin
-Energie Cottbus
-FC Oberneuland
-TuS Dassendorf
-KSV Baunatal
-Hansa Rostock
-Alemannia Aachen
-KFC Uerdingen
-SV Drochtersen/Assel
-SV Atlas Delmenhorst
-FSV Salmrohr
-1. FC Saarbrücken
-Chemnitzer FC
-VfB Germania Halberstadt
-VfB Lübeck
-FC 08 Villingen
-1. FC Kaiserslautern
-Wacker Nordhausen
-SV Rödinghausen
-SC Verl
-SSV Ulm 1846
+PQ:Bayern München
+PQ:Borussia Dortmund
+PQ:RasenBallsport Leipzig
+PQ:Bayer 04 Leverkusen
+PQ:Borussia Mönchengladbach
+PQ:VfL Wolfsburg
+PQ:Eintracht Frankfurt
+PQ:Werder Bremen
+PQ:TSG 1899 Hoffenheim
+PQ:Fortuna Düsseldorf
+PQ:Hertha BSC
+PQ:1. FSV Mainz 05
+PQ:SC Freiburg
+PQ:FC Schalke 04
+PQ:FC Augsburg
+PQ:VfB Stuttgart
+PQ:Hannover 96
+PQ:1. FC Nürnberg
+PQ:1. FC Köln
+PQ:SC Paderborn 07
+PQ:1. FC Union Berlin
+PQ:Hamburger SV
+PQ:1. FC Heidenheim
+PQ:Holstein Kiel
+PQ:Arminia Bielefeld
+PQ:SSV Jahn Regensburg
+PQ:FC St. Pauli
+PQ:SV Darmstadt 98
+PQ:VfL Bochum
+PQ:Dynamo Dresden
+PQ:SpVgg Greuther Fürth
+PQ:Erzgebirge Aue
+PQ:SV Sandhausen
+PQ:FC Ingolstadt 04
+PQ:1. FC Magdeburg
+PQ:MSV Duisburg
+PQ:VfL Osnabrück
+PQ:Karlsruher SC
+PQ:SV Wehen Wiesbaden
+PQ:Hallescher FC
+PQ:SV Waldhof Mannheim
+PQ:Würzburger Kickers
+PQ:VfB Eichstätt
+PQ:FC Viktoria 1889 Berlin
+PQ:Energie Cottbus
+PQ:FC Oberneuland
+PQ:TuS Dassendorf
+PQ:KSV Baunatal
+PQ:Hansa Rostock
+PQ:Alemannia Aachen
+PQ:KFC Uerdingen
+PQ:SV Drochtersen/Assel
+PQ:SV Atlas Delmenhorst
+PQ:FSV Salmrohr
+PQ:1. FC Saarbrücken
+PQ:Chemnitzer FC
+PQ:VfB Germania Halberstadt
+PQ:VfB Lübeck
+PQ:FC 08 Villingen
+PQ:1. FC Kaiserslautern
+PQ:Wacker Nordhausen
+PQ:SV Rödinghausen
+PQ:SC Verl
+PQ:SSV Ulm 1846

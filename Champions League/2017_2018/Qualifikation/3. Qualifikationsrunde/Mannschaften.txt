@@ -1,30 +1,30 @@
-Slavia Prag
-Olympiakos Piräus
-Viitorul Constanta
-ZSKA Moskau
-Dynamo Kiew
-FC Brügge
-Ajax Amsterdam
-Istanbul Basaksehir
-Young Boys Bern
-Viktoria Pilsen
-AEK Athen
-Steaua Bukarest
-OGC Nizza
-Q201W
-Q202W
-Q203W
-Q204W
-Q205W
-Q206W
-Q207W
-Q208W
-Q209W
-Q210W
-Q211W
-Q212W
-Q213W
-Q214W
-Q215W
-Q216W
-Q217W
+PQ:Slavia Prag
+PQ:Olympiakos Piräus
+PQ:Viitorul Constanta
+PQ:ZSKA Moskau
+PQ:Dynamo Kiew
+PQ:FC Brügge
+PQ:Ajax Amsterdam
+PQ:Istanbul Basaksehir
+PQ:Young Boys Bern
+PQ:Viktoria Pilsen
+PQ:AEK Athen
+PQ:Steaua Bukarest
+PQ:OGC Nizza
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W
+PK:Q213W
+PK:Q214W
+PK:Q215W
+PK:Q216W
+PK:Q217W

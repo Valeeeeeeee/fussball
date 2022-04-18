@@ -1,64 +1,64 @@
-Bayern München
-Borussia Dortmund
-FC Schalke 04
-Bayer 04 Leverkusen
-VfL Wolfsburg
-Borussia Mönchengladbach
-1. FSV Mainz 05
-FC Augsburg
-TSG 1899 Hoffenheim
-Hannover 96
-Hertha BSC
-Werder Bremen
-Eintracht Frankfurt
-SC Freiburg
-VfB Stuttgart
-Hamburger SV
-1. FC Nürnberg
-Eintracht Braunschweig
-1. FC Köln
-SC Paderborn 07
-SpVgg Greuther Fürth
-1. FC Kaiserslautern
-Karlsruher SC
-Fortuna Düsseldorf
-1860 München
-FC St. Pauli
-1. FC Union Berlin
-FC Ingolstadt 04
-VfR Aalen
-SV Sandhausen
-FSV Frankfurt
-Erzgebirge Aue
-VfL Bochum
-Arminia Bielefeld
-Dynamo Dresden
-FC Energie Cottbus
-1. FC Heidenheim
-RasenBallsport Leipzig
-SV Darmstadt 98
-SV Wehen Wiesbaden
-FC-Astoria Walldorf
-Würzburger Kickers
-FV Illertissen
-FC Viktoria 1889 Berlin
-FSV Optik Rathenow
-Bremer SV
-USC Paloma Hamburg
-Kickers Offenbach
-1. FC Neubrandenburg 04
-FC Viktoria Köln
-MSV Duisburg
-FT Braunschweig
-BSV Schwarz-Weiß Rehden
-Eintracht Trier
-FC 08 Homburg
-Chemnitzer FC
-1. FC Magdeburg
-Holstein Kiel
-SV Waldkirch
-SV Alemannia Waldalgesheim
-FC Carl Zeiss Jena
-Preußen Münster
-Sportfreunde Siegen
-Stuttgarter Kickers
+PQ:Bayern München
+PQ:Borussia Dortmund
+PQ:FC Schalke 04
+PQ:Bayer 04 Leverkusen
+PQ:VfL Wolfsburg
+PQ:Borussia Mönchengladbach
+PQ:1. FSV Mainz 05
+PQ:FC Augsburg
+PQ:TSG 1899 Hoffenheim
+PQ:Hannover 96
+PQ:Hertha BSC
+PQ:Werder Bremen
+PQ:Eintracht Frankfurt
+PQ:SC Freiburg
+PQ:VfB Stuttgart
+PQ:Hamburger SV
+PQ:1. FC Nürnberg
+PQ:Eintracht Braunschweig
+PQ:1. FC Köln
+PQ:SC Paderborn 07
+PQ:SpVgg Greuther Fürth
+PQ:1. FC Kaiserslautern
+PQ:Karlsruher SC
+PQ:Fortuna Düsseldorf
+PQ:1860 München
+PQ:FC St. Pauli
+PQ:1. FC Union Berlin
+PQ:FC Ingolstadt 04
+PQ:VfR Aalen
+PQ:SV Sandhausen
+PQ:FSV Frankfurt
+PQ:Erzgebirge Aue
+PQ:VfL Bochum
+PQ:Arminia Bielefeld
+PQ:Dynamo Dresden
+PQ:FC Energie Cottbus
+PQ:1. FC Heidenheim
+PQ:RasenBallsport Leipzig
+PQ:SV Darmstadt 98
+PQ:SV Wehen Wiesbaden
+PQ:FC-Astoria Walldorf
+PQ:Würzburger Kickers
+PQ:FV Illertissen
+PQ:FC Viktoria 1889 Berlin
+PQ:FSV Optik Rathenow
+PQ:Bremer SV
+PQ:USC Paloma Hamburg
+PQ:Kickers Offenbach
+PQ:1. FC Neubrandenburg 04
+PQ:FC Viktoria Köln
+PQ:MSV Duisburg
+PQ:FT Braunschweig
+PQ:BSV Schwarz-Weiß Rehden
+PQ:Eintracht Trier
+PQ:FC 08 Homburg
+PQ:Chemnitzer FC
+PQ:1. FC Magdeburg
+PQ:Holstein Kiel
+PQ:SV Waldkirch
+PQ:SV Alemannia Waldalgesheim
+PQ:FC Carl Zeiss Jena
+PQ:Preußen Münster
+PQ:Sportfreunde Siegen
+PQ:Stuttgarter Kickers

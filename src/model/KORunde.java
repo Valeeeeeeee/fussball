@@ -758,20 +758,30 @@ public class KORunde implements Wettbewerb {
 		teamsOrigins = new KOOrigin[numberOfTeams];
 		for (int i = 0; i < teamsOrigins.length; i++) {
 			String origin = teamsFromFile.get(i);
-			if (i < numberOfTeamsPrequalified) {
-				teamsOrigins[i] = new KOOriginPrequalified(origin, this, i);
-				teams[i] = new Mannschaft(i, this, origin);
-			} else if (i + numberOfTeamsFromOtherCompetition >= numberOfTeams) {
-				teamsOrigins[i] = new KOOriginOtherCompetition(origin, this, i);
-				if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
-				else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
-			} else {
-				if (belongsToALeague) {
+			KOOriginType type = KOOriginType.getTypeFromOrigin(origin); 
+			origin = origin.replace(type.getPrefix(), "");
+			
+			switch (type) {
+				case PREQUALIFIED:
+					teamsOrigins[i] = new KOOriginPrequalified(origin, this, i);
+					teams[i] = new Mannschaft(i, this, origin);
+					break;
+				case PREVIOUS_GROUP_STAGE:
+					teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
+					break;
+				case PREVIOUS_KNOCKOUT_ROUND:
+					teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ);
+					break;
+				case PREVIOUS_LEAGUE:
 					teamsOrigins[i] = new KOOriginPreviousLeague(origin);
-				} else {
-					if (origin.startsWith("G"))	teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
-					else						teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ);
-				}
+					break;
+				case OTHER_COMPETITION:
+					teamsOrigins[i] = new KOOriginOtherCompetition(origin, this, i);
+					if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+					else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+					break;
+				default:
+					break;
 			}
 		}
 		

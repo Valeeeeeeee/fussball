@@ -1,108 +1,108 @@
-CD Santa Clara
-FK Sotschi
-KAA Gent
-Worskla Poltawa
-Feyenoord Rotterdam
-Sivasspor
-Austria Wien
-Aarhus GF
-FC Kopenhagen
-Hibernian Edinburgh
-FC Aberdeen
-1. FC Slovácko
-Viktoria Pilsen
-Apollon Limassol
-AEL Limassol
-FC Basel
-Servette Genf
-Aris Thessaloniki
-AEK Athen
-Partizan Belgrad
-FK Cukaricki
-Vojvodina Novi Sad
-NK Osijek
-HNK Rijeka
-Hajduk Split
-Hammarby IF
-IF Elfsborg
-BK Häcken
-Molde FK
-Vålerenga Oslo
-Rosenborg Trondheim
-Maccabi Tel Aviv
-MS Aschdod
-Hapoel Be'er Scheva
-Tobyl Qostanai
-FK Astana
-Schachtjor Qaraghandy
-BATE Baryssau
-Torpedo Schodsina
-Dinamo Brest
-FK Keslä
-Qarabag Agdam
-Sumqayit PFK
-ZSKA Sofia
-Lokomotive Plowdiw
-Arda Kardschali
-CSU Craiova
-Steaua Bukarest
-Sepsi OSK Sfântu Gheorghe
-Raków Częstochowa
-Pogoń Stettin
-DAC Dunajská Streda
-FC Vaduz
-Olimpija Ljubljana
-Újpest Budapest
-F91 Düdelingen
-FK Panevezys
-Q101W
-Q102W
-Q103W
-Q104W
-Q105W
-Q106W
-Q107W
-Q108W
-Q109W
-Q110W
-Q111W
-Q112W
-Q113W
-Q114W
-Q115W
-Q116W
-Q117W
-Q118W
-Q119W
-Q120W
-Q121W
-Q122W
-Q123W
-Q124W
-Q125W
-Q126W
-Q127W
-Q128W
-Q129W
-Q130W
-Q131W
-Q132W
-Q133W
-CHAL2021Q101L
-CHAL2021Q102L
-CHAL2021Q103L
-CHAL2021Q104L
-CHAL2021Q105L
-CHAL2021Q106L
-CHAL2021Q107L
-CHAL2021Q108L
-CHAL2021Q109L
-CHAL2021Q111L
-CHAL2021Q112L
-CHAL2021Q113L
-CHAL2021Q114L
-CHAL2021Q115L
-CHAL2021Q116L
-CHAL2021V101L
-CHAL2021V102L
-CHAL2021V201L
+PQ:CD Santa Clara
+PQ:FK Sotschi
+PQ:KAA Gent
+PQ:Worskla Poltawa
+PQ:Feyenoord Rotterdam
+PQ:Sivasspor
+PQ:Austria Wien
+PQ:Aarhus GF
+PQ:FC Kopenhagen
+PQ:Hibernian Edinburgh
+PQ:FC Aberdeen
+PQ:1. FC Slovácko
+PQ:Viktoria Pilsen
+PQ:Apollon Limassol
+PQ:AEL Limassol
+PQ:FC Basel
+PQ:Servette Genf
+PQ:Aris Thessaloniki
+PQ:AEK Athen
+PQ:Partizan Belgrad
+PQ:FK Cukaricki
+PQ:Vojvodina Novi Sad
+PQ:NK Osijek
+PQ:HNK Rijeka
+PQ:Hajduk Split
+PQ:Hammarby IF
+PQ:IF Elfsborg
+PQ:BK Häcken
+PQ:Molde FK
+PQ:Vålerenga Oslo
+PQ:Rosenborg Trondheim
+PQ:Maccabi Tel Aviv
+PQ:MS Aschdod
+PQ:Hapoel Be'er Scheva
+PQ:Tobyl Qostanai
+PQ:FK Astana
+PQ:Schachtjor Qaraghandy
+PQ:BATE Baryssau
+PQ:Torpedo Schodsina
+PQ:Dinamo Brest
+PQ:FK Keslä
+PQ:Qarabag Agdam
+PQ:Sumqayit PFK
+PQ:ZSKA Sofia
+PQ:Lokomotive Plowdiw
+PQ:Arda Kardschali
+PQ:CSU Craiova
+PQ:Steaua Bukarest
+PQ:Sepsi OSK Sfântu Gheorghe
+PQ:Raków Częstochowa
+PQ:Pogoń Stettin
+PQ:DAC Dunajská Streda
+PQ:FC Vaduz
+PQ:Olimpija Ljubljana
+PQ:Újpest Budapest
+PQ:F91 Düdelingen
+PQ:FK Panevezys
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W
+PK:Q116W
+PK:Q117W
+PK:Q118W
+PK:Q119W
+PK:Q120W
+PK:Q121W
+PK:Q122W
+PK:Q123W
+PK:Q124W
+PK:Q125W
+PK:Q126W
+PK:Q127W
+PK:Q128W
+PK:Q129W
+PK:Q130W
+PK:Q131W
+PK:Q132W
+PK:Q133W
+OC:CHAL2021Q101L
+OC:CHAL2021Q102L
+OC:CHAL2021Q103L
+OC:CHAL2021Q104L
+OC:CHAL2021Q105L
+OC:CHAL2021Q106L
+OC:CHAL2021Q107L
+OC:CHAL2021Q108L
+OC:CHAL2021Q109L
+OC:CHAL2021Q111L
+OC:CHAL2021Q112L
+OC:CHAL2021Q113L
+OC:CHAL2021Q114L
+OC:CHAL2021Q115L
+OC:CHAL2021Q116L
+OC:CHAL2021V101L
+OC:CHAL2021V102L
+OC:CHAL2021V201L

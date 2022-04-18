@@ -1,4 +1,4 @@
-Lincoln Red Imps FC
-FC Santa Coloma
-SP Tre Penne
-KF Feronikeli
+PQ:Lincoln Red Imps FC
+PQ:FC Santa Coloma
+PQ:SP Tre Penne
+PQ:KF Feronikeli

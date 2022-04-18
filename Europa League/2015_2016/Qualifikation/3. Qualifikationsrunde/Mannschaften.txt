@@ -1,58 +1,58 @@
-Athletic Bilbao
-FC Southampton
-Borussia Dortmund
-Sampdoria Genua
-Vitória Guimaraes
-Belenenses Lissabon
-AS Saint-Étienne
-Girondins Bordeaux
-FK Krasnodar
-Rubin Kasan
-AZ Alkmaar
-Vitesse Arnheim
-Sorja Luhansk
-Worskla Poltawa
-Standard Lüttich
-Istanbul Basaksehir
-Atromitos Athen
-FC Zürich
-Rheindorf Altach
-Sturm Graz
-FK Jablonec
-Slovan Liberec
-ASA Târgu Mures
-Hapoel Ironi Kirjat Schmona
-AEK Larnaka
-Q201W
-Q202W
-Q203W
-Q204W
-Q205W
-Q206W
-Q207W
-Q208W
-Q209W
-Q210W
-Q211W
-Q212W
-Q213W
-Q214W
-Q215W
-Q216W
-Q217W
-Q218W
-Q219W
-Q220W
-Q221W
-Q222W
-Q223W
-Q224W
-Q225W
-Q226W
-Q227W
-Q228W
-Q229W
-Q230W
-Q231W
-Q232W
-Q233W
+PQ:Athletic Bilbao
+PQ:FC Southampton
+PQ:Borussia Dortmund
+PQ:Sampdoria Genua
+PQ:Vitória Guimaraes
+PQ:Belenenses Lissabon
+PQ:AS Saint-Étienne
+PQ:Girondins Bordeaux
+PQ:FK Krasnodar
+PQ:Rubin Kasan
+PQ:AZ Alkmaar
+PQ:Vitesse Arnheim
+PQ:Sorja Luhansk
+PQ:Worskla Poltawa
+PQ:Standard Lüttich
+PQ:Istanbul Basaksehir
+PQ:Atromitos Athen
+PQ:FC Zürich
+PQ:Rheindorf Altach
+PQ:Sturm Graz
+PQ:FK Jablonec
+PQ:Slovan Liberec
+PQ:ASA Târgu Mures
+PQ:Hapoel Ironi Kirjat Schmona
+PQ:AEK Larnaka
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W
+PK:Q213W
+PK:Q214W
+PK:Q215W
+PK:Q216W
+PK:Q217W
+PK:Q218W
+PK:Q219W
+PK:Q220W
+PK:Q221W
+PK:Q222W
+PK:Q223W
+PK:Q224W
+PK:Q225W
+PK:Q226W
+PK:Q227W
+PK:Q228W
+PK:Q229W
+PK:Q230W
+PK:Q231W
+PK:Q232W
+PK:Q233W

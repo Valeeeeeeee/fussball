@@ -1,64 +1,64 @@
-Bayern München
-VfL Wolfsburg
-Borussia Mönchengladbach
-Bayer 04 Leverkusen
-FC Augsburg
-FC Schalke 04
-Borussia Dortmund
-TSG 1899 Hoffenheim
-Eintracht Frankfurt
-Werder Bremen
-1. FSV Mainz 05
-1. FC Köln
-Hannover 96
-VfB Stuttgart
-Hertha BSC
-Hamburger SV
-SC Freiburg
-SC Paderborn 07
-FC Ingolstadt 04
-SV Darmstadt 98
-Karlsruher SC
-1. FC Kaiserslautern
-RasenBallsport Leipzig
-Eintracht Braunschweig
-1. FC Union Berlin
-1. FC Heidenheim
-1. FC Nürnberg
-Fortuna Düsseldorf
-VfL Bochum
-SV Sandhausen
-FSV Frankfurt
-SpVgg Greuther Fürth
-FC St. Pauli
-1860 München
-Erzgebirge Aue
-VfR Aalen
-Arminia Bielefeld
-MSV Duisburg
-Holstein Kiel
-Stuttgarter Kickers
-FC Nöttingen
-SpVgg Unterhaching
-Würzburger Kickers
-BFC Dynamo
-FC Energie Cottbus
-Bremer SV
-HSV Barmbek-Uhlenhorst
-KSV Hessen Kassel
-Hansa Rostock
-FC Viktoria Köln
-Rot-Weiss Essen
-VfL Osnabrück
-SV Meppen
-FSV Salmrohr
-SV Elversberg
-Chemnitzer FC
-Hallescher FC
-VfB Lübeck
-Bahlinger SC
-FK Pirmasens
-FC Carl Zeiss Jena
-Sportfreunde Lotte
-TuS Erndtebrück
-SSV Reutlingen 05
+PQ:Bayern München
+PQ:VfL Wolfsburg
+PQ:Borussia Mönchengladbach
+PQ:Bayer 04 Leverkusen
+PQ:FC Augsburg
+PQ:FC Schalke 04
+PQ:Borussia Dortmund
+PQ:TSG 1899 Hoffenheim
+PQ:Eintracht Frankfurt
+PQ:Werder Bremen
+PQ:1. FSV Mainz 05
+PQ:1. FC Köln
+PQ:Hannover 96
+PQ:VfB Stuttgart
+PQ:Hertha BSC
+PQ:Hamburger SV
+PQ:SC Freiburg
+PQ:SC Paderborn 07
+PQ:FC Ingolstadt 04
+PQ:SV Darmstadt 98
+PQ:Karlsruher SC
+PQ:1. FC Kaiserslautern
+PQ:RasenBallsport Leipzig
+PQ:Eintracht Braunschweig
+PQ:1. FC Union Berlin
+PQ:1. FC Heidenheim
+PQ:1. FC Nürnberg
+PQ:Fortuna Düsseldorf
+PQ:VfL Bochum
+PQ:SV Sandhausen
+PQ:FSV Frankfurt
+PQ:SpVgg Greuther Fürth
+PQ:FC St. Pauli
+PQ:1860 München
+PQ:Erzgebirge Aue
+PQ:VfR Aalen
+PQ:Arminia Bielefeld
+PQ:MSV Duisburg
+PQ:Holstein Kiel
+PQ:Stuttgarter Kickers
+PQ:FC Nöttingen
+PQ:SpVgg Unterhaching
+PQ:Würzburger Kickers
+PQ:BFC Dynamo
+PQ:FC Energie Cottbus
+PQ:Bremer SV
+PQ:HSV Barmbek-Uhlenhorst
+PQ:KSV Hessen Kassel
+PQ:Hansa Rostock
+PQ:FC Viktoria Köln
+PQ:Rot-Weiss Essen
+PQ:VfL Osnabrück
+PQ:SV Meppen
+PQ:FSV Salmrohr
+PQ:SV Elversberg
+PQ:Chemnitzer FC
+PQ:Hallescher FC
+PQ:VfB Lübeck
+PQ:Bahlinger SC
+PQ:FK Pirmasens
+PQ:FC Carl Zeiss Jena
+PQ:Sportfreunde Lotte
+PQ:TuS Erndtebrück
+PQ:SSV Reutlingen 05

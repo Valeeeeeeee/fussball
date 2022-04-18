@@ -1,4 +1,4 @@
-Linfield FC
-KF Drita
-Inter Club d'Escaldes
-SP Tre Fiori
+PQ:Linfield FC
+PQ:KF Drita
+PQ:Inter Club d'Escaldes
+PQ:SP Tre Fiori

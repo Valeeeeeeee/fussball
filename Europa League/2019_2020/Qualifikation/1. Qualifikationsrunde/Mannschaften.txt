@@ -1,94 +1,94 @@
-Hajduk Split
-Brøndby IF
-Maccabi Haifa
-Hapoel Be'er Scheva
-AEK Larnaka
-Apollon Limassol
-Steaua Bukarest
-CSU Craiova
-Legia Warschau
-KS Cracovia
-IFK Norrköping
-Malmö FF
-ZSKA Sofia
-Lewski Sofia
-Neftçi Baku
-FK Sebail
-Radnicki Nis
-FK Cukaricki
-Glasgow Rangers
-FC Kilmarnock
-FC Aberdeen
-Schachzjor Salihorsk
-Dinamo Minsk
-FK Wizebsk
-Qairat Almaty
-Tobyl Qostanai
-Ordabassy Schymkent
-Molde FK
-Brann Bergen
-FK Haugesund
-Olimpija Ljubljana
-NK Domzale
-NS Mura
-FC Vaduz
-Spartak Trnava
-DAC Dunajská Streda
-MFK Ruzomberok
-FC Milsami
-Petrocub Hîncesti
-Speranta Nisporeni
-FK Kukësi
-Teuta Durrës
-KF Laçi
-UMF Stjarnan
-Breiðablik Kópavogur
-KR Reykjavík
-FC Székesfehérvár
-VSC Debrecen
-Honvéd Budapest
-Akademija Pandev
-FK Shkupi
-Makedonija Skopje
-Inter Turku
-Rovaniemi PS
-Kuopion PS
-Cork City
-Shamrock Rovers
-St. Patrick's Athletic
-Zrinjski Mostar
-Sikori Brijeg
-Radnik Bijeljina
-FK Ventspils
-FK Rigas FS
-FK Liepaja
-Trans Narva
-Levadia Tallinn
-Flora Tallinn
-Zalgiris Vilnius
-FK Riteriai
-FK Kauno Zalgiris
-Buducnost Podgorica
-Zeta Golubovci
-OFK Titograd
-Torpedo Kutaissi
-Dinamo Tiflis
-Tschichura Satschchere
-Alashkert Martuni
-Pjunik Erewan
-Banants Erewan
-FC Balzan
-Hibernians Football Club
-Gzira United
-Fola Esch
-Jeunesse Esch
-Crusaders FC
-Connah's Quay Nomads
-B36 Tórshavn
-V101W
-V102W
-V103W
-V104W
-V105W
-V106W
-V107W
+PQ:Hajduk Split
+PQ:Brøndby IF
+PQ:Maccabi Haifa
+PQ:Hapoel Be'er Scheva
+PQ:AEK Larnaka
+PQ:Apollon Limassol
+PQ:Steaua Bukarest
+PQ:CSU Craiova
+PQ:Legia Warschau
+PQ:KS Cracovia
+PQ:IFK Norrköping
+PQ:Malmö FF
+PQ:ZSKA Sofia
+PQ:Lewski Sofia
+PQ:Neftçi Baku
+PQ:FK Sebail
+PQ:Radnicki Nis
+PQ:FK Cukaricki
+PQ:Glasgow Rangers
+PQ:FC Kilmarnock
+PQ:FC Aberdeen
+PQ:Schachzjor Salihorsk
+PQ:Dinamo Minsk
+PQ:FK Wizebsk
+PQ:Qairat Almaty
+PQ:Tobyl Qostanai
+PQ:Ordabassy Schymkent
+PQ:Molde FK
+PQ:Brann Bergen
+PQ:FK Haugesund
+PQ:Olimpija Ljubljana
+PQ:NK Domzale
+PQ:NS Mura
+PQ:FC Vaduz
+PQ:Spartak Trnava
+PQ:DAC Dunajská Streda
+PQ:MFK Ruzomberok
+PQ:FC Milsami
+PQ:Petrocub Hîncesti
+PQ:Speranta Nisporeni
+PQ:FK Kukësi
+PQ:Teuta Durrës
+PQ:KF Laçi
+PQ:UMF Stjarnan
+PQ:Breiðablik Kópavogur
+PQ:KR Reykjavík
+PQ:FC Székesfehérvár
+PQ:VSC Debrecen
+PQ:Honvéd Budapest
+PQ:Akademija Pandev
+PQ:FK Shkupi
+PQ:Makedonija Skopje
+PQ:Inter Turku
+PQ:Rovaniemi PS
+PQ:Kuopion PS
+PQ:Cork City
+PQ:Shamrock Rovers
+PQ:St. Patrick's Athletic
+PQ:Zrinjski Mostar
+PQ:Sikori Brijeg
+PQ:Radnik Bijeljina
+PQ:FK Ventspils
+PQ:FK Rigas FS
+PQ:FK Liepaja
+PQ:Trans Narva
+PQ:Levadia Tallinn
+PQ:Flora Tallinn
+PQ:Zalgiris Vilnius
+PQ:FK Riteriai
+PQ:FK Kauno Zalgiris
+PQ:Buducnost Podgorica
+PQ:Zeta Golubovci
+PQ:OFK Titograd
+PQ:Torpedo Kutaissi
+PQ:Dinamo Tiflis
+PQ:Tschichura Satschchere
+PQ:Alashkert Martuni
+PQ:Pjunik Erewan
+PQ:Banants Erewan
+PQ:FC Balzan
+PQ:Hibernians Football Club
+PQ:Gzira United
+PQ:Fola Esch
+PQ:Jeunesse Esch
+PQ:Crusaders FC
+PQ:Connah's Quay Nomads
+PQ:B36 Tórshavn
+PK:V101W
+PK:V102W
+PK:V103W
+PK:V104W
+PK:V105W
+PK:V106W
+PK:V107W

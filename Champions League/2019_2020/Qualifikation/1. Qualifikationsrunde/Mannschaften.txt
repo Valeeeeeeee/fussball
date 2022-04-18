@@ -1,32 +1,32 @@
-CFR Cluj
-Piast Gliwice
-AIK Solna
-Ludogorez Rasgrad
-Qarabag Agdam
-Roter Stern Belgrad
-Celtic Glasgow
-BATE Baryssau
-FK Astana
-Rosenborg Trondheim
-NK Maribor
-Slovan Bratislava
-Sheriff Tiraspol
-Partizani Tirana
-Valur Reykjavík
-Ferencváros Budapest
-KF Shkëndija
-HJK Helsinki
-Dundalk FC
-FK Sarajevo
-Riga FC
-Nomme Kalju
-Suduva Marijampole
-Sutjeska Niksic
-Saburtalo Tiflis
-FC Ararat-Armenia
-FC Valletta
-F91 Düdelingen
-Linfield FC
-The New Saints FC
-HB Tórshavn
-V201W
+PQ:CFR Cluj
+PQ:Piast Gliwice
+PQ:AIK Solna
+PQ:Ludogorez Rasgrad
+PQ:Qarabag Agdam
+PQ:Roter Stern Belgrad
+PQ:Celtic Glasgow
+PQ:BATE Baryssau
+PQ:FK Astana
+PQ:Rosenborg Trondheim
+PQ:NK Maribor
+PQ:Slovan Bratislava
+PQ:Sheriff Tiraspol
+PQ:Partizani Tirana
+PQ:Valur Reykjavík
+PQ:Ferencváros Budapest
+PQ:KF Shkëndija
+PQ:HJK Helsinki
+PQ:Dundalk FC
+PQ:FK Sarajevo
+PQ:Riga FC
+PQ:Nomme Kalju
+PQ:Suduva Marijampole
+PQ:Sutjeska Niksic
+PQ:Saburtalo Tiflis
+PQ:FC Ararat-Armenia
+PQ:FC Valletta
+PQ:F91 Düdelingen
+PQ:Linfield FC
+PQ:The New Saints FC
+PQ:HB Tórshavn
+PK:V201W

@@ -49,6 +49,6 @@ public class KOOriginPreviousGroupStage extends KOOrigin {
 	}
 	
 	public String toString() {
-		return String.format("G%s%d", previousGroupStageIndex, placeIndex);
+		return String.format("%sG%s%d", koOriginType.getPrefix(), previousGroupStageIndex, placeIndex);
 	}
 }

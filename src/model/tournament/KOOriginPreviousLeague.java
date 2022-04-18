@@ -23,6 +23,6 @@ public class KOOriginPreviousLeague extends KOOrigin {
 	}
 	
 	public String toString() {
-		return String.format("P%d", placeIndex);
+		return String.format("%sP%d", koOriginType.getPrefix(), placeIndex);
 	}
 }

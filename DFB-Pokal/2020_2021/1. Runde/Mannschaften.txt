@@ -1,64 +1,64 @@
-Bayern München
-Borussia Dortmund
-RasenBallsport Leipzig
-Borussia Mönchengladbach
-Bayer 04 Leverkusen
-TSG 1899 Hoffenheim
-VfL Wolfsburg
-SC Freiburg
-Eintracht Frankfurt
-Hertha BSC
-1. FC Union Berlin
-FC Schalke 04
-1. FSV Mainz 05
-1.FC Köln
-FC Augsburg
-Werder Bremen
-Fortuna Düsseldorf
-SC Paderborn 07
-Arminia Bielefeld
-VfB Stuttgart
-1. FC Heidenheim
-Hamburger SV
-SV Darmstadt 98
-Hannover 96
-Erzgebirge Aue
-VfL Bochum
-SpVgg Greuther Fürth
-SV Sandhausen
-Holstein Kiel
-SSV Jahn Regensburg
-VfL Osnabrück
-FC St. Pauli
-Karlsruher SC
-1. FC Nürnberg
-SV Wehen Wiesbaden
-Dynamo Dresden
-Würzburger Kickers
-Eintracht Braunschweig
-FC Ingolstadt 04
-MSV Duisburg
-SV Waldhof Mannheim
-1860 München
-1. FC Schweinfurt 05
-VSG Altglienicke
-FSV Union Fürstenwalde
-FC Oberneuland
-Eintracht Norderstedt
-TSV Steinbach
-Hansa Rostock
-1. FC Düren
-Rot-Weiss Essen
-TSV Havelse
-MTV Eintracht Celle
-FV Engers 07
-SV Elversberg
-Chemnitzer FC
-1. FC Magdeburg
-SV Todesfelde
-1. FC Rielasingen-Arlen
-1. FC Kaiserslautern
-FC Carl Zeiss Jena
-RSV Meinerzhagen
-SC Wiedenbrück
-SSV Ulm 1846
+PQ:Bayern München
+PQ:Borussia Dortmund
+PQ:RasenBallsport Leipzig
+PQ:Borussia Mönchengladbach
+PQ:Bayer 04 Leverkusen
+PQ:TSG 1899 Hoffenheim
+PQ:VfL Wolfsburg
+PQ:SC Freiburg
+PQ:Eintracht Frankfurt
+PQ:Hertha BSC
+PQ:1. FC Union Berlin
+PQ:FC Schalke 04
+PQ:1. FSV Mainz 05
+PQ:1.FC Köln
+PQ:FC Augsburg
+PQ:Werder Bremen
+PQ:Fortuna Düsseldorf
+PQ:SC Paderborn 07
+PQ:Arminia Bielefeld
+PQ:VfB Stuttgart
+PQ:1. FC Heidenheim
+PQ:Hamburger SV
+PQ:SV Darmstadt 98
+PQ:Hannover 96
+PQ:Erzgebirge Aue
+PQ:VfL Bochum
+PQ:SpVgg Greuther Fürth
+PQ:SV Sandhausen
+PQ:Holstein Kiel
+PQ:SSV Jahn Regensburg
+PQ:VfL Osnabrück
+PQ:FC St. Pauli
+PQ:Karlsruher SC
+PQ:1. FC Nürnberg
+PQ:SV Wehen Wiesbaden
+PQ:Dynamo Dresden
+PQ:Würzburger Kickers
+PQ:Eintracht Braunschweig
+PQ:FC Ingolstadt 04
+PQ:MSV Duisburg
+PQ:SV Waldhof Mannheim
+PQ:1860 München
+PQ:1. FC Schweinfurt 05
+PQ:VSG Altglienicke
+PQ:FSV Union Fürstenwalde
+PQ:FC Oberneuland
+PQ:Eintracht Norderstedt
+PQ:TSV Steinbach
+PQ:Hansa Rostock
+PQ:1. FC Düren
+PQ:Rot-Weiss Essen
+PQ:TSV Havelse
+PQ:MTV Eintracht Celle
+PQ:FV Engers 07
+PQ:SV Elversberg
+PQ:Chemnitzer FC
+PQ:1. FC Magdeburg
+PQ:SV Todesfelde
+PQ:1. FC Rielasingen-Arlen
+PQ:1. FC Kaiserslautern
+PQ:FC Carl Zeiss Jena
+PQ:RSV Meinerzhagen
+PQ:SC Wiedenbrück
+PQ:SSV Ulm 1846

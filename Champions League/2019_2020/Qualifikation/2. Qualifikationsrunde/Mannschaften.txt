@@ -1,24 +1,24 @@
-Dinamo Zagreb
-FC Kopenhagen
-Maccabi Tel Aviv
-APOEL Nikosia
-FC Basel
-Viktoria Pilsen
-PSV Eindhoven
-Olympiakos Piräus
-Q101W
-Q102W
-Q103W
-Q104W
-Q105W
-Q106W
-Q107W
-Q108W
-Q109W
-Q110W
-Q111W
-Q112W
-Q113W
-Q114W
-Q115W
-Q116W
+PQ:Dinamo Zagreb
+PQ:FC Kopenhagen
+PQ:Maccabi Tel Aviv
+PQ:APOEL Nikosia
+PQ:FC Basel
+PQ:Viktoria Pilsen
+PQ:PSV Eindhoven
+PQ:Olympiakos Piräus
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W
+PK:Q116W

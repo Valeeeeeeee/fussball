@@ -1,8 +1,8 @@
-Crusaders FC
-The New Saints FC
-Pjunik Erewan
-Levadia Tallinn
-B36 Tórshavn
-SS Folgore/Falciano
-FC Santa Coloma
-Lincoln Red Imps FC
+PQ:Crusaders FC
+PQ:The New Saints FC
+PQ:Pjunik Erewan
+PQ:Levadia Tallinn
+PQ:B36 Tórshavn
+PQ:SS Folgore/Falciano
+PQ:FC Santa Coloma
+PQ:Lincoln Red Imps FC

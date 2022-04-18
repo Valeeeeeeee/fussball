@@ -45,6 +45,6 @@ public class KOOriginOtherCompetition extends KOOrigin {
 	}
 	
 	public String toString() {
-		return otherCompetitionOrigin;
+		return String.format("%s%s", koOriginType.getPrefix(), otherCompetitionOrigin);
 	}
 }

@@ -1,10 +1,10 @@
-Linfield FC
-Infonet Tallinn
-Alashkert Martuni
-Víkingur Gøta
-Hibernians Football Club
-The New Saints FC
-Europa FC
-FC Santa Coloma
-SP La Fiorita
-KF Trepça'89
+PQ:Linfield FC
+PQ:Infonet Tallinn
+PQ:Alashkert Martuni
+PQ:Víkingur Gøta
+PQ:Hibernians Football Club
+PQ:The New Saints FC
+PQ:Europa FC
+PQ:FC Santa Coloma
+PQ:SP La Fiorita
+PQ:KF Trepça'89

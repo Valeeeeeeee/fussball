@@ -1,26 +1,26 @@
-Omonia Nikosia
-Young Boys Bern
-Olympiakos Piräus
-Roter Stern Belgrad
-PSV Eindhoven
-Galatasaray Istanbul
-Rapid Wien
-FC Midtjylland
-Celtic Glasgow
-Sparta Prag
-Q101W
-Q102W
-Q103W
-Q104W
-Q105W
-Q106W
-Q107W
-Q108W
-Q109W
-Q110W
-Q111W
-Q112W
-Q113W
-Q114W
-Q115W
-Q116W
+PQ:Omonia Nikosia
+PQ:Young Boys Bern
+PQ:Olympiakos Piräus
+PQ:Roter Stern Belgrad
+PQ:PSV Eindhoven
+PQ:Galatasaray Istanbul
+PQ:Rapid Wien
+PQ:FC Midtjylland
+PQ:Celtic Glasgow
+PQ:Sparta Prag
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W
+PK:Q116W

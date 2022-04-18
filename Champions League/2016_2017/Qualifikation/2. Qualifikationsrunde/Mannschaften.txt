@@ -1,34 +1,34 @@
-FC Salzburg
-Dinamo Zagreb
-APOEL Nikosia
-Legia Warschau
-Hapoel Be'er Scheva
-BATE Baryssau
-FC Kopenhagen
-Celtic Glasgow
-IFK Norrköping
-Ludogorez Rasgrad
-Rosenborg Trondheim
-Roter Stern Belgrad
-Olimpija Ljubljana
-Qarabag Agdam
-AS Trencin
-Ferencváros Budapest
-FK Astana
-Sheriff Tiraspol
-Dinamo Tiflis
-Seinäjoen Jalkapallokerho
-FH Hafnarfjörður
-Zrinjski Mostar
-Vardar Skopje
-Dundalk FC
-Mladost Podgorica
-Partizani Tirana
-F91 Düdelingen
-Crusaders FC
-Zalgiris Vilnius
-FK Liepaja
-Q101W
-Q102W
-Q103W
-Q104W
+PQ:FC Salzburg
+PQ:Dinamo Zagreb
+PQ:APOEL Nikosia
+PQ:Legia Warschau
+PQ:Hapoel Be'er Scheva
+PQ:BATE Baryssau
+PQ:FC Kopenhagen
+PQ:Celtic Glasgow
+PQ:IFK Norrköping
+PQ:Ludogorez Rasgrad
+PQ:Rosenborg Trondheim
+PQ:Roter Stern Belgrad
+PQ:Olimpija Ljubljana
+PQ:Qarabag Agdam
+PQ:AS Trencin
+PQ:Ferencváros Budapest
+PQ:FK Astana
+PQ:Sheriff Tiraspol
+PQ:Dinamo Tiflis
+PQ:Seinäjoen Jalkapallokerho
+PQ:FH Hafnarfjörður
+PQ:Zrinjski Mostar
+PQ:Vardar Skopje
+PQ:Dundalk FC
+PQ:Mladost Podgorica
+PQ:Partizani Tirana
+PQ:F91 Düdelingen
+PQ:Crusaders FC
+PQ:Zalgiris Vilnius
+PQ:FK Liepaja
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W

@@ -1,32 +1,32 @@
-Dinamo Zagreb
-Malmö FF
-FK Bodø/Glimt
-Maccabi Haifa
-Qairat Almaty
-Schachzjor Salihorsk
-Neftçi Baku
-Ludogorez Rasgrad
-CFR Cluj
-Legia Warschau
-Slovan Bratislava
-NS Mura
-Ferencváros Budapest
-Fola Esch
-Zalgiris Vilnius
-Alashkert Martuni
-Riga FC
-Teuta Durrës
-KF Shkëndija
-Borac Banja Luka
-Sheriff Tiraspol
-Shamrock Rovers
-HJK Helsinki
-Dinamo Tiflis
-Hibernians Football Club
-Valur Reykjavík
-Connah's Quay Nomads
-Linfield FC
-Lincoln Red Imps FC
-Buducnost Podgorica
-Flora Tallinn
-V201W
+PQ:Dinamo Zagreb
+PQ:Malmö FF
+PQ:FK Bodø/Glimt
+PQ:Maccabi Haifa
+PQ:Qairat Almaty
+PQ:Schachzjor Salihorsk
+PQ:Neftçi Baku
+PQ:Ludogorez Rasgrad
+PQ:CFR Cluj
+PQ:Legia Warschau
+PQ:Slovan Bratislava
+PQ:NS Mura
+PQ:Ferencváros Budapest
+PQ:Fola Esch
+PQ:Zalgiris Vilnius
+PQ:Alashkert Martuni
+PQ:Riga FC
+PQ:Teuta Durrës
+PQ:KF Shkëndija
+PQ:Borac Banja Luka
+PQ:Sheriff Tiraspol
+PQ:Shamrock Rovers
+PQ:HJK Helsinki
+PQ:Dinamo Tiflis
+PQ:Hibernians Football Club
+PQ:Valur Reykjavík
+PQ:Connah's Quay Nomads
+PQ:Linfield FC
+PQ:Lincoln Red Imps FC
+PQ:Buducnost Podgorica
+PQ:Flora Tallinn
+PK:V201W

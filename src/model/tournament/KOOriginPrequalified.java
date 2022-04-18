@@ -39,6 +39,6 @@ public class KOOriginPrequalified extends KOOrigin {
 	}
 	
 	public String toString() {
-		return teamName;
+		return String.format("%s%s", koOriginType.getPrefix(), teamName);
 	}
 }

@@ -1,16 +1,16 @@
-Barry Town United
-Iskra Danilovgrad
-Zeta Golubovci
-HB Tórshavn
-B36 Tórshavn
-NSÍ Runavík
-St Joseph's FC
-Lincoln Red Imps FC
-Glentoran FC
-Coleraine FC
-FC Prishtina
-KF Gjilani
-FC Santa Coloma
-UE Engordany
-SP Tre Penne
-SP La Fiorita
+PQ:Barry Town United
+PQ:Iskra Danilovgrad
+PQ:Zeta Golubovci
+PQ:HB Tórshavn
+PQ:B36 Tórshavn
+PQ:NSÍ Runavík
+PQ:St Joseph's FC
+PQ:Lincoln Red Imps FC
+PQ:Glentoran FC
+PQ:Coleraine FC
+PQ:FC Prishtina
+PQ:KF Gjilani
+PQ:FC Santa Coloma
+PQ:UE Engordany
+PQ:SP Tre Penne
+PQ:SP La Fiorita

@@ -1,8 +1,8 @@
-FC Valletta
-Flora Tallinn
-B36 Tórshavn
-The New Saints FC
-Alashkert Martuni
-FC Santa Coloma
-SP Tre Penne
-Lincoln Red Imps FC
+PQ:FC Valletta
+PQ:Flora Tallinn
+PQ:B36 Tórshavn
+PQ:The New Saints FC
+PQ:Alashkert Martuni
+PQ:FC Santa Coloma
+PQ:SP Tre Penne
+PQ:Lincoln Red Imps FC
