@@ -3,8 +3,8 @@
 false
 0
 5
-1. Vorqualifikationsrunde;V1;false;16;0;0;
-1. Qualifikationsrunde;Q1;false;86;8;0;
-2. Qualifikationsrunde;Q2;false;25;47;20;
-3. Qualifikationsrunde;Q3;false;13;46;11;
-Play-offs;PO;false;0;35;7;
+1. Vorqualifikationsrunde;V1;false;
+1. Qualifikationsrunde;Q1;false;
+2. Qualifikationsrunde;Q2;false;
+3. Qualifikationsrunde;Q3;false;
+Play-offs;PO;false;

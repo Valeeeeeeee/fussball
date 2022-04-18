@@ -3,5 +3,5 @@
 false
 0
 2
-3. Qualifikationsrunde;Q3;true;3;0;13;
-Play-offs;PO;true;6;8;6;
+3. Qualifikationsrunde;Q3;true;
+Play-offs;PO;true;

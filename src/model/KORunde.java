@@ -30,9 +30,6 @@ public class KORunde implements Wettbewerb {
 	private Datum nMatchdaySetForDate = MIN_DATE;
 	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private Mannschaft[] teams;
-	private int numberOfTeamsPrequalified;
-	private int numberOfTeamsFromPreviousRound;
-	private int numberOfTeamsFromOtherCompetition;
 	private boolean checkTeamsFromPreviousRound = true;
 	
 	private boolean hasSecondLeg;
@@ -898,9 +895,6 @@ public class KORunde implements Wettbewerb {
 		String toString = name + ";";
 		toString += shortName + ";";
 		toString += hasSecondLeg + ";";
-		toString += numberOfTeamsPrequalified + ";";
-		toString += numberOfTeamsFromPreviousRound + ";";
-		toString += numberOfTeamsFromOtherCompetition + ";";
 		
 		return toString;
 	}
@@ -912,8 +906,5 @@ public class KORunde implements Wettbewerb {
 		name = split[index++];
 		shortName = split[index++];
 		hasSecondLeg = Boolean.parseBoolean(split[index++]);
-		numberOfTeamsPrequalified = Integer.parseInt(split[index++]);
-		numberOfTeamsFromPreviousRound = Integer.parseInt(split[index++]);
-		numberOfTeamsFromOtherCompetition = Integer.parseInt(split[index++]);
 	}
 }

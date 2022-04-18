@@ -7,5 +7,5 @@ false
 false
 5
 2
-Play-off-Halbfinale;PH;false;0;16;0;
-Play-offs;PO;false;0;8;0;
+Play-off-Halbfinale;PH;false;
+Play-offs;PO;false;

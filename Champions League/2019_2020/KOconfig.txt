@@ -1,4 +1,4 @@
-Achtelfinale;AF;true;0;16;0;
-Viertelfinale;VF;false;0;8;0;
-Halbfinale;HF;false;0;4;0;
-Finale;FI;false;0;2;0;
+Achtelfinale;AF;true;
+Viertelfinale;VF;false;
+Halbfinale;HF;false;
+Finale;FI;false;
