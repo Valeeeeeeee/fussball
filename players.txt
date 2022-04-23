@@ -272,6 +272,7 @@
 28222755;Luis;Suárez;null;19870124;Uruguay;
 28229102;Chul;Hong;null;19900917;Südkorea;
 28229820;Arne;Maier;null;19990108;Deutschland;
+28230155;Lion;Semic;null;20030913;Deutschland, Bosnien-Herzegowina;
 28230204;Cimo;Röcker;null;19940121;Deutschland;
 28230795;Sven;Müller;null;19960216;Deutschland;
 28235636;Papy;Djilobodji;null;19881201;Senegal;
@@ -331,6 +332,7 @@
 28391877;Yong;Lee;null;19861224;Südkorea;
 28392960;Luke;McCullough;null;19940215;Nordirland;
 28395282;Kepa;Arrizabalaga;null;19941003;Spanien;
+28402227;Gabriel;Vidovic;null;20031201;Kroatien, Deutschland;
 28402443;Leon;Guwara;null;19960628;Deutschland;
 28402573;Kara;Mbodji;null;19891122;Senegal;
 28404095;Niki;Zimling;null;19850419;Dänemark;
@@ -728,6 +730,7 @@
 29238124;Tim;Wiesner;null;19961121;Deutschland;
 29238571;César;Azpilicueta;null;19890828;Spanien;
 29245093;Florian;Jungwirth;null;19890127;Deutschland;
+29245136;Tom;Rothe;null;20041029;Deutschland;
 29247732;Domagoj;Vida;null;19890429;Kroatien;
 29248329;Florian;Ballas;null;19930108;Deutschland;
 29248973;Laurent;Koscielny;null;19850910;Frankreich;
@@ -1338,6 +1341,7 @@
 30199906;Jerôme;Gondorf;null;19880626;Deutschland;
 30202044;David;Lafata;null;19810918;Tschechien;
 30203403;Becir;Omeragic;null;20020120;Schweiz;
+30209385;Jamie;Bynoe-Gittens;null;20040808;England, Barbados;
 30210864;Glenn;Whelan;null;19840113;Irland;
 30211684;Nordi;Mukiele;null;19971101;Frankreich;
 30211872;Karim;Rekik;null;19941202;Niederlande;
