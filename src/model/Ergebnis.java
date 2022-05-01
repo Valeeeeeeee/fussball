@@ -150,7 +150,7 @@ public class Ergebnis {
 	}
 	
 	public String fromPerspective(boolean firstTeam) {
-		if (annulliert)	return "annul.";
+		if (annulliert)	return "-:-";
 		if (firstTeam)	return home() + ":" + away();
 		else			return away() + ":" + home();
 	}

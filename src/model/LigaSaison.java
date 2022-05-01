@@ -836,7 +836,7 @@ public class LigaSaison implements Wettbewerb {
 			String[] split = allKickoffTimes.split(";");
 			numberOfRelativeKickoffTimes = Integer.parseInt(split[0]);
 			relativeKickOffTimes = new ArrayList<>();
-			relativeKickOffTimes.add(new RelativeAnstossZeit(0, UNDEFINED, TIME_UNDEFINED));
+			relativeKickOffTimes.add(new RelativeAnstossZeit(0, 0, TIME_UNDEFINED));
 			for (int counter = 1; counter <= numberOfRelativeKickoffTimes; counter++) {
 				relativeKickOffTimes.add(new RelativeAnstossZeit(counter, split[counter]));
 			}
@@ -936,8 +936,8 @@ public class LigaSaison implements Wettbewerb {
 		matchesFromFile.clear();
 		
 		String row = numberOfRelativeKickoffTimes + ";";
-		for (int i = 0; i < numberOfRelativeKickoffTimes; i++) {
-			row = row + relativeKickOffTimes.get(i + 1) + ";";
+		for (int i = 1; i <= numberOfRelativeKickoffTimes; i++) {
+			row = row + relativeKickOffTimes.get(i) + ";";
 		}
 		matchesFromFile.add(row);
 		

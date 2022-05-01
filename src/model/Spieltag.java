@@ -1449,6 +1449,7 @@ public class Spieltag extends JPanel {
 	public void saveMatchInfos(SpielInformationen matchInfo, Ergebnis result, int editedResult) {
 		displayResult(editedResult, result);
 		openedMatchInfos.remove(matchInfo);
+		showMatchday();
 	}
 	
 	public void mannschaftClicked(int index) {
@@ -1466,12 +1467,9 @@ public class Spieltag extends JPanel {
 		if (isOverview) {
 			int hlf = editedLabel % numberOfMatches;
 			editedGroupID = 0;
-			while (hlf > 0) {
+			while (hlf >= numbersOfMatches[editedGroupID]) {
 				hlf -= numbersOfMatches[editedGroupID];
 				editedGroupID++;
-			}
-			if (hlf < 0) {
-				editedGroupID--;
 			}
 		}
 	}

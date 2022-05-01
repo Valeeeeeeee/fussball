@@ -2,7 +2,6 @@ package model;
 
 import static util.Utilities.DATE_UNDEFINED;
 import static util.Utilities.KICK_OFF_TIME_UNDEFINED;
-import static util.Utilities.UNDEFINED;
 
 public class RelativeAnstossZeit {
 	
@@ -25,11 +24,6 @@ public class RelativeAnstossZeit {
 	
 	public int getIndex() {
 		return index;
-	}
-	
-	public String getDateAndTime(Datum startDate) {
-		Datum date = new Datum(startDate, !time.isUndefined() || daysSince != UNDEFINED ? daysSince : 0);
-		return date.withDividers() + " " + time.withDividers();
 	}
 	
 	public AnstossZeit getKickOffTime(Datum startDate) {

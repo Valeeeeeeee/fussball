@@ -39,8 +39,8 @@ public class SpielInformationen extends JFrame {
 	private JButton jBtnGoalAway;
 	private JButton jBtnBookingHome;
 	private JButton jBtnBookingAway;
-	private JButton jBtnAGTHome;
-	private JButton jBtnAGTAway;
+	private JButton jBtnAGT;
+	private JButton jBtnCancelled;
 	private JButton jBtnPenaltyShootout;
 	
 	private JPanel jPnlLineupSelection;
@@ -94,8 +94,8 @@ public class SpielInformationen extends JFrame {
 	private Rectangle REC_LBLAWAYNAME = new Rectangle(520, 60, 330, 40);
 	private Rectangle REC_LBLREFEREE = new Rectangle(425, 535, 100, 20);
 	private Rectangle REC_CBREFEREES = new Rectangle(375, 560, 200, 25);
-	private Rectangle REC_BTNAGTHOME = new Rectangle(335, 35, 70, 25);
-	private Rectangle REC_BTNAGTAWAY = new Rectangle(545, 35, 70, 25);
+	private Rectangle REC_BTNAGT = new Rectangle(335, 35, 70, 25);
+	private Rectangle REC_BTNANNUL = new Rectangle(545, 35, 70, 25);
 	
 	// Untere Button-Reihe
 	private Rectangle REC_BTNSTARTMATCH = new Rectangle(425, 105, 100, 35);
@@ -447,28 +447,28 @@ public class SpielInformationen extends JFrame {
 			});
 		}
 		{
-			jBtnAGTHome = new JButton();
-			jPnlMatchInformation.add(jBtnAGTHome);
-			jBtnAGTHome.setBounds(REC_BTNAGTHOME);
-			jBtnAGTHome.setText("a.g.T.");
-			jBtnAGTHome.setFocusable(false);
-			jBtnAGTHome.setToolTipText("Sieg am grünen Tisch");
-			jBtnAGTHome.addActionListener(new ActionListener() {
+			jBtnAGT = new JButton();
+			jPnlMatchInformation.add(jBtnAGT);
+			jBtnAGT.setBounds(REC_BTNAGT);
+			jBtnAGT.setText("a.g.T.");
+			jBtnAGT.setFocusable(false);
+			jBtnAGT.setToolTipText("Sieg am grünen Tisch");
+			jBtnAGT.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					setAmGruenenTisch(true);
+					setAmGruenenTisch();
 				}
 			});
 		}
 		{
-			jBtnAGTAway = new JButton();
-			jPnlMatchInformation.add(jBtnAGTAway);
-			jBtnAGTAway.setBounds(REC_BTNAGTAWAY);
-			jBtnAGTAway.setText("a.g.T.");
-			jBtnAGTAway.setFocusable(false);
-			jBtnAGTAway.setToolTipText("Sieg am grünen Tisch");
-			jBtnAGTAway.addActionListener(new ActionListener() {
+			jBtnCancelled = new JButton();
+			jPnlMatchInformation.add(jBtnCancelled);
+			jBtnCancelled.setBounds(REC_BTNANNUL);
+			jBtnCancelled.setText("ann.");
+			jBtnCancelled.setFocusable(false);
+			jBtnCancelled.setToolTipText("annulliert");
+			jBtnCancelled.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					setAmGruenenTisch(false);
+					setAnnulliert();
 				}
 			});
 		}
@@ -1216,8 +1216,13 @@ public class SpielInformationen extends JFrame {
 		jTFMinute.requestFocus();
 	}
 	
-	private void setAmGruenenTisch(boolean isHomeTeam) {
+	private void setAmGruenenTisch() {
 		result = new Ergebnis(result.toString() + " agT");
+		setResult();
+	}
+	
+	private void setAnnulliert() {
+		result = new Ergebnis(Ergebnis.ANNULLIERT);
 		setResult();
 	}
 	
