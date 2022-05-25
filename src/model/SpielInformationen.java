@@ -845,7 +845,7 @@ public class SpielInformationen extends JFrame {
 		displayLineup(true);
 		displayLineup(false);
 		
-		if (match.getReferee() != null)	jCBReferees.setSelectedIndex(match.getReferee().getID());
+		if (match.getReferee().isPresent())	jCBReferees.setSelectedIndex(match.getReferee().get().getID());
 		
 		createPseudoGoals();
 		paintGoals();

@@ -54,6 +54,10 @@ public class Schiedsrichter {
 		matches.add(index, match);
 	}
 	
+	public void removeMatch(Spiel match) {
+		matches.remove(match);
+	}
+	
 	public void sortMatches() {
 		ArrayList<Spiel> copy = new ArrayList<>();
 		for (Spiel spiel : matches) {

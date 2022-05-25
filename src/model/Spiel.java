@@ -3,6 +3,7 @@ package model;
 import static util.Utilities.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import analyse.SpielPerformance;
 
@@ -19,7 +20,7 @@ public class Spiel {
 	private Aufstellung lineupHome;
 	private Aufstellung lineupAway;
 	
-	private Schiedsrichter referee;
+	private Optional<Schiedsrichter> referee = Optional.empty();
 	private Ergebnis result;
 	private ArrayList<Tor> goals = new ArrayList<>();
 	private ArrayList<Wechsel> substitutionsHome = new ArrayList<>();
@@ -188,17 +189,22 @@ public class Spiel {
 		if (booking != null)	bookings.remove(booking);
 	}
 	
-	public Schiedsrichter getReferee() {
+	public Optional<Schiedsrichter> getReferee() {
 		return referee;
 	}
 	
-	public void setReferee(int refereeID) {
-		setReferee(refereeID == 0 ? null : competition.getReferees().get(refereeID - 1));
+	private Schiedsrichter getReferee(int refereeID) {
+		return competition.getReferees().get(refereeID - 1);
 	}
 	
-	public void setReferee(Schiedsrichter referee) {
+	public void setReferee(int refereeID) {
+		setReferee(Optional.of(refereeID).filter(id -> id > 0).map(id -> getReferee(id)));
+	}
+	
+	public void setReferee(Optional<Schiedsrichter> referee) {
+		this.referee.ifPresent(r -> r.removeMatch(this));
 		this.referee = referee;
-		referee.addMatch(this);
+		referee.ifPresent(r -> r.addMatch(this));
 	}
 	
 	public SpielPerformance getMatchPerformance(TeamAffiliation player) {
@@ -249,8 +255,8 @@ public class Spiel {
 			matchData += "={" + lineupToString(lineupHome, substitutionsHome) + "}={" + lineupToString(lineupAway, substitutionsAway) + "}";
 		} else if (hasResult()) {
 			matchData += "={" + matchDataToString() + "}";
-		} else if (referee != null) {
-			matchData += "={" + referee.getID() + "}";
+		} else if (referee.isPresent()) {
+			matchData += "={" + referee.get().getID() + "}";
 		}
 		
 		return matchData;
@@ -259,9 +265,9 @@ public class Spiel {
 	private String matchDataToString() {
 		String matchData = "";
 		
-		if (referee != null)				matchData += referee.getID();
-		if (referee != null && hasResult())	matchData += "_";
-		if (hasResult())					matchData += getResult();
+		if (referee.isPresent())				matchData += referee.get().getID();
+		if (referee.isPresent() && hasResult())	matchData += "_";
+		if (hasResult())						matchData += getResult();
 		if (!competition.teamsHaveKader() || !hasData())	return matchData;
 		
 		for (Tor goal : goals) {
@@ -307,11 +313,11 @@ public class Spiel {
 			return;
 		}
 		if (matchData.indexOf("_") != -1) {
-			setReferee(competition.getReferees().get(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))) - 1));
+			setReferee(Optional.of(getReferee(Integer.parseInt(matchData.substring(0, matchData.indexOf("_"))))));
 		}
 		matchData = matchData.substring(matchData.indexOf("_") + 1);
 		if (matchData.indexOf(":") == -1) {
-			setReferee(competition.getReferees().get(Integer.parseInt(matchData) - 1));
+			setReferee(Optional.of(getReferee(Integer.parseInt(matchData))));
 			return;
 		}
 		String[] matchDataSplit = matchData.split("\\^");
