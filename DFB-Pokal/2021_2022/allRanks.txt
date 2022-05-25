@@ -122,5 +122,5 @@ HF01W: SC Freiburg
 HF01L: Hamburger SV
 HF02W: RasenBallsport Leipzig
 HF02L: 1. FC Union Berlin
-FI01W: DPOK2021FI01W
-FI01L: DPOK2021FI01L
+FI01W: RasenBallsport Leipzig
+FI01L: SC Freiburg

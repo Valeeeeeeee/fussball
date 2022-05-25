@@ -84,6 +84,7 @@
 27756130;Axel;Witsel;null;19890112;Belgien;
 27758093;Adam;Matuschyk;null;19890214;Polen, Deutschland;
 27766931;Liam;Cooper;null;19910830;Schottland;
+27768210;Luis;Hartwig;null;20021123;Deutschland;
 27771745;Joel;Gerezgiher;null;19951009;Deutschland;
 27771811;Enes;Ünal;null;19970510;Türkei;
 27779036;Emil;Forsberg;null;19911023;Schweden;
@@ -100,6 +101,7 @@
 27808036;Hugo;Siquet;null;20020709;Belgien;
 27812646;Erik;Thommy;null;19940820;Deutschland;
 27814174;Joel;Matip;null;19910808;Deutschland, Kamerun;
+27815200;Nick;Proschwitz;null;19861128;Deutschland;
 27815379;Luca;Kilian;null;19990901;Deutschland;
 27816627;John;McGinn;null;19941018;Schottland;
 27817812;Joel;Soñora;null;19960915;USA;
@@ -424,6 +426,7 @@
 28643251;Sami;Allagui;null;19860528;Deutschland, Tunesien;
 28647383;Mats;Köhlert;null;19980502;Deutschland;
 28648862;Timo;Becker;null;19970325;Deutschland;
+28650440;Umut;Tohumcu;null;20040811;Deutschland, Türkei;
 28650875;Nicolas;Wähling;null;19970824;Deutschland;
 28653688;Nicolai;Rapp;null;19961213;Deutschland;
 28664732;Jeffrey;Bruma;null;19911113;Niederlande;
@@ -2716,6 +2719,7 @@
 31714076;Matteo;Pessina;null;19970421;Italien;
 31714425;Kornel;Saláta;null;19850124;Slowakei;
 31717791;Romelu;Lukaku;null;19930513;Belgien;
+31719354;Christian;Früchtl;null;20000128;Deutschland;
 31719453;Ömer;Toprak;null;19890721;Deutschland, Türkei;
 31720600;Jannik;Müller;null;19940118;Deutschland;
 31738314;Richárd;Guzmics;null;19870416;Ungarn;

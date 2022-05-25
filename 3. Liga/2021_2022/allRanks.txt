@@ -1,20 +1,20 @@
-P1: GER32021P1
-P2: GER32021P2
-P3: GER32021P3
-P4: GER32021P4
-P5: GER32021P5
-P6: GER32021P6
-P7: GER32021P7
-P8: GER32021P8
-P9: GER32021P9
-P10: GER32021P10
-P11: GER32021P11
-P12: GER32021P12
-P13: GER32021P13
-P14: GER32021P14
-P15: GER32021P15
-P16: GER32021P16
-P17: GER32021P17
-P18: GER32021P18
-P19: GER32021P19
-P20: GER32021P20
+P1: 1. FC Magdeburg
+P2: Eintracht Braunschweig
+P3: 1. FC Kaiserslautern
+P4: 1860 München
+P5: Waldhof Mannheim
+P6: VfL Osnabrück
+P7: 1. FC Saarbrücken
+P8: SV Wehen Wiesbaden
+P9: Borussia Dortmund II
+P10: FSV Zwickau
+P11: SC Freiburg II
+P12: SV Meppen
+P13: Viktoria Köln
+P14: Hallescher FC
+P15: MSV Duisburg
+P16: SC Verl
+P17: FC Viktoria 1889 Berlin
+P18: Würzburger Kickers
+P19: TSV Havelse
+P20: Türkgücü München

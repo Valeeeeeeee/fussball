@@ -1,10 +1,10 @@
-P1: SUI12021P1
-P2: SUI12021P2
-P3: SUI12021P3
-P4: SUI12021P4
-P5: SUI12021P5
-P6: SUI12021P6
-P7: SUI12021P7
-P8: SUI12021P8
-P9: SUI12021P9
-P10: SUI12021P10
+P1: FC Zürich
+P2: FC Basel
+P3: Young Boys Bern
+P4: FC Lugano
+P5: FC St. Gallen
+P6: Servette FC
+P7: FC Sion
+P8: Grasshopper-Club Zürich
+P9: FC Luzern
+P10: FC Lausanne-Sport

@@ -110,5 +110,5 @@ HF01W: Glasgow Rangers
 HF01L: RB Leipzig
 HF02W: Eintracht Frankfurt
 HF02L: West Ham United
-FI01W: EURL2021FI01W
-FI01L: EURL2021FI01L
+FI01W: Eintracht Frankfurt
+FI01L: Glasgow Rangers
