@@ -356,5 +356,5 @@ HF01W: Feyenoord Rotterdam
 HF01L: Olympique Marseille
 HF02W: AS Rom
 HF02L: Leicester City
-FI01W: CONF2021FI01W
-FI01L: CONF2021FI01L
+FI01W: AS Rom
+FI01L: Feyenoord Rotterdam
