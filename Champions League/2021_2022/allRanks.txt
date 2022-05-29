@@ -154,5 +154,5 @@ HF01W: Real Madrid
 HF01L: Manchester City
 HF02W: FC Liverpool
 HF02L: FC Villarreal
-FI01W: CHAL2021FI01W
-FI01L: CHAL2021FI01L
+FI01W: Real Madrid
+FI01L: FC Liverpool
