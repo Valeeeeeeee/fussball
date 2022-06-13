@@ -59,6 +59,6 @@ PQ:SC Weiche Flensburg 08
 PQ:FC 08 Villingen
 PQ:1. FC Kaiserslautern
 PQ:FC Carl Zeiss Jena
-PQ:Sportfreunde Lotte
 PQ:Preußen Münster
+PQ:Sportfreunde Lotte
 PQ:SSV Ulm 1846

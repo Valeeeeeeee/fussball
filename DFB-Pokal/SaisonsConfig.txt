@@ -6,3 +6,4 @@
 2019;true;20190809;20200704;false;false;true;false;false;true;
 2020;true;20200911;20210513;false;false;true;false;false;true;
 2021;true;20210806;20220521;false;false;true;false;false;true;
+2022;true;20220729;20230603;false;false;true;false;false;true;
