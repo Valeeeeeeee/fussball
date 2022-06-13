@@ -318,6 +318,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
+		if (numberOfMatchesPerMatchday == 0)	return 0;
 		if (numberOfMatchdays == 2) {
 			if (!today.equals(cMatchdaySetForDate)) {
 				if (getDate(0, 0).equals(startDate)) {
@@ -842,6 +843,7 @@ public class KORunde implements Wettbewerb {
 		matchesFromFile = new ArrayList<>();
 		
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			if (numberOfMatchesPerMatchday == 0)	continue;
 			String row = getMatchesSetRepresentation(matchday) + ";";
 			if (!isNoMatchSet(matchday)) {
 				for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {

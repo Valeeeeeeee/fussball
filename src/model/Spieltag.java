@@ -806,6 +806,7 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void setTFsEditable() {
+		if (numberOfMatches == 0)	return;
 		int indexOfFocusedMatch = UNDEFINED;
 		if (isOverview) {
 			int groupID = 0, matchIndex = 0;
