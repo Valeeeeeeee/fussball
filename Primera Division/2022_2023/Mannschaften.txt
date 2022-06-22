@@ -18,4 +18,4 @@ RCD Mallorca;01.01.1970
 FC Cádiz;01.01.1970
 UD Almería;01.01.1970
 Real Valladolid;01.01.1970
-FC Girona / CD Teneriffa;01.01.1970
+FC Girona;01.01.1970
