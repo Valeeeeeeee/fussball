@@ -1,0 +1,106 @@
+PQ:Vitória Guimarães
+PQ:AZ Alkmaar
+PQ:Royal Antwerpen
+PQ:Rapid Wien
+PQ:FC Motherwell
+PQ:Worskla Poltawa
+PQ:Konyaspor
+PQ:Istanbul Basaksehir
+PQ:Brøndby IF
+PQ:Viborg FF
+PQ:APOEL Nikosia
+PQ:Aris Limassol
+PQ:FK Cukaricki
+PQ:Radnicki Nis
+PQ:Slavia Prag
+PQ:Sparta Prag
+PQ:NK Osijek
+PQ:HNK Rijeka
+PQ:FC Basel
+PQ:Young Boys Bern
+PQ:PAOK Thessaloniki
+PQ:Aris Thessaloniki
+PQ:Hapoel Be'er Scheva
+PQ:Maccabi Tel Aviv
+PQ:Maccabi Netanya
+PQ:Molde FK
+PQ:Viking Stavanger
+PQ:Lillestrøm SK
+PQ:AIK Solna
+PQ:Djurgårdens IF
+PQ:IF Elfsborg
+PQ:Lewski Sofia
+PQ:ZSKA Sofia
+PQ:Botew Plowdiw
+PQ:Sepsi OSK Sfântu Gheorghe
+PQ:Steaua Bukarest
+PQ:CSU Craiova
+PQ:Neftçi Baku
+PQ:FK Zira
+PQ:FK Qäbälä
+PQ:Qairat Almaty
+PQ:FK Astana
+PQ:FK Qysyl-Schar SK
+PQ:Kisvárda FC
+PQ:Puskás Akadémia FC
+PQ:FC Székesfehérvár
+PQ:FK Homel
+PQ:BATE Baryssau
+PQ:Raków Częstochowa
+PQ:NK Koper
+PQ:Spartak Trnava
+PQ:FC Vaduz
+PQ:Suduva Marijampole
+PQ:Union Luxemburg
+PQ:Velez Mostar
+PQ:St. Patrick's Athletic
+PQ:Makedonija Skopje
+PQ:FC Ararat-Armenia
+PQ:Valmieras FK
+PQ:Vllaznia Shkodra
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W
+PK:Q116W
+PK:Q117W
+PK:Q118W
+PK:Q119W
+PK:Q120W
+PK:Q121W
+PK:Q122W
+PK:Q123W
+PK:Q124W
+PK:Q125W
+PK:Q126W
+PK:Q127W
+PK:Q128W
+PK:Q129W
+PK:Q130W
+OC:CHAL2022Q101L
+OC:CHAL2022Q102L
+OC:CHAL2022Q103L
+OC:CHAL2022Q104L
+OC:CHAL2022Q105L
+OC:CHAL2022Q106L
+OC:CHAL2022Q107L
+OC:CHAL2022Q108L
+OC:CHAL2022Q109L
+OC:CHAL2022Q110L
+OC:CHAL2022Q112L
+OC:CHAL2022Q113L
+OC:CHAL2022Q115L
+OC:CHAL2022V101L
+OC:CHAL2022V102L
+OC:CHAL2022V201L
