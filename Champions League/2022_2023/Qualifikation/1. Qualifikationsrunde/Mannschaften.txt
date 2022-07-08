@@ -1,0 +1,30 @@
+PQ:FK Bodø/Glimt
+PQ:Malmö FF
+PQ:Ludogorez Rasgrad
+PQ:CFR Cluj
+PQ:Qarabag Agdam
+PQ:Tobyl Qostanai
+PQ:Ferencváros Budapest
+PQ:Schachzjor Salihorsk
+PQ:Lech Posen
+PQ:NK Maribor
+PQ:Slovan Bratislava
+PQ:Zalgiris Vilnius
+PQ:F91 Düdelingen
+PQ:Zrinjski Mostar
+PQ:Shamrock Rovers
+PQ:FK Shkupi
+PQ:Pjunik Erewan
+PQ:FK Rigas FS
+PQ:KF Tirana
+PQ:Linfield FC
+PQ:Dinamo Batumi
+PQ:HJK Helsinki
+PQ:Sheriff Tiraspol
+PQ:Hibernians Football Club
+PQ:KÍ Klaksvík
+PQ:KF Ballkani
+PQ:Lincoln Red Imps FC
+PQ:Sutjeska Niksic
+PQ:The New Saints FC
+PK:V201W

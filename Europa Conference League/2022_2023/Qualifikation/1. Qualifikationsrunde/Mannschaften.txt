@@ -1,0 +1,60 @@
+PQ:Dinamo Minsk
+PQ:Pogoń Stettin
+PQ:Lechia Danzig
+PQ:Olimpija Ljubljana
+PQ:NS Mura
+PQ:MFK Ruzomberok
+PQ:DAC Dunajská Streda
+PQ:FK Kauno Zalgiris
+PQ:FK Panevezys
+PQ:FC Differdingen
+PQ:Fola Esch
+PQ:FK Tuzla City
+PQ:Borac Banja Luka
+PQ:Sligo Rovers
+PQ:Derry City
+PQ:Akademija Pandev
+PQ:KF Shkëndija
+PQ:Alashkert Martuni
+PQ:Ararat Erewan
+PQ:FK Liepaja
+PQ:Riga FC
+PQ:KF Laçi
+PQ:Partizani Tirana
+PQ:Crusaders FC
+PQ:Cliftonville FC
+PQ:Larne FC
+PQ:Saburtalo Tiflis
+PQ:Dinamo Tiflis
+PQ:Dila Gori
+PQ:Kuopion PS
+PQ:Seinäjoen Jalkapallokerho
+PQ:Inter Turku
+PQ:Petrocub Hîncesti
+PQ:FC Milsami
+PQ:Sfântul Gheorghe Suruceni
+PQ:FC Floriana
+PQ:Hamrun Spartans
+PQ:Gzira United
+PQ:B36 Tórshavn
+PQ:HB Tórshavn
+PQ:Víkingur Gøta
+PQ:KF Llapi
+PQ:KF Drita
+PQ:KF Gjilani
+PQ:Europa FC
+PQ:St Joseph's FC
+PQ:FC Bruno's Magpies
+PQ:Buducnost Podgorica
+PQ:Decic Tuzi
+PQ:Iskra Danilovgrad
+PQ:Bala Town
+PQ:Newtown AFC
+PQ:Breiðablik Kópavogur
+PQ:KR Reykjavík
+PQ:Paide Linnameeskond
+PQ:Flora Tallinn
+PQ:Atlètic Club d'Escaldes
+PQ:UE Santa Coloma
+PQ:SP Tre Fiori
+PQ:SP Tre Penne
