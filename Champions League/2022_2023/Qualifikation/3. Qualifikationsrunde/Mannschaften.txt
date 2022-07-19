@@ -1,0 +1,20 @@
+PQ:Apollon Limassol
+PQ:Roter Stern Belgrad
+PQ:PSV Eindhoven
+PQ:Royale Union Saint-Gilloise
+PQ:Sturm Graz
+PQ:Glasgow Rangers
+PQ:AS Monaco
+PQ:Benfica Lissabon
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W
