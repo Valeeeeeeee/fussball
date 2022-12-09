@@ -94,22 +94,22 @@
 2R15L: FC Augsburg
 2R16W: 1. FC Union Berlin
 2R16L: 1. FC Heidenheim
-AF01W: DPOK2022AF01W
-AF01L: DPOK2022AF01L
-AF02W: DPOK2022AF02W
-AF02L: DPOK2022AF02L
-AF03W: DPOK2022AF03W
-AF03L: DPOK2022AF03L
-AF04W: DPOK2022AF04W
-AF04L: DPOK2022AF04L
-AF05W: DPOK2022AF05W
-AF05L: DPOK2022AF05L
-AF06W: DPOK2022AF06W
-AF06L: DPOK2022AF06L
-AF07W: DPOK2022AF07W
-AF07L: DPOK2022AF07L
-AF08W: DPOK2022AF08W
-AF08L: DPOK2022AF08L
+AF01W: SC Paderborn 07 vs. VfB Stuttgart
+AF01L: SC Paderborn 07 vs. VfB Stuttgart
+AF02W: 1. FC Union Berlin vs. VfL Wolfsburg
+AF02L: 1. FC Union Berlin vs. VfL Wolfsburg
+AF03W: RasenBallsport Leipzig vs. TSG 1899 Hoffenheim
+AF03L: RasenBallsport Leipzig vs. TSG 1899 Hoffenheim
+AF04W: 1. FSV Mainz 05 vs. Bayern München
+AF04L: 1. FSV Mainz 05 vs. Bayern München
+AF05W: SV Sandhausen vs. SC Freiburg
+AF05L: SV Sandhausen vs. SC Freiburg
+AF06W: Eintracht Frankfurt vs. SV Darmstadt 98
+AF06L: Eintracht Frankfurt vs. SV Darmstadt 98
+AF07W: 1. FC Nürnberg vs. Fortuna Düsseldorf
+AF07L: 1. FC Nürnberg vs. Fortuna Düsseldorf
+AF08W: VfL Bochum vs. Borussia Dortmund
+AF08L: VfL Bochum vs. Borussia Dortmund
 VF01W: DPOK2022VF01W
 VF01L: DPOK2022VF01L
 VF02W: DPOK2022VF02W
