@@ -5,7 +5,8 @@ public enum KOOriginType {
 	PREVIOUS_GROUP_STAGE("PG:", true),
 	PREVIOUS_KNOCKOUT_ROUND("PK:", true),
 	PREVIOUS_LEAGUE("PL:", true),
-	OTHER_COMPETITION("OC:", false);
+	OTHER_COMPETITION("OC:", false),
+	TWO_ORIGINS("TO:", true);
 	
 	private boolean fromPreviousRound;
 	

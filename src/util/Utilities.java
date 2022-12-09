@@ -66,6 +66,8 @@ public class Utilities {
 	public static final String DRAW = "U";
 	public static final String LOSS = "N";
 	public static final String RESULT_NOT_SET = "X";
+
+	public static final String VERSUS = " vs. ";
 	
 	public static String twoDigit(int number) {
 		number = number % 100;

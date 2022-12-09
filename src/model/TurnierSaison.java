@@ -13,6 +13,8 @@ import model.tournament.KOOriginOtherCompetition;
 import model.tournament.KOOriginPrequalified;
 import model.tournament.KOOriginPreviousGroupStage;
 import model.tournament.KOOriginPreviousKnockoutRound;
+import model.tournament.KOOriginTwoOrigins;
+import model.tournament.KOOriginType;
 
 import static util.Utilities.*;
 
@@ -449,11 +451,27 @@ public class TurnierSaison {
 				int matchIndex = pkoOrigin.getMatchIndex();
 				boolean teamIsWinner = pkoOrigin.teamIsWinner();
 				return getDeeperOrigin(isQ, shortNameKORound, matchIndex, teamIsWinner).map(this::getTeamFromOrigin).orElse(Optional.empty());
+			case TWO_ORIGINS:
+				KOOriginTwoOrigins twoOrigins = (KOOriginTwoOrigins) origin;
+				KOOrigin originFirstTeam = twoOrigins.getOriginFirstTeam();
+				KOOrigin originSecondTeam = twoOrigins.getOriginSecondTeam();
+				
+				String o1 = getTeamFromOrigin(originFirstTeam).map(Mannschaft::getName).filter(o -> !o.contains(VERSUS)).orElse(originFirstTeam.toDisplay());
+				String o2 = getTeamFromOrigin(originSecondTeam).map(Mannschaft::getName).filter(o -> !o.contains(VERSUS)).orElse(originSecondTeam.toDisplay());
+				
+				if (isEqualButNotPrequalified(o1, originFirstTeam) && isEqualButNotPrequalified(o2, originSecondTeam)) {
+					return Optional.empty();
+				}
+				return Optional.of(new Mannschaft(0, null, o1 + VERSUS + o2));
 			default:
 				break;
 		}
 		
 		return Optional.empty();
+	}
+	
+	private static boolean isEqualButNotPrequalified(String origin, KOOrigin koOrigin) {
+		return origin.equals(koOrigin.toDisplay()) && koOrigin.getKOOriginType() != KOOriginType.PREQUALIFIED;
 	}
 	
 	private Optional<Mannschaft> getTeamFromGroupXthOrigin(boolean isQ, int placeInGroup, int xthBest) {
@@ -531,8 +549,16 @@ public class TurnierSaison {
 	}
 	
 	private Optional<KOOrigin> getDeeperOrigin(boolean isQ, String shortName, int matchIndex, boolean teamIsWinner) {
-		if (teamIsWinner)	return getKORound(isQ, shortName).map(k -> k.getOriginOfWinnerOfTie(matchIndex).orElse(null));
-		else				return getKORound(isQ, shortName).map(k -> k.getOriginOfLoserOfTie(matchIndex).orElse(null));
+		Optional<KORunde> koRound = getKORound(isQ, shortName);
+		if (teamIsWinner) {
+			Optional<KOOrigin> opt = koRound.map(k -> k.getOriginOfWinnerOfTie(matchIndex).orElse(null));
+			if (opt.isPresent())	return opt;
+			return koRound.map(k -> k.getOriginsOfTie(matchIndex).orElse(null));
+		} else {
+			Optional<KOOrigin> opt = koRound.map(k -> k.getOriginOfLoserOfTie(matchIndex).orElse(null));
+			if (opt.isPresent())	return opt;
+			return koRound.map(k -> k.getOriginsOfTie(matchIndex).orElse(null));
+		}
 	}
 	
 	private Optional<KORunde> getKORound(boolean isQ, String shortName) {

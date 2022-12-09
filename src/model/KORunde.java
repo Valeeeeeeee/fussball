@@ -603,22 +603,62 @@ public class KORunde implements Wettbewerb {
 		}
 	}
 	
+	private int getIndexOfReverseTie(int matchID) {
+		if (!hasSecondLeg)	return UNDEFINED;
+		
+		int matchIndex = matchID - 1;
+		Spiel firstLeg = getMatch(0, matchIndex);
+		
+		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
+			Spiel match = getMatch(1, i);
+			if (match != null && match.away() == firstLeg.home() && match.home() == firstLeg.away()) {
+				return i;
+			}
+		}
+		
+		return UNDEFINED;
+	}
+	
+	public boolean isTieDecided(int matchID) {
+		int matchIndex = matchID - 1;
+		if (!isResultSet(0, matchIndex)) {
+			return false;
+		}
+		
+		if (!hasSecondLeg)	return true;
+		
+		int reverseTie = getIndexOfReverseTie(matchID);
+		
+		return isResultSet(numberOfMatchdays - 1, reverseTie);
+	}
+	
+	public Optional<KOOrigin> getOriginsOfTie(int matchID) {
+		int matchIndex = matchID - 1;
+		if (!isMatchSet(0, matchIndex))	return Optional.empty();
+		
+		Spiel match = getMatch(0, matchIndex);
+		KOOrigin originFirstTeam = teamsOrigins[match.home() - 1];
+		KOOrigin originSecondTeam = teamsOrigins[match.away() - 1];
+		
+		return Optional.of(new KOOriginTwoOrigins(originFirstTeam, originSecondTeam));
+	}
+	
 	/**
 	 * Returns the optional KOOrigin of the team winning this tie.
-	 * @param match The index of the match, beginning from 1
+	 * @param matchID The id of the match, beginning from 1
 	 * @return
 	 */
-	public Optional<KOOrigin> getOriginOfWinnerOfTie(int matchIndex) {
-		return Optional.of(getTeamIDOf(matchIndex, true)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
+	public Optional<KOOrigin> getOriginOfWinnerOfTie(int matchID) {
+		return Optional.of(getTeamIDOf(matchID, true)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
 	}
 	
 	/**
 	 * Returns the optional KOOrigin of the team losing this tie.
-	 * @param match The index of the match, beginning from 1
+	 * @param matchID The id of the match, beginning from 1
 	 * @return
 	 */
-	public Optional<KOOrigin> getOriginOfLoserOfTie(int matchIndex) {
-		return Optional.of(getTeamIDOf(matchIndex, false)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
+	public Optional<KOOrigin> getOriginOfLoserOfTie(int matchID) {
+		return Optional.of(getTeamIDOf(matchID, false)).filter(id -> id != UNDEFINED).map(id -> teamsOrigins[id - 1]);
 	}
 	
 	private int getTeamIDOf(int matchID, boolean isWinnerRequested) {
@@ -636,15 +676,10 @@ public class KORunde implements Wettbewerb {
 			// first and second leg don't have to be in the same position on the plan and most likely they aren't!!
 			
 			// get index of second leg match
-			int index = UNDEFINED;
-			for (int i = 0; i < numberOfMatchesPerMatchday && index == UNDEFINED; i++) {
-				if (getMatch(1, i) != null && (getMatch(1, i).home() == teamHomeFirstLeg || getMatch(1, i).home() == teamAwayFirstLeg)) {
-					index = i + 1;
-				}
-			}
+			int index = getIndexOfReverseTie(matchID);
 			
-			if (index != UNDEFINED && isResultSet(numberOfMatchdays - 1, index - 1)) {
-				Ergebnis secondLeg = getResult(1, index - 1);
+			if (index != UNDEFINED && isResultSet(numberOfMatchdays - 1, index)) {
+				Ergebnis secondLeg = getResult(1, index);
 				if (firstLeg.home() + secondLeg.away() > firstLeg.away() + secondLeg.home()) {
 					return isWinnerRequested ? teamHomeFirstLeg : teamAwayFirstLeg;
 				} else if (firstLeg.home() + secondLeg.away() < firstLeg.away() + secondLeg.home()) {
@@ -674,17 +709,34 @@ public class KORunde implements Wettbewerb {
 		String[] ranks = new String[2 * numberOfMatchesPerMatchday];
 		String competition = belongsToALeague ? lSeason.getLeague().getShortName() + lSeason.getYear() : tSeason.getTournament().getShortName() + tSeason.getYear();
 		
+		int pos = 0;
 		for (int i = 0; i < numberOfMatchesPerMatchday; i++) {
 			String matchID = getShortName() + twoDigit(i + 1);
-			ranks[2 * i] = matchID + "W" + ": ";
-			ranks[2 * i + 1] = matchID + "L" + ": ";
+			String key = matchID + "W";
+			ranks[pos] = key + ": ";
 			int id = getTeamIDOf(i + 1, true);
-			if (id != UNDEFINED)	ranks[2 * i] += getTeamFromId(id).getName();
-			else					ranks[2 * i] += competition + matchID + "W";
+			if (id != UNDEFINED)	ranks[pos++] += getTeamFromId(id).getName();
+			else {
+				if (isMatchSet(0, i)) {
+					Spiel match = getMatch(0, i);
+					ranks[pos++] += Optional.ofNullable(match.getHomeTeam()).map(Mannschaft :: getName).filter(n -> !n.contains(VERSUS)).orElse(getTeamsOrigin(match.home() - 1).getOrigin())
+							+ VERSUS + Optional.ofNullable(match.getAwayTeam()).map(Mannschaft :: getName).filter(n -> !n.contains(VERSUS)).orElse(getTeamsOrigin(match.away() - 1).getOrigin());
+				}
+				else	ranks[pos++] += competition + key;
+			}
 			
+			key = matchID + "L";
+			ranks[pos] = key + ": ";
 			id = getTeamIDOf(i + 1, false);
-			if (id != UNDEFINED)	ranks[2 * i + 1] += getTeamFromId(id).getName();
-			else					ranks[2 * i + 1] += competition + matchID + "L";
+			if (id != UNDEFINED)	ranks[pos++] += getTeamFromId(id).getName();
+			else {
+				if (isMatchSet(0, i)) {
+					Spiel match = getMatch(0, i);
+					ranks[pos++] += Optional.ofNullable(match.getHomeTeam()).map(Mannschaft :: getName).filter(n -> !n.contains(VERSUS)).orElse(getTeamsOrigin(match.home() - 1).getOrigin())
+							+ VERSUS + Optional.ofNullable(match.getAwayTeam()).map(Mannschaft :: getName).filter(n -> !n.contains(VERSUS)).orElse(getTeamsOrigin(match.away() - 1).getOrigin());
+				}
+				else	ranks[pos++] += competition + key;
+			}
 		}
 		
 		return ranks;
