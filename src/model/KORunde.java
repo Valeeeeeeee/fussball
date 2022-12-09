@@ -328,10 +328,9 @@ public class KORunde implements Wettbewerb {
 				} else if (!today.isBefore(getDate(1, 0)) && !isNoMatchSet(1)) {
 					currentMatchday = 1;
 				} else {
-					currentMatchday = 1;
-					
-					if (getDate(0, 0).daysUntil(today) < today.daysUntil(getDate(1, 0))) {
-						currentMatchday--;
+					currentMatchday = 0;
+					if (getDate(0, 0).daysUntil(today) >= today.daysUntil(getDate(1, 0))) {
+						currentMatchday++;
 					}
 				}
 				cMatchdaySetForDate = today;

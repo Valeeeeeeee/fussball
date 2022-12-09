@@ -312,7 +312,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public int getCurrentMatchday() {
-		Datum yesterday = new Datum(today, UNDEFINED); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
+		Datum yesterday = new Datum(today, -1); // damit erst mittwochs umgeschaltet wird, bzw. in englischen Wochen der Binnenspieltag am Montag + Donnerstag erscheint
 		
 		if (!yesterday.equals(cMatchdaySetForDate)) {
 			if (yesterday.isBefore(getDate(0))) {
@@ -321,11 +321,14 @@ public class LigaSaison implements Wettbewerb {
 				currentMatchday = numberOfMatchdays - 1;
 			} else {
 				currentMatchday = 0;
-				while (!yesterday.isBefore(getDate(currentMatchday))) {
-					currentMatchday++;
-				}
-				if (currentMatchday != 0 && getDate(currentMatchday - 1).daysUntil(yesterday) < yesterday.daysUntil(getDate(currentMatchday))) {
-					currentMatchday--;
+				while (yesterday.isAfter(getDate(currentMatchday))) {
+					if (yesterday.isAfter(getDate(currentMatchday + 1))) {
+						currentMatchday++;
+					} else if (getDate(currentMatchday).daysUntil(today) >= today.daysUntil(getDate(currentMatchday + 1))) {
+						currentMatchday++;
+					} else {
+						break;
+					}
 				}
 			}
 			cMatchdaySetForDate = yesterday;

@@ -83,6 +83,9 @@ public class Mannschaft {
 		this.competition = competition;
 		parseString(mannschaftsDaten);
 		
+		matches = new HashMap<>();
+		results = new HashMap<>();
+		
 		if (competition != null) {
 			isClub = competition.isClubCompetition();
 			if (competition instanceof LigaSaison)		lSeason = (LigaSaison) competition;
@@ -102,8 +105,6 @@ public class Mannschaft {
 		else if (playsInGroup)	numberOfMatchdays = group.getNumberOfMatchdays();
 		data = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
-		matches = new HashMap<>();
-		results = new HashMap<>();
 	}
 	
 	public Wettbewerb getCompetition() {
@@ -225,6 +226,7 @@ public class Mannschaft {
 	
 	private boolean proceedWithKaderFileName() {
 		if (name.contains("Mannschaft "))	return false;
+		if (competition == null)			return false;
 		if (!competition.teamsHaveKader())	return false;
 		if (playsInKORound)					return false;
 		determineKaderFileName();

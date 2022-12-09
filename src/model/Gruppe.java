@@ -311,8 +311,10 @@ public class Gruppe implements Wettbewerb {
 				while (midnight.isAfter(getKickOffTime(currentMatchday, 0))) {
 					if (midnight.isAfter(getKickOffTime(currentMatchday + 1, 0))) {
 						currentMatchday++;
-					} else if (getKickOffTime(currentMatchday, 0).getDate().daysUntil(today) <= today.daysUntil(getKickOffTime(currentMatchday + 1, 0).getDate())) {
+					} else if (getKickOffTime(currentMatchday, 0).getDate().daysUntil(today) >= today.daysUntil(getKickOffTime(currentMatchday + 1, 0).getDate())) {
 						currentMatchday++;
+					} else {
+						break;
 					}
 				}
 			}
