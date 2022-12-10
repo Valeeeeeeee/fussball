@@ -13,6 +13,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -182,6 +184,8 @@ public class SpielerInformationen extends JFrame {
 	private boolean atClubUntilEver;
 	private boolean moreDetails;
 	
+	private boolean shift = false;
+	
 	public SpielerInformationen(Uebersicht uebersicht) {
 		super();
 		
@@ -216,6 +220,48 @@ public class SpielerInformationen extends JFrame {
 		for (int i = 1; i <= monate.length; i++) {
 			monate[i - 1] = (i / 10) + "" + (i % 10) + ".";
 		}
+		
+		addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent e) {
+				shift = false;
+			}
+			
+			public void keyPressed(KeyEvent e) {
+				switch (e.getKeyCode()) {
+					case KeyEvent.VK_SHIFT:
+						shift = true;
+						break;
+					case KeyEvent.VK_T:
+						if (shift) {
+							jBtnChangeInformationActionPerformed();
+							jCBPositions.setSelectedIndex(0);
+							jBtnChangeInformationActionPerformed();
+						}
+						break;
+					case KeyEvent.VK_A:
+						if (shift) {
+							jBtnChangeInformationActionPerformed();
+							jCBPositions.setSelectedIndex(1);
+							jBtnChangeInformationActionPerformed();
+						}
+						break;
+					case KeyEvent.VK_M:
+						if (shift) {
+							jBtnChangeInformationActionPerformed();
+							jCBPositions.setSelectedIndex(2);
+							jBtnChangeInformationActionPerformed();
+						}
+						break;
+					case KeyEvent.VK_S:
+						if (shift) {
+							jBtnChangeInformationActionPerformed();
+							jCBPositions.setSelectedIndex(3);
+							jBtnChangeInformationActionPerformed();
+						}
+						break;
+				}
+			}
+		});
 		
 		{
 			jPnlPlayerInformation = new JPanel();
