@@ -117,19 +117,19 @@ AF07W: Marokko
 AF07L: Spanien
 AF08W: Portugal
 AF08L: Schweiz
-VF01W: Kroatien vs. Brasilien
-VF01L: Kroatien vs. Brasilien
-VF02W: Niederlande vs. Argentinien
-VF02L: Niederlande vs. Argentinien
-VF03W: Marokko vs. Portugal
-VF03L: Marokko vs. Portugal
-VF04W: England vs. Frankreich
-VF04L: England vs. Frankreich
-HF01W: VF02W vs. VF01W
-HF01L: VF02W vs. VF01W
-HF02W: VF04W vs. VF03W
-HF02L: VF04W vs. VF03W
-P301W: HF01L vs. HF02L
-P301L: HF01L vs. HF02L
-FI01W: HF01W vs. HF02W
-FI01L: HF01W vs. HF02W
+VF01W: Kroatien
+VF01L: Brasilien
+VF02W: Argentinien
+VF02L: Niederlande
+VF03W: Marokko
+VF03L: Portugal
+VF04W: Frankreich
+VF04L: England
+HF01W: Argentinien
+HF01L: Kroatien
+HF02W: Frankreich
+HF02L: Marokko
+P301W: Kroatien
+P301L: Marokko
+FI01W: Argentinien
+FI01L: Frankreich
