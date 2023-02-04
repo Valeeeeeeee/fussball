@@ -94,14 +94,14 @@
 2R15L: FC Augsburg
 2R16W: 1. FC Union Berlin
 2R16L: 1. FC Heidenheim
-AF01W: SC Paderborn 07 vs. VfB Stuttgart
-AF01L: SC Paderborn 07 vs. VfB Stuttgart
-AF02W: 1. FC Union Berlin vs. VfL Wolfsburg
-AF02L: 1. FC Union Berlin vs. VfL Wolfsburg
-AF03W: RasenBallsport Leipzig vs. TSG 1899 Hoffenheim
-AF03L: RasenBallsport Leipzig vs. TSG 1899 Hoffenheim
-AF04W: 1. FSV Mainz 05 vs. Bayern München
-AF04L: 1. FSV Mainz 05 vs. Bayern München
+AF01W: VfB Stuttgart
+AF01L: SC Paderborn 07
+AF02W: 1. FC Union Berlin
+AF02L: VfL Wolfsburg
+AF03W: RasenBallsport Leipzig
+AF03L: TSG 1899 Hoffenheim
+AF04W: Bayern München
+AF04L: 1. FSV Mainz 05
 AF05W: SV Sandhausen vs. SC Freiburg
 AF05L: SV Sandhausen vs. SC Freiburg
 AF06W: Eintracht Frankfurt vs. SV Darmstadt 98
