@@ -102,14 +102,14 @@ AF03W: RasenBallsport Leipzig
 AF03L: TSG 1899 Hoffenheim
 AF04W: Bayern München
 AF04L: 1. FSV Mainz 05
-AF05W: SV Sandhausen vs. SC Freiburg
-AF05L: SV Sandhausen vs. SC Freiburg
-AF06W: Eintracht Frankfurt vs. SV Darmstadt 98
-AF06L: Eintracht Frankfurt vs. SV Darmstadt 98
-AF07W: 1. FC Nürnberg vs. Fortuna Düsseldorf
-AF07L: 1. FC Nürnberg vs. Fortuna Düsseldorf
-AF08W: VfL Bochum vs. Borussia Dortmund
-AF08L: VfL Bochum vs. Borussia Dortmund
+AF05W: SC Freiburg
+AF05L: SV Sandhausen
+AF06W: Eintracht Frankfurt
+AF06L: SV Darmstadt 98
+AF07W: 1. FC Nürnberg
+AF07L: Fortuna Düsseldorf
+AF08W: Borussia Dortmund
+AF08L: VfL Bochum
 VF01W: DPOK2022VF01W
 VF01L: DPOK2022VF01L
 VF02W: DPOK2022VF02W
