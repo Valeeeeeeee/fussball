@@ -33,9 +33,9 @@ public class Spiel {
 		this.kickOffTime = kickOffTime;
 		
 		this.homeTeamIndex = homeTeamIndex;
-		homeTeam = competition.getTeams()[homeTeamIndex - 1];
+		homeTeam = competition.getTeams().get(homeTeamIndex - 1);
 		this.awayTeamIndex = awayTeamIndex;
-		awayTeam = competition.getTeams()[awayTeamIndex - 1];
+		awayTeam = competition.getTeams().get(awayTeamIndex - 1);
 	}
 	
 	public Spiel(Wettbewerb competition, int matchday, AnstossZeit kickOffTime, String data) {
@@ -369,8 +369,8 @@ public class Spiel {
 				throw new IllegalArgumentException();
 			}
 			
-			homeTeam = competition.getTeams()[homeTeamIndex - 1];
-			awayTeam = competition.getTeams()[awayTeamIndex - 1];
+			homeTeam = competition.getTeams().get(homeTeamIndex - 1);
+			awayTeam = competition.getTeams().get(awayTeamIndex - 1);
 		} catch (IllegalArgumentException iae) {
 			log("The given match was formally correct, but impossible.");
 			log(iae.getMessage());

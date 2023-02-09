@@ -30,7 +30,7 @@ public class LigaSaison implements Wettbewerb {
 	private int numberOfReferees;
 	private ArrayList<Schiedsrichter> referees;
 	private int numberOfTeams;
-	private Mannschaft[] teams;
+	private ArrayList<Mannschaft> teams;
 	private int halfNOfTeamsUp;
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
@@ -246,7 +246,7 @@ public class LigaSaison implements Wettbewerb {
 		return allReferees;
 	}
 	
-	public Mannschaft[] getTeams() {
+	public ArrayList<Mannschaft> getTeams() {
 		return teams;
 	}
 	
@@ -304,7 +304,7 @@ public class LigaSaison implements Wettbewerb {
 	public Mannschaft getTeamWithName(String teamsName) {
 		int index = getIndexOfMannschaft(teamsName);
 		if (index == UNDEFINED)	return null;
-		return teams[index - 1];
+		return teams.get(index - 1);
 	}
 	
 	public String getMatchdayDescription(int matchday) {
@@ -810,9 +810,9 @@ public class LigaSaison implements Wettbewerb {
 		if (numberOfTeams >= 2)		numberOfMatchdays = numberOfMatchesAgainstSameOpponent * (2 * halfNOfTeamsUp - 1);
 		else						numberOfMatchdays = 0;
 		
-		teams = new Mannschaft[numberOfTeams];
+		teams = new ArrayList<Mannschaft>();
 		for (int i = 0; i < numberOfTeams; i++) {
-			teams[i] = new Mannschaft(i + 1, this, teamsFromFile.get(i + 1));
+			teams.add(new Mannschaft(i + 1, this, teamsFromFile.get(i + 1)));
 		}
 	}
 	
@@ -820,9 +820,9 @@ public class LigaSaison implements Wettbewerb {
 		teamsFromFile.clear();
 		
 		teamsFromFile.add("" + numberOfTeams);
-		for (int i = 0; i < teams.length; i++) {
-			teams[i].save();
-			teamsFromFile.add(teams[i].toString());
+		for (int i = 0; i < teams.size(); i++) {
+			teams.get(i).save();
+			teamsFromFile.add(teams.get(i).toString());
 		}
 		
 		writeFile(fileTeams, teamsFromFile);
@@ -995,7 +995,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public Optional<Mannschaft> getTeamOnPlace(int place) {
-		if (place < 1 || place > teams.length)	return Optional.empty();
+		if (place < 1 || place > teams.size())	return Optional.empty();
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
 			for (int matchIndex = 0; matchIndex < getNumberOfMatchesPerMatchday(); matchIndex++) {
 				if (!isResultSet(matchday, matchIndex)) 	return Optional.empty();
@@ -1006,7 +1006,7 @@ public class LigaSaison implements Wettbewerb {
 			team.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
 		}
 		for (Mannschaft team : teams) {
-			if (team.get(0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);
+			if (team.get(teams, 0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);
 		}
 		
 		return Optional.empty();

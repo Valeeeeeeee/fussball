@@ -575,12 +575,12 @@ public class NeueLigaSaisonDialog extends JFrame {
 		(teamsHaveKader ? jRBTeamsHaveKaderYes : jRBTeamsHaveKaderNo).setSelected(true);
 	}
 	
-	private void setOldMannschaften(Mannschaft[] mannschaften) {
-		numberOfTeams = numberOfTeamsOld = mannschaften.length;
+	private void setOldMannschaften(ArrayList<Mannschaft> mannschaften) {
+		numberOfTeams = numberOfTeamsOld = mannschaften.size();
 		jCBNumberOfTeams.setSelectedIndex(numberOfTeams - minNumberOfTeams);
 		for (int i = 0; i < numberOfTeamsOld; i++) {
-			oldSeasonTeamsOrder.add(mannschaften[i]);
-			jLblsTeamsOldSeason[i].setText(mannschaften[i].getName());
+			oldSeasonTeamsOrder.add(mannschaften.get(i));
+			jLblsTeamsOldSeason[i].setText(mannschaften.get(i).getName());
 			jLblsTeamsOldSeason[i].setVisible(true);
 		}
 	}

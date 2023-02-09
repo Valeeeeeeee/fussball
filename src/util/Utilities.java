@@ -257,6 +257,14 @@ public class Utilities {
 		return false;
 	}
 	
+	public static <E> boolean containsSameElements(ArrayList<E> firstList, ArrayList<E> secondList) {
+		if (firstList == null || secondList == null || firstList.size() != secondList.size())	return false;
+		for (int i = 0; i < firstList.size(); i++) {
+			if (!isElementOf(firstList.get(i), secondList))	return false;	
+		}
+		return true;
+	}
+	
 	public static void addInOrder(ArrayList<AnstossZeit> list, AnstossZeit kickOffTime) {
 		int index = 0;
 		for (index = 0; index < list.size(); index++) {

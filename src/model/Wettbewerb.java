@@ -36,7 +36,7 @@ public interface Wettbewerb {
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();
 	
-	public Mannschaft[] getTeams();
+	public ArrayList<Mannschaft> getTeams();
 	
 	public ArrayList<String[]> getAllMatches(Mannschaft team);
 	

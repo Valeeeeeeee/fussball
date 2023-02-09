@@ -570,10 +570,10 @@ public class TurnierSaison {
 		for (int i = 0; i < koRounds.length; i++) {
 			log(koRounds[i].getDescription() + "\n-------------");
 			koRounds[i].setCheckTeamsFromPreviousRound(false);
-			Mannschaft[] teams = koRounds[i].getTeams();
+			ArrayList<Mannschaft> teams = koRounds[i].getTeams();
 			koRounds[i].setCheckTeamsFromPreviousRound(true);
-			for (int j = 0; j < teams.length; j++) {
-				Mannschaft team = teams[j];
+			for (int j = 0; j < teams.size(); j++) {
+				Mannschaft team = teams.get(j);
 				logWONL("Team " + (j + 1) + ": ");
 				if (team != null) {
 					log(team.getName());

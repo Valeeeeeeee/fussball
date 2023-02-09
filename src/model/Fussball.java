@@ -1046,16 +1046,16 @@ public class Fussball extends JFrame {
 	public void teamsVerbessern() {
 		if (isCurrentlyALeague) {
 			for (int i = 0; i < currentLSeason.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + currentLSeason.getTeams()[i].getName() + "\"");
+				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + currentLSeason.getTeams().get(i).getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
-					currentLSeason.getTeams()[i].setName(newName);
+					currentLSeason.getTeams().get(i).setName(newName);
 				}
 			}
 		} else {
 			for (int i = 0; i < currentGroup.getNumberOfTeams(); i++) {
-				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + currentGroup.getTeams()[i].getName() + "\"");
+				String newName = JOptionPane.showInputDialog("Korrekter Name für Mannschaft \"" + currentGroup.getTeams().get(i).getName() + "\"");
 				if (newName != null && !newName.isEmpty()) {
-					currentGroup.getTeams()[i].setName(newName);
+					currentGroup.getTeams().get(i).setName(newName);
 				}
 			}
 		}

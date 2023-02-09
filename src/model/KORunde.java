@@ -29,7 +29,7 @@ public class KORunde implements Wettbewerb {
 	private int newestMatchday;
 	private Datum nMatchdaySetForDate = MIN_DATE;
 	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
-	private Mannschaft[] teams;
+	private ArrayList<Mannschaft> teams;
 	private boolean checkTeamsFromPreviousRound = true;
 	
 	private boolean hasSecondLeg;
@@ -195,14 +195,14 @@ public class KORunde implements Wettbewerb {
 		return belongsToALeague ? lSeason.getAllReferees() : tSeason.getAllReferees();
 	}
 
-	public Mannschaft[] getTeams() {
+	public ArrayList<Mannschaft> getTeams() {
 		if (checkTeamsFromPreviousRound)	refreshTeams();
 		return teams;
 	}
 
 	public Mannschaft getTeamFromId(int id) {
 		if (checkTeamsFromPreviousRound)	refreshTeams();
-		return teams[id - 1];
+		return teams.get(id - 1);
 	}
 	
 	public Mannschaft getTeamWithName(String teamName) {
@@ -220,8 +220,8 @@ public class KORunde implements Wettbewerb {
 		ArrayList<String[]> allMatches = new ArrayList<>();
 		
 		boolean foundTeam = false;
-		for (int i = 0; i < teams.length && !foundTeam; i++) {
-			foundTeam = team.equals(teams[i]);
+		for (int i = 0; i < teams.size() && !foundTeam; i++) {
+			foundTeam = team.equals(teams.get(i));
 		}
 		if (foundTeam) {
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
@@ -281,14 +281,14 @@ public class KORunde implements Wettbewerb {
 	
 	public Optional<Mannschaft> getInvariantTeam(int index) {
 		if (teamsOrigins[index].getKOOriginType().isFromPreviousRound())	return Optional.empty();
-		return Optional.of(teams[index]);
+		return Optional.of(teams.get(index));
 	}
 	
 	private void refreshTeams() {
 		for (int i = 0; i < teamsOrigins.length; i++) {
 			if (teamsOrigins[i].getKOOriginType().isFromPreviousRound()) {
-				if (belongsToALeague)	teams[i] = lSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null);
-				else					teams[i] = tSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null);
+				if (belongsToALeague)	teams.set(i, lSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null));
+				else					teams.set(i, tSeason.getTeamFromOrigin(teamsOrigins[i]).orElse(null));
 			}
 		}
 	}
@@ -483,13 +483,13 @@ public class KORunde implements Wettbewerb {
 	public void setMatch(int matchday, int matchIndex, Spiel match) {
 		String key = getKey(matchday);
 		if (match != null) {
-			if (teams[match.home() - 1] != null)	teams[match.home() - 1].setMatch(key, match);
-			if (teams[match.away() - 1] != null)	teams[match.away() - 1].setMatch(key, match);
+			if (teams.get(match.home() - 1) != null)	teams.get(match.home() - 1).setMatch(key, match);
+			if (teams.get(match.away() - 1) != null)	teams.get(match.away() - 1).setMatch(key, match);
 		} else {
 			if (isMatchSet(matchday, matchIndex)) {
 				Spiel previousMatch = getMatch(matchday, matchIndex);
-				if (teams[previousMatch.home() - 1] != null)	teams[previousMatch.home() - 1].resetMatch(key);
-				if (teams[previousMatch.away() - 1] != null)	teams[previousMatch.away() - 1].resetMatch(key);
+				if (teams.get(previousMatch.home() - 1) != null)	teams.get(previousMatch.home() - 1).resetMatch(key);
+				if (teams.get(previousMatch.away() - 1) != null)	teams.get(previousMatch.away() - 1).resetMatch(key);
 				setRelativeKickOffTime(matchday, matchIndex, null);
 			}
 		}
@@ -799,7 +799,7 @@ public class KORunde implements Wettbewerb {
 		teamsFromFile = readFile(fileTeams);
 		
 		numberOfTeams = teamsFromFile.size();
-		teams = new Mannschaft[numberOfTeams];
+		teams = new ArrayList<Mannschaft>(numberOfTeams);
 		numberOfMatchesAgainstSameOpponent = hasSecondLeg ? 2 : 1;
 		numberOfMatchdays = hasSecondLeg ? 2 : 1;
 		numberOfMatchesPerMatchday = numberOfTeams / 2;
@@ -813,21 +813,24 @@ public class KORunde implements Wettbewerb {
 			switch (type) {
 				case PREQUALIFIED:
 					teamsOrigins[i] = new KOOriginPrequalified(origin, this, i);
-					teams[i] = new Mannschaft(i, this, origin);
+					teams.add(new Mannschaft(i, this, origin));
 					break;
 				case PREVIOUS_GROUP_STAGE:
 					teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
+					teams.add(null);
 					break;
 				case PREVIOUS_KNOCKOUT_ROUND:
 					teamsOrigins[i] = new KOOriginPreviousKnockoutRound(origin, isQ);
+					teams.add(null);
 					break;
 				case PREVIOUS_LEAGUE:
 					teamsOrigins[i] = new KOOriginPreviousLeague(origin);
+					teams.add(null);
 					break;
 				case OTHER_COMPETITION:
 					teamsOrigins[i] = new KOOriginOtherCompetition(origin, this, i);
-					if (belongsToALeague)	teams[i] = lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
-					else					teams[i] = tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]);
+					if (belongsToALeague)	teams.add(lSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]));
+					else					teams.add(tSeason.getTeamFromOtherCompetition(i, this, teamsOrigins[i]));
 					break;
 				default:
 					break;
@@ -840,7 +843,7 @@ public class KORunde implements Wettbewerb {
 	public void saveTeams() {
 		teamsFromFile = new ArrayList<>();
 		for (int i = 0; i < numberOfTeams; i++) {
-			if (teams[i] != null)	teams[i].save();
+			if (teams.get(i) != null)	teams.get(i).save();
 			teamsFromFile.add(teamsOrigins[i].toString());
 		}
 		writeFile(fileTeams, teamsFromFile);

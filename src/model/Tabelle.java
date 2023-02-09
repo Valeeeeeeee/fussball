@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -294,7 +295,7 @@ public class Tabelle extends JPanel {
 		int nextPlace = 0; // index in der Tabelle
 		int lastIndexedPlace = 0;
 		
-		Mannschaft[] teams = competition.getTeams();
+		ArrayList<Mannschaft> teams = competition.getTeams();
 		
 		for (int i = 0; i < jLblsData.length; i++) {
 			for (Mannschaft ms : teams) {
@@ -357,7 +358,7 @@ public class Tabelle extends JPanel {
 			}
 		}
 		
-		Mannschaft[] teams = competition.getTeams();
+		ArrayList<Mannschaft> teams = competition.getTeams();
 		if (jTFsPointDeductions == null) {
 			int offset = 0;
 			for (int i = 0; i < 2; i++) {
@@ -365,7 +366,7 @@ public class Tabelle extends JPanel {
 			}
 			jLblPointDeductions.setBounds(startx + offset, starty - (height + gapy), widthPDlbl, height);
 			
-			jTFsPointDeductions = new JTextField[teams.length];
+			jTFsPointDeductions = new JTextField[teams.size()];
 			for (int i = 0; i < jTFsPointDeductions.length; i++) {
 				final int x = i;
 				jTFsPointDeductions[i] = new JTextField();
@@ -389,7 +390,7 @@ public class Tabelle extends JPanel {
 		}
 		jLblPointDeductions.setVisible(true);
 		for (int i = 0; i < jTFsPointDeductions.length; i++) {
-			int dP = -teams[teamIndices[i] - 1].getDeductedPoints();
+			int dP = -teams.get(teamIndices[i] - 1).getDeductedPoints();
 			jTFsPointDeductions[i].setText("" + dP);
 			jTFsPointDeductions[i].setVisible(true);
 		}
@@ -445,11 +446,11 @@ public class Tabelle extends JPanel {
 	}
 	
 	private void jBtnDoneActionPerformed() {
-		Mannschaft[] teams = competition.getTeams();
+		ArrayList<Mannschaft> teams = competition.getTeams();
 		jLblPointDeductions.setVisible(false);
 		for (int i = 0; i < jTFsPointDeductions.length; i++) {
 			int dP = -Integer.parseInt(jTFsPointDeductions[i].getText());
-			teams[teamIndices[i] - 1].setDeductedPoints(dP);
+			teams.get(teamIndices[i] - 1).setDeductedPoints(dP);
 			jTFsPointDeductions[i].setVisible(false);
 		}
 		

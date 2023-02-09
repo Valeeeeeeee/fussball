@@ -13,7 +13,7 @@ public class LigaStatistik extends JPanel {
 	
 	private Dimension preferredSize = new Dimension(1100, 750);
 	private LigaSaison season;
-	private Mannschaft[] teams;
+	private ArrayList<Mannschaft> teams;
 	private int currentMatchday;
 	
 	// global variables for results
@@ -394,27 +394,27 @@ public class LigaStatistik extends JPanel {
 			}
 			more = sep = "";
 			if (moreMax.size() > 0) {
-				jLblsMostValues[i].setText(String.format("%s + %d weitere (%d)", teams[maxIndex].getName(), moreMax.size(), maximum));
+				jLblsMostValues[i].setText(String.format("%s + %d weitere (%d)", teams.get(maxIndex).getName(), moreMax.size(), maximum));
 				for (Integer index : moreMax) {
-					more += sep + teams[index].getName();
+					more += sep + teams.get(index).getName();
 					sep = "<br>";
 				}
 				jLblsMostValues[i].setToolTipText("<html>" + more + "</html>");
 			} else {
-				jLblsMostValues[i].setText(String.format("%s (%d)", teams[maxIndex].getName(), maximum));
+				jLblsMostValues[i].setText(String.format("%s (%d)", teams.get(maxIndex).getName(), maximum));
 				jLblsMostValues[i].setToolTipText(null);
 			}
 			
 			more = sep = "";
 			if (moreMin.size() > 0) {
-				jLblsLeastValues[i].setText(String.format("%s + %d weitere (%d)", teams[minIndex].getName(), moreMin.size(), minimum));
+				jLblsLeastValues[i].setText(String.format("%s + %d weitere (%d)", teams.get(minIndex).getName(), moreMin.size(), minimum));
 				for (Integer index : moreMin) {
-					more += sep + teams[index].getName();
+					more += sep + teams.get(index).getName();
 					sep = "<br>";
 				}
 				jLblsLeastValues[i].setToolTipText("<html>" + more + "</html>");
 			} else {
-				jLblsLeastValues[i].setText(String.format("%s (%d)", teams[minIndex].getName(), minimum));
+				jLblsLeastValues[i].setText(String.format("%s (%d)", teams.get(minIndex).getName(), minimum));
 				jLblsLeastValues[i].setToolTipText(null);
 			}
 		}
@@ -432,14 +432,14 @@ public class LigaStatistik extends JPanel {
 			}
 			more = sep = "";
 			if (moreMax.size() > 0) {
-				jLblsSeriesValues[i].setText(String.format("%s + %d weitere (%d)", teams[maxIndex].getName(), moreMax.size(), maximum));
+				jLblsSeriesValues[i].setText(String.format("%s + %d weitere (%d)", teams.get(maxIndex).getName(), moreMax.size(), maximum));
 				for (Integer index : moreMax) {
-					more += sep + teams[index].getName();
+					more += sep + teams.get(index).getName();
 					sep = "<br>";
 				}
 				jLblsSeriesValues[i].setToolTipText("<html>" + more + "</html>");
 			} else {
-				jLblsSeriesValues[i].setText(String.format("%s (%d)", teams[maxIndex].getName(), maximum));
+				jLblsSeriesValues[i].setText(String.format("%s (%d)", teams.get(maxIndex).getName(), maximum));
 				jLblsSeriesValues[i].setToolTipText(null);
 			}
 		}

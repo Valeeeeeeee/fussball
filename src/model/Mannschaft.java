@@ -26,8 +26,10 @@ public class Mannschaft {
 	private int numOfLosses;
 	private int numOfGoals;
 	private int numOfCGoals;
+	private int numOfAwayGoals;
 	private int goalDiff;
 	private int points;
+	private ArrayList<Mannschaft> valuesCorrectAsOfOpponents;
 	private int valuesCorrectAsOfMatchday = -1;
 	private Tabellenart valuesCorrectAsOf;
 	private int deductedPoints = 0;
@@ -371,38 +373,42 @@ public class Mannschaft {
 		return value;
 	}
 	
-	private void setValuesForMatchday(int untilMatchday, Tabellenart tableType) {
+	private void setValuesForMatchday(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType) {
 		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tableType)	return;
+		if (containsSameElements(valuesCorrectAsOfOpponents, includedOpponents))	return;
 		
-		numOfWins = numOfDraws = numOfLosses = numOfGoals = numOfCGoals = 0;
+		numOfWins = numOfDraws = numOfLosses = numOfGoals = numOfCGoals = numOfAwayGoals = 0;
 		for (int matchday = 0; matchday <= untilMatchday; matchday++) {
 			if (homeaway[matchday] && tableType == Tabellenart.AWAY)	continue;
 			if (!homeaway[matchday] && tableType == Tabellenart.HOME)	continue;
-			if (data[matchday][3] == 3)			numOfWins++;
-			else if (data[matchday][3] == 1)	numOfDraws++;
-			else if (data[matchday][1] < data[matchday][2])	numOfLosses++;
+			if (!includedOpponents.stream().anyMatch(m -> m.getId() == this.id))	continue;
+			if (data[matchday][POINTS] == 3)			numOfWins++;
+			else if (data[matchday][POINTS] == 1)	numOfDraws++;
+			else if (data[matchday][GOALS] < data[matchday][CGOALS])	numOfLosses++;
 			
-			numOfGoals += data[matchday][1];
-			numOfCGoals += data[matchday][2];
+			numOfGoals += data[matchday][GOALS];
+			numOfCGoals += data[matchday][CGOALS];
+			if (!homeaway[matchday])	numOfAwayGoals += data[matchday][GOALS];
 		}
 		
 		numOfMatches = numOfWins + numOfDraws + numOfLosses;
 		points = 3 * numOfWins + numOfDraws + deductedPoints;
 		goalDiff = numOfGoals - numOfCGoals;
 		
+		valuesCorrectAsOfOpponents = includedOpponents;
 		valuesCorrectAsOfMatchday = untilMatchday;
 		valuesCorrectAsOf = tableType;
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday) {
-		return get(index, firstMatchday, lastMatchday, competition.getTeams().length - 1);
+		return get(index, firstMatchday, lastMatchday, competition.getTeams().size() - 1);
 	}
 	
 	public int get(int index, int firstMatchday, int lastMatchday, int includingRank) {
 		ArrayList<Integer> excludedTeams = new ArrayList<>();
 		if (competition instanceof Gruppe) {
 			Gruppe group = (Gruppe) competition;
-			while (includingRank < group.getTeams().length) {
+			while (includingRank < group.getTeams().size()) {
 				includingRank++;
 				Mannschaft team = group.getTeamOnPlace(includingRank);
 				if (team != null)	excludedTeams.add(team.getId());
@@ -454,8 +460,8 @@ public class Mannschaft {
 		return null;
 	}
 
-	public int get(int index, int untilMatchday, Tabellenart tableType) {
-		setValuesForMatchday(untilMatchday, tableType);
+	public int get(ArrayList<Mannschaft> includedOpponents, int index, int untilMatchday, Tabellenart tableType) {
+		setValuesForMatchday(includedOpponents, untilMatchday, tableType);
 		if (index == 0)	return place;
 		if (index == 2)	return numOfMatches;
 		if (index == 3)	return numOfWins;
@@ -571,7 +577,7 @@ public class Mannschaft {
 		// force update of values
 		int untilMatchday = valuesCorrectAsOfMatchday;
 		valuesCorrectAsOfMatchday = -1;
-		setValuesForMatchday(untilMatchday, valuesCorrectAsOf);
+		setValuesForMatchday(valuesCorrectAsOfOpponents, untilMatchday, valuesCorrectAsOf);
 	}
 	
 	private void updateEligiblePlayers(Datum date, boolean forceUpdate) {
@@ -804,14 +810,14 @@ public class Mannschaft {
 		goalDiff = numOfGoals - numOfCGoals;
 	}
 	
-	public void compareWithOtherTeams(Mannschaft[] allTeams, int untilMatchday, Tabellenart tableType) {
-		setValuesForMatchday(untilMatchday, tableType);
+	public void compareWithOtherTeams(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType) {
+		setValuesForMatchday(includedOpponents, untilMatchday, tableType);
 		ArrayList<Integer> teamsSamePoints = new ArrayList<>();
 		this.place = 0;
 		
-		for (Mannschaft other : allTeams) {
+		for (Mannschaft other : includedOpponents) {
 			if (this.id == other.id)	continue;
-			other.setValuesForMatchday(untilMatchday, tableType);
+			other.setValuesForMatchday(includedOpponents, untilMatchday, tableType);
 			
 			if (this.points == other.points)		teamsSamePoints.add(other.id);
 			else if (this.points < other.points)	this.place++;
@@ -820,15 +826,15 @@ public class Mannschaft {
 		boolean awayGoals = competition.getNumberOfMatchesAgainstSameOpponent() > 1 && (lSeason == null || !lSeason.getLeague().getShortName().equals("ESP1"));
 		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
 			for (Integer id : teamsSamePoints) {
-				if (this.goalDiff == allTeams[id - 1].goalDiff) {
-					if (this.numOfGoals == allTeams[id - 1].numOfGoals) {
+				if (this.goalDiff == includedOpponents.get(id - 1).goalDiff) {
+					if (this.numOfGoals == includedOpponents.get(id - 1).numOfGoals) {
 						if (competition.useFairplayRule()) {
-							if (this.getFairplayValue() < allTeams[id - 1].getFairplayValue())	this.place++;
+							if (this.getFairplayValue() < includedOpponents.get(id - 1).getFairplayValue())	this.place++;
 						}
 					}
-					else if (this.numOfGoals < allTeams[id - 1].numOfGoals)	this.place++;
+					else if (this.numOfGoals < includedOpponents.get(id - 1).numOfGoals)	this.place++;
 				}
-				else if (this.goalDiff < allTeams[id - 1].goalDiff)	this.place++;
+				else if (this.goalDiff < includedOpponents.get(id - 1).goalDiff)	this.place++;
 			}
 		} else {
 			teamsSamePoints.add(0, this.id);
@@ -839,10 +845,10 @@ public class Mannschaft {
 			int[] goalsAway = new int[teamsSamePoints.size()];
 			
 			for (int i = 0; i < teamsSamePoints.size(); i++) {
-				Mannschaft team1 = allTeams[teamsSamePoints.get(i) - 1];
+				Mannschaft team1 = includedOpponents.get(teamsSamePoints.get(i) - 1);
 				for (int j = 0; j < teamsSamePoints.size(); j++) {
 					if (i == j)	continue;
-					Mannschaft team2 = allTeams[teamsSamePoints.get(j) - 1];
+					Mannschaft team2 = includedOpponents.get(teamsSamePoints.get(j) - 1);
 					for (int k = 0; k <= untilMatchday; k++) {
 						if (team1.data[k][OPPONENT] == team2.id) {
 							goals[i] += team1.data[k][GOALS];
@@ -864,10 +870,10 @@ public class Mannschaft {
 							} else {
 								// use goal difference anyway
 								int otherID = teamsSamePoints.get(i);
-								if (this.goalDiff == allTeams[otherID - 1].goalDiff) {
-									if (this.numOfGoals < allTeams[otherID - 1].numOfGoals)	this.place++;
+								if (this.goalDiff == includedOpponents.get(otherID - 1).goalDiff) {
+									if (this.numOfGoals < includedOpponents.get(otherID - 1).numOfGoals)	this.place++;
 								}
-								else if (this.goalDiff < allTeams[otherID - 1].goalDiff)	this.place++;
+								else if (this.goalDiff < includedOpponents.get(otherID - 1).goalDiff)	this.place++;
 							}
 						}
 					}

@@ -120,7 +120,7 @@ public class Spieltag extends JPanel {
 	private KORunde koRound;
 	private TurnierSaison tSeason;
 	private Gruppe[] allGroups;
-	private Mannschaft[] teams;
+	private ArrayList<Mannschaft> teams;
 	
 	// Overview
 	private int[] numbersOfTeams;
@@ -901,16 +901,16 @@ public class Spieltag extends JPanel {
 	private void setMannschaftenButtonsNames() {
 		int groupID = 0, teamID = 0;
 		for (int i = 0; i < jBtnsMannschaften.length; i++) {
-			if (belongsToALeague)		jBtnsMannschaften[i].setText(lSeason.getTeams()[i].getName());
-			else if (belongsToGroup)	jBtnsMannschaften[i].setText(group.getTeams()[i].getName());
+			if (belongsToALeague)		jBtnsMannschaften[i].setText(lSeason.getTeams().get(i).getName());
+			else if (belongsToGroup)	jBtnsMannschaften[i].setText(group.getTeams().get(i).getName());
 			else if (belongsToKORound) {
 				try {
-					jBtnsMannschaften[i].setText(teams[i].getName());
+					jBtnsMannschaften[i].setText(teams.get(i).getName());
 				} catch (NullPointerException npe) {
 					jBtnsMannschaften[i].setText(koRound.getTeamsOrigin(i).getOrigin());
 				}
 			} else {
-				jBtnsMannschaften[i].setText(allGroups[groupID].getTeams()[teamID].getName());
+				jBtnsMannschaften[i].setText(allGroups[groupID].getTeams().get(teamID).getName());
 				
 				teamID++;
 				if (teamID == numbersOfTeams[groupID]) {
@@ -1500,11 +1500,11 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void mannschaftenButtonClicked(int index) {
-		if (belongsToALeague)		jLblsTeams[editedLabel].setText(lSeason.getTeams()[index].getName());
-		else if (belongsToGroup)	jLblsTeams[editedLabel].setText(group.getTeams()[index].getName());
+		if (belongsToALeague)		jLblsTeams[editedLabel].setText(lSeason.getTeams().get(index).getName());
+		else if (belongsToGroup)	jLblsTeams[editedLabel].setText(group.getTeams().get(index).getName());
 		else if (belongsToKORound) {
 			try {
-				jLblsTeams[editedLabel].setText(teams[index].getName());
+				jLblsTeams[editedLabel].setText(teams.get(index).getName());
 			} catch (NullPointerException npe) {
 				jLblsTeams[editedLabel].setText(koRound.getTeamsOrigin(index).getOrigin());
 			}
@@ -1524,7 +1524,7 @@ public class Spieltag extends JPanel {
 				return;
 			}
 			
-			jLblsTeams[editedLabel].setText(allGroups[groupID].getTeams()[teamID].getName());
+			jLblsTeams[editedLabel].setText(allGroups[groupID].getTeams().get(teamID).getName());
 		}
 		int oldButton = array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] - 1;
 		if (oldButton >= 0)	jBtnsMannschaften[oldButton].setEnabled(true);
