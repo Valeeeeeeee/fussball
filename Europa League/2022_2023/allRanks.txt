@@ -64,22 +64,22 @@ GH1: Ferencváros Budapest
 GH2: AS Monaco
 GH3: Trabzonspor
 GH4: Roter Stern Belgrad
-PK01W: Ajax Amsterdam vs. 1. FC Union Berlin
-PK01L: Ajax Amsterdam vs. 1. FC Union Berlin
-PK02W: FC Barcelona vs. Manchester United
-PK02L: FC Barcelona vs. Manchester United
-PK03W: FC Salzburg vs. AS Rom
-PK03L: FC Salzburg vs. AS Rom
-PK04W: Schachtar Donezk vs. Stade Rennes
-PK04L: Schachtar Donezk vs. Stade Rennes
-PK05W: Bayer 04 Leverkusen vs. AS Monaco
-PK05L: Bayer 04 Leverkusen vs. AS Monaco
-PK06W: Sporting Lissabon vs. FC Midtjylland
-PK06L: Sporting Lissabon vs. FC Midtjylland
-PK07W: FC Sevilla vs. PSV Eindhoven
-PK07L: FC Sevilla vs. PSV Eindhoven
-PK08W: Maccabi Haifa vs. FC Nantes
-PK08L: Maccabi Haifa vs. FC Nantes
+PK01W: 1. FC Union Berlin
+PK01L: Ajax Amsterdam
+PK02W: Manchester United
+PK02L: FC Barcelona
+PK03W: AS Rom
+PK03L: FC Salzburg
+PK04W: Schachtar Donezk
+PK04L: Stade Rennes
+PK05W: Bayer 04 Leverkusen
+PK05L: AS Monaco
+PK06W: Sporting Lissabon
+PK06L: FC Midtjylland
+PK07W: FC Sevilla
+PK07L: PSV Eindhoven
+PK08W: Maccabi Haifa
+PK08L: FC Nantes
 AF01W: EURL2022AF01W
 AF01L: EURL2022AF01L
 AF02W: EURL2022AF02W

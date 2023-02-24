@@ -304,22 +304,22 @@ GH1: Slovan Bratislava
 GH2: FC Basel
 GH3: Pjunik Erewan
 GH4: Zalgiris Vilnius
-PK01W: FK Bodø/Glimt vs. Lech Posen
-PK01L: FK Bodø/Glimt vs. Lech Posen
-PK02W: Sporting Braga vs. AC Florenz
-PK02L: Sporting Braga vs. AC Florenz
-PK03W: Qarabag Agdam vs. KAA Gent
-PK03L: Qarabag Agdam vs. KAA Gent
-PK04W: Trabzonspor vs. FC Basel
-PK04L: Trabzonspor vs. FC Basel
-PK05W: AEK Larnaka vs. SK Dnipro-1
-PK05L: AEK Larnaka vs. SK Dnipro-1
-PK06W: Ludogorez Rasgrad vs. RSC Anderlecht
-PK06L: Ludogorez Rasgrad vs. RSC Anderlecht
-PK07W: Sheriff Tiraspol vs. Partizan Belgrad
-PK07L: Sheriff Tiraspol vs. Partizan Belgrad
-PK08W: Lazio Rom vs. CFR Cluj
-PK08L: Lazio Rom vs. CFR Cluj
+PK01W: Lech Posen
+PK01L: FK Bodø/Glimt
+PK02W: AC Florenz
+PK02L: Sporting Braga
+PK03W: KAA Gent
+PK03L: Qarabag Agdam
+PK04W: FC Basel
+PK04L: Trabzonspor
+PK05W: AEK Larnaka
+PK05L: SK Dnipro-1
+PK06W: RSC Anderlecht
+PK06L: Ludogorez Rasgrad
+PK07W: Sheriff Tiraspol
+PK07L: Partizan Belgrad
+PK08W: Lazio Rom
+PK08L: CFR Cluj
 AF01W: CONF2022AF01W
 AF01L: CONF2022AF01L
 AF02W: CONF2022AF02W
