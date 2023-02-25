@@ -1,0 +1,11 @@
+20230323
+20240326
+false
+10
+true
+false
+false
+5
+2
+Play-off-Halbfinale;PH;false;
+Play-offs;PO;false;

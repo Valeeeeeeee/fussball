@@ -1,0 +1,4 @@
+Achtelfinale;AF;false;
+Viertelfinale;VF;false;
+Halbfinale;HF;false;
+Finale;FI;false;
