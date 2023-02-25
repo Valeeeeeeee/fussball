@@ -80,22 +80,22 @@ PK07W: FC Sevilla
 PK07L: PSV Eindhoven
 PK08W: Maccabi Haifa
 PK08L: FC Nantes
-AF01W: EURL2022AF01W
-AF01L: EURL2022AF01L
-AF02W: EURL2022AF02W
-AF02L: EURL2022AF02L
-AF03W: EURL2022AF03W
-AF03L: EURL2022AF03L
-AF04W: EURL2022AF04W
-AF04L: EURL2022AF04L
-AF05W: EURL2022AF05W
-AF05L: EURL2022AF05L
-AF06W: EURL2022AF06W
-AF06L: EURL2022AF06L
-AF07W: EURL2022AF07W
-AF07L: EURL2022AF07L
-AF08W: EURL2022AF08W
-AF08L: EURL2022AF08L
+AF01W: 1. FC Union Berlin vs. Royale Union Saint-Gilloise
+AF01L: 1. FC Union Berlin vs. Royale Union Saint-Gilloise
+AF02W: AS Rom vs. Real Sociedad San Sebastián
+AF02L: AS Rom vs. Real Sociedad San Sebastián
+AF03W: Bayer 04 Leverkusen vs. Ferencváros Budapest
+AF03L: Bayer 04 Leverkusen vs. Ferencváros Budapest
+AF04W: Sporting Lissabon vs. FC Arsenal
+AF04L: Sporting Lissabon vs. FC Arsenal
+AF05W: Manchester United vs. Real Betis Sevilla
+AF05L: Manchester United vs. Real Betis Sevilla
+AF06W: Schachtar Donezk vs. Feyenoord Rotterdam
+AF06L: Schachtar Donezk vs. Feyenoord Rotterdam
+AF07W: FC Sevilla vs. Fenerbahce Istanbul
+AF07L: FC Sevilla vs. Fenerbahce Istanbul
+AF08W: Juventus Turin vs. SC Freiburg
+AF08L: Juventus Turin vs. SC Freiburg
 VF01W: EURL2022VF01W
 VF01L: EURL2022VF01L
 VF02W: EURL2022VF02W

@@ -320,22 +320,22 @@ PK07W: Sheriff Tiraspol
 PK07L: Partizan Belgrad
 PK08W: Lazio Rom
 PK08L: CFR Cluj
-AF01W: CONF2022AF01W
-AF01L: CONF2022AF01L
-AF02W: CONF2022AF02W
-AF02L: CONF2022AF02L
-AF03W: CONF2022AF03W
-AF03L: CONF2022AF03L
-AF04W: CONF2022AF04W
-AF04L: CONF2022AF04L
-AF05W: CONF2022AF05W
-AF05L: CONF2022AF05L
-AF06W: CONF2022AF06W
-AF06L: CONF2022AF06L
-AF07W: CONF2022AF07W
-AF07L: CONF2022AF07L
-AF08W: CONF2022AF08W
-AF08L: CONF2022AF08L
+AF01W: Lazio Rom vs. AZ Alkmaar
+AF01L: Lazio Rom vs. AZ Alkmaar
+AF02W: AEK Larnaka vs. West Ham United
+AF02L: AEK Larnaka vs. West Ham United
+AF03W: RSC Anderlecht vs. FC Villarreal
+AF03L: RSC Anderlecht vs. FC Villarreal
+AF04W: Sheriff Tiraspol vs. OGC Nizza
+AF04L: Sheriff Tiraspol vs. OGC Nizza
+AF05W: Lech Posen vs. Djurgårdens IF
+AF05L: Lech Posen vs. Djurgårdens IF
+AF06W: AC Florenz vs. Sivasspor
+AF06L: AC Florenz vs. Sivasspor
+AF07W: KAA Gent vs. Istanbul Basaksehir
+AF07L: KAA Gent vs. Istanbul Basaksehir
+AF08W: FC Basel vs. Slovan Bratislava
+AF08L: FC Basel vs. Slovan Bratislava
 VF01W: CONF2022VF01W
 VF01L: CONF2022VF01L
 VF02W: CONF2022VF02W
