@@ -122,14 +122,14 @@ GH1: Paris Saint-Germain
 GH2: CHAL2022GH2
 GH3: Maccabi Haifa
 GH4: Juventus Turin
-AF01W: AC Mailand vs. Tottenham Hotspurs
-AF01L: AC Mailand vs. Tottenham Hotspurs
-AF02W: GH2 vs. Bayern München
-AF02L: GH2 vs. Bayern München
-AF03W: FC Brügge vs. Paris Saint-Germain
-AF03L: FC Brügge vs. Paris Saint-Germain
-AF04W: Borussia Dortmund vs. FC Chelsea
-AF04L: Borussia Dortmund vs. FC Chelsea
+AF01W: AC Mailand
+AF01L: Tottenham Hotspurs
+AF02W: Bayern München
+AF02L: GH2
+AF03W: Paris Saint-Germain
+AF03L: FC Brügge
+AF04W: FC Chelsea
+AF04L: Borussia Dortmund
 AF05W: FC Liverpool vs. Real Madrid
 AF05L: FC Liverpool vs. Real Madrid
 AF06W: Eintracht Frankfurt vs. SSC Neapel
