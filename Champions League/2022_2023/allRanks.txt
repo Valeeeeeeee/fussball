@@ -130,14 +130,14 @@ AF03W: Paris Saint-Germain
 AF03L: FC Brügge
 AF04W: FC Chelsea
 AF04L: Borussia Dortmund
-AF05W: FC Liverpool vs. Real Madrid
-AF05L: FC Liverpool vs. Real Madrid
-AF06W: Eintracht Frankfurt vs. SSC Neapel
-AF06L: Eintracht Frankfurt vs. SSC Neapel
-AF07W: Inter Mailand vs. FC Porto
-AF07L: Inter Mailand vs. FC Porto
-AF08W: RB Leipzig vs. Manchester City
-AF08L: RB Leipzig vs. Manchester City
+AF05W: Real Madrid
+AF05L: FC Liverpool
+AF06W: SSC Neapel
+AF06L: Eintracht Frankfurt
+AF07W: Inter Mailand
+AF07L: FC Porto
+AF08W: Manchester City
+AF08L: RB Leipzig
 VF01W: CHAL2022VF01W
 VF01L: CHAL2022VF01L
 VF02W: CHAL2022VF02W
