@@ -32,6 +32,8 @@ public class KORunde implements Wettbewerb {
 	private ArrayList<Mannschaft> teams;
 	private boolean checkTeamsFromPreviousRound = true;
 	
+	private ArrayList<RankingCriterion> rankingCriteria;
+	
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
 	private boolean is4thSubPossible = false;
@@ -45,6 +47,9 @@ public class KORunde implements Wettbewerb {
 	private boolean[][] matchesSet;
 	
 	private String workspace;
+	
+	private String fileRankingCriteria;
+	private ArrayList<String> rankingCriteriaFromFile;
 	
 	private String fileTeams;
 	private ArrayList<String> teamsFromFile;
@@ -165,12 +170,20 @@ public class KORunde implements Wettbewerb {
 		return is4thSubPossible;
 	}
 	
+	public ArrayList<RankingCriterion> getRankingCriteria() {
+		return rankingCriteria;
+	}
+	
 	public boolean useGoalDifference() {
 		return goalDifference;
 	}
 	
 	public boolean useFairplayRule() {
 		return fairplay;
+	}
+	
+	public Tabelle getTable() {
+		return null;
 	}
 	
 	public String[] getMatchdays() {
@@ -440,6 +453,13 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	// Ergebnisplan eingetragen
+	
+	public boolean allResultsSet() {
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			if (isNoResultSet(matchday)) 	return false;
+		}
+		return true;
+	}
 	
 	public boolean isNoResultSet(int matchday) {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
@@ -766,6 +786,9 @@ public class KORunde implements Wettbewerb {
 		fileTeams = workspace + "Mannschaften.txt";
 		fileMatchData = workspace + "Spieldaten.txt";
 		fileMatches = workspace + "Spielplan.txt";
+		fileRankingCriteria = workspace + "RankingKriterien.txt";
+		
+		loadRankingCriteria();
 		
 		loadTeams();
 		initializeArrays();
@@ -793,6 +816,15 @@ public class KORunde implements Wettbewerb {
 		
 		matches = new Spiel[numberOfMatchdays][numberOfMatchesPerMatchday];
 		matchesSet = new boolean[numberOfMatchdays][numberOfMatchesPerMatchday];
+	}
+	
+	private void loadRankingCriteria() {
+		rankingCriteriaFromFile = readFile(fileRankingCriteria);
+		rankingCriteria = new ArrayList<>();
+		
+		for (int i = 0; i < rankingCriteriaFromFile.size(); i++) {
+			rankingCriteria.add(RankingCriterion.parse(rankingCriteriaFromFile.get(i)));
+		}
 	}
 	
 	private void loadTeams() {

@@ -27,10 +27,15 @@ public class Gruppe implements Wettbewerb {
 	private boolean fairplay;
 	private boolean teamsHaveKader;
 	
+	private ArrayList<RankingCriterion> rankingCriteria;
+	
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
 	
 	private String workspace;
+	
+	private String fileRankingCriteria;
+	private ArrayList<String> rankingCriteriaFromFile;
 	
 	private String fileTeams;
 	private ArrayList<String> teamsFromFile;
@@ -174,12 +179,20 @@ public class Gruppe implements Wettbewerb {
 		return false;
 	}
 	
+	public ArrayList<RankingCriterion> getRankingCriteria() {
+		return rankingCriteria;
+	}
+	
 	public boolean useGoalDifference() {
 		return goalDifference;
 	}
 	
 	public boolean useFairplayRule() {
 		return fairplay;
+	}
+	
+	public Tabelle getTable() {
+		return tabelle;
 	}
 	
 	public String getDateOfTeam(int matchday, Mannschaft team) {
@@ -216,10 +229,8 @@ public class Gruppe implements Wettbewerb {
 	
 	public Mannschaft getTeamOnPlace(int place) {
 		if (place < 1 || place > teams.size())	return null;
-		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-			for (int matchIndex = 0; matchIndex < getNumberOfMatchesPerMatchday(); matchIndex++) {
-				if (!isResultSet(matchday, matchIndex)) 	return null;
-			}
+		if (!allResultsSet()) {
+			return null;
 		}
 		
 		for (Mannschaft ms : teams) {
@@ -436,6 +447,13 @@ public class Gruppe implements Wettbewerb {
 	
 	// Ergebnisplan eingetragen
 	
+	public boolean allResultsSet() {
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			if (isNoResultSet(matchday)) 	return false;
+		}
+		return true;
+	}
+	
 	public boolean isNoResultSet(int matchday) {
 		for (int matchIndex = 0; matchIndex < getNumberOfMatchesPerMatchday(); matchIndex++) {
 			if (isResultSet(matchday, matchIndex)) 	return false;
@@ -596,7 +614,9 @@ public class Gruppe implements Wettbewerb {
 		fileMatchData = workspace + "Spieldaten.txt";
 		fileMatches = workspace + "Spielplan.txt";
 		fileTeams = workspace + "Mannschaften.txt";
+		fileRankingCriteria = workspace + "RankingKriterien.txt";
 		
+		loadRankingCriteria();
 		loadTeams();
 		initializeArrays();
 		
@@ -619,6 +639,15 @@ public class Gruppe implements Wettbewerb {
 		saveMatches();
 		saveMatchData();
 		saveTeams();
+	}
+	
+	private void loadRankingCriteria() {
+		rankingCriteriaFromFile = readFile(fileRankingCriteria);
+		rankingCriteria = new ArrayList<>();
+		
+		for (int i = 0; i < rankingCriteriaFromFile.size(); i++) {
+			rankingCriteria.add(RankingCriterion.parse(rankingCriteriaFromFile.get(i)));
+		}
 	}
 	
 	public void loadTeams() {

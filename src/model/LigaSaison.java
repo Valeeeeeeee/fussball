@@ -27,6 +27,8 @@ public class LigaSaison implements Wettbewerb {
 	
 	private HashMap<Dauer, Integer> numberOfSubstitutions;
 	
+	private ArrayList<RankingCriterion> rankingCriteria;
+	
 	private int numberOfReferees;
 	private ArrayList<Schiedsrichter> referees;
 	private int numberOfTeams;
@@ -65,6 +67,9 @@ public class LigaSaison implements Wettbewerb {
 	
 	private String fileReferees;
 	private ArrayList<String> refereesFromFile;
+	
+	private String fileRankingCriteria;
+	private ArrayList<String> rankingCriteriaFromFile;
 	
 	private String fileTeams;
 	private ArrayList<String> teamsFromFile;
@@ -163,6 +168,10 @@ public class LigaSaison implements Wettbewerb {
 		return numberOfMatchesAgainstSameOpponent;
 	}
 	
+	public ArrayList<RankingCriterion> getRankingCriteria() {
+		return rankingCriteria;
+	}
+	
 	public boolean useGoalDifference() {
 		return goalDifference;
 	}
@@ -191,6 +200,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public boolean isFourthSubstitutionPossible() {
 		return false;
+	}
+	
+	public Tabelle getTable() {
+		return tabelle;
 	}
 	
 	public String[] getMatchdays() {
@@ -484,6 +497,13 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	// Ergebnisplan eingetragen
+	
+	public boolean allResultsSet() {
+		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
+			if (isNoResultSet(matchday)) 	return false;
+		}
+		return true;
+	}
 	
 	public boolean isNoResultSet(int matchday) {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
@@ -996,10 +1016,8 @@ public class LigaSaison implements Wettbewerb {
 	
 	public Optional<Mannschaft> getTeamOnPlace(int place) {
 		if (place < 1 || place > teams.size())	return Optional.empty();
-		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-			for (int matchIndex = 0; matchIndex < getNumberOfMatchesPerMatchday(); matchIndex++) {
-				if (!isResultSet(matchday, matchIndex)) 	return Optional.empty();
-			}
+		if (!allResultsSet()) {
+			return Optional.empty();
 		}
 		
 		for (Mannschaft team : teams) {
@@ -1058,13 +1076,24 @@ public class LigaSaison implements Wettbewerb {
 		writeFile(fileKOconfig, koConfigFromFile);
 	}
 	
+	private void loadRankingCriteria() {
+		rankingCriteriaFromFile = readFile(fileRankingCriteria);
+		rankingCriteria = new ArrayList<>();
+		
+		for (int i = 0; i < rankingCriteriaFromFile.size(); i++) {
+			rankingCriteria.add(RankingCriterion.parse(rankingCriteriaFromFile.get(i)));
+		}
+	}
+	
 	public void load() {
 		fileMatchData = workspace + "Spieldaten.txt";
 		fileMatches = workspace + "Spielplan.txt";
 		fileTeams = workspace + "Mannschaften.txt";
 		fileReferees = workspace + "Schiedsrichter.txt";
 		fileKOconfig = workspace + "KOconfig.txt";
+		fileRankingCriteria = workspace + "RankingKriterien.txt";
 		
+		loadRankingCriteria();
 		loadReferees();
 		loadTeams();
 		initializeArrays();

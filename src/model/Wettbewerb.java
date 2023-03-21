@@ -31,7 +31,11 @@ public interface Wettbewerb {
 	public Ergebnis getResult(int matchday, int matchIndex);
 	public void setResult(int matchday, int matchIndex, Ergebnis result);
 	
+	public boolean allResultsSet();
+	
 	public AnstossZeit getKickOffTime(int matchday, int matchIndex);
+	
+	public Tabelle getTable();
 	
 	public ArrayList<Schiedsrichter> getReferees();
 	public String[] getAllReferees();
@@ -43,6 +47,8 @@ public interface Wettbewerb {
 	public boolean isExtraTimePossible();
 	public int getNumberOfRegularSubstitutions(Datum date);
 	public boolean isFourthSubstitutionPossible();
+	
+	public ArrayList<RankingCriterion> getRankingCriteria();
 	
 	/** 
 	 * When two teams have the same amount of points:<br />
