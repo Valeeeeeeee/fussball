@@ -23,8 +23,6 @@ public class Gruppe implements Wettbewerb {
 	private Uhrzeit nMatchdaySetUntilTime = TIME_UNDEFINED;
 	private ArrayList<Mannschaft> teams;
 	private TurnierSaison season;
-	private boolean goalDifference;
-	private boolean fairplay;
 	private boolean teamsHaveKader;
 	
 	private ArrayList<RankingCriterion> rankingCriteria;
@@ -53,7 +51,7 @@ public class Gruppe implements Wettbewerb {
 	private Spieltag spieltag;
 	private Tabelle tabelle;
 	
-	public Gruppe(TurnierSaison season, int id, boolean isQ, boolean goalDifference, boolean fairplay) {
+	public Gruppe(TurnierSaison season, int id, boolean isQ) {
 		this.id = id;
 		this.isQ = isQ;
 		name = "Gruppe " + alphabet[id];
@@ -61,8 +59,6 @@ public class Gruppe implements Wettbewerb {
 		this.season = season;
 		startDate = season.getStartDate(isQ);
 		finalDate = season.getFinalDate(isQ);
-		this.goalDifference = goalDifference;
-		this.fairplay = fairplay;
 		teamsHaveKader = season.teamsHaveKader(isQ);
 		
 		load();
@@ -181,14 +177,6 @@ public class Gruppe implements Wettbewerb {
 	
 	public ArrayList<RankingCriterion> getRankingCriteria() {
 		return rankingCriteria;
-	}
-	
-	public boolean useGoalDifference() {
-		return goalDifference;
-	}
-	
-	public boolean useFairplayRule() {
-		return fairplay;
 	}
 	
 	public Tabelle getTable() {

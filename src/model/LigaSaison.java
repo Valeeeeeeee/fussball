@@ -20,8 +20,6 @@ public class LigaSaison implements Wettbewerb {
 	private Datum finalDate;
 	private int seasonIndex;
 	private int year;
-	private boolean goalDifference;
-	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	private boolean hasPlayoffs;
 	
@@ -170,14 +168,6 @@ public class LigaSaison implements Wettbewerb {
 	
 	public ArrayList<RankingCriterion> getRankingCriteria() {
 		return rankingCriteria;
-	}
-	
-	public boolean useGoalDifference() {
-		return goalDifference;
-	}
-	
-	public boolean useFairplayRule() {
-		return fairplay;
 	}
 	
 	public boolean teamsHaveKader() {
@@ -1149,7 +1139,6 @@ public class LigaSaison implements Wettbewerb {
 		toString += numberOfTeams + ";";
 		toString += numberOfMatchesAgainstSameOpponent + ";";
 		toString += getDefaultKickoffTimesRepresentation() + ";";
-		toString += goalDifference + ";";
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
 		toString += hasPlayoffs + ";";
@@ -1180,7 +1169,6 @@ public class LigaSaison implements Wettbewerb {
 		numberOfTeams = Integer.parseInt(split[index++]);
 		numberOfMatchesAgainstSameOpponent = Integer.parseInt(split[index++]);
 		initDefaultKickoffTimes(split[index++]);
-		goalDifference = Boolean.parseBoolean(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		numberOf = getAnzahlFromString(split[index++]);
 		hasPlayoffs = Boolean.parseBoolean(split[index++]);

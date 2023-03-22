@@ -37,8 +37,6 @@ public class KORunde implements Wettbewerb {
 	private boolean hasSecondLeg;
 	private boolean isETPossible = true;
 	private boolean is4thSubPossible = false;
-	private boolean goalDifference = true;
-	private boolean fairplay = false;
 	private boolean teamsHaveKader;
 	
 	private KOOrigin[] teamsOrigins;
@@ -172,14 +170,6 @@ public class KORunde implements Wettbewerb {
 	
 	public ArrayList<RankingCriterion> getRankingCriteria() {
 		return rankingCriteria;
-	}
-	
-	public boolean useGoalDifference() {
-		return goalDifference;
-	}
-	
-	public boolean useFairplayRule() {
-		return fairplay;
 	}
 	
 	public Tabelle getTable() {

@@ -50,13 +50,6 @@ public interface Wettbewerb {
 	
 	public ArrayList<RankingCriterion> getRankingCriteria();
 	
-	/** 
-	 * When two teams have the same amount of points:<br />
-	 * If true, the goal difference comes next.<br />
-	 * If false, all matches between these two teams are compared.
-	 * */
-	public boolean useGoalDifference();
-	public boolean useFairplayRule();
 	public boolean teamsHaveKader();
 	
 }

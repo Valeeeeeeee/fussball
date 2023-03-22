@@ -561,7 +561,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 		setOldMannschaften(lSeason.getTeams());
 		numberOfMatchesAgainstSameOpponent = lSeason.getNumberOfMatchesAgainstSameOpponent();
 		setKickoffTimes(lSeason);
-		goalDifference = lSeason.useGoalDifference();
+		goalDifference = true;
 		teamsHaveKader = lSeason.teamsHaveKader();
 		setAnzahlen(lSeason);
 		hasPlayoffs = lSeason.hasPlayoffs();

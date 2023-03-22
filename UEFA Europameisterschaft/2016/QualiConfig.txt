@@ -3,8 +3,6 @@
 false
 9
 true
-false
-false
 5
 1
 Play-offs;PO;true;

@@ -3,8 +3,6 @@
 false
 10
 true
-false
-false
 5
 2
 Play-off-Halbfinale;PH;false;
