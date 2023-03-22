@@ -96,14 +96,14 @@ AF07W: FC Sevilla
 AF07L: Fenerbahce Istanbul
 AF08W: Juventus Turin
 AF08L: SC Freiburg
-VF01W: EURL2022VF01W
-VF01L: EURL2022VF01L
-VF02W: EURL2022VF02W
-VF02L: EURL2022VF02L
-VF03W: EURL2022VF03W
-VF03L: EURL2022VF03L
-VF04W: EURL2022VF04W
-VF04L: EURL2022VF04L
+VF01W: Feyenoord Rotterdam vs. AS Rom
+VF01L: Feyenoord Rotterdam vs. AS Rom
+VF02W: Bayer 04 Leverkusen vs. Royale Union Saint-Gilloise
+VF02L: Bayer 04 Leverkusen vs. Royale Union Saint-Gilloise
+VF03W: Manchester United vs. FC Sevilla
+VF03L: Manchester United vs. FC Sevilla
+VF04W: Juventus Turin vs. Sporting Lissabon
+VF04L: Juventus Turin vs. Sporting Lissabon
 HF01W: EURL2022HF01W
 HF01L: EURL2022HF01L
 HF02W: EURL2022HF02W
