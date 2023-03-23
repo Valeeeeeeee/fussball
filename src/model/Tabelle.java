@@ -322,6 +322,12 @@ public class Tabelle extends JPanel {
 		currentMatchday = -1;
 	}
 	
+	public void calculate(int matchday, Tabellenart tableType) {
+		currentMatchday = matchday;
+		currentTableType = tableType;
+		refresh();
+	}
+	
 	public void refresh() {
 		if (currentMatchday == -1) {
 			jCBMatchdays.setSelectedIndex(competition.getCurrentMatchday());
@@ -329,11 +335,25 @@ public class Tabelle extends JPanel {
 			else return;
 		}
 		if (currentTableType == null)	currentTableType = Tabellenart.COMPLETE;
-		for (Mannschaft ms : competition.getTeams()) {
-			ms.compareWithOtherTeams(competition.getTeams(), currentMatchday, currentTableType);
-		}
+		Ranking ranking = new Ranking(competition, currentMatchday, currentTableType);
+		ranking.applyCriteria();
 		
 		fillLabels();
+	}
+	
+	public int[] getPositionsOfTeam(int id, int untilMatchday) {
+		int[] positions = new int[competition.getNumberOfMatchdays()];
+		
+		int matchday = 0;
+		while (matchday <= untilMatchday) {
+			calculate(matchday, Tabellenart.COMPLETE);
+			
+			int place = competition.getTeams().get(id - 1).getPlace() + 1;
+			positions[matchday] = place;
+			matchday++;
+		}
+		
+		return positions;
 	}
 
 	private void jCBMatchdaysItemStateChanged(ItemEvent evt) {
@@ -424,21 +444,9 @@ public class Tabelle extends JPanel {
 		currentTableType = tableType;
 		refresh();
 		
-		jLblHomeTable.setOpaque(false);
-		jLblCompleteTable.setOpaque(false);
-		jLblAwayTable.setOpaque(false);
-		
-		switch (currentTableType) {
-			case HOME:
-				jLblHomeTable.setOpaque(true);
-				break;
-			case COMPLETE:
-				jLblCompleteTable.setOpaque(true);
-				break;
-			case AWAY:
-				jLblAwayTable.setOpaque(true);
-				break;
-		}
+		jLblHomeTable.setOpaque(currentTableType == Tabellenart.HOME);
+		jLblCompleteTable.setOpaque(currentTableType == Tabellenart.COMPLETE);
+		jLblAwayTable.setOpaque(currentTableType == Tabellenart.AWAY);
 		
 		repaintImmediately(jLblHomeTable);
 		repaintImmediately(jLblCompleteTable);

@@ -781,6 +781,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	public Optional<Mannschaft> getTeamFromOrigin(KOOrigin origin) {
 		KOOriginPreviousLeague teamOrigin = (KOOriginPreviousLeague) origin;
+		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
 		return getTeamOnPlace(teamOrigin.getPlaceIndex());
 	}
 	
@@ -1011,9 +1012,6 @@ public class LigaSaison implements Wettbewerb {
 		}
 		
 		for (Mannschaft team : teams) {
-			team.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
-		}
-		for (Mannschaft team : teams) {
 			if (team.get(teams, 0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);
 		}
 		
@@ -1021,6 +1019,8 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public String[] getRanks() {
+		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
+		
 		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
@@ -1097,6 +1097,8 @@ public class LigaSaison implements Wettbewerb {
 		loadMatches();
 		loadMatchData();
 		loadPlayoffs();
+		
+		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
 		
 		if (spieltag == null) {
 			spieltag = new Spieltag(this);

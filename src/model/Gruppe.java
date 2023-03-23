@@ -222,9 +222,6 @@ public class Gruppe implements Wettbewerb {
 		}
 		
 		for (Mannschaft ms : teams) {
-			ms.compareWithOtherTeams(teams, numberOfMatchdays - 1, Tabellenart.COMPLETE);
-		}
-		for (Mannschaft ms : teams) {
 			if (ms.get(teams, 0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
 		}
 		
@@ -621,6 +618,8 @@ public class Gruppe implements Wettbewerb {
 			tabelle.setLocation((1440 - tabelle.getSize().width) / 2, 50);
 			tabelle.setVisible(false);
 		}
+
+		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
 	}
 	
 	public void save() {
@@ -663,6 +662,8 @@ public class Gruppe implements Wettbewerb {
 	}
 	
 	public String[] getRanks() {
+		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
+		
 		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {

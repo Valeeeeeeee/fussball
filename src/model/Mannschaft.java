@@ -355,7 +355,7 @@ public class Mannschaft {
 		}
 	}
 	
-	public int getFairplayValue() {
+	public int getFairplayValue(RankingCriterion criterion) {
 		int value = 0;
 		
 		Iterator<String> iter = matches.keySet().iterator();
@@ -363,9 +363,17 @@ public class Mannschaft {
 			Spiel match = matches.get(iter.next());
 			for (Karte booking : match.getBookings()) {
 				if (booking.isFirstTeam() == homeaway[match.getMatchday()]) {
-					if (booking.isSecondBooking())		value -= 2;
-					else if (booking.isYellowCard())	value--;
-					else								value -= 4;
+					switch (criterion) {
+						case FAIRPLAY_Y1YR3R3:
+							if (booking.isSecondBooking())		value -= 2;
+							else if (booking.isYellowCard())	value--;
+							else								value -= 3;
+						case FAIRPLAY_Y1YR3R4:
+						default:
+							if (booking.isSecondBooking())		value -= 2;
+							else if (booking.isYellowCard())	value--;
+							else								value -= 4;
+					}
 				}
 			}
 		}
@@ -374,14 +382,14 @@ public class Mannschaft {
 	}
 	
 	private void setValuesForMatchday(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType) {
-		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tableType)	return;
-		if (containsSameElements(valuesCorrectAsOfOpponents, includedOpponents))	return;
+		if (valuesCorrectAsOfMatchday == untilMatchday && valuesCorrectAsOf == tableType && containsSameElements(valuesCorrectAsOfOpponents, includedOpponents))	return;
 		
 		numOfWins = numOfDraws = numOfLosses = numOfGoals = numOfCGoals = numOfAwayGoals = 0;
 		for (int matchday = 0; matchday <= untilMatchday; matchday++) {
+			final int opponent = data[matchday][OPPONENT];
 			if (homeaway[matchday] && tableType == Tabellenart.AWAY)	continue;
 			if (!homeaway[matchday] && tableType == Tabellenart.HOME)	continue;
-			if (!includedOpponents.stream().anyMatch(m -> m.getId() == this.id))	continue;
+			if (!includedOpponents.stream().anyMatch(m -> m.getId() == opponent))	continue;
 			if (data[matchday][POINTS] == 3)			numOfWins++;
 			else if (data[matchday][POINTS] == 1)	numOfDraws++;
 			else if (data[matchday][GOALS] < data[matchday][CGOALS])	numOfLosses++;
@@ -810,77 +818,27 @@ public class Mannschaft {
 		goalDiff = numOfGoals - numOfCGoals;
 	}
 	
-	public void compareWithOtherTeams(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType) {
+	public int getValueForCriterion(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType, RankingCriterion criterion) {
 		setValuesForMatchday(includedOpponents, untilMatchday, tableType);
-		ArrayList<Integer> teamsSamePoints = new ArrayList<>();
-		this.place = 0;
 		
-		for (Mannschaft other : includedOpponents) {
-			if (this.id == other.id)	continue;
-			other.setValuesForMatchday(includedOpponents, untilMatchday, tableType);
-			
-			if (this.points == other.points)		teamsSamePoints.add(other.id);
-			else if (this.points < other.points)	this.place++;
-		}
-		
-		boolean awayGoals = competition.getNumberOfMatchesAgainstSameOpponent() > 1 && (lSeason == null || !lSeason.getLeague().getShortName().equals("ESP1"));
-		if (untilMatchday + 1 != numberOfMatchdays || competition.useGoalDifference()) {
-			for (Integer id : teamsSamePoints) {
-				if (this.goalDiff == includedOpponents.get(id - 1).goalDiff) {
-					if (this.numOfGoals == includedOpponents.get(id - 1).numOfGoals) {
-						if (competition.useFairplayRule()) {
-							if (this.getFairplayValue() < includedOpponents.get(id - 1).getFairplayValue())	this.place++;
-						}
-					}
-					else if (this.numOfGoals < includedOpponents.get(id - 1).numOfGoals)	this.place++;
-				}
-				else if (this.goalDiff < includedOpponents.get(id - 1).goalDiff)	this.place++;
-			}
-		} else {
-			teamsSamePoints.add(0, this.id);
-			int[] points = new int[teamsSamePoints.size()];
-			int[] pointsOpp = new int[teamsSamePoints.size()];
-			int[] goals = new int[teamsSamePoints.size()];
-			int[] goalsOpp = new int[teamsSamePoints.size()];
-			int[] goalsAway = new int[teamsSamePoints.size()];
-			
-			for (int i = 0; i < teamsSamePoints.size(); i++) {
-				Mannschaft team1 = includedOpponents.get(teamsSamePoints.get(i) - 1);
-				for (int j = 0; j < teamsSamePoints.size(); j++) {
-					if (i == j)	continue;
-					Mannschaft team2 = includedOpponents.get(teamsSamePoints.get(j) - 1);
-					for (int k = 0; k <= untilMatchday; k++) {
-						if (team1.data[k][OPPONENT] == team2.id) {
-							goals[i] += team1.data[k][GOALS];
-							goalsOpp[i] += team1.data[k][CGOALS];
-							points[i] += team1.data[k][POINTS];
-							pointsOpp[i] += (team1.data[k][POINTS] == 1 ? 1 : 3 - team1.data[k][POINTS]);
-							if (!team1.homeaway[k])	goalsAway[i] += team1.data[k][GOALS];
-						}
-					}
-				}
-			}
-			for (int i = 1; i < teamsSamePoints.size(); i++) {
-				if (points[0] == points[i]) {
-					if (goals[0] - goalsOpp[0] == goals[i] - goalsOpp[i]) {
-						if (goals[0] < goals[i])	this.place++;
-						else if (goals[0] == goals[i]) {
-							if (awayGoals && goalsAway[0] != goalsAway[i]) {
-								if (goalsAway[0] < goalsAway[i])	this.place++;
-							} else {
-								// use goal difference anyway
-								int otherID = teamsSamePoints.get(i);
-								if (this.goalDiff == includedOpponents.get(otherID - 1).goalDiff) {
-									if (this.numOfGoals < includedOpponents.get(otherID - 1).numOfGoals)	this.place++;
-								}
-								else if (this.goalDiff < includedOpponents.get(otherID - 1).goalDiff)	this.place++;
-							}
-						}
-					}
-					else if (goals[0] - goalsOpp[0] < goals[i] - goalsOpp[i])	this.place++;
-				}
-				else if (points[0] < points[i])	this.place++;
-			}
+		switch (criterion) {
+			case ALL_GAMES_MORE_POINTS:
+			case DIRECT_COMPARISON_MORE_POINTS:
+				return points;
+			case ALL_GAMES_BETTER_GOAL_DIFFERENCE:
+			case DIRECT_COMPARISON_BETTER_GOAL_DIFFERENCE:
+				return goalDiff;
+			case ALL_GAMES_MORE_GOALS_SCORED:
+			case DIRECT_COMPARISON_MORE_GOALS_SCORED:
+				return numOfGoals;
+			case ALL_GAMES_MORE_AWAY_GOALS_SCORED:
+			case DIRECT_COMPARISON_MORE_AWAY_GOALS_SCORED:
+				return numOfAwayGoals;
+			case FAIRPLAY_Y1YR3R3:
+			case FAIRPLAY_Y1YR3R4:
+				return getFairplayValue(criterion);
+			default:
+				return -1;
 		}
 	}
 	
