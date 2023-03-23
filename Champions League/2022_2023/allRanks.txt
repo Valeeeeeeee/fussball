@@ -118,15 +118,15 @@ GG1: Manchester City
 GG2: Borussia Dortmund
 GG3: FC Sevilla
 GG4: FC Kopenhagen
-GH1: Paris Saint-Germain
-GH2: CHAL2022GH2
-GH3: Maccabi Haifa
-GH4: Juventus Turin
+GH1: Benfica Lissabon
+GH2: Paris Saint-Germain
+GH3: Juventus Turin
+GH4: Maccabi Haifa
 AF01W: AC Mailand
 AF01L: Tottenham Hotspurs
 AF02W: Bayern München
-AF02L: GH2
-AF03W: Paris Saint-Germain
+AF02L: Paris Saint-Germain
+AF03W: Benfica Lissabon
 AF03L: FC Brügge
 AF04W: FC Chelsea
 AF04L: Borussia Dortmund
@@ -138,8 +138,8 @@ AF07W: Inter Mailand
 AF07L: FC Porto
 AF08W: Manchester City
 AF08L: RB Leipzig
-VF01W: Paris Saint-Germain vs. Inter Mailand
-VF01L: Paris Saint-Germain vs. Inter Mailand
+VF01W: Benfica Lissabon vs. Inter Mailand
+VF01L: Benfica Lissabon vs. Inter Mailand
 VF02W: Manchester City vs. Bayern München
 VF02L: Manchester City vs. Bayern München
 VF03W: AC Mailand vs. SSC Neapel

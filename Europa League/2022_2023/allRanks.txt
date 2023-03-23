@@ -78,7 +78,7 @@ PK06W: Sporting Lissabon
 PK06L: FC Midtjylland
 PK07W: FC Sevilla
 PK07L: PSV Eindhoven
-PK08W: Maccabi Haifa
+PK08W: Juventus Turin
 PK08L: FC Nantes
 AF01W: Royale Union Saint-Gilloise
 AF01L: 1. FC Union Berlin

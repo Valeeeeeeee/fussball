@@ -9,8 +9,8 @@ P8: FC Getafe
 P9: SD Eibar
 P10: FC Girona
 P11: Espanyol Barcelona
-P12: Celta Vigo
-P13: Real Sociedad San Sebastián
+P12: Real Sociedad San Sebastián
+P13: Celta Vigo
 P14: Deportivo Alavés
 P15: UD Levante
 P16: Athletic Bilbao
