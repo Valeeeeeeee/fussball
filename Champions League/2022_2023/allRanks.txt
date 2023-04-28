@@ -138,14 +138,14 @@ AF07W: Inter Mailand
 AF07L: FC Porto
 AF08W: Manchester City
 AF08L: RB Leipzig
-VF01W: Benfica Lissabon vs. Inter Mailand
-VF01L: Benfica Lissabon vs. Inter Mailand
-VF02W: Manchester City vs. Bayern München
-VF02L: Manchester City vs. Bayern München
-VF03W: AC Mailand vs. SSC Neapel
-VF03L: AC Mailand vs. SSC Neapel
-VF04W: Real Madrid vs. FC Chelsea
-VF04L: Real Madrid vs. FC Chelsea
+VF01W: Inter Mailand
+VF01L: Benfica Lissabon
+VF02W: Manchester City
+VF02L: Bayern München
+VF03W: AC Mailand
+VF03L: SSC Neapel
+VF04W: Real Madrid
+VF04L: FC Chelsea
 HF01W: CHAL2022HF01W
 HF01L: CHAL2022HF01L
 HF02W: CHAL2022HF02W
