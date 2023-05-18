@@ -344,9 +344,9 @@ VF03W: AC Florenz
 VF03L: Lech Posen
 VF04W: FC Basel
 VF04L: OGC Nizza
-HF01W: West Ham United vs. AZ Alkmaar
-HF01L: West Ham United vs. AZ Alkmaar
-HF02W: AC Florenz vs. FC Basel
-HF02L: AC Florenz vs. FC Basel
+HF01W: West Ham United
+HF01L: AZ Alkmaar
+HF02W: AC Florenz
+HF02L: FC Basel
 FI01W: CONF2022FI01W
 FI01L: CONF2022FI01L

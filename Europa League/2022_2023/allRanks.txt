@@ -104,9 +104,9 @@ VF03W: FC Sevilla
 VF03L: Manchester United
 VF04W: Juventus Turin
 VF04L: Sporting Lissabon
-HF01W: AS Rom vs. Bayer 04 Leverkusen
-HF01L: AS Rom vs. Bayer 04 Leverkusen
-HF02W: Juventus Turin vs. FC Sevilla
-HF02L: Juventus Turin vs. FC Sevilla
+HF01W: AS Rom
+HF01L: Bayer 04 Leverkusen
+HF02W: FC Sevilla
+HF02L: Juventus Turin
 FI01W: EURL2022FI01W
 FI01L: EURL2022FI01L

@@ -146,9 +146,9 @@ VF03W: AC Mailand
 VF03L: SSC Neapel
 VF04W: Real Madrid
 VF04L: FC Chelsea
-HF01W: Real Madrid vs. Manchester City
-HF01L: Real Madrid vs. Manchester City
-HF02W: AC Mailand vs. Inter Mailand
-HF02L: AC Mailand vs. Inter Mailand
+HF01W: Manchester City
+HF01L: Real Madrid
+HF02W: Inter Mailand
+HF02L: AC Mailand
 FI01W: CHAL2022FI01W
 FI01L: CHAL2022FI01L
