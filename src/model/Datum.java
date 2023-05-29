@@ -3,13 +3,17 @@ package model;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import util.Wochentag;
+
 import static util.Utilities.MIN_DATE;
 
 public class Datum {
 	
-	private int day;
-	private int month;
-	private int year;
+	private final int day;
+	private final int month;
+	private final int year;
+	
+	private final Wochentag dayOfWeek;
 	
 	public Datum(Datum ref, int days) {
 		GregorianCalendar greg = new GregorianCalendar(ref.year, ref.month - 1, ref.day);
@@ -17,6 +21,7 @@ public class Datum {
 		day = greg.get(Calendar.DAY_OF_MONTH);
 		month = greg.get(Calendar.MONTH) + 1;
 		year = greg.get(Calendar.YEAR);
+		dayOfWeek = Wochentag.fromCalendar(greg);
 	}
 	
 	public Datum() {
@@ -24,6 +29,7 @@ public class Datum {
 		day = greg.get(Calendar.DAY_OF_MONTH);
 		month = greg.get(Calendar.MONTH) + 1;
 		year = greg.get(Calendar.YEAR);
+		dayOfWeek = Wochentag.fromCalendar(greg);
 	}
 	
 	public Datum(String date) {
@@ -34,18 +40,16 @@ public class Datum {
 		day = date % 100;
 		month = (date % 10000) / 100;
 		year = date / 10000;
+		dayOfWeek = Wochentag.fromCalendar(new GregorianCalendar(year, month - 1, day));
 	}
 	
 	public Datum(int day, int month, int year) {
 		this.day = day;
 		this.month = month;
 		this.year = year;
+		dayOfWeek = Wochentag.fromCalendar(new GregorianCalendar(year, month - 1, day));
 	}
 	
-	public int getDayOfWeek() {
-		return (new GregorianCalendar(year, month - 1, day).get(Calendar.DAY_OF_WEEK) + 5) % 7 + 1;
-	}
-
 	public int getDay() {
 		return day;
 	}
@@ -56,6 +60,10 @@ public class Datum {
 
 	public int getYear() {
 		return year;
+	}
+	
+	public Wochentag getDayOfWeek() {
+		return dayOfWeek;
 	}
 	
 	public int comparable() {
@@ -146,6 +154,6 @@ public class Datum {
 	}
 	
 	public String toString() {
-		return "" + comparable();
+		return Integer.toString(comparable());
 	}
 }

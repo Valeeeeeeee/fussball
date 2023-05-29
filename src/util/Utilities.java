@@ -42,7 +42,6 @@ public class Utilities {
 	private static boolean macOS = System.getProperty("os.name").startsWith("Mac OS X");
 	
 	public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-	public static String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 	
 	public static final Datum UNIX_EPOCH = new Datum(1, 1, 1970);
 	public static final Datum MIN_DATE = new Datum(1, 1, 0);

@@ -9,8 +9,6 @@ public class RelativeAnstossZeit {
 	private int daysSince;
 	private Uhrzeit time;
 	
-	private String[] weekdays = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
-	
 	public RelativeAnstossZeit(int index, int daysSince, Uhrzeit time) {
 		this.index = index;
 		this.daysSince = daysSince;
@@ -46,7 +44,7 @@ public class RelativeAnstossZeit {
 	}
 	
 	public String weekdayAndTime(Datum date) {
-		return weekdays[new Datum(date, daysSince).getDayOfWeek() - 1] + " " + getTime().withDividers() + (daysSince < 0 || daysSince > 6 ? " (" + daysSince + "d)" : "");
+		return new Datum(date, daysSince).getDayOfWeek().getShortName() + " " + getTime().withDividers() + (daysSince < 0 || daysSince > 6 ? " (" + daysSince + "d)" : "");
 	}
 	
 	public String toString() {
