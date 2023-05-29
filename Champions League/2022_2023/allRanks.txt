@@ -150,5 +150,5 @@ HF01W: Manchester City
 HF01L: Real Madrid
 HF02W: Inter Mailand
 HF02L: AC Mailand
-FI01W: CHAL2022FI01W
-FI01L: CHAL2022FI01L
+FI01W: Manchester City vs. Inter Mailand
+FI01L: Manchester City vs. Inter Mailand
