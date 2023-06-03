@@ -122,5 +122,5 @@ HF01W: RasenBallsport Leipzig
 HF01L: SC Freiburg
 HF02W: Eintracht Frankfurt
 HF02L: VfB Stuttgart
-FI01W: DPOK2022FI01W
-FI01L: DPOK2022FI01L
+FI01W: RasenBallsport Leipzig
+FI01L: Eintracht Frankfurt

@@ -108,5 +108,5 @@ HF01W: AS Rom
 HF01L: Bayer 04 Leverkusen
 HF02W: FC Sevilla
 HF02L: Juventus Turin
-FI01W: FC Sevilla vs. AS Rom
-FI01L: FC Sevilla vs. AS Rom
+FI01W: FC Sevilla
+FI01L: AS Rom
