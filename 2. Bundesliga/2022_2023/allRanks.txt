@@ -16,5 +16,5 @@ P15: Eintracht Braunschweig
 P16: Arminia Bielefeld
 P17: SSV Jahn Regensburg
 P18: SV Sandhausen
-REL01W: SV Wehen Wiesbaden vs. Arminia Bielefeld
-REL01L: SV Wehen Wiesbaden vs. Arminia Bielefeld
+REL01W: SV Wehen Wiesbaden
+REL01L: Arminia Bielefeld

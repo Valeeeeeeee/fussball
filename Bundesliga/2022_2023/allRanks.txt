@@ -16,5 +16,5 @@ P15: FC Augsburg
 P16: VfB Stuttgart
 P17: FC Schalke 04
 P18: Hertha BSC
-REL01W: VfB Stuttgart vs. Hamburger SV
-REL01L: VfB Stuttgart vs. Hamburger SV
+REL01W: VfB Stuttgart
+REL01L: Hamburger SV

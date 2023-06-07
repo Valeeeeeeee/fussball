@@ -348,5 +348,5 @@ HF01W: West Ham United
 HF01L: AZ Alkmaar
 HF02W: AC Florenz
 HF02L: FC Basel
-FI01W: AC Florenz vs. West Ham United
-FI01L: AC Florenz vs. West Ham United
+FI01W: West Ham United
+FI01L: AC Florenz
