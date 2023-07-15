@@ -1,0 +1,7 @@
+20230810
+20230831
+false
+0
+2
+3. Qualifikationsrunde;Q3;true;
+Play-offs;PO;true;
