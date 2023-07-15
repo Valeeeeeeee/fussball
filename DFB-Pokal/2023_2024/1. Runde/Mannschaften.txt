@@ -1,0 +1,64 @@
+PQ:Bayern München
+PQ:Borussia Dortmund
+PQ:RasenBallsport Leipzig
+PQ:1. FC Union Berlin
+PQ:SC Freiburg
+PQ:Bayer 04 Leverkusen
+PQ:Eintracht Frankfurt
+PQ:VfL Wolfsburg
+PQ:1. FSV Mainz 05
+PQ:Borussia Mönchengladbach
+PQ:1. FC Köln
+PQ:TSG 1899 Hoffenheim
+PQ:Werder Bremen
+PQ:VfL Bochum
+PQ:FC Augsburg
+PQ:VfB Stuttgart
+PQ:FC Schalke 04
+PQ:Hertha BSC
+PQ:1. FC Heidenheim
+PQ:SV Darmstadt 98
+PQ:Hamburger SV
+PQ:Fortuna Düsseldorf
+PQ:FC St. Pauli
+PQ:SC Paderborn
+PQ:Karlsruher SC
+PQ:Holstein Kiel
+PQ:1. FC Kaiserslautern
+PQ:Hannover 96
+PQ:1. FC Magdeburg
+PQ:SpVgg Greuther Fürth
+PQ:Hansa Rostock
+PQ:1. FC Nürnberg
+PQ:Eintracht Braunschweig
+PQ:Arminia Bielefeld
+PQ:SSV Jahn Regensburg
+PQ:SV Sandhausen
+PQ:SV Elversberg
+PQ:VfL Osnabrück
+PQ:SV Wehen Wiesbaden
+PQ:1. FC Saarbrücken
+PQ:FC-Astoria Walldorf
+PQ:FV Illertissen
+PQ:SpVgg Unterhaching
+PQ:TuS Makkabi Berlin
+PQ:FC Energie Cottbus
+PQ:FC Oberneuland
+PQ:FC Teutonia 05 Ottensen
+PQ:FSV Frankfurt
+PQ:Rostocker FC
+PQ:FC Viktoria Köln
+PQ:Rot-Weiss Essen
+PQ:SV Atlas Delmenhorst
+PQ:TuS Bersenbrück
+PQ:FC Rot-Weiß Koblenz
+PQ:FC 08 Homburg
+PQ:1. FC Lokomotive Leipzig
+PQ:Hallescher FC
+PQ:VfB Lübeck
+PQ:SV Oberachern
+PQ:TSV Schott Mainz
+PQ:FC Carl Zeiss Jena
+PQ:FC Gütersloh
+PQ:Preußen Münster
+PQ:TSG Balingen

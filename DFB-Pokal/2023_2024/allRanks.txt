@@ -1,0 +1,126 @@
+1R01W: SV Sandhausen vs. Hannover 96
+1R01L: SV Sandhausen vs. Hannover 96
+1R02W: 1. FC Saarbrücken vs. Karlsruher SC
+1R02L: 1. FC Saarbrücken vs. Karlsruher SC
+1R03W: TuS Bersenbrück vs. Borussia Mönchengladbach
+1R03L: TuS Bersenbrück vs. Borussia Mönchengladbach
+1R04W: Eintracht Braunschweig vs. FC Schalke 04
+1R04L: Eintracht Braunschweig vs. FC Schalke 04
+1R05W: FC Carl Zeiss Jena vs. Hertha BSC
+1R05L: FC Carl Zeiss Jena vs. Hertha BSC
+1R06W: TSG Balingen vs. VfB Stuttgart
+1R06L: TSG Balingen vs. VfB Stuttgart
+1R07W: FC Oberneuland vs. 1. FC Nürnberg
+1R07L: FC Oberneuland vs. 1. FC Nürnberg
+1R08W: FC Teutonia 05 Ottensen vs. Bayer 04 Leverkusen
+1R08L: FC Teutonia 05 Ottensen vs. Bayer 04 Leverkusen
+1R09W: FC Viktoria Köln vs. Werder Bremen
+1R09L: FC Viktoria Köln vs. Werder Bremen
+1R10W: SV Atlas Delmenhorst vs. FC St. Pauli
+1R10L: SV Atlas Delmenhorst vs. FC St. Pauli
+1R11W: TSV Schott Mainz vs. Borussia Dortmund
+1R11L: TSV Schott Mainz vs. Borussia Dortmund
+1R12W: FC Gütersloh vs. Holstein Kiel
+1R12L: FC Gütersloh vs. Holstein Kiel
+1R13W: Arminia Bielefeld vs. VfL Bochum
+1R13L: Arminia Bielefeld vs. VfL Bochum
+1R14W: SV Elversberg vs. 1. FSV Mainz 05
+1R14L: SV Elversberg vs. 1. FSV Mainz 05
+1R15W: Hallescher FC vs. SpVgg Greuther Fürth
+1R15L: Hallescher FC vs. SpVgg Greuther Fürth
+1R16W: Rostocker FC vs. 1. FC Heidenheim
+1R16L: Rostocker FC vs. 1. FC Heidenheim
+1R17W: Rot-Weiss Essen vs. Hamburger SV
+1R17L: Rot-Weiss Essen vs. Hamburger SV
+1R18W: FV Illertissen vs. Fortuna Düsseldorf
+1R18L: FV Illertissen vs. Fortuna Düsseldorf
+1R19W: SpVgg Unterhaching vs. FC Augsburg
+1R19L: SpVgg Unterhaching vs. FC Augsburg
+1R20W: TuS Makkabi Berlin vs. VfL Wolfsburg
+1R20L: TuS Makkabi Berlin vs. VfL Wolfsburg
+1R21W: FC Rot-Weiß Koblenz vs. 1. FC Kaiserslautern
+1R21L: FC Rot-Weiß Koblenz vs. 1. FC Kaiserslautern
+1R22W: 1. FC Lokomotive Leipzig vs. Eintracht Frankfurt
+1R22L: 1. FC Lokomotive Leipzig vs. Eintracht Frankfurt
+1R23W: SV Oberachern vs. SC Freiburg
+1R23L: SV Oberachern vs. SC Freiburg
+1R24W: FC-Astoria Walldorf vs. 1. FC Union Berlin
+1R24L: FC-Astoria Walldorf vs. 1. FC Union Berlin
+1R25W: FC Energie Cottbus vs. SC Paderborn
+1R25L: FC Energie Cottbus vs. SC Paderborn
+1R26W: FSV Frankfurt vs. Hansa Rostock
+1R26L: FSV Frankfurt vs. Hansa Rostock
+1R27W: SSV Jahn Regensburg vs. 1. FC Magdeburg
+1R27L: SSV Jahn Regensburg vs. 1. FC Magdeburg
+1R28W: FC 08 Homburg vs. SV Darmstadt 98
+1R28L: FC 08 Homburg vs. SV Darmstadt 98
+1R29W: VfB Lübeck vs. TSG 1899 Hoffenheim
+1R29L: VfB Lübeck vs. TSG 1899 Hoffenheim
+1R30W: VfL Osnabrück vs. 1. FC Köln
+1R30L: VfL Osnabrück vs. 1. FC Köln
+1R31W: Preußen Münster vs. Bayern München
+1R31L: Preußen Münster vs. Bayern München
+1R32W: SV Wehen Wiesbaden vs. RasenBallsport Leipzig
+1R32L: SV Wehen Wiesbaden vs. RasenBallsport Leipzig
+2R01W: DPOK20232R01W
+2R01L: DPOK20232R01L
+2R02W: DPOK20232R02W
+2R02L: DPOK20232R02L
+2R03W: DPOK20232R03W
+2R03L: DPOK20232R03L
+2R04W: DPOK20232R04W
+2R04L: DPOK20232R04L
+2R05W: DPOK20232R05W
+2R05L: DPOK20232R05L
+2R06W: DPOK20232R06W
+2R06L: DPOK20232R06L
+2R07W: DPOK20232R07W
+2R07L: DPOK20232R07L
+2R08W: DPOK20232R08W
+2R08L: DPOK20232R08L
+2R09W: DPOK20232R09W
+2R09L: DPOK20232R09L
+2R10W: DPOK20232R10W
+2R10L: DPOK20232R10L
+2R11W: DPOK20232R11W
+2R11L: DPOK20232R11L
+2R12W: DPOK20232R12W
+2R12L: DPOK20232R12L
+2R13W: DPOK20232R13W
+2R13L: DPOK20232R13L
+2R14W: DPOK20232R14W
+2R14L: DPOK20232R14L
+2R15W: DPOK20232R15W
+2R15L: DPOK20232R15L
+2R16W: DPOK20232R16W
+2R16L: DPOK20232R16L
+AF01W: DPOK2023AF01W
+AF01L: DPOK2023AF01L
+AF02W: DPOK2023AF02W
+AF02L: DPOK2023AF02L
+AF03W: DPOK2023AF03W
+AF03L: DPOK2023AF03L
+AF04W: DPOK2023AF04W
+AF04L: DPOK2023AF04L
+AF05W: DPOK2023AF05W
+AF05L: DPOK2023AF05L
+AF06W: DPOK2023AF06W
+AF06L: DPOK2023AF06L
+AF07W: DPOK2023AF07W
+AF07L: DPOK2023AF07L
+AF08W: DPOK2023AF08W
+AF08L: DPOK2023AF08L
+VF01W: DPOK2023VF01W
+VF01L: DPOK2023VF01L
+VF02W: DPOK2023VF02W
+VF02L: DPOK2023VF02L
+VF03W: DPOK2023VF03W
+VF03L: DPOK2023VF03L
+VF04W: DPOK2023VF04W
+VF04L: DPOK2023VF04L
+HF01W: DPOK2023HF01W
+HF01L: DPOK2023HF01L
+HF02W: DPOK2023HF02W
+HF02L: DPOK2023HF02L
+FI01W: DPOK2023FI01W
+FI01L: DPOK2023FI01L
