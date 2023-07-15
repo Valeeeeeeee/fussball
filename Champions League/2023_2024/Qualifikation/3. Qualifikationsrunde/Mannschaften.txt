@@ -1,0 +1,20 @@
+PQ:AEK Athen
+PQ:Sparta Prag
+PQ:PSV Eindhoven
+PQ:Sturm Graz
+PQ:Glasgow Rangers
+PQ:TSC Backa Topola
+PQ:Olympique Marseille
+PQ:Sporting Braga
+PK:Q201W
+PK:Q202W
+PK:Q203W
+PK:Q204W
+PK:Q205W
+PK:Q206W
+PK:Q207W
+PK:Q208W
+PK:Q209W
+PK:Q210W
+PK:Q211W
+PK:Q212W

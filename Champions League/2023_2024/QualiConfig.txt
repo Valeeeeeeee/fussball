@@ -1,0 +1,11 @@
+20230627
+20230830
+false
+0
+6
+1. Vorqualifikationsrunde;V1;false;
+2. Vorqualifikationsrunde;V2;false;
+1. Qualifikationsrunde;Q1;true;
+2. Qualifikationsrunde;Q2;true;
+3. Qualifikationsrunde;Q3;true;
+Play-offs;PO;true;

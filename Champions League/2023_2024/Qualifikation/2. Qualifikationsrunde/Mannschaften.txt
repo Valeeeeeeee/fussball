@@ -1,0 +1,24 @@
+PQ:Molde FK
+PQ:FC Kopenhagen
+PQ:Dinamo Zagreb
+PQ:Galatasaray Istanbul
+PQ:Aris Limassol
+PQ:SK Dnipro-1
+PQ:KRC Genk
+PQ:Servette Genf
+PQ:Panathinaikos Athen
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W

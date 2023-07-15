@@ -1,0 +1,30 @@
+PQ:Maccabi Haifa
+PQ:BK Häcken
+PQ:Ludogorez Rasgrad
+PQ:Farul Constanta
+PQ:Qarabag Agdam
+PQ:Ferencváros Budapest
+PQ:Raków Częstochowa
+PQ:FK Astana
+PQ:Slovan Bratislava
+PQ:Olimpija Ljubljana
+PQ:BATE Baryssau
+PQ:Sheriff Tiraspol
+PQ:Zalgiris Vilnius
+PQ:Zrinjski Mostar
+PQ:HJK Helsinki
+PQ:Swift Hesperingen
+PQ:Valmieras FK
+PQ:KF Ballkani
+PQ:Shamrock Rovers
+PQ:Urartu Erewan
+PQ:Larne FC
+PQ:Partizani Tirana
+PQ:KÍ Klaksvík
+PQ:Flora Tallinn
+PQ:Hamrun Spartans
+PQ:Dinamo Tiflis
+PQ:FC Struga
+PQ:The New Saints FC
+PQ:Lincoln Red Imps FC
+PK:V201W
