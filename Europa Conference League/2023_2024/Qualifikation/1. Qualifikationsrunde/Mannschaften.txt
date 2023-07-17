@@ -1,0 +1,62 @@
+PQ:Tobyl Qostanai
+PQ:DAC Dunajská Streda
+PQ:MSK Zilina
+PQ:NK Maribor
+PQ:NK Domzale
+PQ:Dinamo Minsk
+PQ:Njoman Hrodna
+PQ:Zimbru Chisinau
+PQ:FC Milsami
+PQ:FK Panevezys
+PQ:FC Hegelmann
+PQ:Zeljeznicar Sarajevo
+PQ:FK Sarajevo
+PQ:Honka Espoo
+PQ:Haka Valkeakoski
+PQ:Progrès Niederkorn
+PQ:F91 Düdelingen
+PQ:Riga FC
+PQ:FK Rigas FS
+PQ:KF Gjilani
+PQ:KF Dukagjini
+PQ:Derry City
+PQ:Dundalk FC
+PQ:St. Patrick's Athletic
+PQ:Pjunik Erewan
+PQ:FC Ararat-Armenia
+PQ:Alashkert Martuni
+PQ:Crusaders FC
+PQ:Linfield FC
+PQ:Glentoran FC
+PQ:KF Egnatia
+PQ:KF Tirana
+PQ:Vllaznia Shkodra
+PQ:Víkingur Gøta
+PQ:HB Tórshavn
+PQ:B36 Tórshavn
+PQ:Trans Narva
+PQ:Levadia Tallinn
+PQ:Paide Linnameeskond
+PQ:FC Birkirkara
+PQ:Gzira United
+PQ:FC Balzan
+PQ:Torpedo Kutaissi
+PQ:Dinamo Batumi
+PQ:Dila Gori
+PQ:Makedonija Skopje
+PQ:FK Shkupi
+PQ:KF Shkëndija
+PQ:FC Vaduz
+PQ:Connah's Quay Nomads
+PQ:Pen-y-Bont FC
+PQ:Haverfordwest County
+PQ:FC Bruno's Magpies
+PQ:Europa FC
+PQ:Víkingur Reykjavík
+PQ:KA Akureyri
+PQ:Sutjeska Niksic
+PQ:Arsenal Tivat
+PQ:Inter Club d'Escaldes
+PQ:FC Santa Coloma
+PQ:SS Cosmos
+PQ:SP La Fiorita
