@@ -1,0 +1,21 @@
+20
+Arminia Bielefeld;01.01.1970
+SSV Jahn Regensburg;01.01.1970
+SV Sandhausen;01.01.1970
+SC Freiburg II;01.01.1970
+1. FC Saarbrücken;01.01.1970
+Dynamo Dresden;01.01.1970
+Waldhof Mannheim;01.01.1970
+1860 München;01.01.1970
+Viktoria Köln;01.01.1970
+SC Verl;01.01.1970
+FC Ingolstadt 04;01.01.1970
+MSV Duisburg;01.01.1970
+Borussia Dortmund II;01.01.1970
+Erzgebirge Aue;01.01.1970
+Rot-Weiss Essen;01.01.1970
+Hallescher FC;01.01.1970
+Preußen Münster;01.01.1970
+SSV Ulm 1846;01.01.1970
+SpVgg Unterhaching;01.01.1970
+VfB Lübeck;01.01.1970
