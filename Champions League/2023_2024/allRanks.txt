@@ -4,36 +4,36 @@ V102W: Breiðablik Kópavogur
 V102L: SP Tre Penne
 V201W: Breiðablik Kópavogur
 V201L: Buducnost Podgorica
-Q101W: Urartu Erewan vs. Zrinjski Mostar
-Q101L: Urartu Erewan vs. Zrinjski Mostar
-Q102W: Lincoln Red Imps FC vs. Qarabag Agdam
-Q102L: Lincoln Red Imps FC vs. Qarabag Agdam
-Q103W: Zalgiris Vilnius vs. FC Struga
-Q103L: Zalgiris Vilnius vs. FC Struga
-Q104W: Raków Częstochowa vs. Flora Tallinn
-Q104L: Raków Częstochowa vs. Flora Tallinn
-Q105W: Olimpija Ljubljana vs. Valmieras FK
-Q105L: Olimpija Ljubljana vs. Valmieras FK
-Q106W: Hamrun Spartans vs. Maccabi Haifa
-Q106L: Hamrun Spartans vs. Maccabi Haifa
-Q107W: KF Ballkani vs. Ludogorez Rasgrad
-Q107L: KF Ballkani vs. Ludogorez Rasgrad
-Q108W: Shamrock Rovers vs. Breiðablik Kópavogur
-Q108L: Shamrock Rovers vs. Breiðablik Kópavogur
-Q109W: Partizani Tirana vs. BATE Baryssau
-Q109L: Partizani Tirana vs. BATE Baryssau
-Q110W: KÍ Klaksvík vs. Ferencváros Budapest
-Q110L: KÍ Klaksvík vs. Ferencváros Budapest
-Q111W: FK Astana vs. Dinamo Tiflis
-Q111L: FK Astana vs. Dinamo Tiflis
-Q112W: HJK Helsinki vs. Larne FC
-Q112L: HJK Helsinki vs. Larne FC
-Q113W: BK Häcken vs. The New Saints FC
-Q113L: BK Häcken vs. The New Saints FC
-Q114W: Farul Constanta vs. Sheriff Tiraspol
-Q114L: Farul Constanta vs. Sheriff Tiraspol
-Q115W: Slovan Bratislava vs. Swift Hesperingen
-Q115L: Slovan Bratislava vs. Swift Hesperingen
+Q101W: Zrinjski Mostar
+Q101L: Urartu Erewan
+Q102W: Qarabag Agdam
+Q102L: Lincoln Red Imps FC
+Q103W: Zalgiris Vilnius
+Q103L: FC Struga
+Q104W: Raków Częstochowa
+Q104L: Flora Tallinn
+Q105W: Olimpija Ljubljana
+Q105L: Valmieras FK
+Q106W: Maccabi Haifa
+Q106L: Hamrun Spartans
+Q107W: Ludogorez Rasgrad
+Q107L: KF Ballkani
+Q108W: Breiðablik Kópavogur
+Q108L: Shamrock Rovers
+Q109W: BATE Baryssau
+Q109L: Partizani Tirana
+Q110W: KÍ Klaksvík
+Q110L: Ferencváros Budapest
+Q111W: FK Astana
+Q111L: Dinamo Tiflis
+Q112W: HJK Helsinki
+Q112L: Larne FC
+Q113W: BK Häcken
+Q113L: The New Saints FC
+Q114W: Sheriff Tiraspol
+Q114L: Farul Constanta
+Q115W: Slovan Bratislava
+Q115L: Swift Hesperingen
 Q201W: Dinamo Zagreb vs. Q111W
 Q201L: Dinamo Zagreb vs. Q111W
 Q202W: Aris Limassol vs. Q109W

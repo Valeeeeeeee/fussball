@@ -1,65 +1,65 @@
-Q101W: F91 Düdelingen vs. St. Patrick's Athletic
-Q101L: F91 Düdelingen vs. St. Patrick's Athletic
-Q102W: B36 Tórshavn vs. Paide Linnameeskond
-Q102L: B36 Tórshavn vs. Paide Linnameeskond
-Q103W: Tobyl Qostanai vs. Honka Espoo
-Q103L: Tobyl Qostanai vs. Honka Espoo
-Q104W: Pjunik Erewan vs. Trans Narva
-Q104L: Pjunik Erewan vs. Trans Narva
-Q105W: FC Ararat-Armenia vs. KF Egnatia
-Q105L: FC Ararat-Armenia vs. KF Egnatia
-Q106W: Inter Club d'Escaldes vs. Víkingur Gøta
-Q106L: Inter Club d'Escaldes vs. Víkingur Gøta
-Q107W: MSK Zilina vs. Levadia Tallinn
-Q107L: MSK Zilina vs. Levadia Tallinn
-Q108W: Makedonija Skopje vs. FK Rigas FS
-Q108L: Makedonija Skopje vs. FK Rigas FS
-Q109W: FK Panevezys vs. FC Milsami
-Q109L: FK Panevezys vs. FC Milsami
-Q110W: Haka Valkeakoski vs. Crusaders FC
-Q110L: Haka Valkeakoski vs. Crusaders FC
-Q111W: FC Bruno's Magpies vs. Dundalk FC
-Q111L: FC Bruno's Magpies vs. Dundalk FC
-Q112W: NK Domzale vs. FC Balzan
-Q112L: NK Domzale vs. FC Balzan
-Q113W: FC Hegelmann vs. FK Shkupi
-Q113L: FC Hegelmann vs. FK Shkupi
-Q114W: Riga FC vs. Víkingur Reykjavík
-Q114L: Riga FC vs. Víkingur Reykjavík
-Q115W: KF Dukagjini vs. Europa FC
-Q115L: KF Dukagjini vs. Europa FC
-Q116W: Alashkert Martuni vs. Arsenal Tivat
-Q116L: Alashkert Martuni vs. Arsenal Tivat
-Q117W: Gzira United vs. Glentoran FC
-Q117L: Gzira United vs. Glentoran FC
-Q118W: Torpedo Kutaissi vs. FK Sarajevo
-Q118L: Torpedo Kutaissi vs. FK Sarajevo
-Q119W: DAC Dunajská Streda vs. Dila Gori
-Q119L: DAC Dunajská Streda vs. Dila Gori
-Q120W: Progrès Niederkorn vs. KF Gjilani
-Q120L: Progrès Niederkorn vs. KF Gjilani
-Q121W: Pen-y-Bont FC vs. FC Santa Coloma
-Q121L: Pen-y-Bont FC vs. FC Santa Coloma
-Q122W: KF Tirana vs. Dinamo Batumi
-Q122L: KF Tirana vs. Dinamo Batumi
-Q123W: HB Tórshavn vs. Derry City
-Q123L: HB Tórshavn vs. Derry City
-Q124W: KF Shkëndija vs. Haverfordwest County
-Q124L: KF Shkëndija vs. Haverfordwest County
-Q125W: FC Vaduz vs. Njoman Hrodna
-Q125L: FC Vaduz vs. Njoman Hrodna
-Q126W: KA Akureyri vs. Connah's Quay Nomads
-Q126L: KA Akureyri vs. Connah's Quay Nomads
-Q127W: Zeljeznicar Sarajevo vs. Dinamo Minsk
-Q127L: Zeljeznicar Sarajevo vs. Dinamo Minsk
-Q128W: Sutjeska Niksic vs. SS Cosmos
-Q128L: Sutjeska Niksic vs. SS Cosmos
-Q129W: Linfield FC vs. Vllaznia Shkodra
-Q129L: Linfield FC vs. Vllaznia Shkodra
-Q130W: SP La Fiorita vs. Zimbru Chisinau
-Q130L: SP La Fiorita vs. Zimbru Chisinau
-Q131W: NK Maribor vs. FC Birkirkara
-Q131L: NK Maribor vs. FC Birkirkara
+Q101W: F91 Düdelingen
+Q101L: St. Patrick's Athletic
+Q102W: B36 Tórshavn
+Q102L: Paide Linnameeskond
+Q103W: Tobyl Qostanai
+Q103L: Honka Espoo
+Q104W: Pjunik Erewan
+Q104L: Trans Narva
+Q105W: FC Ararat-Armenia
+Q105L: KF Egnatia
+Q106W: Inter Club d'Escaldes
+Q106L: Víkingur Gøta
+Q107W: MSK Zilina
+Q107L: Levadia Tallinn
+Q108W: FK Rigas FS
+Q108L: Makedonija Skopje
+Q109W: FK Panevezys
+Q109L: FC Milsami
+Q110W: Crusaders FC
+Q110L: Haka Valkeakoski
+Q111W: Dundalk FC
+Q111L: FC Bruno's Magpies
+Q112W: FC Balzan
+Q112L: NK Domzale
+Q113W: FK Shkupi
+Q113L: FC Hegelmann
+Q114W: Riga FC
+Q114L: Víkingur Reykjavík
+Q115W: KF Dukagjini
+Q115L: Europa FC
+Q116W: Alashkert Martuni
+Q116L: Arsenal Tivat
+Q117W: Gzira United
+Q117L: Glentoran FC
+Q118W: Torpedo Kutaissi
+Q118L: FK Sarajevo
+Q119W: Dila Gori
+Q119L: DAC Dunajská Streda
+Q120W: Progrès Niederkorn
+Q120L: KF Gjilani
+Q121W: FC Santa Coloma
+Q121L: Pen-y-Bont FC
+Q122W: KF Tirana
+Q122L: Dinamo Batumi
+Q123W: Derry City
+Q123L: HB Tórshavn
+Q124W: Haverfordwest County
+Q124L: KF Shkëndija
+Q125W: Njoman Hrodna
+Q125L: FC Vaduz
+Q126W: KA Akureyri
+Q126L: Connah's Quay Nomads
+Q127W: Zeljeznicar Sarajevo
+Q127L: Dinamo Minsk
+Q128W: Sutjeska Niksic
+Q128L: SS Cosmos
+Q129W: Linfield FC
+Q129L: Vllaznia Shkodra
+Q130W: Zimbru Chisinau
+Q130L: SP La Fiorita
+Q131W: NK Maribor
+Q131L: FC Birkirkara
 Q201W: CONF2023Q201W
 Q201L: CONF2023Q201L
 Q202W: CONF2023Q202W
