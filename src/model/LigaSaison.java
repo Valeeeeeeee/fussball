@@ -21,6 +21,7 @@ public class LigaSaison implements Wettbewerb {
 	private int seasonIndex;
 	private int year;
 	private boolean teamsHaveKader;
+	private boolean hasLeagueSplit;
 	private boolean hasPlayoffs;
 	
 	private HashMap<Dauer, Integer> numberOfSubstitutions;
@@ -116,6 +117,10 @@ public class LigaSaison implements Wettbewerb {
 	
 	public boolean isClubCompetition() {
 		return league.isClubCompetition();
+	}
+	
+	public boolean hasLeagueSplit() {
+		return hasLeagueSplit;
 	}
 	
 	public boolean hasPlayoffs() {
@@ -1144,6 +1149,7 @@ public class LigaSaison implements Wettbewerb {
 		toString += teamsHaveKader + ";";
 		toString += getAnzahlRepresentation() + ";";
 		toString += hasPlayoffs + ";";
+		toString += hasLeagueSplit + ";";
 		
 		if (!numberOfSubstitutions.isEmpty()) {
 			ArrayList<String> subs = new ArrayList<>();
@@ -1174,6 +1180,7 @@ public class LigaSaison implements Wettbewerb {
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
 		numberOf = getAnzahlFromString(split[index++]);
 		hasPlayoffs = Boolean.parseBoolean(split[index++]);
+		hasLeagueSplit = Boolean.parseBoolean(split[index++]);
 		
 		numberOfSubstitutions = new HashMap<>();
 		if (split.length > index) {
