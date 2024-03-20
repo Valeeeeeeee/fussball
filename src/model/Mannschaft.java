@@ -71,7 +71,7 @@ public class Mannschaft {
 	private ArrayList<TeamAffiliation> teamAffiliations = new ArrayList<>();
 	private int[] numberOfPlayersByPosition;
 	private ArrayList<TeamAffiliation> eligiblePlayers = new ArrayList<TeamAffiliation>();
-	private ArrayList<Spieler> ineligiblePlayers = new ArrayList<Spieler>();
+	private ArrayList<TeamAffiliation> ineligiblePlayers = new ArrayList<TeamAffiliation>();
 	private Datum lastUpdatedEligibleForDate;
 	private Datum lastUpdatedIneligibleForDate;
 	private int[] currentNumberOfPlayersByPosition;
@@ -128,8 +128,8 @@ public class Mannschaft {
 	public int getNumberOfUsedPlayers() {
 		int numberOfUsedPlayers = 0;
 		
-		for (int i = 0; i < kader.size(); i++) {
-			if (kader.get(i).getSeasonPerformance().matchesPlayed() > 0)	numberOfUsedPlayers++;
+		for (int i = 0; i < teamAffiliations.size(); i++) {
+			if (teamAffiliations.get(i).getSeasonPerformance().matchesPlayed() > 0)	numberOfUsedPlayers++;
 		}
 		
 		return numberOfUsedPlayers;
@@ -300,7 +300,7 @@ public class Mannschaft {
 			for (TeamAffiliation affiliation : teamAffiliations) {
 				if (!affiliation.getDuration().includes(match.getKickOffTime().getDate()))	continue;
 				SpielPerformance matchPerformance = match.getMatchPerformance(affiliation);
-				affiliation.getPlayer().getSeasonPerformance().addMatchPerformance(key, matchPerformance);
+				affiliation.getSeasonPerformance().addMatchPerformance(key, matchPerformance);
 			}
 		}
 	}
@@ -612,7 +612,7 @@ public class Mannschaft {
 		
 		for (TeamAffiliation affiliation : teamAffiliations) {
 			if (!affiliation.getDuration().includes(date)) {
-				ineligiblePlayers.add(affiliation.getPlayer());
+				ineligiblePlayers.add(affiliation);
 			}
 		}
 		
@@ -629,7 +629,7 @@ public class Mannschaft {
 		return eligiblePlayers;
 	}
 	
-	public ArrayList<Spieler> getIneligiblePlayers(Datum date, boolean forceUpdate) {
+	public ArrayList<TeamAffiliation> getIneligiblePlayers(Datum date, boolean forceUpdate) {
 		updateIneligiblePlayers(date, forceUpdate);
 		return ineligiblePlayers;
 	}

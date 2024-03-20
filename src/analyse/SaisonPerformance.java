@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import model.Spieler;
+import model.TeamAffiliation;
 
 public class SaisonPerformance {
-	private Spieler player;
+	private TeamAffiliation affiliation;
 	private HashMap<String, SpielPerformance> matchPerformances;
 	
-	public SaisonPerformance(Spieler player) {
-		this.player = player;
+	public SaisonPerformance(TeamAffiliation affiliation) {
+		this.affiliation = affiliation;
 		matchPerformances = new HashMap<>();
 	}
 	
-	public Spieler getPlayer() {
-		return player;
+	public TeamAffiliation getAffiliation() {
+		return affiliation;
 	}
 	
 	public SpielPerformance getMatchPerformance(String matchdayKey) {

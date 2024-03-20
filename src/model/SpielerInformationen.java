@@ -814,7 +814,7 @@ public class SpielerInformationen extends JFrame {
 			jLblsPMbMHeaders[i].setVisible(moreDetails);
 		}
 		if (moreDetails) {
-			ArrayList<SpielPerformance> performanceMbM = player.getSeasonPerformance().asSortedList();
+			ArrayList<SpielPerformance> performanceMbM = primaryAffiliation.getSeasonPerformance().asSortedList();
 			createLabels(performanceMbM.size());
 			int index = 0;
 			for (SpielPerformance performance : performanceMbM) {
@@ -1070,7 +1070,7 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	private void setPerformance() {
-		SaisonPerformance seasonPerformance = player.getSeasonPerformance();
+		SaisonPerformance seasonPerformance = primaryAffiliation.getSeasonPerformance();
 		jLblsPerformanceValues[MATCHES_PLAYED].setText("" + seasonPerformance.matchesPlayed());
 		jLblsPerformanceValues[MATCHES_STARTED].setText("" + seasonPerformance.matchesStarted());
 		jLblsPerformanceValues[MATCHES_SUB_ON].setText("" + seasonPerformance.matchesSubbedOn());

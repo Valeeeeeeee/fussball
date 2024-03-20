@@ -1,5 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+
+import analyse.SaisonPerformance;
+import analyse.SpielPerformance;
+
 public class TeamAffiliation {
 	
 	private String trennZeichen = ";";
@@ -10,17 +15,22 @@ public class TeamAffiliation {
 	private int squadNumber;
 	private Dauer duration;
 	
+	private SaisonPerformance seasonPerformance;
+	
 	public TeamAffiliation(Mannschaft team, Spieler player, Position position, int squadNumber, Dauer duration) {
 		this.team = team;
 		this.player = player;
 		this.position = position;
 		this.squadNumber = squadNumber;
 		this.duration = duration;
+		
+		seasonPerformance = new SaisonPerformance(this);
 	}
 	
 	public TeamAffiliation(Mannschaft team, String affiliation) {
 		this.team = team;
 		fromString(affiliation);
+		seasonPerformance = new SaisonPerformance(this);
 	}
 
 	public Mannschaft getTeam() {
@@ -41,6 +51,24 @@ public class TeamAffiliation {
 	
 	public Dauer getDuration() {
 		return duration;
+	}
+	
+	public SaisonPerformance getSeasonPerformance() {
+		return seasonPerformance;
+	}
+	
+	public double getAverageImpact() {
+		double sumOfImpacts = 0;
+		int count = 0;
+		
+		ArrayList<SpielPerformance> performances = seasonPerformance.asSortedList();
+		for (SpielPerformance mp : performances) {
+			if (!mp.hasData())	continue;
+			sumOfImpacts += mp.getImpact();
+			count++;
+		}
+		
+		return sumOfImpacts / count;
 	}
 	
 	public void changeValues(Dauer duration, int squadNumber, Position position) {

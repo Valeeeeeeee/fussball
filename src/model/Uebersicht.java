@@ -263,7 +263,7 @@ public class Uebersicht extends JPanel {
 	
 	private boolean canHaveKader;
 	private ArrayList<TeamAffiliation> eligiblePlayers;
-	private ArrayList<Spieler> ineligiblePlayers;
+	private ArrayList<TeamAffiliation> ineligiblePlayers;
 	private int numberOfMatchdays;
 	private int numberOfEligiblePlayers;
 	private int numberOfIneligiblePlayers;
@@ -957,9 +957,10 @@ public class Uebersicht extends JPanel {
 					}
 				});
 			}
-			Spieler player = eligiblePlayers.get(i).getPlayer();
+			TeamAffiliation affiliation = eligiblePlayers.get(i);
+			Spieler player = affiliation.getPlayer();
 			sumOfAges += player.getAge();
-			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
+			SaisonPerformance seasonPerformance = affiliation.getSeasonPerformance();
 			jLblsKader[i][SQUADNUMBER].setText("" + eligiblePlayers.get(i).getSquadNumber());
 			alignCenter(jLblsKader[i][SQUADNUMBER]);
 			jLblsKader[i][NAMES].setText(player.getFullNameShort());
@@ -1002,8 +1003,9 @@ public class Uebersicht extends JPanel {
 					}
 				});
 			}
-			Spieler player = ineligiblePlayers.get(i);
-			SaisonPerformance seasonPerformance = player.getSeasonPerformance();
+			TeamAffiliation affiliation = ineligiblePlayers.get(i);
+			Spieler player = affiliation.getPlayer();
+			SaisonPerformance seasonPerformance = affiliation.getSeasonPerformance();
 			jLblsKader[index][SQUADNUMBER].setText("");
 			alignCenter(jLblsKader[index][SQUADNUMBER]);
 			jLblsKader[index][NAMES].setText(player.getFullNameShort());
@@ -1056,7 +1058,7 @@ public class Uebersicht extends JPanel {
 	private void showPlayerInformation(int playerIndex) {
 		Spieler player = null;
 		if (playerIndex < numberOfEligiblePlayers)	player = eligiblePlayers.get(playerIndex).getPlayer();
-		else										player = ineligiblePlayers.get(playerIndex - numberOfEligiblePlayers);
+		else										player = ineligiblePlayers.get(playerIndex - numberOfEligiblePlayers).getPlayer();
 		
 		playerInformation.setPlayer(player, team);
 		playerInformation.setVisible(true);

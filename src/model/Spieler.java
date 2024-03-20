@@ -29,12 +29,10 @@ public class Spieler {
 	
 	private ArrayList<TeamAffiliation> teamAffiliations;
 	private ArrayList<TeamAffiliation> nationalTeamAffiliations;
-	private SaisonPerformance seasonPerformance;
 	
 	private Spieler() {
 		teamAffiliations = new ArrayList<>();
 		nationalTeamAffiliations = new ArrayList<>();
-		seasonPerformance = new SaisonPerformance(this);
 	}
 	
 	public Spieler(String data) {
@@ -181,24 +179,6 @@ public class Spieler {
 			if (teamAffiliation.getSquadNumber() == squadNumber)	return true;
 		}
 		return false;
-	}
-	
-	public SaisonPerformance getSeasonPerformance() {
-		return seasonPerformance;
-	}
-	
-	public double getAverageImpact() {
-		double sumOfImpacts = 0;
-		int count = 0;
-		
-		ArrayList<SpielPerformance> performances = seasonPerformance.asSortedList();
-		for (SpielPerformance mp : performances) {
-			if (!mp.hasData())	continue;
-			sumOfImpacts += mp.getImpact();
-			count++;
-		}
-		
-		return sumOfImpacts / count;
 	}
 	
 	public boolean isEligible(Mannschaft team, Datum date) {
