@@ -64,6 +64,10 @@ public class Karte {
 		return onTheBench;
 	}
 	
+	public void setOnTheBench(boolean onTheBench) {
+		this.onTheBench = onTheBench;
+	}
+	
 	public boolean isAfterTheMatch() {
 		return afterTheMatch;
 	}
