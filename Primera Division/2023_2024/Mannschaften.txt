@@ -1,0 +1,21 @@
+20
+FC Barcelona;01.01.1970
+Real Madrid;01.01.1970
+Atlético Madrid;01.01.1970
+Real Sociedad San Sebastián;01.01.1970
+FC Villarreal;01.01.1970
+Real Betis Sevilla;01.01.1970
+CA Osasuna;01.01.1970
+Athletic Bilbao;01.01.1970
+RCD Mallorca;01.01.1970
+FC Girona;01.01.1970
+Rayo Vallecano;01.01.1970
+FC Sevilla;01.01.1970
+Celta Vigo;01.01.1970
+FC Cádiz;01.01.1970
+FC Getafe;01.01.1970
+FC Valencia;01.01.1970
+UD Almería;01.01.1970
+FC Granada;01.01.1970
+UD Las Palmas;01.01.1970
+Deportivo Alavés;01.01.1970
