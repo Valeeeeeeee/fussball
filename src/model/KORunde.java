@@ -180,8 +180,11 @@ public class KORunde implements Wettbewerb {
 		if (belongsToALeague)	return lSeason.getMatchdays();
 		
 		String[] matchdays = new String[numberOfMatchdays];
-		for (int i = 0; i < numberOfMatchdays; i++) {
-			matchdays[i] = (i + 1) + ". Spieltag";
+		if (hasSecondLeg) {
+			matchdays[0] = "Hinspiel" + (numberOfMatchesPerMatchday > 1 ? "e" : "");
+			matchdays[1] = "Rückspiel" + (numberOfMatchesPerMatchday > 1 ? "e" : "");
+		} else {
+			matchdays[0] = "Spieltag";
 		}
 		return matchdays;
 	}

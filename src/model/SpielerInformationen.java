@@ -650,7 +650,7 @@ public class SpielerInformationen extends JFrame {
 			refreshCBACSinceDayModel();
 			refreshCBACUntilDayModel();
 			
-			Spieler player = addingNewPlayer ? new Spieler("Vorname", "Nachname", null, new Datum(1, 1, team.getCompetition().getYear() - averageAge), "Deutschland") : this.player;
+			Spieler player = addingNewPlayer ? new Spieler("Vorname", "Nachname", null, new Datum(1, 1, team.getCompetition().getYear() - averageAge), "") : this.player;
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
@@ -790,6 +790,17 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubSinceDay.setVisible(!atClubSinceEver);
 		jCBAtClubSinceMonth.setVisible(!atClubSinceEver);
 		jCBAtClubSinceYear.setVisible(!atClubSinceEver);
+		if (!atClubSinceEver && END_OF_SEASON.getYear() != START_OF_SEASON.getYear()) {
+			if (END_OF_SEASON.getYear() <= today.getYear()) {
+				jCBAtClubSinceYear.setSelectedIndex(1);
+				jCBAtClubSinceMonth.setSelectedIndex(1 - 1);
+				jCBAtClubSinceDay.setSelectedIndex(1 - 1);
+			} else {
+				jCBAtClubSinceYear.setSelectedIndex(0);
+				jCBAtClubSinceMonth.setSelectedIndex(8 - 1);
+				jCBAtClubSinceDay.setSelectedIndex(31 - 1);
+			}
+		}
 	}
 	
 	private void changeAtClubUntilEver() {
@@ -797,6 +808,17 @@ public class SpielerInformationen extends JFrame {
 		jCBAtClubUntilDay.setVisible(!atClubUntilEver);
 		jCBAtClubUntilMonth.setVisible(!atClubUntilEver);
 		jCBAtClubUntilYear.setVisible(!atClubUntilEver);
+		if (!atClubUntilEver && END_OF_SEASON.getYear() != START_OF_SEASON.getYear()) {
+			if (END_OF_SEASON.getYear() <= today.getYear()) {
+				jCBAtClubUntilYear.setSelectedIndex(0);
+				jCBAtClubUntilMonth.setSelectedIndex(12 - 1);
+				jCBAtClubUntilDay.setSelectedIndex(31 - 1);
+			} else {
+				jCBAtClubUntilYear.setSelectedIndex(0);
+				jCBAtClubUntilMonth.setSelectedIndex(8 - 1);
+				jCBAtClubUntilDay.setSelectedIndex(30 - 1);
+			}
+		}
 	}
 	
 	private void changeMoreDetails() {

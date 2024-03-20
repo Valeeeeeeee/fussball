@@ -1,5 +1,6 @@
 package model;
 
+import static util.Utilities.NO_PLAYER_FOR_SHIRTNUMBER;
 import static util.Utilities.log;
 import static util.Utilities.message;
 
@@ -91,7 +92,7 @@ public class Karte {
 		bookedPlayer = match.getTeam(firstTeam).getAffiliation(squadNumber, match.getKickOffTime().getDate());
 		if (bookedPlayer == null) {
 			message("Fehler beim Parsen der Karten des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
-			if (bookedPlayer == null)	log("Es konnte der Rückennummer " + squadNumber + " kein spielberechtigter Spieler zugeordnet werden.");
+			log(String.format(NO_PLAYER_FOR_SHIRTNUMBER, squadNumber, match.getTeam(firstTeam).getName()));
 		}
 		
 		id = match.toString() + "-h" + data;

@@ -111,10 +111,18 @@ public class Tor {
 		if ((substring = data.substring(data.indexOf("-s") + 2, data.indexOf("-a"))).length() > 0) {
 			int sqScorer = Integer.parseInt(substring);
 			scorer = match.getTeam(firstTeam ^ ownGoal).getAffiliation(sqScorer, match.getKickOffTime().getDate());
+			if (scorer == null) {
+				message("Fehler beim Parsen der Tore des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
+				log(String.format(NO_PLAYER_FOR_SHIRTNUMBER, sqScorer, match.getTeam(firstTeam).getName()));
+			}
 		}
 		if ((substring = data.substring(data.indexOf("-a") + 2)).length() > 0) {
 			int sqAssist = Integer.parseInt(substring);
 			assister = match.getTeam(firstTeam).getAffiliation(sqAssist, match.getKickOffTime().getDate());
+			if (assister == null) {
+				message("Fehler beim Parsen der Tore des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
+				log(String.format(NO_PLAYER_FOR_SHIRTNUMBER, sqAssist, match.getTeam(firstTeam).getName()));
+			}
 		}
 		
 		id = match.toString() + "-h" + data + (ownGoal ? "-og" : "") + (penalty ? "-p" : "");

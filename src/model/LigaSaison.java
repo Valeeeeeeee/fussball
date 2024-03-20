@@ -501,16 +501,16 @@ public class LigaSaison implements Wettbewerb {
 	
 	public boolean allResultsSet() {
 		for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-			if (isNoResultSet(matchday)) 	return false;
+			if (isAnyResultNotSet(matchday)) 	return false;
 		}
 		return true;
 	}
 	
-	public boolean isNoResultSet(int matchday) {
+	public boolean isAnyResultNotSet(int matchday) {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-			if (isResultSet(matchday, matchIndex)) 	return false;
+			if (!isResultSet(matchday, matchIndex)) 	return true;
 		}
-		return true;
+		return false;
 	}
 	
 	public boolean isResultSet(int matchday, int matchIndex) {

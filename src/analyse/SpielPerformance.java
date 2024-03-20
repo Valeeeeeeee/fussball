@@ -207,9 +207,8 @@ public class SpielPerformance {
 			numberOfScoredGoalsFullMatch++;
 			if (onPitch(goal.getMinute())) {
 				numberOfScoredGoalsWhileOnPitch++;
-				if (goal.isOwnGoal())	return;
-				if (goal.isScorer(player))		goalScored();
-				if (goal.isAssister(player))	goalAssisted();
+				if (!goal.isOwnGoal() && goal.isScorer(player))	goalScored();
+				if (goal.isAssister(player))					goalAssisted();
 			}
 		} else {
 			numberOfConcededGoalsFullMatch++;

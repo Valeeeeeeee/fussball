@@ -1060,15 +1060,35 @@ public class SpielInformationen extends JFrame {
 		int playerPos = getLineup(firstTeam).getIndex(bookedPlayer);
 		if (playerPos != UNDEFINED) {
 			label = getBookingLabel(firstTeam, second, playerPos);
+			for (Wechsel substitution : getSubstitutions(firstTeam)) {
+				if (substitution.isPlayerOff(bookedPlayer)) {
+					if (booking.getMinute().isAfter(substitution.getMinute())) {
+						message("MD" + match.getMatchday() + " " + match.getHomeTeam().getName() + " - " + match.getAwayTeam().getName()
+								+ "\nDie gelbe Karte für " + bookedPlayer.getPlayer().getFullNameShort() + " scheint schon auf der Bank gewesen zu sein.");
+						booking.setOnTheBench(true);
+					}
+				}
+			}
 		} else {
 			int i = 0;
 			for (Wechsel substitution : getSubstitutions(firstTeam)) {
 				if (substitution.isPlayerOn(bookedPlayer)) {
 					label = getBookingLabel(firstTeam, second, numberOfPlayersInLineUp + i);
+					if (substitution.getMinute().isAfter(booking.getMinute())) {
+						message("MD" + match.getMatchday() + " " + match.getHomeTeam().getName() + " - " + match.getAwayTeam().getName()
+								+ "\nDie gelbe Karte für " + bookedPlayer.getPlayer().getFullNameShort() + " scheint noch auf der Bank gewesen zu sein.");
+						booking.setOnTheBench(true);
+					}
 					break;
 				}
 				i++;
 			}
+		}
+		if (label == null) {
+			message("MD" + match.getMatchday() + " " + match.getHomeTeam().getName() + " - " + match.getAwayTeam().getName()
+					+ "\nDie gelbe Karte für " + bookedPlayer.getPlayer().getFullNameShort() + " scheint auf der Bank gewesen zu sein - ohne Einsatz.");
+			booking.setOnTheBench(true);
+			return;
 		}
 		if (second && !yellow) {
 			Point loc = label.getLocation();

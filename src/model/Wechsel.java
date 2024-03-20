@@ -2,6 +2,7 @@ package model;
 
 import static util.Utilities.log;
 import static util.Utilities.message;
+import static util.Utilities.NO_PLAYER_FOR_SHIRTNUMBER;
 
 public class Wechsel {
 	
@@ -65,8 +66,8 @@ public class Wechsel {
 		playerOn = match.getTeam(firstTeam).getAffiliation(sqOn, match.getKickOffTime().getDate());
 		if (playerOff == null || playerOn == null) {
 			message("Fehler beim Parsen der Wechsel des Teams " + match.getTeam(firstTeam).getName() + " im Spiel gegen " + match.getTeam(!firstTeam).getName());
-			if (playerOff == null)	log("Es konnte der Rückennummer " + sqOff + " kein spielberechtigter Spieler zugeordnet werden.");
-			if (playerOn == null)	log("Es konnte der Rückennummer " + sqOn + " kein spielberechtigter Spieler zugeordnet werden.");
+			if (playerOff == null)	log(String.format(NO_PLAYER_FOR_SHIRTNUMBER, sqOff, match.getTeam(firstTeam).getName()));
+			if (playerOn == null)	log(String.format(NO_PLAYER_FOR_SHIRTNUMBER, sqOn, match.getTeam(firstTeam).getName()));
 		}
 	}
 	

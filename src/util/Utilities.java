@@ -68,6 +68,8 @@ public class Utilities {
 
 	public static final String VERSUS = " vs. ";
 	
+	public static final String NO_PLAYER_FOR_SHIRTNUMBER = "Es konnte der Rückennummer %d von %s kein spielberechtigter Spieler zugeordnet werden.";
+	
 	public static String twoDigit(int number) {
 		number = number % 100;
 		return number / 10 + "" + number % 10;
