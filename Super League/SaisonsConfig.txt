@@ -7,3 +7,4 @@
 2020;true;10;4;1,2,3,3,3;false;0,1,2,1,1;false;false;
 2021;true;10;4;1,2,3,4,4;false;0,1,2,1,1;false;false;
 2022;true;10;4;1,2,3,4,4;false;0,2,2,1,0;false;false;
+2023;true;12;3;1,1,2,3,4,4;false;0,2,2,1,1;false;true;
