@@ -1,6 +1,6 @@
 PQ:Aston Villa
-PQ:Athletic Bilbao
-PQ:Juventus Turin
+PQ:CA Osasuna
+PQ:AC Florenz
 PQ:Eintracht Frankfurt
 PQ:OSC Lille
 PK:Q301W
