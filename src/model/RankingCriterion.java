@@ -16,6 +16,8 @@ public enum RankingCriterion {
 	DIRECT_COMPARISON_MORE_GOALS_SCORED(false, false),
 	DIRECT_COMPARISON_MORE_AWAY_GOALS_SCORED(false, false),
 	
+	SPLIT_GROUP(true, true),
+	
 	FAIRPLAY_Y1YR3R3(false, true),
 	FAIRPLAY_Y1YR3R4(false, true),
 	PLAY_OFF(false, false),

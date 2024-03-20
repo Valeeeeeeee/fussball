@@ -1,7 +1,5 @@
 package model;
 
-import static util.Utilities.log;
-
 import java.util.ArrayList;
 
 public class Ranking {
@@ -32,7 +30,6 @@ public class Ranking {
 	}
 	
 	public void applyCriteria() {
-		int count = 1;
 		boolean competitionIsOver = untilMatchday + 1 == competition.getNumberOfMatchdays() && competition.allResultsSet();
 		
 		for (RankingCriterion rankingCriterion : rankingCriteria) {

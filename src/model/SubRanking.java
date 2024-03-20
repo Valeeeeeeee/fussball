@@ -1,7 +1,5 @@
 package model;
 
-import static util.Utilities.log;
-
 import java.util.ArrayList;
 
 public class SubRanking {

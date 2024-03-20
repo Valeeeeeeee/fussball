@@ -36,6 +36,7 @@ public class LigaSaison implements Wettbewerb {
 	private int numberOfMatchdays;
 	private int numberOfMatchesPerMatchday;
 	private int numberOfMatchesAgainstSameOpponent;
+	private ArrayList<ArrayList<Mannschaft>> splitGroups;
 	private int currentMatchday;
 	private Datum cMatchdaySetForDate;
 	private int newestMatchday;
@@ -89,6 +90,7 @@ public class LigaSaison implements Wettbewerb {
 		workspace = league.getWorkspace() + getSeasonFull("_") + File.separator;
 		startDate = isSummerToSpringSeason ? new Datum(1, 7, year) : new Datum(1, 1, year);
 		finalDate = isSummerToSpringSeason ? new Datum(30, 6, year + 1) : new Datum(31, 12, year);
+		splitGroups = new ArrayList<>();
 	}
 	
 	public Liga getLeague() {
@@ -313,6 +315,10 @@ public class LigaSaison implements Wettbewerb {
 		int index = getIndexOfMannschaft(teamsName);
 		if (index == UNDEFINED)	return null;
 		return teams.get(index - 1);
+	}
+	
+	public int getSplitGroup(Mannschaft team, int matchday) {
+		return -1;
 	}
 	
 	public String getMatchdayDescription(int matchday) {

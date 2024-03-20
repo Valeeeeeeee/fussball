@@ -837,6 +837,8 @@ public class Mannschaft {
 			case FAIRPLAY_Y1YR3R3:
 			case FAIRPLAY_Y1YR3R4:
 				return getFairplayValue(criterion);
+			case SPLIT_GROUP:
+				return lSeason.getSplitGroup(this, untilMatchday);
 			default:
 				return -1;
 		}
