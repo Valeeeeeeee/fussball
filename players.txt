@@ -76,6 +76,7 @@
 27666220;Alex;Meret;null;19970322;Italien;
 27667941;Alen;Halilovic;null;19960618;Kroatien;
 27669036;Brad;Jones;null;19820319;Australien;
+27669693;Isak;Hansen-Aarøen;null;20040822;Norwegen;
 27673912;Kaan;Ayhan;null;19941110;Deutschland, Türkei;
 27675060;Ales;Mandous;null;19920421;Tschechien;
 27678322;Aias;Aosman;null;19930101;Deutschland;
@@ -90,6 +91,7 @@
 27710694;Luca;Philipp;null;20001128;Deutschland;
 27713932;Iver;Fossum;null;19960715;Norwegen;
 27720887;Omar;Hawsawi;null;19850927;Saudi-Arabien;
+27721188;Joel;Imasuen;null;20041027;USA, Nigeria;
 27721667;Juan;Cuadrado;null;19880526;Kolumbien;
 27728164;Amin;Younes;null;19930806;Deutschland, Libanon;
 27729243;Owen;Wijndal;null;19991128;Niederlande;

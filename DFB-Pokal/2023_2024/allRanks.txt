@@ -118,9 +118,9 @@ VF03W: Bayer 04 Leverkusen
 VF03L: VfB Stuttgart
 VF04W: 1. FC Saarbrücken
 VF04L: Borussia Mönchengladbach
-HF01W: 1. FC Saarbrücken vs. 1. FC Kaiserslautern
-HF01L: 1. FC Saarbrücken vs. 1. FC Kaiserslautern
-HF02W: Bayer 04 Leverkusen vs. Fortuna Düsseldorf
-HF02L: Bayer 04 Leverkusen vs. Fortuna Düsseldorf
+HF01W: 1. FC Kaiserslautern
+HF01L: 1. FC Saarbrücken
+HF02W: Bayer 04 Leverkusen
+HF02L: Fortuna Düsseldorf
 FI01W: DPOK2023FI01W
 FI01L: DPOK2023FI01L

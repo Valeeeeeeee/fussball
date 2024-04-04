@@ -51,24 +51,24 @@ QGJ3: Luxemburg
 QGJ4: Island
 QGJ5: Bosnien und Herzegowina
 QGJ6: Liechtenstein
-PH01W: Georgien vs. Luxemburg
-PH01L: Georgien vs. Luxemburg
-PH02W: Polen vs. Estland
-PH02L: Polen vs. Estland
-PH03W: Wales vs. Finnland
-PH03L: Wales vs. Finnland
-PH04W: Israel vs. Island
-PH04L: Israel vs. Island
-PH05W: Bosnien und Herzegowina vs. Ukraine
-PH05L: Bosnien und Herzegowina vs. Ukraine
-PH06W: Griechenland vs. Kasachstan
-PH06L: Griechenland vs. Kasachstan
-PO01W: PH01W vs. PH06W
-PO01L: PH01W vs. PH06W
-PO02W: PH03W vs. PH02W
-PO02L: PH03W vs. PH02W
-PO03W: PH05W vs. PH04W
-PO03L: PH05W vs. PH04W
+PH01W: Georgien
+PH01L: Luxemburg
+PH02W: Polen
+PH02L: Estland
+PH03W: Wales
+PH03L: Finnland
+PH04W: Island
+PH04L: Israel
+PH05W: Ukraine
+PH05L: Bosnien und Herzegowina
+PH06W: Griechenland
+PH06L: Kasachstan
+PO01W: Georgien
+PO01L: Griechenland
+PO02W: Polen
+PO02L: Wales
+PO03W: Ukraine
+PO03L: Island
 GA1: EURO2024GA1
 GA2: EURO2024GA2
 GA3: EURO2024GA3
