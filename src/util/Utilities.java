@@ -147,6 +147,10 @@ public class Utilities {
 		return JOptionPane.showConfirmDialog(null, message, "", JOptionPane.YES_NO_OPTION);
 	}
 	
+	public static int optionsDialog(String message, String[] options) {
+		return JOptionPane.showOptionDialog(null, message, "", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[options.length - 1]);
+	}
+	
 	public static void log() {
 		log("");
 	}

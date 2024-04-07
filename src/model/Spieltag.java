@@ -1638,7 +1638,7 @@ public class Spieltag extends JPanel {
 					String teamName1 = teams.get(team1 - 1).getName(), teamName2 = teams.get(team2 - 1).getName();
 					String text = teamName1 + " kann nur noch gegen " + teamName2 + " spielen. Möchtest du das Spiel so eingeben?";
 					String[] options = {" Nein ", " " + teamName2 + " gegen " + teamName1 + " ", " " + teamName1 + " gegen " + teamName2 + " "};
-					int response = abcDialog(text, options);
+					int response = optionsDialog(text, options);
 					if (response == 0) {
 						
 					} else {
