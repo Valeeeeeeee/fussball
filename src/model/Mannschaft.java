@@ -778,13 +778,6 @@ public class Mannschaft {
 		int oldPoints = data[matchday][POINTS];
 
 		if (oldPoints > 0 || oldGoals < oldCGoals) { // ansonsten steht kein Ergebnis drin (0:0 mit 0 Punkten)
-			numOfGoals -= oldGoals;
-			numOfCGoals -= oldCGoals;
-
-			if (oldPoints == 3)			numOfWins--;
-			else if (oldPoints == 1)	numOfDraws--;
-			else if (oldPoints == 0)	numOfLosses--;
-			
 			data[matchday][GOALS] = 0;
 			data[matchday][CGOALS] = 0;
 			data[matchday][POINTS] = 0;
@@ -795,27 +788,19 @@ public class Mannschaft {
 			data[matchday][GOALS] = goals;
 			data[matchday][CGOALS] = cGoals;
 
-			numOfGoals += goals;
-			numOfCGoals += cGoals;
-
 			int points;
 			if (goals > cGoals) {
 				points = 3;
-				numOfWins++;
 			} else if (goals == cGoals) {
 				points = 1;
-				numOfDraws++;
 			} else {
 				points = 0;
-				numOfLosses++;
 			}
 
 			data[matchday][POINTS] = points;
 		}
 		
-		numOfMatches = numOfWins + numOfDraws + numOfLosses;
-		points = 3 * numOfWins + numOfDraws + deductedPoints;
-		goalDiff = numOfGoals - numOfCGoals;
+		valuesCorrectAsOfMatchday = -1;
 	}
 	
 	public int getValueForCriterion(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType, RankingCriterion criterion) {
