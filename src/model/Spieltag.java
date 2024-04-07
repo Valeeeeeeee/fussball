@@ -3,7 +3,9 @@ package model;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.swing.*;
 
@@ -121,6 +123,8 @@ public class Spieltag extends JPanel {
 	private TurnierSaison tSeason;
 	private Gruppe[] allGroups;
 	private ArrayList<Mannschaft> teams;
+	
+	private boolean recursiveExclusionSFP;
 	
 	// Overview
 	private int[] numbersOfTeams;
@@ -987,6 +991,7 @@ public class Spieltag extends JPanel {
 		jBtnEnterRueckrunde.setVisible(false);
 		if (jBtnDefaultKickoff != null)	jBtnDefaultKickoff.setVisible(false);
 		clickNextEmptySpot();
+		smartFixturePredictor();
 	}
 
 	/**
@@ -1538,5 +1543,159 @@ public class Spieltag extends JPanel {
 		jSPTeamsSelection.setVisible(false);
 		clickNextEmptySpot();
 		repaintImmediately(jPnlTeamsSelection);
+		
+		if (editedLabel < numberOfMatches)	smartFixturePredictor();
+	}
+	
+	private void smartFixturePredictor() {
+		if (!belongsToALeague)		return;
+		if (recursiveExclusionSFP)	return;
+		recursiveExclusionSFP = true;
+		
+		teams = lSeason.getTeams();
+		ArrayList<ArrayList<Integer>> futureOpponents = new ArrayList<>();
+		futureOpponents.add(new ArrayList<Integer>());
+		for (int i = 1; i <= numberOfTeams; i++) {
+			futureOpponents.add(new ArrayList<Integer>());
+			for (int j = 1; j <= numberOfTeams; j++) {
+				if (i != j)	futureOpponents.get(i).add(j);
+			}
+		}
+		
+		int numberOfJointMatchdays = lSeason.getNumberOfJointMatchdays();
+		int firstMDInLeg = 0, lastMDInLeg = 0;
+		if (currentMatchday >= numberOfJointMatchdays) {
+			for (int i = 1; i <= numberOfTeams; i++) {
+				int sg = -lSeason.getSplitGroup(teams.get(i - 1), currentMatchday);
+				if (sg == 0) {
+					errorMessage("Split Groups sind nicht berechnet.");
+				} else {
+					ArrayList<Mannschaft> splitGroup = lSeason.getTeamsInSplitGroup(sg - 1);
+					List<Integer> possibleOpponents = splitGroup.stream().map(m -> m.getId()).collect(Collectors.toList());
+					futureOpponents.set(i, futureOpponents.get(i).stream().filter(id -> possibleOpponents.contains(id)).collect(Collectors.toCollection(ArrayList::new)));
+				}
+			}
+			
+			int numberOfMatchesInLeg = numberOfTeams / lSeason.getNumberOfSplitGroups() - 1;
+			int legOfSplitSeason = (currentMatchday - numberOfJointMatchdays) / numberOfMatchesInLeg;
+			firstMDInLeg = numberOfJointMatchdays + legOfSplitSeason * numberOfMatchesInLeg;
+			lastMDInLeg = numberOfJointMatchdays + (legOfSplitSeason + 1) * numberOfMatchesInLeg - 1;
+		} else {
+			int numberOfMatchesInLeg = numberOfTeams - 1;
+			int legOfSeason = currentMatchday / numberOfMatchesInLeg;
+			firstMDInLeg = legOfSeason * numberOfMatchesInLeg;
+			lastMDInLeg = (legOfSeason + 1) * numberOfMatchesInLeg - 1;
+		}
+		
+		for (int matchday = firstMDInLeg; matchday <= lastMDInLeg; matchday++) {
+			if (matchday == currentMatchday)	continue;
+			for (int matchIndex = 0; matchIndex < numberOfMatches; matchIndex++) {
+				Spiel match = lSeason.getMatch(matchday, matchIndex);
+				if (match == null)	continue;
+				int home = match.home(), away = match.away();
+				futureOpponents.get(home).remove(new Integer(away));
+				futureOpponents.get(away).remove(new Integer(home));
+			}
+		}
+		
+		ArrayList<Integer> teamsSet = new ArrayList<>();
+		for (int i = 0; i < array.length; i++) {
+			if (array[i][0] != -1 && array[i][1] != -1) {
+				teamsSet.add(array[i][0]);
+				teamsSet.add(array[i][1]);
+			}
+		}
+		
+		for (int i = 1; i <= numberOfTeams; i++) {
+			for (int j = 0; j < teamsSet.size(); j++) {
+				futureOpponents.get(i).remove(new Integer(teamsSet.get(j)));
+			}
+		}
+		
+		boolean didSth = true, asked = false;
+		while (didSth) {
+			didSth = false;
+			
+			for (int i = 1; i <= numberOfTeams; i++) {
+				if (teamsSet.contains(new Integer(i)))	continue;
+				if (futureOpponents.get(i).size() == 0) {
+					errorMessage("Fehler! " + teams.get(i - 1).getName() + " hat keine möglichen Gegner mehr.");
+				} else if (futureOpponents.get(i).size() == 1) {
+					if (!asked) {
+						asked = true;
+						if (JOptionPane.NO_OPTION == yesNoDialog("Möchtest du den Smart Predictor nutzen?")) {
+							recursiveExclusionSFP = false;
+							return;
+						}
+					}
+					
+					int team1 = i, team2 = futureOpponents.get(i).get(0);
+					if (!atHome(team1, team2)) {
+						int temp = team1;
+						team1 = team2;
+						team2 = temp;
+					}
+					String teamName1 = teams.get(team1 - 1).getName(), teamName2 = teams.get(team2 - 1).getName();
+					String text = teamName1 + " kann nur noch gegen " + teamName2 + " spielen. Möchtest du das Spiel so eingeben?";
+					String[] options = {" Nein ", " " + teamName2 + " gegen " + teamName1 + " ", " " + teamName1 + " gegen " + teamName2 + " "};
+					int response = abcDialog(text, options);
+					if (response == 0) {
+						
+					} else {
+						if (response == 1) {
+							mannschaftenButtonClicked(team2 - 1);
+							mannschaftenButtonClicked(team1 - 1);
+						} else if (response == 2) {
+							mannschaftenButtonClicked(team1 - 1);
+							mannschaftenButtonClicked(team2 - 1);
+						}
+						
+						teamsSet.add(team1);
+						teamsSet.add(team2);
+						for (int team = 1; team <= numberOfTeams; team++) {
+							for (int j = 0; j < teamsSet.size(); j++) {
+								futureOpponents.get(team).remove(new Integer(teamsSet.get(j)));
+							}
+						}
+						
+						didSth = true;
+					}
+				}
+			}
+		}
+		
+		recursiveExclusionSFP = false;
+	}
+	
+	private boolean atHome(int id1, int id2) {
+		if (!belongsToALeague)	return false;
+		int matchesSameOpponent = lSeason.getNumberOfMatchesAgainstSameOpponent();
+		int legOfSeason = currentMatchday / matchesSameOpponent;
+		int prediction = 0;
+		if (legOfSeason > 0) {
+			for (int i = 0; i < currentMatchday; i++) {
+				for (int j = 0; j < numberOfMatches; j++) {
+					Spiel match = lSeason.getMatch(i, j);
+					if (match == null)	continue;
+					if (match.sameAs(id1, id2))			prediction -= 10;
+					else if (match.sameAs(id2, id1))	prediction += 10;
+				}
+			}
+		}
+		if (currentMatchday == 0)	return true;
+		for (int i = 0; i < numberOfMatches; i++) {
+			Spiel match = lSeason.getMatch(currentMatchday - 1, i);
+			if (match == null)	continue;
+			if (match.home() == id1) {
+				prediction--;
+			} else if (match.home() == id2) {
+				prediction++;
+			} else if (match.away() == id1) {
+				prediction++;
+			} else if (match.away() == id2) {
+				prediction--;
+			}
+		}
+		return prediction >= 0;
 	}
 }
