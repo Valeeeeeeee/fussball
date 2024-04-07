@@ -44,6 +44,8 @@ public class KORunde implements Wettbewerb {
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
 	
+	private boolean hasResultChanges;
+	
 	private String workspace;
 	
 	private String fileRankingCriteria;
@@ -105,7 +107,7 @@ public class KORunde implements Wettbewerb {
 	}
 	
 	public int getNumberOfMatchdaysBeforePlayoff() {
-		return belongsToALeague ? lSeason.getNumberOfMatchdays() : 0;
+		return belongsToALeague ? lSeason.getNumberOfRegularMatchdays() : 0;
 	}
 	
 	public int getYear() {
@@ -311,12 +313,20 @@ public class KORunde implements Wettbewerb {
 		return hasSecondLeg;
 	}
 	
-	public int getNumberOfMatchdays() {
+	public int getNumberOfJointMatchdays() {
+		return numberOfMatchdays;
+	}
+	
+	public int getNumberOfRegularMatchdays() {
 		return numberOfMatchdays;
 	}
 	
 	public int getNumberOfMatchesAgainstSameOpponent() {
 		return numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public int getNumberOfMatchesAgainstSameOpponentAfterSplit() {
+		return 0;
 	}
 	
 	public boolean teamsHaveKader() {
@@ -485,6 +495,10 @@ public class KORunde implements Wettbewerb {
 	
 	public void setResult(int matchday, int matchIndex, Ergebnis result) {
 		if (isMatchSet(matchday, matchIndex))	getMatch(matchday, matchIndex).setResult(result);
+	}
+	
+	public void resultChanged() {
+		hasResultChanges = true;
 	}
 	
 	// Spielplan

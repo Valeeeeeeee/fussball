@@ -143,13 +143,13 @@ public class Tabelle extends JPanel {
 				}
 			}
 			{
-				String[] hilfsarray = new String[competition.getNumberOfMatchdays()];
-				for (int i = 0; i < competition.getNumberOfMatchdays(); i++) {
-					hilfsarray[i] = (i + 1) + ". Spieltag";
+				String[] matchdays = new String[competition.getNumberOfRegularMatchdays()];
+				for (int i = 0; i < competition.getNumberOfRegularMatchdays(); i++) {
+					matchdays[i] = (i + 1) + ". Spieltag";
 				}
 				jCBMatchdays = new JComboBox<String>();
 				this.add(jCBMatchdays);
-				jCBMatchdays.setModel(new DefaultComboBoxModel<String>(hilfsarray));
+				jCBMatchdays.setModel(new DefaultComboBoxModel<String>(matchdays));
 				jCBMatchdays.setBounds(REC_CBMATCHDAYS);
 				jCBMatchdays.setFocusable(false);
 				jCBMatchdays.addItemListener(new ItemListener() {
@@ -342,7 +342,7 @@ public class Tabelle extends JPanel {
 	}
 	
 	public int[] getPositionsOfTeam(int id, int untilMatchday) {
-		int[] positions = new int[competition.getNumberOfMatchdays()];
+		int[] positions = new int[competition.getNumberOfRegularMatchdays()];
 		
 		int matchday = 0;
 		while (matchday <= untilMatchday) {

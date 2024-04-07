@@ -105,6 +105,7 @@ public class Spiel {
 		this.result = result;
 		if (homeTeam != null)	homeTeam.setResult(getMatchdayKey(), result);
 		if (awayTeam != null)	awayTeam.setResult(getMatchdayKey(), result);
+		competition.resultChanged();
 	}
 	
 	public Aufstellung getLineupHome() {

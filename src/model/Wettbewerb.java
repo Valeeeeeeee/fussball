@@ -12,8 +12,10 @@ public interface Wettbewerb {
 	public String getWorkspace();
 	public int getCurrentMatchday();
 	public int getNewestStartedMatchday();
-	public int getNumberOfMatchdays();
+	public int getNumberOfJointMatchdays();
+	public int getNumberOfRegularMatchdays();
 	public int getNumberOfMatchesAgainstSameOpponent();
+	public int getNumberOfMatchesAgainstSameOpponentAfterSplit();
 	public String getMatchdayDescription(int matchday);
 	public String[] getMatchdays();
 	
@@ -30,6 +32,8 @@ public interface Wettbewerb {
 	public boolean isResultSet(int matchday, int matchIndex);
 	public Ergebnis getResult(int matchday, int matchIndex);
 	public void setResult(int matchday, int matchIndex, Ergebnis result);
+	
+	public void resultChanged();
 	
 	public boolean allResultsSet();
 	

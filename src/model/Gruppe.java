@@ -30,6 +30,8 @@ public class Gruppe implements Wettbewerb {
 	private Spiel[][] matches;
 	private boolean[][] matchesSet;
 	
+	private boolean hasResultChanges;
+	
 	private String workspace;
 	
 	private String fileRankingCriteria;
@@ -111,12 +113,20 @@ public class Gruppe implements Wettbewerb {
 		return numberOfTeams;
 	}
 	
-	public int getNumberOfMatchdays() {
+	public int getNumberOfJointMatchdays() {
+		return numberOfMatchdays;
+	}
+	
+	public int getNumberOfRegularMatchdays() {
 		return numberOfMatchdays;
 	}
 	
 	public int getNumberOfMatchesAgainstSameOpponent() {
 		return numberOfMatchesAgainstSameOpponent;
+	}
+	
+	public int getNumberOfMatchesAgainstSameOpponentAfterSplit() {
+		return 0;
 	}
 	
 	public boolean teamsHaveKader() {
@@ -470,6 +480,10 @@ public class Gruppe implements Wettbewerb {
 	
 	public void setResult(int matchday, int matchIndex, Ergebnis result) {
 		if (isMatchSet(matchday, matchIndex))	getMatch(matchday, matchIndex).setResult(result);
+	}
+	
+	public void resultChanged() {
+		hasResultChanges = true;
 	}
 	
 	// Spielplan

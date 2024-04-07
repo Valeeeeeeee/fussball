@@ -30,7 +30,7 @@ public class Ranking {
 	}
 	
 	public void applyCriteria() {
-		boolean competitionIsOver = untilMatchday + 1 == competition.getNumberOfMatchdays() && competition.allResultsSet();
+		boolean competitionIsOver = untilMatchday + 1 == competition.getNumberOfRegularMatchdays() && competition.allResultsSet();
 		
 		for (RankingCriterion rankingCriterion : rankingCriteria) {
 			if (!rankingCriterion.evaluateBeforeEnd() && !competitionIsOver)	continue;

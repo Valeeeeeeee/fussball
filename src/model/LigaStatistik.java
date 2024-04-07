@@ -321,7 +321,7 @@ public class LigaStatistik extends JPanel {
 		numberOfHomeWins = numberOfDraws = numberOfAwayWins = numberOfHomeGoals = numberOfAwayGoals = 0;
 		resultsHash.clear();
 		resultsFrequency.clear();
-		for (int i = 0; i < season.getNumberOfMatchdays(); i++) {
+		for (int i = 0; i < season.getNumberOfRegularMatchdays(); i++) {
 			for (int j = 0; j < season.getNumberOfMatchesPerMatchday(); j++) {
 				if (season.isResultSet(i, j)) {
 					Ergebnis result = season.getResult(i, j);

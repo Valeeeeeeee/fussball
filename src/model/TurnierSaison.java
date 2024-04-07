@@ -305,7 +305,7 @@ public class TurnierSaison {
 	public String[] getOverviewMatchdays(boolean isQ) {
 		int numberOfMatchdays = 0;
 		for (Gruppe group : (isQ ? qGroups : groups)) {
-			if (numberOfMatchdays < group.getNumberOfMatchdays())	numberOfMatchdays = group.getNumberOfMatchdays();
+			if (numberOfMatchdays < group.getNumberOfRegularMatchdays())	numberOfMatchdays = group.getNumberOfRegularMatchdays();
 		}
 		
 		String[] matchdays = new String[numberOfMatchdays];
@@ -483,9 +483,9 @@ public class TurnierSaison {
 		int[] points = new int[nOfGroups], goalDiff = new int[nOfGroups], goalsFor = new int[nOfGroups];
 		for (int i = 0; i < nOfGroups; i++) {
 			if (!groupXth.get(i).isPresent())	continue;
-			points[i] = groupXth.get(i).get().get(9, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-			goalDiff[i] = groupXth.get(i).get().get(8, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
-			goalsFor[i] = groupXth.get(i).get().get(6, 0, grps[i].getNumberOfMatchdays() - 1, untilRank);
+			points[i] = groupXth.get(i).get().get(9, 0, grps[i].getNumberOfRegularMatchdays() - 1, untilRank);
+			goalDiff[i] = groupXth.get(i).get().get(8, 0, grps[i].getNumberOfRegularMatchdays() - 1, untilRank);
+			goalsFor[i] = groupXth.get(i).get().get(6, 0, grps[i].getNumberOfRegularMatchdays() - 1, untilRank);
 		}
 		
 		ArrayList<Integer> order = getOrder(groupXth, points, goalDiff, goalsFor);

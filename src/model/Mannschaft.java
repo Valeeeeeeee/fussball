@@ -103,8 +103,8 @@ public class Mannschaft {
 	
 	private void initializeArrays() {
 		numberOfMatchdays = 0;
-		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfMatchdays();
-		else if (playsInGroup)	numberOfMatchdays = group.getNumberOfMatchdays();
+		if (playsInLeague)		numberOfMatchdays = lSeason.getNumberOfRegularMatchdays();
+		else if (playsInGroup)	numberOfMatchdays = group.getNumberOfRegularMatchdays();
 		data = new int[numberOfMatchdays][4];
 		homeaway = new boolean[numberOfMatchdays];
 	}
@@ -676,16 +676,21 @@ public class Mannschaft {
 	}
 	
 	public String[] getResultsAgainst(Mannschaft opponent) {
-		int halfNumberOfMatchesASO = competition.getNumberOfMatchesAgainstSameOpponent() / 2;
-		String[] resultsOpponent = new String[competition.getNumberOfMatchesAgainstSameOpponent()];
-		for (int i = 0; i < resultsOpponent.length; i++) {
-			resultsOpponent[i] = "-2;--";
-		}
+		int numberOfJointMatchdays = competition.getNumberOfJointMatchdays();
+		int matchesVsSameOpponent = competition.getNumberOfMatchesAgainstSameOpponent();
+		int matchesVsSameOpponentAfterSplit = competition.getNumberOfMatchesAgainstSameOpponentAfterSplit();
+		boolean evenNumber = matchesVsSameOpponent % 2 == 0;
+		int halfNumberOfMatchesASO = matchesVsSameOpponent / 2;
+		String[] resultsOpponent = new String[matchesVsSameOpponent + matchesVsSameOpponentAfterSplit];
+		
 		if (opponent == this) {
 			for (int i = 0; i < resultsOpponent.length; i++) {
 				resultsOpponent[i] = "-3;n/a";
 			}
 		} else {
+			for (int i = 0; i < resultsOpponent.length; i++) {
+				resultsOpponent[i] = "-2;--";
+			}
 			int counterH = 0, counterA = 0;
 			for (int i = 0; i < numberOfMatchdays; i++) {
 				if (data[i][OPPONENT] == opponent.getId()) {
@@ -693,8 +698,14 @@ public class Mannschaft {
 					if (isResultSet(competition.getKey(i))) {
 						result = data[i][POINTS] + ";" + result;
 					} else	result = "-1;(" + (i + 1) + ")";
-					if (homeaway[i])	resultsOpponent[counterH++] = result;
-					else				resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
+					
+					if (i >= numberOfJointMatchdays || !evenNumber && (matchesVsSameOpponent * i >= (matchesVsSameOpponent - 1) * numberOfJointMatchdays)) {
+						resultsOpponent[counterH + counterA] = result;
+						if (homeaway[i])	counterH++;
+						else				counterA++;
+					}
+					else if (homeaway[i])	resultsOpponent[counterH++] = result;
+					else					resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
 				}
 			}
 		}

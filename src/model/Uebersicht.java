@@ -1088,7 +1088,7 @@ public class Uebersicht extends JPanel {
 		seasonDuration = team.getCompetition().getDuration();
 		playerInformation.setSeasonDuration(seasonDuration);
 		date = team.getTodayWithinSeasonBounds();
-		numberOfMatchdays = team.getCompetition().getNumberOfMatchdays();
+		numberOfMatchdays = team.getCompetition().getNumberOfRegularMatchdays();
 		matchdayOrder.clear();
 		for (int i = 0; i < numberOfMatchdays; i++) {
 			matchdayOrder.add(i);

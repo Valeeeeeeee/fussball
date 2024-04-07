@@ -142,7 +142,7 @@ public class Spieltag extends JPanel {
 
 		numberOfMatches = lSeason.getNumberOfMatchesPerMatchday();
 		numberOfTeams = lSeason.getNumberOfTeams();
-		numberOfMatchdays = lSeason.getNumberOfMatchdays();
+		numberOfMatchdays = lSeason.getNumberOfRegularMatchdays();
 		numberOfMatchdaysBeforePlayoff = numberOfMatchdays;
 		numberOfMatchdaysIncludingPlayoff = lSeason.getNumberOfMatchdaysIncludingPlayoff();
 		halfCountTeamsRoundUp = lSeason.getHalfNOfTeamsUp();
@@ -163,7 +163,7 @@ public class Spieltag extends JPanel {
 
 		numberOfMatches = group.getNumberOfMatchesPerMatchday();
 		numberOfTeams = group.getNumberOfTeams();
-		numberOfMatchdays = group.getNumberOfMatchdays();
+		numberOfMatchdays = group.getNumberOfRegularMatchdays();
 		numberOfMatchdaysIncludingPlayoff = numberOfMatchdays;
 		halfCountTeamsRoundUp = (numberOfTeams % 2 == 0 ? numberOfTeams / 2 : numberOfTeams / 2 + 1);
 
@@ -208,7 +208,7 @@ public class Spieltag extends JPanel {
 		numbersOfMatches = new int[isQ ? tSeason.getNumberOfQGroups() : tSeason.getNumberOfGroups()];
 		
 		for (Gruppe group : allGroups) {
-			int nOMatchdays = group.getNumberOfMatchdays();
+			int nOMatchdays = group.getNumberOfRegularMatchdays();
 			numbersOfTeams[group.getID()] = group.getNumberOfTeams();
 			numbersOfMatches[group.getID()] = group.getNumberOfMatchesPerMatchday();
 			
