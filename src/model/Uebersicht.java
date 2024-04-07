@@ -228,7 +228,7 @@ public class Uebersicht extends JPanel {
 	private int[] widthes = {20, 120, 185, 16, 5, 16, 185};
 	private int height = 15;
 	private int gapy = 5;
-	private int middleGapY = 15;
+	private int middleGapY = 15 - 5;
 	
 	private int teStartX = 10;
 	private int teStartY = 5;
@@ -1477,6 +1477,8 @@ public class Uebersicht extends JPanel {
 		
 		if (team.getCompetition() instanceof LigaSaison) {
 			int countMatches = 0;
+			int matchesAgainstSameOpponent = team.getCompetition().getNumberOfMatchesAgainstSameOpponent() + team.getCompetition().getNumberOfMatchesAgainstSameOpponentAfterSplit();
+			int numberOfMatchesInBlock = team.getCompetition().getTeams().size() - 1;
 			for (int i = 0; i < matchdayOrder.size(); i++) {
 				String[] match = allMatches.get(matchdayOrder.get(i));
 				final int x = countMatches;
@@ -1485,7 +1487,7 @@ public class Uebersicht extends JPanel {
 				for (int j = 0; j < NUMBEROFFIELDSSPPL; j++) {
 					labels[j] = new JLabel();
 					jPnlMatches.add(labels[j]);
-					labels[j].setBounds(marginMatches + diffsX[j], marginMatches + countMatches * (height + gapy) + (countMatches / (numberOfMatchdays / 2)) * middleGapY, widthes[j], height);
+					labels[j].setBounds(marginMatches + diffsX[j], marginMatches + countMatches * (height + gapy) + (countMatches / numberOfMatchesInBlock) * middleGapY, widthes[j], height);
 				}
 				
 				alignCenter(labels[MATCHDAY]);
@@ -1541,7 +1543,7 @@ public class Uebersicht extends JPanel {
 				countMatches++;
 			}
 			
-			jPnlMatches.setBounds(marginX, marginY + 30, widthMatches, 2 * marginMatches + countMatches * height + (countMatches - 1) * gapy + middleGapY);
+			jPnlMatches.setBounds(marginX, marginY + 30, widthMatches, 2 * marginMatches + countMatches * height + (countMatches - 1) * gapy + (matchesAgainstSameOpponent - 1) * middleGapY);
 		} else {
 			int countRows = 0, countMatches = 0;
 			for (String[] match : allMatches) {
@@ -1664,7 +1666,7 @@ public class Uebersicht extends JPanel {
 		}
 		if (!noStats) {
 			jLblsResultsTeams = new JLabel[teams.size()];
-			jLblsResultsValues = new JLabel[teams.size()][team.getCompetition().getNumberOfMatchesAgainstSameOpponent()];
+			jLblsResultsValues = new JLabel[teams.size()][team.getCompetition().getNumberOfMatchesAgainstSameOpponent() + team.getCompetition().getNumberOfMatchesAgainstSameOpponentAfterSplit()];
 			for (int i = 0; i < jLblsResultsTeams.length; i++) {
 				jLblsResultsTeams[i] = new JLabel();
 				jPnlStatistics.add(jLblsResultsTeams[i]);
