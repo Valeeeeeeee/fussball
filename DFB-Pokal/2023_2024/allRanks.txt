@@ -122,5 +122,5 @@ HF01W: 1. FC Kaiserslautern
 HF01L: 1. FC Saarbrücken
 HF02W: Bayer 04 Leverkusen
 HF02L: Fortuna Düsseldorf
-FI01W: DPOK2023FI01W
-FI01L: DPOK2023FI01L
+FI01W: 1. FC Kaiserslautern vs. Bayer 04 Leverkusen
+FI01L: 1. FC Kaiserslautern vs. Bayer 04 Leverkusen
