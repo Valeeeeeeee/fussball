@@ -419,6 +419,7 @@
 28430528;Ralf;Fährmann;null;19880927;Deutschland;
 28435431;Marc;Roca;null;19961126;Spanien;
 28437871;Rafa;Silva;null;19930517;Portugal;
+28438938;Mert;Kömür;null;20050717;Deutschland, Türkei;
 28439393;Gabriel;Torje;null;19891122;Rumänien;
 28440046;Andries;Noppert;null;19940407;Niederlande;
 28440934;Shio;Fukuda;null;20040408;Japan;
@@ -3965,6 +3966,7 @@
 39015722;Felipe Augusto;Santana;null;19860317;Brasilien;
 39028900;André-Pierre;Gignac;null;19850512;Frankreich;
 39144420;Victor Nilsson;Lindelöf;null;19940717;Schweden;
+39245890;Pharrell 'Nnamdi';Collins;null;20040110;Deutschland, Nigeria;
 39335306;Cristiano Ronaldo;dos Santos Aveiro;Cristiano Ronaldo;19850205;Portugal;
 39335875;Pedro Guilherme;Abreu dos Santos;Pedro;19970620;Brasilien;
 39350296;Arthur Augusto;de Matos Soares;Arthur;20030317;Brasilien;
