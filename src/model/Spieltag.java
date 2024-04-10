@@ -1593,8 +1593,8 @@ public class Spieltag extends JPanel {
 				Spiel match = lSeason.getMatch(matchday, matchIndex);
 				if (match == null)	continue;
 				int home = match.home(), away = match.away();
-				futureOpponents.get(home).remove(new Integer(away));
-				futureOpponents.get(away).remove(new Integer(home));
+				futureOpponents.get(home).remove(Integer.valueOf(away));
+				futureOpponents.get(away).remove(Integer.valueOf(home));
 			}
 		}
 		
@@ -1608,7 +1608,7 @@ public class Spieltag extends JPanel {
 		
 		for (int i = 1; i <= numberOfTeams; i++) {
 			for (int j = 0; j < teamsSet.size(); j++) {
-				futureOpponents.get(i).remove(new Integer(teamsSet.get(j)));
+				futureOpponents.get(i).remove(Integer.valueOf(teamsSet.get(j)));
 			}
 		}
 		
@@ -1617,7 +1617,7 @@ public class Spieltag extends JPanel {
 			didSth = false;
 			
 			for (int i = 1; i <= numberOfTeams; i++) {
-				if (teamsSet.contains(new Integer(i)))	continue;
+				if (teamsSet.contains(Integer.valueOf(i)))	continue;
 				if (futureOpponents.get(i).size() == 0) {
 					errorMessage("Fehler! " + teams.get(i - 1).getName() + " hat keine möglichen Gegner mehr.");
 				} else if (futureOpponents.get(i).size() == 1) {
@@ -1654,7 +1654,7 @@ public class Spieltag extends JPanel {
 						teamsSet.add(team2);
 						for (int team = 1; team <= numberOfTeams; team++) {
 							for (int j = 0; j < teamsSet.size(); j++) {
-								futureOpponents.get(team).remove(new Integer(teamsSet.get(j)));
+								futureOpponents.get(team).remove(Integer.valueOf(teamsSet.get(j)));
 							}
 						}
 						

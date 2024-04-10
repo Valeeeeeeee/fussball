@@ -511,7 +511,7 @@ public class LigaSaison implements Wettbewerb {
 		}
 		
 		for (int i = 0; i < defaultRelativeKickoffTimes.length; i++) {
-			if (unsetKOTs.contains(getRKOTIndex(matchday, i)))	unsetKOTs.remove(new Integer(getRKOTIndex(matchday, i)));
+			if (unsetKOTs.contains(getRKOTIndex(matchday, i)))	unsetKOTs.remove(Integer.valueOf(getRKOTIndex(matchday, i)));
 			else												unsetMatches.add(i);
 		}
 		

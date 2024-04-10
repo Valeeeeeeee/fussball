@@ -4,9 +4,6 @@ import static util.Utilities.*;
 
 import java.util.ArrayList;
 
-import analyse.SaisonPerformance;
-import analyse.SpielPerformance;
-
 public class Spieler {
 
 	private static final int[] factorsFN = {3, -1, 4, -1, 2, 1, -2, 3, -1};
