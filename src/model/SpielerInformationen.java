@@ -1107,7 +1107,7 @@ public class SpielerInformationen extends JFrame {
 	}
 	
 	private void showPhoto() {
-		String url = "file:///" + team.getPhotoDirectory() + player.getID() + ".png";
+		String url = "file:" + team.getPhotoDirectory() + player.getID() + ".png";
 		
 		BufferedImage image = null;
 		if (jLblImage != null) {
