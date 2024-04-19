@@ -150,5 +150,5 @@ HF01W: Bayern München vs. Real Madrid
 HF01L: Bayern München vs. Real Madrid
 HF02W: Borussia Dortmund vs. Paris Saint-Germain
 HF02L: Borussia Dortmund vs. Paris Saint-Germain
-FI01W: CHAL2023FI01W
-FI01L: CHAL2023FI01L
+FI01W: HF02W vs. HF01W
+FI01L: HF02W vs. HF01W

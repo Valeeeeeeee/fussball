@@ -338,17 +338,17 @@ AF07W: AC Florenz
 AF07L: Maccabi Haifa
 AF08W: Viktoria Pilsen
 AF08L: Servette Genf
-VF01W: Olympiakos Piräus vs. Fenerbahce Istanbul
-VF01L: Olympiakos Piräus vs. Fenerbahce Istanbul
-VF02W: Viktoria Pilsen vs. AC Florenz
-VF02L: Viktoria Pilsen vs. AC Florenz
-VF03W: FC Brügge vs. PAOK Thessaloniki
-VF03L: FC Brügge vs. PAOK Thessaloniki
-VF04W: Aston Villa vs. OSC Lille
-VF04L: Aston Villa vs. OSC Lille
-HF01W: VF02W vs. VF03W
-HF01L: VF02W vs. VF03W
-HF02W: VF04W vs. VF01W
-HF02L: VF04W vs. VF01W
-FI01W: CONF2023FI01W
-FI01L: CONF2023FI01L
+VF01W: Olympiakos Piräus
+VF01L: Fenerbahce Istanbul
+VF02W: AC Florenz
+VF02L: Viktoria Pilsen
+VF03W: FC Brügge
+VF03L: PAOK Thessaloniki
+VF04W: Aston Villa
+VF04L: OSC Lille
+HF01W: AC Florenz vs. FC Brügge
+HF01L: AC Florenz vs. FC Brügge
+HF02W: Aston Villa vs. Olympiakos Piräus
+HF02L: Aston Villa vs. Olympiakos Piräus
+FI01W: HF02W vs. HF01W
+FI01L: HF02W vs. HF01W

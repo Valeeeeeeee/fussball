@@ -96,17 +96,17 @@ AF07W: Benfica Lissabon
 AF07L: Glasgow Rangers
 AF08W: AC Mailand
 AF08L: Slavia Prag
-VF01W: FC Liverpool vs. Atalanta Bergamo
-VF01L: FC Liverpool vs. Atalanta Bergamo
-VF02W: Bayer 04 Leverkusen vs. West Ham United
-VF02L: Bayer 04 Leverkusen vs. West Ham United
-VF03W: Benfica Lissabon vs. Olympique Marseille
-VF03L: Benfica Lissabon vs. Olympique Marseille
-VF04W: AC Mailand vs. AS Rom
-VF04L: AC Mailand vs. AS Rom
-HF01W: VF03W vs. VF01W
-HF01L: VF03W vs. VF01W
-HF02W: VF04W vs. VF02W
-HF02L: VF04W vs. VF02W
-FI01W: EURL2023FI01W
-FI01L: EURL2023FI01L
+VF01W: Atalanta Bergamo
+VF01L: FC Liverpool
+VF02W: Bayer 04 Leverkusen
+VF02L: West Ham United
+VF03W: Olympique Marseille
+VF03L: Benfica Lissabon
+VF04W: AS Rom
+VF04L: AC Mailand
+HF01W: Olympique Marseille vs. Atalanta Bergamo
+HF01L: Olympique Marseille vs. Atalanta Bergamo
+HF02W: AS Rom vs. Bayer 04 Leverkusen
+HF02L: AS Rom vs. Bayer 04 Leverkusen
+FI01W: HF01W vs. HF02W
+FI01L: HF01W vs. HF02W
