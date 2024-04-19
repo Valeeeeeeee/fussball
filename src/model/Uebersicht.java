@@ -201,11 +201,9 @@ public class Uebersicht extends JPanel {
 	private static final int MATCHDAY = 0;
 	private static final int DATE = 1;
 	private static final int TEAMHOME = 2;
-	private static final int GOALSHOME = 3;
-	private static final int TRENNZEICHEN = 4;
-	private static final int GOALSAWAY = 5;
-	private static final int TEAMAWAY = 6;
-	private static final int NUMBEROFFIELDSSPPL = 7;
+	private static final int RESULT = 3;
+	private static final int TEAMAWAY = 4;
+	private static final int NUMBEROFFIELDSSPPL = 5;
 	
 	private static final int SQUADNUMBER = 0;
 	private static final int NAMES = 1;
@@ -224,8 +222,8 @@ public class Uebersicht extends JPanel {
 	private int marginMatches = 5;
 	private int widthMainCat = 250;
 	private int widthSubCat = 250;
-	private int[] diffsX = {0, 25, 150, 344, 360, 365, 390};
-	private int[] widthes = {20, 120, 185, 16, 5, 16, 185};
+	private int[] diffsX = {0, 25, 150, 344, 390};
+	private int[] widthes = {20, 120, 185, 37, 185};
 	private int height = 15;
 	private int gapy = 5;
 	private int middleGapY = 15 - 5;
@@ -1493,17 +1491,13 @@ public class Uebersicht extends JPanel {
 				alignCenter(labels[MATCHDAY]);
 				alignCenter(labels[DATE]);
 				alignRight(labels[TEAMHOME]);
-				alignCenter(labels[GOALSHOME]);
-				alignCenter(labels[TRENNZEICHEN]);
-				alignCenter(labels[GOALSAWAY]);
+				alignCenter(labels[RESULT]);
 				alignLeft(labels[TEAMAWAY]);
 				
 				labels[MATCHDAY].setText(match[0]);
 				labels[DATE].setText(match[1]);
 				labels[TEAMHOME].setText(match[2]);
-				labels[GOALSHOME].setText(match[3]);
-				labels[TRENNZEICHEN].setText(":");
-				labels[GOALSAWAY].setText(match[4]);
+				labels[RESULT].setText(match[3] + " : " + match[4]);
 				labels[TEAMAWAY].setText(match[5]);
 				
 				labels[MATCHDAY].setCursor(handCursor);
@@ -1532,12 +1526,8 @@ public class Uebersicht extends JPanel {
 				
 				if (match[6] != RESULT_NOT_SET) {
 					Color color = (match[6] == DRAW ? Color.white : (match[6] == WIN ? Color.green : Color.red));
-					labels[GOALSHOME].setBackground(color);
-					labels[TRENNZEICHEN].setBackground(color);
-					labels[GOALSAWAY].setBackground(color);
-					labels[GOALSHOME].setOpaque(true);
-					labels[TRENNZEICHEN].setOpaque(true);
-					labels[GOALSAWAY].setOpaque(true);
+					labels[RESULT].setBackground(color);
+					labels[RESULT].setOpaque(true);
 				}
 				
 				countMatches++;
@@ -1579,17 +1569,13 @@ public class Uebersicht extends JPanel {
 					alignCenter(labels[MATCHDAY]);
 					alignCenter(labels[DATE]);
 					alignRight(labels[TEAMHOME]);
-					alignCenter(labels[GOALSHOME]);
-					alignCenter(labels[TRENNZEICHEN]);
-					alignCenter(labels[GOALSAWAY]);
+					alignCenter(labels[RESULT]);
 					alignLeft(labels[TEAMAWAY]);
 					
 					labels[MATCHDAY].setText(match[0]);
 					labels[DATE].setText(match[1]);
 					labels[TEAMHOME].setText(match[2]);
-					labels[GOALSHOME].setText(match[3]);
-					labels[TRENNZEICHEN].setText(":");
-					labels[GOALSAWAY].setText(match[4]);
+					labels[RESULT].setText(match[3] + " : " + match[4]);
 					labels[TEAMAWAY].setText(match[5]);
 					labels[TEAMHOME].setCursor(handCursor);
 					labels[TEAMHOME].addMouseListener(new MouseAdapter() {
@@ -1611,12 +1597,8 @@ public class Uebersicht extends JPanel {
 					
 					if (match[6] != RESULT_NOT_SET) {
 						Color color = (match[6] == DRAW ? Color.white : (match[6] == WIN ? Color.green : Color.red));
-						labels[GOALSHOME].setBackground(color);
-						labels[TRENNZEICHEN].setBackground(color);
-						labels[GOALSAWAY].setBackground(color);
-						labels[GOALSHOME].setOpaque(true);
-						labels[TRENNZEICHEN].setOpaque(true);
-						labels[GOALSAWAY].setOpaque(true);
+						labels[RESULT].setBackground(color);
+						labels[RESULT].setOpaque(true);
 					}
 					
 					countRows++;
