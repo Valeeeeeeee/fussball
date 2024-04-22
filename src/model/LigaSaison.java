@@ -493,7 +493,7 @@ public class LigaSaison implements Wettbewerb {
 	
 	public int addNewRelativeKickoffTime(int daysSince, Uhrzeit time) {
 		numberOfRelativeKickoffTimes++;
-		relativeKickOffTimes.add(new RelativeAnstossZeit(numberOfRelativeKickoffTimes, daysSince, time));
+		relativeKickOffTimes.add(RelativeAnstossZeit.of(numberOfRelativeKickoffTimes, daysSince, time));
 		return numberOfRelativeKickoffTimes;
 	}
 	
@@ -769,7 +769,7 @@ public class LigaSaison implements Wettbewerb {
 			for (int j = 0; j < numberOfMatchesPerMatchday; j++) {
 				if (isResultSet(i, j) && getResult(i, j).isCancelled())	continue;
 				AnstossZeit kickOffTime = getKickOffTime(i, j);
-				if (isMatchSet(i, j) && !kickOffTime.equals(KICK_OFF_TIME_UNDEFINED) && (!inThePast(kickOffTime.plusMinutes(105)) || !isResultSet(i, j))) {
+				if (isMatchSet(i, j) && kickOffTime.hasDate() && (!inThePast(kickOffTime.plusMinutes(105)) || !isResultSet(i, j))) {
 					if (nextMatches.size() < Fussball.numberOfMissingResults || kickOffTime.isBefore(nextMatches.get(Fussball.numberOfMissingResults - 1))) {
 						addInOrder(nextMatches, kickOffTime);
 					}
@@ -941,9 +941,9 @@ public class LigaSaison implements Wettbewerb {
 			String[] split = allKickoffTimes.split(";");
 			numberOfRelativeKickoffTimes = Integer.parseInt(split[0]);
 			relativeKickOffTimes = new ArrayList<>();
-			relativeKickOffTimes.add(new RelativeAnstossZeit(0, 0, TIME_UNDEFINED));
+			relativeKickOffTimes.add(RelativeAnstossZeit.of(0, 0, TIME_UNDEFINED));
 			for (int counter = 1; counter <= numberOfRelativeKickoffTimes; counter++) {
-				relativeKickOffTimes.add(new RelativeAnstossZeit(counter, split[counter]));
+				relativeKickOffTimes.add(RelativeAnstossZeit.of(counter, split[counter]));
 			}
 			
 			for (int matchday = 0; matchday < numberOfRegularMatchdays; matchday++) {

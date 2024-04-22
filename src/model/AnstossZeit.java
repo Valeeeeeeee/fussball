@@ -17,7 +17,11 @@ public class AnstossZeit extends Zeitpunkt {
 	}
 
 	public String toDisplay() {
-		if (this == KICK_OFF_TIME_UNDEFINED)	return "nicht terminiert";
+		if (!hasDate())		return "nicht terminiert";
 		return super.toDisplay();
+	}
+	
+	public boolean hasDate() {
+		return this != KICK_OFF_TIME_UNDEFINED;
 	}
 }

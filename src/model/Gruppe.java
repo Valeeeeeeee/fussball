@@ -712,11 +712,7 @@ public class Gruppe implements Wettbewerb {
 				if (!isNoMatchSet(matchday)) {
 					String[] koTimes = split[1].split(":");
 					for (matchIndex = 0; matchIndex < koTimes.length; matchIndex++) {
-						if (koTimes[matchIndex].equals(TO_BE_DATED)) {
-							setRelativeKickOffTime(matchday, matchIndex, null);
-						} else {
-							setRelativeKickOffTime(matchday, matchIndex, new RelativeAnstossZeit(0, koTimes[matchIndex]));
-						}
+						setRelativeKickOffTime(matchday, matchIndex, RelativeAnstossZeit.of(koTimes[matchIndex]));
 					}
 					
 					for (matchIndex = 0; (matchIndex + 2) < split.length; matchIndex++) {

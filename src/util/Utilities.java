@@ -54,7 +54,7 @@ public class Utilities {
 	public static final Uhrzeit MIDNIGHT = new Uhrzeit(0, 0);
 	public static final Uhrzeit END_OF_DAY = new Uhrzeit(23, 59);
 	
-	public static final AnstossZeit KICK_OFF_TIME_UNDEFINED = new AnstossZeit(new RelativeAnstossZeit(0, 0, TIME_UNDEFINED), DATE_UNDEFINED);
+	public static final AnstossZeit KICK_OFF_TIME_UNDEFINED = new AnstossZeit(RelativeAnstossZeit.of(0, 0, TIME_UNDEFINED), DATE_UNDEFINED);
 	
 	public static final String TO_BE_DATED = "TBD";
 	public static final String SPIELFREI = "spielfrei";

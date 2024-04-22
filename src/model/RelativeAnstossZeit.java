@@ -2,23 +2,13 @@ package model;
 
 import static util.Utilities.DATE_UNDEFINED;
 import static util.Utilities.KICK_OFF_TIME_UNDEFINED;
+import static util.Utilities.TO_BE_DATED;
 
 public class RelativeAnstossZeit {
 	
 	private int index;
 	private int daysSince;
 	private Uhrzeit time;
-	
-	public RelativeAnstossZeit(int index, int daysSince, Uhrzeit time) {
-		this.index = index;
-		this.daysSince = daysSince;
-		this.time = time;
-	}
-
-	public RelativeAnstossZeit(int index, String data) {
-		this.index = index;
-		fromString(data);
-	}
 	
 	public int getIndex() {
 		return index;
@@ -49,6 +39,26 @@ public class RelativeAnstossZeit {
 	
 	public String toString() {
 		return daysSince + "," + time.comparable();
+	}
+	
+	public static RelativeAnstossZeit of(int index, int daysSince, Uhrzeit time) {
+		RelativeAnstossZeit rkot = new RelativeAnstossZeit();
+		rkot.index = index;
+		rkot.daysSince = daysSince;
+		rkot.time = time;
+		return rkot;
+	}
+
+	public static RelativeAnstossZeit of(int index, String data) {
+		RelativeAnstossZeit rkot = new RelativeAnstossZeit();
+		rkot.index = index;
+		rkot.fromString(data);
+		return rkot;
+	}
+
+	public static RelativeAnstossZeit of(String data) {
+		if (TO_BE_DATED.equals(data))	return null;
+		return of(0, data);
 	}
 	
 	private void fromString(String data) {

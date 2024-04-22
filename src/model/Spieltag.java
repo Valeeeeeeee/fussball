@@ -1413,7 +1413,7 @@ public class Spieltag extends JPanel {
 			
 			startDate = allGroups[groupID].getStartDate();
 		}
-		dateEnteredTournamentStyle(new RelativeAnstossZeit(0, startDate.daysUntil(date), time));
+		dateEnteredTournamentStyle(RelativeAnstossZeit.of(0, startDate.daysUntil(date), time));
 	}
 	
 	public void dateChooserClosed() {
