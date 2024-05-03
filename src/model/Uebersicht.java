@@ -11,7 +11,7 @@ import analyse.SaisonPerformance;
 import dto.fixtures.SpielplanZeileDTO;
 import util.Intervall;
 import util.MyDocumentListener;
-import view.Spielplan;
+import view.fixtures.Spielplan;
 
 import static util.Utilities.*;
 

@@ -1,4 +1,4 @@
-package view;
+package view.fixtures;
 
 import java.awt.Font;
 import java.awt.Rectangle;
