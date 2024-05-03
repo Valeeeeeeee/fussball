@@ -731,6 +731,9 @@ public class Spieltag extends JPanel {
 	public void showMatchday(int matchday) {
 		matchdays();
 		currentMatchday = matchday;
+		if (jCBMatchdays.getSelectedIndex() == matchday) {
+			showMatchday();
+		}
 		jCBMatchdays.setSelectedIndex(matchday);
 	}
 	

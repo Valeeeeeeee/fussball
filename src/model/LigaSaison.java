@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.Set;
 
+import dto.fixtures.SpielplanHauptKategorieDTO;
+import dto.fixtures.SpielplanLeereZeileDTO;
+import dto.fixtures.SpielplanSpielDTO;
+import dto.fixtures.SpielplanZeileDTO;
 import model.tournament.KOOrigin;
 import model.tournament.KOOriginPreviousLeague;
 
@@ -273,48 +277,112 @@ public class LigaSaison implements Wettbewerb {
 		return teams;
 	}
 	
-	public ArrayList<String[]> getAllMatches(Mannschaft team) {
-		ArrayList<String[]> allMatches = new ArrayList<>();
+	public ArrayList<SpielplanZeileDTO> getAllMatches(Mannschaft team, boolean chronologicalOrder) {
+		ArrayList<SpielplanZeileDTO> allMatches = new ArrayList<>();
 		
-		for (int matchday = 0; matchday < numberOfRegularMatchdays; matchday++) {
-			String md = matchday + 1 + "";
-			String date = getDateOfTeam(matchday, team);
-			String goalsH = "-", goalsA = "-";
-			String sunx = RESULT_NOT_SET;
-			boolean allMatchesSet = true, teamFound = false;
-			for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday && !teamFound; matchIndex++) {
-				if (isMatchSet(matchday, matchIndex)) {
-					Spiel match = getMatch(matchday, matchIndex);
-					Ergebnis result = getResult(matchday, matchIndex);
-					if (teamFound = team.equals(match.getHomeTeam())) {
-						if (isResultSet(matchday, matchIndex) && !result.isCancelled()) {
-							goalsH = "" + result.home();
-							goalsA = "" + result.away();
-							sunx = getSUN(result.home(), result.away());
-						}
-						String otherTeamName = match.getAwayTeam() == null ? MATCH_NOT_SET : match.getAwayTeam().getName();
-						allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, otherTeamName, sunx});
-					} else if (teamFound = team.equals(match.getAwayTeam())) {
-						if (isResultSet(matchday, matchIndex) && !result.isCancelled()) {
-							goalsH = "" + result.home();
-							goalsA = "" + result.away();
-							sunx = getSUN(result.away(), result.home());
-						}
-						String otherTeamName = match.getHomeTeam() == null ? MATCH_NOT_SET : match.getHomeTeam().getName();
-						allMatches.add(new String[] {md, date, otherTeamName, goalsH, goalsA, team.getName(), sunx});
-					}
-				}
-				else	allMatchesSet = false;
+		ArrayList<Integer> matchdayOrder = getMatchdayOrder(team, chronologicalOrder);
+		
+		for (int matchday = 0; matchday < numberOfMatchdaysBeforeSplit; matchday++) {
+			allMatches.add(getMatch(team, matchdayOrder.get(matchday)));
+		}
+		
+		if (hasLeagueSplit) {
+			for (int matchday = numberOfMatchdaysBeforeSplit; matchday < numberOfRegularMatchdays; matchday++) {
+				allMatches.add(getMatch(team, matchdayOrder.get(matchday)));
 			}
-			if (!teamFound) {
-				if (allMatchesSet)	allMatches.add(new String[] {md, date, SPIELFREI, goalsH, goalsA, SPIELFREI, sunx});
-				else				allMatches.add(new String[] {md, date, MATCH_NOT_SET, goalsH, goalsA, MATCH_NOT_SET, sunx});
+			
+			allMatches.add(numberOfMatchdaysBeforeSplit, SpielplanHauptKategorieDTO.of(getMainCategoryForTeamAfterLeagueSplit(team)));
+			
+			allMatches.add(0, SpielplanHauptKategorieDTO.of("Hauptrunde"));
+		}
+		if (hasPlayoffs) {
+			ArrayList<SpielplanZeileDTO> allPlayoffMatches = playoffs.getMatches(team, chronologicalOrder);
+			if (allPlayoffMatches.size() > 0) {
+				allMatches.add(0, SpielplanHauptKategorieDTO.of("Hauptrunde"));
+				allMatches.add(SpielplanHauptKategorieDTO.of(playoffs.getDescription()));
+				allMatches.addAll(allPlayoffMatches);
+			}
+		}
+		
+		return chronologicalOrder ? allMatches : addGapsBetweenBlocks(allMatches);
+	}
+	
+	public ArrayList<Integer> getMatchdayOrder(Mannschaft team, boolean chronologicalOrder) {
+		ArrayList<Integer> matchdayOrder = new ArrayList<>();
+		
+		if (chronologicalOrder) {
+			ArrayList<Datum> dates = new ArrayList<>();
+			for (int i = 0; i < numberOfRegularMatchdays; i++) {
+				Datum date = getKickoffTimeForTeam(i, team).getDate();
+				int index = 0;
+				for (Datum sorted : dates) {
+					if (date == DATE_UNDEFINED || date.isAfter(sorted))	index++;
+				}
+				dates.add(index, date);
+				matchdayOrder.add(index, i);
+			}
+		} else {
+			for (int i = 0; i < numberOfRegularMatchdays; i++) {
+				matchdayOrder.add(i);
+			}
+		}
+		
+		return matchdayOrder;
+	}
+	
+	private SpielplanZeileDTO getMatch(Mannschaft team, int matchday) {
+		String md = String.valueOf(matchday + 1);
+		String date = getKickoffTimeForTeam(matchday, team).toDisplay();
+		boolean allMatchesSet = true;
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+			if (!isMatchSet(matchday, matchIndex))	allMatchesSet = false;
+			else {
+				Spiel match = getMatch(matchday, matchIndex);
+				if (match.isWith(team))	return SpielplanSpielDTO.fromMatch(md, date, match);
+			}
+		}
+		if (allMatchesSet)	return SpielplanSpielDTO.noMatch(this, md, NOT_AVAILABLE);
+		else				return SpielplanSpielDTO.noMatchSet(this, md, NOT_AVAILABLE);
+	}
+	
+	private String getMainCategoryForTeamAfterLeagueSplit(Mannschaft team) {
+		int sgIndex = Math.abs(getSplitGroup(team, numberOfMatchdaysBeforeSplit - 1));
+		
+		if (numberOfSplitGroups == 2) {
+			if (splitGroups.size() == numberOfSplitGroups) {
+				if (sgIndex == 1)		return "Meisterrunde";
+				else if (sgIndex == 2)	return "Abstiegsrunde";
+			}
+			return "Meister-/Abstiegsrunde";
+		}
+		return String.format("%d. Gruppe", sgIndex);
+	}
+	
+	private ArrayList<SpielplanZeileDTO> addGapsBetweenBlocks(ArrayList<SpielplanZeileDTO> allMatches) {
+		int offset = allMatches.get(0) instanceof SpielplanHauptKategorieDTO ? 1 : 0;
+		int numberOfMatchdaysInSeasonLeg = numberOfTeams - 1;
+		int matchday = numberOfMatchdaysInSeasonLeg;
+		
+		while (matchday < numberOfMatchdaysBeforeSplit) {
+			allMatches.add(matchday + offset, new SpielplanLeereZeileDTO());
+			offset++;
+			matchday += numberOfMatchdaysInSeasonLeg;
+		}
+		
+		if (hasLeagueSplit && numberOfMatchesAgainstSameOpponentAfterSplit > 1) {
+			offset++;
+			numberOfMatchdaysInSeasonLeg = (numberOfTeams / numberOfSplitGroups) - 1;
+			matchday += numberOfMatchdaysInSeasonLeg;
+			while (matchday < numberOfRegularMatchdays) {
+				allMatches.add(matchday + offset, new SpielplanLeereZeileDTO());
+				offset++;
+				matchday += numberOfMatchdaysInSeasonLeg;
 			}
 		}
 		
 		return allMatches;
 	}
-
+	
 	public int getIndexOfMannschaft(String name) {
 		for (Mannschaft ms : teams) {
 			if (ms.getName().equals(name)) {
@@ -452,15 +520,13 @@ public class LigaSaison implements Wettbewerb {
 	
 	// Date / Time
 	
-	public String getDateOfTeam(int matchday, Mannschaft team) {
+	public AnstossZeit getKickoffTimeForTeam(int matchday, Mannschaft team) {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-			if (isMatchSet(matchday, matchIndex)) {
-				if (team.equals(getMatch(matchday, matchIndex).getHomeTeam()) || team.equals(getMatch(matchday, matchIndex).getAwayTeam()))
-					return getDateAndTime(matchday, matchIndex);
+			if (isMatchSet(matchday, matchIndex) && getMatch(matchday, matchIndex).isWith(team)) {
+				return getMatch(matchday, matchIndex).getKickOffTime();
 			}
 		}
-		
-		return "n.a.";
+		return KICK_OFF_TIME_UNDEFINED;
 	}
 	
 	public String getDateAndTime(int matchday, int matchIndex) {

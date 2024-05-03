@@ -713,12 +713,6 @@ public class Mannschaft {
 		return resultsOpponent;
 	}
 	
-	public String getDateAndTime(int matchday) {
-		if (playsInLeague)		return lSeason.getDateOfTeam(matchday, this);
-		else if (playsInGroup)	return group.getDateOfTeam(matchday, this);
-		else					return "01.01.1970 00:00";
-	}
-	
 	public void resetMatch(String key) {
 		setMatch(key, null);
 		setResult(key, null);

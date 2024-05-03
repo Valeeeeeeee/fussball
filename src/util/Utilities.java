@@ -31,6 +31,8 @@ public class Utilities {
 	public static final Color colorCategory6 = new Color(128, 128, 128);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
 	
+	public static final Color colorOverviewBackground = new Color(255, 128, 128);
+	
 	public static Cursor handCursor = new Cursor(Cursor.HAND_CURSOR);
 	
 	public static final int STARTX = 0;
@@ -58,13 +60,9 @@ public class Utilities {
 	
 	public static final String TO_BE_DATED = "TBD";
 	public static final String SPIELFREI = "spielfrei";
-	public static final String MATCH_NOT_SET = "n.a.";
+	public static final String NOT_AVAILABLE = "n.a.";
 	public static final String MAIN_CATEGORY = "MAIN_CATEGORY";
 	public static final String SUB_CATEGORY = "SUB_CATEGORY";
-	public static final String WIN = "S";
-	public static final String DRAW = "U";
-	public static final String LOSS = "N";
-	public static final String RESULT_NOT_SET = "X";
 
 	public static final String VERSUS = " vs. ";
 	
@@ -173,11 +171,6 @@ public class Utilities {
 			log(text.substring(i, (i + x < text.length() ? i + x : text.length())));
 		}
 		log();
-	}
-	
-	public static String getSUN(int goalsScored, int goalsConceded) {
-		if (goalsScored == goalsConceded)	return DRAW;
-		return goalsScored > goalsConceded ? WIN : LOSS;
 	}
 	
 	public static String arrowDown() {

@@ -1,6 +1,7 @@
 package model;
 
 import static util.Utilities.*;
+import static model.SubjektivesErgebnis.*;
 
 import java.util.ArrayList;
 
@@ -149,6 +150,12 @@ public class Ergebnis {
 		}
 	}
 	
+	public SubjektivesErgebnis getSubjectiveResult(boolean firstTeam) {
+		if (annulliert)	return NOT_SET;
+		if (home() == away())	return DRAW;
+		return firstTeam ^ home() < away() ? WIN : LOSS; 
+	}
+	
 	public String fromPerspective(boolean firstTeam) {
 		if (annulliert)	return "-:-";
 		if (firstTeam)	return home() + ":" + away();
@@ -201,6 +208,10 @@ public class Ergebnis {
 	
 	public boolean isCancelled() {
 		return annulliert;
+	}
+	
+	public boolean isFinishedInRegularTime() {
+		return finishedInRegularTime;
 	}
 	
 	private boolean validate() {

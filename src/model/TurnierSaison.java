@@ -8,6 +8,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import dto.fixtures.SpielplanHauptKategorieDTO;
+import dto.fixtures.SpielplanUnterKategorieDTO;
+import dto.fixtures.SpielplanZeileDTO;
 import model.tournament.KOOrigin;
 import model.tournament.KOOriginOtherCompetition;
 import model.tournament.KOOriginPrequalified;
@@ -315,46 +318,38 @@ public class TurnierSaison {
 		return matchdays;
 	}
 	
-	public ArrayList<String[]> getAllMatches(Mannschaft team) {
-		ArrayList<String[]> allMatches = new ArrayList<>();
+	public ArrayList<SpielplanZeileDTO> getAllMatches(Mannschaft team, boolean chronologicalOrder) {
+		ArrayList<SpielplanZeileDTO> allMatches = new ArrayList<>();
 		
 		for (int i = 0; i < numberOfQGroups; i++) {
-			ArrayList<String[]> matches = qGroups[i].getMatches(team);
+			ArrayList<SpielplanZeileDTO> matches = qGroups[i].getMatches(team, chronologicalOrder);
 			if (matches.size() > 0) {
-				allMatches.add(new String[] {SUB_CATEGORY, "Gruppenphase"});
-				for (int j = 0; j < matches.size(); j++) {
-					allMatches.add(matches.get(j));
-				}
+				allMatches.add(SpielplanUnterKategorieDTO.of("Gruppenphase"));
+				allMatches.addAll(matches);
 				break;
 			}
 		}
 		for (int i = 0; i < numberOfQKORounds; i++) {
-			ArrayList<String[]> matches = qKORounds[i].getMatches(team);
+			ArrayList<SpielplanZeileDTO> matches = qKORounds[i].getMatches(team, chronologicalOrder);
 			if (matches.size() > 0) {
-				allMatches.add(new String[] {SUB_CATEGORY, qKORounds[i].getDescription()});
-				for (int j = 0; j < matches.size(); j++) {
-					allMatches.add(matches.get(j));
-				}
+				allMatches.add(SpielplanUnterKategorieDTO.of(qKORounds[i].getDescription()));
+				allMatches.addAll(matches);
 			}
 		}
-		if (allMatches.size() > 0)	allMatches.add(0, new String[] {MAIN_CATEGORY, "Qualifikation"});
+		if (allMatches.size() > 0)	allMatches.add(0, SpielplanHauptKategorieDTO.of("Qualifikation"));
 		for (int i = 0; i < numberOfGroups; i++) {
-			ArrayList<String[]> matches = groups[i].getMatches(team);
+			ArrayList<SpielplanZeileDTO> matches = groups[i].getMatches(team, chronologicalOrder);
 			if (matches.size() > 0) {
-				allMatches.add(new String[] {MAIN_CATEGORY, "Gruppenphase"});
-				for (int j = 0; j < matches.size(); j++) {
-					allMatches.add(matches.get(j));
-				}
+				allMatches.add(SpielplanHauptKategorieDTO.of("Gruppenphase"));
+				allMatches.addAll(matches);
 				break;
 			}
 		}
 		for (int i = 0; i < numberOfKORounds; i++) {
-			ArrayList<String[]> matches = koRounds[i].getMatches(team);
+			ArrayList<SpielplanZeileDTO> matches = koRounds[i].getMatches(team, chronologicalOrder);
 			if (matches.size() > 0) {
-				allMatches.add(new String[] {MAIN_CATEGORY, koRounds[i].getDescription()});
-				for (int j = 0; j < matches.size(); j++) {
-					allMatches.add(matches.get(j));
-				}
+				allMatches.add(SpielplanHauptKategorieDTO.of(koRounds[i].getDescription()));
+				allMatches.addAll(matches);
 			}
 		}
 		

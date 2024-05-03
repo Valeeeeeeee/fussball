@@ -3,6 +3,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import dto.fixtures.SpielplanSpielDTO;
+import dto.fixtures.SpielplanZeileDTO;
+
 import static util.Utilities.*;
 
 public class Gruppe implements Wettbewerb {
@@ -193,15 +196,13 @@ public class Gruppe implements Wettbewerb {
 		return tabelle;
 	}
 	
-	public String getDateOfTeam(int matchday, Mannschaft team) {
+	public AnstossZeit getKickoffTimeForTeam(int matchday, Mannschaft team) {
 		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
-			if (isMatchSet(matchday, matchIndex)) {
-				if (team.equals(getMatch(matchday, matchIndex).getHomeTeam()) || team.equals(getMatch(matchday, matchIndex).getAwayTeam()))
-					return getDateAndTime(matchday, matchIndex);
+			if (isMatchSet(matchday, matchIndex) && getMatch(matchday, matchIndex).isWith(team)) {
+				return getMatch(matchday, matchIndex).getKickOffTime();
 			}
 		}
-		
-		return "n.a.";
+		return KICK_OFF_TIME_UNDEFINED;
 	}
 	
 	public String getDateAndTime(int matchday, int matchIndex) {
@@ -247,56 +248,64 @@ public class Gruppe implements Wettbewerb {
 		return UNDEFINED;
 	}
 	
-	public ArrayList<String[]> getAllMatches(Mannschaft team) {
-		return season.getAllMatches(team);
+	public ArrayList<SpielplanZeileDTO> getAllMatches(Mannschaft team, boolean chronologicalOrder) {
+		return season.getAllMatches(team, chronologicalOrder);
 	}
 	
-	public ArrayList<String[]> getMatches(Mannschaft team) {
-		ArrayList<String[]> allMatches = new ArrayList<>();
+	public ArrayList<SpielplanZeileDTO> getMatches(Mannschaft team, boolean chronologicalOrder) {
+		ArrayList<SpielplanZeileDTO> allMatches = new ArrayList<>();
 		
 		boolean foundTeam = false;
 		for (int i = 0; i < teams.size() && !foundTeam; i++) {
 			foundTeam = team.equals(teams.get(i));
 		}
 		if (foundTeam) {
+			ArrayList<Integer> matchdayOrder = getMatchdayOrder(team, chronologicalOrder);
+			
 			for (int matchday = 0; matchday < numberOfMatchdays; matchday++) {
-				String md = matchday + 1 + "";
-				String date = getDateOfTeam(matchday, team);
-				String goalsH = "-", goalsA = "-";
-				String sunx = RESULT_NOT_SET;
-				boolean allMatchesSet = true, teamFound = false;
-				for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday && !teamFound; matchIndex++) {
-					if (isMatchSet(matchday, matchIndex)) {
-						Spiel match = getMatch(matchday, matchIndex);
-						Ergebnis result = getResult(matchday, matchIndex);
-						if (teamFound = team.equals(match.getHomeTeam())) {
-							if (isResultSet(matchday, matchIndex) && !result.isCancelled()) {
-								goalsH = "" + result.home();
-								goalsA = "" + result.away();
-								sunx = getSUN(result.home(), result.away());
-							}
-							String otherTeamName = match.getAwayTeam() == null ? MATCH_NOT_SET : match.getAwayTeam().getName();
-							allMatches.add(new String[] {md, date, team.getName(), goalsH, goalsA, otherTeamName, sunx});
-						} else if (teamFound = team.equals(match.getAwayTeam())) {
-							if (isResultSet(matchday, matchIndex) && !result.isCancelled()) {
-								goalsH = "" + result.home();
-								goalsA = "" + result.away();
-								sunx = getSUN(result.away(), result.home());
-							}
-							String otherTeamName = match.getHomeTeam() == null ? MATCH_NOT_SET : match.getHomeTeam().getName();
-							allMatches.add(new String[] {md, date, otherTeamName, goalsH, goalsA, team.getName(), sunx});
-						}
-					}
-					else	allMatchesSet = false;
-				}
-				if (!teamFound) {
-					if (allMatchesSet)	allMatches.add(new String[] {md, date, SPIELFREI, goalsH, goalsA, SPIELFREI, sunx});
-					else				allMatches.add(new String[] {md, date, MATCH_NOT_SET, goalsH, goalsA, MATCH_NOT_SET, sunx});
-				}
+				allMatches.add(getMatch(team, matchdayOrder.get(matchday)));
 			}
 		}
 		
 		return allMatches;
+	}
+	
+	public ArrayList<Integer> getMatchdayOrder(Mannschaft team, boolean chronologicalOrder) {
+		ArrayList<Integer> matchdayOrder = new ArrayList<>();
+		
+		if (chronologicalOrder) {
+			ArrayList<Datum> dates = new ArrayList<>();
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				Datum date = getKickoffTimeForTeam(i, team).getDate();
+				int index = 0;
+				for (Datum sorted : dates) {
+					if (date == DATE_UNDEFINED || date.isAfter(sorted))	index++;
+				}
+				dates.add(index, date);
+				matchdayOrder.add(index, i);
+			}
+		} else {
+			for (int i = 0; i < numberOfMatchdays; i++) {
+				matchdayOrder.add(i);
+			}
+		}
+		
+		return matchdayOrder;
+	}
+	
+	private SpielplanZeileDTO getMatch(Mannschaft team, int matchday) {
+		String md = String.valueOf(matchday + 1);
+		String dateAndTime = getKickoffTimeForTeam(matchday, team).toDisplay();
+		boolean allMatchesSet = true;
+		for (int matchIndex = 0; matchIndex < numberOfMatchesPerMatchday; matchIndex++) {
+			if (!isMatchSet(matchday, matchIndex))	allMatchesSet = false;
+			else {
+				Spiel match = getMatch(matchday, matchIndex);
+				if (match.isWith(team))	return SpielplanSpielDTO.fromMatch(md, dateAndTime, match);
+			}
+		}
+		if (allMatchesSet)	return SpielplanSpielDTO.noMatch(this, md, NOT_AVAILABLE);
+		else				return SpielplanSpielDTO.noMatchSet(this, md, NOT_AVAILABLE);
 	}
 	
 	public Mannschaft getTeamWithName(String teamsName) {

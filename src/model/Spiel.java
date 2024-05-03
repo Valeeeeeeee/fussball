@@ -89,6 +89,11 @@ public class Spiel {
 		return awayTeam;
 	}
 	
+	public boolean isWith(Mannschaft team) {
+		if (team == null)	return false;
+		return team.equals(homeTeam) || team.equals(awayTeam);
+	}
+	
 	public boolean hasResult() {
 		return getResult() != null;
 	}

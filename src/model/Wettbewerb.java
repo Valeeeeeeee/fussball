@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import dto.fixtures.SpielplanZeileDTO;
+
 public interface Wettbewerb {
 
 	public int getID();
@@ -38,7 +40,10 @@ public interface Wettbewerb {
 	public boolean allResultsSet();
 	
 	public AnstossZeit getKickOffTime(int matchday, int matchIndex);
+	public ArrayList<Integer> getMatchdayOrder(Mannschaft team, boolean chronologicalOrder);
+	public AnstossZeit getKickoffTimeForTeam(int matchday, Mannschaft team);
 	
+	public Spieltag getSpieltag();
 	public Tabelle getTable();
 	
 	public ArrayList<Schiedsrichter> getReferees();
@@ -46,7 +51,7 @@ public interface Wettbewerb {
 	
 	public ArrayList<Mannschaft> getTeams();
 	
-	public ArrayList<String[]> getAllMatches(Mannschaft team);
+	public ArrayList<SpielplanZeileDTO> getAllMatches(Mannschaft team, boolean chronologicalOrder);
 	
 	public boolean isExtraTimePossible();
 	public int getNumberOfRegularSubstitutions(Datum date);

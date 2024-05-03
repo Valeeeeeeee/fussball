@@ -22,7 +22,7 @@ public class Fussball extends JFrame {
 	/**
 	 * The height of the frame.
 	 */
-	public static final int HEIGHT = 874;
+	public static final int HEIGHT = 920;
 	
 	
 	private static Fussball singleton;
@@ -1014,8 +1014,11 @@ public class Fussball extends JFrame {
 		uebersicht.setVisible(true);
 	}
 	
-	public void showMatchday(int matchday) {
+	public void showMatchday(Wettbewerb competition, int matchday) {
+		if (isCurrentlyALeague && competition instanceof KORunde)	matchday += ((KORunde) competition).getNumberOfMatchdaysBeforePlayoff();
 		uebersicht.setVisible(false);
+		aktuellerSpieltag = competition.getSpieltag();
+		getContentPane().add(aktuellerSpieltag);
 		aktuellerSpieltag.add(jBtnBack);
 		aktuellerSpieltag.setVisible(true);
 		aktuellerSpieltag.showMatchday();
