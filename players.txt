@@ -23,6 +23,7 @@
 27343376;Andy;King;null;19881029;Wales;
 27348963;Jörg;Siebenhandl;null;19900118;Österreich;
 27351198;Adam;Hlousek;null;19881220;Tschechien;
+27366175;Asaf;Arania;null;20051019;Israel;
 27366612;José;Cifuentes;null;19990312;Ecuador;
 27380442;José;Carvallo;null;19860301;Peru;
 27383632;Andy;Polo;null;19940929;Peru;
@@ -1553,6 +1554,7 @@
 30154599;Homam;Ahmed;null;19990825;Katar;
 30156694;Evangelos;Pavlidis;null;19981121;Griechenland;
 30156800;Nicolás;Sessa;null;19960323;Deutschland;
+30157046;Max;Moerstedt;null;20060115;Deutschland;
 30159318;Dániel;Gazdag;null;19960302;Ungarn;
 30159333;Rafal;Gikiewicz;null;19871026;Polen;
 30159552;Ayman;Ashraf;null;19910409;Ägypten;
@@ -3830,6 +3832,7 @@
 34872841;Alejandro 'Álex';Baldé;null;20031018;Spanien, Dominikanische Republik;
 34916716;Édison;Flores;null;19940514;Peru;
 34919678;Hjörtur;Hermannsson;null;19950208;Island;
+34942252;'Kjell'-Arik;Wätjen;null;20060216;Deutschland;
 34950358;André-'Frank';Zambo 'Anguissa';null;19951116;Kamerun;
 34950927;Maximilian;Großer;null;20010723;Deutschland;
 34952991;Ángelo;Preciado;null;19980218;Ecuador;
