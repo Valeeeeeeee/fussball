@@ -346,9 +346,9 @@ VF03W: FC Brügge
 VF03L: PAOK Thessaloniki
 VF04W: Aston Villa
 VF04L: OSC Lille
-HF01W: AC Florenz vs. FC Brügge
-HF01L: AC Florenz vs. FC Brügge
-HF02W: Aston Villa vs. Olympiakos Piräus
-HF02L: Aston Villa vs. Olympiakos Piräus
-FI01W: HF02W vs. HF01W
-FI01L: HF02W vs. HF01W
+HF01W: AC Florenz
+HF01L: FC Brügge
+HF02W: Olympiakos Piräus
+HF02L: Aston Villa
+FI01W: Olympiakos Piräus vs. AC Florenz
+FI01L: Olympiakos Piräus vs. AC Florenz

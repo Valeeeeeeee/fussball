@@ -146,9 +146,9 @@ VF03W: Paris Saint-Germain
 VF03L: FC Barcelona
 VF04W: Borussia Dortmund
 VF04L: Atlético Madrid
-HF01W: Bayern München vs. Real Madrid
-HF01L: Bayern München vs. Real Madrid
-HF02W: Borussia Dortmund vs. Paris Saint-Germain
-HF02L: Borussia Dortmund vs. Paris Saint-Germain
-FI01W: HF02W vs. HF01W
-FI01L: HF02W vs. HF01W
+HF01W: Real Madrid
+HF01L: Bayern München
+HF02W: Borussia Dortmund
+HF02L: Paris Saint-Germain
+FI01W: Borussia Dortmund vs. Real Madrid
+FI01L: Borussia Dortmund vs. Real Madrid
