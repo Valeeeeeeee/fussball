@@ -98,4 +98,20 @@ public class SubRanking {
 		}
 		return lastRankingPosition;
 	}
+	
+	public ArrayList<Mannschaft> getTeamsInRankingOrder() {
+		ArrayList<Mannschaft> teamsInRankingOrder = new ArrayList<>();
+		
+		if (hasChildren()) {			
+			for (SubRanking subRanking : children) {
+				teamsInRankingOrder.addAll(subRanking.getTeamsInRankingOrder());
+			}
+		} else {
+			for (int id : idsAtValue) {
+				teamsInRankingOrder.add(teams.get(id - 1));
+			}
+		}
+		
+		return teamsInRankingOrder;
+	}
 }

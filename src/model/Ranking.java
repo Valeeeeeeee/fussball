@@ -44,4 +44,8 @@ public class Ranking {
 			ms.getValueForCriterion(teams, untilMatchday, tableType, rankingCriteria.get(0));
 		}
 	}
+	
+	public ArrayList<Mannschaft> getTeamsInRankingOrder() {
+		return subRanking.getTeamsInRankingOrder();
+	}
 }
