@@ -477,7 +477,3 @@ public class Tabelle extends JPanel {
 		refresh();
 	}
 }
-
-enum Tabellenart {
-	HOME, COMPLETE, AWAY
-}
