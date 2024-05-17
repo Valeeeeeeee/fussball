@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import dto.TeamSaisonStatistikSpielDTO;
 import model.AnstossZeit;
 import model.Datum;
 import model.RelativeAnstossZeit;
@@ -58,11 +59,11 @@ public class Utilities {
 	
 	public static final AnstossZeit KICK_OFF_TIME_UNDEFINED = new AnstossZeit(RelativeAnstossZeit.of(0, 0, TIME_UNDEFINED), DATE_UNDEFINED);
 	
+	public static final TeamSaisonStatistikSpielDTO TSS_MATCH_NOT_AVAILABLE = TeamSaisonStatistikSpielDTO.of(-1, false, null);
+	
 	public static final String TO_BE_DATED = "TBD";
 	public static final String SPIELFREI = "spielfrei";
 	public static final String NOT_AVAILABLE = "n.a.";
-	public static final String MAIN_CATEGORY = "MAIN_CATEGORY";
-	public static final String SUB_CATEGORY = "SUB_CATEGORY";
 
 	public static final String VERSUS = " vs. ";
 	

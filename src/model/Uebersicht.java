@@ -1522,10 +1522,8 @@ public class Uebersicht extends JPanel {
 			for (int position = positions.lower(); position <= positions.upper(); position++) {
 				boolean thisTeam = position == thisTeamsPosition;
 				Mannschaft team = teams.get(tabelle[position] - 1);
-				jLblsTableExcerpt[index][0].setText("" + (team.get(teams, 0, newestMatchday, Tabellenart.COMPLETE) + 1));
-				jLblsTableExcerpt[index][1].setText(team.getName());
-				for (int j = 2; j < 10; j++) {
-					jLblsTableExcerpt[index][j].setText("" + team.get(teams, j, newestMatchday, Tabellenart.COMPLETE));
+				for (int j = 0; j < 10; j++) {
+					jLblsTableExcerpt[index][j].setText(team.getString(j));
 				}
 				
 				if (thisTeam)	jLblBackground.setBounds(teStartX, teStartY + (index + 1) * (teHeight + teGapY), 530, teHeight);

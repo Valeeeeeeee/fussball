@@ -345,7 +345,7 @@ public class Mannschaft {
 			for (int j = i + 1; j < numberOfMatchdays; j++) {
 				if (kickOffTimes[i] == null || kickOffTimes[j] == null)	array[j]++;
 				else if (kickOffTimes[j].isBefore(kickOffTimes[i]))		array[i]++;
-				else										array[j]++;
+				else													array[j]++;
 			}
 		}
 		
