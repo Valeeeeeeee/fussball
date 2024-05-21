@@ -1,20 +1,20 @@
-P1: GER22023P1
-P2: GER22023P2
-P3: GER22023P3
-P4: GER22023P4
-P5: GER22023P5
-P6: GER22023P6
-P7: GER22023P7
-P8: GER22023P8
-P9: GER22023P9
-P10: GER22023P10
-P11: GER22023P11
-P12: GER22023P12
-P13: GER22023P13
-P14: GER22023P14
-P15: GER22023P15
-P16: GER22023P16
-P17: GER22023P17
-P18: GER22023P18
-REL01W: GER32023P3 vs. P16
-REL01L: GER32023P3 vs. P16
+P1: FC St. Pauli
+P2: Holstein Kiel
+P3: Fortuna Düsseldorf
+P4: Hamburger SV
+P5: Karlsruher SC
+P6: Hannover 96
+P7: SC Paderborn
+P8: SpVgg Greuther Fürth
+P9: Hertha BSC
+P10: FC Schalke 04
+P11: SV Elversberg
+P12: 1. FC Nürnberg
+P13: 1. FC Kaiserslautern
+P14: 1. FC Magdeburg
+P15: Eintracht Braunschweig
+P16: SV Wehen Wiesbaden
+P17: Hansa Rostock
+P18: VfL Osnabrück
+REL01W: GER32023P3 vs. SV Wehen Wiesbaden
+REL01L: GER32023P3 vs. SV Wehen Wiesbaden

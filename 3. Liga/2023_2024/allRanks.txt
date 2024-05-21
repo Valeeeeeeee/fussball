@@ -1,20 +1,20 @@
-P1: GER32023P1
-P2: GER32023P2
-P3: GER32023P3
-P4: GER32023P4
-P5: GER32023P5
-P6: GER32023P6
-P7: GER32023P7
-P8: GER32023P8
-P9: GER32023P9
-P10: GER32023P10
-P11: GER32023P11
-P12: GER32023P12
-P13: GER32023P13
-P14: GER32023P14
-P15: GER32023P15
-P16: GER32023P16
-P17: GER32023P17
-P18: GER32023P18
-P19: GER32023P19
-P20: GER32023P20
+P1: SSV Ulm 1846
+P2: Preußen Münster
+P3: SSV Jahn Regensburg
+P4: Dynamo Dresden
+P5: 1. FC Saarbrücken
+P6: Erzgebirge Aue
+P7: Rot-Weiss Essen
+P8: SV Sandhausen
+P9: SpVgg Unterhaching
+P10: FC Ingolstadt 04
+P11: Borussia Dortmund II
+P12: SC Verl
+P13: Viktoria Köln
+P14: Arminia Bielefeld
+P15: 1860 München
+P16: Waldhof Mannheim
+P17: Hallescher FC
+P18: MSV Duisburg
+P19: VfB Lübeck
+P20: SC Freiburg II

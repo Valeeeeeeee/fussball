@@ -1,20 +1,20 @@
-P1: GER12023P1
-P2: GER12023P2
-P3: GER12023P3
-P4: GER12023P4
-P5: GER12023P5
-P6: GER12023P6
-P7: GER12023P7
-P8: GER12023P8
-P9: GER12023P9
-P10: GER12023P10
-P11: GER12023P11
-P12: GER12023P12
-P13: GER12023P13
-P14: GER12023P14
-P15: GER12023P15
-P16: GER12023P16
-P17: GER12023P17
-P18: GER12023P18
-REL01W: P16 vs. GER22023P3
-REL01L: P16 vs. GER22023P3
+P1: Bayer 04 Leverkusen
+P2: VfB Stuttgart
+P3: Bayern München
+P4: RasenBallsport Leipzig
+P5: Borussia Dortmund
+P6: Eintracht Frankfurt
+P7: TSG 1899 Hoffenheim
+P8: 1. FC Heidenheim
+P9: Werder Bremen
+P10: SC Freiburg
+P11: FC Augsburg
+P12: VfL Wolfsburg
+P13: 1. FSV Mainz 05
+P14: Borussia Mönchengladbach
+P15: 1. FC Union Berlin
+P16: VfL Bochum
+P17: 1. FC Köln
+P18: SV Darmstadt 98
+REL01W: VfL Bochum vs. Fortuna Düsseldorf
+REL01L: VfL Bochum vs. Fortuna Düsseldorf
