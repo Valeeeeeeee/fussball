@@ -16,5 +16,5 @@ P15: 1. FC Union Berlin
 P16: VfL Bochum
 P17: 1. FC Köln
 P18: SV Darmstadt 98
-REL01W: VfL Bochum vs. Fortuna Düsseldorf
-REL01L: VfL Bochum vs. Fortuna Düsseldorf
+REL01W: VfL Bochum
+REL01L: Fortuna Düsseldorf

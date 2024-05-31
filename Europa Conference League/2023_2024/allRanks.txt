@@ -350,5 +350,5 @@ HF01W: AC Florenz
 HF01L: FC Brügge
 HF02W: Olympiakos Piräus
 HF02L: Aston Villa
-FI01W: Olympiakos Piräus vs. AC Florenz
-FI01L: Olympiakos Piräus vs. AC Florenz
+FI01W: Olympiakos Piräus
+FI01L: AC Florenz

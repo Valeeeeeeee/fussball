@@ -108,5 +108,5 @@ HF01W: Atalanta Bergamo
 HF01L: Olympique Marseille
 HF02W: Bayer 04 Leverkusen
 HF02L: AS Rom
-FI01W: Atalanta Bergamo vs. Bayer 04 Leverkusen
-FI01L: Atalanta Bergamo vs. Bayer 04 Leverkusen
+FI01W: Atalanta Bergamo
+FI01L: Bayer 04 Leverkusen

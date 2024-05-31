@@ -16,5 +16,5 @@ P15: Eintracht Braunschweig
 P16: SV Wehen Wiesbaden
 P17: Hansa Rostock
 P18: VfL Osnabrück
-REL01W: GER32023P3 vs. SV Wehen Wiesbaden
-REL01L: GER32023P3 vs. SV Wehen Wiesbaden
+REL01W: SSV Jahn Regensburg
+REL01L: SV Wehen Wiesbaden
