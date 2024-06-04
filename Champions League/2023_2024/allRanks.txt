@@ -150,5 +150,5 @@ HF01W: Real Madrid
 HF01L: Bayern München
 HF02W: Borussia Dortmund
 HF02L: Paris Saint-Germain
-FI01W: Borussia Dortmund vs. Real Madrid
-FI01L: Borussia Dortmund vs. Real Madrid
+FI01W: Real Madrid
+FI01L: Borussia Dortmund
