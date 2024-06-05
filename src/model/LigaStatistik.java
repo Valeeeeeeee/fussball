@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.*;
 
@@ -39,8 +40,7 @@ public class LigaStatistik extends JPanel {
 	
 	private static final int NUMBER_OF_RESULTS = 5;
 	
-	private static final int NUMBER_OF_SERIES = 9;
-	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
+	private static final int NUMBER_OF_SERIES = SerienTyp.values().length;
 	
 	private static final int NUMBER_OF_MOSTLEAST = 5;
 	private int[] indices = new int[] {3, 4, 5, 6, 7};
@@ -205,7 +205,7 @@ public class LigaStatistik extends JPanel {
 			jLblsSeries[i] = new JLabel();
 			this.add(jLblsSeries[i]);
 			jLblsSeries[i].setBounds(series[STARTX], series[STARTY] + i * series[GAPY], series[SIZEX], series[SIZEY]);
-			jLblsSeries[i].setText("... " + seriesStrings[i]);
+			jLblsSeries[i].setText("... " + SerienTyp.values()[i].getDescription());
 			
 			jLblsSeriesValues[i] = new JLabel();
 			this.add(jLblsSeriesValues[i]);
@@ -422,26 +422,30 @@ public class LigaStatistik extends JPanel {
 	
 	private void updateSeries() {
 		String more, sep;
-		
-		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
-			// Meiste Siege, ... in Serie
+		int counter = 0;
+		HashMap<Integer, SpielSerien> allLongestSeries = new HashMap<>();
+		for (Mannschaft team : teams) {
+			allLongestSeries.put(team.getId(), team.getLongestSeries());
+		}
+		for (SerienTyp seriesType : SerienTyp.values()) {
 			resetValues();
 			for (Mannschaft team : teams) {
-				value = team.getSeries(i + 1);
+				value = allLongestSeries.get(team.getId()).getLongestSeriesOfMatchesWith(seriesType);
 				compareMinMax(team.getId());
 			}
 			more = sep = "";
 			if (moreMax.size() > 0) {
-				jLblsSeriesValues[i].setText(String.format("%s + %d weitere (%d)", teams.get(maxIndex).getName(), moreMax.size(), maximum));
+				jLblsSeriesValues[counter].setText(String.format("%s + %d weitere (%d)", teams.get(maxIndex).getName(), moreMax.size(), maximum));
 				for (Integer index : moreMax) {
 					more += sep + teams.get(index).getName();
 					sep = "<br>";
 				}
-				jLblsSeriesValues[i].setToolTipText("<html>" + more + "</html>");
+				jLblsSeriesValues[counter].setToolTipText("<html>" + more + "</html>");
 			} else {
-				jLblsSeriesValues[i].setText(String.format("%s (%d)", teams.get(maxIndex).getName(), maximum));
-				jLblsSeriesValues[i].setToolTipText(null);
+				jLblsSeriesValues[counter].setText(String.format("%s (%d)", teams.get(maxIndex).getName(), maximum));
+				jLblsSeriesValues[counter].setToolTipText(null);
 			}
+			counter++;
 		}
 	}
 }

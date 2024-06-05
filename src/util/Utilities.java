@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import dto.TeamSaisonStatistikSpielDTO;
+import dto.statistics.TeamSaisonStatistikSpielDTO;
 import model.AnstossZeit;
 import model.Datum;
 import model.RelativeAnstossZeit;

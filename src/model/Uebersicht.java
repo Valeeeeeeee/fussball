@@ -9,9 +9,11 @@ import javax.swing.event.DocumentEvent;
 
 import analyse.SaisonPerformance;
 import dto.fixtures.SpielplanZeileDTO;
+import dto.statistics.TeamSaisonStatistikDTO;
 import util.Intervall;
 import util.MyDocumentListener;
 import view.fixtures.Spielplan;
+import view.statistics.TeamSaisonStatistik;
 
 import static util.Utilities.*;
 
@@ -26,6 +28,7 @@ public class Uebersicht extends JPanel {
 	private static final int marginY = 5;
 	
 	private static final int startXStatistics = 595;
+	private static final int startYStatistics = 120;
 	
 	private Rectangle REC_BTNBACK = new Rectangle(5, 5, 100, 25);
 	private Rectangle REC_LBLSORTBYDATE = new Rectangle(140, 10, 145, 15);
@@ -36,35 +39,6 @@ public class Uebersicht extends JPanel {
 	private Rectangle REC_INFPNL = new Rectangle(startXStatistics, 35, widthStatistics, 80);
 	private Rectangle REC_LBLNAME = new Rectangle(90, 10, 370, 30);
 	private Rectangle REC_LBLFOUDATE = new Rectangle(200, 40, 150, 30);
-	
-	// Statistiken
-	private Rectangle REC_STATSPNL = new Rectangle(startXStatistics, 120, widthStatistics, 115);
-	private Rectangle REC_LBLNOSTATS = new Rectangle(25, 35, 390, 25);
-	private Rectangle REC_LBLMATCHESVAL = new Rectangle(10, 10, 25, 20);
-	private Rectangle REC_LBLMATCHES = new Rectangle(40, 10, 50, 20);
-	private Rectangle REC_LBLMATCHESWONVAL = new Rectangle(10, 35, 25, 20);
-	private Rectangle REC_LBLMATCHESWON = new Rectangle(40, 35, 70, 20);
-	private Rectangle REC_LBLMATCHESDRAWNVAL = new Rectangle(10, 60, 25, 20);
-	private Rectangle REC_LBLMATCHESDRAWN = new Rectangle(40, 60, 95, 20);
-	private Rectangle REC_LBLMATCHESLOSTVAL = new Rectangle(10, 85, 25, 20);
-	private Rectangle REC_LBLMATCHESLOST = new Rectangle(40, 85, 60, 20);
-	private Rectangle REC_LBLGOALSVAL = new Rectangle(215, 10, 25, 20);
-	private Rectangle REC_LBLGOALS = new Rectangle(245, 10, 40, 20);
-	private Rectangle REC_LBLGOALSCONCVAL = new Rectangle(215, 35, 25, 20);
-	private Rectangle REC_LBLGOALSCONC = new Rectangle(245, 35, 70, 20);
-	private Rectangle REC_LBLBOOKEDVAL = new Rectangle(390, 10, 25, 20);
-	private Rectangle REC_LBLBOOKED = new Rectangle(420, 10, 85, 20);
-	private Rectangle REC_LBLBOOKEDTWICEVAL = new Rectangle(390, 35, 25, 20);
-	private Rectangle REC_LBLBOOKEDTWICE = new Rectangle(420, 35, 110, 20);
-	private Rectangle REC_LBLREDCARDSVAL = new Rectangle(390, 60, 25, 20);
-	private Rectangle REC_LBLREDCARDS = new Rectangle(420, 60, 80, 20);
-	private Rectangle REC_LBLSTATSMORELESS = new Rectangle(445, 90, 80, 20);
-	
-	private int[] results = new int[] {15, 130, 0, 25, 190, 20};
-	private int[] resultsV = new int[] {210, 130, 30, 25, 25, 20};
-	private Rectangle REC_LBLSERIEN = new Rectangle(360, 130, 150, 25);
-	private int[] series = new int[] {375, 155, 0, 25, 110, 20};
-	private int[] seriesV = new int[] {500, 155, 0, 25, 20, 20};
 	
 	private int[] bndsSuggestions = new int[] {175, 70, 0, 30, 200, 20};
 	
@@ -107,9 +81,6 @@ public class Uebersicht extends JPanel {
 	private String[] positions = {"Tor", "Abwehr", "Mittelfeld", "Sturm"};
 	private String[] positionsPlayer = {"Torhüter", "Verteidiger", "Mittelfeldspieler", "Stürmer"};
 	
-	private static final int NUMBER_OF_SERIES = 9;
-	private String[] seriesStrings = new String[] {"gewonnen", "unentschieden", "verloren", "unbesiegt", "sieglos", "mit Tor", "ohne Tor", "mit Gegentor", "ohne Gegentor"};
-	
 	private JButton jBtnBack;
 	
 	private JLabel jLblShowOnlyHome;
@@ -121,32 +92,7 @@ public class Uebersicht extends JPanel {
 	private JLabel jLblTeamName;
 	private JLabel jLblFoundingDate;
 	
-	private JPanel jPnlStatistics;
-	private JLabel jLblNoStatistics;
-	private JLabel jLblMatchesPlayedVal;
-	private JLabel jLblMatchesPlayed;
-	private JLabel jLblMatchesWonVal;
-	private JLabel jLblMatchesWon;
-	private JLabel jLblMatchesDrawnVal;
-	private JLabel jLblMatchesDrawn;
-	private JLabel jLblMatchesLostVal;
-	private JLabel jLblMatchesLost;
-	private JLabel jLblGoalsScoredVal;
-	private JLabel jLblGoalsScored;
-	private JLabel jLblGoalsConcededVal;
-	private JLabel jLblGoalsConceded;
-	private JLabel jLblBookedVal;
-	private JLabel jLblBooked;
-	private JLabel jLblBookedTwiceVal;
-	private JLabel jLblBookedTwice;
-	private JLabel jLblRedCardsVal;
-	private JLabel jLblRedCards;
-	private JLabel jLblStatisticsMoreLess;
-	private JLabel jLblSeries;
-	private JLabel[] jLblsSeries;
-	private JLabel[] jLblsSeriesValues;
-	private JLabel[] jLblsResultsTeams;
-	private JLabel[][] jLblsResultsValues;
+	private TeamSaisonStatistik teamSeasonStatistics;
 	
 	private JPanel jPnlTableExcerpt;
 	private JLabel jLblNoTableExcerpt;
@@ -235,7 +181,6 @@ public class Uebersicht extends JPanel {
 	private Dauer seasonDuration;
 	private Datum date;
 	
-	private boolean noStats;
 	private boolean noTable;
 	
 	private boolean canHaveKader;
@@ -272,8 +217,6 @@ public class Uebersicht extends JPanel {
 			
 			numberOfPositions = 4;
 			
-			jLblsSeries = new JLabel[NUMBER_OF_SERIES];
-			jLblsSeriesValues = new JLabel[NUMBER_OF_SERIES];
 			jLblsTableHeader = new JLabel[10];
 			jLblsTableExcerpt = new JLabel[5][10];
 			jLblsKaderHeader = new JLabel[NUMBEROFFIELDSKAD];
@@ -376,159 +319,6 @@ public class Uebersicht extends JPanel {
 				jLblFoundingDate.setBounds(REC_LBLFOUDATE);
 				jLblFoundingDate.setFont(new Font("Dialog", 0, 12));
 				alignCenter(jLblFoundingDate);
-			}
-			{
-				jPnlStatistics = new JPanel();
-				this.add(jPnlStatistics);
-				jPnlStatistics.setLayout(null);
-				jPnlStatistics.setOpaque(true);
-				jPnlStatistics.setBackground(colorBackground);
-				jPnlStatistics.setBounds(REC_STATSPNL);
-			}
-			{
-				jLblNoStatistics = new JLabel();
-				jPnlStatistics.add(jLblNoStatistics);
-				jLblNoStatistics.setBounds(REC_LBLNOSTATS);
-				jLblNoStatistics.setText("Für diesen Verein können keine Statistiken angezeigt werden.");
-			}
-			{
-				jLblMatchesPlayedVal = new JLabel();
-				jPnlStatistics.add(jLblMatchesPlayedVal);
-				jLblMatchesPlayedVal.setBounds(REC_LBLMATCHESVAL);
-				alignCenter(jLblMatchesPlayedVal);
-			}
-			{
-				jLblMatchesPlayed = new JLabel();
-				jPnlStatistics.add(jLblMatchesPlayed);
-				jLblMatchesPlayed.setBounds(REC_LBLMATCHES);
-				jLblMatchesPlayed.setText("Spiele");
-			}
-			{
-				jLblMatchesWonVal = new JLabel();
-				jPnlStatistics.add(jLblMatchesWonVal);
-				jLblMatchesWonVal.setBounds(REC_LBLMATCHESWONVAL);
-				alignCenter(jLblMatchesWonVal);
-			}
-			{
-				jLblMatchesWon = new JLabel();
-				jPnlStatistics.add(jLblMatchesWon);
-				jLblMatchesWon.setBounds(REC_LBLMATCHESWON);
-				jLblMatchesWon.setText("gewonnen");
-			}
-			{
-				jLblMatchesDrawnVal = new JLabel();
-				jPnlStatistics.add(jLblMatchesDrawnVal);
-				jLblMatchesDrawnVal.setBounds(REC_LBLMATCHESDRAWNVAL);
-				alignCenter(jLblMatchesDrawnVal);
-			}
-			{
-				jLblMatchesDrawn = new JLabel();
-				jPnlStatistics.add(jLblMatchesDrawn);
-				jLblMatchesDrawn.setBounds(REC_LBLMATCHESDRAWN);
-				jLblMatchesDrawn.setText("unentschieden");
-			}
-			{
-				jLblMatchesLostVal = new JLabel();
-				jPnlStatistics.add(jLblMatchesLostVal);
-				jLblMatchesLostVal.setBounds(REC_LBLMATCHESLOSTVAL);
-				alignCenter(jLblMatchesLostVal);
-			}
-			{
-				jLblMatchesLost = new JLabel();
-				jPnlStatistics.add(jLblMatchesLost);
-				jLblMatchesLost.setBounds(REC_LBLMATCHESLOST);
-				jLblMatchesLost.setText("verloren");
-			}
-			{
-				jLblGoalsScoredVal = new JLabel();
-				jPnlStatistics.add(jLblGoalsScoredVal);
-				jLblGoalsScoredVal.setBounds(REC_LBLGOALSVAL);
-				alignCenter(jLblGoalsScoredVal);
-			}
-			{
-				jLblGoalsScored = new JLabel();
-				jPnlStatistics.add(jLblGoalsScored);
-				jLblGoalsScored.setBounds(REC_LBLGOALS);
-				jLblGoalsScored.setText("Tore");
-			}
-			{
-				jLblGoalsConcededVal = new JLabel();
-				jPnlStatistics.add(jLblGoalsConcededVal);
-				jLblGoalsConcededVal.setBounds(REC_LBLGOALSCONCVAL);
-				alignCenter(jLblGoalsConcededVal);
-			}
-			{
-				jLblGoalsConceded = new JLabel();
-				jPnlStatistics.add(jLblGoalsConceded);
-				jLblGoalsConceded.setBounds(REC_LBLGOALSCONC);
-				jLblGoalsConceded.setText("Gegentore");
-			}
-			{
-				jLblBookedVal = new JLabel();
-				jPnlStatistics.add(jLblBookedVal);
-				jLblBookedVal.setBounds(REC_LBLBOOKEDVAL);
-				alignCenter(jLblBookedVal);
-			}
-			{
-				jLblBooked = new JLabel();
-				jPnlStatistics.add(jLblBooked);
-				jLblBooked.setBounds(REC_LBLBOOKED);
-				jLblBooked.setText("Gelbe Karten");
-			}
-			{
-				jLblBookedTwiceVal = new JLabel();
-				jPnlStatistics.add(jLblBookedTwiceVal);
-				jLblBookedTwiceVal.setBounds(REC_LBLBOOKEDTWICEVAL);
-				alignCenter(jLblBookedTwiceVal);
-			}
-			{
-				jLblBookedTwice = new JLabel();
-				jPnlStatistics.add(jLblBookedTwice);
-				jLblBookedTwice.setBounds(REC_LBLBOOKEDTWICE);
-				jLblBookedTwice.setText("Gelb-Rote Karten");
-			}
-			{
-				jLblRedCardsVal = new JLabel();
-				jPnlStatistics.add(jLblRedCardsVal);
-				jLblRedCardsVal.setBounds(REC_LBLREDCARDSVAL);
-				alignCenter(jLblRedCardsVal);
-			}
-			{
-				jLblRedCards = new JLabel();
-				jPnlStatistics.add(jLblRedCards);
-				jLblRedCards.setBounds(REC_LBLREDCARDS);
-				jLblRedCards.setText("Rote Karten");
-			}
-			{
-				jLblStatisticsMoreLess = new JLabel();
-				jPnlStatistics.add(jLblStatisticsMoreLess);
-				jLblStatisticsMoreLess.setBounds(REC_LBLSTATSMORELESS);
-				alignRight(jLblStatisticsMoreLess);
-				jLblStatisticsMoreLess.setText("mehr dazu >");
-				jLblStatisticsMoreLess.setCursor(handCursor);
-				jLblStatisticsMoreLess.addMouseListener(new MouseAdapter() {
-					public void mouseClicked(MouseEvent evt) {
-						showMoreLessStatistics();
-					}
-				});
-			}
-			{
-				jLblSeries = new JLabel();
-				jPnlStatistics.add(jLblSeries);
-				jLblSeries.setBounds(REC_LBLSERIEN);
-				jLblSeries.setText("Meiste Spiele in Folge ...");
-			}
-			for (int i = 0; i < NUMBER_OF_SERIES; i++) {
-				jLblsSeries[i] = new JLabel();
-				jPnlStatistics.add(jLblsSeries[i]);
-				jLblsSeries[i].setBounds(series[STARTX], series[STARTY] + i * series[GAPY], series[SIZEX], series[SIZEY]);
-				jLblsSeries[i].setText("... " + seriesStrings[i]);
-				
-				jLblsSeriesValues[i] = new JLabel();
-				jPnlStatistics.add(jLblsSeriesValues[i]);
-				jLblsSeriesValues[i].setBounds(seriesV[STARTX], seriesV[STARTY] + i * seriesV[GAPY], seriesV[SIZEX], seriesV[SIZEY]);
-				alignCenter(jLblsSeriesValues[i]);
-				jLblsSeriesValues[i].setText("n/a");
 			}
 			{
 				jPnlTableExcerpt = new JPanel();
@@ -1045,7 +835,7 @@ public class Uebersicht extends JPanel {
 		setSize(dim);
 		int startY = showingMoreKader ? 120 : 535;
 		jSPKader.setBounds(marginX + widthFixtures + marginMiddle, startY, widthStatistics, dim.height - startY - marginY);
-		jPnlStatistics.setBounds(startXStatistics, 120, widthStatistics, showingMoreStats ? getHeight() - 125 : 115);
+		teamSeasonStatistics.setMaxHeight(getHeight() - 125);
 	}
 	
 	public void setMannschaft(Mannschaft team) {
@@ -1068,7 +858,6 @@ public class Uebersicht extends JPanel {
 			jLblFoundingDate.setVisible(true);
 		}
 		showKader();
-		noStats = team.getCompetition() instanceof KORunde;
 		noTable = team.getCompetition() instanceof KORunde;
 		
 		String[] possibleYears = new String[seasonDuration.getToDate().getYear() - seasonDuration.getFromDate().getYear() + 1];
@@ -1109,11 +898,9 @@ public class Uebersicht extends JPanel {
 		determineSize();
 	}
 	
-	private void showMoreLessStatistics() {
+	public void showMoreLessStatistics() {
 		showingMoreStats = !showingMoreStats;
 		
-		jLblStatisticsMoreLess.setText(showingMoreStats ? "< weniger" : "mehr dazu >");
-		jPnlStatistics.setBounds(startXStatistics, 120, widthStatistics, showingMoreStats ? getHeight() - 125 : 115);
 		jPnlTableExcerpt.setVisible(!showingMoreStats);
 		jSPKader.setVisible(!showingMoreStats);
 	}
@@ -1153,7 +940,7 @@ public class Uebersicht extends JPanel {
 		jSPKader.setViewportView(jPnlKader);
 		int startY = showingMoreKader ? 120 : 535;
 		jSPKader.setBounds(marginX + widthFixtures + marginMiddle, startY, widthStatistics, getHeight() - startY - marginY);
-		jPnlStatistics.setVisible(!showingMoreKader);
+		teamSeasonStatistics.setVisible(!showingMoreKader);
 		jPnlTableExcerpt.setVisible(!showingMoreKader);
 	}
 	
@@ -1387,103 +1174,14 @@ public class Uebersicht extends JPanel {
 	}
 	
 	public void showStatistics() {
-		if (noStats && showingMoreStats)	showMoreLessStatistics();
-		jLblNoStatistics.setVisible(noStats);
-		jLblMatchesPlayedVal.setVisible(!noStats);
-		jLblMatchesPlayed.setVisible(!noStats);
-		jLblMatchesWonVal.setVisible(!noStats);
-		jLblMatchesWon.setVisible(!noStats);
-		jLblMatchesDrawnVal.setVisible(!noStats);
-		jLblMatchesDrawn.setVisible(!noStats);
-		jLblMatchesLostVal.setVisible(!noStats);
-		jLblMatchesLost.setVisible(!noStats);
-		jLblGoalsScoredVal.setVisible(!noStats);
-		jLblGoalsScored.setVisible(!noStats);
-		jLblGoalsConcededVal.setVisible(!noStats);
-		jLblGoalsConceded.setVisible(!noStats);
-		jLblBookedVal.setVisible(!noStats);
-		jLblBooked.setVisible(!noStats);
-		jLblBookedTwiceVal.setVisible(!noStats);
-		jLblBookedTwice.setVisible(!noStats);
-		jLblRedCardsVal.setVisible(!noStats);
-		jLblRedCards.setVisible(!noStats);
-		jLblStatisticsMoreLess.setVisible(!noStats);
-		jLblSeries.setVisible(!noStats);
-		for (int i = 0; i < NUMBER_OF_SERIES; i++) {
-			jLblsSeries[i].setVisible(!noStats);
-			jLblsSeriesValues[i].setVisible(!noStats);
+		if (teamSeasonStatistics != null) {
+			teamSeasonStatistics.setVisible(false);
+			remove(teamSeasonStatistics);
 		}
 		
-		if (jLblsResultsTeams != null) {
-			for (int i = 0; i < jLblsResultsTeams.length; i++) {
-				jLblsResultsTeams[i].setVisible(false);
-				for (int j = 0; j < jLblsResultsValues[i].length; j++) {
-					jLblsResultsValues[i][j].setVisible(false);
-				}
-			}
-		}
-		if (!noStats) {
-			jLblsResultsTeams = new JLabel[teams.size()];
-			jLblsResultsValues = new JLabel[teams.size()][team.getCompetition().getNumberOfMatchesAgainstSameOpponent() + team.getCompetition().getNumberOfMatchesAgainstSameOpponentAfterSplit()];
-			for (int i = 0; i < jLblsResultsTeams.length; i++) {
-				jLblsResultsTeams[i] = new JLabel();
-				jPnlStatistics.add(jLblsResultsTeams[i]);
-				jLblsResultsTeams[i].setBounds(results[STARTX], results[STARTY] + i * results[GAPY], results[SIZEX], results[SIZEY]);
-				jLblsResultsTeams[i].setVisible(!noStats);
-				
-				for (int j = 0; j < jLblsResultsValues[i].length; j++) {
-					jLblsResultsValues[i][j] = new JLabel();
-					jPnlStatistics.add(jLblsResultsValues[i][j]);
-					jLblsResultsValues[i][j].setBounds(resultsV[STARTX] + j * resultsV[GAPX], resultsV[STARTY] + i * resultsV[GAPY], resultsV[SIZEX], resultsV[SIZEY]);
-					alignCenter(jLblsResultsValues[i][j]);
-					jLblsResultsValues[i][j].setOpaque(true);
-					jLblsResultsValues[i][j].setVisible(!noStats);
-				}
-			}
-		}
-		
-		if (!noStats) {
-			int matchday = team.getCompetition().getNewestStartedMatchday();
-			int[] fairplayData = team.getFairplayData();
-			jLblMatchesPlayedVal.setText("" + team.get(teams, 2, matchday, Tabellenart.COMPLETE));
-			jLblMatchesWonVal.setText("" + team.get(teams, 3, matchday, Tabellenart.COMPLETE));
-			jLblMatchesDrawnVal.setText("" + team.get(teams, 4, matchday, Tabellenart.COMPLETE));
-			jLblMatchesLostVal.setText("" + team.get(teams, 5, matchday, Tabellenart.COMPLETE));
-			jLblGoalsScoredVal.setText("" + team.get(teams, 6, matchday, Tabellenart.COMPLETE));
-			jLblGoalsConcededVal.setText("" + team.get(teams, 7, matchday, Tabellenart.COMPLETE));
-			jLblBookedVal.setText("" + fairplayData[0]);
-			jLblBookedTwiceVal.setText("" + fairplayData[1]);
-			jLblRedCardsVal.setText("" + fairplayData[2]);
-			
-			for (int i = 0; i < NUMBER_OF_SERIES; i++) {
-				int maximum = team.getSeries(i + 1);
-				jLblsSeriesValues[i].setText("" + maximum);
-			}
-			
-			for (int i = 0; i < teams.size(); i++) {
-				jLblsResultsTeams[i].setText("");
-			}
-			team.getCompetition().getTable().calculate(matchday, Tabellenart.COMPLETE);
-			for (int i = 0; i < teams.size(); i++) {
-				int place = teams.get(i).getPlace();
-				while (!jLblsResultsTeams[place].getText().equals("")) {
-					place++;
-				}
-				jLblsResultsTeams[place].setText(teams.get(i).getName());
-				
-				String[] results = team.getResultsAgainst(teams.get(i));
-				for (int j = 0; j < jLblsResultsValues[place].length; j++) {
-					String[] split = results[j].split(";");
-					int points = Integer.parseInt(split[0]);
-					if (points == 3)		jLblsResultsValues[place][j].setBackground(Color.green);
-					else if (points == 1)	jLblsResultsValues[place][j].setBackground(Color.white);
-					else if (points == 0)	jLblsResultsValues[place][j].setBackground(Color.red);
-					else if (points == -2)	jLblsResultsValues[place][j].setBackground(Color.gray);
-					else					jLblsResultsValues[place][j].setBackground(null);
-					jLblsResultsValues[place][j].setText(split[1]);
-				}
-			}
-		}
+		teamSeasonStatistics = TeamSaisonStatistik.of(TeamSaisonStatistikDTO.of(team), this, showingMoreStats);
+		add(teamSeasonStatistics);
+		teamSeasonStatistics.setLocation(startXStatistics, startYStatistics);
 	}
 	
 	public void showTableExcerpt() {

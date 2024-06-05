@@ -1,13 +1,18 @@
 package model;
 
 import static util.Utilities.*;
+import static model.SubjektivesErgebnis.*;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import analyse.SpielPerformance;
+import dto.statistics.TeamSaisonStatistikBegegnungenDTO;
+import dto.statistics.TeamSaisonStatistikSpielDTO;
 
 public class Mannschaft {
 	
@@ -305,7 +310,7 @@ public class Mannschaft {
 		}
 	}
 	
-	public int[] getFairplayData() {
+	public TeamFairplayBilanz getTeamFairplayRecord() {
 		int booked = 0, bookedTwice = 0, redCards = 0;
 		
 		Iterator<String> iter = matches.keySet().iterator();
@@ -328,7 +333,7 @@ public class Mannschaft {
 			}
 		}
 		
-		return new int[] {booked, bookedTwice, redCards};
+		return TeamFairplayBilanz.of(booked, bookedTwice, redCards);
 	}
 	
 	private void setMatchdayOrder() {
@@ -358,24 +363,17 @@ public class Mannschaft {
 	public int getFairplayValue(RankingCriterion criterion) {
 		int value = 0;
 		
-		Iterator<String> iter = matches.keySet().iterator();
-		while (iter.hasNext()) {
-			Spiel match = matches.get(iter.next());
-			for (Karte booking : match.getBookings()) {
-				if (booking.isFirstTeam() == homeaway[match.getMatchday()]) {
-					switch (criterion) {
-						case FAIRPLAY_Y1YR3R3:
-							if (booking.isSecondBooking())		value -= 2;
-							else if (booking.isYellowCard())	value--;
-							else								value -= 3;
-						case FAIRPLAY_Y1YR3R4:
-						default:
-							if (booking.isSecondBooking())		value -= 2;
-							else if (booking.isYellowCard())	value--;
-							else								value -= 4;
-					}
-				}
-			}
+		TeamFairplayBilanz teamFairplayRecord = getTeamFairplayRecord();
+		
+		value -= teamFairplayRecord.getNumberOfYellowCards();
+		value -= 2 * teamFairplayRecord.getNumberOfSecondYellowCards();
+		
+		switch (criterion) {
+			case FAIRPLAY_Y1YR3R3:
+				value -= 3 * teamFairplayRecord.getNumberOfRedCards();
+			case FAIRPLAY_Y1YR3R4:
+			default:
+				value -= 4 * teamFairplayRecord.getNumberOfRedCards();
 		}
 		
 		return value;
@@ -483,40 +481,42 @@ public class Mannschaft {
 		return -1;
 	}
 	
-	/**
-	 * 1: Siegesserie <br/>
-	 * 2: Unentschiedenserie <br/>
-	 * 3: Niederlagenserie <br/>
-	 * 4: Unbesiegt-Serie <br/>
-	 * 5: Sieglos-Serie <br/>
-	 * 6: Tor-Serie <br/>
-	 * 7: Torlos-Serie <br/>
-	 * 8: Gegentor-Serie <br/>
-	 * 9: Gegentorlos-Serie <br/>
-	 * @param index
-	 * @return
-	 */
-	public int getSeries(int index) {
-		int currentDuration = 0, longestDuration = 0;
+	public TeamBilanz getTeamRecord(int untilMatchday, Tabellenart tableType) {
+		setValuesForMatchday(competition.getTeams(), untilMatchday, tableType);
+		return TeamBilanz.of(numOfWins, numOfDraws, numOfLosses, numOfGoals, numOfCGoals);
+	}
+	
+	public SpielSerien getLongestSeries() {
 		setMatchdayOrder();
 		
+		HashMap<SerienTyp, Integer> series = new HashMap<>();
+		
+		Stream.of(SerienTyp.values()).forEach(st -> series.put(st, getLongestSeries(st)));
+		
+		return SpielSerien.of(series);
+	}
+	
+	private int getLongestSeries(SerienTyp seriesType) {
+		int currentDuration = 0, longestDuration = 0;
+		
 		boolean reset;
-		for (int i = 0; i < data.length; i++) {
+		for (int i = 0; i < numberOfMatchdays; i++) {
 			int matchday = matchdayOrder[i];
-			if (data[matchday][0] != 0) {
-				if (data[matchday][3] == 0 && data[matchday][2] == 0)	continue;
+			if (isMatchSet(competition.getKey(matchday))) {
+				SubjektivesErgebnis subjectiveResult = getSubjectiveResult(matchday);
+				if (subjectiveResult == NOT_SET)	continue;
 				reset = false;
 				
-				switch (index) {
-					case 1:		if (data[matchday][3] != 3)	reset = true;	break;
-					case 2:		if (data[matchday][3] != 1)	reset = true;	break;
-					case 3:		if (data[matchday][3] != 0)	reset = true;	break;
-					case 4:		if (data[matchday][3] == 0)	reset = true;	break;
-					case 5:		if (data[matchday][3] == 3)	reset = true;	break;
-					case 6:		if (data[matchday][1] == 0)	reset = true;	break;
-					case 7:		if (data[matchday][1] > 0)	reset = true;	break;
-					case 8:		if (data[matchday][2] == 0)	reset = true;	break;
-					case 9:		if (data[matchday][2] > 0)	reset = true;	break;
+				switch (seriesType) {
+					case WIN:			if (subjectiveResult != WIN)	reset = true;	break;
+					case DRAW:			if (subjectiveResult != DRAW)	reset = true;	break;
+					case LOSS:			if (subjectiveResult != LOSS)	reset = true;	break;
+					case UNBEATEN:		if (subjectiveResult == LOSS)	reset = true;	break;
+					case WINLESS:		if (subjectiveResult == WIN)	reset = true;	break;
+					case GOAL_SCORED:		if (data[matchday][1] == 0)	reset = true;	break;
+					case NO_GOAL_SCORED:	if (data[matchday][1] > 0)	reset = true;	break;
+					case GOAL_CONCEDED:		if (data[matchday][2] == 0)	reset = true;	break;
+					case NO_GOAL_CONCEDED:	if (data[matchday][2] > 0)	reset = true;	break;
 				}
 				if (reset) {
 					longestDuration = Math.max(longestDuration, currentDuration);
@@ -531,7 +531,7 @@ public class Mannschaft {
 		
 		return longestDuration;
 	}
-
+	
 	public int getPlace() {
 		return place;
 	}
@@ -545,9 +545,21 @@ public class Mannschaft {
 		return false;
 	}
 	
+	public Spiel getMatch(String key) {
+		return matches.get(key);
+	}
+	
 	public boolean isResultSet(String key) {
 		if (results.containsKey(key))	return true;
 		return false;
+	}
+	
+	public Ergebnis getResult(String key) {
+		return results.get(key);
+	}
+	
+	private SubjektivesErgebnis getSubjectiveResult(int matchday) {
+		return Optional.ofNullable(getResult(competition.getKey(matchday))).map(r -> r.getSubjectiveResult(homeaway[matchday])).orElse(SubjektivesErgebnis.NOT_SET);
 	}
 
 	public String getName() {
@@ -675,42 +687,44 @@ public class Mannschaft {
 		return ordered;
 	}
 	
-	public String[] getResultsAgainst(Mannschaft opponent) {
+	public TeamSaisonStatistikBegegnungenDTO getAllResults(Mannschaft opponent) {
+		ArrayList<TeamSaisonStatistikSpielDTO> matches = new ArrayList<>();
+		
+		if (opponent.getId() == id)	return TeamSaisonStatistikBegegnungenDTO.of(this, opponent, matches);
+		
 		int numberOfJointMatchdays = competition.getNumberOfJointMatchdays();
 		int matchesVsSameOpponent = competition.getNumberOfMatchesAgainstSameOpponent();
-		int matchesVsSameOpponentAfterSplit = competition.getNumberOfMatchesAgainstSameOpponentAfterSplit();
 		boolean evenNumber = matchesVsSameOpponent % 2 == 0;
 		int halfNumberOfMatchesASO = matchesVsSameOpponent / 2;
-		String[] resultsOpponent = new String[matchesVsSameOpponent + matchesVsSameOpponentAfterSplit];
-		
-		if (opponent == this) {
-			for (int i = 0; i < resultsOpponent.length; i++) {
-				resultsOpponent[i] = "-3;n/a";
-			}
-		} else {
-			for (int i = 0; i < resultsOpponent.length; i++) {
-				resultsOpponent[i] = "-2;--";
-			}
-			int counterH = 0, counterA = 0;
-			for (int i = 0; i < numberOfMatchdays; i++) {
-				if (data[i][OPPONENT] == opponent.getId()) {
-					String result = data[i][GOALS] + ":" + data[i][CGOALS];
-					if (isResultSet(competition.getKey(i))) {
-						result = data[i][POINTS] + ";" + result;
-					} else	result = "-1;(" + (i + 1) + ")";
-					
-					if (i >= numberOfJointMatchdays || !evenNumber && (matchesVsSameOpponent * i >= (matchesVsSameOpponent - 1) * numberOfJointMatchdays)) {
-						resultsOpponent[counterH + counterA] = result;
-						if (homeaway[i])	counterH++;
-						else				counterA++;
-					}
-					else if (homeaway[i])	resultsOpponent[counterH++] = result;
-					else					resultsOpponent[halfNumberOfMatchesASO + counterA++] = result;
+
+		int counterH = 0, counterA = 0;
+		for (int i = 0; i < numberOfJointMatchdays; i++) {
+			if (data[i][OPPONENT] == opponent.getId()) {
+				boolean home = homeaway[i];
+				int index = counterH;
+				if (!home || !evenNumber && (matchesVsSameOpponent * i >= (matchesVsSameOpponent - 1) * numberOfJointMatchdays)) {
+					index = matches.size();
 				}
+				
+				matches.add(index, TeamSaisonStatistikSpielDTO.of(i + 1, home, getResult(competition.getKey(i))));
+				
+				if (home)	counterH++;
+				else		counterA++;
+			}
+		}
+		while (counterH < halfNumberOfMatchesASO) {
+			matches.add(counterH++, TSS_MATCH_NOT_AVAILABLE);
+		}
+		while (counterA < halfNumberOfMatchesASO) {
+			matches.add(counterH + counterA++, TSS_MATCH_NOT_AVAILABLE);
+		}
+		for (int i = numberOfJointMatchdays; i < numberOfMatchdays; i++) {
+			if (data[i][OPPONENT] == opponent.getId()) {
+				matches.add(TeamSaisonStatistikSpielDTO.of(i + 1, homeaway[i], getResult(competition.getKey(i))));
 			}
 		}
 		
-		return resultsOpponent;
+		return TeamSaisonStatistikBegegnungenDTO.of(this, opponent, matches);
 	}
 	
 	public void resetMatch(String key) {
