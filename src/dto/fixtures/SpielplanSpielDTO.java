@@ -40,11 +40,11 @@ public class SpielplanSpielDTO extends SpielplanZeileDTO {
 	}
 	
 	public String getResult() {
-		return result.map(r -> r.home() + " : " + r.away()).orElse("- : -");
+		return result.filter(r -> !r.isCancelled()).map(r -> r.home() + " : " + r.away()).orElse("- : -");
 	}
 	
 	public String getResultToolTip() {
-		return result.filter(r -> r.isFinishedInRegularTime()).map(Ergebnis::toString).orElse("");
+		return result.filter(r -> !r.isFinishedInRegularTime()).map(Ergebnis::toString).orElse("");
 	}
 	
 	public SubjektivesErgebnis getSubjectiveResult(Mannschaft team) {
