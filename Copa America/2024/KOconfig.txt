@@ -1,0 +1,4 @@
+Viertelfinale;VF;false;
+Halbfinale;HF;false;
+Spiel um Platz 3;P3;false;
+Finale;FI;false;
