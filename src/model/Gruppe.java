@@ -216,17 +216,14 @@ public abstract class Gruppe implements Wettbewerb {
 		return getKickOffTime(matchday, matchIndex).getDate();
 	}
 	
-	public Mannschaft getTeamOnPlace(int place) {
-		if (place < 1 || place > teams.size())	return null;
-		if (!allResultsSet()) {
-			return null;
+	public Optional<Mannschaft> getTeamOnPlace(int place) {
+		if (place < 1 || place > teams.size() || !allResultsSet())	return Optional.empty();
+		
+		for (Mannschaft team : teams) {
+			if (team.get(teams, 0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);
 		}
 		
-		for (Mannschaft ms : teams) {
-			if (ms.get(teams, 0, numberOfMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return ms;
-		}
-		
-		return null;
+		return Optional.empty();
 	}
 	
 	public int getIndexOfMannschaft(String name) {
@@ -650,11 +647,7 @@ public abstract class Gruppe implements Wettbewerb {
 		
 		for (int i = 0; i < ranks.length; i++) {
 			String id = getRankId(i + 1);
-			try {
-				ranks[i] = id + ": " + getTeamOnPlace(i + 1).getName();
-			} catch (NullPointerException npe) {
-				ranks[i] = id + ": " + season.getTournament().getShortName() + season.getYear() + id;
-			}
+			ranks[i] = id + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(season.getTournament().getShortName() + season.getYear() + id);
 		}
 		
 		return ranks;

@@ -416,8 +416,7 @@ public class Mannschaft {
 			Gruppe group = (Gruppe) competition;
 			while (includingRank < group.getTeams().size()) {
 				includingRank++;
-				Mannschaft team = group.getTeamOnPlace(includingRank);
-				if (team != null)	excludedTeams.add(team.getId());
+				group.getTeamOnPlace(includingRank).ifPresent(team -> excludedTeams.add(team.getId()));
 			}
 		}
 		

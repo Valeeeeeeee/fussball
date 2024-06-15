@@ -1163,10 +1163,7 @@ public class LigaSaison implements Wettbewerb {
 	}
 	
 	public Optional<Mannschaft> getTeamOnPlace(int place) {
-		if (place < 1 || place > teams.size())	return Optional.empty();
-		if (!allResultsSet()) {
-			return Optional.empty();
-		}
+		if (place < 1 || place > teams.size() || !allResultsSet())	return Optional.empty();
 		
 		for (Mannschaft team : teams) {
 			if (team.get(teams, 0, numberOfRegularMatchdays - 1, Tabellenart.COMPLETE) == place - 1)		return Optional.of(team);

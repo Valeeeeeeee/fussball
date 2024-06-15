@@ -533,11 +533,11 @@ public class TurnierSaison {
 	}
 	
 	private Optional<Mannschaft> getTeamFromSwissSystemGroupStageOrigin(boolean isQ, int place) {
-		return getSwissSystemGroup(isQ).map(g -> g.getTeamOnPlace(place));
+		return getSwissSystemGroup(isQ).map(g -> g.getTeamOnPlace(place).orElse(null));
 	}
 	
 	private Optional<Mannschaft> getTeamFromRoundRobinGroupStageOrigin(boolean isQ, char group, int place) {
-		return getRoundRobinGroup(isQ, group).map(g -> g.getTeamOnPlace(place));
+		return getRoundRobinGroup(isQ, group).map(g -> g.getTeamOnPlace(place).orElse(null));
 	}
 	
 	private Optional<Gruppe> getSwissSystemGroup(boolean isQ) {
