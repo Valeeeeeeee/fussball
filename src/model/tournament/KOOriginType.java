@@ -2,7 +2,8 @@ package model.tournament;
 
 public enum KOOriginType {
 	PREQUALIFIED("PQ:", false),
-	PREVIOUS_GROUP_STAGE("PG:", true),
+	PREVIOUS_ROUND_ROBIN_GROUP_STAGE("PG:", true),
+	PREVIOUS_SWISS_SYSTEM_GROUP_STAGE("PS:", true),
 	PREVIOUS_KNOCKOUT_ROUND("PK:", true),
 	PREVIOUS_LEAGUE("PL:", true),
 	OTHER_COMPETITION("OC:", false),

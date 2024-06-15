@@ -862,8 +862,9 @@ public class KORunde implements Wettbewerb {
 					teamsOrigins[i] = new KOOriginPrequalified(origin, this, i);
 					teams.add(new Mannschaft(i, this, origin));
 					break;
-				case PREVIOUS_GROUP_STAGE:
-					teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ);
+				case PREVIOUS_ROUND_ROBIN_GROUP_STAGE:
+				case PREVIOUS_SWISS_SYSTEM_GROUP_STAGE:
+					teamsOrigins[i] = new KOOriginPreviousGroupStage(origin, isQ, type == KOOriginType.PREVIOUS_ROUND_ROBIN_GROUP_STAGE);
 					teams.add(null);
 					break;
 				case PREVIOUS_KNOCKOUT_ROUND:

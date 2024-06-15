@@ -709,7 +709,7 @@ public class Fussball extends JFrame {
 		
 		aktuellerSpieltag = currentGroup.getSpieltag();
 		getContentPane().add(aktuellerSpieltag);
-		aktuelleTabelle = currentGroup.getTabelle();
+		aktuelleTabelle = currentGroup.getTable();
 		getContentPane().add(aktuelleTabelle);
 	}
 	
@@ -770,7 +770,11 @@ public class Fussball extends JFrame {
 				}
 			} catch(NullPointerException npe) {}
 			
-			int numberOfButtons = currentTSeason.hasQGroupStage() ? currentTSeason.getNumberOfQGroups() + 1 : 0;
+			int numberOfButtons = 0;
+			if (currentTSeason.hasQGroupStage()) {
+				numberOfButtons = currentTSeason.getNumberOfQGroups();
+				if (numberOfButtons > 1)	numberOfButtons++;
+			}
 			numberOfButtons += currentTSeason.getNumberOfQKORounds();
 			qualificationButtons = new JButton[numberOfButtons];
 			int ctr;
@@ -787,7 +791,7 @@ public class Fussball extends JFrame {
 					}
 				});
 			}
-			if (currentTSeason.getNumberOfQGroups() > 0) {
+			if (currentTSeason.getNumberOfQGroups() > 1) {
 				qualificationButtons[ctr] = new JButton();
 				QualificationHomescreen.add(qualificationButtons[ctr]);
 				qualificationButtons[ctr].setBounds(295 + (ctr % 2) * (SIZEX_BTNS + 50), 150 + (ctr / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);
@@ -824,8 +828,11 @@ public class Fussball extends JFrame {
 				}
 			} catch(NullPointerException npe) {}
 			
-			groupStageButtons = new JButton[currentTSeason.getNumberOfGroups() + 1];
-			for (int i = 0; i < groupStageButtons.length - 1; i++) {
+			int numberOfButtons = currentTSeason.getNumberOfGroups();
+			if (numberOfButtons > 1)	numberOfButtons++;
+			groupStageButtons = new JButton[numberOfButtons];
+			log("There are " + numberOfButtons + " buttons.");
+			for (int i = 0; i < currentTSeason.getNumberOfGroups(); i++) {
 				final int x = i;
 				groupStageButtons[i] = new JButton();
 				GroupStageHomescreen.add(groupStageButtons[i]);
@@ -839,7 +846,7 @@ public class Fussball extends JFrame {
 				});
 			}
 			final int lastindex = groupStageButtons.length - 1;
-			{
+			if (currentTSeason.getNumberOfGroups() > 1) {
 				groupStageButtons[lastindex] = new JButton();
 				GroupStageHomescreen.add(groupStageButtons[lastindex]);
 				groupStageButtons[lastindex].setBounds(295 + (lastindex % 2) * (SIZEX_BTNS + 50), 150 + (lastindex / 2) * (SIZEY_BTNS + 10), SIZEX_BTNS, SIZEY_BTNS);

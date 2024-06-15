@@ -1247,7 +1247,7 @@ public class LigaSaison implements Wettbewerb {
 		
 		if (tabelle == null) {
 			tabelle = new Tabelle(this);
-			tabelle.setLocation((Fussball.WIDTH - tabelle.getSize().width) / 2, 50);
+			tabelle.setLocation((Fussball.WIDTH - tabelle.getSize().width) / 2, 20);
 			tabelle.setVisible(false);
 		}
 		

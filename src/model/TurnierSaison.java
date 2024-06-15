@@ -35,7 +35,6 @@ public class TurnierSaison {
 	private boolean hasQualification;
 	private boolean hasGroupStage;
 	private boolean hasKOStage;
-	private boolean hasSecondLegGroupStage;
 	private boolean matchForThirdPlace;
 	private boolean teamsHaveKader;
 	private boolean qTeamsHaveKader;
@@ -54,7 +53,6 @@ public class TurnierSaison {
 	
 	private boolean hasQGroupStage;
 	private boolean hasQKOStage;
-	private boolean hasSecondLegQGroupStage;
 	private int untilRankBestQGroupXths = 5;
 	
 	private Spieltag qOverview;
@@ -62,9 +60,15 @@ public class TurnierSaison {
 	private KORunde[] qKORounds;
 	
 	private int numberOfQGroups;
+	private boolean isRoundRobinQGroupStage;
+	private int numberOfLegsRRQGroupStage;
+	private int numberOfMatchdaysSSQGroupStage;
 	private int numberOfQKORounds;
 	
 	private int numberOfGroups;
+	private boolean isRoundRobinGroupStage;
+	private int numberOfLegsRRGroupStage;
+	private int numberOfMatchdaysSSGroupStage;
 	private int numberOfKORounds;
 	
 	private boolean geladen;
@@ -159,14 +163,6 @@ public class TurnierSaison {
 	
 	public int getNumberOfQKORounds() {
 		return numberOfQKORounds;
-	}
-	
-	public boolean hasSecondLegGroupStage() {
-		return hasSecondLegGroupStage;
-	}
-
-	public boolean hasSecondLegQGroupStage() {
-		return hasSecondLegQGroupStage;
 	}
 	
 	public boolean hasMatchForThirdPlace() {
@@ -428,13 +424,18 @@ public class TurnierSaison {
 				knockoutRound = ocOrigin.getKnockoutRound();
 				teamIndex = ocOrigin.getTeamIndex();
 				return knockoutRound.getInvariantTeam(teamIndex);
-			case PREVIOUS_GROUP_STAGE:
+			case PREVIOUS_SWISS_SYSTEM_GROUP_STAGE:
+			case PREVIOUS_ROUND_ROBIN_GROUP_STAGE:
 				KOOriginPreviousGroupStage pgsOrigin = (KOOriginPreviousGroupStage) origin;
 				boolean isQ = pgsOrigin.isQualification();
 				String group = pgsOrigin.getPreviousGroupStageIndex();
 				int placeIndex = pgsOrigin.getPlaceIndex();
-				if (pgsOrigin.isGroupXth())	return getTeamFromGroupXthOrigin(isQ, Integer.parseInt(group), placeIndex);
-				else						return getTeamFromGroupStageOrigin(isQ, group.charAt(0), placeIndex);
+				if (pgsOrigin.isRoundRobinGroup()) {
+					if (pgsOrigin.isGroupXth())	return getTeamFromRoundRobinGroupXthOrigin(isQ, Integer.parseInt(group), placeIndex);
+					else						return getTeamFromRoundRobinGroupStageOrigin(isQ, group.charAt(0), placeIndex);
+				} else {
+					return getTeamFromSwissSystemGroupStageOrigin(isQ, placeIndex);
+				}
 			case PREVIOUS_KNOCKOUT_ROUND:
 				KOOriginPreviousKnockoutRound pkoOrigin = (KOOriginPreviousKnockoutRound) origin;
 				isQ = pkoOrigin.isQualification();
@@ -465,13 +466,13 @@ public class TurnierSaison {
 		return origin.equals(koOrigin.toDisplay()) && koOrigin.getKOOriginType() != KOOriginType.PREQUALIFIED;
 	}
 	
-	private Optional<Mannschaft> getTeamFromGroupXthOrigin(boolean isQ, int placeInGroup, int xthBest) {
+	private Optional<Mannschaft> getTeamFromRoundRobinGroupXthOrigin(boolean isQ, int placeInGroup, int xthBest) {
 		int nOfGroups = isQ ? numberOfQGroups : numberOfGroups;
 		Gruppe[] grps = isQ ? qGroups : groups;
 		int untilRank = isQ ? untilRankBestQGroupXths : Integer.MAX_VALUE;
 		ArrayList<Optional<Mannschaft>> groupXth = new ArrayList<>();
 		for (int i = 0; i < nOfGroups; i++) {
-			groupXth.add(getTeamFromGroupStageOrigin(isQ, alphabet[i], placeInGroup));
+			groupXth.add(getTeamFromRoundRobinGroupStageOrigin(isQ, alphabet[i], placeInGroup));
 			untilRank = Math.min(untilRank, grps[i].getNumberOfTeams());
 		}
 		
@@ -531,11 +532,19 @@ public class TurnierSaison {
 		return order;
 	}
 	
-	private Optional<Mannschaft> getTeamFromGroupStageOrigin(boolean isQ, char group, int place) {
-		return getGroup(isQ, group).map(g -> g.getTeamOnPlace(place));
+	private Optional<Mannschaft> getTeamFromSwissSystemGroupStageOrigin(boolean isQ, int place) {
+		return getSwissSystemGroup(isQ).map(g -> g.getTeamOnPlace(place));
 	}
 	
-	private Optional<Gruppe> getGroup(boolean isQ, char group) {
+	private Optional<Mannschaft> getTeamFromRoundRobinGroupStageOrigin(boolean isQ, char group, int place) {
+		return getRoundRobinGroup(isQ, group).map(g -> g.getTeamOnPlace(place));
+	}
+	
+	private Optional<Gruppe> getSwissSystemGroup(boolean isQ) {
+		return Stream.of(isQ ? qGroups : groups).findAny();
+	}
+	
+	private Optional<Gruppe> getRoundRobinGroup(boolean isQ, char group) {
 		return Stream.of(isQ ? qGroups : groups).filter(g -> group == alphabet[g.getID()]).findAny();
 	}
 	
@@ -609,11 +618,18 @@ public class TurnierSaison {
 		numberOfQGroups = Integer.parseInt(qualificationDataFromFile.get(index++));
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
-			hasSecondLegQGroupStage = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
-			untilRankBestQGroupXths = Integer.parseInt(qualificationDataFromFile.get(index++));
+			
 			qGroups = new Gruppe[numberOfQGroups];
-			for (int i = 0; i < numberOfQGroups; i++)	qGroups[i] = new Gruppe(this, i, true);
-			{
+			isRoundRobinQGroupStage = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
+			if (isRoundRobinQGroupStage) {
+				numberOfLegsRRQGroupStage = Integer.parseInt(qualificationDataFromFile.get(index++));
+				untilRankBestQGroupXths = Integer.parseInt(qualificationDataFromFile.get(index++));
+				for (int i = 0; i < numberOfQGroups; i++)	qGroups[i] = new RoundRobinGruppe(this, i, true, numberOfLegsRRQGroupStage);
+			} else {
+				numberOfMatchdaysSSQGroupStage = Integer.parseInt(qualificationDataFromFile.get(index++));
+				groups[0] = new SchweizerSystemGruppe(this, 0, true, numberOfMatchdaysSSQGroupStage);
+			}
+			if (numberOfQGroups > 1) {
 				qOverview = new Spieltag(this, true);
 				qOverview.setLocation((Fussball.WIDTH - qOverview.getSize().width) / 2, (Fussball.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 				qOverview.setVisible(false);
@@ -638,8 +654,14 @@ public class TurnierSaison {
 		qualificationDataFromFile.add("" + qTeamsHaveKader);
 		qualificationDataFromFile.add("" + numberOfQGroups);
 		if (hasQGroupStage) {
-			qualificationDataFromFile.add("" + hasSecondLegQGroupStage);
-			qualificationDataFromFile.add("" + untilRankBestQGroupXths);
+			qualificationDataFromFile.add("" + isRoundRobinQGroupStage);
+			if (isRoundRobinQGroupStage) {
+				qualificationDataFromFile.add("" + numberOfLegsRRQGroupStage);
+				qualificationDataFromFile.add("" + untilRankBestQGroupXths);
+			} else {
+				qualificationDataFromFile.add("" + numberOfMatchdaysSSQGroupStage);
+			}
+			
 			for (Gruppe group : qGroups)	group.save();
 		}
 		
@@ -660,10 +682,16 @@ public class TurnierSaison {
 		int index = 0;
 		
 		numberOfGroups = Integer.parseInt(groupsDataFromFile.get(index++));
-		hasSecondLegGroupStage = Boolean.parseBoolean(groupsDataFromFile.get(index++));
 		groups = new Gruppe[numberOfGroups];
-		for (int i = 0; i < groups.length; i++)	groups[i] = new Gruppe(this, i, false);
-		{
+		isRoundRobinGroupStage = Boolean.parseBoolean(groupsDataFromFile.get(index++));
+		if (isRoundRobinGroupStage) {
+			numberOfLegsRRGroupStage = Integer.parseInt(groupsDataFromFile.get(index++));
+			for (int i = 0; i < groups.length; i++)	groups[i] = new RoundRobinGruppe(this, i, false, numberOfLegsRRGroupStage);
+		} else {
+			numberOfMatchdaysSSGroupStage = Integer.parseInt(groupsDataFromFile.get(index++));
+			groups[0] = new SchweizerSystemGruppe(this, 0, false, numberOfMatchdaysSSGroupStage);
+		}
+		if (numberOfGroups > 1) {
 			overview = new Spieltag(this, false);
 			overview.setLocation((Fussball.WIDTH - overview.getSize().width) / 2, (Fussball.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			overview.setVisible(false);
@@ -677,7 +705,12 @@ public class TurnierSaison {
 		
 		groupsDataFromFile.clear();
 		groupsDataFromFile.add("" + numberOfGroups);
-		groupsDataFromFile.add("" + hasSecondLegGroupStage);
+		groupsDataFromFile.add("" + isRoundRobinGroupStage);
+		if (isRoundRobinGroupStage) {
+			groupsDataFromFile.add("" + numberOfLegsRRGroupStage);
+		} else {
+			groupsDataFromFile.add("" + numberOfMatchdaysSSGroupStage);
+		}
 		
 		writeFile(fileGroupsData, groupsDataFromFile);
 	}

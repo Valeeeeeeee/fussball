@@ -35,7 +35,7 @@ public class Tabelle extends JPanel {
 	private Color colorTabellenart = new Color(255, 255, 128);
 	
 	private int startx = 10;
-	private int starty = 110;
+	private int starty = 80;
 	private int[] widthes = {20, 220, 20, 20, 20, 20, 25, 25, 25, 25};
 	private int height = 15;
 	private int[] gapx = {5, 5, 5, 0, 0, 5, 0, 5, 5, 0};
@@ -93,8 +93,8 @@ public class Tabelle extends JPanel {
 		initGUI();
 	}
 	
-	public void initGUI() { 
-		try { 
+	public void initGUI() {
+		try {
 			this.setLayout(null);
 			
 			jLblsData = new JLabel[numberOfTeams][headers.length];
@@ -103,6 +103,10 @@ public class Tabelle extends JPanel {
 			teamIndices = new int[numberOfTeams];
 			
 			int sumofwidthes = 0;
+			boolean hugeTable = numberOfTeams > 20;
+			if (hugeTable) {
+				gapy = 5;
+			}
 			
 			for (int j = 0; j < jLblsHeaders.length; j++) {
 				jLblsHeaders[j] = new JLabel();
@@ -113,12 +117,12 @@ public class Tabelle extends JPanel {
 				} else {
 					alignCenter(jLblsHeaders[j]);
 				}
-				jLblsHeaders[j].setBounds(startx + sumofwidthes, starty - (height + gapy), widthes[j], height);
+				jLblsHeaders[j].setBounds(startx + sumofwidthes, starty, widthes[j], height);
 				jLblsHeaders[j].setText(headers[j]);
 				sumofwidthes += widthes[j] + gapx[j];
 			}
 			
-			for (int i = 0; i < jLblsData.length; i++) {
+			for (int i = 0; i < numberOfTeams; i++) {
 				sumofwidthes = 0;
 				for (int j = 0; j < jLblsData[i].length; j++) {
 					jLblsData[i][j] = new JLabel();
@@ -138,8 +142,9 @@ public class Tabelle extends JPanel {
 					} else {
 						alignCenter(jLblsData[i][j]);
 					}
-					jLblsData[i][j].setBounds(startx + sumofwidthes, starty + i * (height + gapy), widthes[j], height);
+					jLblsData[i][j].setBounds(startx + sumofwidthes, starty + (i + 1) * (height + gapy), widthes[j], height);
 					sumofwidthes += widthes[j] + gapx[j];
+					if (hugeTable)	jLblsData[i][j].setFont(jLblsData[i][j].getFont().deriveFont(12.0f));
 				}
 			}
 			{
@@ -242,7 +247,7 @@ public class Tabelle extends JPanel {
 				});
 			}
 			
-			setSize(sumofwidthes + 20, starty - (gapy / 2) + numberOfTeams * (height + gapy) + 10);
+			setSize(sumofwidthes + 20, starty - (gapy / 2) + (numberOfTeams + 1) * (height + gapy) + 10);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -252,9 +257,6 @@ public class Tabelle extends JPanel {
 		super.paintComponent(g);
 		
 		// Hintergrund
-		g.setColor(new Color(212, 212, 212));
-		g.fillRect(0, 0, getWidth(), getHeight());
-		
 		Color colorone = new Color(0, 223, 255);
 		Color colortwo = new Color(79, 127, 255);
 		
@@ -268,7 +270,7 @@ public class Tabelle extends JPanel {
 		}
 		
 		int hstartx = 10;
-		int hstarty = starty - (gapy / 2);
+		int hstarty = starty + height + gapy - (gapy / 2);
 		int hheight = height + gapy;
 		int sumofwidthes = 0;
 		for (int j = 0; j < widthes.length; j++) {
@@ -384,14 +386,14 @@ public class Tabelle extends JPanel {
 			for (int i = 0; i < 2; i++) {
 				offset += widthes[i] + gapx[i];
 			}
-			jLblPointDeductions.setBounds(startx + offset, starty - (height + gapy), widthPDlbl, height);
+			jLblPointDeductions.setBounds(startx + offset, starty, widthPDlbl, height);
 			
 			jTFsPointDeductions = new JTextField[teams.size()];
 			for (int i = 0; i < jTFsPointDeductions.length; i++) {
 				final int x = i;
 				jTFsPointDeductions[i] = new JTextField();
 				this.add(jTFsPointDeductions[i]);
-				jTFsPointDeductions[i].setBounds(startx + offset, starty + i * (height + gapy) - 3, widthPDtf, height + 6);
+				jTFsPointDeductions[i].setBounds(startx + offset, starty + (i + 1) * (height + gapy) - 3, widthPDtf, height + 6);
 				alignCenter(jTFsPointDeductions[i]);
 				jTFsPointDeductions[i].addKeyListener(new KeyAdapter() {
 					public void keyTyped(KeyEvent arg0) {
