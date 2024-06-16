@@ -18,6 +18,6 @@ public class RoundRobinGruppe extends Gruppe {
 	}
 	
 	protected String getRankId(int rank) {
-		return String.format("%sQ%c%d", isQ ? "Q" :  "", alphabet[this.id], rank);
+		return String.format("%sG%c%d", isQ ? "Q" :  "", alphabet[this.id], rank);
 	}
 }
