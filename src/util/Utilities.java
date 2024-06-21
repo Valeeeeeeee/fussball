@@ -24,12 +24,17 @@ import model.Zeitpunkt;
 
 public class Utilities {
 	
-	public static final Color colorCategory1 = new Color(0, 200, 0);
-	public static final Color colorCategory2 = new Color(128, 255, 0);
-	public static final Color colorCategory3 = new Color(255, 255, 0);
-	public static final Color colorCategory4 = new Color(255, 128, 0);
-	public static final Color colorCategory5 = new Color(255, 0, 0);
-	public static final Color colorCategory6 = new Color(128, 128, 128);
+	public static final Color DARK_GREEN = new Color(0, 200, 0);
+	public static final Color LIGHT_GREEN = new Color(128, 255, 0);
+	public static final Color YELLOW = new Color(255, 255, 0);
+	public static final Color LIGHT_RED = new Color(255, 96, 96);
+	public static final Color RED = new Color(255, 0, 0);
+	public static final Color DARK_GRAY = new Color(128, 128, 128);
+	public static final Color UCL = new Color(48, 96, 224);
+	public static final Color UCL_Q = new Color(96, 144, 255);
+	public static final Color UEL = new Color(255, 96, 16);
+	public static final Color UEL_Q = new Color(255, 160, 96);
+	public static final Color UECL_Q = new Color(16, 224, 96);
 	public static final Color colorHomescreen = new Color(255, 255, 255);
 	
 	public static final Color colorOverviewBackground = new Color(255, 128, 128);

@@ -599,10 +599,7 @@ public class NeueLigaSaisonDialog extends JFrame {
 	}
 	
 	private void setAnzahlen(LigaSaison lSeason) {
-		anzahl = new int[5];
-		for (int i = 0; i < anzahl.length; i++) {
-			anzahl[i] = lSeason.getNumberOf(i);
-		}
+		anzahl = new int[] {4, 2, 1, 1, 2};
 	}
 	
 	private String getDefaultKickoffTimes() {

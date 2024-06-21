@@ -1,12 +1,12 @@
-P1: MSV Duisburg
-P2: Holstein Kiel
-P3: SSV Jahn Regensburg
-P4: 1. FC Magdeburg
-P5: FSV Zwickau
-P6: VfL Osnabrück
-P7: SV Wehen Wiesbaden
-P8: Chemnitzer FC
-P9: Preußen Münster
+P01: MSV Duisburg
+P02: Holstein Kiel
+P03: SSV Jahn Regensburg
+P04: 1. FC Magdeburg
+P05: FSV Zwickau
+P06: VfL Osnabrück
+P07: SV Wehen Wiesbaden
+P08: Chemnitzer FC
+P09: Preußen Münster
 P10: SG Sonnenhof Großaspach
 P11: VfR Aalen
 P12: Sportfreunde Lotte

@@ -1,12 +1,12 @@
-P1: Manchester City
-P2: FC Liverpool
-P3: FC Chelsea
-P4: Tottenham Hotspurs
-P5: FC Arsenal
-P6: Manchester United
-P7: West Ham United
-P8: Leicester City
-P9: Brighton & Hove Albion
+P01: Manchester City
+P02: FC Liverpool
+P03: FC Chelsea
+P04: Tottenham Hotspurs
+P05: FC Arsenal
+P06: Manchester United
+P07: West Ham United
+P08: Leicester City
+P09: Brighton & Hove Albion
 P10: Wolverhampton Wanderers
 P11: Newcastle United
 P12: Crystal Palace

@@ -1,12 +1,12 @@
-P1: 1. FC Magdeburg
-P2: Eintracht Braunschweig
-P3: 1. FC Kaiserslautern
-P4: 1860 München
-P5: Waldhof Mannheim
-P6: VfL Osnabrück
-P7: 1. FC Saarbrücken
-P8: SV Wehen Wiesbaden
-P9: Borussia Dortmund II
+P01: 1. FC Magdeburg
+P02: Eintracht Braunschweig
+P03: 1. FC Kaiserslautern
+P04: 1860 München
+P05: Waldhof Mannheim
+P06: VfL Osnabrück
+P07: 1. FC Saarbrücken
+P08: SV Wehen Wiesbaden
+P09: Borussia Dortmund II
 P10: FSV Zwickau
 P11: SC Freiburg II
 P12: SV Meppen

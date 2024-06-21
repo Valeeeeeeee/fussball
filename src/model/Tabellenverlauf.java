@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Optional;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,7 +28,7 @@ public class Tabellenverlauf extends JPanel {
 	
 	private int numberOfTeams;
 	private int[] rankings;
-	private int[] anzahlen = new int[] {2, 0, 0, 0, 2};
+	private HashMap<Integer, TabellenHintergrundFarbe> tableBackgroundColors;
 	
 	private int pixelsPerRank;
 	private int pixelsPerMatchday;
@@ -41,9 +43,10 @@ public class Tabellenverlauf extends JPanel {
 		this.rankings = rankings;
 		if (competition instanceof LigaSaison) {
 			LigaSaison lSeason = (LigaSaison) competition;
-			for (int i = 0; i < 5; i++) {
-				anzahlen[i] = lSeason.getNumberOf(i);
-			}
+			tableBackgroundColors = lSeason.getTableBackgroundColors();
+		} else if (competition instanceof Gruppe) {
+			Gruppe group = (Gruppe) competition;
+			tableBackgroundColors = group.getTableBackgroundColors();
 		}
 		
 		pixelsPerRank = (HEIGHT - 5) / numberOfTeams;
@@ -93,15 +96,12 @@ public class Tabellenverlauf extends JPanel {
 			g.drawLine(freeSpaceX + i * pixelsPerMatchday, freeSpaceY, freeSpaceX + i * pixelsPerMatchday, freeSpaceY + numberOfTeams * pixelsPerRank);
 		}
 		
-		// Background - Coloured Parts
-		int counter = 0;
-		Color[] colors = new Color[] {colorCategory1, colorCategory2, colorCategory3, colorCategory4, colorCategory5};
-		for (int i = 0; i < 5; i++) {
-			g.setColor(colors[i]);
-			for (int j = 0; j < anzahlen[i]; j++) {
-				g.fillRect(freeSpaceX, freeSpaceY + 1 + counter++ * pixelsPerRank, rankings.length * pixelsPerMatchday, pixelsPerRank - 1);
+		for (int i = 0; i < numberOfTeams; i++) {
+			Optional<TabellenHintergrundFarbe> background = Optional.ofNullable(tableBackgroundColors.get(i + 1));
+			if (background.isPresent()) {
+				g.setColor(background.get().getColor());
+				g.fillRect(freeSpaceX, freeSpaceY + 1 + i * pixelsPerRank, rankings.length * pixelsPerMatchday, pixelsPerRank - 1);
 			}
-			if (i == 2)	counter = numberOfTeams - anzahlen[4] - anzahlen[3];
 		}
 		
 		// Foreground - Lines and squares

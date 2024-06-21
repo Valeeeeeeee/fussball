@@ -1,12 +1,12 @@
-P1: VfL Bochum
-P2: SpVgg Greuther Fürth
-P3: Holstein Kiel
-P4: Hamburger SV
-P5: Fortuna Düsseldorf
-P6: Karlsruher SC
-P7: SV Darmstadt 98
-P8: 1. FC Heidenheim
-P9: SC Paderborn
+P01: VfL Bochum
+P02: SpVgg Greuther Fürth
+P03: Holstein Kiel
+P04: Hamburger SV
+P05: Fortuna Düsseldorf
+P06: Karlsruher SC
+P07: SV Darmstadt 98
+P08: 1. FC Heidenheim
+P09: SC Paderborn
 P10: FC St. Pauli
 P11: 1. FC Nürnberg
 P12: Erzgebirge Aue

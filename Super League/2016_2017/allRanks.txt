@@ -1,10 +1,10 @@
-P1: FC Basel
-P2: Young Boys Bern
-P3: FC Lugano
-P4: FC Sion
-P5: FC Luzern
-P6: FC Thun
-P7: FC St. Gallen
-P8: Grasshopper-Club Zürich
-P9: FC Lausanne-Sport
+P01: FC Basel
+P02: Young Boys Bern
+P03: FC Lugano
+P04: FC Sion
+P05: FC Luzern
+P06: FC Thun
+P07: FC St. Gallen
+P08: Grasshopper-Club Zürich
+P09: FC Lausanne-Sport
 P10: FC Vaduz

@@ -1,12 +1,12 @@
-P1: 1. FC Köln
-P2: SC Paderborn
-P3: 1. FC Union Berlin
-P4: Hamburger SV
-P5: 1. FC Heidenheim
-P6: Holstein Kiel
-P7: Arminia Bielefeld
-P8: SSV Jahn Regensburg
-P9: FC St. Pauli
+P01: 1. FC Köln
+P02: SC Paderborn
+P03: 1. FC Union Berlin
+P04: Hamburger SV
+P05: 1. FC Heidenheim
+P06: Holstein Kiel
+P07: Arminia Bielefeld
+P08: SSV Jahn Regensburg
+P09: FC St. Pauli
 P10: SV Darmstadt 98
 P11: VfL Bochum
 P12: Dynamo Dresden

@@ -1,12 +1,12 @@
-P1: SSV Ulm 1846
-P2: Preußen Münster
-P3: SSV Jahn Regensburg
-P4: Dynamo Dresden
-P5: 1. FC Saarbrücken
-P6: Erzgebirge Aue
-P7: Rot-Weiss Essen
-P8: SV Sandhausen
-P9: SpVgg Unterhaching
+P01: SSV Ulm 1846
+P02: Preußen Münster
+P03: SSV Jahn Regensburg
+P04: Dynamo Dresden
+P05: 1. FC Saarbrücken
+P06: Erzgebirge Aue
+P07: Rot-Weiss Essen
+P08: SV Sandhausen
+P09: SpVgg Unterhaching
 P10: FC Ingolstadt 04
 P11: Borussia Dortmund II
 P12: SC Verl

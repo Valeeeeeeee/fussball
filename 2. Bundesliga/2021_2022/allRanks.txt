@@ -1,12 +1,12 @@
-P1: FC Schalke 04
-P2: Werder Bremen
-P3: Hamburger SV
-P4: SV Darmstadt 98
-P5: FC St. Pauli
-P6: 1. FC Heidenheim
-P7: SC Paderborn
-P8: 1. FC Nürnberg
-P9: Holstein Kiel
+P01: FC Schalke 04
+P02: Werder Bremen
+P03: Hamburger SV
+P04: SV Darmstadt 98
+P05: FC St. Pauli
+P06: 1. FC Heidenheim
+P07: SC Paderborn
+P08: 1. FC Nürnberg
+P09: Holstein Kiel
 P10: Fortuna Düsseldorf
 P11: Hannover 96
 P12: Karlsruher SC

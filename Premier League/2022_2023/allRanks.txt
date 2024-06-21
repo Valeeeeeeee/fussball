@@ -1,12 +1,12 @@
-P1: Manchester City
-P2: FC Arsenal
-P3: Manchester United
-P4: Newcastle United
-P5: FC Liverpool
-P6: Brighton & Hove Albion
-P7: Aston Villa
-P8: Tottenham Hotspurs
-P9: FC Brentford
+P01: Manchester City
+P02: FC Arsenal
+P03: Manchester United
+P04: Newcastle United
+P05: FC Liverpool
+P06: Brighton & Hove Albion
+P07: Aston Villa
+P08: Tottenham Hotspurs
+P09: FC Brentford
 P10: FC Fulham
 P11: Crystal Palace
 P12: FC Chelsea

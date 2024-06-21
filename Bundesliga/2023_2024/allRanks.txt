@@ -1,12 +1,12 @@
-P1: Bayer 04 Leverkusen
-P2: VfB Stuttgart
-P3: Bayern München
-P4: RasenBallsport Leipzig
-P5: Borussia Dortmund
-P6: Eintracht Frankfurt
-P7: TSG 1899 Hoffenheim
-P8: 1. FC Heidenheim
-P9: Werder Bremen
+P01: Bayer 04 Leverkusen
+P02: VfB Stuttgart
+P03: Bayern München
+P04: RasenBallsport Leipzig
+P05: Borussia Dortmund
+P06: Eintracht Frankfurt
+P07: TSG 1899 Hoffenheim
+P08: 1. FC Heidenheim
+P09: Werder Bremen
 P10: SC Freiburg
 P11: FC Augsburg
 P12: VfL Wolfsburg
@@ -17,4 +17,4 @@ P16: VfL Bochum
 P17: 1. FC Köln
 P18: SV Darmstadt 98
 REL01W: VfL Bochum
-REL01L: Fortuna Düsseldorf
+REL01L: GER22023P3

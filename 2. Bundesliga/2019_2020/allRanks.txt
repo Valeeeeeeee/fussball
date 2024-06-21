@@ -1,12 +1,12 @@
-P1: Arminia Bielefeld
-P2: VfB Stuttgart
-P3: 1. FC Heidenheim
-P4: Hamburger SV
-P5: SV Darmstadt 98
-P6: Hannover 96
-P7: Erzgebirge Aue
-P8: VfL Bochum
-P9: SpVgg Greuther Fürth
+P01: Arminia Bielefeld
+P02: VfB Stuttgart
+P03: 1. FC Heidenheim
+P04: Hamburger SV
+P05: SV Darmstadt 98
+P06: Hannover 96
+P07: Erzgebirge Aue
+P08: VfL Bochum
+P09: SpVgg Greuther Fürth
 P10: SV Sandhausen
 P11: Holstein Kiel
 P12: SSV Jahn Regensburg

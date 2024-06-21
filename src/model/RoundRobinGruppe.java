@@ -1,6 +1,6 @@
 package model;
 
-import static util.Utilities.alphabet;;
+import static util.Utilities.alphabet;
 
 public class RoundRobinGruppe extends Gruppe {
 
@@ -8,6 +8,9 @@ public class RoundRobinGruppe extends Gruppe {
 		super(season, id, isQ);
 		name = "Gruppe " + alphabet[id];
 		this.numberOfMatchesAgainstSameOpponent = numberOfMatchesAgainstSameOpponent;
+		
+		shortRankPrefix = String.format("%sG%c", isQ ? "Q" :  "", alphabet[this.id]);
+		longRankPrefix = String.format("%s%d%s", season.getTournament().getShortName(), season.getYear(), shortRankPrefix);
 		
 		load();
 	}
@@ -17,7 +20,11 @@ public class RoundRobinGruppe extends Gruppe {
 		numberOfMatchdays *= numberOfMatchesAgainstSameOpponent;
 	}
 	
-	protected String getRankId(int rank) {
-		return String.format("%sG%c%d", isQ ? "Q" :  "", alphabet[this.id], rank);
+	protected String getShortRankId(int rank) {
+		return String.format("%s%d", shortRankPrefix, rank);
+	}
+	
+	protected String getLongRankId(int rank) {
+		return String.format("%s%d", longRankPrefix, rank);
 	}
 }

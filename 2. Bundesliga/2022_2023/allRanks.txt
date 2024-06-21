@@ -1,12 +1,12 @@
-P1: 1. FC Heidenheim
-P2: SV Darmstadt 98
-P3: Hamburger SV
-P4: Fortuna Düsseldorf
-P5: FC St. Pauli
-P6: SC Paderborn
-P7: Karlsruher SC
-P8: Holstein Kiel
-P9: 1. FC Kaiserslautern
+P01: 1. FC Heidenheim
+P02: SV Darmstadt 98
+P03: Hamburger SV
+P04: Fortuna Düsseldorf
+P05: FC St. Pauli
+P06: SC Paderborn
+P07: Karlsruher SC
+P08: Holstein Kiel
+P09: 1. FC Kaiserslautern
 P10: Hannover 96
 P11: 1. FC Magdeburg
 P12: SpVgg Greuther Fürth

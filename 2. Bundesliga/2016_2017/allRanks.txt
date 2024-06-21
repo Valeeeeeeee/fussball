@@ -1,12 +1,12 @@
-P1: VfB Stuttgart
-P2: Hannover 96
-P3: Eintracht Braunschweig
-P4: 1. FC Union Berlin
-P5: Dynamo Dresden
-P6: 1. FC Heidenheim
-P7: FC St. Pauli
-P8: SpVgg Greuther Fürth
-P9: VfL Bochum
+P01: VfB Stuttgart
+P02: Hannover 96
+P03: Eintracht Braunschweig
+P04: 1. FC Union Berlin
+P05: Dynamo Dresden
+P06: 1. FC Heidenheim
+P07: FC St. Pauli
+P08: SpVgg Greuther Fürth
+P09: VfL Bochum
 P10: SV Sandhausen
 P11: Fortuna Düsseldorf
 P12: 1. FC Nürnberg

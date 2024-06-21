@@ -1,12 +1,12 @@
-P1: Bayern München
-P2: FC Schalke 04
-P3: Werder Bremen
-P4: Hertha BSC
-P5: VfB Stuttgart
-P6: Bayer 04 Leverkusen
-P7: Borussia Dortmund
-P8: Hamburger SV
-P9: VfL Wolfsburg
+P01: Bayern München
+P02: FC Schalke 04
+P03: Werder Bremen
+P04: Hertha BSC
+P05: VfB Stuttgart
+P06: Bayer 04 Leverkusen
+P07: Borussia Dortmund
+P08: Hamburger SV
+P09: VfL Wolfsburg
 P10: Hannover 96
 P11: 1. FSV Mainz 05
 P12: Arminia Bielefeld

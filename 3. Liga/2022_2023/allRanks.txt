@@ -1,12 +1,12 @@
-P1: SV Elversberg
-P2: SC Freiburg II
-P3: VfL Osnabrück
-P4: SV Wehen Wiesbaden
-P5: 1. FC Saarbrücken
-P6: Dynamo Dresden
-P7: Waldhof Mannheim
-P8: 1860 München
-P9: Viktoria Köln
+P01: SV Elversberg
+P02: SC Freiburg II
+P03: VfL Osnabrück
+P04: SV Wehen Wiesbaden
+P05: 1. FC Saarbrücken
+P06: Dynamo Dresden
+P07: Waldhof Mannheim
+P08: 1860 München
+P09: Viktoria Köln
 P10: SC Verl
 P11: FC Ingolstadt 04
 P12: MSV Duisburg

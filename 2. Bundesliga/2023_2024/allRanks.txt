@@ -1,12 +1,12 @@
-P1: FC St. Pauli
-P2: Holstein Kiel
-P3: Fortuna Düsseldorf
-P4: Hamburger SV
-P5: Karlsruher SC
-P6: Hannover 96
-P7: SC Paderborn
-P8: SpVgg Greuther Fürth
-P9: Hertha BSC
+P01: FC St. Pauli
+P02: Holstein Kiel
+P03: Fortuna Düsseldorf
+P04: Hamburger SV
+P05: Karlsruher SC
+P06: Hannover 96
+P07: SC Paderborn
+P08: SpVgg Greuther Fürth
+P09: Hertha BSC
 P10: FC Schalke 04
 P11: SV Elversberg
 P12: 1. FC Nürnberg

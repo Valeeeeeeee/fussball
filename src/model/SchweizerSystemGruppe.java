@@ -1,6 +1,6 @@
 package model;
 
-import static util.Utilities.alphabet;
+import static util.Utilities.twoDigit;
 
 public class SchweizerSystemGruppe extends Gruppe {
 
@@ -13,6 +13,9 @@ public class SchweizerSystemGruppe extends Gruppe {
 		
 		fixedNumberOfMatchdays = numberOfMatchdaysSSGroupStage;
 		
+		shortRankPrefix = String.format("%sP", isQ ? "Q" :  "");
+		longRankPrefix = String.format("%s%d%s", season.getTournament().getShortName(), season.getYear(), shortRankPrefix);
+		
 		load();
 	}
 	
@@ -20,7 +23,11 @@ public class SchweizerSystemGruppe extends Gruppe {
 		numberOfMatchdays = fixedNumberOfMatchdays;
 	}
 	
-	protected String getRankId(int rank) {
-		return String.format("%sP%d", isQ ? "Q" :  "", rank);
+	protected String getShortRankId(int rank) {
+		return String.format("%s%s", shortRankPrefix, twoDigit(rank));
+	}
+	
+	protected String getLongRankId(int rank) {
+		return String.format("%s%s", longRankPrefix, twoDigit(rank));
 	}
 }

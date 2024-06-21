@@ -33,6 +33,9 @@ public class Fussball extends JFrame {
 	
 	private String filePlayers;
 	private ArrayList<String> playersFromFile;
+
+	private String fileTableBackgroundColors;
+	private ArrayList<String> tableBackgroundColorsFromFile;
 	
 	private String fileConfiguration;
 	private ArrayList<String> configurationFromFile;
@@ -49,6 +52,7 @@ public class Fussball extends JFrame {
 	private int numberOfTournaments;
 	
 	private static HashMap<Integer, Spieler> players;
+	private static HashMap<String, TabellenHintergrundFarbe> tableBackgroundColors;
 	
 	private ArrayList<Liga> leagues;
 	private Liga currentLeague;
@@ -160,6 +164,7 @@ public class Fussball extends JFrame {
 		
 		loadPlayers();
 		loadConfiguration();
+		loadTableBackgroundColors();
 		initGUI();
 		
 		testSomethingBeforeIntroducingItIntoTheRealCode();
@@ -301,7 +306,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsNotScheduledMatchesLeagues[i]);
 			jLblsNotScheduledMatchesLeagues[i].setFont(fontMissingResults);
 			jLblsNotScheduledMatchesLeagues[i].setFocusable(false);
-			jLblsNotScheduledMatchesLeagues[i].setBackground(colorCategory6);
+			jLblsNotScheduledMatchesLeagues[i].setBackground(DARK_GRAY);
 			jLblsNotScheduledMatchesLeagues[i].setOpaque(true);
 			
 			jLblsCompletedMatchesLeagues[i] = new JLabel();
@@ -310,7 +315,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsCompletedMatchesLeagues[i]);
 			jLblsCompletedMatchesLeagues[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesLeagues[i].setFocusable(false);
-			jLblsCompletedMatchesLeagues[i].setBackground(colorCategory5);
+			jLblsCompletedMatchesLeagues[i].setBackground(RED);
 			jLblsCompletedMatchesLeagues[i].setOpaque(true);
 			
 			jLblsRunningMatchesLeagues[i] = new JLabel();
@@ -319,7 +324,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsRunningMatchesLeagues[i]);
 			jLblsRunningMatchesLeagues[i].setFont(fontMissingResults);
 			jLblsRunningMatchesLeagues[i].setFocusable(false);
-			jLblsRunningMatchesLeagues[i].setBackground(colorCategory2);
+			jLblsRunningMatchesLeagues[i].setBackground(LIGHT_GREEN);
 			jLblsRunningMatchesLeagues[i].setOpaque(true);
 		}
 		for (int i = 0; i < numberOfTournaments; i++) {
@@ -341,7 +346,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsNotScheduledMatchesTournaments[i]);
 			jLblsNotScheduledMatchesTournaments[i].setFont(fontMissingResults);
 			jLblsNotScheduledMatchesTournaments[i].setFocusable(false);
-			jLblsNotScheduledMatchesTournaments[i].setBackground(colorCategory6);
+			jLblsNotScheduledMatchesTournaments[i].setBackground(DARK_GRAY);
 			jLblsNotScheduledMatchesTournaments[i].setOpaque(true);
 			
 			jLblsCompletedMatchesTournaments[i] = new JLabel();
@@ -350,7 +355,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsCompletedMatchesTournaments[i]);
 			jLblsCompletedMatchesTournaments[i].setFont(fontMissingResults);
 			jLblsCompletedMatchesTournaments[i].setFocusable(false);
-			jLblsCompletedMatchesTournaments[i].setBackground(colorCategory5);
+			jLblsCompletedMatchesTournaments[i].setBackground(RED);
 			jLblsCompletedMatchesTournaments[i].setOpaque(true);
 			
 			jLblsRunningMatchesTournaments[i] = new JLabel();
@@ -359,7 +364,7 @@ public class Fussball extends JFrame {
 			alignCenter(jLblsRunningMatchesTournaments[i]);
 			jLblsRunningMatchesTournaments[i].setFont(fontMissingResults);
 			jLblsRunningMatchesTournaments[i].setFocusable(false);
-			jLblsRunningMatchesTournaments[i].setBackground(colorCategory2);
+			jLblsRunningMatchesTournaments[i].setBackground(LIGHT_GREEN);
 			jLblsRunningMatchesTournaments[i].setOpaque(true);
 		}
 		refreshRunningAndCompletedMatches();
@@ -831,7 +836,6 @@ public class Fussball extends JFrame {
 			int numberOfButtons = currentTSeason.getNumberOfGroups();
 			if (numberOfButtons > 1)	numberOfButtons++;
 			groupStageButtons = new JButton[numberOfButtons];
-			log("There are " + numberOfButtons + " buttons.");
 			for (int i = 0; i < currentTSeason.getNumberOfGroups(); i++) {
 				final int x = i;
 				groupStageButtons[i] = new JButton();
@@ -1006,6 +1010,14 @@ public class Fussball extends JFrame {
 		players.remove(oldID);
 		players.put(newID, player);
 		return true;
+	}
+	
+	public static HashMap<Integer, TabellenHintergrundFarbe> getTableBackgroundColors(ArrayList<String> rankKeys, String longRankPrefix) {
+		HashMap<Integer, TabellenHintergrundFarbe> colors = new HashMap<>();
+		
+		rankKeys.stream().filter(k -> tableBackgroundColors.containsKey(k)).forEach(k -> colors.put(Integer.parseInt(k.replace(longRankPrefix, "")), tableBackgroundColors.get(k)));
+		
+		return colors;
 	}
 	
 	public void uebersichtAnzeigen(String teamName) {
@@ -1589,6 +1601,18 @@ public class Fussball extends JFrame {
 		}
 		
 		writeFile(filePlayers, playersFromFile);
+	}
+	
+	private void loadTableBackgroundColors() {
+		fileTableBackgroundColors = workspace + File.separator + "tableBackgroundColors.txt";
+		tableBackgroundColorsFromFile = readFile(fileTableBackgroundColors);
+		
+		tableBackgroundColors = new HashMap<>();
+
+		for (int i = 0; i < tableBackgroundColorsFromFile.size(); i++) {
+			String[] split = tableBackgroundColorsFromFile.get(i).split(":");
+			tableBackgroundColors.put(split[0], TabellenHintergrundFarbe.of(Integer.parseInt(split[1])));
+		}
 	}
 	
 	private void loadConfiguration() {

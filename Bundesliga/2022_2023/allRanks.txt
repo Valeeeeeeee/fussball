@@ -1,12 +1,12 @@
-P1: Bayern München
-P2: Borussia Dortmund
-P3: RasenBallsport Leipzig
-P4: 1. FC Union Berlin
-P5: SC Freiburg
-P6: Bayer 04 Leverkusen
-P7: Eintracht Frankfurt
-P8: VfL Wolfsburg
-P9: 1. FSV Mainz 05
+P01: Bayern München
+P02: Borussia Dortmund
+P03: RasenBallsport Leipzig
+P04: 1. FC Union Berlin
+P05: SC Freiburg
+P06: Bayer 04 Leverkusen
+P07: Eintracht Frankfurt
+P08: VfL Wolfsburg
+P09: 1. FSV Mainz 05
 P10: Borussia Mönchengladbach
 P11: 1. FC Köln
 P12: TSG 1899 Hoffenheim

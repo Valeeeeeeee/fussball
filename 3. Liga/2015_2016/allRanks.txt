@@ -1,12 +1,12 @@
-P1: Dynamo Dresden
-P2: Erzgebirge Aue
-P3: Würzburger Kickers
-P4: 1. FC Magdeburg
-P5: VfL Osnabrück
-P6: Chemnitzer FC
-P7: SG Sonnenhof Großaspach
-P8: Rot-Weiß Erfurt
-P9: Preußen Münster
+P01: Dynamo Dresden
+P02: Erzgebirge Aue
+P03: Würzburger Kickers
+P04: 1. FC Magdeburg
+P05: VfL Osnabrück
+P06: Chemnitzer FC
+P07: SG Sonnenhof Großaspach
+P08: Rot-Weiß Erfurt
+P09: Preußen Münster
 P10: Hansa Rostock
 P11: Fortuna Köln
 P12: 1. FSV Mainz 05 II

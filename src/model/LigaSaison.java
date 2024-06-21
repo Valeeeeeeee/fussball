@@ -27,6 +27,9 @@ public class LigaSaison implements Wettbewerb {
 	private boolean hasLeagueSplit;
 	private boolean hasPlayoffs;
 	
+	private String shortRankPrefix = "P";
+	private String longRankPrefix;
+	
 	private HashMap<Dauer, Integer> numberOfSubstitutions;
 	
 	private ArrayList<RankingCriterion> rankingCriteria;
@@ -53,7 +56,7 @@ public class LigaSaison implements Wettbewerb {
 	private KORunde playoffs;
 	private HashMap<String, Mannschaft> teamsFromOtherCompetition = new HashMap<>();
 	
-	private int[] numberOf;
+	private HashMap<Integer, TabellenHintergrundFarbe> tableBackgroundColors;
 	
 	private Datum[] dates;
 	private int[][] rkotIndices;
@@ -100,6 +103,7 @@ public class LigaSaison implements Wettbewerb {
 		startDate = isSummerToSpringSeason ? new Datum(1, 7, year) : new Datum(1, 1, year);
 		finalDate = isSummerToSpringSeason ? new Datum(30, 6, year + 1) : new Datum(31, 12, year);
 		splitGroups = new ArrayList<>();
+		longRankPrefix = String.format("%s%d%s", league.getShortName(), year, shortRankPrefix);
 	}
 	
 	public Liga getLeague() {
@@ -154,8 +158,8 @@ public class LigaSaison implements Wettbewerb {
 		return year + (isSummerToSpringSeason ? trennzeichen + (year + 1) : "");
 	}
 	
-	public int getNumberOf(int index) {
-		return numberOf[index];
+	public HashMap<Integer, TabellenHintergrundFarbe> getTableBackgroundColors() {
+		return tableBackgroundColors;
 	}
 	
 	public int getNumberOfTeams() {
@@ -862,28 +866,6 @@ public class LigaSaison implements Wettbewerb {
 		}
 	}
 	
-	private String getAnzahlRepresentation() {
-		String representation = "", sep = "";
-		
-		for (int i = 0; i < numberOf.length; i++) {
-			representation += sep + numberOf[i];
-			sep = ",";
-		}
-		
-		return representation;
-	}
-	
-	private int[] getAnzahlFromString(String anzahlen) {
-		String[] split = anzahlen.split(",");
-		int[] anzahl = new int[split.length];
-		
-		for (int i = 0; i < anzahl.length; i++) {
-			anzahl[i] = Integer.parseInt(split[i]);
-		}
-		
-		return anzahl;
-	}
-	
 	private void initDefaultKickoffTimes(String DKTAsString) {
 		// kommt als 0,1,1,1,1,1,2,3,4
 		String[] split = DKTAsString.split(",");
@@ -1132,6 +1114,16 @@ public class LigaSaison implements Wettbewerb {
 		writeFile(fileMatches, matchesFromFile);
 	}
 	
+	private void loadTableBackgroundColors() {
+		ArrayList<String> longRankIds = new ArrayList<>();
+		
+		for (int rank = 1; rank <= numberOfTeams; rank++) {
+			longRankIds.add(getLongRankId(rank));
+		}
+		
+		tableBackgroundColors = Fussball.getTableBackgroundColors(longRankIds, longRankPrefix);
+	}
+	
 	private void loadMatchData() {
 		try {
 			matchDataFromFile = readFile(fileMatchData);
@@ -1172,14 +1164,21 @@ public class LigaSaison implements Wettbewerb {
 		return Optional.empty();
 	}
 	
+	private String getShortRankId(int rank) {
+		return String.format("%s%s", shortRankPrefix, twoDigit(rank));
+	}
+	
+	private String getLongRankId(int rank) {
+		return String.format("%s%s", longRankPrefix, twoDigit(rank));
+	}
+	
 	public String[] getRanks() {
 		tabelle.calculate(numberOfRegularMatchdays - 1, Tabellenart.COMPLETE);
 		
 		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
-			String id = "P" + (i + 1);
-			ranks[i] = id + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(league.getShortName() + year + id);
+			ranks[i] = getShortRankId(i + 1) + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(getLongRankId(i + 1));
 		}
 		
 		return ranks;
@@ -1241,6 +1240,7 @@ public class LigaSaison implements Wettbewerb {
 		loadReferees();
 		loadTeams();
 		initializeArrays();
+		loadTableBackgroundColors();
 		
 		if (tabelle == null) {
 			tabelle = new Tabelle(this);
@@ -1298,7 +1298,6 @@ public class LigaSaison implements Wettbewerb {
 		toString += numberOfMatchesAgainstSameOpponent + ";";
 		toString += getDefaultKickoffTimesRepresentation() + ";";
 		toString += teamsHaveKader + ";";
-		toString += getAnzahlRepresentation() + ";";
 		toString += hasPlayoffs + ";";
 		toString += hasLeagueSplit + ";";
 		
@@ -1329,7 +1328,6 @@ public class LigaSaison implements Wettbewerb {
 		numberOfMatchesAgainstSameOpponent = Integer.parseInt(split[index++]);
 		initDefaultKickoffTimes(split[index++]);
 		teamsHaveKader = Boolean.parseBoolean(split[index++]);
-		numberOf = getAnzahlFromString(split[index++]);
 		hasPlayoffs = Boolean.parseBoolean(split[index++]);
 		hasLeagueSplit = Boolean.parseBoolean(split[index++]);
 		numberOfMatchesAgainstSameOpponentAfterSplit = hasLeagueSplit ? 1 : 0;

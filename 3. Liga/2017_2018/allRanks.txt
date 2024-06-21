@@ -1,12 +1,12 @@
-P1: 1. FC Magdeburg
-P2: SC Paderborn
-P3: Karlsruher SC
-P4: SV Wehen Wiesbaden
-P5: Würzburger Kickers
-P6: Hansa Rostock
-P7: SV Meppen
-P8: Fortuna Köln
-P9: SpVgg Unterhaching
+P01: 1. FC Magdeburg
+P02: SC Paderborn
+P03: Karlsruher SC
+P04: SV Wehen Wiesbaden
+P05: Würzburger Kickers
+P06: Hansa Rostock
+P07: SV Meppen
+P08: Fortuna Köln
+P09: SpVgg Unterhaching
 P10: Preußen Münster
 P11: Carl Zeiss Jena
 P12: VfR Aalen

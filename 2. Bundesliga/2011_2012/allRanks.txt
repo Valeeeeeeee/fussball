@@ -1,12 +1,12 @@
-P1: SpVgg Greuther Fürth
-P2: Eintracht Frankfurt
-P3: Fortuna Düsseldorf
-P4: FC St. Pauli
-P5: SC Paderborn
-P6: 1860 München
-P7: 1. FC Union Berlin
-P8: Eintracht Braunschweig
-P9: Dynamo Dresden
+P01: SpVgg Greuther Fürth
+P02: Eintracht Frankfurt
+P03: Fortuna Düsseldorf
+P04: FC St. Pauli
+P05: SC Paderborn
+P06: 1860 München
+P07: 1. FC Union Berlin
+P08: Eintracht Braunschweig
+P09: Dynamo Dresden
 P10: MSV Duisburg
 P11: VfL Bochum
 P12: FC Ingolstadt 04

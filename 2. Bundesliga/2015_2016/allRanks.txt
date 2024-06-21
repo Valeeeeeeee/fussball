@@ -1,12 +1,12 @@
-P1: SC Freiburg
-P2: RasenBallsport Leipzig
-P3: 1. FC Nürnberg
-P4: FC St. Pauli
-P5: VfL Bochum
-P6: 1. FC Union Berlin
-P7: Karlsruher SC
-P8: Eintracht Braunschweig
-P9: SpVgg Greuther Fürth
+P01: SC Freiburg
+P02: RasenBallsport Leipzig
+P03: 1. FC Nürnberg
+P04: FC St. Pauli
+P05: VfL Bochum
+P06: 1. FC Union Berlin
+P07: Karlsruher SC
+P08: Eintracht Braunschweig
+P09: SpVgg Greuther Fürth
 P10: 1. FC Kaiserslautern
 P11: 1. FC Heidenheim
 P12: Arminia Bielefeld

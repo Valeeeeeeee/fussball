@@ -355,7 +355,7 @@ public class Uebersicht extends JPanel {
 				jLblBackground = new JLabel();
 				jPnlTableExcerpt.add(jLblBackground);
 				jLblBackground.setOpaque(true);
-				jLblBackground.setBackground(colorCategory3);
+				jLblBackground.setBackground(YELLOW);
 			}
 			{
 				jSPKader = new JScrollPane();

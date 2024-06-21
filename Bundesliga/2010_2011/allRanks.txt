@@ -1,12 +1,12 @@
-P1: Borussia Dortmund
-P2: Bayer 04 Leverkusen
-P3: Bayern München
-P4: Hannover 96
-P5: 1. FSV Mainz 05
-P6: 1. FC Nürnberg
-P7: 1. FC Kaiserslautern
-P8: Hamburger SV
-P9: SC Freiburg
+P01: Borussia Dortmund
+P02: Bayer 04 Leverkusen
+P03: Bayern München
+P04: Hannover 96
+P05: 1. FSV Mainz 05
+P06: 1. FC Nürnberg
+P07: 1. FC Kaiserslautern
+P08: Hamburger SV
+P09: SC Freiburg
 P10: 1. FC Köln
 P11: TSG 1899 Hoffenheim
 P12: VfB Stuttgart

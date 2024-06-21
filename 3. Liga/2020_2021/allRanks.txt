@@ -1,12 +1,12 @@
-P1: Dynamo Dresden
-P2: Hansa Rostock
-P3: FC Ingolstadt 04
-P4: 1860 München
-P5: 1. FC Saarbrücken
-P6: SV Wehen Wiesbaden
-P7: SC Verl
-P8: Waldhof Mannheim
-P9: Hallescher FC
+P01: Dynamo Dresden
+P02: Hansa Rostock
+P03: FC Ingolstadt 04
+P04: 1860 München
+P05: 1. FC Saarbrücken
+P06: SV Wehen Wiesbaden
+P07: SC Verl
+P08: Waldhof Mannheim
+P09: Hallescher FC
 P10: FSV Zwickau
 P11: 1. FC Magdeburg
 P12: Viktoria Köln

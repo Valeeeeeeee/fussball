@@ -1,12 +1,12 @@
-P1: Bayern München
-P2: VfL Wolfsburg
-P3: Borussia Mönchengladbach
-P4: Bayer 04 Leverkusen
-P5: FC Augsburg
-P6: FC Schalke 04
-P7: Borussia Dortmund
-P8: TSG 1899 Hoffenheim
-P9: Eintracht Frankfurt
+P01: Bayern München
+P02: VfL Wolfsburg
+P03: Borussia Mönchengladbach
+P04: Bayer 04 Leverkusen
+P05: FC Augsburg
+P06: FC Schalke 04
+P07: Borussia Dortmund
+P08: TSG 1899 Hoffenheim
+P09: Eintracht Frankfurt
 P10: Werder Bremen
 P11: 1. FSV Mainz 05
 P12: 1. FC Köln

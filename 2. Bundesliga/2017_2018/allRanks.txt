@@ -1,12 +1,12 @@
-P1: Fortuna Düsseldorf
-P2: 1. FC Nürnberg
-P3: Holstein Kiel
-P4: Arminia Bielefeld
-P5: SSV Jahn Regensburg
-P6: VfL Bochum
-P7: MSV Duisburg
-P8: 1. FC Union Berlin
-P9: FC Ingolstadt 04
+P01: Fortuna Düsseldorf
+P02: 1. FC Nürnberg
+P03: Holstein Kiel
+P04: Arminia Bielefeld
+P05: SSV Jahn Regensburg
+P06: VfL Bochum
+P07: MSV Duisburg
+P08: 1. FC Union Berlin
+P09: FC Ingolstadt 04
 P10: SV Darmstadt 98
 P11: SV Sandhausen
 P12: FC St. Pauli

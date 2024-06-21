@@ -3,6 +3,8 @@ package model;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Optional;
 
 import javax.swing.*;
 
@@ -25,11 +27,7 @@ public class Tabelle extends JPanel {
 	
 	private int numberOfTeams;
 	
-	private int numberOfCat1;
-	private int numberOfCat2;
-	private int numberOfCat3;
-	private int numberOfCat4;
-	private int numberOfCat5;
+	private HashMap<Integer, TabellenHintergrundFarbe> tableBackgroundColors;
 	
 	private String[] headers = {"Pl.", "Verein", "Sp.", "G", "U", "V", "T+", "T-", "+/-", "Pkt."};
 	private Color colorTabellenart = new Color(255, 255, 128);
@@ -70,9 +68,7 @@ public class Tabelle extends JPanel {
 		belongsToALeague = false;
 		
 		numberOfTeams = group.getNumberOfTeams();
-		numberOfCat1 = 2;
-		numberOfCat4 = 0;
-		numberOfCat5 = numberOfTeams - numberOfCat1 - numberOfCat4;
+		tableBackgroundColors = group.getTableBackgroundColors();
 		
 		initGUI();
 	}
@@ -84,11 +80,7 @@ public class Tabelle extends JPanel {
 		belongsToALeague = true;
 		
 		numberOfTeams = season.getNumberOfTeams();
-		numberOfCat1 = season.getNumberOf(0);
-		numberOfCat2 = season.getNumberOf(1);
-		numberOfCat3 = season.getNumberOf(2);
-		numberOfCat4 = season.getNumberOf(3);
-		numberOfCat5 = season.getNumberOf(4);
+		tableBackgroundColors = season.getTableBackgroundColors();
 		
 		initGUI();
 	}
@@ -277,20 +269,13 @@ public class Tabelle extends JPanel {
 			sumofwidthes += widthes[j] + gapx[j];
 		}
 		
-		g.setColor(colorCategory1);
-		g.fillRect(hstartx, hstarty, sumofwidthes, numberOfCat1 * hheight);
-		
-		g.setColor(colorCategory2);
-		g.fillRect(hstartx, hstarty + numberOfCat1 * hheight, sumofwidthes, numberOfCat2 * hheight);
-		
-		g.setColor(colorCategory3);
-		g.fillRect(hstartx, hstarty + (numberOfCat1 + numberOfCat2) * hheight, sumofwidthes, numberOfCat3 * hheight);
-		
-		g.setColor(colorCategory4);
-		g.fillRect(hstartx, hstarty + (numberOfTeams - numberOfCat5 - numberOfCat4) * hheight, sumofwidthes, numberOfCat4 * hheight);
-		
-		g.setColor(colorCategory5);
-		g.fillRect(hstartx, hstarty + (numberOfTeams - numberOfCat5) * hheight, sumofwidthes, numberOfCat5 * hheight);
+		for (int i = 0; i < numberOfTeams; i++) {
+			Optional<TabellenHintergrundFarbe> background = Optional.ofNullable(tableBackgroundColors.get(i + 1));
+			if (background.isPresent()) {
+				g.setColor(background.get().getColor());
+				g.fillRect(hstartx, hstarty + i * hheight, sumofwidthes, hheight);
+			}
+		}
 	}
 	
 	private void fillLabels() {

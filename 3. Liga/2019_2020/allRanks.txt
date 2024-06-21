@@ -1,12 +1,12 @@
-P1: Bayern München II
-P2: Würzburger Kickers
-P3: Eintracht Braunschweig
-P4: FC Ingolstadt 04
-P5: MSV Duisburg
-P6: Hansa Rostock
-P7: SV Meppen
-P8: 1860 München
-P9: Waldhof Mannheim
+P01: Bayern München II
+P02: Würzburger Kickers
+P03: Eintracht Braunschweig
+P04: FC Ingolstadt 04
+P05: MSV Duisburg
+P06: Hansa Rostock
+P07: SV Meppen
+P08: 1860 München
+P09: Waldhof Mannheim
 P10: 1. FC Kaiserslautern
 P11: SpVgg Unterhaching
 P12: Viktoria Köln

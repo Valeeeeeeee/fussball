@@ -1,12 +1,12 @@
-P1: FC Barcelona
-P2: Atlético Madrid
-P3: Real Madrid
-P4: FC Valencia
-P5: FC Villarreal
-P6: Real Betis Sevilla
-P7: FC Sevilla
-P8: FC Getafe
-P9: SD Eibar
+P01: FC Barcelona
+P02: Atlético Madrid
+P03: Real Madrid
+P04: FC Valencia
+P05: FC Villarreal
+P06: Real Betis Sevilla
+P07: FC Sevilla
+P08: FC Getafe
+P09: SD Eibar
 P10: FC Girona
 P11: Espanyol Barcelona
 P12: Real Sociedad San Sebastián

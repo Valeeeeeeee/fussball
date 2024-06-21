@@ -1,12 +1,12 @@
-P1: Arminia Bielefeld
-P2: MSV Duisburg
-P3: Holstein Kiel
-P4: Stuttgarter Kickers
-P5: Chemnitzer FC
-P6: Dynamo Dresden
-P7: FC Energie Cottbus
-P8: Preußen Münster
-P9: SV Wehen Wiesbaden
+P01: Arminia Bielefeld
+P02: MSV Duisburg
+P03: Holstein Kiel
+P04: Stuttgarter Kickers
+P05: Chemnitzer FC
+P06: Dynamo Dresden
+P07: FC Energie Cottbus
+P08: Preußen Münster
+P09: SV Wehen Wiesbaden
 P10: Hallescher FC
 P11: VfL Osnabrück
 P12: Rot-Weiß Erfurt

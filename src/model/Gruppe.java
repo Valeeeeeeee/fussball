@@ -1,6 +1,7 @@
 package model;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 import dto.fixtures.SpielplanSpielDTO;
@@ -27,6 +28,9 @@ public abstract class Gruppe implements Wettbewerb {
 	private TurnierSaison season;
 	private boolean teamsHaveKader;
 	
+	protected String shortRankPrefix;
+	protected String longRankPrefix;
+	
 	private ArrayList<RankingCriterion> rankingCriteria;
 	
 	private Spiel[][] matches;
@@ -51,6 +55,8 @@ public abstract class Gruppe implements Wettbewerb {
 	private Datum startDate;
 	private Datum finalDate;
 	private RelativeAnstossZeit[][] relativeKickOffTimes;
+	
+	private HashMap<Integer, TabellenHintergrundFarbe> tableBackgroundColors;
 	
 	private Spieltag spieltag;
 	private Tabelle tabelle;
@@ -140,6 +146,10 @@ public abstract class Gruppe implements Wettbewerb {
 	
 	public Datum getFinalDate() {
 		return finalDate;
+	}
+	
+	public HashMap<Integer, TabellenHintergrundFarbe> getTableBackgroundColors() {
+		return tableBackgroundColors;
 	}
 	
 	public String[] getMatchdays() {
@@ -583,6 +593,7 @@ public abstract class Gruppe implements Wettbewerb {
 		loadRankingCriteria();
 		loadTeams();
 		initializeArrays();
+		loadTableBackgroundColors();
 		
 		loadMatches();
 		loadMatchData();
@@ -640,20 +651,31 @@ public abstract class Gruppe implements Wettbewerb {
 		writeFile(fileTeams, teamsFromFile);
 	}
 	
+	private void loadTableBackgroundColors() {
+		ArrayList<String> longRankIds = new ArrayList<>();
+		
+		for (int rank = 1; rank <= numberOfTeams; rank++) {
+			longRankIds.add(getLongRankId(rank));
+		}
+		
+		tableBackgroundColors = Fussball.getTableBackgroundColors(longRankIds, longRankPrefix);
+	}
+	
+	protected abstract String getShortRankId(int rank);
+	
+	protected abstract String getLongRankId(int rank);
+	
 	public String[] getRanks() {
 		tabelle.calculate(numberOfMatchdays - 1, Tabellenart.COMPLETE);
 		
 		String[] ranks = new String[numberOfTeams];
 		
 		for (int i = 0; i < ranks.length; i++) {
-			String id = getRankId(i + 1);
-			ranks[i] = id + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(season.getTournament().getShortName() + season.getYear() + id);
+			ranks[i] = getShortRankId(i + 1) + ": " + getTeamOnPlace(i + 1).map(Mannschaft::getName).orElse(getLongRankId(i + 1));
 		}
 		
 		return ranks;
 	}
-	
-	protected abstract String getRankId(int rank);
 	
 	private void initializeArrays() {
 		relativeKickOffTimes = new RelativeAnstossZeit[numberOfMatchdays][numberOfMatchesPerMatchday];

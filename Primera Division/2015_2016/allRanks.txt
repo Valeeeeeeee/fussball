@@ -1,12 +1,12 @@
-P1: FC Barcelona
-P2: Real Madrid
-P3: Atlético Madrid
-P4: FC Villarreal
-P5: Athletic Bilbao
-P6: Celta Vigo
-P7: FC Sevilla
-P8: FC Málaga
-P9: Real Sociedad San Sebastián
+P01: FC Barcelona
+P02: Real Madrid
+P03: Atlético Madrid
+P04: FC Villarreal
+P05: Athletic Bilbao
+P06: Celta Vigo
+P07: FC Sevilla
+P08: FC Málaga
+P09: Real Sociedad San Sebastián
 P10: Real Betis Sevilla
 P11: UD Las Palmas
 P12: FC Valencia

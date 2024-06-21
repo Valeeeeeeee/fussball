@@ -1,12 +1,12 @@
-P1: FC Ingolstadt 04
-P2: SV Darmstadt 98
-P3: Karlsruher SC
-P4: 1. FC Kaiserslautern
-P5: RasenBallsport Leipzig
-P6: Eintracht Braunschweig
-P7: 1. FC Union Berlin
-P8: 1. FC Heidenheim
-P9: 1. FC Nürnberg
+P01: FC Ingolstadt 04
+P02: SV Darmstadt 98
+P03: Karlsruher SC
+P04: 1. FC Kaiserslautern
+P05: RasenBallsport Leipzig
+P06: Eintracht Braunschweig
+P07: 1. FC Union Berlin
+P08: 1. FC Heidenheim
+P09: 1. FC Nürnberg
 P10: Fortuna Düsseldorf
 P11: VfL Bochum
 P12: SV Sandhausen
