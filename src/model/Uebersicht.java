@@ -1179,7 +1179,7 @@ public class Uebersicht extends JPanel {
 			remove(teamSeasonStatistics);
 		}
 		
-		teamSeasonStatistics = TeamSaisonStatistik.of(TeamSaisonStatistikDTO.of(team), this, showingMoreStats);
+		teamSeasonStatistics = TeamSaisonStatistik.of(TeamSaisonStatistikDTO.of(team), this, team.getCompetition(), showingMoreStats);
 		add(teamSeasonStatistics);
 		teamSeasonStatistics.setLocation(startXStatistics, startYStatistics);
 	}

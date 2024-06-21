@@ -18,6 +18,7 @@ import model.SerienTyp;
 import model.SpielSerien;
 import model.TeamFairplayBilanz;
 import model.Uebersicht;
+import model.Wettbewerb;
 
 public class TeamSaisonStatistik extends JPanel {
 
@@ -275,12 +276,15 @@ public class TeamSaisonStatistik extends JPanel {
 		jLblRedCardsVal.setText(String.valueOf(fairplayData.getNumberOfRedCards()));
 	}
 	
-	private void showMatchups(ArrayList<TeamSaisonStatistikBegegnungenDTO> matchupDtos) {
+	private void showMatchups(Wettbewerb competition, ArrayList<TeamSaisonStatistikBegegnungenDTO> matchupDtos) {
 		jLblsResultsTeams = new ArrayList<>();
 		jLblsResultsValues = new ArrayList<>();
 		
 		int counter = 0;
 		for (TeamSaisonStatistikBegegnungenDTO matchupDto : matchupDtos) {
+			ArrayList<TeamSaisonStatistikSpielDTO> matchDtos = matchupDto.getMatches();
+			if (competition.getNumberOfMatchesAgainstSameOpponent() == 0 && matchDtos.isEmpty())	continue;
+			
 			JLabel label = new JLabel();
 			add(label);
 			label.setBounds(results[STARTX], results[STARTY] + counter * results[GAPY], results[SIZEX], results[SIZEY]);
@@ -288,7 +292,6 @@ public class TeamSaisonStatistik extends JPanel {
 			jLblsResultsTeams.add(label);
 			
 			jLblsResultsValues.add(new ArrayList<>());
-			ArrayList<TeamSaisonStatistikSpielDTO> matchDtos = matchupDto.getMatches();
 			
 			int counterMatches = 0;
 			for (TeamSaisonStatistikSpielDTO matchDto : matchDtos) {
@@ -337,14 +340,14 @@ public class TeamSaisonStatistik extends JPanel {
 		setSize(width, hasStatistics && showingMoreStatistics ? maxHeight : standardHeight);		
 	}
 	
-	public static TeamSaisonStatistik of(TeamSaisonStatistikDTO teamSeasonStatisticsDto, Uebersicht overview, boolean showingMoreStatistics) {
+	public static TeamSaisonStatistik of(TeamSaisonStatistikDTO teamSeasonStatisticsDto, Uebersicht overview, Wettbewerb competition, boolean showingMoreStatistics) {
 		TeamSaisonStatistik teamSeasonStatistics = new TeamSaisonStatistik(overview);
 		
 		teamSeasonStatistics.hasStatistics = teamSeasonStatisticsDto.hasStatistics();
 		if (teamSeasonStatistics.hasStatistics) {
 			teamSeasonStatistics.setTeamRecordValues(teamSeasonStatisticsDto.getTeamRecord());
 			teamSeasonStatistics.setTeamFairplayRecordValues(teamSeasonStatisticsDto.getTeamFairplayRecord());
-			teamSeasonStatistics.showMatchups(teamSeasonStatisticsDto.getMatchups());
+			teamSeasonStatistics.showMatchups(competition, teamSeasonStatisticsDto.getMatchups());
 			teamSeasonStatistics.showLongestSeries(teamSeasonStatisticsDto.getLongestSeries());
 		}
 		
