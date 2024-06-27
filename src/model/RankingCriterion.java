@@ -40,6 +40,13 @@ public enum RankingCriterion {
 		return includeAllGames;
 	}
 	
+	public boolean isDirectComparison() {
+		return this == DIRECT_COMPARISON_MORE_POINTS ||
+				this == DIRECT_COMPARISON_BETTER_GOAL_DIFFERENCE ||
+				this == DIRECT_COMPARISON_MORE_GOALS_SCORED ||
+				this == DIRECT_COMPARISON_MORE_AWAY_GOALS_SCORED;
+	}
+	
 	public static RankingCriterion parse(String value) {
 		return Stream.of(values()).filter(v -> v.toString().equals(value)).findFirst().orElse(null);
 	}

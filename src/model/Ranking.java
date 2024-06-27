@@ -35,7 +35,7 @@ public class Ranking {
 		for (RankingCriterion rankingCriterion : rankingCriteria) {
 			if (!rankingCriterion.evaluateBeforeEnd() && !competitionIsOver)	continue;
 			
-			subRanking.discriminate(rankingCriterion);
+			subRanking.discriminate(rankingCriterion, null);
 		}
 		
 		subRanking.setPlaces(new RankingPosition());

@@ -15,6 +15,8 @@ public class SubRanking {
 	
 	private ArrayList<SubRanking> children;
 	
+	private ArrayList<Mannschaft> overrideOpponents;
+	
 	public SubRanking(int value, ArrayList<Mannschaft> teams, int untilMatchday, Tabellenart tableType) {
 		this.value = value;
 		this.teams = teams;
@@ -44,13 +46,13 @@ public class SubRanking {
 		return children.size() > 0;
 	}
 	
-	public void discriminate(RankingCriterion criterion) {
+	public void discriminate(RankingCriterion criterion, ArrayList<Mannschaft> overrideOpponents) {
 		if (hasChildren()) {
 			for (SubRanking subRanking : children) {
-				subRanking.discriminate(criterion);
+				subRanking.discriminate(criterion, criterion.isDirectComparison() ? this.overrideOpponents : null);
 			}
 		} else if (!isOneTeam()) {
-			ArrayList<Mannschaft> includedOpponents = criterion.includeAllGames() ? teams : getTeamsWithIds(idsAtValue);
+			ArrayList<Mannschaft> includedOpponents = getOpponents(criterion, overrideOpponents);
 			for (Integer id : idsAtValue) {
 				int value = teams.get(id - 1).getValueForCriterion(includedOpponents, untilMatchday, tableType, criterion);
 				
@@ -70,7 +72,15 @@ public class SubRanking {
 					children.add(index, newSubRanking);
 				}
 			}
+			
+			this.overrideOpponents = criterion.isDirectComparison() ? includedOpponents : null;
 		}
+	}
+	
+	private ArrayList<Mannschaft> getOpponents(RankingCriterion criterion, ArrayList<Mannschaft> overrideOpponents) {
+		if (criterion.includeAllGames())									return teams;
+		if (criterion.isDirectComparison() && overrideOpponents != null)	return overrideOpponents;
+		return getTeamsWithIds(idsAtValue);
 	}
 	
 	private ArrayList<Mannschaft> getTeamsWithIds(ArrayList<Integer> ids) {
