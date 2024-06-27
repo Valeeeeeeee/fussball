@@ -650,7 +650,7 @@ public class SpielerInformationen extends JFrame {
 			refreshCBACSinceDayModel();
 			refreshCBACUntilDayModel();
 			
-			Spieler player = addingNewPlayer ? new Spieler("Vorname", "Nachname", null, new Datum(1, 1, team.getCompetition().getYear() - averageAge), "") : this.player;
+			Spieler player = addingNewPlayer ? new Spieler("Vorname", "Nachname", null, new Datum(1, 1, team.getCompetition().getYear() - averageAge), (!team.isClub() ? team.getName() : "")) : this.player;
 			jTFSquadNumber.setText(jLblSquadNumber.getText());
 			jTFFirstNames.setText(player.getFirstNameFile());
 			jTFLastNames.setText(player.getLastNameFile());
