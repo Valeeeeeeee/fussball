@@ -93,22 +93,22 @@ GF1: Portugal
 GF2: Türkei
 GF3: Georgien
 GF4: Tschechien
-AF01W: GA2 vs. GB2
-AF01L: GA2 vs. GB2
-AF02W: GA1 vs. GC2
-AF02L: GA1 vs. GC2
-AF03W: GC1 vs. G31
-AF03L: GC1 vs. G31
-AF04W: GB1 vs. G32
-AF04L: GB1 vs. G32
-AF05W: GD2 vs. GE2
-AF05L: GD2 vs. GE2
-AF06W: GF1 vs. G33
-AF06L: GF1 vs. G33
-AF07W: GE1 vs. G34
-AF07L: GE1 vs. G34
-AF08W: GD1 vs. GF2
-AF08L: GD1 vs. GF2
+AF01W: Schweiz vs. Italien
+AF01L: Schweiz vs. Italien
+AF02W: Deutschland vs. Dänemark
+AF02L: Deutschland vs. Dänemark
+AF03W: England vs. Slowakei
+AF03L: England vs. Slowakei
+AF04W: Spanien vs. Georgien
+AF04L: Spanien vs. Georgien
+AF05W: Frankreich vs. Belgien
+AF05L: Frankreich vs. Belgien
+AF06W: Portugal vs. Slowenien
+AF06L: Portugal vs. Slowenien
+AF07W: Rumänien vs. Niederlande
+AF07L: Rumänien vs. Niederlande
+AF08W: Österreich vs. Türkei
+AF08L: Österreich vs. Türkei
 VF01W: AF04W vs. AF02W
 VF01L: AF04W vs. AF02W
 VF02W: AF06W vs. AF05W
