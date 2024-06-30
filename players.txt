@@ -1473,7 +1473,7 @@
 29973519;Timothée;Kolodziejczak;null;19911001;Frankreich;
 29975286;Youstin;Salas;null;19960617;Costa Rica;
 29975528;Aaron;Hughes;null;19791108;Nordirland;
-29976519;Abdou;Diallo;null;19960504;Frankreich;
+29976519;Abdou;Diallo;null;19960504;Senegal, Frankreich;
 29978770;Gökhan;Gönül;null;19850104;Türkei;
 29978874;Robin;Hack;null;19980827;Deutschland;
 29981397;Erick;Gutiérrez;null;19950615;Mexiko;
@@ -1706,7 +1706,7 @@
 30211935;Fidel;Escobar;null;19950109;Panama;
 30211980;Derry;Scherhant;null;20021110;Deutschland;
 30212598;Jamie;Maclaren;null;19930729;Australien;
-30213080;Willi;Orban;null;19921103;Deutschland;
+30213080;Willi;Orban;null;19921103;Ungarn, Deutschland;
 30213941;Guido;Burgstaller;null;19890429;Österreich;
 30214457;Lucas;Tousart;null;19970429;Frankreich;
 30214951;Rey;Manaj;null;19970224;Albanien, Italien;
@@ -2530,7 +2530,7 @@
 30899420;Simon;Asta;null;20010125;Deutschland;
 30899426;Josip;Ilicic;null;19880129;Slowenien, Kroatien;
 30900366;Harry;Maguire;null;19930305;England;
-30900806;Salih;Özcan;null;19980111;Deutschland;
+30900806;Salih;Özcan;null;19980111;Türkei, Deutschland;
 30901077;Harry;Wilson;null;19970322;Wales;
 30901235;Ragnar;Klavan;null;19851030;Estland;
 30901510;Christian;Cueva;null;19911123;Peru;
@@ -2751,7 +2751,7 @@
 31092000;Mykola;Shaparenko;null;19970601;Ukraine;
 31092192;Marco;Stiepermann;null;19910209;Deutschland;
 31092462;Daniel;Peretz;null;20000710;Israel, Deutschland;
-31092688;Ismail;Jakobs;null;19990817;Deutschland;
+31092688;Ismail;Jakobs;null;19990817;Senegal, Deutschland;
 31093917;Nayef;Aguerd;null;19960330;Marokko;
 31095551;Tobias;Strobl;null;19900512;Deutschland;
 31097710;Daniel;Mesenhöler;null;19950724;Deutschland;
@@ -3902,7 +3902,7 @@
 33119996;Andrés;Iniesta;null;19840511;Spanien;
 33143360;Jonathan;Urretaviscaya;null;19900319;Uruguay;
 33145417;Lisandro;Martínez;null;19980118;Argentinien;
-33152234;Richarlison;de Andrade;Richarlison;19970510;Richarlison;
+33152234;Richarlison;de Andrade;Richarlison;19970510;Brasilien;
 33160966;Christopher;Lenz;null;19940922;Deutschland;
 33162575;Soumaïla;Coulibaly;null;20031014;Frankreich, Mali;
 33168129;Waldemar;Sobota;null;19870519;Polen;
@@ -3961,7 +3961,7 @@
 33610922;Sanoussy;Ba;null;20040105;Deutschland, Senegal;
 33612746;Sarpreet;Singh;null;19990220;Neuseeland;
 33613872;Ché;Adams;null;19960713;Schottland;
-33618388;Daniel-Kofi;Kyereh;null;19960308;Deutschland;
+33618388;Daniel-Kofi;Kyereh;null;19960308;Ghana, Deutschland;
 33631379;Abdessamad;Ezzalzouli;Abde;20011217;Marokko, Spanien;
 33635480;Grant-Leon;Ranos;null;20030720;Armenien, Deutschland;
 33662068;Christopher;Buchtmann;null;19920425;Deutschland;
