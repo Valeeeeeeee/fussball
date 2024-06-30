@@ -649,6 +649,9 @@ public class Mannschaft {
 		for (TeamAffiliation teamAffiliation : teamAffiliations) {
 			if (teamAffiliation.getSquadNumber() == squadNumber && teamAffiliation.getDuration().includes(date))	return teamAffiliation;
 		}
+		if (squadNumber == 0) {
+			return new TeamAffiliation(this, Spieler.fakePlayer(), null, squadNumber, competition.getDuration());
+		}
 		
 		return null;
 	}

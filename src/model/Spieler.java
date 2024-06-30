@@ -260,6 +260,16 @@ public class Spieler {
 		return id == player.id;
 	}
 	
+	public static Spieler fakePlayer() {
+		Spieler player = new Spieler();
+		player.id = 0;
+		player.setFirstName("");
+		player.setLastName("");
+		player.birthDate = UNIX_EPOCH;
+		player.nationality = null;
+		return player;
+	}
+	
 	public String toString() {
 		String toString = id + trennZeichen;
 		toString += firstNameFile + trennZeichen;
