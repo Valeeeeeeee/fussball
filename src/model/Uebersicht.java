@@ -1019,6 +1019,10 @@ public class Uebersicht extends JPanel {
 		jCBPosition.setSelectedIndex(2);
 		jTFSquadNumber.setText("" + team.getNextFreeSquadNumber());
 		
+		if (!team.isClub() && !selectedPlayer.getNationality().contains(team.getName())) {
+			message(selectedPlayer.getFullNameShort() + " stammt nicht aus " + team.getName());
+		}
+		
 		jCBAtClubSinceYear.setSelectedItem("" + seasonDuration.getFromDate().getYear());
 		jCBAtClubSinceMonth.setSelectedIndex(seasonDuration.getFromDate().getMonth() - 1);
 		jCBAtClubSinceDay.setSelectedIndex(seasonDuration.getFromDate().getDay() - 1);
