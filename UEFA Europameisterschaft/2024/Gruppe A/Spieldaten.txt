@@ -1,6 +1,6 @@
-1:3
-2:4
-1:2
-3:4
-3:2
-4:1
+1:3={17_5:1#true-m10-s17-a6#true-m19-s10-a7#true-m45+1-s7-a21-p#true-m68-s9-a#false-m87-s2-a26-og#true-m90+3-s25-a13^#true-m31-ytrue-sfalse-p23#false-m44-yfalse-sfalse-p15#false-m48-ytrue-sfalse-p2#true-m62-ytrue-sfalse-p4}={1,6,18,2,4,23,21,8,10,17,7#46:23>>5#63:17>>19#63:7>>9#74:10>>13#80:8>>25}={1,13,15,2,3,6,7,8,4,10,11#46:10>>5#67:8>>14#67:7>>23#77:6>>26#82:11>>9}
+2:4={18_1:3#false-m12-s18-a20#false-m45-s20-a8#true-m66-s19-a10#false-m90+3-s7-a^#false-m5-ytrue-sfalse-p3#false-m59-ytrue-sfalse-p8#true-m69-ytrue-sfalse-p4#true-m88-ytrue-sfalse-p14}={1,5,2,6,4,11,8,13,10,20,19#46:2>>14#67:8>>15#79:11>>9#79:4>>24}={1,5,13,22,3,20,8,17,10,18,19#68:18>>25#68:3>>2#74:17>>7#86:8>>16#86:19>>26}
+1:2={6_2:0#true-m22-s10-a21#true-m67-s21-a18^#false-m22-ytrue-sfalse-p19#true-m27-ytrue-sfalse-p2#true-m89-ytrue-sfalse-p18#false-m90+3-ytrue-sfalse-p10}={1,6,18,2,4,23,21,8,10,17,7#58:17>>19#58:7>>9#72:23>>25#72:10>>11#84:21>>26}={1,14,24,5,6,11,8,13,10,20,19#64:8>>15#75:11>>18#75:14>>9#87:19>>16#87:20>>23}
+3:4={4_1:1#true-m13-s4-a8#false-m26-s23-a^#false-m31-ytrue-sfalse-p13#true-m51-ytrue-sfalse-p4#true-m68-ytrue-sfalse-p26#true-m71-ytrue-sfalse-p7#false-m86-ytrue-sfalse-p16}={1,5,13,2,3,6,14,7,8,4,10#61:6>>26#79:14>>23#90:7>>11#90:10>>9}={1,5,13,22,3,20,8,23,17,10,19#60:23>>7#75:17>>26#75:8>>16#86:19>>25#86:3>>2}
+3:2={16_0:1#false-m90+10-s23-a20^#false-m18-ytrue-sfalse-p17#false-m26-ytrue-sfalse-p6#false-m44-ytrue-sfalse-p13#true-m50-ytrue-sfalse-p4#false-m75-ytrue-sfalse-p15-b#false-m90+11-ytrue-sfalse-p23}={1,5,13,26,2,3,14,7,8,4,10#76:7>>17#76:10>>9#83:14>>11#83:2>>23#89:3>>18}={1,14,21,24,6,11,13,17,10,20,19#61:17>>8#74:24>>4#74:19>>9#86:14>>23#86:11>>18}
+4:1={11_1:1#true-m28-s19-a8#false-m90+2-s9-a3^#true-m25-ytrue-sfalse-p19#false-m38-ytrue-sfalse-p4#true-m67-ytrue-sfalse-p10#true-m81-ytrue-sfalse-p3}={1,5,13,22,3,20,8,26,10,7,19#65:7>>18#65:26>>17#65:19>>25}={1,6,18,2,4,23,21,8,10,17,7#61:4>>15#61:18>>3#65:23>>14#76:17>>19#76:10>>9}
