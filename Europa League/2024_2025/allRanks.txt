@@ -1,0 +1,12 @@
+Q101W: IF Elfsborg vs. FC Pafos
+Q101L: IF Elfsborg vs. FC Pafos
+Q102W: Wisla Krakau vs. KF Llapi
+Q102L: Wisla Krakau vs. KF Llapi
+Q103W: Paksi FC vs. Corvinul Hunedoara
+Q103L: Paksi FC vs. Corvinul Hunedoara
+Q104W: Botew Plowdiw vs. NK Maribor
+Q104L: Botew Plowdiw vs. NK Maribor
+Q105W: MFK Ruzomberok vs. Tobyl Qostanai
+Q105L: MFK Ruzomberok vs. Tobyl Qostanai
+Q106W: Sheriff Tiraspol vs. FK Zira
+Q106L: Sheriff Tiraspol vs. FK Zira

@@ -1,0 +1,28 @@
+PQ:Steaua Bukarest
+PQ:Ludogorez Rasgrad
+PQ:Slovan Bratislava
+PQ:Ordabassy Schymkent
+PQ:NK Celje
+PQ:Petrocub Hîncesti
+PQ:KF Ballkani
+PQ:FK Rigas FS
+PQ:Shamrock Rovers
+PQ:HJK Helsinki
+PQ:FK Panevezys
+PQ:Pjunik Erewan
+PQ:Dinamo Minsk
+PQ:Borac Banja Luka
+PQ:FC Differdingen
+PQ:KÍ Klaksvík
+PQ:Larne FC
+PQ:Hamrun Spartans
+PQ:Dinamo Batumi
+PQ:Flora Tallinn
+PQ:Víkingur Reykjavík
+PQ:KF Egnatia
+PQ:The New Saints FC
+PQ:Lincoln Red Imps FC
+PQ:FC Struga
+PQ:UE Santa Coloma
+PQ:Decic Tuzi
+PQ:SS Virtus

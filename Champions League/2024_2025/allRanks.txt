@@ -1,0 +1,28 @@
+Q101W: Ludogorez Rasgrad vs. Dinamo Batumi
+Q101L: Ludogorez Rasgrad vs. Dinamo Batumi
+Q102W: Slovan Bratislava vs. FC Struga
+Q102L: Slovan Bratislava vs. FC Struga
+Q103W: Ordabassy Schymkent vs. Petrocub Hîncesti
+Q103L: Ordabassy Schymkent vs. Petrocub Hîncesti
+Q104W: FK Rigas FS vs. Larne FC
+Q104L: FK Rigas FS vs. Larne FC
+Q105W: FK Panevezys vs. HJK Helsinki
+Q105L: FK Panevezys vs. HJK Helsinki
+Q106W: Dinamo Minsk vs. Pjunik Erewan
+Q106L: Dinamo Minsk vs. Pjunik Erewan
+Q107W: Borac Banja Luka vs. KF Egnatia
+Q107L: Borac Banja Luka vs. KF Egnatia
+Q108W: KÍ Klaksvík vs. FC Differdingen
+Q108L: KÍ Klaksvík vs. FC Differdingen
+Q109W: Hamrun Spartans vs. Lincoln Red Imps FC
+Q109L: Hamrun Spartans vs. Lincoln Red Imps FC
+Q110W: Flora Tallinn vs. NK Celje
+Q110L: Flora Tallinn vs. NK Celje
+Q111W: Víkingur Reykjavík vs. Shamrock Rovers
+Q111L: Víkingur Reykjavík vs. Shamrock Rovers
+Q112W: The New Saints FC vs. Decic Tuzi
+Q112L: The New Saints FC vs. Decic Tuzi
+Q113W: UE Santa Coloma vs. KF Ballkani
+Q113L: UE Santa Coloma vs. KF Ballkani
+Q114W: SS Virtus vs. Steaua Bukarest
+Q114L: SS Virtus vs. Steaua Bukarest

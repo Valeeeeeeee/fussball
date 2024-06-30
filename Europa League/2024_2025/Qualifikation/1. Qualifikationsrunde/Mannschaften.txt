@@ -1,0 +1,12 @@
+PQ:FC Pafos
+PQ:IF Elfsborg
+PQ:Wisla Krakau
+PQ:Paksi FC
+PQ:Corvinul Hunedoara
+PQ:Botew Plowdiw
+PQ:MFK Ruzomberok
+PQ:FK Zira
+PQ:Tobyl Qostanai
+PQ:NK Maribor
+PQ:Sheriff Tiraspol
+PQ:KF Llapi

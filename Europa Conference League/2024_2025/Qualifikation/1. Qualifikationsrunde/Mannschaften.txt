@@ -1,0 +1,50 @@
+PQ:FK Aqtöbe
+PQ:NK Bravo
+PQ:FC Milsami
+PQ:KF Malisheva
+PQ:FK Auda
+PQ:FK Liepaja
+PQ:Derry City
+PQ:Shelbourne FC
+PQ:Kuopion PS
+PQ:Vaasa PS
+PQ:Zalgiris Vilnius
+PQ:FA Siauliai
+PQ:Noah Erewan
+PQ:Urartu Erewan
+PQ:Torpedo Schodsina
+PQ:Islatsch Minsk
+PQ:Velez Mostar
+PQ:FK Sarajevo
+PQ:F91 Düdelingen
+PQ:UNA Strassen
+PQ:Víkingur Gøta
+PQ:B36 Tórshavn
+PQ:Linfield FC
+PQ:Crusaders FC
+PQ:FC Floriana
+PQ:FC Marsaxlokk
+PQ:Dinamo Tiflis
+PQ:Torpedo Kutaissi
+PQ:Levadia Tallinn
+PQ:Tallinna Kalev
+PQ:Paide Linnameeskond
+PQ:Valur Reykjavík
+PQ:UMF Stjarnan
+PQ:Breiðablik Kópavogur
+PQ:Partizani Tirana
+PQ:Vllaznia Shkodra
+PQ:KF Tirana
+PQ:Connah's Quay Nomads
+PQ:Bala Town
+PQ:Caernarfon Town
+PQ:St Joseph's FC
+PQ:FC Bruno's Magpies
+PQ:Tikves Kavadarci
+PQ:KF Shkëndija
+PQ:Inter Club d'Escaldes
+PQ:Atlètic Club d'Escaldes
+PQ:Buducnost Podgorica
+PQ:Mornar Bar
+PQ:SP La Fiorita
+PQ:SP Tre Penne

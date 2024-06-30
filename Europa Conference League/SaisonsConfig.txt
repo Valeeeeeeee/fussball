@@ -1,3 +1,4 @@
 2021;true;20210914;20220525;true;true;true;false;false;true;
 2022;true;20220908;20230607;true;true;true;false;false;true;
 2023;true;20230921;20240529;true;true;true;false;false;true;
+2024;true;20241003;20250528;true;false;false;false;false;true;

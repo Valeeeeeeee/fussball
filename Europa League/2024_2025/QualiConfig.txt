@@ -1,0 +1,6 @@
+20240711
+20240829
+false
+0
+1
+1. Qualifikationsrunde;Q1;true;

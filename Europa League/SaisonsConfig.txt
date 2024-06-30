@@ -7,3 +7,4 @@
 2021;true;20210915;20220518;true;true;true;false;false;true;
 2022;true;20220908;20230531;true;true;true;false;false;true;
 2023;true;20230921;20240522;true;true;true;false;false;true;
+2024;true;20240925;20250521;true;false;false;false;false;true;
