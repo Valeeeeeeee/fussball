@@ -1,50 +1,50 @@
-Q101W: FK Aqtöbe vs. FK Sarajevo
-Q101L: FK Aqtöbe vs. FK Sarajevo
-Q102W: NK Bravo vs. Connah's Quay Nomads
-Q102L: NK Bravo vs. Connah's Quay Nomads
-Q103W: KF Malisheva vs. Buducnost Podgorica
-Q103L: KF Malisheva vs. Buducnost Podgorica
-Q104W: FK Auda vs. B36 Tórshavn
-Q104L: FK Auda vs. B36 Tórshavn
+Q101W: Velez Mostar vs. Inter Club d'Escaldes
+Q101L: Velez Mostar vs. Inter Club d'Escaldes
+Q102W: FK Auda vs. B36 Tórshavn
+Q102L: FK Auda vs. B36 Tórshavn
+Q103W: FK Aqtöbe vs. FK Sarajevo
+Q103L: FK Aqtöbe vs. FK Sarajevo
+Q104W: KF Malisheva vs. Buducnost Podgorica
+Q104L: KF Malisheva vs. Buducnost Podgorica
 Q105W: FK Liepaja vs. Víkingur Gøta
 Q105L: FK Liepaja vs. Víkingur Gøta
-Q106W: Shelbourne FC vs. St Joseph's FC
-Q106L: Shelbourne FC vs. St Joseph's FC
-Q107W: Vaasa PS vs. Zalgiris Vilnius
-Q107L: Vaasa PS vs. Zalgiris Vilnius
-Q108W: FA Siauliai vs. Levadia Tallinn
-Q108L: FA Siauliai vs. Levadia Tallinn
+Q106W: FA Siauliai vs. Levadia Tallinn
+Q106L: FA Siauliai vs. Levadia Tallinn
+Q107W: Tikves Kavadarci vs. Breiðablik Kópavogur
+Q107L: Tikves Kavadarci vs. Breiðablik Kópavogur
+Q108W: NK Bravo vs. Connah's Quay Nomads
+Q108L: NK Bravo vs. Connah's Quay Nomads
 Q109W: Noah Erewan vs. KF Shkëndija
 Q109L: Noah Erewan vs. KF Shkëndija
-Q110W: Torpedo Schodsina vs. FC Milsami
-Q110L: Torpedo Schodsina vs. FC Milsami
-Q111W: Velez Mostar vs. Inter Club d'Escaldes
-Q111L: Velez Mostar vs. Inter Club d'Escaldes
-Q112W: UNA Strassen vs. Kuopion PS
-Q112L: UNA Strassen vs. Kuopion PS
-Q113W: FC Floriana vs. SP Tre Penne
-Q113L: FC Floriana vs. SP Tre Penne
-Q114W: Torpedo Kutaissi vs. KF Tirana
-Q114L: Torpedo Kutaissi vs. KF Tirana
-Q115W: Tallinna Kalev vs. Urartu Erewan
-Q115L: Tallinna Kalev vs. Urartu Erewan
-Q116W: Valur Reykjavík vs. Vllaznia Shkodra
-Q116L: Valur Reykjavík vs. Vllaznia Shkodra
-Q117W: UMF Stjarnan vs. Linfield FC
-Q117L: UMF Stjarnan vs. Linfield FC
-Q118W: Partizani Tirana vs. FC Marsaxlokk
-Q118L: Partizani Tirana vs. FC Marsaxlokk
-Q119W: Bala Town vs. Paide Linnameeskond
-Q119L: Bala Town vs. Paide Linnameeskond
-Q120W: Caernarfon Town vs. Crusaders FC
-Q120L: Caernarfon Town vs. Crusaders FC
-Q121W: FC Bruno's Magpies vs. Derry City
-Q121L: FC Bruno's Magpies vs. Derry City
-Q122W: Tikves Kavadarci vs. Breiðablik Kópavogur
-Q122L: Tikves Kavadarci vs. Breiðablik Kópavogur
-Q123W: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q123L: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q124W: Mornar Bar vs. Dinamo Tiflis
-Q124L: Mornar Bar vs. Dinamo Tiflis
-Q125W: SP La Fiorita vs. Islatsch Minsk
-Q125L: SP La Fiorita vs. Islatsch Minsk
+Q110W: FC Bruno's Magpies vs. Derry City
+Q110L: FC Bruno's Magpies vs. Derry City
+Q111W: Tallinna Kalev vs. Urartu Erewan
+Q111L: Tallinna Kalev vs. Urartu Erewan
+Q112W: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q112L: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q113W: Vaasa PS vs. Zalgiris Vilnius
+Q113L: Vaasa PS vs. Zalgiris Vilnius
+Q114W: UNA Strassen vs. Kuopion PS
+Q114L: UNA Strassen vs. Kuopion PS
+Q115W: FC Floriana vs. SP Tre Penne
+Q115L: FC Floriana vs. SP Tre Penne
+Q116W: Torpedo Kutaissi vs. KF Tirana
+Q116L: Torpedo Kutaissi vs. KF Tirana
+Q117W: Caernarfon Town vs. Crusaders FC
+Q117L: Caernarfon Town vs. Crusaders FC
+Q118W: Torpedo Schodsina vs. FC Milsami
+Q118L: Torpedo Schodsina vs. FC Milsami
+Q119W: Partizani Tirana vs. FC Marsaxlokk
+Q119L: Partizani Tirana vs. FC Marsaxlokk
+Q120W: Bala Town vs. Paide Linnameeskond
+Q120L: Bala Town vs. Paide Linnameeskond
+Q121W: Shelbourne FC vs. St Joseph's FC
+Q121L: Shelbourne FC vs. St Joseph's FC
+Q122W: Mornar Bar vs. Dinamo Tiflis
+Q122L: Mornar Bar vs. Dinamo Tiflis
+Q123W: SP La Fiorita vs. Islatsch Minsk
+Q123L: SP La Fiorita vs. Islatsch Minsk
+Q124W: Valur Reykjavík vs. Vllaznia Shkodra
+Q124L: Valur Reykjavík vs. Vllaznia Shkodra
+Q125W: UMF Stjarnan vs. Linfield FC
+Q125L: UMF Stjarnan vs. Linfield FC
