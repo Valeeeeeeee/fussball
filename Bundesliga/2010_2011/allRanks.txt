@@ -17,4 +17,4 @@ P16: Borussia Mönchengladbach
 P17: Eintracht Frankfurt
 P18: FC St. Pauli
 REL01W: Borussia Mönchengladbach
-REL01L: GER22010P3
+REL01L: GER22010P03

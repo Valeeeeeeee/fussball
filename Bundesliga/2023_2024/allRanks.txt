@@ -17,4 +17,4 @@ P16: VfL Bochum
 P17: 1. FC Köln
 P18: SV Darmstadt 98
 REL01W: VfL Bochum
-REL01L: GER22023P3
+REL01L: Fortuna Düsseldorf

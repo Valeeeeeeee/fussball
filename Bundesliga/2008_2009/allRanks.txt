@@ -16,5 +16,5 @@ P15: Borussia Mönchengladbach
 P16: Energie Cottbus
 P17: Karlsruher SC
 P18: Arminia Bielefeld
-REL01W: GER22008P3
+REL01W: GER22008P03
 REL01L: Energie Cottbus
