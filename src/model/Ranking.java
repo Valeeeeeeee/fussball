@@ -23,7 +23,7 @@ public class Ranking {
 		this.untilMatchday = untilMatchday;
 		this.tableType = tableType;
 		
-		subRanking = new SubRanking(0, teams, untilMatchday, tableType);
+		subRanking = new SubRanking(competition, 0, teams, untilMatchday, tableType);
 		for (Mannschaft ms : teams) {
 			subRanking.addIdAtValue(ms.getId());
 		}
@@ -41,7 +41,7 @@ public class Ranking {
 		subRanking.setPlaces(new RankingPosition());
 		
 		for (Mannschaft ms : teams) {
-			ms.getValueForCriterion(teams, untilMatchday, tableType, rankingCriteria.get(0));
+			ms.getValueForCriterion(teams, untilMatchday, tableType, rankingCriteria.get(0), competition);
 		}
 	}
 	

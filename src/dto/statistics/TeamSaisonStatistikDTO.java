@@ -55,7 +55,7 @@ public class TeamSaisonStatistikDTO {
 		teamSeasonStatisticsDto.hasStatistics = !(competition instanceof KORunde);
 		if (teamSeasonStatisticsDto.hasStatistics) {
 			teamSeasonStatisticsDto.teamRecord = team.getTeamRecord(competition.getCurrentMatchday(), Tabellenart.COMPLETE);
-			teamSeasonStatisticsDto.teamFairplayRecord = team.getTeamFairplayRecord();
+			teamSeasonStatisticsDto.teamFairplayRecord = team.getTeamFairplayRecord(competition);
 			teamSeasonStatisticsDto.longestSeries = team.getLongestSeries();
 			
 			Ranking ranking = new Ranking(competition, competition.getCurrentMatchday(), Tabellenart.COMPLETE);

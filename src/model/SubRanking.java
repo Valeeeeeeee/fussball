@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 
 public class SubRanking {
+	private Wettbewerb competition;
+	
 	private int value;
 	
 	private ArrayList<Mannschaft> teams;
@@ -17,7 +19,8 @@ public class SubRanking {
 	
 	private ArrayList<Mannschaft> overrideOpponents;
 	
-	public SubRanking(int value, ArrayList<Mannschaft> teams, int untilMatchday, Tabellenart tableType) {
+	public SubRanking(Wettbewerb competition, int value, ArrayList<Mannschaft> teams, int untilMatchday, Tabellenart tableType) {
+		this.competition = competition;
 		this.value = value;
 		this.teams = teams;
 		this.untilMatchday = untilMatchday;
@@ -54,7 +57,7 @@ public class SubRanking {
 		} else if (!isOneTeam()) {
 			ArrayList<Mannschaft> includedOpponents = getOpponents(criterion, overrideOpponents);
 			for (Integer id : idsAtValue) {
-				int value = teams.get(id - 1).getValueForCriterion(includedOpponents, untilMatchday, tableType, criterion);
+				int value = teams.get(id - 1).getValueForCriterion(includedOpponents, untilMatchday, tableType, criterion, competition);
 				
 				boolean alreadyExisted = false;
 				int index = 0;
@@ -67,7 +70,7 @@ public class SubRanking {
 					}
 				}
 				if (!alreadyExisted) {							
-					SubRanking newSubRanking = new SubRanking(value, teams, untilMatchday, tableType);
+					SubRanking newSubRanking = new SubRanking(competition, value, teams, untilMatchday, tableType);
 					newSubRanking.addIdAtValue(id);
 					children.add(index, newSubRanking);
 				}

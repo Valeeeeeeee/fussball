@@ -310,13 +310,13 @@ public class Mannschaft {
 		}
 	}
 	
-	public TeamFairplayBilanz getTeamFairplayRecord() {
+	public TeamFairplayBilanz getTeamFairplayRecord(Wettbewerb competition) {
 		int booked = 0, bookedTwice = 0, redCards = 0;
 		
 		Iterator<String> iter = matches.keySet().iterator();
 		while (iter.hasNext()) {
 			Spiel match = matches.get(iter.next());
-			if (match != null) {
+			if (match != null && match.getCompetition().equals(competition)) {
 				ArrayList<Karte> bookings = match.getBookings();
 				for (Karte booking : bookings) {
 					if (booking.isFirstTeam() == homeaway[match.getMatchday()]) {
@@ -360,10 +360,10 @@ public class Mannschaft {
 		}
 	}
 	
-	public int getFairplayValue(RankingCriterion criterion) {
+	public int getFairplayValue(RankingCriterion criterion, Wettbewerb competition) {
 		int value = 0;
 		
-		TeamFairplayBilanz teamFairplayRecord = getTeamFairplayRecord();
+		TeamFairplayBilanz teamFairplayRecord = getTeamFairplayRecord(competition);
 		
 		value -= teamFairplayRecord.getNumberOfYellowCards();
 		value -= 2 * teamFairplayRecord.getNumberOfSecondYellowCards();
@@ -824,7 +824,7 @@ public class Mannschaft {
 		valuesCorrectAsOfMatchday = -1;
 	}
 	
-	public int getValueForCriterion(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType, RankingCriterion criterion) {
+	public int getValueForCriterion(ArrayList<Mannschaft> includedOpponents, int untilMatchday, Tabellenart tableType, RankingCriterion criterion, Wettbewerb competition) {
 		setValuesForMatchday(includedOpponents, untilMatchday, tableType);
 		
 		switch (criterion) {
@@ -842,7 +842,7 @@ public class Mannschaft {
 				return numOfAwayGoals;
 			case FAIRPLAY_Y1YR3R3:
 			case FAIRPLAY_Y1YR3R4:
-				return getFairplayValue(criterion);
+				return getFairplayValue(criterion, competition);
 			case SPLIT_GROUP:
 				if (tableType == Tabellenart.COMPLETE)	return lSeason.getSplitGroup(this, untilMatchday);
 			default:
