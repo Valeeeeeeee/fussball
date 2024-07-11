@@ -10,20 +10,20 @@ Q105W: FK Liepaja vs. Víkingur Gøta
 Q105L: FK Liepaja vs. Víkingur Gøta
 Q106W: FA Siauliai vs. Levadia Tallinn
 Q106L: FA Siauliai vs. Levadia Tallinn
-Q107W: Tikves Kavadarci vs. Breiðablik Kópavogur
-Q107L: Tikves Kavadarci vs. Breiðablik Kópavogur
-Q108W: NK Bravo vs. Connah's Quay Nomads
-Q108L: NK Bravo vs. Connah's Quay Nomads
-Q109W: Noah Erewan vs. KF Shkëndija
-Q109L: Noah Erewan vs. KF Shkëndija
-Q110W: FC Bruno's Magpies vs. Derry City
-Q110L: FC Bruno's Magpies vs. Derry City
-Q111W: Tallinna Kalev vs. Urartu Erewan
-Q111L: Tallinna Kalev vs. Urartu Erewan
-Q112W: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q112L: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q113W: Vaasa PS vs. Zalgiris Vilnius
-Q113L: Vaasa PS vs. Zalgiris Vilnius
+Q107W: NK Bravo vs. Connah's Quay Nomads
+Q107L: NK Bravo vs. Connah's Quay Nomads
+Q108W: Noah Erewan vs. KF Shkëndija
+Q108L: Noah Erewan vs. KF Shkëndija
+Q109W: FC Bruno's Magpies vs. Derry City
+Q109L: FC Bruno's Magpies vs. Derry City
+Q110W: Tallinna Kalev vs. Urartu Erewan
+Q110L: Tallinna Kalev vs. Urartu Erewan
+Q111W: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q111L: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q112W: Vaasa PS vs. Zalgiris Vilnius
+Q112L: Vaasa PS vs. Zalgiris Vilnius
+Q113W: Torpedo Schodsina vs. FC Milsami
+Q113L: Torpedo Schodsina vs. FC Milsami
 Q114W: UNA Strassen vs. Kuopion PS
 Q114L: UNA Strassen vs. Kuopion PS
 Q115W: FC Floriana vs. SP Tre Penne
@@ -32,12 +32,12 @@ Q116W: Torpedo Kutaissi vs. KF Tirana
 Q116L: Torpedo Kutaissi vs. KF Tirana
 Q117W: Caernarfon Town vs. Crusaders FC
 Q117L: Caernarfon Town vs. Crusaders FC
-Q118W: Torpedo Schodsina vs. FC Milsami
-Q118L: Torpedo Schodsina vs. FC Milsami
-Q119W: Partizani Tirana vs. FC Marsaxlokk
-Q119L: Partizani Tirana vs. FC Marsaxlokk
-Q120W: Bala Town vs. Paide Linnameeskond
-Q120L: Bala Town vs. Paide Linnameeskond
+Q118W: Partizani Tirana vs. FC Marsaxlokk
+Q118L: Partizani Tirana vs. FC Marsaxlokk
+Q119W: Bala Town vs. Paide Linnameeskond
+Q119L: Bala Town vs. Paide Linnameeskond
+Q120W: Tikves Kavadarci vs. Breiðablik Kópavogur
+Q120L: Tikves Kavadarci vs. Breiðablik Kópavogur
 Q121W: Shelbourne FC vs. St Joseph's FC
 Q121L: Shelbourne FC vs. St Joseph's FC
 Q122W: Mornar Bar vs. Dinamo Tiflis
