@@ -1,32 +1,32 @@
-GA1: COPA2024GA1
-GA2: COPA2024GA2
-GA3: COPA2024GA3
-GA4: COPA2024GA4
-GB1: COPA2024GB1
-GB2: COPA2024GB2
-GB3: COPA2024GB3
-GB4: COPA2024GB4
-GC1: COPA2024GC1
-GC2: COPA2024GC2
-GC3: COPA2024GC3
-GC4: COPA2024GC4
-GD1: COPA2024GD1
-GD2: COPA2024GD2
-GD3: COPA2024GD3
-GD4: COPA2024GD4
-VF01W: GA1 vs. GB2
-VF01L: GA1 vs. GB2
-VF02W: GB1 vs. GA2
-VF02L: GB1 vs. GA2
-VF03W: GD1 vs. GC2
-VF03L: GD1 vs. GC2
-VF04W: GC1 vs. GD2
-VF04L: GC1 vs. GD2
-HF01W: VF01W vs. VF02W
-HF01L: VF01W vs. VF02W
-HF02W: VF04W vs. VF03W
-HF02L: VF04W vs. VF03W
-P301W: HF01L vs. HF02L
-P301L: HF01L vs. HF02L
-FI01W: HF01W vs. HF02W
-FI01L: HF01W vs. HF02W
+GA1: Argentinien
+GA2: Kanada
+GA3: Chile
+GA4: Peru
+GB1: Venezuela
+GB2: Ecuador
+GB3: Mexiko
+GB4: Jamaika
+GC1: Uruguay
+GC2: Panama
+GC3: USA
+GC4: Bolivien
+GD1: Kolumbien
+GD2: Brasilien
+GD3: Costa Rica
+GD4: Paraguay
+VF01W: Argentinien
+VF01L: Ecuador
+VF02W: Kanada
+VF02L: Venezuela
+VF03W: Kolumbien
+VF03L: Panama
+VF04W: Uruguay
+VF04L: Brasilien
+HF01W: Argentinien
+HF01L: Kanada
+HF02W: Kolumbien
+HF02L: Uruguay
+P301W: Kanada vs. Uruguay
+P301L: Kanada vs. Uruguay
+FI01W: Argentinien vs. Kolumbien
+FI01L: Argentinien vs. Kolumbien

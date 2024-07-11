@@ -93,33 +93,33 @@ GF1: Portugal
 GF2: Türkei
 GF3: Georgien
 GF4: Tschechien
-AF01W: Schweiz vs. Italien
-AF01L: Schweiz vs. Italien
-AF02W: Deutschland vs. Dänemark
-AF02L: Deutschland vs. Dänemark
-AF03W: England vs. Slowakei
-AF03L: England vs. Slowakei
-AF04W: Spanien vs. Georgien
-AF04L: Spanien vs. Georgien
-AF05W: Frankreich vs. Belgien
-AF05L: Frankreich vs. Belgien
-AF06W: Portugal vs. Slowenien
-AF06L: Portugal vs. Slowenien
-AF07W: Rumänien vs. Niederlande
-AF07L: Rumänien vs. Niederlande
-AF08W: Österreich vs. Türkei
-AF08L: Österreich vs. Türkei
-VF01W: AF04W vs. AF02W
-VF01L: AF04W vs. AF02W
-VF02W: AF06W vs. AF05W
-VF02L: AF06W vs. AF05W
-VF03W: AF03W vs. AF01W
-VF03L: AF03W vs. AF01W
-VF04W: AF07W vs. AF08W
-VF04L: AF07W vs. AF08W
-HF01W: VF01W vs. VF02W
-HF01L: VF01W vs. VF02W
-HF02W: VF04W vs. VF03W
-HF02L: VF04W vs. VF03W
-FI01W: HF01W vs. HF02W
-FI01L: HF01W vs. HF02W
+AF01W: Schweiz
+AF01L: Italien
+AF02W: Deutschland
+AF02L: Dänemark
+AF03W: England
+AF03L: Slowakei
+AF04W: Spanien
+AF04L: Georgien
+AF05W: Frankreich
+AF05L: Belgien
+AF06W: Portugal
+AF06L: Slowenien
+AF07W: Niederlande
+AF07L: Rumänien
+AF08W: Türkei
+AF08L: Österreich
+VF01W: Spanien
+VF01L: Deutschland
+VF02W: Frankreich
+VF02L: Portugal
+VF03W: England
+VF03L: Schweiz
+VF04W: Niederlande
+VF04L: Türkei
+HF01W: Spanien
+HF01L: Frankreich
+HF02W: England
+HF02L: Niederlande
+FI01W: Spanien vs. England
+FI01L: Spanien vs. England

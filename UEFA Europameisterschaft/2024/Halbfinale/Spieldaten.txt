@@ -1,2 +1,2 @@
-1:2
-4:3
+1:2={18_2:1#false-m9-s12-a10#true-m21-s19-a#true-m25-s10-a^#true-m14-ytrue-sfalse-p22#false-m60-ytrue-sfalse-p8#false-m89-ytrue-sfalse-p6#true-m90+1-ytrue-sfalse-p19}={23,24,14,4,22,16,8,17,7,10,19#58:22>>5#76:7>>21#76:10>>6#90+3:17>>18#90+4:19>>11}={16,22,5,17,4,13,14,8,11,12,10#62:14>>6#62:13>>7#62:12>>25#79:11>>9}
+4:3={19_1:2#true-m7-s7-a#false-m18-s9-a9-p#false-m90+1-s19-a24^#true-m17-ytrue-sfalse-p22#false-m72-ytrue-sfalse-p10#false-m86-ytrue-sfalse-p7#true-m87-ytrue-sfalse-p4#true-m90+1-ytrue-sfalse-p7#false-m90+4-ytrue-sfalse-p12-b}={1,5,6,22,4,14,24,10,11,18,7#35:10>>16#46:18>>9#90+3:7>>19#90+3:22>>21}={1,6,5,12,2,10,11,26,4,9,7#46:12>>3#81:11>>24#81:9>>19#90+3:7>>14#90+3:26>>16}
