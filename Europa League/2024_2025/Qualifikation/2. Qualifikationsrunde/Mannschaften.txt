@@ -1,0 +1,18 @@
+PQ:Ajax Amsterdam
+PQ:Sporting Braga
+PQ:Cercle Brügge
+PQ:FC Kilmarnock
+PQ:Rapid Wien
+PQ:Vojvodina Novi Sad
+PQ:Trabzonspor
+PQ:Molde FK
+PQ:Silkeborg IF
+PQ:HNK Rijeka
+PQ:Panathinaikos Athen
+PQ:Maccabi Petach Tikwa
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W

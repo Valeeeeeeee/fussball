@@ -1,0 +1,98 @@
+PQ:Go Ahead Eagles Deventer
+PQ:Vitória Guimarães
+PQ:KAA Gent
+PQ:FC St. Mirren
+PQ:Austria Wien
+PQ:Radnicki Kragujevac
+PQ:Istanbul Basaksehir
+PQ:FC Zürich
+PQ:FC St. Gallen
+PQ:SK Dnipro-1
+PQ:Polissja Schytomyr
+PQ:Baník Ostrava
+PQ:Mladá Boleslav
+PQ:Brann Bergen
+PQ:Tromsø IL
+PQ:Brøndby IF
+PQ:FC Kopenhagen
+PQ:Hajduk Split
+PQ:NK Osijek
+PQ:AEK Athen
+PQ:Maccabi Haifa
+PQ:Hapoel Be'er Scheva
+PQ:AEK Larnaka
+PQ:Omonia Nikosia
+PQ:BK Häcken
+PQ:Djurgårdens IF
+PQ:Slask Wroclaw
+PQ:Legia Warschau
+PQ:Puskás Akadémia FC
+PQ:FC Székesfehérvár
+PQ:CFR Cluj
+PQ:CSU Craiova
+PQ:Tscherno More Warna
+PQ:ZSKA 1948 Sofia
+PQ:DAC Dunajská Streda
+PQ:Spartak Trnava
+PQ:Sabah FK
+PQ:Sumqayit PFK
+PQ:FK Astana
+PQ:Olimpija Ljubljana
+PQ:Zimbru Chisinau
+PQ:KF Drita
+PQ:FC Vaduz
+PQ:Riga FC
+PQ:St. Patrick's Athletic
+PQ:Tampereen Ilves
+PQ:FK Transinvest
+PQ:FC Ararat-Armenia
+PQ:Njoman Hrodna
+PQ:Zrinjski Mostar
+PQ:Progrès Niederkorn
+PQ:HB Tórshavn
+PQ:Cliftonville FC
+PQ:Sliema Wanderers
+PQ:FC Iberia 1999
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W
+PK:Q115W
+PK:Q116W
+PK:Q117W
+PK:Q118W
+PK:Q119W
+PK:Q120W
+PK:Q121W
+PK:Q122W
+PK:Q123W
+PK:Q124W
+PK:Q125W
+OC:CHAL2024Q102L
+OC:CHAL2024Q103L
+OC:CHAL2024Q104L
+OC:CHAL2024Q105L
+OC:CHAL2024Q106L
+OC:CHAL2024Q107L
+OC:CHAL2024Q108L
+OC:CHAL2024Q109L
+OC:CHAL2024Q111L
+OC:CHAL2024Q112L
+OC:CHAL2024Q113L
+OC:CHAL2024Q114L
+OC:EURL2024Q101L
+OC:EURL2024Q102L
+OC:EURL2024Q103L
+OC:EURL2024Q104L
+OC:EURL2024Q105L
+OC:EURL2024Q106L
