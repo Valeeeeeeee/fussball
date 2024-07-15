@@ -8,3 +8,4 @@
 2021;true;10;4;1,2,3,4,4;false;false;false;
 2022;true;10;4;1,2,3,4,4;false;false;false;
 2023;true;12;3;1,1,2,3,4,4;false;false;true;
+2024;true;12;3;1,1,2,3,4,4;false;false;true;
