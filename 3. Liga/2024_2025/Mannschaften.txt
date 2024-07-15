@@ -17,5 +17,5 @@ Arminia Bielefeld;01.01.1970
 Waldhof Mannheim;01.01.1970
 Alemannia Aachen;01.01.1970
 Energie Cottbus;01.01.1970
-Hannover 96;01.01.1970
+Hannover 96 II;01.01.1970
 VfB Stuttgart II;01.01.1970
