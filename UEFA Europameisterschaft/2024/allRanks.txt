@@ -121,5 +121,5 @@ HF01W: Spanien
 HF01L: Frankreich
 HF02W: England
 HF02L: Niederlande
-FI01W: Spanien vs. England
-FI01L: Spanien vs. England
+FI01W: Spanien
+FI01L: England

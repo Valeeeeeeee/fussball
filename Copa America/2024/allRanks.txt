@@ -26,7 +26,7 @@ HF01W: Argentinien
 HF01L: Kanada
 HF02W: Kolumbien
 HF02L: Uruguay
-P301W: Kanada vs. Uruguay
-P301L: Kanada vs. Uruguay
-FI01W: Argentinien vs. Kolumbien
-FI01L: Argentinien vs. Kolumbien
+P301W: Uruguay
+P301L: Kanada
+FI01W: Argentinien
+FI01L: Kolumbien
