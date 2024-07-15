@@ -1,0 +1,19 @@
+18
+Bayer 04 Leverkusen;01.07.1904
+VfB Stuttgart;09.09.1893
+Bayern München;27.02.1900
+RasenBallsport Leipzig;19.05.2009
+Borussia Dortmund;19.12.1909
+Eintracht Frankfurt;08.03.1899
+TSG 1899 Hoffenheim;01.07.1899
+1. FC Heidenheim;01.01.2007
+Werder Bremen;04.02.1899
+SC Freiburg;30.05.1904
+FC Augsburg;08.08.1907
+VfL Wolfsburg;12.09.1945
+1. FSV Mainz 05;16.03.1905
+Borussia Mönchengladbach;01.08.1900
+1. FC Union Berlin;20.01.1966
+VfL Bochum;14.04.1938
+FC St. Pauli;15.05.1910
+Holstein Kiel;07.10.1900
