@@ -16,12 +16,12 @@ Q202W: MFK Ruzomberok vs. Trabzonspor
 Q202L: MFK Ruzomberok vs. Trabzonspor
 Q203W: Molde FK vs. Silkeborg IF
 Q203L: Molde FK vs. Silkeborg IF
-Q204W: Sheriff Tiraspol vs. IF Elfsborg
-Q204L: Sheriff Tiraspol vs. IF Elfsborg
-Q205W: Panathinaikos Athen vs. Botew Plowdiw
-Q205L: Panathinaikos Athen vs. Botew Plowdiw
-Q206W: Corvinul Hunedoara vs. HNK Rijeka
-Q206L: Corvinul Hunedoara vs. HNK Rijeka
+Q204W: Corvinul Hunedoara vs. HNK Rijeka
+Q204L: Corvinul Hunedoara vs. HNK Rijeka
+Q205W: Sheriff Tiraspol vs. IF Elfsborg
+Q205L: Sheriff Tiraspol vs. IF Elfsborg
+Q206W: Panathinaikos Athen vs. Botew Plowdiw
+Q206L: Panathinaikos Athen vs. Botew Plowdiw
 Q207W: Ajax Amsterdam vs. Vojvodina Novi Sad
 Q207L: Ajax Amsterdam vs. Vojvodina Novi Sad
 Q208W: FC Kilmarnock vs. Cercle Brügge
