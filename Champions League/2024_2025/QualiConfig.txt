@@ -2,6 +2,7 @@
 20240828
 false
 0
-2
+3
 1. Qualifikationsrunde;Q1;true;
 2. Qualifikationsrunde;Q2;true;
+3. Qualifikationsrunde;Q3;true;

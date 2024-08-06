@@ -28,3 +28,29 @@ Q208W: Cercle Brügge
 Q208L: FC Kilmarnock
 Q209W: Sporting Braga
 Q209L: Maccabi Petach Tikwa
+Q301W: Kryvbas Kryvyi Rih vs. Viktoria Pilsen
+Q301L: Kryvbas Kryvyi Rih vs. Viktoria Pilsen
+Q302W: Trabzonspor vs. Rapid Wien
+Q302L: Trabzonspor vs. Rapid Wien
+Q303W: Molde FK vs. Cercle Brügge
+Q303L: Molde FK vs. Cercle Brügge
+Q304W: HNK Rijeka vs. IF Elfsborg
+Q304L: HNK Rijeka vs. IF Elfsborg
+Q305W: Panathinaikos Athen vs. Ajax Amsterdam
+Q305L: Panathinaikos Athen vs. Ajax Amsterdam
+Q306W: Sporting Braga vs. Servette Genf
+Q306L: Sporting Braga vs. Servette Genf
+Q307W: FK Panevezys vs. Maccabi Tel Aviv
+Q307L: FK Panevezys vs. Maccabi Tel Aviv
+Q308W: Petrocub Hîncesti vs. The New Saints FC
+Q308L: Petrocub Hîncesti vs. The New Saints FC
+Q309W: KÍ Klaksvík vs. Borac Banja Luka
+Q309L: KÍ Klaksvík vs. Borac Banja Luka
+Q310W: Partizan Belgrad vs. FC Lugano
+Q310L: Partizan Belgrad vs. FC Lugano
+Q311W: UE Santa Coloma vs. FK Rigas FS
+Q311L: UE Santa Coloma vs. FK Rigas FS
+Q312W: Dinamo Minsk vs. Lincoln Red Imps FC
+Q312L: Dinamo Minsk vs. Lincoln Red Imps FC
+Q313W: NK Celje vs. Shamrock Rovers
+Q313L: NK Celje vs. Shamrock Rovers

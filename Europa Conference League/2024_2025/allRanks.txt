@@ -146,3 +146,63 @@ Q248W: Paide Linnameeskond
 Q248L: UMF Stjarnan
 Q249W: KF Drita
 Q249L: Breiðablik Kópavogur
+Q301W: KF Ballkani vs. Larne FC
+Q301L: KF Ballkani vs. Larne FC
+Q302W: Ordabassy Schymkent vs. Pjunik Erewan
+Q302L: Ordabassy Schymkent vs. Pjunik Erewan
+Q303W: FK Auda vs. KF Drita
+Q303L: FK Auda vs. KF Drita
+Q304W: Mladá Boleslav vs. Hapoel Be'er Scheva
+Q304L: Mladá Boleslav vs. Hapoel Be'er Scheva
+Q305W: Tampereen Ilves vs. Djurgårdens IF
+Q305L: Tampereen Ilves vs. Djurgårdens IF
+Q306W: FC Iberia 1999 vs. Istanbul Basaksehir
+Q306L: FC Iberia 1999 vs. Istanbul Basaksehir
+Q307W: Noah Erewan vs. AEK Athen
+Q307L: Noah Erewan vs. AEK Athen
+Q308W: FC Kopenhagen vs. Baník Ostrava
+Q308L: FC Kopenhagen vs. Baník Ostrava
+Q309W: Omonia Nikosia vs. FC Székesfehérvár
+Q309L: Omonia Nikosia vs. FC Székesfehérvár
+Q310W: FC Ararat-Armenia vs. Puskás Akadémia FC
+Q310L: FC Ararat-Armenia vs. Puskás Akadémia FC
+Q311W: FC Zürich vs. Vitória Guimarães
+Q311L: FC Zürich vs. Vitória Guimarães
+Q312W: Brøndby IF vs. Legia Warschau
+Q312L: Brøndby IF vs. Legia Warschau
+Q313W: Olimpija Ljubljana vs. Sheriff Tiraspol
+Q313L: Olimpija Ljubljana vs. Sheriff Tiraspol
+Q314W: BK Häcken vs. Paide Linnameeskond
+Q314L: BK Häcken vs. Paide Linnameeskond
+Q315W: ZSKA 1948 Sofia vs. FC Pafos
+Q315L: ZSKA 1948 Sofia vs. FC Pafos
+Q316W: FC St. Gallen vs. Slask Wroclaw
+Q316L: FC St. Gallen vs. Slask Wroclaw
+Q317W: NK Osijek vs. FK Zira
+Q317L: NK Osijek vs. FK Zira
+Q318W: Paksi FC vs. Mornar Bar
+Q318L: Paksi FC vs. Mornar Bar
+Q319W: NK Maribor vs. Vojvodina Novi Sad
+Q319L: NK Maribor vs. Vojvodina Novi Sad
+Q320W: St. Patrick's Athletic vs. Sabah FK
+Q320L: St. Patrick's Athletic vs. Sabah FK
+Q321W: FC St. Mirren vs. Brann Bergen
+Q321L: FC St. Mirren vs. Brann Bergen
+Q322W: Víkingur Reykjavík vs. Flora Tallinn
+Q322L: Víkingur Reykjavík vs. Flora Tallinn
+Q323W: Spartak Trnava vs. Wisla Krakau
+Q323L: Spartak Trnava vs. Wisla Krakau
+Q324W: HJK Helsinki vs. Decic Tuzi
+Q324L: HJK Helsinki vs. Decic Tuzi
+Q325W: MFK Ruzomberok vs. Hajduk Split
+Q325L: MFK Ruzomberok vs. Hajduk Split
+Q326W: Silkeborg IF vs. KAA Gent
+Q326L: Silkeborg IF vs. KAA Gent
+Q327W: Corvinul Hunedoara vs. FK Astana
+Q327L: Corvinul Hunedoara vs. FK Astana
+Q328W: Botew Plowdiw vs. Zrinjski Mostar
+Q328L: Botew Plowdiw vs. Zrinjski Mostar
+Q329W: FC Kilmarnock vs. Tromsø IL
+Q329L: FC Kilmarnock vs. Tromsø IL
+Q330W: Maccabi Petach Tikwa vs. CFR Cluj
+Q330L: Maccabi Petach Tikwa vs. CFR Cluj
