@@ -10,21 +10,21 @@ Q105W: Botew Plowdiw
 Q105L: NK Maribor
 Q106W: Wisla Krakau
 Q106L: KF Llapi
-Q201W: Wisla Krakau vs. Rapid Wien
-Q201L: Wisla Krakau vs. Rapid Wien
-Q202W: MFK Ruzomberok vs. Trabzonspor
-Q202L: MFK Ruzomberok vs. Trabzonspor
-Q203W: Molde FK vs. Silkeborg IF
-Q203L: Molde FK vs. Silkeborg IF
-Q204W: Corvinul Hunedoara vs. HNK Rijeka
-Q204L: Corvinul Hunedoara vs. HNK Rijeka
-Q205W: Sheriff Tiraspol vs. IF Elfsborg
-Q205L: Sheriff Tiraspol vs. IF Elfsborg
-Q206W: Panathinaikos Athen vs. Botew Plowdiw
-Q206L: Panathinaikos Athen vs. Botew Plowdiw
-Q207W: Ajax Amsterdam vs. Vojvodina Novi Sad
-Q207L: Ajax Amsterdam vs. Vojvodina Novi Sad
-Q208W: FC Kilmarnock vs. Cercle Brügge
-Q208L: FC Kilmarnock vs. Cercle Brügge
-Q209W: Sporting Braga vs. Maccabi Petach Tikwa
-Q209L: Sporting Braga vs. Maccabi Petach Tikwa
+Q201W: Rapid Wien
+Q201L: Wisla Krakau
+Q202W: Trabzonspor
+Q202L: MFK Ruzomberok
+Q203W: Molde FK
+Q203L: Silkeborg IF
+Q204W: HNK Rijeka
+Q204L: Corvinul Hunedoara
+Q205W: IF Elfsborg
+Q205L: Sheriff Tiraspol
+Q206W: Panathinaikos Athen
+Q206L: Botew Plowdiw
+Q207W: Ajax Amsterdam
+Q207L: Vojvodina Novi Sad
+Q208W: Cercle Brügge
+Q208L: FC Kilmarnock
+Q209W: Sporting Braga
+Q209L: Maccabi Petach Tikwa

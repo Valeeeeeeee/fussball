@@ -48,101 +48,101 @@ Q124W: Valur Reykjavík
 Q124L: Vllaznia Shkodra
 Q125W: UMF Stjarnan
 Q125L: Linfield FC
-Q201W: KF Ballkani vs. Hamrun Spartans
-Q201L: KF Ballkani vs. Hamrun Spartans
-Q202W: FC Differdingen vs. Ordabassy Schymkent
-Q202L: FC Differdingen vs. Ordabassy Schymkent
-Q203W: SS Virtus vs. Flora Tallinn
-Q203L: SS Virtus vs. Flora Tallinn
-Q204W: FC Struga vs. Pjunik Erewan
-Q204L: FC Struga vs. Pjunik Erewan
-Q205W: Riga FC vs. Slask Wroclaw
-Q205L: Riga FC vs. Slask Wroclaw
-Q206W: Dinamo Batumi vs. Decic Tuzi
-Q206L: Dinamo Batumi vs. Decic Tuzi
-Q207W: AEK Athen vs. Inter Club d'Escaldes
-Q207L: AEK Athen vs. Inter Club d'Escaldes
-Q208W: Cliftonville FC vs. FK Auda
-Q208L: Cliftonville FC vs. FK Auda
-Q209W: Kuopion PS vs. Tromsø IL
-Q209L: Kuopion PS vs. Tromsø IL
-Q210W: Mladá Boleslav vs. FK Transinvest
-Q210L: Mladá Boleslav vs. FK Transinvest
-Q211W: Sumqayit PFK vs. FC Székesfehérvár
-Q211L: Sumqayit PFK vs. FC Székesfehérvár
-Q212W: Tampereen Ilves vs. Austria Wien
-Q212L: Tampereen Ilves vs. Austria Wien
-Q213W: FC Iberia 1999 vs. Partizani Tirana
-Q213L: FC Iberia 1999 vs. Partizani Tirana
-Q214W: Noah Erewan vs. Sliema Wanderers
-Q214L: Noah Erewan vs. Sliema Wanderers
-Q215W: FC Bruno's Magpies vs. FC Kopenhagen
-Q215L: FC Bruno's Magpies vs. FC Kopenhagen
-Q216W: Zalgiris Vilnius vs. FC Pafos
-Q216L: Zalgiris Vilnius vs. FC Pafos
-Q217W: FC Milsami vs. FK Astana
-Q217L: FC Milsami vs. FK Astana
-Q218W: Go Ahead Eagles Deventer vs. Brann Bergen
-Q218L: Go Ahead Eagles Deventer vs. Brann Bergen
-Q219W: Omonia Nikosia vs. Torpedo Kutaissi
-Q219L: Omonia Nikosia vs. Torpedo Kutaissi
-Q220W: FK Zira vs. DAC Dunajská Streda
-Q220L: FK Zira vs. DAC Dunajská Streda
-Q221W: Zimbru Chisinau vs. FC Ararat-Armenia
-Q221L: Zimbru Chisinau vs. FC Ararat-Armenia
-Q222W: FC Zürich vs. Shelbourne FC
-Q222L: FC Zürich vs. Shelbourne FC
-Q223W: SK Dnipro-1 vs. Puskás Akadémia FC
-Q223L: SK Dnipro-1 vs. Puskás Akadémia FC
-Q224W: Baník Ostrava vs. Urartu Erewan
-Q224L: Baník Ostrava vs. Urartu Erewan
-Q225W: Brøndby IF vs. KF Llapi
-Q225L: Brøndby IF vs. KF Llapi
-Q226W: Hapoel Be'er Scheva vs. Tscherno More Warna
-Q226L: Hapoel Be'er Scheva vs. Tscherno More Warna
-Q227W: Djurgårdens IF vs. Progrès Niederkorn
-Q227L: Djurgårdens IF vs. Progrès Niederkorn
-Q228W: Olimpija Ljubljana vs. Polissja Schytomyr
-Q228L: Olimpija Ljubljana vs. Polissja Schytomyr
-Q229W: F91 Düdelingen vs. BK Häcken
-Q229L: F91 Düdelingen vs. BK Häcken
-Q230W: FC Floriana vs. Vitória Guimarães
-Q230L: FC Floriana vs. Vitória Guimarães
-Q231W: Maccabi Haifa vs. Sabah FK
-Q231L: Maccabi Haifa vs. Sabah FK
-Q232W: CFR Cluj vs. Njoman Hrodna
-Q232L: CFR Cluj vs. Njoman Hrodna
-Q233W: ZSKA 1948 Sofia vs. Buducnost Podgorica
-Q233L: ZSKA 1948 Sofia vs. Buducnost Podgorica
-Q234W: Istanbul Basaksehir vs. SP La Fiorita
-Q234L: Istanbul Basaksehir vs. SP La Fiorita
-Q235W: KAA Gent vs. Víkingur Gøta
-Q235L: KAA Gent vs. Víkingur Gøta
-Q236W: Radnicki Kragujevac vs. Mornar Bar
-Q236L: Radnicki Kragujevac vs. Mornar Bar
-Q237W: FC St. Gallen vs. Tobyl Qostanai
-Q237L: FC St. Gallen vs. Tobyl Qostanai
-Q238W: NK Osijek vs. Levadia Tallinn
-Q238L: NK Osijek vs. Levadia Tallinn
-Q239W: Paksi FC vs. AEK Larnaka
-Q239L: Paksi FC vs. AEK Larnaka
-Q240W: NK Maribor vs. CSU Craiova
-Q240L: NK Maribor vs. CSU Craiova
-Q241W: Legia Warschau vs. Caernarfon Town
-Q241L: Legia Warschau vs. Caernarfon Town
-Q242W: St. Patrick's Athletic vs. FC Vaduz
-Q242L: St. Patrick's Athletic vs. FC Vaduz
-Q243W: Valur Reykjavík vs. FC St. Mirren
-Q243L: Valur Reykjavík vs. FC St. Mirren
-Q244W: Víkingur Reykjavík vs. KF Egnatia
-Q244L: Víkingur Reykjavík vs. KF Egnatia
-Q245W: Hajduk Split vs. HB Tórshavn
-Q245L: Hajduk Split vs. HB Tórshavn
-Q246W: Zrinjski Mostar vs. NK Bravo
-Q246L: Zrinjski Mostar vs. NK Bravo
-Q247W: FK Sarajevo vs. Spartak Trnava
-Q247L: FK Sarajevo vs. Spartak Trnava
-Q248W: UMF Stjarnan vs. Paide Linnameeskond
-Q248L: UMF Stjarnan vs. Paide Linnameeskond
-Q249W: Breiðablik Kópavogur vs. KF Drita
-Q249L: Breiðablik Kópavogur vs. KF Drita
+Q201W: KF Ballkani
+Q201L: Hamrun Spartans
+Q202W: Ordabassy Schymkent
+Q202L: FC Differdingen
+Q203W: Flora Tallinn
+Q203L: SS Virtus
+Q204W: Pjunik Erewan
+Q204L: FC Struga
+Q205W: Slask Wroclaw
+Q205L: Riga FC
+Q206W: Decic Tuzi
+Q206L: Dinamo Batumi
+Q207W: AEK Athen
+Q207L: Inter Club d'Escaldes
+Q208W: FK Auda
+Q208L: Cliftonville FC
+Q209W: Tromsø IL
+Q209L: Kuopion PS
+Q210W: Mladá Boleslav
+Q210L: FK Transinvest
+Q211W: FC Székesfehérvár
+Q211L: Sumqayit PFK
+Q212W: Tampereen Ilves
+Q212L: Austria Wien
+Q213W: FC Iberia 1999
+Q213L: Partizani Tirana
+Q214W: Noah Erewan
+Q214L: Sliema Wanderers
+Q215W: FC Kopenhagen
+Q215L: FC Bruno's Magpies
+Q216W: FC Pafos
+Q216L: Zalgiris Vilnius
+Q217W: FK Astana
+Q217L: FC Milsami
+Q218W: Brann Bergen
+Q218L: Go Ahead Eagles Deventer
+Q219W: Omonia Nikosia
+Q219L: Torpedo Kutaissi
+Q220W: FK Zira
+Q220L: DAC Dunajská Streda
+Q221W: FC Ararat-Armenia
+Q221L: Zimbru Chisinau
+Q222W: FC Zürich
+Q222L: Shelbourne FC
+Q223W: Puskás Akadémia FC
+Q223L: SK Dnipro-1
+Q224W: Baník Ostrava
+Q224L: Urartu Erewan
+Q225W: Brøndby IF
+Q225L: KF Llapi
+Q226W: Hapoel Be'er Scheva
+Q226L: Tscherno More Warna
+Q227W: Djurgårdens IF
+Q227L: Progrès Niederkorn
+Q228W: Olimpija Ljubljana
+Q228L: Polissja Schytomyr
+Q229W: BK Häcken
+Q229L: F91 Düdelingen
+Q230W: Vitória Guimarães
+Q230L: FC Floriana
+Q231W: Sabah FK
+Q231L: Maccabi Haifa
+Q232W: CFR Cluj
+Q232L: Njoman Hrodna
+Q233W: ZSKA 1948 Sofia
+Q233L: Buducnost Podgorica
+Q234W: Istanbul Basaksehir
+Q234L: SP La Fiorita
+Q235W: KAA Gent
+Q235L: Víkingur Gøta
+Q236W: Mornar Bar
+Q236L: Radnicki Kragujevac
+Q237W: FC St. Gallen
+Q237L: Tobyl Qostanai
+Q238W: NK Osijek
+Q238L: Levadia Tallinn
+Q239W: Paksi FC
+Q239L: AEK Larnaka
+Q240W: NK Maribor
+Q240L: CSU Craiova
+Q241W: Legia Warschau
+Q241L: Caernarfon Town
+Q242W: St. Patrick's Athletic
+Q242L: FC Vaduz
+Q243W: FC St. Mirren
+Q243L: Valur Reykjavík
+Q244W: Víkingur Reykjavík
+Q244L: KF Egnatia
+Q245W: Hajduk Split
+Q245L: HB Tórshavn
+Q246W: Zrinjski Mostar
+Q246L: NK Bravo
+Q247W: Spartak Trnava
+Q247L: FK Sarajevo
+Q248W: Paide Linnameeskond
+Q248L: UMF Stjarnan
+Q249W: KF Drita
+Q249L: Breiðablik Kópavogur

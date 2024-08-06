@@ -26,31 +26,31 @@ Q113W: Dinamo Minsk
 Q113L: Pjunik Erewan
 Q114W: Borac Banja Luka
 Q114L: KF Egnatia
-Q201W: FK Bodø/Glimt vs. FK Rigas FS
-Q201L: FK Bodø/Glimt vs. FK Rigas FS
-Q202W: FK Panevezys vs. Jagiellonia Bialystok
-Q202L: FK Panevezys vs. Jagiellonia Bialystok
-Q203W: Lincoln Red Imps FC vs. Qarabag Agdam
-Q203L: Lincoln Red Imps FC vs. Qarabag Agdam
-Q204W: APOEL Nikosia vs. Petrocub Hîncesti
-Q204L: APOEL Nikosia vs. Petrocub Hîncesti
-Q205W: Malmö FF vs. KÍ Klaksvík
-Q205L: Malmö FF vs. KÍ Klaksvík
-Q206W: Steaua Bukarest vs. Maccabi Tel Aviv
-Q206L: Steaua Bukarest vs. Maccabi Tel Aviv
-Q207W: Ferencváros Budapest vs. The New Saints FC
-Q207L: Ferencváros Budapest vs. The New Saints FC
-Q208W: Dynamo Kiew vs. Partizan Belgrad
-Q208L: Dynamo Kiew vs. Partizan Belgrad
-Q209W: UE Santa Coloma vs. FC Midtjylland
-Q209L: UE Santa Coloma vs. FC Midtjylland
-Q210W: FC Lugano vs. Fenerbahce Istanbul
-Q210L: FC Lugano vs. Fenerbahce Istanbul
-Q211W: Shamrock Rovers vs. Sparta Prag
-Q211L: Shamrock Rovers vs. Sparta Prag
-Q212W: PAOK Thessaloniki vs. Borac Banja Luka
-Q212L: PAOK Thessaloniki vs. Borac Banja Luka
-Q213W: Ludogorez Rasgrad vs. Dinamo Minsk
-Q213L: Ludogorez Rasgrad vs. Dinamo Minsk
-Q214W: NK Celje vs. Slovan Bratislava
-Q214L: NK Celje vs. Slovan Bratislava
+Q201W: FK Bodø/Glimt
+Q201L: FK Rigas FS
+Q202W: Jagiellonia Bialystok
+Q202L: FK Panevezys
+Q203W: Qarabag Agdam
+Q203L: Lincoln Red Imps FC
+Q204W: APOEL Nikosia
+Q204L: Petrocub Hîncesti
+Q205W: Malmö FF
+Q205L: KÍ Klaksvík
+Q206W: Steaua Bukarest
+Q206L: Maccabi Tel Aviv
+Q207W: Ferencváros Budapest
+Q207L: The New Saints FC
+Q208W: Dynamo Kiew
+Q208L: Partizan Belgrad
+Q209W: FC Midtjylland
+Q209L: UE Santa Coloma
+Q210W: Fenerbahce Istanbul
+Q210L: FC Lugano
+Q211W: Sparta Prag
+Q211L: Shamrock Rovers
+Q212W: PAOK Thessaloniki
+Q212L: Borac Banja Luka
+Q213W: Ludogorez Rasgrad
+Q213L: Dinamo Minsk
+Q214W: Slovan Bratislava
+Q214L: NK Celje
