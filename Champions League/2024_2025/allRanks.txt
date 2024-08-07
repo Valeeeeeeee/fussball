@@ -54,23 +54,23 @@ Q213W: Ludogorez Rasgrad
 Q213L: Dinamo Minsk
 Q214W: Slovan Bratislava
 Q214L: NK Celje
-Q301W: FC Salzburg vs. Twente Enschede
-Q301L: FC Salzburg vs. Twente Enschede
-Q302W: Slavia Prag vs. Royale Union Saint-Gilloise
-Q302L: Slavia Prag vs. Royale Union Saint-Gilloise
-Q303W: OSC Lille vs. Fenerbahce Istanbul
-Q303L: OSC Lille vs. Fenerbahce Istanbul
-Q304W: Jagiellonia Bialystok vs. FK Bodø/Glimt
-Q304L: Jagiellonia Bialystok vs. FK Bodø/Glimt
-Q305W: Qarabag Agdam vs. Ludogorez Rasgrad
-Q305L: Qarabag Agdam vs. Ludogorez Rasgrad
-Q306W: Malmö FF vs. PAOK Thessaloniki
-Q306L: Malmö FF vs. PAOK Thessaloniki
-Q307W: Dynamo Kiew vs. Glasgow Rangers
-Q307L: Dynamo Kiew vs. Glasgow Rangers
-Q308W: FC Midtjylland vs. Ferencváros Budapest
-Q308L: FC Midtjylland vs. Ferencváros Budapest
-Q309W: Sparta Prag vs. Steaua Bukarest
-Q309L: Sparta Prag vs. Steaua Bukarest
-Q310W: Slovan Bratislava vs. APOEL Nikosia
-Q310L: Slovan Bratislava vs. APOEL Nikosia
+Q301W: Qarabag Agdam vs. Ludogorez Rasgrad
+Q301L: Qarabag Agdam vs. Ludogorez Rasgrad
+Q302W: Malmö FF vs. PAOK Thessaloniki
+Q302L: Malmö FF vs. PAOK Thessaloniki
+Q303W: FC Midtjylland vs. Ferencváros Budapest
+Q303L: FC Midtjylland vs. Ferencváros Budapest
+Q304W: Dynamo Kiew vs. Glasgow Rangers
+Q304L: Dynamo Kiew vs. Glasgow Rangers
+Q305W: Sparta Prag vs. Steaua Bukarest
+Q305L: Sparta Prag vs. Steaua Bukarest
+Q306W: OSC Lille vs. Fenerbahce Istanbul
+Q306L: OSC Lille vs. Fenerbahce Istanbul
+Q307W: FC Salzburg vs. Twente Enschede
+Q307L: FC Salzburg vs. Twente Enschede
+Q308W: Slavia Prag vs. Royale Union Saint-Gilloise
+Q308L: Slavia Prag vs. Royale Union Saint-Gilloise
+Q309W: Slovan Bratislava vs. APOEL Nikosia
+Q309L: Slovan Bratislava vs. APOEL Nikosia
+Q310W: Jagiellonia Bialystok vs. FK Bodø/Glimt
+Q310L: Jagiellonia Bialystok vs. FK Bodø/Glimt
