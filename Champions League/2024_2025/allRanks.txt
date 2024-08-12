@@ -74,3 +74,17 @@ Q309W: Slovan Bratislava vs. APOEL Nikosia
 Q309L: Slovan Bratislava vs. APOEL Nikosia
 Q310W: Jagiellonia Bialystok vs. FK Bodø/Glimt
 Q310L: Jagiellonia Bialystok vs. FK Bodø/Glimt
+PO01W: Young Boys Bern vs. Galatasaray Istanbul
+PO01L: Young Boys Bern vs. Galatasaray Istanbul
+PO02W: Dinamo Zagreb vs. Q301W
+PO02L: Dinamo Zagreb vs. Q301W
+PO03W: Q302W vs. Q305W
+PO03L: Q302W vs. Q305W
+PO04W: Q303W vs. Q309W
+PO04L: Q303W vs. Q309W
+PO05W: Q304W vs. Q307W
+PO05L: Q304W vs. Q307W
+PO06W: Q306W vs. Q308W
+PO06L: Q306W vs. Q308W
+PO07W: Q310W vs. Roter Stern Belgrad
+PO07L: Q310W vs. Roter Stern Belgrad

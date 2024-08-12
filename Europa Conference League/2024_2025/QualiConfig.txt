@@ -2,7 +2,8 @@
 20240829
 false
 0
-3
+4
 1. Qualifikationsrunde;Q1;true;
 2. Qualifikationsrunde;Q2;true;
 3. Qualifikationsrunde;Q3;true;
+Play-offs;PO;true;
