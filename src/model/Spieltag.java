@@ -26,6 +26,8 @@ public class Spieltag extends JPanel {
 	private Color colorMatches = new Color(224, 255, 224);
 	private Color colorDatum = new Color(255, 191, 31);
 	private Font fontRR = new Font("Dialog", 1, 18);
+	private Font fontNormal = new Font("Lucida Grande", 0, 13);
+	private Font fontSmall = new Font("Lucida Grande", 0, 10);
 	
 	private JComboBox<String> jCBMatchdays;
 	private JScrollPane jSPMatches;
@@ -232,7 +234,7 @@ public class Spieltag extends JPanel {
 		btnsSelection[STARTY] = 10;
 		btnsSelection[GAPX] = 5;
 		btnsSelection[GAPY] = 5;
-		btnsSelection[SIZEX] = 200;
+		btnsSelection[SIZEX] = 230;
 		btnsSelection[SIZEY] = 50;
 		
 		if (2 * btnsSelection[STARTY] + halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) > maxHeight) {
@@ -255,7 +257,7 @@ public class Spieltag extends JPanel {
 		
 		lblsGroup = new int[] { 135, 5, 0, gapy, 10, height };
 		
-		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 145 : 135), gapy, 180, height };
+		lblsTeams = new int[] { lblsGroup[STARTX] + lblsGroup[SIZEX] + 5, lblsGroup[STARTY], (isETPossible ? zusInfWidth + 145 : 135), gapy, 220, height };
 
 		tfsGoals = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + 10, lblsTeams[STARTY], 0, gapy, 40, height };
 		
@@ -263,7 +265,7 @@ public class Spieltag extends JPanel {
 		
 		btnsMoreOpt = new int[] { lblsTeams[STARTX] + lblsTeams[SIZEX] + lblsTeams[GAPX] - 45, lblsTeams[STARTY], 0, gapy, 40, height };
 		
-		matchesWidth = 650 + (isETPossible ? zusInfWidth + 10 : 0);
+		matchesWidth = 730 + (isETPossible ? zusInfWidth + 10 : 0);
 		matchesHeight = numberOfMatches * (height + gapy) - gapy + 2 * 5;
 	}
 	
@@ -278,7 +280,7 @@ public class Spieltag extends JPanel {
 			calculateBounds();
 
 			Dimension dim = new Dimension();
-			dim.width = 1200;
+			dim.width = 1300;
 
 			int heightOfTeamLabels = lblsTeams[STARTY] + numberOfMatches * (lblsTeams[SIZEY] + lblsTeams[GAPY]) + 20;
 			int heightOfTeamSelection = 2 * btnsSelection[STARTY] + halfCountTeamsRoundUp * (btnsSelection[SIZEY] + btnsSelection[GAPY]) - btnsSelection[GAPY] + 2 * WIDTH_BORDER;
@@ -908,16 +910,17 @@ public class Spieltag extends JPanel {
 	private void setMannschaftenButtonsNames() {
 		int groupID = 0, teamID = 0;
 		for (int i = 0; i < jBtnsMannschaften.length; i++) {
-			if (belongsToALeague)		jBtnsMannschaften[i].setText(lSeason.getTeams().get(i).getName());
-			else if (belongsToGroup)	jBtnsMannschaften[i].setText(group.getTeams().get(i).getName());
+			String team = "";
+			if (belongsToALeague)		team = lSeason.getTeams().get(i).getName();
+			else if (belongsToGroup)	team = group.getTeams().get(i).getName();
 			else if (belongsToKORound) {
 				try {
-					jBtnsMannschaften[i].setText(teams.get(i).getName());
+					team = teams.get(i).getName();
 				} catch (NullPointerException npe) {
-					jBtnsMannschaften[i].setText(koRound.getTeamsOrigin(i).getOrigin());
+					team = koRound.getTeamsOrigin(i).getOrigin();
 				}
 			} else {
-				jBtnsMannschaften[i].setText(allGroups[groupID].getTeams().get(teamID).getName());
+				team = allGroups[groupID].getTeams().get(teamID).getName();
 				
 				teamID++;
 				if (teamID == numbersOfTeams[groupID]) {
@@ -925,6 +928,8 @@ public class Spieltag extends JPanel {
 					groupID++;
 				}
 			}
+			jBtnsMannschaften[i].setFont(team.contains(VERSUS) ? fontSmall : fontNormal);
+			jBtnsMannschaften[i].setText(team);
 		}
 	}
 
@@ -1273,8 +1278,13 @@ public class Spieltag extends JPanel {
 	}
 	
 	private void displayTeams(int matchIndex, String firstTeam, String secondTeam) {
-		jLblsTeams[matchIndex].setText(firstTeam);
-		jLblsTeams[matchIndex + numberOfMatches].setText(secondTeam);
+		displayTeam(matchIndex, firstTeam);
+		displayTeam(matchIndex + numberOfMatches, secondTeam);
+	}
+	
+	private void displayTeam(int index, String team) {
+		jLblsTeams[index].setFont(team.contains(VERSUS) ? fontSmall : fontNormal);
+		jLblsTeams[index].setText(team);
 	}
 	
 	private void displayResult(int matchIndex, Ergebnis result) {
@@ -1508,13 +1518,14 @@ public class Spieltag extends JPanel {
 	}
 	
 	public void mannschaftenButtonClicked(int index) {
-		if (belongsToALeague)		jLblsTeams[editedLabel].setText(lSeason.getTeams().get(index).getName());
-		else if (belongsToGroup)	jLblsTeams[editedLabel].setText(group.getTeams().get(index).getName());
+		String team = "";
+		if (belongsToALeague)		team = lSeason.getTeams().get(index).getName();
+		else if (belongsToGroup)	team = group.getTeams().get(index).getName();
 		else if (belongsToKORound) {
 			try {
-				jLblsTeams[editedLabel].setText(teams.get(index).getName());
+				team = teams.get(index).getName();
 			} catch (NullPointerException npe) {
-				jLblsTeams[editedLabel].setText(koRound.getTeamsOrigin(index).getOrigin());
+				team = koRound.getTeamsOrigin(index).getOrigin();
 			}
 		} else {
 			int groupID = 0, teamID = index;
@@ -1532,8 +1543,9 @@ public class Spieltag extends JPanel {
 				return;
 			}
 			
-			jLblsTeams[editedLabel].setText(allGroups[groupID].getTeams().get(teamID).getName());
+			team = allGroups[groupID].getTeams().get(teamID).getName();
 		}
+		displayTeam(editedLabel, team);
 		int oldButton = array[editedLabel % numberOfMatches][editedLabel / numberOfMatches] - 1;
 		if (oldButton >= 0)	jBtnsMannschaften[oldButton].setEnabled(true);
 		
