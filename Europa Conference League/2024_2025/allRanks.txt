@@ -206,51 +206,51 @@ Q329W: St. Patrick's Athletic
 Q329L: Sabah FK
 Q330W: Brann Bergen
 Q330L: FC St. Mirren
-PO01W: FC Chelsea vs. Servette Genf
-PO01L: FC Chelsea vs. Servette Genf
-PO02W: AC Florenz vs. Puskás Akadémia FC
-PO02L: AC Florenz vs. Puskás Akadémia FC
-PO03W: RC Lens vs. Panathinaikos Athen
-PO03L: RC Lens vs. Panathinaikos Athen
-PO04W: Noah Erewan vs. MFK Ruzomberok
-PO04L: Noah Erewan vs. MFK Ruzomberok
-PO05W: FC Kopenhagen vs. FC Kilmarnock
-PO05L: FC Kopenhagen vs. FC Kilmarnock
-PO06W: BK Häcken vs. 1. FC Heidenheim
-PO06L: BK Häcken vs. 1. FC Heidenheim
-PO07W: FC St. Gallen vs. Trabzonspor
-PO07L: FC St. Gallen vs. Trabzonspor
-PO08W: Pjunik Erewan vs. NK Celje
-PO08L: Pjunik Erewan vs. NK Celje
-PO09W: Mladá Boleslav vs. Paksi FC
-PO09L: Mladá Boleslav vs. Paksi FC
-PO10W: Djurgårdens IF vs. NK Maribor
-PO10L: Djurgårdens IF vs. NK Maribor
-PO11W: Omonia Nikosia vs. FK Zira
-PO11L: Omonia Nikosia vs. FK Zira
-PO12W: Vitória Guimarães vs. Zrinjski Mostar
-PO12L: Vitória Guimarães vs. Zrinjski Mostar
-PO13W: Legia Warschau vs. KF Drita
-PO13L: Legia Warschau vs. KF Drita
-PO14W: CFR Cluj vs. FC Pafos
-PO14L: CFR Cluj vs. FC Pafos
-PO15W: Víkingur Reykjavík vs. UE Santa Coloma
-PO15L: Víkingur Reykjavík vs. UE Santa Coloma
-PO16W: Wisla Krakau vs. Cercle Brügge
-PO16L: Wisla Krakau vs. Cercle Brügge
-PO17W: St. Patrick's Athletic vs. Istanbul Basaksehir
-PO17L: St. Patrick's Athletic vs. Istanbul Basaksehir
-PO18W: Brann Bergen vs. FK Astana
-PO18L: Brann Bergen vs. FK Astana
-PO19W: FK Panevezys vs. The New Saints FC
-PO19L: FK Panevezys vs. The New Saints FC
-PO20W: KÍ Klaksvík vs. HJK Helsinki
-PO20L: KÍ Klaksvík vs. HJK Helsinki
-PO21W: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
-PO21L: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
-PO22W: HNK Rijeka vs. Olimpija Ljubljana
-PO22L: HNK Rijeka vs. Olimpija Ljubljana
-PO23W: Partizan Belgrad vs. KAA Gent
-PO23L: Partizan Belgrad vs. KAA Gent
-PO24W: Lincoln Red Imps FC vs. Larne FC
-PO24L: Lincoln Red Imps FC vs. Larne FC
+PO01W: Noah Erewan vs. MFK Ruzomberok
+PO01L: Noah Erewan vs. MFK Ruzomberok
+PO02W: Vitória Guimarães vs. Zrinjski Mostar
+PO02L: Vitória Guimarães vs. Zrinjski Mostar
+PO03W: Pjunik Erewan vs. NK Celje
+PO03L: Pjunik Erewan vs. NK Celje
+PO04W: Mladá Boleslav vs. Paksi FC
+PO04L: Mladá Boleslav vs. Paksi FC
+PO05W: Legia Warschau vs. KF Drita
+PO05L: Legia Warschau vs. KF Drita
+PO06W: FK Panevezys vs. The New Saints FC
+PO06L: FK Panevezys vs. The New Saints FC
+PO07W: FC Kopenhagen vs. FC Kilmarnock
+PO07L: FC Kopenhagen vs. FC Kilmarnock
+PO08W: BK Häcken vs. 1. FC Heidenheim
+PO08L: BK Häcken vs. 1. FC Heidenheim
+PO09W: Djurgårdens IF vs. NK Maribor
+PO09L: Djurgårdens IF vs. NK Maribor
+PO10W: Omonia Nikosia vs. FK Zira
+PO10L: Omonia Nikosia vs. FK Zira
+PO11W: Brann Bergen vs. FK Astana
+PO11L: Brann Bergen vs. FK Astana
+PO12W: CFR Cluj vs. FC Pafos
+PO12L: CFR Cluj vs. FC Pafos
+PO13W: AC Florenz vs. Puskás Akadémia FC
+PO13L: AC Florenz vs. Puskás Akadémia FC
+PO14W: Víkingur Reykjavík vs. UE Santa Coloma
+PO14L: Víkingur Reykjavík vs. UE Santa Coloma
+PO15W: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
+PO15L: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
+PO16W: HNK Rijeka vs. Olimpija Ljubljana
+PO16L: HNK Rijeka vs. Olimpija Ljubljana
+PO17W: Lincoln Red Imps FC vs. Larne FC
+PO17L: Lincoln Red Imps FC vs. Larne FC
+PO18W: Partizan Belgrad vs. KAA Gent
+PO18L: Partizan Belgrad vs. KAA Gent
+PO19W: Wisla Krakau vs. Cercle Brügge
+PO19L: Wisla Krakau vs. Cercle Brügge
+PO20W: St. Patrick's Athletic vs. Istanbul Basaksehir
+PO20L: St. Patrick's Athletic vs. Istanbul Basaksehir
+PO21W: KÍ Klaksvík vs. HJK Helsinki
+PO21L: KÍ Klaksvík vs. HJK Helsinki
+PO22W: FC Chelsea vs. Servette Genf
+PO22L: FC Chelsea vs. Servette Genf
+PO23W: RC Lens vs. Panathinaikos Athen
+PO23L: RC Lens vs. Panathinaikos Athen
+PO24W: FC St. Gallen vs. Trabzonspor
+PO24L: FC St. Gallen vs. Trabzonspor
