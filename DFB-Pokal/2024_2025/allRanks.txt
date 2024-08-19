@@ -1,63 +1,63 @@
-1R01W: SV Wehen Wiesbaden vs. 1. FSV Mainz 05
-1R01L: SV Wehen Wiesbaden vs. 1. FSV Mainz 05
-1R02W: Würzburger Kickers vs. TSG 1899 Hoffenheim
-1R02L: Würzburger Kickers vs. TSG 1899 Hoffenheim
-1R03W: Hallescher FC vs. FC St. Pauli
-1R03L: Hallescher FC vs. FC St. Pauli
-1R04W: SSV Ulm 1846 vs. Bayern München
-1R04L: SSV Ulm 1846 vs. Bayern München
-1R05W: Erzgebirge Aue vs. Borussia Mönchengladbach
-1R05L: Erzgebirge Aue vs. Borussia Mönchengladbach
-1R06W: TSV Schott Mainz vs. SpVgg Greuther Fürth
-1R06L: TSV Schott Mainz vs. SpVgg Greuther Fürth
-1R07W: VfL Osnabrück vs. SC Freiburg
-1R07L: VfL Osnabrück vs. SC Freiburg
-1R08W: FC Ingolstadt 04 vs. 1. FC Kaiserslautern
-1R08L: FC Ingolstadt 04 vs. 1. FC Kaiserslautern
-1R09W: Greifswalder FC vs. 1. FC Union Berlin
-1R09L: Greifswalder FC vs. 1. FC Union Berlin
-1R10W: Rot-Weiss Essen vs. RasenBallsport Leipzig
-1R10L: Rot-Weiss Essen vs. RasenBallsport Leipzig
-1R11W: FC 08 Villingen vs. 1. FC Heidenheim
-1R11L: FC 08 Villingen vs. 1. FC Heidenheim
-1R12W: VfR Aalen vs. FC Schalke 04
-1R12L: VfR Aalen vs. FC Schalke 04
-1R13W: Alemannia Aachen vs. Holstein Kiel
-1R13L: Alemannia Aachen vs. Holstein Kiel
-1R14W: 1. FC Phönix Lübeck vs. Borussia Dortmund
-1R14L: 1. FC Phönix Lübeck vs. Borussia Dortmund
-1R15W: Arminia Bielefeld vs. Hannover 96
-1R15L: Arminia Bielefeld vs. Hannover 96
-1R16W: FC Viktoria 1889 Berlin vs. FC Augsburg
-1R16L: FC Viktoria 1889 Berlin vs. FC Augsburg
-1R17W: 1. FC Saarbrücken vs. 1. FC Nürnberg
-1R17L: 1. FC Saarbrücken vs. 1. FC Nürnberg
-1R18W: Hansa Rostock vs. Hertha BSC
-1R18L: Hansa Rostock vs. Hertha BSC
-1R19W: SSV Jahn Regensburg vs. VfL Bochum
-1R19L: SSV Jahn Regensburg vs. VfL Bochum
-1R20W: SV Sandhausen vs. 1. FC Köln
-1R20L: SV Sandhausen vs. 1. FC Köln
-1R21W: Bremer SV vs. SC Paderborn
-1R21L: Bremer SV vs. SC Paderborn
-1R22W: FC Teutonia 05 Ottensen vs. SV Darmstadt 98
-1R22L: FC Teutonia 05 Ottensen vs. SV Darmstadt 98
-1R23W: VfV 06 Hildesheim vs. SV Elversberg
-1R23L: VfV 06 Hildesheim vs. SV Elversberg
-1R24W: Dynamo Dresden vs. Fortuna Düsseldorf
-1R24L: Dynamo Dresden vs. Fortuna Düsseldorf
-1R25W: SV Meppen vs. Hamburger SV
-1R25L: SV Meppen vs. Hamburger SV
-1R26W: Sportfreunde Lotte vs. Karlsruher SC
-1R26L: Sportfreunde Lotte vs. Karlsruher SC
-1R27W: FC Energie Cottbus vs. Werder Bremen
-1R27L: FC Energie Cottbus vs. Werder Bremen
-1R28W: Kickers Offenbach vs. 1. FC Magdeburg
-1R28L: Kickers Offenbach vs. 1. FC Magdeburg
-1R29W: TuS Koblenz vs. VfL Wolfsburg
-1R29L: TuS Koblenz vs. VfL Wolfsburg
-1R30W: Eintracht Braunschweig vs. Eintracht Frankfurt
-1R30L: Eintracht Braunschweig vs. Eintracht Frankfurt
+1R01W: 1. FSV Mainz 05
+1R01L: SV Wehen Wiesbaden
+1R02W: TSG 1899 Hoffenheim
+1R02L: Würzburger Kickers
+1R03W: FC St. Pauli
+1R03L: Hallescher FC
+1R04W: Bayern München
+1R04L: SSV Ulm 1846
+1R05W: Borussia Mönchengladbach
+1R05L: Erzgebirge Aue
+1R06W: SpVgg Greuther Fürth
+1R06L: TSV Schott Mainz
+1R07W: SC Freiburg
+1R07L: VfL Osnabrück
+1R08W: 1. FC Kaiserslautern
+1R08L: FC Ingolstadt 04
+1R09W: 1. FC Union Berlin
+1R09L: Greifswalder FC
+1R10W: RasenBallsport Leipzig
+1R10L: Rot-Weiss Essen
+1R11W: 1. FC Heidenheim
+1R11L: FC 08 Villingen
+1R12W: FC Schalke 04
+1R12L: VfR Aalen
+1R13W: Holstein Kiel
+1R13L: Alemannia Aachen
+1R14W: Borussia Dortmund
+1R14L: 1. FC Phönix Lübeck
+1R15W: Arminia Bielefeld
+1R15L: Hannover 96
+1R16W: FC Augsburg
+1R16L: FC Viktoria 1889 Berlin
+1R17W: 1. FC Nürnberg
+1R17L: 1. FC Saarbrücken
+1R18W: Hertha BSC
+1R18L: Hansa Rostock
+1R19W: SSV Jahn Regensburg
+1R19L: VfL Bochum
+1R20W: 1. FC Köln
+1R20L: SV Sandhausen
+1R21W: SC Paderborn
+1R21L: Bremer SV
+1R22W: SV Darmstadt 98
+1R22L: FC Teutonia 05 Ottensen
+1R23W: SV Elversberg
+1R23L: VfV 06 Hildesheim
+1R24W: Dynamo Dresden
+1R24L: Fortuna Düsseldorf
+1R25W: Hamburger SV
+1R25L: SV Meppen
+1R26W: Karlsruher SC
+1R26L: Sportfreunde Lotte
+1R27W: Werder Bremen
+1R27L: FC Energie Cottbus
+1R28W: Kickers Offenbach
+1R28L: 1. FC Magdeburg
+1R29W: VfL Wolfsburg
+1R29L: TuS Koblenz
+1R30W: Eintracht Frankfurt
+1R30L: Eintracht Braunschweig
 1R31W: Preußen Münster vs. VfB Stuttgart
 1R31L: Preußen Münster vs. VfB Stuttgart
 1R32W: FC Carl Zeiss Jena vs. Bayer 04 Leverkusen
