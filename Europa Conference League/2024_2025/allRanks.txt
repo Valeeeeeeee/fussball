@@ -238,19 +238,19 @@ PO15W: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
 PO15L: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
 PO16W: HNK Rijeka vs. Olimpija Ljubljana
 PO16L: HNK Rijeka vs. Olimpija Ljubljana
-PO17W: Lincoln Red Imps FC vs. Larne FC
-PO17L: Lincoln Red Imps FC vs. Larne FC
-PO18W: Partizan Belgrad vs. KAA Gent
-PO18L: Partizan Belgrad vs. KAA Gent
-PO19W: Wisla Krakau vs. Cercle Brügge
-PO19L: Wisla Krakau vs. Cercle Brügge
-PO20W: St. Patrick's Athletic vs. Istanbul Basaksehir
-PO20L: St. Patrick's Athletic vs. Istanbul Basaksehir
-PO21W: KÍ Klaksvík vs. HJK Helsinki
-PO21L: KÍ Klaksvík vs. HJK Helsinki
-PO22W: FC Chelsea vs. Servette Genf
-PO22L: FC Chelsea vs. Servette Genf
-PO23W: RC Lens vs. Panathinaikos Athen
-PO23L: RC Lens vs. Panathinaikos Athen
-PO24W: FC St. Gallen vs. Trabzonspor
-PO24L: FC St. Gallen vs. Trabzonspor
+PO17W: Partizan Belgrad vs. KAA Gent
+PO17L: Partizan Belgrad vs. KAA Gent
+PO18W: Wisla Krakau vs. Cercle Brügge
+PO18L: Wisla Krakau vs. Cercle Brügge
+PO19W: St. Patrick's Athletic vs. Istanbul Basaksehir
+PO19L: St. Patrick's Athletic vs. Istanbul Basaksehir
+PO20W: KÍ Klaksvík vs. HJK Helsinki
+PO20L: KÍ Klaksvík vs. HJK Helsinki
+PO21W: FC Chelsea vs. Servette Genf
+PO21L: FC Chelsea vs. Servette Genf
+PO22W: RC Lens vs. Panathinaikos Athen
+PO22L: RC Lens vs. Panathinaikos Athen
+PO23W: FC St. Gallen vs. Trabzonspor
+PO23L: FC St. Gallen vs. Trabzonspor
+PO24W: Lincoln Red Imps FC vs. Larne FC
+PO24L: Lincoln Red Imps FC vs. Larne FC

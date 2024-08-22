@@ -68,13 +68,13 @@ PO06W: Maccabi Tel Aviv vs. TSC Backa Topola
 PO06L: Maccabi Tel Aviv vs. TSC Backa Topola
 PO07W: Ludogorez Rasgrad vs. Petrocub Hîncesti
 PO07L: Ludogorez Rasgrad vs. Petrocub Hîncesti
-PO08W: Ferencváros Budapest vs. Borac Banja Luka
-PO08L: Ferencváros Budapest vs. Borac Banja Luka
-PO09W: FC Lugano vs. Besiktas Istanbul
-PO09L: FC Lugano vs. Besiktas Istanbul
-PO10W: Dinamo Minsk vs. RSC Anderlecht
-PO10L: Dinamo Minsk vs. RSC Anderlecht
-PO11W: Jagiellonia Bialystok vs. Ajax Amsterdam
-PO11L: Jagiellonia Bialystok vs. Ajax Amsterdam
+PO08W: FC Lugano vs. Besiktas Istanbul
+PO08L: FC Lugano vs. Besiktas Istanbul
+PO09W: Dinamo Minsk vs. RSC Anderlecht
+PO09L: Dinamo Minsk vs. RSC Anderlecht
+PO10W: Jagiellonia Bialystok vs. Ajax Amsterdam
+PO10L: Jagiellonia Bialystok vs. Ajax Amsterdam
+PO11W: Ferencváros Budapest vs. Borac Banja Luka
+PO11L: Ferencváros Budapest vs. Borac Banja Luka
 PO12W: Sporting Braga vs. Rapid Wien
 PO12L: Sporting Braga vs. Rapid Wien
