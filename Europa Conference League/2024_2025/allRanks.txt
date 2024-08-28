@@ -238,12 +238,12 @@ PO15W: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
 PO15L: Kryvbas Kryvyi Rih vs. Real Betis Sevilla
 PO16W: HNK Rijeka vs. Olimpija Ljubljana
 PO16L: HNK Rijeka vs. Olimpija Ljubljana
-PO17W: Partizan Belgrad vs. KAA Gent
-PO17L: Partizan Belgrad vs. KAA Gent
+PO17W: KAA Gent
+PO17L: Partizan Belgrad
 PO18W: Wisla Krakau vs. Cercle Brügge
 PO18L: Wisla Krakau vs. Cercle Brügge
-PO19W: St. Patrick's Athletic vs. Istanbul Basaksehir
-PO19L: St. Patrick's Athletic vs. Istanbul Basaksehir
+PO19W: Istanbul Basaksehir
+PO19L: St. Patrick's Athletic
 PO20W: KÍ Klaksvík vs. HJK Helsinki
 PO20L: KÍ Klaksvík vs. HJK Helsinki
 PO21W: FC Chelsea vs. Servette Genf

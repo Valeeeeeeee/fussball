@@ -58,10 +58,10 @@
 1R29L: TuS Koblenz
 1R30W: Eintracht Frankfurt
 1R30L: Eintracht Braunschweig
-1R31W: Preußen Münster vs. VfB Stuttgart
-1R31L: Preußen Münster vs. VfB Stuttgart
-1R32W: FC Carl Zeiss Jena vs. Bayer 04 Leverkusen
-1R32L: FC Carl Zeiss Jena vs. Bayer 04 Leverkusen
+1R31W: VfB Stuttgart
+1R31L: Preußen Münster
+1R32W: Bayer 04 Leverkusen
+1R32L: FC Carl Zeiss Jena
 2R01W: DPOK20242R01W
 2R01L: DPOK20242R01L
 2R02W: DPOK20242R02W

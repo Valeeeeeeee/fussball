@@ -74,17 +74,17 @@ Q309W: Slovan Bratislava
 Q309L: APOEL Nikosia
 Q310W: FK Bodø/Glimt
 Q310L: Jagiellonia Bialystok
-PO01W: Dinamo Zagreb vs. Qarabag Agdam
-PO01L: Dinamo Zagreb vs. Qarabag Agdam
-PO02W: OSC Lille vs. Slavia Prag
-PO02L: OSC Lille vs. Slavia Prag
-PO03W: FK Bodø/Glimt vs. Roter Stern Belgrad
-PO03L: FK Bodø/Glimt vs. Roter Stern Belgrad
-PO04W: Young Boys Bern vs. Galatasaray Istanbul
-PO04L: Young Boys Bern vs. Galatasaray Istanbul
-PO05W: Malmö FF vs. Sparta Prag
-PO05L: Malmö FF vs. Sparta Prag
-PO06W: FC Midtjylland vs. Slovan Bratislava
-PO06L: FC Midtjylland vs. Slovan Bratislava
-PO07W: Dynamo Kiew vs. FC Salzburg
-PO07L: Dynamo Kiew vs. FC Salzburg
+PO01W: Dinamo Zagreb
+PO01L: Qarabag Agdam
+PO02W: OSC Lille
+PO02L: Slavia Prag
+PO03W: Roter Stern Belgrad
+PO03L: FK Bodø/Glimt
+PO04W: Young Boys Bern
+PO04L: Galatasaray Istanbul
+PO05W: Sparta Prag
+PO05L: Malmö FF
+PO06W: Slovan Bratislava
+PO06L: FC Midtjylland
+PO07W: FC Salzburg
+PO07L: Dynamo Kiew
