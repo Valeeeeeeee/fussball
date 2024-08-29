@@ -54,27 +54,27 @@ Q312W: Dinamo Minsk
 Q312L: Lincoln Red Imps FC
 Q313W: Sporting Braga
 Q313L: Servette Genf
-PO01W: Linzer ASK vs. Steaua Bukarest
-PO01L: Linzer ASK vs. Steaua Bukarest
-PO02W: Molde FK vs. IF Elfsborg
-PO02L: Molde FK vs. IF Elfsborg
-PO03W: Viktoria Pilsen vs. Heart of Midlothian
-PO03L: Viktoria Pilsen vs. Heart of Midlothian
-PO04W: FK Rigas FS vs. APOEL Nikosia
-PO04L: FK Rigas FS vs. APOEL Nikosia
-PO05W: PAOK Thessaloniki vs. Shamrock Rovers
-PO05L: PAOK Thessaloniki vs. Shamrock Rovers
-PO06W: Maccabi Tel Aviv vs. TSC Backa Topola
-PO06L: Maccabi Tel Aviv vs. TSC Backa Topola
-PO07W: Ludogorez Rasgrad vs. Petrocub Hîncesti
-PO07L: Ludogorez Rasgrad vs. Petrocub Hîncesti
-PO08W: FC Lugano vs. Besiktas Istanbul
-PO08L: FC Lugano vs. Besiktas Istanbul
-PO09W: Dinamo Minsk vs. RSC Anderlecht
-PO09L: Dinamo Minsk vs. RSC Anderlecht
-PO10W: Jagiellonia Bialystok vs. Ajax Amsterdam
-PO10L: Jagiellonia Bialystok vs. Ajax Amsterdam
-PO11W: Ferencváros Budapest vs. Borac Banja Luka
-PO11L: Ferencváros Budapest vs. Borac Banja Luka
-PO12W: Sporting Braga vs. Rapid Wien
-PO12L: Sporting Braga vs. Rapid Wien
+PO01W: Steaua Bukarest
+PO01L: Linzer ASK
+PO02W: IF Elfsborg
+PO02L: Molde FK
+PO03W: Viktoria Pilsen
+PO03L: Heart of Midlothian
+PO04W: FK Rigas FS
+PO04L: APOEL Nikosia
+PO05W: PAOK Thessaloniki
+PO05L: Shamrock Rovers
+PO06W: Maccabi Tel Aviv
+PO06L: TSC Backa Topola
+PO07W: Ludogorez Rasgrad
+PO07L: Petrocub Hîncesti
+PO08W: Besiktas Istanbul
+PO08L: FC Lugano
+PO09W: RSC Anderlecht
+PO09L: Dinamo Minsk
+PO10W: Ajax Amsterdam
+PO10L: Jagiellonia Bialystok
+PO11W: Ferencváros Budapest
+PO11L: Borac Banja Luka
+PO12W: Sporting Braga
+PO12L: Rapid Wien
