@@ -62,38 +62,38 @@
 1R31L: Preußen Münster
 1R32W: Bayer 04 Leverkusen
 1R32L: FC Carl Zeiss Jena
-2R01W: DPOK20242R01W
-2R01L: DPOK20242R01L
-2R02W: DPOK20242R02W
-2R02L: DPOK20242R02L
-2R03W: DPOK20242R03W
-2R03L: DPOK20242R03L
-2R04W: DPOK20242R04W
-2R04L: DPOK20242R04L
-2R05W: DPOK20242R05W
-2R05L: DPOK20242R05L
-2R06W: DPOK20242R06W
-2R06L: DPOK20242R06L
-2R07W: DPOK20242R07W
-2R07L: DPOK20242R07L
-2R08W: DPOK20242R08W
-2R08L: DPOK20242R08L
-2R09W: DPOK20242R09W
-2R09L: DPOK20242R09L
-2R10W: DPOK20242R10W
-2R10L: DPOK20242R10L
-2R11W: DPOK20242R11W
-2R11L: DPOK20242R11L
-2R12W: DPOK20242R12W
-2R12L: DPOK20242R12L
-2R13W: DPOK20242R13W
-2R13L: DPOK20242R13L
-2R14W: DPOK20242R14W
-2R14L: DPOK20242R14L
-2R15W: DPOK20242R15W
-2R15L: DPOK20242R15L
-2R16W: DPOK20242R16W
-2R16L: DPOK20242R16L
+2R01W: 1. FSV Mainz 05 vs. Bayern München
+2R01L: 1. FSV Mainz 05 vs. Bayern München
+2R02W: TSG 1899 Hoffenheim vs. 1. FC Nürnberg
+2R02L: TSG 1899 Hoffenheim vs. 1. FC Nürnberg
+2R03W: SC Freiburg vs. Hamburger SV
+2R03L: SC Freiburg vs. Hamburger SV
+2R04W: RasenBallsport Leipzig vs. FC St. Pauli
+2R04L: RasenBallsport Leipzig vs. FC St. Pauli
+2R05W: Arminia Bielefeld vs. 1. FC Union Berlin
+2R05L: Arminia Bielefeld vs. 1. FC Union Berlin
+2R06W: FC Augsburg vs. FC Schalke 04
+2R06L: FC Augsburg vs. FC Schalke 04
+2R07W: Hertha BSC vs. 1. FC Heidenheim
+2R07L: Hertha BSC vs. 1. FC Heidenheim
+2R08W: SSV Jahn Regensburg vs. SpVgg Greuther Fürth
+2R08L: SSV Jahn Regensburg vs. SpVgg Greuther Fürth
+2R09W: 1. FC Köln vs. Holstein Kiel
+2R09L: 1. FC Köln vs. Holstein Kiel
+2R10W: SC Paderborn vs. Werder Bremen
+2R10L: SC Paderborn vs. Werder Bremen
+2R11W: Dynamo Dresden vs. SV Darmstadt 98
+2R11L: Dynamo Dresden vs. SV Darmstadt 98
+2R12W: Kickers Offenbach vs. Karlsruher SC
+2R12L: Kickers Offenbach vs. Karlsruher SC
+2R13W: VfL Wolfsburg vs. Borussia Dortmund
+2R13L: VfL Wolfsburg vs. Borussia Dortmund
+2R14W: Eintracht Frankfurt vs. Borussia Mönchengladbach
+2R14L: Eintracht Frankfurt vs. Borussia Mönchengladbach
+2R15W: VfB Stuttgart vs. 1. FC Kaiserslautern
+2R15L: VfB Stuttgart vs. 1. FC Kaiserslautern
+2R16W: Bayer 04 Leverkusen vs. SV Elversberg
+2R16L: Bayer 04 Leverkusen vs. SV Elversberg
 AF01W: DPOK2024AF01W
 AF01L: DPOK2024AF01L
 AF02W: DPOK2024AF02W
