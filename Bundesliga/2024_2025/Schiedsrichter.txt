@@ -2,6 +2,7 @@ Deniz;Aytekin;19780721;Deutschland;
 Florian;Badstübner;19910202;Deutschland;
 Benjamin;Brand;19890710;Deutschland;
 Felix;Dr. Brych;19750803;Deutschland;
+Max;Dr. Burda;19890629;Deutschland;
 Bastian;Dankert;19800609;Deutschland;
 Christian;Dingert;19800714;Deutschland;
 Florian;Dr. Exner;19901005;Deutschland;
