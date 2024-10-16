@@ -30,6 +30,7 @@
 27394615;Awer;Mabil;null;19950915;Australien, Südsudan;
 27430292;Alan;Franco;null;19980821;Ecuador;
 27439465;Evan;N'Dicka;null;19990820;Frankreich, Kamerun;
+27464622;Andu;Kelati;null;20020813;Deutschland, Eritrea;
 27471731;Adam;Nemec;null;19850902;Slowakei;
 27473973;Se-Jong;Ju;null;19901030;Südkorea;
 27475451;Adam;Bodzek;null;19850907;Deutschland;
@@ -37,6 +38,7 @@
 27484290;Alex;Rodríguez;null;19900805;Panama;
 27487788;Alan;Dzagoev;null;19900617;Russland;
 27489730;Ivan;Sunjic;null;19961009;Kroatien;
+27492767;Adam;Dzwigala;null;19950925;Polen;
 27502008;DeAndre;Yedlin;null;19930709;USA, Lettland;
 27505860;Adam;Obert;null;20020823;Slowakei;
 27516301;Ivan;Schranz;null;19930913;Slowakei;
@@ -66,6 +68,7 @@
 27624718;Dodi;Lukébakio;null;19970924;DR Kongo, Belgien;
 27625062;Fran;Karacic;null;19960512;Australien, Kroatien;
 27628929;Ivan;Paurevic;null;19910701;Kroatien, Deutschland;
+27630399;Kauã;Santos;null;20030411;Brasilien;
 27635654;Alex;Král;null;19980519;Tschechien;
 27635929;Aldo;Corzo;null;19890520;Peru;
 27639281;Izet;Hajrovic;null;19910804;Schweiz, Bosnien-Herzegowina;
@@ -259,6 +262,7 @@
 28054116;Eric;Martel;null;20020429;Deutschland;
 28056930;Léo;Dubois;null;19940914;Frankreich;
 28059952;Nico;Schulz;null;19930401;Deutschland;
+28063062;Luca;Kerber;null;20020310;Deutschland;
 28064530;Rico;Strieder;null;19920706;Deutschland;
 28066560;Oleg;Shatov;null;19900729;Russland;
 28066943;John;O'Shea;null;19810430;Irland;
@@ -326,6 +330,7 @@
 28169104;Bradley;Barcola;null;20020902;Frankreich, Togo;
 28169572;Eric;García;null;20010109;Spanien;
 28172143;Bart;Verbruggen;null;20020818;Niederlande;
+28172171;Eric;Smith;null;19970108;Schweden;
 28173324;Noah;'Mbamba'-Muanda;null;20050105;Belgien;
 28174000;Eric;Dier;null;19940115;England;
 28176626;Dani;Schahin;null;19890709;Deutschland;
@@ -368,6 +373,7 @@
 28243324;Timo;Beermann;null;19901210;Deutschland;
 28255082;Brenden;Aaronson;null;20001022;USA;
 28259000;Toni;Sunjic;null;19881215;Bosnien-Herzegowina;
+28267259;Koji;Miyoshi;null;19970326;Japan;
 28267832;Mile;Jedinak;null;19840803;Australien;
 28272306;Nuno;Mendes;null;20020619;Portugal;
 28273922;Dave;Gnaase;null;19961214;Deutschland;
@@ -418,6 +424,7 @@
 28368892;Ante;Coric;null;19970414;Kroatien;
 28370226;Mile;Skoric;null;19910619;Kroatien;
 28372266;Andreas;Hirzel;null;19930325;Schweiz;
+28374448;Carl;Johansson;null;19940523;Schweden;
 28375536;Dirk;Carlson;null;19980401;Luxemburg, USA;
 28376838;Igor;Akinfeev;null;19860408;Russland;
 28378743;Brandon;Aguilera;null;20030628;Costa Rica;
@@ -440,6 +447,7 @@
 28409380;Lars;Stindl;null;19880826;Deutschland;
 28412210;Marc;Stendera;null;19951210;Deutschland;
 28413305;Ciro;Immobile;null;19900220;Italien;
+28413430;Igor;Matanovic;null;20030331;Kroatien, Deutschland;
 28414046;Birk;Risa;null;19980213;Norwegen;
 28416846;Niko;Kijewski;null;19960328;Deutschland;
 28420142;Maik;Ebersbach;null;19900307;Deutschland;
@@ -449,6 +457,7 @@
 28426687;'José Luis';Rodríguez;null;19970314;Uruguay;
 28426894;Facundo;Pellistri;null;20011220;Uruguay, Spanien;
 28430528;Ralf;Fährmann;null;19880927;Deutschland;
+28431768;Dani;de Wit;null;19980128;Niederlande;
 28435431;Marc;Roca;null;19961126;Spanien;
 28437871;Rafa;Silva;null;19930517;Portugal;
 28438938;Mert;Kömür;null;20050717;Deutschland, Türkei;
@@ -457,6 +466,7 @@
 28440934;Shio;Fukuda;null;20040408;Japan;
 28443348;Umut;Meras;null;19951220;Türkei;
 28445028;Timo;Hübers;null;19960720;Deutschland;
+28445109;Mats;Pannewig;null;20041028;Deutschland;
 28445647;Neil;Taylor;null;19890207;Wales;
 28449134;Nils;Seufert;null;19970203;Deutschland;
 28450796;Tomi;Juric;null;19910722;Australien;
@@ -468,6 +478,7 @@
 28459769;Ui-Jo;Hwang;null;19920828;Südkorea;
 28461518;Andreas;Ivan;null;19950110;Rumänien, Deutschland;
 28465809;Cesc;Fàbregas;null;19870504;Spanien;
+28467432;Michael;Olise;null;20011212;Frankreich, England;
 28471008;Yann;Sommer;null;19881217;Schweiz;
 28471560;Toni;Leistner;null;19900819;Deutschland;
 28472946;Alfredo;Morales;null;19900512;USA, Deutschland;
@@ -517,6 +528,7 @@
 28561312;Chinedu;Obasi;null;19860601;Nigeria;
 28563186;Michael;Liendl;null;19851025;Österreich;
 28567710;Mert;Müldür;null;19990403;Türkei;
+28569642;Lars;Ritzka;null;19980507;Deutschland;
 28570353;Timo;Letschert;null;19930525;Niederlande;
 28570892;Timm;Klose;null;19880509;Deutschland, Schweiz;
 28573360;Remo;Freuler;null;19920415;Schweiz;
@@ -574,6 +586,7 @@
 28682500;Stephan;'El Shaarawy';null;19921027;Italien;
 28684909;Joe;Rodon;null;19971022;Wales;
 28686894;Kieffer;Moore;null;19920808;Wales;
+28687902;Oladapo;Afolayan;null;19970911;England, Nigeria;
 28687950;Ilya;Kutepov;null;19930729;Russland;
 28688499;Gabriel;Sigua;null;20050630;Georgien;
 28688580;Nicolas;Feldhahn;null;19860814;Deutschland;
@@ -633,6 +646,7 @@
 28789328;Michael;Parensen;null;19860624;Deutschland;
 28790839;Mats;'Møller Dæhli';null;19950302;Dänemark;
 28793068;Georges;Mikautadze;null;20001031;Georgien, Frankreich;
+28796300;Ben;Voll;null;20001209;Deutschland;
 28802766;Sasa;Lukic;null;19960813;Serbien;
 28803303;Gonzalo;Castro;null;19870611;Deutschland;
 28804918;Anthony;Martial;null;19951205;Frankreich;
@@ -697,6 +711,7 @@
 28893024;Marc;Lais;null;19910204;Deutschland;
 28893117;Fabijan;Buntic;null;19970224;Kroatien, Deutschland;
 28894313;Marc;Torrejón;null;19860218;Spanien;
+28896532;Dominik;Javorcek;null;20021102;Slowakei;
 28901146;Wout;Faes;null;19980403;Belgien;
 28905318;Michael;Görlitz;null;19870308;Deutschland;
 28907997;Presnel;Kimpembe;null;19950813;Frankreich;
@@ -704,10 +719,12 @@
 28910036;Anthony;Lopes;null;19901001;Portugal;
 28910612;Florian;Grillitsch;null;19950807;Österreich;
 28911540;Anthony;Ujah;null;19901014;Nigeria;
+28911988;Philipp;Treu;null;20001203;Deutschland;
 28912400;Zeki;Çelik;null;19970217;Türkei;
 28913197;Pape;Gueye;null;19990124;Senegal, Frankreich;
 28913550;Nicolas;Höfler;null;19900309;Deutschland;
 28914232;Gen;Shoji;null;19921211;Japan;
+28915601;Can;Uzun;null;20051111;Türkei, Deutschland;
 28916100;Jeffrey;Gouweleeuw;null;19910710;Niederlande;
 28916594;Dominik;Franke;null;19981005;Deutschland;
 28918221;Djordje;Petrovic;null;19991008;Serbien;
@@ -738,6 +755,7 @@
 28950380;Paul;Seguin;null;19950329;Deutschland;
 28953090;Giorgio;Chiellini;null;19840814;Italien;
 28954904;Philipp;Lahm;null;19831111;Deutschland;
+28955620;Nicolai;Remberg;null;20000619;Deutschland;
 28964295;Rodrigo;Hernández Cascante;Rodri;19960622;Spanien;
 28967162;Dominik;Kaiser;null;19880916;Deutschland;
 28967258;Philipp;Tschauner;null;19851103;Deutschland;
@@ -812,6 +830,7 @@
 29059338;Philipp;Klement;null;19920909;Deutschland;
 29060449;Philipp;Kühn;null;19920902;Deutschland;
 29060958;Ricardo;Horta;null;19940915;Portugal;
+29061662;Florian;Micheler;null;20050517;Österreich;
 29062968;Gian-'Luca';Waldschmidt;null;19960519;Deutschland;
 29067191;Rhys;Norrington-Davies;null;19990422;Wales;
 29067861;Boulaye;Dia;null;19961116;Senegal, Frankreich;
@@ -843,6 +862,7 @@
 29097884;Leandro;Barreiro Martins;null;20000103;Luxemburg, Portugal;
 29097941;Jan;Morávek;null;19891101;Tschechien;
 29098724;Djibril;Sidibé;null;19920729;Frankreich;
+29105292;Armindo;Sieb;null;20030217;Deutschland;
 29105763;Donyell;Malen;null;19990119;Niederlande;
 29105937;Timothy;Castagne;null;19951205;Belgien;
 29108764;Min-Jae;Kim;null;19961115;Südkorea;
@@ -893,6 +913,7 @@
 29168159;Danilho;Doekhi;null;19980630;Niederlande;
 29169426;Ibrahim;Danlad;null;20021202;Ghana;
 29171103;Gerhard;Tremmel;null;19781116;Deutschland;
+29171151;Manolis;Saliakas;null;19960912;Griechenland;
 29171423;Anthony;Rouault;null;20010529;Frankreich;
 29171490;Aarón;Martín;null;19970422;Spanien;
 29172060;Kenneth;Omeruo;null;19931017;Nigeria;
@@ -940,6 +961,7 @@
 29226345;Ignacio;Camacho;null;19900504;Spanien;
 29227437;Mohamed;'Ben Romdhane';null;19990906;Tunesien;
 29231458;Tim;Leibold;null;19931130;Deutschland;
+29234094;Maarten;Vandevoordt;null;20020226;Belgien;
 29234154;Kai;Bülow;null;19860531;Deutschland;
 29237922;Florian;Krüger;null;19990213;Deutschland;
 29238124;Tim;Wiesner;null;19961121;Deutschland;
@@ -990,6 +1012,7 @@
 29300874;Hossein;Kanaani;null;19940323;Iran;
 29301103;Ricardo;Carvalho;null;19780518;Portugal;
 29301265;Tomás;Rosický;null;19801004;Tschechien;
+29301861;Antonio;Nusa;null;20050417;Norwegen, Nigeria;
 29304030;Mohamed;Abdel-Shafy;null;19850701;Ägypten;
 29304968;Laurent;Jans;null;19920805;Luxemburg;
 29306502;Tijjani;Reijnders;null;19980729;Niederlande;
@@ -1045,6 +1068,7 @@
 29367500;Tomás;Sivok;null;19830915;Tschechien;
 29367647;Djibril;Sow;null;19970206;Schweiz;
 29367808;Bastian;Oczipka;null;19890112;Deutschland;
+29368190;Nikolas;Veratschnig;null;20030124;Österreich;
 29368953;Ferland;Mendy;null;19950608;Frankreich, Senegal;
 29369705;Ronaldo;Aparecido Rodrigues;Naldo;19820910;Brasilien;
 29372245;Leo;Väisänen;null;19970723;Finnland;
@@ -1063,6 +1087,7 @@
 29384498;Mamadou;Doucouré;null;19980521;Senegal, Frankreich;
 29387838;Philipp;Hercher;null;19960321;Deutschland;
 29387967;Patrick;Fabian;null;19871011;Deutschland;
+29390535;Derrick;Köhn;null;19990204;Deutschland, Ghana;
 29390823;Jan;Gyamerah;null;19950618;Deutschland;
 29391004;Nemanja;Nikolic;null;19871231;Ungarn;
 29391889;Philipp;Ziereis;null;19930314;Deutschland;
@@ -1077,6 +1102,7 @@
 29405358;Uwe;Hünemeier;null;19860109;Deutschland;
 29406543;Sam;Morsy;null;19910910;Ägypten;
 29407065;Péter;Szappanos;null;19901114;Ungarn;
+29407850;Mohamed;Amoura;null;20000509;Algerien;
 29407892;Pep;Biel;null;19960905;Spanien;
 29409753;Antonio;Candreva;null;19870228;Italien;
 29410486;Vladlen;Yurchenko;null;19940122;Ukraine;
@@ -1186,6 +1212,7 @@
 29574618;Mathias;Jørgensen;null;19900423;Dänemark;
 29575649;Henrikh;Mkhitaryan;null;19890121;Armenien;
 29577102;Dimitri;Payet;null;19870329;Frankreich;
+29580226;'El Bilal';Touré;null;20011003;Mali, Elfenbeinküste;
 29581594;Ahmed;Khalil;null;19941221;Tunesien;
 29582254;Albin;Ekdal;null;19890728;Schweden;
 29583744;Ulisses;Garcia;null;19960111;Schweiz;
@@ -1202,6 +1229,7 @@
 29600080;Cédric;Brunner;null;19940217;Schweiz;
 29600631;Diego;Demme;null;19911121;Deutschland;
 29602830;Timothy;Chandler;null;19900329;Deutschland, USA;
+29603307;Aliou;Baldé;null;20021212;Guinea, Senegal;
 29603631;Vincent;Kompany;null;19860410;Belgien;
 29605948;Yannick;'Ferreira Carrasco';null;19930904;Belgien;
 29608850;Keita;Endo;null;19971122;Japan;
@@ -1297,6 +1325,7 @@
 29735013;Jomaine;Consbruch;null;20020126;Deutschland;
 29736467;Erich;Berko;null;19940906;Deutschland;
 29737678;Mahmoud;Fadlallah;Shikabala;19860305;Ägypten;
+29737792;Steve;Mounié;null;19940929;Benin, Frankreich;
 29737902;Brian;Behrendt;null;19911024;Deutschland;
 29740616;Horatiu;Moldovan;null;19980120;Rumänien;
 29743305;Timothy;Fosu-Mensah;null;19980102;Niederlande, Ghana;
@@ -1334,11 +1363,13 @@
 29790892;Patrick;Ebert;null;19870317;Deutschland;
 29794291;Patrice;Evra;null;19810515;Frankreich;
 29794727;Edgar;Prib;null;19891215;Deutschland;
+29795784;Max;Geschwill;null;20010707;Deutschland;
 29796251;Oscar;Fraulo;null;20031206;Dänemark, Italien;
 29797507;Emile;Smith-Rowe;null;20000728;England;
 29797635;Eduardo;Quaresma;null;20020302;Portugal;
 29797709;Jacob;Christensen;null;20010625;Dänemark;
 29798240;Mbark;Boussoufa;null;19840815;Marokko;
+29798916;Yan;Couto;null;20020603;Brasilien, Portugal;
 29799496;Robin;'Le Normand';null;19961111;Spanien, Frankreich;
 29800272;Leart;Paqarada;null;19941008;Kosovo;
 29800330;Orkun;Kökçü;null;20001229;Türkei;
@@ -1347,6 +1378,7 @@
 29802980;Akaki;Gogia;null;19920118;Deutschland;
 29804955;Ahmed;Elmohamady;null;19870909;Ägypten;
 29807773;Youssef;Msakni;null;19901028;Tunesien;
+29809140;Elias;Saad;null;19991227;Tunesien, Deutschland;
 29810184;Min-Woo;Kim;null;19900225;Südkorea;
 29811295;Jakub;Piotrowski;null;19971004;Polen;
 29811296;Tim;Lemperle;null;20020205;Deutschland;
@@ -1371,6 +1403,7 @@
 29832046;Aymen;Mathlouthi;null;19840914;Tunesien;
 29833880;Héctor;Herrera;null;19900419;Mexiko;
 29834364;Tim;Grupp;null;19950105;Deutschland;
+29837511;Aurèle;Amenda;null;20030731;Schweiz, Kamerun;
 29838012;Osama;Hawsawi;null;19840331;Saudi-Arabien;
 29838764;Tim;Matavz;null;19890113;Slowenien;
 29839583;Lucas;Alario;null;19921008;Argentinien;
@@ -1428,6 +1461,7 @@
 29910459;Jakob;Busk Jensen;null;19930912;Dänemark;
 29910945;Patrick;Erras;null;19950121;Deutschland;
 29911215;Héctor;Bellerín;null;19950319;Spanien;
+29912538;Bruno;Ogbus;null;20051217;Schweiz, Nigeria;
 29912921;Diogo;Jota;null;19961204;Portugal;
 29914174;Eroll;Zejnullahu;null;19941019;Deutschland, Kosovo;
 29915329;Shane;Ferguson;null;19910712;Nordirland;
@@ -1450,8 +1484,10 @@
 29940501;Caleb;Stanko;null;19930726;USA;
 29943407;Atiba;Hutchinson;null;19830208;Kanada, Trinidad & Tobago;
 29944582;Alexander;Sørloth;null;19951205;Norwegen;
+29945038;Sirlord;Conteh;null;19960709;Deutschland, Ghana;
 29946658;Halil;Dervisoglu;null;19991208;Türkei;
 29947080;Niels;Nkounkou;null;20001101;Frankreich, Kongo;
+29947245;Aleix;García;null;19970628;Spanien;
 29947656;Elias;Baum;null;20051026;Deutschland;
 29947732;Steve;von Bergen;null;19830610;Schweiz;
 29948800;Jesse;Lingard;null;19921215;England;
@@ -1466,6 +1502,7 @@
 29957255;Abdul;Nurudeen;null;19990208;Ghana;
 29960876;Oscar;Vilhelmsson;null;20031002;Schweden;
 29962566;Burak;Camoglu;null;19961005;Türkei, Deutschland;
+29963505;Johan;Manzambi;null;20051014;Schweiz;
 29965095;Bruno;Alves;null;19811127;Portugal;
 29968494;Miiko;Albornoz;null;19901130;Schweden, Chile;
 29968828;Andrea;Belotti;null;19931220;Italien;
@@ -1524,6 +1561,7 @@
 30024055;Lucas;Vázquez;null;19910701;Spanien;
 30025745;David;Cotterill;null;19871204;Wales;
 30025799;Jules;Koundé;null;19981112;Frankreich;
+30026772;Henri;Koudossou;null;19990903;Deutschland, Togo;
 30026941;Dusan;Tadic;null;19881120;Serbien;
 30028210;Mateusz;Wieteska;null;19970211;Polen;
 30030040;Aaron;Zehnter;null;20041031;Deutschland;
@@ -1638,6 +1676,7 @@
 30144301;Bruno;Petkovic;null;19940916;Kroatien;
 30145783;Dániel;Nagy;null;19910315;Ungarn;
 30146376;Henry;Martín;null;19921118;Mexiko;
+30146645;Armin;Gigovic;null;20020406;Bosnien-Herzegowina, Schweden;
 30149336;Dries;Mertens;null;19870506;Belgien;
 30149775;Alexander;Nandzik;null;19920912;Deutschland;
 30150304;Ayman;Azhil;null;20010410;Marokko, Deutschland;
@@ -1714,6 +1753,7 @@
 30215751;Felix;Agu;null;19990927;Deutschland;
 30216501;Jairo;Samperio Bustara;null;19930711;Spanien;
 30216830;Alexander;Djiku;null;19940809;Ghana, Frankreich;
+30217027;Alexander;Bernhardsson;null;19980908;Schweden;
 30218481;David;Raya;null;19950915;Spanien;
 30218846;Felix;Klaus;null;19920913;Deutschland;
 30219782;Francisco;Geraldes;null;19950418;Portugal;
@@ -1726,6 +1766,7 @@
 30227173;Törles;Knöll;null;19970913;Deutschland;
 30227213;Franco;Armani;null;19861016;Argentinien;
 30228255;Saleh;Al-Shehri;null;19931101;Saudi-Arabien;
+30229927;Hyun-Seok;Hong;null;19990616;Südkorea;
 30230984;Selim;Amallah;null;19961115;Marokko, Belgien;
 30231225;Roman;Bürki;null;19901114;Schweiz;
 30231546;Robin;Lod;null;19930417;Finnland;
@@ -1760,6 +1801,7 @@
 30253862;Steve;Breitkreuz;null;19920118;Deutschland;
 30254064;Franck;Kom;null;19910918;Kamerun;
 30255798;Ardian;Ismajli;null;19960930;Albanien, Kosovo;
+30256385;Anrie;Chase;null;20040324;Japan, USA;
 30257654;Ianis;Hagi;null;19981022;Rumänien, Türkei;
 30258638;Alexis;Mac Allister;null;19981224;Argentinien;
 30259928;Vanja;Drkusic;null;19991030;Slowenien;
@@ -1796,6 +1838,7 @@
 30289768;David;Jurásek;null;20000807;Tschechien;
 30289977;Kolja;Pusch;null;19930212;Deutschland;
 30291387;Ahmad;Nouroullahi;null;19930201;Iran;
+30291623;Marko;Ivezic;null;20011202;Serbien;
 30291706;Severin;Buchta;null;19970214;Deutschland;
 30291994;Borna;Sosa;null;19980121;Kroatien;
 30292595;Jonas;Knudsen;null;19920916;Dänemark;
@@ -1894,6 +1937,7 @@
 30386710;Enser;Arslan;null;20010801;Deutschland, Türkei;
 30390289;Bekim;Balaj;null;19910111;Albanien;
 30391337;Jimmy;Briand;null;19850802;Frankreich;
+30392265;Lasse;Rieß;null;20010727;Deutschland;
 30393089;Alexander;Schwolow;null;19920602;Deutschland;
 30393753;Danny;da Costa;null;19930713;Deutschland;
 30394479;David;Ulm;null;19840630;Frankreich;
@@ -1922,10 +1966,12 @@
 30405760;Rifet;Kapic;null;19950703;Bosnien-Herzegowina;
 30405880;Milos;Pantovic;null;19960707;Serbien;
 30406002;Ahmet;Gürleyen;null;19990426;Deutschland;
+30406046;Marco;Komenda;null;19961126;Deutschland, Kroatien;
 30406494;Robin;Himmelmann;null;19890205;Deutschland;
 30406536;James;Collins;null;19830823;Wales;
 30407364;Gojko;Kacar;null;19870126;Serbien;
 30407750;Yahia;Al-Shehri;null;19900626;Saudi-Arabien;
+30408277;Bence;Dárdai;null;20060124;Deutschland, Ungarn;
 30408384;Deniz;Undav;null;19960719;Deutschland, Türkei;
 30408708;Lorik;Cana;null;19830727;Albanien;
 30409152;Kevin;Wimmer;null;19921115;Österreich;
@@ -1985,6 +2031,7 @@
 30446089;Hyeon-Woo;Jo;null;19910925;Südkorea;
 30446248;Kamil;Grosicki;null;19880608;Polen;
 30446420;Hárold;Cummings;null;19920301;Panama;
+30446631;Danel;Sinani;null;19970405;Luxemburg, Serbien;
 30446739;James;Lawrence;null;19920822;Wales, England;
 30447741;Elias;Bördner;null;20020218;Deutschland;
 30448533;Lucas;Ribeiro dos Santos;Lucas Ribeiro;19990119;Brasilien;
@@ -2042,6 +2089,7 @@
 30493430;James;Forrest;null;19910707;Schottland;
 30493550;Pavel;Sulc;null;20001229;Tschechien;
 30493749;Håvard;Nielsen;null;19930715;Norwegen;
+30494640;Oscar;Højlund;null;20050104;Dänemark;
 30494799;Artur;Boruc;null;19800220;Polen;
 30495342;Joost;van Aken;null;19940513;Niederlande;
 30495349;Denis;Vavro;null;19960410;Slowakei;
@@ -2052,6 +2100,7 @@
 30503984;Johan;Djourou;null;19870118;Schweiz;
 30505123;Yi-Young;Park;null;19940628;Südkorea;
 30505139;Mikel;Oyarzabal;null;19970421;Spanien;
+30505402;Carlo;Boukhalfa;null;19990503;Deutschland, Algerien;
 30507161;Képler;Laveran Lima Ferreira;Pepe;19830226;Portugal;
 30507648;Guglielmo;Vicario;null;19961007;Italien;
 30509807;Marin;Pongracic;null;19970911;Kroatien;
@@ -2070,10 +2119,12 @@
 30520394;Sadio;Mané;null;19920410;Senegal;
 30520534;Stevan;Jovetic;null;19891102;Montenegro, Serbien;
 30520714;Henri;Weigelt;null;19980117;Deutschland;
+30521203;Jeanuël;Belocian;null;20050217;Frankreich, Guadeloupe;
 30522467;Felix;Passlack;null;19980528;Deutschland;
 30522613;Paulo;Dybala;null;19931115;Argentinien;
 30522868;Lasse;Schöne;null;19860527;Dänemark;
 30523530;Todor;Nedelev;null;19930207;Bulgarien;
+30523757;Scott;Banks;null;20010926;Schottland, Wales;
 30524026;Risto;Jankov;null;19980905;Nordmazedonien;
 30524484;Shoja;Khalilzadeh;null;19890514;Iran;
 30524972;Marco;Schuster;null;19951010;Deutschland;
@@ -2119,6 +2170,7 @@
 30558865;Marko;Livaja;null;19930826;Kroatien;
 30558950;Piero;Hincapié;null;20020109;Ecuador;
 30559006;Milos;Degenek;null;19940428;Australien;
+30559129;Ramon;Hendriks;null;20010718;Niederlande;
 30561039;Cauly;'Oliveira Souza';null;19950915;Brasilien;
 30562667;Kylian;Mbappé;null;19981220;Frankreich;
 30563089;Hakan;Balta;null;19830323;Türkei;
@@ -2197,6 +2249,7 @@
 30627354;Marco;Tilio;null;20010823;Australien;
 30628349;Eliseu;Pereira dos Santos;Eliseu;19831001;Portugal;
 30629130;Fabian;Holland;null;19900711;Deutschland;
+30629562;Karol;Mets;null;19930516;Estland;
 30630517;Felix;Kroos;null;19910312;Deutschland;
 30630969;Jemal;Tabidze;null;19960318;Georgien;
 30631302;Hauke;Wahl;null;19940415;Deutschland;
@@ -2251,6 +2304,7 @@
 30665157;Giancarlo;González;null;19880208;Costa Rica;
 30665286;Alexander;Schlager;null;19960201;Österreich;
 30665501;Alexandru;Cicâldau;null;19970708;Rumänien;
+30666057;Haris;Tabakovic;null;19940620;Bosnien-Herzegowina, Schweiz;
 30666876;Pavao;Pervan;null;19871113;Österreich;
 30669085;Daler;Kuziaev;null;19930115;Russland;
 30669510;Daley;Blind;null;19900309;Niederlande;
@@ -2284,6 +2338,7 @@
 30686205;Yahia;Attiat-Allah;null;19950302;Marokko;
 30687335;Lukas;Gugganig;null;19950214;Österreich;
 30688012;Linus;Gechter;null;20040227;Deutschland;
+30689044;Alexis;Claude-Maurice;null;19980606;Frankreich, Guadeloupe;
 30689120;Alexander;Fuchs;null;19970105;Deutschland;
 30689560;Stefan;Kutschke;null;19881103;Deutschland;
 30689758;Georginio;Wijnaldum;null;19901111;Niederlande;
@@ -2356,9 +2411,11 @@
 30749292;Kevin;Varga;null;19960630;Ungarn;
 30749607;Roman;Hauk;null;19990415;Deutschland;
 30749696;Marco;Grüll;null;19980706;Österreich;
+30750916;Kaishu;Sano;null;20001230;Japan;
 30751020;Zlatan;Ibrahimovic;null;19811003;Schweden;
 30751164;Kevin;Csoboth;null;20000620;Ungarn;
 30751335;David;Silva;null;19860108;Spanien;
+30752100;Myron;Boadu;null;20010114;Niederlande, Ghana;
 30753446;Alexandru;Chipciu;null;19890518;Rumänien;
 30753628;Nadiem;Amiri;null;19961027;Deutschland;
 30754871;Montassar;Talbi;null;19980526;Tunesien, Frankreich;
@@ -2394,6 +2451,7 @@
 30777279;Mario;Rui;null;19910527;Portugal;
 30779047;David;Wotherspoon;null;19900116;Kanada, Schottland;
 30779430;Sofyan;Amrabat;null;19960821;Marokko;
+30779960;Nikola;Vasilj;null;19951202;Bosnien-Herzegowina, Kroatien;
 30780109;Mario;Vrancic;null;19890523;Deutschland;
 30781028;Lasse;Sobiech;null;19910118;Deutschland;
 30781414;Jonas;Hofmann;null;19970207;Deutschland;
@@ -2425,6 +2483,7 @@
 30805398;Miguel;Trauco;null;19920825;Peru;
 30806587;Andrey;Semenov;null;19890324;Russland;
 30808515;Mijat;Gacinovic;null;19950208;Serbien;
+30810158;Lasse;Rosenboom;null;20020119;Deutschland;
 30810536;Danny;Blum;null;19910107;Deutschland;
 30811347;Semih;Kaya;null;19910224;Türkei;
 30811416;Dario;Kresic;null;19840111;Kroatien;
@@ -2473,6 +2532,7 @@
 30845461;Marco;Reus;null;19890531;Deutschland;
 30845563;Willi;Evseev;null;19920214;Deutschland;
 30846163;Oliver;Schnitzler;null;19951013;Deutschland;
+30848508;Connor;Metcalfe;null;19991105;Australien;
 30848583;Jonas;Omlin;null;19940110;Schweiz;
 30848918;Giorgi;Kvilitaia;null;19931001;Georgien;
 30850146;Bryan;Oviedo;null;19900218;Costa Rica;
@@ -2580,6 +2640,7 @@
 30942921;Zsolt;Nagy;null;19930525;Ungarn;
 30943085;Michel;Vlap;null;19970602;Niederlande;
 30944005;Riechedly;Bazoer;null;19961012;Niederlande;
+30944366;Yusuf;Kabadayi;null;20040202;Deutschland, Türkei;
 30945777;Haris;Seferovic;null;19920222;Schweiz;
 30948177;Devis;Epassy;null;19930202;Kamerun, Frankreich;
 30948402;Connor;Roberts;null;19950923;Wales;
@@ -2856,6 +2917,7 @@
 31196212;Dennis;Kempe;null;19860624;Deutschland;
 31196449;Mattia;de Sciglio;null;19921020;Italien;
 31196917;Hajime;Hosogai;null;19860610;Japan;
+31196921;Dimitrios;Giannoulis;null;19951017;Griechenland;
 31197564;Bassem;Srarfi;null;19970625;Tunesien;
 31198416;Dennis;Rosin;null;19960627;Deutschland;
 31199297;Stefan;Schimmer;null;19940428;Deutschland;
@@ -3125,6 +3187,7 @@
 31458963;Djorkaeff;Reasco;null;19990118;Ecuador;
 31459724;Baboucarr;Gaye;null;19980224;Deutschland;
 31459776;Daniel;Schmidt;null;19920203;Japan, USA;
+31460518;Magnus;Knudsen;null;20010615;Norwegen;
 31461337;Oliver;'Batista Meier';null;20010216;Deutschland, Brasilien;
 31461908;Hannes;Halldórsson;null;19840427;Island;
 31463328;Martin;Lanig;null;19840711;Deutschland;
@@ -3334,6 +3397,7 @@
 31659206;Christian;Derflinger;null;19940202;Österreich;
 31660817;Joshua;Zirkzee;null;20010522;Niederlande;
 31661225;Carlos;Gruezo;null;19950419;Ecuador;
+31661947;Morgan;Guilavogui;null;19980310;Guinea, Frankreich;
 31663540;Sebastian;Langkamp;null;19880115;Deutschland;
 31663903;Nathaniel;Clyne;null;19910405;England;
 31664685;Joo-Ho;Park;null;19870116;Südkorea;
@@ -3366,6 +3430,7 @@
 31687509;Yukhym;Konoplya;null;19990826;Ukraine;
 31687758;Marcel;Correia;null;19890516;Portugal;
 31688135;Christian;Ortag;null;19950114;Deutschland;
+31688372;Chrislain;Matsima;null;20020515;Frankreich, Kongo;
 31689654;Exequiel;Palacios;null;19981005;Argentinien;
 31690485;Lamine;Sané;null;19870322;Senegal;
 31691332;Javier;Hernández;null;19880601;Mexiko;
@@ -3446,6 +3511,7 @@
 31790936;Moritz;Heinrich;null;19970703;Deutschland;
 31791578;Martin;Hongla;null;19980316;Kamerun;
 31791841;Gordon;Schildenfeld;null;19850318;Kroatien;
+31795964;Martin;Terrier;null;19970304;Frankreich;
 31796057;Strahinja;Pavlovic;null;20010524;Serbien;
 31799727;Renato;Tapia;null;19950728;Peru;
 31799881;Renato;Veiga;null;20030729;Portugal;
@@ -3456,6 +3522,7 @@
 31805181;Tymoteusz;Puchacz;null;19990123;Polen;
 31806856;Marjan;Radeski;null;19950210;Nordmazedonien;
 31807107;Carlos;Sánchez;null;19860206;Kolumbien;
+31808182;Samuel;Essende;null;19980123;DR Kongo, Frankreich;
 31808577;Alistair;Johnston;null;19981008;Kanada, Nordirland;
 31809086;Vasileios;Pavlidis;null;20020904;Griechenland;
 31809252;Marcus;Berg;null;19860817;Schweden;
@@ -3505,6 +3572,7 @@
 31880450;Mohammed;Al-Owais;null;19911010;Saudi-Arabien;
 31880850;Pirmin;Schwegler;null;19870309;Schweiz;
 31881336;Marcel;Sabitzer;null;19940317;Österreich;
+31881589;Ibrahima;Sissoko;null;19971027;Mali, Frankreich;
 31881595;Tolcay;Cigerci;null;19950124;Türkei, Deutschland;
 31882260;Nishan;Burkart;null;20000131;Schweiz, England;
 31882802;Matija;Nastasic;null;19930328;Serbien;
@@ -3514,6 +3582,7 @@
 31891162;Yussuf;Poulsen;null;19940615;Dänemark;
 31892012;Mohammed;Abdellaoue;null;19851023;Norwegen;
 31892084;Pascal;Stenzel;null;19960320;Deutschland;
+31893009;Arthur;Chaves;null;20010129;Brasilien;
 31893908;Razvan;Marin;null;19960523;Rumänien;
 31894968;Gianluca;Mancini;null;19960417;Italien;
 31896110;Marian;Sarr;null;19950130;Deutschland;
@@ -3530,6 +3599,7 @@
 31915427;Mathew;Ryan;null;19920408;Australien;
 31916462;Darius;Olaru;null;19980303;Rumänien;
 31917412;Thomas;Kessler;null;19860120;Deutschland;
+31918206;Thomas;Dähne;null;19940104;Deutschland;
 31921680;Thomas;Eisfeld;null;19930118;Deutschland;
 31923770;Takumi;Minamino;null;19950116;Japan;
 31923780;Seung-Gyu;Kim;null;19900930;Südkorea;
@@ -3693,6 +3763,7 @@
 32219903;Marash;Kumbulla;null;20000208;Albanien, Italien;
 32220864;Volodymyr;Brazhko;null;20020123;Ukraine;
 32226365;Stuart;Dallas;null;19910419;Nordirland;
+32226531;Benedikt;Pichler;null;19970720;Österreich;
 32226660;Geoffroy;'Serey Dié';null;19841107;Elfenbeinküste;
 32228388;Nampalys;Mendy;null;19920623;Senegal, Frankreich;
 32231793;Antonios;Papadopoulos;null;19990910;Deutschland, Griechenland;
@@ -3724,6 +3795,7 @@
 32298345;Frederik;Schram;null;19950119;Island;
 32303230;Frederik;Winther;null;20010104;Dänemark;
 32307501;Jan-Luca;Rumpf;null;19990708;Deutschland;
+32307950;Leonardo;Scienza;null;19980913;Brasilien, Luxemburg;
 32310778;Stuart;Armstrong;null;19920330;Schottland;
 32312930;Vasileios;Lampropoulos;null;19900331;Griechenland;
 32313527;Kristian;Pedersen;null;19940804;Dänemark;
@@ -3876,6 +3948,7 @@
 32985939;Ladislav;Krejcí;null;19990420;Tschechien;
 32986426;Odisseas;Vlachodimos;null;19940426;Deutschland;
 32988665;Jann-Fiete;Arp;null;20000106;Deutschland;
+32999768;Valentin;Gendrey;null;20000621;Frankreich, Guadeloupe;
 33005120;Kingsley;Schindler;null;19930712;Deutschland;
 33015066;Matthias;Ostrzolek;null;19900605;Deutschland;
 33017412;Jonathan;dos Santos;null;19900426;Mexiko;
@@ -4114,6 +4187,7 @@
 35520302;Maximilian;Wöber;null;19980204;Österreich;
 35531260;Maximilian;Bauer;null;20000209;Deutschland;
 35535565;Maximilian;Thiel;null;19930203;Deutschland;
+35565725;Maximilian;Rosenfelder;null;20030210;Deutschland;
 35585655;Ádám;Bogdán;null;19870927;Ungarn;
 35592810;Álvaro;Zamora;null;20020309;Costa Rica;
 35603901;Bote Nzuzi 'Ridle';Baku;null;19980408;Deutschland, DR Kongo;
@@ -4185,6 +4259,7 @@
 37140020;Abdourahmane;Barry;null;20000221;Frankreich, Guinea;
 37174573;Roberto Firmino;Barbosa de Oliveira;Roberto Firmino;19911002;Brasilien;
 37208487;Yousef Hassan;Mohamed Ali;Yousef Hassan;19960524;Katar;
+37215832;Konstantinos;Koulierakis;null;20031128;Griechenland;
 37227062;Mohammad Reza;Khanzadeh;null;19910511;Iran;
 37281519;Theoson-Jordan;Siebatcheu;Jordan;19960426;USA, Frankreich;
 37314213;Pedro Miguel;Carvalho Deus 'Correia';null;19900806;Katar, Portugal;
@@ -4227,6 +4302,7 @@
 39350296;Arthur Augusto;de Matos Soares;Arthur;20030317;Brasilien;
 39389238;'Sam'uel Ayomide;Adekugbe;null;19950116;Kanada, Nigeria;
 39451890;Thiago Emiliano;da 'Silva';null;19840922;Brasilien;
+39460970;Ogochukwu 'Frank';Onyeka;null;19980101;Nigeria;
 39580462;Éder Gabriel;Militão;null;19980118;Brasilien;
 39649796;João Miranda;de Souza Filho;Miranda;19840907;Brasilien;
 39914223;Justin Toshiki;Kinjo;null;19970222;Japan, USA;
