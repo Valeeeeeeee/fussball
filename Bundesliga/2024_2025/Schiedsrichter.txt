@@ -8,6 +8,7 @@ Christian;Dingert;19800714;Deutschland;
 Florian;Dr. Exner;19901005;Deutschland;
 Timo;Gerach;19861130;Deutschland;
 Robert;Hartmann;19790908;Deutschland;
+Wolfgang;Haslberger;19921207;Deutschland;
 Patrick;Ittrich;19790103;Deutschland;
 Sven;Jablonski;19900413;Deutschland;
 Matthias;Dr. Jöllenbeck;19870216;Deutschland;
