@@ -62,38 +62,38 @@
 1R31L: Preußen Münster
 1R32W: Bayer 04 Leverkusen
 1R32L: FC Carl Zeiss Jena
-2R01W: RasenBallsport Leipzig vs. FC St. Pauli
-2R01L: RasenBallsport Leipzig vs. FC St. Pauli
-2R02W: FC Augsburg vs. FC Schalke 04
-2R02L: FC Augsburg vs. FC Schalke 04
-2R03W: Kickers Offenbach vs. Karlsruher SC
-2R03L: Kickers Offenbach vs. Karlsruher SC
-2R04W: Bayer 04 Leverkusen vs. SV Elversberg
-2R04L: Bayer 04 Leverkusen vs. SV Elversberg
-2R05W: SSV Jahn Regensburg vs. SpVgg Greuther Fürth
-2R05L: SSV Jahn Regensburg vs. SpVgg Greuther Fürth
-2R06W: 1. FC Köln vs. Holstein Kiel
-2R06L: 1. FC Köln vs. Holstein Kiel
-2R07W: VfL Wolfsburg vs. Borussia Dortmund
-2R07L: VfL Wolfsburg vs. Borussia Dortmund
-2R08W: VfB Stuttgart vs. 1. FC Kaiserslautern
-2R08L: VfB Stuttgart vs. 1. FC Kaiserslautern
-2R09W: SC Freiburg vs. Hamburger SV
-2R09L: SC Freiburg vs. Hamburger SV
-2R10W: Hertha BSC vs. 1. FC Heidenheim
-2R10L: Hertha BSC vs. 1. FC Heidenheim
-2R11W: SC Paderborn vs. Werder Bremen
-2R11L: SC Paderborn vs. Werder Bremen
-2R12W: Eintracht Frankfurt vs. Borussia Mönchengladbach
-2R12L: Eintracht Frankfurt vs. Borussia Mönchengladbach
-2R13W: 1. FSV Mainz 05 vs. Bayern München
-2R13L: 1. FSV Mainz 05 vs. Bayern München
-2R14W: TSG 1899 Hoffenheim vs. 1. FC Nürnberg
-2R14L: TSG 1899 Hoffenheim vs. 1. FC Nürnberg
-2R15W: Arminia Bielefeld vs. 1. FC Union Berlin
-2R15L: Arminia Bielefeld vs. 1. FC Union Berlin
-2R16W: Dynamo Dresden vs. SV Darmstadt 98
-2R16L: Dynamo Dresden vs. SV Darmstadt 98
+2R01W: RasenBallsport Leipzig
+2R01L: FC St. Pauli
+2R02W: FC Augsburg
+2R02L: FC Schalke 04
+2R03W: Karlsruher SC
+2R03L: Kickers Offenbach
+2R04W: Bayer 04 Leverkusen
+2R04L: SV Elversberg
+2R05W: SSV Jahn Regensburg
+2R05L: SpVgg Greuther Fürth
+2R06W: 1. FC Köln
+2R06L: Holstein Kiel
+2R07W: VfL Wolfsburg
+2R07L: Borussia Dortmund
+2R08W: VfB Stuttgart
+2R08L: 1. FC Kaiserslautern
+2R09W: SC Freiburg
+2R09L: Hamburger SV
+2R10W: Hertha BSC
+2R10L: 1. FC Heidenheim
+2R11W: Werder Bremen
+2R11L: SC Paderborn
+2R12W: Eintracht Frankfurt
+2R12L: Borussia Mönchengladbach
+2R13W: Bayern München
+2R13L: 1. FSV Mainz 05
+2R14W: TSG 1899 Hoffenheim
+2R14L: 1. FC Nürnberg
+2R15W: Arminia Bielefeld
+2R15L: 1. FC Union Berlin
+2R16W: SV Darmstadt 98
+2R16L: Dynamo Dresden
 AF01W: DPOK2024AF01W
 AF01L: DPOK2024AF01L
 AF02W: DPOK2024AF02W
