@@ -50,6 +50,7 @@
 27570794;Joey;Veerman;null;19981119;Niederlande;
 27575255;Blas;Pérez;null;19810313;Panama;
 27577344;Cody;Gakpo;null;19990507;Niederlande;
+27587788;Adam;Aznou;null;20060602;Marokko, Spanien;
 27587894;Hugo;Lloris;null;19861226;Frankreich;
 27589782;Badr;Benoun;null;19930930;Marokko;
 27589806;Ivan;Strinic;null;19870717;Kroatien;
@@ -454,6 +455,7 @@
 28420345;Godsway;Donyoh;null;19941014;Ghana;
 28425476;Karl;'Toko Ekambi';null;19920914;Kamerun, Frankreich;
 28425612;Nino;Zugelj;null;20000523;Slowenien;
+28425994;Phil;Harres;null;20020325;Deutschland;
 28426687;'José Luis';Rodríguez;null;19970314;Uruguay;
 28426894;Facundo;Pellistri;null;20011220;Uruguay, Spanien;
 28430528;Ralf;Fährmann;null;19880927;Deutschland;
@@ -1517,6 +1519,7 @@
 29982577;Oriol;Romeu Vidal;null;19910924;Spanien;
 29982618;Pablo;Insua;null;19930909;Spanien;
 29983442;Ruben;Vargas;null;19980805;Schweiz;
+29986896;Ameen;Al-Dakhil;null;20020306;Belgien, Irak;
 29988808;Balázs;Dzsudzsák;null;19861223;Ungarn;
 29990605;Elkin;Soto;null;19800804;Kolumbien;
 29991349;Lukas;Nmecha;null;19981214;Deutschland, England;
@@ -3124,6 +3127,7 @@
 31396173;Bakery;Jatta;null;19980606;Gambia;
 31397559;Oliver;Hüsing;null;19930217;Deutschland;
 31398770;Linton;Maina;null;19990623;Deutschland;
+31399622;Almugera;Kabar;null;20060606;Deutschland, Libyen;
 31400960;Martin;Kompalla;null;19920826;Deutschland;
 31401166;Robbie;Brady;null;19920114;Irland;
 31402756;Nikola;Djurdjic;null;19860401;Serbien;
@@ -3223,6 +3227,7 @@
 31493758;Ronald;Matarrita;null;19940709;Costa Rica;
 31494622;Sadegh;Moharrami;null;19960301;Iran;
 31495975;Justin;vom Steeg;null;19970405;USA;
+31497080;Nathaniel;Brown;null;20030616;Deutschland, USA;
 31497134;Cheikhou;Kouyaté;null;19891221;Senegal;
 31500320;Atsuto;Uchida;null;19880327;Japan;
 31501516;Joshua;Risdon;null;19920727;Australien;
@@ -4214,6 +4219,7 @@
 36120413;Nicholas 'Nico';Williams;null;20020712;Spanien, Ghana;
 36133752;Ömer Faruk;Beyaz;null;20030829;Türkei;
 36154300;Tiago Filipe;Oliveira 'Dantas';null;20001224;Portugal;
+36190699;William 'Cole';Campbell;null;20060220;USA, Island;
 36197067;Aníbal;Godoy;null;19900210;Panama;
 36197631;Mark-Anthony;Kaye;null;19941202;Kanada, Jamaika;
 36199842;Ögmundur;Kristinsson;null;19890619;Island;
@@ -4274,6 +4280,7 @@
 37469589;Maurice Jerome;Litka;null;19960102;Deutschland;
 37478427;Bruno Henrique;Pinto;Bruno Henrique;19901230;Brasilien;
 37551414;'Dayot'chanculle;Upamecano;null;19981027;Frankreich;
+37886384;Forzan 'Assan';Ouédraogo;null;20060509;Deutschland, Burkina Faso;
 37939173;José de Jesús;Corona;null;19810126;Mexiko;
 38114510;Joseph Dave 'Joe';Gomez;null;19970523;England, Gambia;
 38131308;Pierre-Emerick;Aubameyang;null;19890618;Frankreich, Gabun;
