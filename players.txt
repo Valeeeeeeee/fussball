@@ -3234,6 +3234,7 @@
 31501660;Niklas;Kreuzer;null;19930220;Deutschland;
 31501754;Jannik;Huth;null;19940415;Deutschland;
 31502802;Mykyta;Shevchenko;null;19930126;Ukraine;
+31503318;Yannik;Lührs;null;20030909;Deutschland;
 31504798;Mikael;Ishak;null;19930331;Schweden;
 31505669;Christoph;Kobald;null;19970818;Österreich;
 31507260;Merlin;Röhl;null;20020705;Deutschland;
