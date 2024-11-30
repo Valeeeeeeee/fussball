@@ -112,6 +112,7 @@
 27739922;Adam;Wharton;null;20040206;England;
 27740167;Ivan;Trickovski;null;19870418;Nordmazedonien;
 27744301;Ivan;Toney;null;19960316;England, Jamaika;
+27744955;Erik;Ahlstrand;null;20011014;Schweden;
 27745207;Ivan;Rakitic;null;19880310;Kroatien;
 27754212;Ivan;Vargic;null;19870315;Kroatien;
 27754262;Ivan;Ilic;null;20010317;Serbien;
