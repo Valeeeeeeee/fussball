@@ -94,22 +94,22 @@
 2R15L: 1. FC Union Berlin
 2R16W: SV Darmstadt 98
 2R16L: Dynamo Dresden
-AF01W: SSV Jahn Regensburg vs. VfB Stuttgart
-AF01L: SSV Jahn Regensburg vs. VfB Stuttgart
-AF02W: Arminia Bielefeld vs. SC Freiburg
-AF02L: Arminia Bielefeld vs. SC Freiburg
-AF03W: Werder Bremen vs. SV Darmstadt 98
-AF03L: Werder Bremen vs. SV Darmstadt 98
-AF04W: Bayern München vs. Bayer 04 Leverkusen
-AF04L: Bayern München vs. Bayer 04 Leverkusen
-AF05W: 1. FC Köln vs. Hertha BSC
-AF05L: 1. FC Köln vs. Hertha BSC
-AF06W: VfL Wolfsburg vs. TSG 1899 Hoffenheim
-AF06L: VfL Wolfsburg vs. TSG 1899 Hoffenheim
-AF07W: RasenBallsport Leipzig vs. Eintracht Frankfurt
-AF07L: RasenBallsport Leipzig vs. Eintracht Frankfurt
-AF08W: Karlsruher SC vs. FC Augsburg
-AF08L: Karlsruher SC vs. FC Augsburg
+AF01W: VfB Stuttgart
+AF01L: SSV Jahn Regensburg
+AF02W: Arminia Bielefeld
+AF02L: SC Freiburg
+AF03W: Werder Bremen
+AF03L: SV Darmstadt 98
+AF04W: Bayer 04 Leverkusen
+AF04L: Bayern München
+AF05W: 1. FC Köln
+AF05L: Hertha BSC
+AF06W: VfL Wolfsburg
+AF06L: TSG 1899 Hoffenheim
+AF07W: RasenBallsport Leipzig
+AF07L: Eintracht Frankfurt
+AF08W: FC Augsburg
+AF08L: Karlsruher SC
 VF01W: DPOK2024VF01W
 VF01L: DPOK2024VF01L
 VF02W: DPOK2024VF02W
