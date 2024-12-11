@@ -86,6 +86,7 @@
 27667941;Alen;Halilovic;null;19960618;Kroatien;
 27669036;Brad;Jones;null;19820319;Australien;
 27669693;Isak;Hansen-Aarøen;null;20040822;Norwegen;
+27669907;Ivan;Prtajin;null;19960514;Kroatien;
 27673912;Kaan;Ayhan;null;19941110;Deutschland, Türkei;
 27675060;Ales;Mandous;null;19920421;Tschechien;
 27678322;Aias;Aosman;null;19930101;Deutschland;
@@ -387,6 +388,7 @@
 28282377;Mike;Maignan;null;19950703;Frankreich;
 28288928;José Luis;Rodríguez;null;19980619;Panama;
 28290055;Ross;Barkley;null;19931205;England;
+28291374;Faik;Sakar;null;20080114;Deutschland, Frankreich;
 28292558;Finn;Dahmen;null;19980327;Deutschland, England;
 28293494;Luka;Lochoshvili;null;19980529;Georgien;
 28299276;Jann;George;null;19920731;Deutschland, USA;
@@ -1684,6 +1686,7 @@
 30149336;Dries;Mertens;null;19870506;Belgien;
 30149775;Alexander;Nandzik;null;19920912;Deutschland;
 30150304;Ayman;Azhil;null;20010410;Marokko, Deutschland;
+30151884;Viggo;Gebel;null;20071122;Deutschland;
 30152361;Alexander;Isak;null;19990921;Schweden, Eritrea;
 30153741;Nacer;Chadli;null;19890802;Belgien;
 30154599;Homam;Ahmed;null;19990825;Katar;
