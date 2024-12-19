@@ -112,10 +112,10 @@ AF08W: FC Augsburg
 AF08L: Karlsruher SC
 VF01W: VfB Stuttgart vs. FC Augsburg
 VF01L: VfB Stuttgart vs. FC Augsburg
-VF02W: Arminia Bielefeld vs. Werder Bremen
-VF02L: Arminia Bielefeld vs. Werder Bremen
-VF03W: Bayer 04 Leverkusen vs. 1. FC Köln
-VF03L: Bayer 04 Leverkusen vs. 1. FC Köln
+VF02W: Bayer 04 Leverkusen vs. 1. FC Köln
+VF02L: Bayer 04 Leverkusen vs. 1. FC Köln
+VF03W: Arminia Bielefeld vs. Werder Bremen
+VF03L: Arminia Bielefeld vs. Werder Bremen
 VF04W: RasenBallsport Leipzig vs. VfL Wolfsburg
 VF04L: RasenBallsport Leipzig vs. VfL Wolfsburg
 HF01W: DPOK2024HF01W
