@@ -110,14 +110,14 @@ AF07W: RasenBallsport Leipzig
 AF07L: Eintracht Frankfurt
 AF08W: FC Augsburg
 AF08L: Karlsruher SC
-VF01W: DPOK2024VF01W
-VF01L: DPOK2024VF01L
-VF02W: DPOK2024VF02W
-VF02L: DPOK2024VF02L
-VF03W: DPOK2024VF03W
-VF03L: DPOK2024VF03L
-VF04W: DPOK2024VF04W
-VF04L: DPOK2024VF04L
+VF01W: VfB Stuttgart vs. FC Augsburg
+VF01L: VfB Stuttgart vs. FC Augsburg
+VF02W: Arminia Bielefeld vs. Werder Bremen
+VF02L: Arminia Bielefeld vs. Werder Bremen
+VF03W: Bayer 04 Leverkusen vs. 1. FC Köln
+VF03L: Bayer 04 Leverkusen vs. 1. FC Köln
+VF04W: RasenBallsport Leipzig vs. VfL Wolfsburg
+VF04L: RasenBallsport Leipzig vs. VfL Wolfsburg
 HF01W: DPOK2024HF01W
 HF01L: DPOK2024HF01L
 HF02W: DPOK2024HF02W
