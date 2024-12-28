@@ -777,6 +777,7 @@
 28979436;Michael;Lang;null;19910208;Schweiz;
 28981246;Yann;del Pino 'Rolim';null;19950315;Brasilien;
 28983704;Nahitan;Nández;null;19951228;Uruguay;
+28987326;Paul;Hennrich;null;20050306;Deutschland;
 28989401;Amr;Warda;null;19930917;Ägypten;
 28992183;Reza;Ghoochannejhad;null;19870920;Iran;
 28992520;Luc;Ihorst;null;20000307;Deutschland;
@@ -4004,6 +4005,7 @@
 33272890;Jonathan;David;null;20000114;Kanada, USA;
 33284061;Seung-Ho;Paik;null;19970317;Südkorea;
 33289776;Lars 'Lukas';Mai;null;20000331;Deutschland;
+33294501;Maurides;Roque Junior;Maurides;19940310;Brasilien;
 33300974;Abdulellah;Al-Malki;null;19941011;Saudi-Arabien;
 33316012;Jonathan;Asp-Jensen;null;20060114;Dänemark;
 33316584;Fabián;Ruiz;null;19960403;Spanien;
@@ -4334,6 +4336,7 @@
 44616496;'Xavi'er Quentin Shay;Simons;null;20030421;Niederlande, Spanien;
 45187595;Otávio Edmilson;da Silva Monteiro;Otávio;19950209;Portugal;
 45367924;Ronny Heberson Furtado;de Araujo;Ronny;19860511;Brasilien;
+45770832;Jarzinho Ataide Adriano;de Nascimento 'Malanga';null;20060710;Deutschland, Brasilien;
 45959902;Addji Keaninkin 'Marc'-Israel;Guéhi;null;20000713;England, Elfenbeinküste;
 46979018;Rafael Alexandre Fernandes;Ferreira Silva;Rafa;19930517;Portugal;
 47119886;Julian 'Jeff'rey Gaston;Chabot;null;19980212;Deutschland, Frankreich;
