@@ -27,6 +27,7 @@ public class Mannschaft {
 	private int place = -1;
 	private int numOfMatches;
 	private int numOfWins;
+	private int numOfAwayWins;
 	private int numOfDraws;
 	private int numOfLosses;
 	private int numOfGoals;
@@ -394,7 +395,10 @@ public class Mannschaft {
 			
 			numOfGoals += data[matchday][GOALS];
 			numOfCGoals += data[matchday][CGOALS];
-			if (!homeaway[matchday])	numOfAwayGoals += data[matchday][GOALS];
+			if (!homeaway[matchday]) {
+				numOfAwayGoals += data[matchday][GOALS];
+				if (data[matchday][POINTS] == 3)	numOfAwayWins++;
+			}
 		}
 		
 		numOfMatches = numOfWins + numOfDraws + numOfLosses;
@@ -834,6 +838,10 @@ public class Mannschaft {
 			case ALL_GAMES_BETTER_GOAL_DIFFERENCE:
 			case DIRECT_COMPARISON_BETTER_GOAL_DIFFERENCE:
 				return goalDiff;
+			case ALL_GAMES_MORE_WINS:
+				return numOfWins;
+			case ALL_GAMES_MORE_AWAY_WINS:
+				return numOfAwayWins;
 			case ALL_GAMES_MORE_GOALS_SCORED:
 			case DIRECT_COMPARISON_MORE_GOALS_SCORED:
 				return numOfGoals;
