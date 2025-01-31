@@ -78,42 +78,42 @@ PO11W: Ferencváros Budapest
 PO11L: Borac Banja Luka
 PO12W: Sporting Braga
 PO12L: Rapid Wien
-P01: EURL2024P01
-P02: EURL2024P02
-P03: EURL2024P03
-P04: EURL2024P04
-P05: EURL2024P05
-P06: EURL2024P06
-P07: EURL2024P07
-P08: EURL2024P08
-P09: EURL2024P09
-P10: EURL2024P10
-P11: EURL2024P11
-P12: EURL2024P12
-P13: EURL2024P13
-P14: EURL2024P14
-P15: EURL2024P15
-P16: EURL2024P16
-P17: EURL2024P17
-P18: EURL2024P18
-P19: EURL2024P19
-P20: EURL2024P20
-P21: EURL2024P21
-P22: EURL2024P22
-P23: EURL2024P23
-P24: EURL2024P24
-P25: EURL2024P25
-P26: EURL2024P26
-P27: EURL2024P27
-P28: EURL2024P28
-P29: EURL2024P29
-P30: EURL2024P30
-P31: EURL2024P31
-P32: EURL2024P32
-P33: EURL2024P33
-P34: EURL2024P34
-P35: EURL2024P35
-P36: EURL2024P36
+P01: Lazio Rom
+P02: Athletic Bilbao
+P03: Manchester United
+P04: Tottenham Hotspurs
+P05: Eintracht Frankfurt
+P06: Olympique Lyon
+P07: Olympiakos Piräus
+P08: Glasgow Rangers
+P09: FK Bodø/Glimt
+P10: RSC Anderlecht
+P11: Steaua Bukarest
+P12: Ajax Amsterdam
+P13: Real Sociedad San Sebastián
+P14: Galatasaray Istanbul
+P15: AS Rom
+P16: Viktoria Pilsen
+P17: Ferencváros Budapest
+P18: FC Porto
+P19: AZ Alkmaar
+P20: FC Midtjylland
+P21: Royale Union Saint-Gilloise
+P22: PAOK Thessaloniki
+P23: Twente Enschede
+P24: Fenerbahce Istanbul
+P25: Sporting Braga
+P26: IF Elfsborg
+P27: TSG 1899 Hoffenheim
+P28: Besiktas Istanbul
+P29: Maccabi Tel Aviv
+P30: Slavia Prag
+P31: Malmö FF
+P32: FK Rigas FS
+P33: Ludogorez Rasgrad
+P34: Dynamo Kiew
+P35: OGC Nizza
+P36: Qarabag Agdam
 PK01W: EURL2024PK01W
 PK01L: EURL2024PK01L
 PK02W: EURL2024PK02W
