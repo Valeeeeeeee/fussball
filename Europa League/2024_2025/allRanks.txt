@@ -114,22 +114,22 @@ P33: Ludogorez Rasgrad
 P34: Dynamo Kiew
 P35: OGC Nizza
 P36: Qarabag Agdam
-PK01W: EURL2024PK01W
-PK01L: EURL2024PK01L
-PK02W: EURL2024PK02W
-PK02L: EURL2024PK02L
-PK03W: EURL2024PK03W
-PK03L: EURL2024PK03L
-PK04W: EURL2024PK04W
-PK04L: EURL2024PK04L
-PK05W: EURL2024PK05W
-PK05L: EURL2024PK05L
-PK06W: EURL2024PK06W
-PK06L: EURL2024PK06L
-PK07W: EURL2024PK07W
-PK07L: EURL2024PK07L
-PK08W: EURL2024PK08W
-PK08L: EURL2024PK08L
+PK01W: Ferencváros Budapest vs. Viktoria Pilsen
+PK01L: Ferencváros Budapest vs. Viktoria Pilsen
+PK02W: FC Porto vs. AS Rom
+PK02L: FC Porto vs. AS Rom
+PK03W: AZ Alkmaar vs. Galatasaray Istanbul
+PK03L: AZ Alkmaar vs. Galatasaray Istanbul
+PK04W: FC Midtjylland vs. Real Sociedad San Sebastián
+PK04L: FC Midtjylland vs. Real Sociedad San Sebastián
+PK05W: Royale Union Saint-Gilloise vs. Ajax Amsterdam
+PK05L: Royale Union Saint-Gilloise vs. Ajax Amsterdam
+PK06W: PAOK Thessaloniki vs. Steaua Bukarest
+PK06L: PAOK Thessaloniki vs. Steaua Bukarest
+PK07W: Twente Enschede vs. FK Bodø/Glimt
+PK07L: Twente Enschede vs. FK Bodø/Glimt
+PK08W: Fenerbahce Istanbul vs. RSC Anderlecht
+PK08L: Fenerbahce Istanbul vs. RSC Anderlecht
 AF01W: EURL2024AF01W
 AF01L: EURL2024AF01L
 AF02W: EURL2024AF02W

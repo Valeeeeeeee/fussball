@@ -98,8 +98,8 @@ P07: OSC Lille
 P08: Aston Villa
 P09: Atalanta Bergamo
 P10: Borussia Dortmund
-P11: Bayern München
-P12: CHAL2024P12
+P11: Real Madrid
+P12: Bayern München
 P13: AC Mailand
 P14: PSV Eindhoven
 P15: Paris Saint-Germain
@@ -124,22 +124,22 @@ P33: FC Girona
 P34: FC Salzburg
 P35: Slovan Bratislava
 P36: Young Boys Bern
-PK01W: CHAL2024PK01W
-PK01L: CHAL2024PK01L
-PK02W: CHAL2024PK02W
-PK02L: CHAL2024PK02L
-PK03W: CHAL2024PK03W
-PK03L: CHAL2024PK03L
-PK04W: CHAL2024PK04W
-PK04L: CHAL2024PK04L
-PK05W: CHAL2024PK05W
-PK05L: CHAL2024PK05L
-PK06W: CHAL2024PK06W
-PK06L: CHAL2024PK06L
-PK07W: CHAL2024PK07W
-PK07L: CHAL2024PK07L
-PK08W: CHAL2024PK08W
-PK08L: CHAL2024PK08L
+PK01W: AS Monaco vs. Benfica Lissabon
+PK01L: AS Monaco vs. Benfica Lissabon
+PK02W: Stade Brest vs. Paris Saint-Germain
+PK02L: Stade Brest vs. Paris Saint-Germain
+PK03W: Feyenoord Rotterdam vs. AC Mailand
+PK03L: Feyenoord Rotterdam vs. AC Mailand
+PK04W: Juventus Turin vs. PSV Eindhoven
+PK04L: Juventus Turin vs. PSV Eindhoven
+PK05W: Celtic Glasgow vs. Bayern München
+PK05L: Celtic Glasgow vs. Bayern München
+PK06W: Manchester City vs. Real Madrid
+PK06L: Manchester City vs. Real Madrid
+PK07W: Sporting Lissabon vs. Borussia Dortmund
+PK07L: Sporting Lissabon vs. Borussia Dortmund
+PK08W: FC Brügge vs. Atalanta Bergamo
+PK08L: FC Brügge vs. Atalanta Bergamo
 AF01W: CHAL2024AF01W
 AF01L: CHAL2024AF01L
 AF02W: CHAL2024AF02W
