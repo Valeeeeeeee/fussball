@@ -290,22 +290,22 @@ P33: Dinamo Minsk
 P34: Larne FC
 P35: Linzer ASK
 P36: Petrocub Hîncesti
-PK01W: KAA Gent vs. Real Betis Sevilla
-PK01L: KAA Gent vs. Real Betis Sevilla
-PK02W: FC Kopenhagen vs. 1. FC Heidenheim
-PK02L: FC Kopenhagen vs. 1. FC Heidenheim
-PK03W: Víkingur Reykjavík vs. Panathinaikos Athen
-PK03L: Víkingur Reykjavík vs. Panathinaikos Athen
-PK04W: Borac Banja Luka vs. Olimpija Ljubljana
-PK04L: Borac Banja Luka vs. Olimpija Ljubljana
-PK05W: NK Celje vs. APOEL Nikosia
-PK05L: NK Celje vs. APOEL Nikosia
-PK06W: Omonia Nikosia vs. FC Pafos
-PK06L: Omonia Nikosia vs. FC Pafos
-PK07W: Molde FK vs. Shamrock Rovers
-PK07L: Molde FK vs. Shamrock Rovers
-PK08W: TSC Backa Topola vs. Jagiellonia Bialystok
-PK08L: TSC Backa Topola vs. Jagiellonia Bialystok
+PK01W: Víkingur Reykjavík vs. Panathinaikos Athen
+PK01L: Víkingur Reykjavík vs. Panathinaikos Athen
+PK02W: NK Celje vs. APOEL Nikosia
+PK02L: NK Celje vs. APOEL Nikosia
+PK03W: Molde FK vs. Shamrock Rovers
+PK03L: Molde FK vs. Shamrock Rovers
+PK04W: TSC Backa Topola vs. Jagiellonia Bialystok
+PK04L: TSC Backa Topola vs. Jagiellonia Bialystok
+PK05W: KAA Gent vs. Real Betis Sevilla
+PK05L: KAA Gent vs. Real Betis Sevilla
+PK06W: FC Kopenhagen vs. 1. FC Heidenheim
+PK06L: FC Kopenhagen vs. 1. FC Heidenheim
+PK07W: Borac Banja Luka vs. Olimpija Ljubljana
+PK07L: Borac Banja Luka vs. Olimpija Ljubljana
+PK08W: Omonia Nikosia vs. FC Pafos
+PK08L: Omonia Nikosia vs. FC Pafos
 AF01W: CONF2024AF01W
 AF01L: CONF2024AF01L
 AF02W: CONF2024AF02W
