@@ -110,10 +110,10 @@ AF07W: RasenBallsport Leipzig
 AF07L: Eintracht Frankfurt
 AF08W: FC Augsburg
 AF08L: Karlsruher SC
-VF01W: VfB Stuttgart vs. FC Augsburg
-VF01L: VfB Stuttgart vs. FC Augsburg
-VF02W: Bayer 04 Leverkusen vs. 1. FC Köln
-VF02L: Bayer 04 Leverkusen vs. 1. FC Köln
+VF01W: VfB Stuttgart
+VF01L: FC Augsburg
+VF02W: Bayer 04 Leverkusen
+VF02L: 1. FC Köln
 VF03W: Arminia Bielefeld vs. Werder Bremen
 VF03L: Arminia Bielefeld vs. Werder Bremen
 VF04W: RasenBallsport Leipzig vs. VfL Wolfsburg
