@@ -306,22 +306,22 @@ PK07W: Borac Banja Luka
 PK07L: Olimpija Ljubljana
 PK08W: FC Pafos
 PK08L: Omonia Nikosia
-AF01W: CONF2024AF01W
-AF01L: CONF2024AF01L
-AF02W: CONF2024AF02W
-AF02L: CONF2024AF02L
-AF03W: CONF2024AF03W
-AF03L: CONF2024AF03L
-AF04W: CONF2024AF04W
-AF04L: CONF2024AF04L
-AF05W: CONF2024AF05W
-AF05L: CONF2024AF05L
-AF06W: CONF2024AF06W
-AF06L: CONF2024AF06L
-AF07W: CONF2024AF07W
-AF07L: CONF2024AF07L
-AF08W: CONF2024AF08W
-AF08L: CONF2024AF08L
+AF01W: Panathinaikos Athen vs. AC Florenz
+AF01L: Panathinaikos Athen vs. AC Florenz
+AF02W: NK Celje vs. FC Lugano
+AF02L: NK Celje vs. FC Lugano
+AF03W: Molde FK vs. Legia Warschau
+AF03L: Molde FK vs. Legia Warschau
+AF04W: Jagiellonia Bialystok vs. Cercle Brügge
+AF04L: Jagiellonia Bialystok vs. Cercle Brügge
+AF05W: Real Betis Sevilla vs. Vitória Guimarães
+AF05L: Real Betis Sevilla vs. Vitória Guimarães
+AF06W: FC Kopenhagen vs. FC Chelsea
+AF06L: FC Kopenhagen vs. FC Chelsea
+AF07W: Borac Banja Luka vs. Rapid Wien
+AF07L: Borac Banja Luka vs. Rapid Wien
+AF08W: FC Pafos vs. Djurgårdens IF
+AF08L: FC Pafos vs. Djurgårdens IF
 VF01W: CONF2024VF01W
 VF01L: CONF2024VF01L
 VF02W: CONF2024VF02W

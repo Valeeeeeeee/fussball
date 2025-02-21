@@ -130,22 +130,22 @@ PK07W: Steaua Bukarest
 PK07L: PAOK Thessaloniki
 PK08W: FK Bodø/Glimt
 PK08L: Twente Enschede
-AF01W: EURL2024AF01W
-AF01L: EURL2024AF01L
-AF02W: EURL2024AF02W
-AF02L: EURL2024AF02L
-AF03W: EURL2024AF03W
-AF03L: EURL2024AF03L
-AF04W: EURL2024AF04W
-AF04L: EURL2024AF04L
-AF05W: EURL2024AF05W
-AF05L: EURL2024AF05L
-AF06W: EURL2024AF06W
-AF06L: EURL2024AF06L
-AF07W: EURL2024AF07W
-AF07L: EURL2024AF07L
-AF08W: EURL2024AF08W
-AF08L: EURL2024AF08L
+AF01W: Viktoria Pilsen vs. Lazio Rom
+AF01L: Viktoria Pilsen vs. Lazio Rom
+AF02W: Real Sociedad San Sebastián vs. Manchester United
+AF02L: Real Sociedad San Sebastián vs. Manchester United
+AF03W: Ajax Amsterdam vs. Eintracht Frankfurt
+AF03L: Ajax Amsterdam vs. Eintracht Frankfurt
+AF04W: Fenerbahce Istanbul vs. Glasgow Rangers
+AF04L: Fenerbahce Istanbul vs. Glasgow Rangers
+AF05W: AS Rom vs. Athletic Bilbao
+AF05L: AS Rom vs. Athletic Bilbao
+AF06W: AZ Alkmaar vs. Tottenham Hotspurs
+AF06L: AZ Alkmaar vs. Tottenham Hotspurs
+AF07W: Steaua Bukarest vs. Olympique Lyon
+AF07L: Steaua Bukarest vs. Olympique Lyon
+AF08W: FK Bodø/Glimt vs. Olympiakos Piräus
+AF08L: FK Bodø/Glimt vs. Olympiakos Piräus
 VF01W: EURL2024VF01W
 VF01L: EURL2024VF01L
 VF02W: EURL2024VF02W
