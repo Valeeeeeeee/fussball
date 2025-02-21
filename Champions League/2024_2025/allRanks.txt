@@ -124,22 +124,22 @@ P33: FC Girona
 P34: FC Salzburg
 P35: Slovan Bratislava
 P36: Young Boys Bern
-PK01W: Stade Brest vs. Paris Saint-Germain
-PK01L: Stade Brest vs. Paris Saint-Germain
-PK02W: Juventus Turin vs. PSV Eindhoven
-PK02L: Juventus Turin vs. PSV Eindhoven
-PK03W: Manchester City vs. Real Madrid
-PK03L: Manchester City vs. Real Madrid
-PK04W: Sporting Lissabon vs. Borussia Dortmund
-PK04L: Sporting Lissabon vs. Borussia Dortmund
-PK05W: FC Brügge vs. Atalanta Bergamo
-PK05L: FC Brügge vs. Atalanta Bergamo
-PK06W: AS Monaco vs. Benfica Lissabon
-PK06L: AS Monaco vs. Benfica Lissabon
-PK07W: Feyenoord Rotterdam vs. AC Mailand
-PK07L: Feyenoord Rotterdam vs. AC Mailand
-PK08W: Celtic Glasgow vs. Bayern München
-PK08L: Celtic Glasgow vs. Bayern München
+PK01W: Paris Saint-Germain
+PK01L: Stade Brest
+PK02W: PSV Eindhoven
+PK02L: Juventus Turin
+PK03W: Real Madrid
+PK03L: Manchester City
+PK04W: Borussia Dortmund
+PK04L: Sporting Lissabon
+PK05W: FC Brügge
+PK05L: Atalanta Bergamo
+PK06W: Benfica Lissabon
+PK06L: AS Monaco
+PK07W: Feyenoord Rotterdam
+PK07L: AC Mailand
+PK08W: Bayern München
+PK08L: Celtic Glasgow
 AF01W: CHAL2024AF01W
 AF01L: CHAL2024AF01L
 AF02W: CHAL2024AF02W
