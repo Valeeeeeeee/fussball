@@ -130,20 +130,20 @@ PK07W: Steaua Bukarest
 PK07L: PAOK Thessaloniki
 PK08W: FK Bodø/Glimt
 PK08L: Twente Enschede
-AF01W: Viktoria Pilsen vs. Lazio Rom
-AF01L: Viktoria Pilsen vs. Lazio Rom
-AF02W: Real Sociedad San Sebastián vs. Manchester United
-AF02L: Real Sociedad San Sebastián vs. Manchester United
-AF03W: Ajax Amsterdam vs. Eintracht Frankfurt
-AF03L: Ajax Amsterdam vs. Eintracht Frankfurt
-AF04W: Fenerbahce Istanbul vs. Glasgow Rangers
-AF04L: Fenerbahce Istanbul vs. Glasgow Rangers
-AF05W: AS Rom vs. Athletic Bilbao
-AF05L: AS Rom vs. Athletic Bilbao
-AF06W: AZ Alkmaar vs. Tottenham Hotspurs
-AF06L: AZ Alkmaar vs. Tottenham Hotspurs
-AF07W: Steaua Bukarest vs. Olympique Lyon
-AF07L: Steaua Bukarest vs. Olympique Lyon
+AF01W: Real Sociedad San Sebastián vs. Manchester United
+AF01L: Real Sociedad San Sebastián vs. Manchester United
+AF02W: Fenerbahce Istanbul vs. Glasgow Rangers
+AF02L: Fenerbahce Istanbul vs. Glasgow Rangers
+AF03W: AZ Alkmaar vs. Tottenham Hotspurs
+AF03L: AZ Alkmaar vs. Tottenham Hotspurs
+AF04W: Steaua Bukarest vs. Olympique Lyon
+AF04L: Steaua Bukarest vs. Olympique Lyon
+AF05W: Viktoria Pilsen vs. Lazio Rom
+AF05L: Viktoria Pilsen vs. Lazio Rom
+AF06W: Ajax Amsterdam vs. Eintracht Frankfurt
+AF06L: Ajax Amsterdam vs. Eintracht Frankfurt
+AF07W: AS Rom vs. Athletic Bilbao
+AF07L: AS Rom vs. Athletic Bilbao
 AF08W: FK Bodø/Glimt vs. Olympiakos Piräus
 AF08L: FK Bodø/Glimt vs. Olympiakos Piräus
 VF01W: EURL2024VF01W

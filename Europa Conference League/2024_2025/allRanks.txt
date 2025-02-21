@@ -308,16 +308,16 @@ PK08W: FC Pafos
 PK08L: Omonia Nikosia
 AF01W: Panathinaikos Athen vs. AC Florenz
 AF01L: Panathinaikos Athen vs. AC Florenz
-AF02W: NK Celje vs. FC Lugano
-AF02L: NK Celje vs. FC Lugano
-AF03W: Molde FK vs. Legia Warschau
-AF03L: Molde FK vs. Legia Warschau
-AF04W: Jagiellonia Bialystok vs. Cercle Brügge
-AF04L: Jagiellonia Bialystok vs. Cercle Brügge
-AF05W: Real Betis Sevilla vs. Vitória Guimarães
-AF05L: Real Betis Sevilla vs. Vitória Guimarães
-AF06W: FC Kopenhagen vs. FC Chelsea
-AF06L: FC Kopenhagen vs. FC Chelsea
+AF02W: Molde FK vs. Legia Warschau
+AF02L: Molde FK vs. Legia Warschau
+AF03W: Real Betis Sevilla vs. Vitória Guimarães
+AF03L: Real Betis Sevilla vs. Vitória Guimarães
+AF04W: FC Kopenhagen vs. FC Chelsea
+AF04L: FC Kopenhagen vs. FC Chelsea
+AF05W: NK Celje vs. FC Lugano
+AF05L: NK Celje vs. FC Lugano
+AF06W: Jagiellonia Bialystok vs. Cercle Brügge
+AF06L: Jagiellonia Bialystok vs. Cercle Brügge
 AF07W: Borac Banja Luka vs. Rapid Wien
 AF07L: Borac Banja Luka vs. Rapid Wien
 AF08W: FC Pafos vs. Djurgårdens IF

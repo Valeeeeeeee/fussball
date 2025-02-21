@@ -140,20 +140,20 @@ PK07W: Feyenoord Rotterdam
 PK07L: AC Mailand
 PK08W: Bayern München
 PK08L: Celtic Glasgow
-AF01W: Paris Saint-Germain vs. FC Liverpool
-AF01L: Paris Saint-Germain vs. FC Liverpool
+AF01W: FC Brügge vs. Aston Villa
+AF01L: FC Brügge vs. Aston Villa
 AF02W: PSV Eindhoven vs. FC Arsenal
 AF02L: PSV Eindhoven vs. FC Arsenal
 AF03W: Real Madrid vs. Atlético Madrid
 AF03L: Real Madrid vs. Atlético Madrid
 AF04W: Borussia Dortmund vs. OSC Lille
 AF04L: Borussia Dortmund vs. OSC Lille
-AF05W: FC Brügge vs. Aston Villa
-AF05L: FC Brügge vs. Aston Villa
-AF06W: Benfica Lissabon vs. FC Barcelona
-AF06L: Benfica Lissabon vs. FC Barcelona
-AF07W: Feyenoord Rotterdam vs. Inter Mailand
-AF07L: Feyenoord Rotterdam vs. Inter Mailand
+AF05W: Feyenoord Rotterdam vs. Inter Mailand
+AF05L: Feyenoord Rotterdam vs. Inter Mailand
+AF06W: Paris Saint-Germain vs. FC Liverpool
+AF06L: Paris Saint-Germain vs. FC Liverpool
+AF07W: Benfica Lissabon vs. FC Barcelona
+AF07L: Benfica Lissabon vs. FC Barcelona
 AF08W: Bayern München vs. Bayer 04 Leverkusen
 AF08L: Bayern München vs. Bayer 04 Leverkusen
 VF01W: CHAL2024VF01W
