@@ -118,9 +118,9 @@ VF03W: Arminia Bielefeld
 VF03L: Werder Bremen
 VF04W: RasenBallsport Leipzig
 VF04L: VfL Wolfsburg
-HF01W: VfB Stuttgart vs. RasenBallsport Leipzig
-HF01L: VfB Stuttgart vs. RasenBallsport Leipzig
-HF02W: Arminia Bielefeld vs. Bayer 04 Leverkusen
-HF02L: Arminia Bielefeld vs. Bayer 04 Leverkusen
+HF01W: Arminia Bielefeld vs. Bayer 04 Leverkusen
+HF01L: Arminia Bielefeld vs. Bayer 04 Leverkusen
+HF02W: VfB Stuttgart vs. RasenBallsport Leipzig
+HF02L: VfB Stuttgart vs. RasenBallsport Leipzig
 FI01W: DPOK2024FI01W
 FI01L: DPOK2024FI01L
