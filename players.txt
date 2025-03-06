@@ -2007,6 +2007,7 @@
 30418656;Denis;Odoi;null;19880527;Ghana, Belgien;
 30420218;Semih;Kiliçsoy;null;20050815;Türkei;
 30420865;Josip;Drmic;null;19920808;Schweiz;
+30421298;Tiago;'Pereira Cardoso';null;20060407;Luxemburg, Portugal;
 30421429;Marco;Sailer;null;19851116;Deutschland;
 30421585;Jurriën;Timber;null;20010617;Niederlande;
 30426687;Naser;Aliji;null;19931227;Albanien;
@@ -2810,6 +2811,7 @@
 31065715;Xaver;Schlager;null;19970928;Österreich;
 31065963;Abdullahi;Shehu;null;19930312;Nigeria;
 31068875;Martin;Valjent;null;19951211;Slowakei;
+31070758;Carney;Chukwuemeka;null;20031020;England, Nigeria;
 31071720;Martin;Skrtel;null;19841215;Slowakei;
 31072256;Khadim;N'Diaye;null;19850405;Senegal;
 31072839;Rafael;Borré;null;19950915;Kolumbien;
