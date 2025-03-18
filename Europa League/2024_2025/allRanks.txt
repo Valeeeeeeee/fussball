@@ -130,30 +130,30 @@ PK07W: Steaua Bukarest
 PK07L: PAOK Thessaloniki
 PK08W: FK Bodø/Glimt
 PK08L: Twente Enschede
-AF01W: Real Sociedad San Sebastián vs. Manchester United
-AF01L: Real Sociedad San Sebastián vs. Manchester United
-AF02W: Fenerbahce Istanbul vs. Glasgow Rangers
-AF02L: Fenerbahce Istanbul vs. Glasgow Rangers
-AF03W: AZ Alkmaar vs. Tottenham Hotspurs
-AF03L: AZ Alkmaar vs. Tottenham Hotspurs
-AF04W: Steaua Bukarest vs. Olympique Lyon
-AF04L: Steaua Bukarest vs. Olympique Lyon
-AF05W: Viktoria Pilsen vs. Lazio Rom
-AF05L: Viktoria Pilsen vs. Lazio Rom
-AF06W: Ajax Amsterdam vs. Eintracht Frankfurt
-AF06L: Ajax Amsterdam vs. Eintracht Frankfurt
-AF07W: AS Rom vs. Athletic Bilbao
-AF07L: AS Rom vs. Athletic Bilbao
-AF08W: FK Bodø/Glimt vs. Olympiakos Piräus
-AF08L: FK Bodø/Glimt vs. Olympiakos Piräus
-VF01W: AF02W vs. AF07W
-VF01L: AF02W vs. AF07W
-VF02W: AF03W vs. AF06W
-VF02L: AF03W vs. AF06W
-VF03W: AF04W vs. AF01W
-VF03L: AF04W vs. AF01W
-VF04W: AF08W vs. AF05W
-VF04L: AF08W vs. AF05W
+AF01W: Manchester United
+AF01L: Real Sociedad San Sebastián
+AF02W: Glasgow Rangers
+AF02L: Fenerbahce Istanbul
+AF03W: Tottenham Hotspurs
+AF03L: AZ Alkmaar
+AF04W: Olympique Lyon
+AF04L: Steaua Bukarest
+AF05W: Lazio Rom
+AF05L: Viktoria Pilsen
+AF06W: Eintracht Frankfurt
+AF06L: Ajax Amsterdam
+AF07W: Athletic Bilbao
+AF07L: AS Rom
+AF08W: FK Bodø/Glimt
+AF08L: Olympiakos Piräus
+VF01W: Glasgow Rangers vs. Athletic Bilbao
+VF01L: Glasgow Rangers vs. Athletic Bilbao
+VF02W: Tottenham Hotspurs vs. Eintracht Frankfurt
+VF02L: Tottenham Hotspurs vs. Eintracht Frankfurt
+VF03W: Olympique Lyon vs. Manchester United
+VF03L: Olympique Lyon vs. Manchester United
+VF04W: FK Bodø/Glimt vs. Lazio Rom
+VF04L: FK Bodø/Glimt vs. Lazio Rom
 HF01W: EURL2024HF01W
 HF01L: EURL2024HF01L
 HF02W: EURL2024HF02W

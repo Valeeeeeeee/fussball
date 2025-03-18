@@ -140,30 +140,30 @@ PK07W: Feyenoord Rotterdam
 PK07L: AC Mailand
 PK08W: Bayern München
 PK08L: Celtic Glasgow
-AF01W: FC Brügge vs. Aston Villa
-AF01L: FC Brügge vs. Aston Villa
-AF02W: PSV Eindhoven vs. FC Arsenal
-AF02L: PSV Eindhoven vs. FC Arsenal
-AF03W: Real Madrid vs. Atlético Madrid
-AF03L: Real Madrid vs. Atlético Madrid
-AF04W: Borussia Dortmund vs. OSC Lille
-AF04L: Borussia Dortmund vs. OSC Lille
-AF05W: Feyenoord Rotterdam vs. Inter Mailand
-AF05L: Feyenoord Rotterdam vs. Inter Mailand
-AF06W: Paris Saint-Germain vs. FC Liverpool
-AF06L: Paris Saint-Germain vs. FC Liverpool
-AF07W: Benfica Lissabon vs. FC Barcelona
-AF07L: Benfica Lissabon vs. FC Barcelona
-AF08W: Bayern München vs. Bayer 04 Leverkusen
-AF08L: Bayern München vs. Bayer 04 Leverkusen
-VF01W: AF02W vs. AF03W
-VF01L: AF02W vs. AF03W
-VF02W: AF06W vs. AF01W
-VF02L: AF06W vs. AF01W
-VF03W: AF07W vs. AF04W
-VF03L: AF07W vs. AF04W
-VF04W: AF08W vs. AF05W
-VF04L: AF08W vs. AF05W
+AF01W: Aston Villa
+AF01L: FC Brügge
+AF02W: FC Arsenal
+AF02L: PSV Eindhoven
+AF03W: Real Madrid
+AF03L: Atlético Madrid
+AF04W: Borussia Dortmund
+AF04L: OSC Lille
+AF05W: Inter Mailand
+AF05L: Feyenoord Rotterdam
+AF06W: Paris Saint-Germain
+AF06L: FC Liverpool
+AF07W: FC Barcelona
+AF07L: Benfica Lissabon
+AF08W: Bayern München
+AF08L: Bayer 04 Leverkusen
+VF01W: FC Arsenal vs. Real Madrid
+VF01L: FC Arsenal vs. Real Madrid
+VF02W: Paris Saint-Germain vs. Aston Villa
+VF02L: Paris Saint-Germain vs. Aston Villa
+VF03W: FC Barcelona vs. Borussia Dortmund
+VF03L: FC Barcelona vs. Borussia Dortmund
+VF04W: Bayern München vs. Inter Mailand
+VF04L: Bayern München vs. Inter Mailand
 HF01W: CHAL2024HF01W
 HF01L: CHAL2024HF01L
 HF02W: CHAL2024HF02W

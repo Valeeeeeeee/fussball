@@ -306,30 +306,30 @@ PK07W: Borac Banja Luka
 PK07L: Olimpija Ljubljana
 PK08W: FC Pafos
 PK08L: Omonia Nikosia
-AF01W: Panathinaikos Athen vs. AC Florenz
-AF01L: Panathinaikos Athen vs. AC Florenz
-AF02W: Molde FK vs. Legia Warschau
-AF02L: Molde FK vs. Legia Warschau
-AF03W: Real Betis Sevilla vs. Vitória Guimarães
-AF03L: Real Betis Sevilla vs. Vitória Guimarães
-AF04W: FC Kopenhagen vs. FC Chelsea
-AF04L: FC Kopenhagen vs. FC Chelsea
-AF05W: NK Celje vs. FC Lugano
-AF05L: NK Celje vs. FC Lugano
-AF06W: Jagiellonia Bialystok vs. Cercle Brügge
-AF06L: Jagiellonia Bialystok vs. Cercle Brügge
-AF07W: Borac Banja Luka vs. Rapid Wien
-AF07L: Borac Banja Luka vs. Rapid Wien
-AF08W: FC Pafos vs. Djurgårdens IF
-AF08L: FC Pafos vs. Djurgårdens IF
-VF01W: AF03W vs. AF06W
-VF01L: AF03W vs. AF06W
-VF02W: AF04W vs. AF02W
-VF02L: AF04W vs. AF02W
-VF03W: AF05W vs. AF01W
-VF03L: AF05W vs. AF01W
-VF04W: AF08W vs. AF07W
-VF04L: AF08W vs. AF07W
+AF01W: AC Florenz
+AF01L: Panathinaikos Athen
+AF02W: Legia Warschau
+AF02L: Molde FK
+AF03W: Real Betis Sevilla
+AF03L: Vitória Guimarães
+AF04W: FC Chelsea
+AF04L: FC Kopenhagen
+AF05W: NK Celje
+AF05L: FC Lugano
+AF06W: Jagiellonia Bialystok
+AF06L: Cercle Brügge
+AF07W: Rapid Wien
+AF07L: Borac Banja Luka
+AF08W: Djurgårdens IF
+AF08L: FC Pafos
+VF01W: Real Betis Sevilla vs. Jagiellonia Bialystok
+VF01L: Real Betis Sevilla vs. Jagiellonia Bialystok
+VF02W: FC Chelsea vs. Legia Warschau
+VF02L: FC Chelsea vs. Legia Warschau
+VF03W: NK Celje vs. AC Florenz
+VF03L: NK Celje vs. AC Florenz
+VF04W: Djurgårdens IF vs. Rapid Wien
+VF04L: Djurgårdens IF vs. Rapid Wien
 HF01W: CONF2024HF01W
 HF01L: CONF2024HF01L
 HF02W: CONF2024HF02W
