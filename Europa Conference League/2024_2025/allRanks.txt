@@ -322,10 +322,10 @@ AF07W: Rapid Wien
 AF07L: Borac Banja Luka
 AF08W: Djurgårdens IF
 AF08L: FC Pafos
-VF01W: Real Betis Sevilla vs. Jagiellonia Bialystok
-VF01L: Real Betis Sevilla vs. Jagiellonia Bialystok
-VF02W: FC Chelsea vs. Legia Warschau
-VF02L: FC Chelsea vs. Legia Warschau
+VF01W: Legia Warschau vs. FC Chelsea
+VF01L: Legia Warschau vs. FC Chelsea
+VF02W: Real Betis Sevilla vs. Jagiellonia Bialystok
+VF02L: Real Betis Sevilla vs. Jagiellonia Bialystok
 VF03W: NK Celje vs. AC Florenz
 VF03L: NK Celje vs. AC Florenz
 VF04W: Djurgårdens IF vs. Rapid Wien
