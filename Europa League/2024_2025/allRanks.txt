@@ -146,14 +146,14 @@ AF07W: Athletic Bilbao
 AF07L: AS Rom
 AF08W: FK Bodø/Glimt
 AF08L: Olympiakos Piräus
-VF01W: Glasgow Rangers vs. Athletic Bilbao
-VF01L: Glasgow Rangers vs. Athletic Bilbao
-VF02W: Tottenham Hotspurs vs. Eintracht Frankfurt
-VF02L: Tottenham Hotspurs vs. Eintracht Frankfurt
-VF03W: Olympique Lyon vs. Manchester United
-VF03L: Olympique Lyon vs. Manchester United
-VF04W: FK Bodø/Glimt vs. Lazio Rom
-VF04L: FK Bodø/Glimt vs. Lazio Rom
+VF01W: FK Bodø/Glimt vs. Lazio Rom
+VF01L: FK Bodø/Glimt vs. Lazio Rom
+VF02W: Glasgow Rangers vs. Athletic Bilbao
+VF02L: Glasgow Rangers vs. Athletic Bilbao
+VF03W: Tottenham Hotspurs vs. Eintracht Frankfurt
+VF03L: Tottenham Hotspurs vs. Eintracht Frankfurt
+VF04W: Olympique Lyon vs. Manchester United
+VF04L: Olympique Lyon vs. Manchester United
 HF01W: EURL2024HF01W
 HF01L: EURL2024HF01L
 HF02W: EURL2024HF02W
