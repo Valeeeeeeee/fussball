@@ -200,9 +200,11 @@
 27933278;Erik;Durm;null;19920512;Deutschland;
 27933364;Hugo;Ayala;null;19870331;Mexiko;
 27933543;Otar;Kiteishvili;null;19960326;Georgien;
+27939111;Noah;Pesch;null;20050518;Kroatien, Deutschland;
 27939525;Noah;Okafor;null;20000524;Schweiz, Nigeria;
 27943228;Claudiu;Keserü;null;19861202;Rumänien;
 27944051;Ján;Novota;null;19831129;Slowakei;
+27945360;Luca;Jaquez;null;20030602;Schweiz, Dominikanische Republik;
 27949230;Ján;Durica;null;19811110;Slowakei;
 27952726;John;Tolkin;null;20020731;USA;
 27953090;Luka;Jovic;null;19971223;Serbien;
@@ -1931,6 +1933,7 @@
 30368770;Mikel;Merino;null;19960622;Spanien;
 30368804;Alexander;Manninger;null;19770604;Österreich;
 30368952;Salif;Sané;null;19900825;Senegal, Frankreich;
+30369370;Jonas;Urbig;null;20030808;Deutschland;
 30369680;Pedro;Neto;null;20000309;Portugal;
 30369921;Allan;Saint-Maximin;null;19970312;Frankreich;
 30370449;Alexander;Weidinger;null;19970618;Deutschland;
@@ -2658,6 +2661,7 @@
 30937872;Marco;John;null;20020402;Deutschland;
 30938240;Timon;Weiner;null;19990118;Deutschland;
 30938252;Albert;Guðmundsson;null;19970615;Island;
+30939859;Tidiam;Gomis;null;20060808;Frankreich, Senegal;
 30940309;Ashley;Richards;null;19910412;Wales;
 30940773;Youri;Tielemans;null;19970507;Belgien;
 30941280;Tobias;Werner;null;19850719;Deutschland;
