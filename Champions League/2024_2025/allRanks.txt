@@ -156,14 +156,14 @@ AF07W: FC Barcelona
 AF07L: Benfica Lissabon
 AF08W: Bayern München
 AF08L: Bayer 04 Leverkusen
-VF01W: FC Arsenal vs. Real Madrid
-VF01L: FC Arsenal vs. Real Madrid
-VF02W: Bayern München vs. Inter Mailand
-VF02L: Bayern München vs. Inter Mailand
-VF03W: Paris Saint-Germain vs. Aston Villa
-VF03L: Paris Saint-Germain vs. Aston Villa
-VF04W: FC Barcelona vs. Borussia Dortmund
-VF04L: FC Barcelona vs. Borussia Dortmund
+VF01W: FC Arsenal
+VF01L: Real Madrid
+VF02W: Inter Mailand
+VF02L: Bayern München
+VF03W: Paris Saint-Germain
+VF03L: Aston Villa
+VF04W: FC Barcelona
+VF04L: Borussia Dortmund
 HF01W: CHAL2024HF01W
 HF01L: CHAL2024HF01L
 HF02W: CHAL2024HF02W
