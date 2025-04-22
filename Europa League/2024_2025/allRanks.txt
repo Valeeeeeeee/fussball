@@ -158,5 +158,5 @@ HF01W: Athletic Bilbao vs. Manchester United
 HF01L: Athletic Bilbao vs. Manchester United
 HF02W: Tottenham Hotspurs vs. FK Bodø/Glimt
 HF02L: Tottenham Hotspurs vs. FK Bodø/Glimt
-FI01W: EURL2024FI01W
-FI01L: EURL2024FI01L
+FI01W: HF02W vs. HF01W
+FI01L: HF02W vs. HF01W

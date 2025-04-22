@@ -334,5 +334,5 @@ HF01W: Real Betis Sevilla vs. AC Florenz
 HF01L: Real Betis Sevilla vs. AC Florenz
 HF02W: Djurgårdens IF vs. FC Chelsea
 HF02L: Djurgårdens IF vs. FC Chelsea
-FI01W: CONF2024FI01W
-FI01L: CONF2024FI01L
+FI01W: HF01W vs. HF02W
+FI01L: HF01W vs. HF02W

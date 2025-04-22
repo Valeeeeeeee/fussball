@@ -168,5 +168,5 @@ HF01W: FC Arsenal vs. Paris Saint-Germain
 HF01L: FC Arsenal vs. Paris Saint-Germain
 HF02W: FC Barcelona vs. Inter Mailand
 HF02L: FC Barcelona vs. Inter Mailand
-FI01W: CHAL2024FI01W
-FI01L: CHAL2024FI01L
+FI01W: HF01W vs. HF02W
+FI01L: HF01W vs. HF02W
