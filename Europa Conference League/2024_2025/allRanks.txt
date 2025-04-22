@@ -330,9 +330,9 @@ VF03W: AC Florenz
 VF03L: NK Celje
 VF04W: Djurgårdens IF
 VF04L: Rapid Wien
-HF01W: CONF2024HF01W
-HF01L: CONF2024HF01L
-HF02W: CONF2024HF02W
-HF02L: CONF2024HF02L
+HF01W: Real Betis Sevilla vs. AC Florenz
+HF01L: Real Betis Sevilla vs. AC Florenz
+HF02W: Djurgårdens IF vs. FC Chelsea
+HF02L: Djurgårdens IF vs. FC Chelsea
 FI01W: CONF2024FI01W
 FI01L: CONF2024FI01L

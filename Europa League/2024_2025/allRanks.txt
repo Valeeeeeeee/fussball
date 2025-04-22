@@ -154,9 +154,9 @@ VF03W: Tottenham Hotspurs
 VF03L: Eintracht Frankfurt
 VF04W: Manchester United
 VF04L: Olympique Lyon
-HF01W: EURL2024HF01W
-HF01L: EURL2024HF01L
-HF02W: EURL2024HF02W
-HF02L: EURL2024HF02L
+HF01W: Athletic Bilbao vs. Manchester United
+HF01L: Athletic Bilbao vs. Manchester United
+HF02W: Tottenham Hotspurs vs. FK Bodø/Glimt
+HF02L: Tottenham Hotspurs vs. FK Bodø/Glimt
 FI01W: EURL2024FI01W
 FI01L: EURL2024FI01L
