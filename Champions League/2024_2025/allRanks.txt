@@ -164,9 +164,9 @@ VF03W: Paris Saint-Germain
 VF03L: Aston Villa
 VF04W: FC Barcelona
 VF04L: Borussia Dortmund
-HF01W: FC Arsenal vs. Paris Saint-Germain
-HF01L: FC Arsenal vs. Paris Saint-Germain
-HF02W: FC Barcelona vs. Inter Mailand
-HF02L: FC Barcelona vs. Inter Mailand
-FI01W: HF01W vs. HF02W
-FI01L: HF01W vs. HF02W
+HF01W: Paris Saint-Germain
+HF01L: FC Arsenal
+HF02W: Inter Mailand
+HF02L: FC Barcelona
+FI01W: Paris Saint-Germain vs. Inter Mailand
+FI01L: Paris Saint-Germain vs. Inter Mailand

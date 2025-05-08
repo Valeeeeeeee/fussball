@@ -154,9 +154,9 @@ VF03W: Tottenham Hotspurs
 VF03L: Eintracht Frankfurt
 VF04W: Manchester United
 VF04L: Olympique Lyon
-HF01W: Athletic Bilbao vs. Manchester United
-HF01L: Athletic Bilbao vs. Manchester United
-HF02W: Tottenham Hotspurs vs. FK Bodø/Glimt
-HF02L: Tottenham Hotspurs vs. FK Bodø/Glimt
-FI01W: HF02W vs. HF01W
-FI01L: HF02W vs. HF01W
+HF01W: Manchester United
+HF01L: Athletic Bilbao
+HF02W: Tottenham Hotspurs
+HF02L: FK Bodø/Glimt
+FI01W: Tottenham Hotspurs vs. Manchester United
+FI01L: Tottenham Hotspurs vs. Manchester United
