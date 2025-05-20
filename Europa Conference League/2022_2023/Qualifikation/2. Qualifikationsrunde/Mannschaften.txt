@@ -47,7 +47,7 @@ PQ:FC Székesfehérvár
 PQ:FK Homel
 PQ:BATE Baryssau
 PQ:Raków Częstochowa
-PQ:NK Koper
+PQ:FC Koper
 PQ:Spartak Trnava
 PQ:FC Vaduz
 PQ:Suduva Marijampole

@@ -89,7 +89,7 @@ Q214L: IF Elfsborg
 Q215W: Maccabi Tel Aviv
 Q215L: FK Zira
 Q216W: FC Vaduz
-Q216L: NK Koper
+Q216L: FC Koper
 Q217W: Steaua Bukarest
 Q217L: Saburtalo Tiflis
 Q218W: Kuopion PS
