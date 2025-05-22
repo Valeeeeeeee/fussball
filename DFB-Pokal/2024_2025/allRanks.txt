@@ -122,5 +122,5 @@ HF01W: Arminia Bielefeld
 HF01L: Bayer 04 Leverkusen
 HF02W: VfB Stuttgart
 HF02L: RasenBallsport Leipzig
-FI01W: DPOK2024FI01W
-FI01L: DPOK2024FI01L
+FI01W: Arminia Bielefeld vs. VfB Stuttgart
+FI01L: Arminia Bielefeld vs. VfB Stuttgart
