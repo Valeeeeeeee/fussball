@@ -158,5 +158,5 @@ HF01W: Manchester United
 HF01L: Athletic Bilbao
 HF02W: Tottenham Hotspurs
 HF02L: FK Bodø/Glimt
-FI01W: Tottenham Hotspurs vs. Manchester United
-FI01L: Tottenham Hotspurs vs. Manchester United
+FI01W: Tottenham Hotspurs
+FI01L: Manchester United

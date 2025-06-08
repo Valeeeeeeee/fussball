@@ -168,5 +168,5 @@ HF01W: Paris Saint-Germain
 HF01L: FC Arsenal
 HF02W: Inter Mailand
 HF02L: FC Barcelona
-FI01W: Paris Saint-Germain vs. Inter Mailand
-FI01L: Paris Saint-Germain vs. Inter Mailand
+FI01W: Paris Saint-Germain
+FI01L: Inter Mailand

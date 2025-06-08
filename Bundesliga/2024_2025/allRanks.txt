@@ -16,5 +16,5 @@ P15: TSG 1899 Hoffenheim
 P16: 1. FC Heidenheim
 P17: Holstein Kiel
 P18: VfL Bochum
-REL01W: 1. FC Heidenheim vs. SV Elversberg
-REL01L: 1. FC Heidenheim vs. SV Elversberg
+REL01W: 1. FC Heidenheim
+REL01L: SV Elversberg

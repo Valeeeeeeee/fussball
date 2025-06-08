@@ -16,5 +16,5 @@ P15: Preußen Münster
 P16: Eintracht Braunschweig
 P17: SSV Ulm 1846
 P18: SSV Jahn Regensburg
-REL01W: 1. FC Saarbrücken vs. Eintracht Braunschweig
-REL01L: 1. FC Saarbrücken vs. Eintracht Braunschweig
+REL01W: Eintracht Braunschweig
+REL01L: 1. FC Saarbrücken
