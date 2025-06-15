@@ -45,7 +45,7 @@
 1R23W: Karlsruher SC
 1R23L: 1. FC Neubrandenburg 04
 1R24W: SC Freiburg
-1R24L: Eintracht Trier
+1R24L: SV Eintracht Trier 05
 1R25W: Bayern München
 1R25L: Preußen Münster
 1R26W: RasenBallsport Leipzig

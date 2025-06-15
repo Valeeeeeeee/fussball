@@ -51,7 +51,7 @@ PQ:FC Viktoria Köln
 PQ:MSV Duisburg
 PQ:FT Braunschweig
 PQ:BSV Schwarz-Weiß Rehden
-PQ:Eintracht Trier
+PQ:SV Eintracht Trier 05
 PQ:FC 08 Homburg
 PQ:Chemnitzer FC
 PQ:1. FC Magdeburg
