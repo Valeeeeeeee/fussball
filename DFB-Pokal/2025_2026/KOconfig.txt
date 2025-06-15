@@ -1,0 +1,6 @@
+1. Runde;1R;false;
+2. Runde;2R;false;
+Achtelfinale;AF;false;
+Viertelfinale;VF;false;
+Halbfinale;HF;false;
+Finale;FI;false;
