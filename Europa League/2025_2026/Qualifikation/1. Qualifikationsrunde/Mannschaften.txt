@@ -1,0 +1,16 @@
+PQ:Hapoel Be'er Scheva
+PQ:Schachtar Donezk
+PQ:Partizan Belgrad
+PQ:Legia Warschau
+PQ:AEK Larnaka
+PQ:Paksi FC
+PQ:BK Häcken
+PQ:CFR Cluj
+PQ:Lewski Sofia
+PQ:Sabah FK
+PQ:Spartak Trnava
+PQ:NK Celje
+PQ:Sheriff Tiraspol
+PQ:FC Prishtina
+PQ:FK Aqtöbe
+PQ:Tampereen Ilves

@@ -1,0 +1,48 @@
+PQ:FC Koper
+PQ:Petrocub Hîncesti
+PQ:KF Malisheva
+PQ:Ordabassy Schymkent
+PQ:HJK Helsinki
+PQ:Seinäjoen Jalkapallokerho
+PQ:St. Patrick's Athletic
+PQ:Urartu Erewan
+PQ:Pjunik Erewan
+PQ:FK Auda
+PQ:BFC Daugavpils
+PQ:KÍ Klaksvík
+PQ:NSÍ Runavík
+PQ:Borac Banja Luka
+PQ:Zeljeznicar Sarajevo
+PQ:Víkingur Reykjavík
+PQ:Valur Reykjavík
+PQ:Larne FC
+PQ:Cliftonville FC
+PQ:F91 Düdelingen
+PQ:Union Luxemburg
+PQ:FC Hegelmann
+PQ:FK Kauno Zalgiris
+PQ:FC Birkirkara
+PQ:FC Floriana
+PQ:Torpedo Kutaissi
+PQ:Dila Gori
+PQ:Vllaznia Shkodra
+PQ:Partizani Tirana
+PQ:Nomme Kalju
+PQ:Paide Linnameeskond
+PQ:Flora Tallinn
+PQ:Njoman Hrodna
+PQ:Torpedo Schodsina
+PQ:Dinamo Brest
+PQ:Vardar Skopje
+PQ:Sileks Kratovo
+PQ:Rabotnicki Skopje
+PQ:Atlètic Club d'Escaldes
+PQ:FC Santa Coloma
+PQ:Pen-y-Bont FC
+PQ:Haverfordwest County
+PQ:Decic Tuzi
+PQ:Sutjeska Niksic
+PQ:Calpe City Magpies
+PQ:St Joseph's FC
+PQ:SP La Fiorita
+PQ:SP Tre Fiori

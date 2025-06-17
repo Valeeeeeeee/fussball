@@ -1,0 +1,6 @@
+20250710
+20250828
+false
+0
+1
+1. Qualifikationsrunde;Q1;true;

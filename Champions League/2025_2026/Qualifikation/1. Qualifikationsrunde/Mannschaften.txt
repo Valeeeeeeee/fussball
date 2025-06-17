@@ -1,0 +1,28 @@
+PQ:Malmö FF
+PQ:Steaua Bukarest
+PQ:Ludogorez Rasgrad
+PQ:Olimpija Ljubljana
+PQ:FC Milsami
+PQ:KF Drita
+PQ:Qairat Almaty
+PQ:Kuopion PS
+PQ:Shelbourne FC
+PQ:Noah Erewan
+PQ:FK Rigas FS
+PQ:Víkingur Gøta
+PQ:Zrinjski Mostar
+PQ:Breiðablik Kópavogur
+PQ:Linfield FC
+PQ:FC Differdingen
+PQ:Zalgiris Vilnius
+PQ:Hamrun Spartans
+PQ:FC Iberia 1999
+PQ:KF Egnatia
+PQ:Levadia Tallinn
+PQ:Dinamo Minsk
+PQ:KF Shkëndija
+PQ:Inter Club d'Escaldes
+PQ:The New Saints FC
+PQ:Buducnost Podgorica
+PQ:Lincoln Red Imps FC
+PQ:SS Virtus
