@@ -1,48 +1,48 @@
-Q101W: CONF2025Q101W
-Q101L: CONF2025Q101L
-Q102W: CONF2025Q102W
-Q102L: CONF2025Q102L
-Q103W: CONF2025Q103W
-Q103L: CONF2025Q103L
-Q104W: CONF2025Q104W
-Q104L: CONF2025Q104L
-Q105W: CONF2025Q105W
-Q105L: CONF2025Q105L
-Q106W: CONF2025Q106W
-Q106L: CONF2025Q106L
-Q107W: CONF2025Q107W
-Q107L: CONF2025Q107L
-Q108W: CONF2025Q108W
-Q108L: CONF2025Q108L
-Q109W: CONF2025Q109W
-Q109L: CONF2025Q109L
-Q110W: CONF2025Q110W
-Q110L: CONF2025Q110L
-Q111W: CONF2025Q111W
-Q111L: CONF2025Q111L
-Q112W: CONF2025Q112W
-Q112L: CONF2025Q112L
-Q113W: CONF2025Q113W
-Q113L: CONF2025Q113L
-Q114W: CONF2025Q114W
-Q114L: CONF2025Q114L
-Q115W: CONF2025Q115W
-Q115L: CONF2025Q115L
-Q116W: CONF2025Q116W
-Q116L: CONF2025Q116L
-Q117W: CONF2025Q117W
-Q117L: CONF2025Q117L
-Q118W: CONF2025Q118W
-Q118L: CONF2025Q118L
-Q119W: CONF2025Q119W
-Q119L: CONF2025Q119L
-Q120W: CONF2025Q120W
-Q120L: CONF2025Q120L
-Q121W: CONF2025Q121W
-Q121L: CONF2025Q121L
-Q122W: CONF2025Q122W
-Q122L: CONF2025Q122L
-Q123W: CONF2025Q123W
-Q123L: CONF2025Q123L
-Q124W: CONF2025Q124W
-Q124L: CONF2025Q124L
+Q101W: KF Malisheva vs. Víkingur Reykjavík
+Q101L: KF Malisheva vs. Víkingur Reykjavík
+Q102W: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
+Q102L: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
+Q103W: St. Patrick's Athletic vs. FC Hegelmann
+Q103L: St. Patrick's Athletic vs. FC Hegelmann
+Q104W: Urartu Erewan vs. Njoman Hrodna
+Q104L: Urartu Erewan vs. Njoman Hrodna
+Q105W: NSÍ Runavík vs. HJK Helsinki
+Q105L: NSÍ Runavík vs. HJK Helsinki
+Q106W: Borac Banja Luka vs. FC Santa Coloma
+Q106L: Borac Banja Luka vs. FC Santa Coloma
+Q107W: Zeljeznicar Sarajevo vs. FC Koper
+Q107L: Zeljeznicar Sarajevo vs. FC Koper
+Q108W: Valur Reykjavík vs. Flora Tallinn
+Q108L: Valur Reykjavík vs. Flora Tallinn
+Q109W: Larne FC vs. FK Auda
+Q109L: Larne FC vs. FK Auda
+Q110W: Union Luxemburg vs. Dila Gori
+Q110L: Union Luxemburg vs. Dila Gori
+Q111W: FK Kauno Zalgiris vs. Pen-y-Bont FC
+Q111L: FK Kauno Zalgiris vs. Pen-y-Bont FC
+Q112W: FC Birkirkara vs. Petrocub Hîncesti
+Q112L: FC Birkirkara vs. Petrocub Hîncesti
+Q113W: FC Floriana vs. Haverfordwest County
+Q113L: FC Floriana vs. Haverfordwest County
+Q114W: Torpedo Kutaissi vs. Ordabassy Schymkent
+Q114L: Torpedo Kutaissi vs. Ordabassy Schymkent
+Q115W: Vllaznia Shkodra vs. BFC Daugavpils
+Q115L: Vllaznia Shkodra vs. BFC Daugavpils
+Q116W: Nomme Kalju vs. Partizani Tirana
+Q116L: Nomme Kalju vs. Partizani Tirana
+Q117W: Torpedo Schodsina vs. Rabotnicki Skopje
+Q117L: Torpedo Schodsina vs. Rabotnicki Skopje
+Q118W: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q118L: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q119W: Decic Tuzi vs. Sileks Kratovo
+Q119L: Decic Tuzi vs. Sileks Kratovo
+Q120W: Sutjeska Niksic vs. Dinamo Brest
+Q120L: Sutjeska Niksic vs. Dinamo Brest
+Q121W: Calpe City Magpies vs. Paide Linnameeskond
+Q121L: Calpe City Magpies vs. Paide Linnameeskond
+Q122W: St Joseph's FC vs. Cliftonville FC
+Q122L: St Joseph's FC vs. Cliftonville FC
+Q123W: SP La Fiorita vs. Vardar Skopje
+Q123L: SP La Fiorita vs. Vardar Skopje
+Q124W: SP Tre Fiori vs. Pjunik Erewan
+Q124L: SP Tre Fiori vs. Pjunik Erewan

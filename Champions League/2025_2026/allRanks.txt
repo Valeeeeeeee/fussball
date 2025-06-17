@@ -1,28 +1,28 @@
-Q101W: CHAL2025Q101W
-Q101L: CHAL2025Q101L
-Q102W: CHAL2025Q102W
-Q102L: CHAL2025Q102L
-Q103W: CHAL2025Q103W
-Q103L: CHAL2025Q103L
-Q104W: CHAL2025Q104W
-Q104L: CHAL2025Q104L
-Q105W: CHAL2025Q105W
-Q105L: CHAL2025Q105L
-Q106W: CHAL2025Q106W
-Q106L: CHAL2025Q106L
-Q107W: CHAL2025Q107W
-Q107L: CHAL2025Q107L
-Q108W: CHAL2025Q108W
-Q108L: CHAL2025Q108L
-Q109W: CHAL2025Q109W
-Q109L: CHAL2025Q109L
-Q110W: CHAL2025Q110W
-Q110L: CHAL2025Q110L
-Q111W: CHAL2025Q111W
-Q111L: CHAL2025Q111L
-Q112W: CHAL2025Q112W
-Q112L: CHAL2025Q112L
-Q113W: CHAL2025Q113W
-Q113L: CHAL2025Q113L
-Q114W: CHAL2025Q114W
-Q114L: CHAL2025Q114L
+Q101W: Steaua Bukarest vs. Inter Club d'Escaldes
+Q101L: Steaua Bukarest vs. Inter Club d'Escaldes
+Q102W: Ludogorez Rasgrad vs. Dinamo Minsk
+Q102L: Ludogorez Rasgrad vs. Dinamo Minsk
+Q103W: Olimpija Ljubljana vs. Qairat Almaty
+Q103L: Olimpija Ljubljana vs. Qairat Almaty
+Q104W: KF Drita vs. FC Differdingen
+Q104L: KF Drita vs. FC Differdingen
+Q105W: Kuopion PS vs. FC Milsami
+Q105L: Kuopion PS vs. FC Milsami
+Q106W: Shelbourne FC vs. Linfield FC
+Q106L: Shelbourne FC vs. Linfield FC
+Q107W: Noah Erewan vs. Buducnost Podgorica
+Q107L: Noah Erewan vs. Buducnost Podgorica
+Q108W: Víkingur Gøta vs. Lincoln Red Imps FC
+Q108L: Víkingur Gøta vs. Lincoln Red Imps FC
+Q109W: Zalgiris Vilnius vs. Hamrun Spartans
+Q109L: Zalgiris Vilnius vs. Hamrun Spartans
+Q110W: FC Iberia 1999 vs. Malmö FF
+Q110L: FC Iberia 1999 vs. Malmö FF
+Q111W: KF Egnatia vs. Breiðablik Kópavogur
+Q111L: KF Egnatia vs. Breiðablik Kópavogur
+Q112W: Levadia Tallinn vs. FK Rigas FS
+Q112L: Levadia Tallinn vs. FK Rigas FS
+Q113W: The New Saints FC vs. KF Shkëndija
+Q113L: The New Saints FC vs. KF Shkëndija
+Q114W: SS Virtus vs. Zrinjski Mostar
+Q114L: SS Virtus vs. Zrinjski Mostar

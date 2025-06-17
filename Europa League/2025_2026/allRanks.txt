@@ -1,16 +1,16 @@
-Q101W: EURL2025Q101W
-Q101L: EURL2025Q101L
-Q102W: EURL2025Q102W
-Q102L: EURL2025Q102L
-Q103W: EURL2025Q103W
-Q103L: EURL2025Q103L
-Q104W: EURL2025Q104W
-Q104L: EURL2025Q104L
-Q105W: EURL2025Q105W
-Q105L: EURL2025Q105L
-Q106W: EURL2025Q106W
-Q106L: EURL2025Q106L
-Q107W: EURL2025Q107W
-Q107L: EURL2025Q107L
-Q108W: EURL2025Q108W
-Q108L: EURL2025Q108L
+Q101W: Schachtar Donezk vs. Tampereen Ilves
+Q101L: Schachtar Donezk vs. Tampereen Ilves
+Q102W: Legia Warschau vs. FK Aqtöbe
+Q102L: Legia Warschau vs. FK Aqtöbe
+Q103W: AEK Larnaka vs. Partizan Belgrad
+Q103L: AEK Larnaka vs. Partizan Belgrad
+Q104W: Paksi FC vs. CFR Cluj
+Q104L: Paksi FC vs. CFR Cluj
+Q105W: Lewski Sofia vs. Hapoel Be'er Scheva
+Q105L: Lewski Sofia vs. Hapoel Be'er Scheva
+Q106W: Sabah FK vs. NK Celje
+Q106L: Sabah FK vs. NK Celje
+Q107W: Spartak Trnava vs. BK Häcken
+Q107L: Spartak Trnava vs. BK Häcken
+Q108W: Sheriff Tiraspol vs. FC Prishtina
+Q108L: Sheriff Tiraspol vs. FC Prishtina
