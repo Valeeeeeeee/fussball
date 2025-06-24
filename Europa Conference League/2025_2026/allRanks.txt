@@ -32,17 +32,17 @@ Q116W: Nomme Kalju vs. Partizani Tirana
 Q116L: Nomme Kalju vs. Partizani Tirana
 Q117W: Torpedo Schodsina vs. Rabotnicki Skopje
 Q117L: Torpedo Schodsina vs. Rabotnicki Skopje
-Q118W: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q118L: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q119W: Decic Tuzi vs. Sileks Kratovo
-Q119L: Decic Tuzi vs. Sileks Kratovo
-Q120W: Sutjeska Niksic vs. Dinamo Brest
-Q120L: Sutjeska Niksic vs. Dinamo Brest
-Q121W: Calpe City Magpies vs. Paide Linnameeskond
-Q121L: Calpe City Magpies vs. Paide Linnameeskond
-Q122W: St Joseph's FC vs. Cliftonville FC
-Q122L: St Joseph's FC vs. Cliftonville FC
-Q123W: SP La Fiorita vs. Vardar Skopje
-Q123L: SP La Fiorita vs. Vardar Skopje
+Q118W: Vardar Skopje vs. SP La Fiorita
+Q118L: Vardar Skopje vs. SP La Fiorita
+Q119W: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q119L: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q120W: Decic Tuzi vs. Sileks Kratovo
+Q120L: Decic Tuzi vs. Sileks Kratovo
+Q121W: Sutjeska Niksic vs. Dinamo Brest
+Q121L: Sutjeska Niksic vs. Dinamo Brest
+Q122W: Calpe City Magpies vs. Paide Linnameeskond
+Q122L: Calpe City Magpies vs. Paide Linnameeskond
+Q123W: St Joseph's FC vs. Cliftonville FC
+Q123L: St Joseph's FC vs. Cliftonville FC
 Q124W: SP Tre Fiori vs. Pjunik Erewan
 Q124L: SP Tre Fiori vs. Pjunik Erewan
