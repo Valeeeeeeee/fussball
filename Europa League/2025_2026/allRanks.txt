@@ -1,16 +1,16 @@
-Q101W: Schachtar Donezk vs. Tampereen Ilves
-Q101L: Schachtar Donezk vs. Tampereen Ilves
-Q102W: Legia Warschau vs. FK Aqtöbe
-Q102L: Legia Warschau vs. FK Aqtöbe
-Q103W: AEK Larnaka vs. Partizan Belgrad
-Q103L: AEK Larnaka vs. Partizan Belgrad
-Q104W: Paksi FC vs. CFR Cluj
-Q104L: Paksi FC vs. CFR Cluj
+Q101W: Sabah FK vs. NK Celje
+Q101L: Sabah FK vs. NK Celje
+Q102W: AEK Larnaka vs. Partizan Belgrad
+Q102L: AEK Larnaka vs. Partizan Belgrad
+Q103W: Paksi FC vs. CFR Cluj
+Q103L: Paksi FC vs. CFR Cluj
+Q104W: Sheriff Tiraspol vs. FC Prishtina
+Q104L: Sheriff Tiraspol vs. FC Prishtina
 Q105W: Lewski Sofia vs. Hapoel Be'er Scheva
 Q105L: Lewski Sofia vs. Hapoel Be'er Scheva
-Q106W: Sabah FK vs. NK Celje
-Q106L: Sabah FK vs. NK Celje
+Q106W: Schachtar Donezk vs. Tampereen Ilves
+Q106L: Schachtar Donezk vs. Tampereen Ilves
 Q107W: Spartak Trnava vs. BK Häcken
 Q107L: Spartak Trnava vs. BK Häcken
-Q108W: Sheriff Tiraspol vs. FC Prishtina
-Q108L: Sheriff Tiraspol vs. FC Prishtina
+Q108W: Legia Warschau vs. FK Aqtöbe
+Q108L: Legia Warschau vs. FK Aqtöbe

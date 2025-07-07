@@ -1,48 +1,48 @@
-Q101W: KF Malisheva vs. Víkingur Reykjavík
-Q101L: KF Malisheva vs. Víkingur Reykjavík
-Q102W: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
-Q102L: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
-Q103W: St. Patrick's Athletic vs. FC Hegelmann
-Q103L: St. Patrick's Athletic vs. FC Hegelmann
-Q104W: Urartu Erewan vs. Njoman Hrodna
-Q104L: Urartu Erewan vs. Njoman Hrodna
-Q105W: NSÍ Runavík vs. HJK Helsinki
-Q105L: NSÍ Runavík vs. HJK Helsinki
-Q106W: Borac Banja Luka vs. FC Santa Coloma
-Q106L: Borac Banja Luka vs. FC Santa Coloma
-Q107W: Zeljeznicar Sarajevo vs. FC Koper
-Q107L: Zeljeznicar Sarajevo vs. FC Koper
-Q108W: Valur Reykjavík vs. Flora Tallinn
-Q108L: Valur Reykjavík vs. Flora Tallinn
-Q109W: Larne FC vs. FK Auda
-Q109L: Larne FC vs. FK Auda
-Q110W: Union Luxemburg vs. Dila Gori
-Q110L: Union Luxemburg vs. Dila Gori
-Q111W: FK Kauno Zalgiris vs. Pen-y-Bont FC
-Q111L: FK Kauno Zalgiris vs. Pen-y-Bont FC
-Q112W: FC Birkirkara vs. Petrocub Hîncesti
-Q112L: FC Birkirkara vs. Petrocub Hîncesti
-Q113W: FC Floriana vs. Haverfordwest County
-Q113L: FC Floriana vs. Haverfordwest County
-Q114W: Torpedo Kutaissi vs. Ordabassy Schymkent
-Q114L: Torpedo Kutaissi vs. Ordabassy Schymkent
-Q115W: Vllaznia Shkodra vs. BFC Daugavpils
-Q115L: Vllaznia Shkodra vs. BFC Daugavpils
-Q116W: Nomme Kalju vs. Partizani Tirana
-Q116L: Nomme Kalju vs. Partizani Tirana
-Q117W: Torpedo Schodsina vs. Rabotnicki Skopje
-Q117L: Torpedo Schodsina vs. Rabotnicki Skopje
-Q118W: Vardar Skopje vs. SP La Fiorita
-Q118L: Vardar Skopje vs. SP La Fiorita
-Q119W: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q119L: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q120W: Decic Tuzi vs. Sileks Kratovo
-Q120L: Decic Tuzi vs. Sileks Kratovo
-Q121W: Sutjeska Niksic vs. Dinamo Brest
-Q121L: Sutjeska Niksic vs. Dinamo Brest
-Q122W: Calpe City Magpies vs. Paide Linnameeskond
-Q122L: Calpe City Magpies vs. Paide Linnameeskond
-Q123W: St Joseph's FC vs. Cliftonville FC
-Q123L: St Joseph's FC vs. Cliftonville FC
-Q124W: SP Tre Fiori vs. Pjunik Erewan
-Q124L: SP Tre Fiori vs. Pjunik Erewan
+Q101W: St Joseph's FC vs. Cliftonville FC
+Q101L: St Joseph's FC vs. Cliftonville FC
+Q102W: FC Floriana vs. Haverfordwest County
+Q102L: FC Floriana vs. Haverfordwest County
+Q103W: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q103L: Atlètic Club d'Escaldes vs. F91 Düdelingen
+Q104W: Calpe City Magpies vs. Paide Linnameeskond
+Q104L: Calpe City Magpies vs. Paide Linnameeskond
+Q105W: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
+Q105L: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
+Q106W: FK Kauno Zalgiris vs. Pen-y-Bont FC
+Q106L: FK Kauno Zalgiris vs. Pen-y-Bont FC
+Q107W: Torpedo Kutaissi vs. Ordabassy Schymkent
+Q107L: Torpedo Kutaissi vs. Ordabassy Schymkent
+Q108W: Urartu Erewan vs. Njoman Hrodna
+Q108L: Urartu Erewan vs. Njoman Hrodna
+Q109W: Union Luxemburg vs. Dila Gori
+Q109L: Union Luxemburg vs. Dila Gori
+Q110W: Nomme Kalju vs. Partizani Tirana
+Q110L: Nomme Kalju vs. Partizani Tirana
+Q111W: FC Birkirkara vs. Petrocub Hîncesti
+Q111L: FC Birkirkara vs. Petrocub Hîncesti
+Q112W: Vllaznia Shkodra vs. BFC Daugavpils
+Q112L: Vllaznia Shkodra vs. BFC Daugavpils
+Q113W: Torpedo Schodsina vs. Rabotnicki Skopje
+Q113L: Torpedo Schodsina vs. Rabotnicki Skopje
+Q114W: Decic Tuzi vs. Sileks Kratovo
+Q114L: Decic Tuzi vs. Sileks Kratovo
+Q115W: KF Malisheva vs. Víkingur Reykjavík
+Q115L: KF Malisheva vs. Víkingur Reykjavík
+Q116W: Zeljeznicar Sarajevo vs. FC Koper
+Q116L: Zeljeznicar Sarajevo vs. FC Koper
+Q117W: Vardar Skopje vs. SP La Fiorita
+Q117L: Vardar Skopje vs. SP La Fiorita
+Q118W: Sutjeska Niksic vs. Dinamo Brest
+Q118L: Sutjeska Niksic vs. Dinamo Brest
+Q119W: St. Patrick's Athletic vs. FC Hegelmann
+Q119L: St. Patrick's Athletic vs. FC Hegelmann
+Q120W: NSÍ Runavík vs. HJK Helsinki
+Q120L: NSÍ Runavík vs. HJK Helsinki
+Q121W: Borac Banja Luka vs. FC Santa Coloma
+Q121L: Borac Banja Luka vs. FC Santa Coloma
+Q122W: Larne FC vs. FK Auda
+Q122L: Larne FC vs. FK Auda
+Q123W: SP Tre Fiori vs. Pjunik Erewan
+Q123L: SP Tre Fiori vs. Pjunik Erewan
+Q124W: Valur Reykjavík vs. Flora Tallinn
+Q124L: Valur Reykjavík vs. Flora Tallinn

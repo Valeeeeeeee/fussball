@@ -1,28 +1,28 @@
-Q101W: Steaua Bukarest vs. Inter Club d'Escaldes
-Q101L: Steaua Bukarest vs. Inter Club d'Escaldes
-Q102W: Ludogorez Rasgrad vs. Dinamo Minsk
-Q102L: Ludogorez Rasgrad vs. Dinamo Minsk
-Q103W: Olimpija Ljubljana vs. Qairat Almaty
-Q103L: Olimpija Ljubljana vs. Qairat Almaty
-Q104W: KF Drita vs. FC Differdingen
-Q104L: KF Drita vs. FC Differdingen
-Q105W: Kuopion PS vs. FC Milsami
-Q105L: Kuopion PS vs. FC Milsami
-Q106W: Shelbourne FC vs. Linfield FC
-Q106L: Shelbourne FC vs. Linfield FC
-Q107W: Noah Erewan vs. Buducnost Podgorica
-Q107L: Noah Erewan vs. Buducnost Podgorica
-Q108W: Víkingur Gøta vs. Lincoln Red Imps FC
-Q108L: Víkingur Gøta vs. Lincoln Red Imps FC
-Q109W: Zalgiris Vilnius vs. Hamrun Spartans
-Q109L: Zalgiris Vilnius vs. Hamrun Spartans
-Q110W: FC Iberia 1999 vs. Malmö FF
-Q110L: FC Iberia 1999 vs. Malmö FF
-Q111W: KF Egnatia vs. Breiðablik Kópavogur
-Q111L: KF Egnatia vs. Breiðablik Kópavogur
-Q112W: Levadia Tallinn vs. FK Rigas FS
-Q112L: Levadia Tallinn vs. FK Rigas FS
-Q113W: The New Saints FC vs. KF Shkëndija
-Q113L: The New Saints FC vs. KF Shkëndija
-Q114W: SS Virtus vs. Zrinjski Mostar
-Q114L: SS Virtus vs. Zrinjski Mostar
+Q101W: Kuopion PS vs. FC Milsami
+Q101L: Kuopion PS vs. FC Milsami
+Q102W: Noah Erewan vs. Buducnost Podgorica
+Q102L: Noah Erewan vs. Buducnost Podgorica
+Q103W: FC Iberia 1999 vs. Malmö FF
+Q103L: FC Iberia 1999 vs. Malmö FF
+Q104W: Levadia Tallinn vs. FK Rigas FS
+Q104L: Levadia Tallinn vs. FK Rigas FS
+Q105W: Olimpija Ljubljana vs. Qairat Almaty
+Q105L: Olimpija Ljubljana vs. Qairat Almaty
+Q106W: KF Drita vs. FC Differdingen
+Q106L: KF Drita vs. FC Differdingen
+Q107W: Víkingur Gøta vs. Lincoln Red Imps FC
+Q107L: Víkingur Gøta vs. Lincoln Red Imps FC
+Q108W: The New Saints FC vs. KF Shkëndija
+Q108L: The New Saints FC vs. KF Shkëndija
+Q109W: KF Egnatia vs. Breiðablik Kópavogur
+Q109L: KF Egnatia vs. Breiðablik Kópavogur
+Q110W: SS Virtus vs. Zrinjski Mostar
+Q110L: SS Virtus vs. Zrinjski Mostar
+Q111W: Zalgiris Vilnius vs. Hamrun Spartans
+Q111L: Zalgiris Vilnius vs. Hamrun Spartans
+Q112W: Steaua Bukarest vs. Inter Club d'Escaldes
+Q112L: Steaua Bukarest vs. Inter Club d'Escaldes
+Q113W: Ludogorez Rasgrad vs. Dinamo Minsk
+Q113L: Ludogorez Rasgrad vs. Dinamo Minsk
+Q114W: Shelbourne FC vs. Linfield FC
+Q114L: Shelbourne FC vs. Linfield FC
