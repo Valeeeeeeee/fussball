@@ -14,3 +14,19 @@ Q107W: Spartak Trnava vs. BK Häcken
 Q107L: Spartak Trnava vs. BK Häcken
 Q108W: Legia Warschau vs. FK Aqtöbe
 Q108L: Legia Warschau vs. FK Aqtöbe
+Q201W: RSC Anderlecht vs. Q107W
+Q201L: RSC Anderlecht vs. Q107W
+Q202W: Besiktas Istanbul vs. Q106W
+Q202L: Besiktas Istanbul vs. Q106W
+Q203W: Baník Ostrava vs. Q108W
+Q203L: Baník Ostrava vs. Q108W
+Q204W: FC Lugano vs. Q103W
+Q204L: FC Lugano vs. Q103W
+Q205W: FC Midtjylland vs. Hibernian Edinburgh
+Q205L: FC Midtjylland vs. Hibernian Edinburgh
+Q206W: Q101W vs. Q102W
+Q206L: Q101W vs. Q102W
+Q207W: Q104W vs. FC Utrecht
+Q207L: Q104W vs. FC Utrecht
+Q208W: Q105W vs. Sporting Braga
+Q208L: Q105W vs. Sporting Braga

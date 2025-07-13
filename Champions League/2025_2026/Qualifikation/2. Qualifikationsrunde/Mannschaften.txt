@@ -1,0 +1,30 @@
+PQ:FC Kopenhagen
+PQ:Maccabi Tel Aviv
+PQ:Dynamo Kiew
+PQ:Roter Stern Belgrad
+PQ:HNK Rijeka
+PQ:Lech Posen
+PQ:FC Pafos
+PQ:Ferencváros Budapest
+PQ:Qarabag Agdam
+PQ:Slovan Bratislava
+PQ:Viktoria Pilsen
+PQ:Glasgow Rangers
+PQ:Servette Genf
+PQ:FC Salzburg
+PQ:Brann Bergen
+PQ:Panathinaikos Athen
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W
+PK:Q109W
+PK:Q110W
+PK:Q111W
+PK:Q112W
+PK:Q113W
+PK:Q114W

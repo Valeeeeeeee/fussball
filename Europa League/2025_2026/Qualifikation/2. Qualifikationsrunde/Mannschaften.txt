@@ -1,0 +1,16 @@
+PQ:FC Utrecht
+PQ:Sporting Braga
+PQ:RSC Anderlecht
+PQ:Besiktas Istanbul
+PQ:Baník Ostrava
+PQ:Hibernian Edinburgh
+PQ:FC Lugano
+PQ:FC Midtjylland
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W
+PK:Q107W
+PK:Q108W

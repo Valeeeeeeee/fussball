@@ -26,3 +26,33 @@ Q113W: Ludogorez Rasgrad vs. Dinamo Minsk
 Q113L: Ludogorez Rasgrad vs. Dinamo Minsk
 Q114W: Shelbourne FC vs. Linfield FC
 Q114L: Shelbourne FC vs. Linfield FC
+Q201W: FC Kopenhagen vs. Q106W
+Q201L: FC Kopenhagen vs. Q106W
+Q202W: HNK Rijeka vs. Q113W
+Q202L: HNK Rijeka vs. Q113W
+Q203W: Lech Posen vs. Q109W
+Q203L: Lech Posen vs. Q109W
+Q204W: FC Pafos vs. Maccabi Tel Aviv
+Q204L: FC Pafos vs. Maccabi Tel Aviv
+Q205W: Slovan Bratislava vs. Q110W
+Q205L: Slovan Bratislava vs. Q110W
+Q206W: Viktoria Pilsen vs. Servette Genf
+Q206L: Viktoria Pilsen vs. Servette Genf
+Q207W: Glasgow Rangers vs. Panathinaikos Athen
+Q207L: Glasgow Rangers vs. Panathinaikos Athen
+Q208W: Brann Bergen vs. FC Salzburg
+Q208L: Brann Bergen vs. FC Salzburg
+Q209W: Q101W vs. Q105W
+Q209L: Q101W vs. Q105W
+Q210W: Q102W vs. Ferencváros Budapest
+Q210L: Q102W vs. Ferencváros Budapest
+Q211W: Q104W vs. Q103W
+Q211L: Q104W vs. Q103W
+Q212W: Q107W vs. Roter Stern Belgrad
+Q212L: Q107W vs. Roter Stern Belgrad
+Q213W: Q108W vs. Q112W
+Q213L: Q108W vs. Q112W
+Q214W: Q111W vs. Dynamo Kiew
+Q214L: Q111W vs. Dynamo Kiew
+Q215W: Q114W vs. Qarabag Agdam
+Q215L: Q114W vs. Qarabag Agdam
