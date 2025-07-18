@@ -1,148 +1,148 @@
-Q101W: St Joseph's FC vs. Cliftonville FC
-Q101L: St Joseph's FC vs. Cliftonville FC
-Q102W: FC Floriana vs. Haverfordwest County
-Q102L: FC Floriana vs. Haverfordwest County
-Q103W: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q103L: Atlètic Club d'Escaldes vs. F91 Düdelingen
-Q104W: Calpe City Magpies vs. Paide Linnameeskond
-Q104L: Calpe City Magpies vs. Paide Linnameeskond
-Q105W: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
-Q105L: Seinäjoen Jalkapallokerho vs. KÍ Klaksvík
-Q106W: FK Kauno Zalgiris vs. Pen-y-Bont FC
-Q106L: FK Kauno Zalgiris vs. Pen-y-Bont FC
-Q107W: Torpedo Kutaissi vs. Ordabassy Schymkent
-Q107L: Torpedo Kutaissi vs. Ordabassy Schymkent
-Q108W: Urartu Erewan vs. Njoman Hrodna
-Q108L: Urartu Erewan vs. Njoman Hrodna
-Q109W: Union Luxemburg vs. Dila Gori
-Q109L: Union Luxemburg vs. Dila Gori
-Q110W: Nomme Kalju vs. Partizani Tirana
-Q110L: Nomme Kalju vs. Partizani Tirana
-Q111W: FC Birkirkara vs. Petrocub Hîncesti
-Q111L: FC Birkirkara vs. Petrocub Hîncesti
-Q112W: Vllaznia Shkodra vs. BFC Daugavpils
-Q112L: Vllaznia Shkodra vs. BFC Daugavpils
-Q113W: Torpedo Schodsina vs. Rabotnicki Skopje
-Q113L: Torpedo Schodsina vs. Rabotnicki Skopje
-Q114W: Decic Tuzi vs. Sileks Kratovo
-Q114L: Decic Tuzi vs. Sileks Kratovo
-Q115W: KF Malisheva vs. Víkingur Reykjavík
-Q115L: KF Malisheva vs. Víkingur Reykjavík
-Q116W: Zeljeznicar Sarajevo vs. FC Koper
-Q116L: Zeljeznicar Sarajevo vs. FC Koper
-Q117W: Vardar Skopje vs. SP La Fiorita
-Q117L: Vardar Skopje vs. SP La Fiorita
-Q118W: Sutjeska Niksic vs. Dinamo Brest
-Q118L: Sutjeska Niksic vs. Dinamo Brest
-Q119W: St. Patrick's Athletic vs. FC Hegelmann
-Q119L: St. Patrick's Athletic vs. FC Hegelmann
-Q120W: NSÍ Runavík vs. HJK Helsinki
-Q120L: NSÍ Runavík vs. HJK Helsinki
-Q121W: Borac Banja Luka vs. FC Santa Coloma
-Q121L: Borac Banja Luka vs. FC Santa Coloma
-Q122W: Larne FC vs. FK Auda
-Q122L: Larne FC vs. FK Auda
-Q123W: SP Tre Fiori vs. Pjunik Erewan
-Q123L: SP Tre Fiori vs. Pjunik Erewan
-Q124W: Valur Reykjavík vs. Flora Tallinn
-Q124L: Valur Reykjavík vs. Flora Tallinn
+Q101W: St Joseph's FC
+Q101L: Cliftonville FC
+Q102W: FC Floriana
+Q102L: Haverfordwest County
+Q103W: Atlètic Club d'Escaldes
+Q103L: F91 Düdelingen
+Q104W: Paide Linnameeskond
+Q104L: Calpe City Magpies
+Q105W: KÍ Klaksvík
+Q105L: Seinäjoen Jalkapallokerho
+Q106W: FK Kauno Zalgiris
+Q106L: Pen-y-Bont FC
+Q107W: Torpedo Kutaissi
+Q107L: Ordabassy Schymkent
+Q108W: Njoman Hrodna
+Q108L: Urartu Erewan
+Q109W: Dila Gori
+Q109L: Union Luxemburg
+Q110W: Nomme Kalju
+Q110L: Partizani Tirana
+Q111W: Petrocub Hîncesti
+Q111L: FC Birkirkara
+Q112W: Vllaznia Shkodra
+Q112L: BFC Daugavpils
+Q113W: Torpedo Schodsina
+Q113L: Rabotnicki Skopje
+Q114W: Decic Tuzi
+Q114L: Sileks Kratovo
+Q115W: Víkingur Reykjavík
+Q115L: KF Malisheva
+Q116W: FC Koper
+Q116L: Zeljeznicar Sarajevo
+Q117W: Vardar Skopje
+Q117L: SP La Fiorita
+Q118W: Sutjeska Niksic
+Q118L: Dinamo Brest
+Q119W: St. Patrick's Athletic
+Q119L: FC Hegelmann
+Q120W: HJK Helsinki
+Q120L: NSÍ Runavík
+Q121W: FC Santa Coloma
+Q121L: Borac Banja Luka
+Q122W: Larne FC
+Q122L: FK Auda
+Q123W: Pjunik Erewan
+Q123L: SP Tre Fiori
+Q124W: Valur Reykjavík
+Q124L: Flora Tallinn
 Q201W: Dundee United vs. UNA Strassen
 Q201L: Dundee United vs. UNA Strassen
 Q202W: Austria Wien vs. FC Spaeri
 Q202L: Austria Wien vs. FC Spaeri
-Q203W: Viking Stavanger vs. Q116W
-Q203L: Viking Stavanger vs. Q116W
+Q203W: Viking Stavanger vs. FC Koper
+Q203L: Viking Stavanger vs. FC Koper
 Q204W: Rosenborg Trondheim vs. FK Banga
 Q204L: Rosenborg Trondheim vs. FK Banga
-Q205W: AEK Athen vs. EURL2025Q105L
-Q205L: AEK Athen vs. EURL2025Q105L
+Q205W: AEK Athen vs. Hapoel Be'er Scheva
+Q205L: AEK Athen vs. Hapoel Be'er Scheva
 Q206W: Silkeborg IF vs. KA Akureyri
 Q206L: Silkeborg IF vs. KA Akureyri
-Q207W: PFK Olexandrija vs. EURL2025Q102L
-Q207L: PFK Olexandrija vs. EURL2025Q102L
-Q208W: Polissja Schytomyr vs. Q121W
-Q208L: Polissja Schytomyr vs. Q121W
+Q207W: PFK Olexandrija vs. Partizan Belgrad
+Q207L: PFK Olexandrija vs. Partizan Belgrad
+Q208W: Polissja Schytomyr vs. FC Santa Coloma
+Q208L: Polissja Schytomyr vs. FC Santa Coloma
 Q209W: FK Novi Pazar vs. Jagiellonia Bialystok
 Q209L: FK Novi Pazar vs. Jagiellonia Bialystok
-Q210W: Radnicki Kragujevac vs. Q105W
-Q210L: Radnicki Kragujevac vs. Q105W
+Q210W: Radnicki Kragujevac vs. KÍ Klaksvík
+Q210L: Radnicki Kragujevac vs. KÍ Klaksvík
 Q211W: NK Varazdin vs. CD Santa Clara
 Q211L: NK Varazdin vs. CD Santa Clara
 Q212W: Raków Częstochowa vs. MSK Zilina
 Q212L: Raków Częstochowa vs. MSK Zilina
 Q213W: Aris Limassol vs. Puskás Akadémia FC
 Q213L: Aris Limassol vs. Puskás Akadémia FC
-Q214W: Omonia Nikosia vs. Q107W
-Q214L: Omonia Nikosia vs. Q107W
+Q214W: Omonia Nikosia vs. Torpedo Kutaissi
+Q214L: Omonia Nikosia vs. Torpedo Kutaissi
 Q215W: Hammarby IF vs. Sporting Charleroi
 Q215L: Hammarby IF vs. Sporting Charleroi
-Q216W: AIK Solna vs. Q104W
-Q216L: AIK Solna vs. Q104W
+Q216W: AIK Solna vs. Paide Linnameeskond
+Q216L: AIK Solna vs. Paide Linnameeskond
 Q217W: Tscherno More Warna vs. Istanbul Basaksehir
 Q217L: Tscherno More Warna vs. Istanbul Basaksehir
-Q218W: Arda Kardschali vs. Q120W
-Q218L: Arda Kardschali vs. Q120W
+Q218W: Arda Kardschali vs. HJK Helsinki
+Q218L: Arda Kardschali vs. HJK Helsinki
 Q219W: FK Zira vs. Hajduk Split
 Q219L: FK Zira vs. Hajduk Split
 Q220W: Araz-Nachitschewan PFK vs. Aris Thessaloniki
 Q220L: Araz-Nachitschewan PFK vs. Aris Thessaloniki
-Q221W: DAC Dunajská Streda vs. Q108W
-Q221L: DAC Dunajská Streda vs. Q108W
-Q222W: KF Ballkani vs. Q102W
-Q222L: KF Ballkani vs. Q102W
+Q221W: DAC Dunajská Streda vs. Njoman Hrodna
+Q221L: DAC Dunajská Streda vs. Njoman Hrodna
+Q222W: KF Ballkani vs. FC Floriana
+Q222L: KF Ballkani vs. FC Floriana
 Q223W: FK Astana vs. Zimbru Chisinau
 Q223L: FK Astana vs. Zimbru Chisinau
 Q224W: FC Ararat-Armenia vs. Universitatea Cluj
 Q224L: FC Ararat-Armenia vs. Universitatea Cluj
-Q225W: Riga FC vs. Q109W
-Q225L: Riga FC vs. Q109W
+Q225W: Riga FC vs. Dila Gori
+Q225L: Riga FC vs. Dila Gori
 Q226W: HB Tórshavn vs. Brøndby IF
 Q226L: HB Tórshavn vs. Brøndby IF
 Q227W: FK Sarajevo vs. CSU Craiova
 Q227L: FK Sarajevo vs. CSU Craiova
 Q228W: FC Vaduz vs. Dungannon Swifts
 Q228L: FC Vaduz vs. Dungannon Swifts
-Q229W: Hibernians Football Club vs. EURL2025Q107L
-Q229L: Hibernians Football Club vs. EURL2025Q107L
-Q230W: Q101W vs. Shamrock Rovers
-Q230L: Q101W vs. Shamrock Rovers
-Q231W: Q103W vs. Dinamo City
-Q231L: Q103W vs. Dinamo City
-Q232W: Q106W vs. Q124W
-Q232L: Q106W vs. Q124W
-Q233W: Q111W vs. EURL2025Q101L
-Q233L: Q111W vs. EURL2025Q101L
-Q234W: Q112W vs. Q115W
-Q234L: Q112W vs. Q115W
-Q235W: Q113W vs. Maccabi Haifa
-Q235L: Q113W vs. Maccabi Haifa
-Q236W: Q114W vs. Rapid Wien
-Q236L: Q114W vs. Rapid Wien
-Q237W: Q117W vs. FC Lausanne-Sport
-Q237L: Q117W vs. FC Lausanne-Sport
-Q238W: Q118W vs. Beitar Jerusalem
-Q238L: Q118W vs. Beitar Jerusalem
-Q239W: Q119W vs. Q110W
-Q239L: Q119W vs. Q110W
-Q240W: Q122W vs. EURL2025Q104L
-Q240L: Q122W vs. EURL2025Q104L
-Q241W: Q123W vs. Györi ETO
-Q241L: Q123W vs. Györi ETO
-Q242W: CHAL2025Q102L vs. CHAL2025Q101L
-Q242L: CHAL2025Q102L vs. CHAL2025Q101L
-Q243W: CHAL2025Q104L vs. CHAL2025Q103L
-Q243L: CHAL2025Q104L vs. CHAL2025Q103L
-Q244W: CHAL2025Q105L vs. CHAL2025Q112L
-Q244L: CHAL2025Q105L vs. CHAL2025Q112L
-Q245W: CHAL2025Q108L vs. CHAL2025Q106L
-Q245L: CHAL2025Q108L vs. CHAL2025Q106L
-Q246W: CHAL2025Q111L vs. CHAL2025Q114L
-Q246L: CHAL2025Q111L vs. CHAL2025Q114L
-Q247W: CHAL2025Q113L vs. CHAL2025Q109L
-Q247L: CHAL2025Q113L vs. CHAL2025Q109L
-Q248W: EURL2025Q103L vs. NK Maribor
-Q248L: EURL2025Q103L vs. NK Maribor
-Q249W: EURL2025Q106L vs. AZ Alkmaar
-Q249L: EURL2025Q106L vs. AZ Alkmaar
-Q250W: EURL2025Q108L vs. Sparta Prag
-Q250L: EURL2025Q108L vs. Sparta Prag
+Q229W: Hibernians Football Club vs. Spartak Trnava
+Q229L: Hibernians Football Club vs. Spartak Trnava
+Q230W: St Joseph's FC vs. Shamrock Rovers
+Q230L: St Joseph's FC vs. Shamrock Rovers
+Q231W: Atlètic Club d'Escaldes vs. Dinamo City
+Q231L: Atlètic Club d'Escaldes vs. Dinamo City
+Q232W: FK Kauno Zalgiris vs. Valur Reykjavík
+Q232L: FK Kauno Zalgiris vs. Valur Reykjavík
+Q233W: Petrocub Hîncesti vs. Sabah FK
+Q233L: Petrocub Hîncesti vs. Sabah FK
+Q234W: Vllaznia Shkodra vs. Víkingur Reykjavík
+Q234L: Vllaznia Shkodra vs. Víkingur Reykjavík
+Q235W: Torpedo Schodsina vs. Maccabi Haifa
+Q235L: Torpedo Schodsina vs. Maccabi Haifa
+Q236W: Decic Tuzi vs. Rapid Wien
+Q236L: Decic Tuzi vs. Rapid Wien
+Q237W: Vardar Skopje vs. FC Lausanne-Sport
+Q237L: Vardar Skopje vs. FC Lausanne-Sport
+Q238W: Sutjeska Niksic vs. Beitar Jerusalem
+Q238L: Sutjeska Niksic vs. Beitar Jerusalem
+Q239W: St. Patrick's Athletic vs. Nomme Kalju
+Q239L: St. Patrick's Athletic vs. Nomme Kalju
+Q240W: Larne FC vs. FC Prishtina
+Q240L: Larne FC vs. FC Prishtina
+Q241W: Pjunik Erewan vs. Györi ETO
+Q241L: Pjunik Erewan vs. Györi ETO
+Q242W: Buducnost Podgorica vs. FC Milsami
+Q242L: Buducnost Podgorica vs. FC Milsami
+Q243W: Levadia Tallinn vs. FC Iberia 1999
+Q243L: Levadia Tallinn vs. FC Iberia 1999
+Q244W: Olimpija Ljubljana vs. Inter Club d'Escaldes
+Q244L: Olimpija Ljubljana vs. Inter Club d'Escaldes
+Q245W: The New Saints FC vs. FC Differdingen
+Q245L: The New Saints FC vs. FC Differdingen
+Q246W: Zalgiris Vilnius vs. Linfield FC
+Q246L: Zalgiris Vilnius vs. Linfield FC
+Q247W: Dinamo Minsk vs. KF Egnatia
+Q247L: Dinamo Minsk vs. KF Egnatia
+Q248W: Paksi FC vs. NK Maribor
+Q248L: Paksi FC vs. NK Maribor
+Q249W: Tampereen Ilves vs. AZ Alkmaar
+Q249L: Tampereen Ilves vs. AZ Alkmaar
+Q250W: FK Aqtöbe vs. Sparta Prag
+Q250L: FK Aqtöbe vs. Sparta Prag
