@@ -14,19 +14,19 @@ Q107W: BK Häcken
 Q107L: Spartak Trnava
 Q108W: Legia Warschau
 Q108L: FK Aqtöbe
-Q201W: RSC Anderlecht vs. BK Häcken
-Q201L: RSC Anderlecht vs. BK Häcken
-Q202W: Besiktas Istanbul vs. Schachtar Donezk
-Q202L: Besiktas Istanbul vs. Schachtar Donezk
-Q203W: Baník Ostrava vs. Legia Warschau
-Q203L: Baník Ostrava vs. Legia Warschau
-Q204W: FC Lugano vs. CFR Cluj
-Q204L: FC Lugano vs. CFR Cluj
-Q205W: FC Midtjylland vs. Hibernian Edinburgh
-Q205L: FC Midtjylland vs. Hibernian Edinburgh
-Q206W: NK Celje vs. AEK Larnaka
-Q206L: NK Celje vs. AEK Larnaka
-Q207W: Sheriff Tiraspol vs. FC Utrecht
-Q207L: Sheriff Tiraspol vs. FC Utrecht
-Q208W: Lewski Sofia vs. Sporting Braga
-Q208L: Lewski Sofia vs. Sporting Braga
+Q201W: Baník Ostrava vs. Legia Warschau
+Q201L: Baník Ostrava vs. Legia Warschau
+Q202W: Sheriff Tiraspol vs. FC Utrecht
+Q202L: Sheriff Tiraspol vs. FC Utrecht
+Q203W: FC Midtjylland vs. Hibernian Edinburgh
+Q203L: FC Midtjylland vs. Hibernian Edinburgh
+Q204W: Lewski Sofia vs. Sporting Braga
+Q204L: Lewski Sofia vs. Sporting Braga
+Q205W: RSC Anderlecht vs. BK Häcken
+Q205L: RSC Anderlecht vs. BK Häcken
+Q206W: Besiktas Istanbul vs. Schachtar Donezk
+Q206L: Besiktas Istanbul vs. Schachtar Donezk
+Q207W: NK Celje vs. AEK Larnaka
+Q207L: NK Celje vs. AEK Larnaka
+Q208W: FC Lugano vs. CFR Cluj
+Q208L: FC Lugano vs. CFR Cluj

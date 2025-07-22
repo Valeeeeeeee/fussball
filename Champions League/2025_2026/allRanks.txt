@@ -26,33 +26,33 @@ Q113W: Ludogorez Rasgrad
 Q113L: Dinamo Minsk
 Q114W: Shelbourne FC
 Q114L: Linfield FC
-Q201W: FC Kopenhagen vs. KF Drita
-Q201L: FC Kopenhagen vs. KF Drita
-Q202W: HNK Rijeka vs. Ludogorez Rasgrad
-Q202L: HNK Rijeka vs. Ludogorez Rasgrad
-Q203W: Lech Posen vs. Breiðablik Kópavogur
-Q203L: Lech Posen vs. Breiðablik Kópavogur
-Q204W: FC Pafos vs. Maccabi Tel Aviv
-Q204L: FC Pafos vs. Maccabi Tel Aviv
-Q205W: Slovan Bratislava vs. Zrinjski Mostar
-Q205L: Slovan Bratislava vs. Zrinjski Mostar
+Q201W: Kuopion PS vs. Qairat Almaty
+Q201L: Kuopion PS vs. Qairat Almaty
+Q202W: Noah Erewan vs. Ferencváros Budapest
+Q202L: Noah Erewan vs. Ferencváros Budapest
+Q203W: Lincoln Red Imps FC vs. Roter Stern Belgrad
+Q203L: Lincoln Red Imps FC vs. Roter Stern Belgrad
+Q204W: FC Kopenhagen vs. KF Drita
+Q204L: FC Kopenhagen vs. KF Drita
+Q205W: FC Pafos vs. Maccabi Tel Aviv
+Q205L: FC Pafos vs. Maccabi Tel Aviv
 Q206W: Viktoria Pilsen vs. Servette Genf
 Q206L: Viktoria Pilsen vs. Servette Genf
-Q207W: Glasgow Rangers vs. Panathinaikos Athen
-Q207L: Glasgow Rangers vs. Panathinaikos Athen
-Q208W: Brann Bergen vs. FC Salzburg
-Q208L: Brann Bergen vs. FC Salzburg
-Q209W: Kuopion PS vs. Qairat Almaty
-Q209L: Kuopion PS vs. Qairat Almaty
-Q210W: Noah Erewan vs. Ferencváros Budapest
-Q210L: Noah Erewan vs. Ferencváros Budapest
-Q211W: FK Rigas FS vs. Malmö FF
-Q211L: FK Rigas FS vs. Malmö FF
-Q212W: Lincoln Red Imps FC vs. Roter Stern Belgrad
-Q212L: Lincoln Red Imps FC vs. Roter Stern Belgrad
-Q213W: KF Shkëndija vs. Steaua Bukarest
-Q213L: KF Shkëndija vs. Steaua Bukarest
-Q214W: Hamrun Spartans vs. Dynamo Kiew
-Q214L: Hamrun Spartans vs. Dynamo Kiew
+Q207W: FK Rigas FS vs. Malmö FF
+Q207L: FK Rigas FS vs. Malmö FF
+Q208W: Hamrun Spartans vs. Dynamo Kiew
+Q208L: Hamrun Spartans vs. Dynamo Kiew
+Q209W: KF Shkëndija vs. Steaua Bukarest
+Q209L: KF Shkëndija vs. Steaua Bukarest
+Q210W: Slovan Bratislava vs. Zrinjski Mostar
+Q210L: Slovan Bratislava vs. Zrinjski Mostar
+Q211W: Lech Posen vs. Breiðablik Kópavogur
+Q211L: Lech Posen vs. Breiðablik Kópavogur
+Q212W: HNK Rijeka vs. Ludogorez Rasgrad
+Q212L: HNK Rijeka vs. Ludogorez Rasgrad
+Q213W: Glasgow Rangers vs. Panathinaikos Athen
+Q213L: Glasgow Rangers vs. Panathinaikos Athen
+Q214W: Brann Bergen vs. FC Salzburg
+Q214L: Brann Bergen vs. FC Salzburg
 Q215W: Shelbourne FC vs. Qarabag Agdam
 Q215L: Shelbourne FC vs. Qarabag Agdam
