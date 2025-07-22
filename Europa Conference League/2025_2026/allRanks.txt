@@ -76,38 +76,38 @@ Q214W: Omonia Nikosia vs. Torpedo Kutaissi
 Q214L: Omonia Nikosia vs. Torpedo Kutaissi
 Q215W: Hammarby IF vs. Sporting Charleroi
 Q215L: Hammarby IF vs. Sporting Charleroi
-Q216W: AIK Solna vs. Paide Linnameeskond
-Q216L: AIK Solna vs. Paide Linnameeskond
-Q217W: Tscherno More Warna vs. Istanbul Basaksehir
-Q217L: Tscherno More Warna vs. Istanbul Basaksehir
-Q218W: Arda Kardschali vs. HJK Helsinki
-Q218L: Arda Kardschali vs. HJK Helsinki
-Q219W: FK Zira vs. Hajduk Split
-Q219L: FK Zira vs. Hajduk Split
-Q220W: Araz-Nachitschewan PFK vs. Aris Thessaloniki
-Q220L: Araz-Nachitschewan PFK vs. Aris Thessaloniki
-Q221W: DAC Dunajská Streda vs. Njoman Hrodna
-Q221L: DAC Dunajská Streda vs. Njoman Hrodna
-Q222W: KF Ballkani vs. FC Floriana
-Q222L: KF Ballkani vs. FC Floriana
-Q223W: FK Astana vs. Zimbru Chisinau
-Q223L: FK Astana vs. Zimbru Chisinau
-Q224W: FC Ararat-Armenia vs. Universitatea Cluj
-Q224L: FC Ararat-Armenia vs. Universitatea Cluj
-Q225W: Riga FC vs. Dila Gori
-Q225L: Riga FC vs. Dila Gori
-Q226W: HB Tórshavn vs. Brøndby IF
-Q226L: HB Tórshavn vs. Brøndby IF
-Q227W: FK Sarajevo vs. CSU Craiova
-Q227L: FK Sarajevo vs. CSU Craiova
-Q228W: FC Vaduz vs. Dungannon Swifts
-Q228L: FC Vaduz vs. Dungannon Swifts
-Q229W: Hibernians Football Club vs. Spartak Trnava
-Q229L: Hibernians Football Club vs. Spartak Trnava
-Q230W: St Joseph's FC vs. Shamrock Rovers
-Q230L: St Joseph's FC vs. Shamrock Rovers
-Q231W: Atlètic Club d'Escaldes vs. Dinamo City
-Q231L: Atlètic Club d'Escaldes vs. Dinamo City
+Q216W: Tscherno More Warna vs. Istanbul Basaksehir
+Q216L: Tscherno More Warna vs. Istanbul Basaksehir
+Q217W: Arda Kardschali vs. HJK Helsinki
+Q217L: Arda Kardschali vs. HJK Helsinki
+Q218W: FK Zira vs. Hajduk Split
+Q218L: FK Zira vs. Hajduk Split
+Q219W: Araz-Nachitschewan PFK vs. Aris Thessaloniki
+Q219L: Araz-Nachitschewan PFK vs. Aris Thessaloniki
+Q220W: DAC Dunajská Streda vs. Njoman Hrodna
+Q220L: DAC Dunajská Streda vs. Njoman Hrodna
+Q221W: KF Ballkani vs. FC Floriana
+Q221L: KF Ballkani vs. FC Floriana
+Q222W: FK Astana vs. Zimbru Chisinau
+Q222L: FK Astana vs. Zimbru Chisinau
+Q223W: FC Ararat-Armenia vs. Universitatea Cluj
+Q223L: FC Ararat-Armenia vs. Universitatea Cluj
+Q224W: Riga FC vs. Dila Gori
+Q224L: Riga FC vs. Dila Gori
+Q225W: HB Tórshavn vs. Brøndby IF
+Q225L: HB Tórshavn vs. Brøndby IF
+Q226W: FK Sarajevo vs. CSU Craiova
+Q226L: FK Sarajevo vs. CSU Craiova
+Q227W: FC Vaduz vs. Dungannon Swifts
+Q227L: FC Vaduz vs. Dungannon Swifts
+Q228W: Hibernians Football Club vs. Spartak Trnava
+Q228L: Hibernians Football Club vs. Spartak Trnava
+Q229W: St Joseph's FC vs. Shamrock Rovers
+Q229L: St Joseph's FC vs. Shamrock Rovers
+Q230W: Atlètic Club d'Escaldes vs. Dinamo City
+Q230L: Atlètic Club d'Escaldes vs. Dinamo City
+Q231W: Paide Linnameeskond vs. AIK Solna
+Q231L: Paide Linnameeskond vs. AIK Solna
 Q232W: FK Kauno Zalgiris vs. Valur Reykjavík
 Q232L: FK Kauno Zalgiris vs. Valur Reykjavík
 Q233W: Petrocub Hîncesti vs. Sabah FK
