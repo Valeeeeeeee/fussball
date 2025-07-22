@@ -84,8 +84,8 @@ Q218W: FK Zira vs. Hajduk Split
 Q218L: FK Zira vs. Hajduk Split
 Q219W: Araz-Nachitschewan PFK vs. Aris Thessaloniki
 Q219L: Araz-Nachitschewan PFK vs. Aris Thessaloniki
-Q220W: DAC Dunajská Streda vs. Njoman Hrodna
-Q220L: DAC Dunajská Streda vs. Njoman Hrodna
+Q220W: FC Kosice vs. Njoman Hrodna
+Q220L: FC Kosice vs. Njoman Hrodna
 Q221W: KF Ballkani vs. FC Floriana
 Q221L: KF Ballkani vs. FC Floriana
 Q222W: FK Astana vs. Zimbru Chisinau
