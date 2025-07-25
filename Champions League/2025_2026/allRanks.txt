@@ -56,3 +56,23 @@ Q214W: Brann Bergen vs. FC Salzburg
 Q214L: Brann Bergen vs. FC Salzburg
 Q215W: Shelbourne FC vs. Qarabag Agdam
 Q215L: Shelbourne FC vs. Qarabag Agdam
+Q301W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
+Q301L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
+Q302W: OGC Nizza vs. Benfica Lissabon
+Q302L: OGC Nizza vs. Benfica Lissabon
+Q303W: Q201W vs. Q210W
+Q303L: Q201W vs. Q210W
+Q304W: Q207W vs. Q204W
+Q304L: Q207W vs. Q204W
+Q305W: Q208W vs. Q205W
+Q305L: Q208W vs. Q205W
+Q306W: Q209W vs. Q215W
+Q306L: Q209W vs. Q215W
+Q307W: Q211W vs. Q203W
+Q307L: Q211W vs. Q203W
+Q308W: Q212W vs. Q202W
+Q308L: Q212W vs. Q202W
+Q309W: Q213W vs. Q206W
+Q309L: Q213W vs. Q206W
+Q310W: Q214W vs. FC Brügge
+Q310L: Q214W vs. FC Brügge
