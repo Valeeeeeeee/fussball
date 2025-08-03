@@ -26,53 +26,53 @@ Q113W: Ludogorez Rasgrad
 Q113L: Dinamo Minsk
 Q114W: Shelbourne FC
 Q114L: Linfield FC
-Q201W: Kuopion PS vs. Qairat Almaty
-Q201L: Kuopion PS vs. Qairat Almaty
-Q202W: Noah Erewan vs. Ferencváros Budapest
-Q202L: Noah Erewan vs. Ferencváros Budapest
-Q203W: Lincoln Red Imps FC vs. Roter Stern Belgrad
-Q203L: Lincoln Red Imps FC vs. Roter Stern Belgrad
-Q204W: FC Kopenhagen vs. KF Drita
-Q204L: FC Kopenhagen vs. KF Drita
-Q205W: FC Pafos vs. Maccabi Tel Aviv
-Q205L: FC Pafos vs. Maccabi Tel Aviv
-Q206W: Viktoria Pilsen vs. Servette Genf
-Q206L: Viktoria Pilsen vs. Servette Genf
-Q207W: FK Rigas FS vs. Malmö FF
-Q207L: FK Rigas FS vs. Malmö FF
-Q208W: Hamrun Spartans vs. Dynamo Kiew
-Q208L: Hamrun Spartans vs. Dynamo Kiew
-Q209W: KF Shkëndija vs. Steaua Bukarest
-Q209L: KF Shkëndija vs. Steaua Bukarest
-Q210W: Slovan Bratislava vs. Zrinjski Mostar
-Q210L: Slovan Bratislava vs. Zrinjski Mostar
-Q211W: Lech Posen vs. Breiðablik Kópavogur
-Q211L: Lech Posen vs. Breiðablik Kópavogur
-Q212W: HNK Rijeka vs. Ludogorez Rasgrad
-Q212L: HNK Rijeka vs. Ludogorez Rasgrad
-Q213W: Glasgow Rangers vs. Panathinaikos Athen
-Q213L: Glasgow Rangers vs. Panathinaikos Athen
-Q214W: Brann Bergen vs. FC Salzburg
-Q214L: Brann Bergen vs. FC Salzburg
-Q215W: Shelbourne FC vs. Qarabag Agdam
-Q215L: Shelbourne FC vs. Qarabag Agdam
+Q201W: Qairat Almaty
+Q201L: Kuopion PS
+Q202W: Ferencváros Budapest
+Q202L: Noah Erewan
+Q203W: Roter Stern Belgrad
+Q203L: Lincoln Red Imps FC
+Q204W: FC Kopenhagen
+Q204L: KF Drita
+Q205W: FC Pafos
+Q205L: Maccabi Tel Aviv
+Q206W: Viktoria Pilsen
+Q206L: Servette Genf
+Q207W: Malmö FF
+Q207L: FK Rigas FS
+Q208W: Dynamo Kiew
+Q208L: Hamrun Spartans
+Q209W: KF Shkëndija
+Q209L: Steaua Bukarest
+Q210W: Slovan Bratislava
+Q210L: Zrinjski Mostar
+Q211W: Lech Posen
+Q211L: Breiðablik Kópavogur
+Q212W: Ludogorez Rasgrad
+Q212L: HNK Rijeka
+Q213W: Glasgow Rangers
+Q213L: Panathinaikos Athen
+Q214W: FC Salzburg
+Q214L: Brann Bergen
+Q215W: Qarabag Agdam
+Q215L: Shelbourne FC
 Q301W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
 Q301L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
 Q302W: OGC Nizza vs. Benfica Lissabon
 Q302L: OGC Nizza vs. Benfica Lissabon
-Q303W: Q201W vs. Q210W
-Q303L: Q201W vs. Q210W
-Q304W: Q207W vs. Q204W
-Q304L: Q207W vs. Q204W
-Q305W: Q208W vs. Q205W
-Q305L: Q208W vs. Q205W
-Q306W: Q209W vs. Q215W
-Q306L: Q209W vs. Q215W
-Q307W: Q211W vs. Q203W
-Q307L: Q211W vs. Q203W
-Q308W: Q212W vs. Q202W
-Q308L: Q212W vs. Q202W
-Q309W: Q213W vs. Q206W
-Q309L: Q213W vs. Q206W
-Q310W: Q214W vs. FC Brügge
-Q310L: Q214W vs. FC Brügge
+Q303W: Qairat Almaty vs. Slovan Bratislava
+Q303L: Qairat Almaty vs. Slovan Bratislava
+Q304W: Malmö FF vs. FC Kopenhagen
+Q304L: Malmö FF vs. FC Kopenhagen
+Q305W: Dynamo Kiew vs. FC Pafos
+Q305L: Dynamo Kiew vs. FC Pafos
+Q306W: KF Shkëndija vs. Qarabag Agdam
+Q306L: KF Shkëndija vs. Qarabag Agdam
+Q307W: Lech Posen vs. Roter Stern Belgrad
+Q307L: Lech Posen vs. Roter Stern Belgrad
+Q308W: Ludogorez Rasgrad vs. Ferencváros Budapest
+Q308L: Ludogorez Rasgrad vs. Ferencváros Budapest
+Q309W: Glasgow Rangers vs. Viktoria Pilsen
+Q309L: Glasgow Rangers vs. Viktoria Pilsen
+Q310W: FC Salzburg vs. FC Brügge
+Q310L: FC Salzburg vs. FC Brügge

@@ -14,45 +14,45 @@ Q107W: BK Häcken
 Q107L: Spartak Trnava
 Q108W: Legia Warschau
 Q108L: FK Aqtöbe
-Q201W: Baník Ostrava vs. Legia Warschau
-Q201L: Baník Ostrava vs. Legia Warschau
-Q202W: Sheriff Tiraspol vs. FC Utrecht
-Q202L: Sheriff Tiraspol vs. FC Utrecht
-Q203W: FC Midtjylland vs. Hibernian Edinburgh
-Q203L: FC Midtjylland vs. Hibernian Edinburgh
-Q204W: Lewski Sofia vs. Sporting Braga
-Q204L: Lewski Sofia vs. Sporting Braga
-Q205W: RSC Anderlecht vs. BK Häcken
-Q205L: RSC Anderlecht vs. BK Häcken
-Q206W: Besiktas Istanbul vs. Schachtar Donezk
-Q206L: Besiktas Istanbul vs. Schachtar Donezk
-Q207W: NK Celje vs. AEK Larnaka
-Q207L: NK Celje vs. AEK Larnaka
-Q208W: FC Lugano vs. CFR Cluj
-Q208L: FC Lugano vs. CFR Cluj
-Q301W: Fredrikstad FK vs. Q203W
-Q301L: Fredrikstad FK vs. Q203W
+Q201W: Legia Warschau
+Q201L: Baník Ostrava
+Q202W: FC Utrecht
+Q202L: Sheriff Tiraspol
+Q203W: FC Midtjylland
+Q203L: Hibernian Edinburgh
+Q204W: Sporting Braga
+Q204L: Lewski Sofia
+Q205W: BK Häcken
+Q205L: RSC Anderlecht
+Q206W: Schachtar Donezk
+Q206L: Besiktas Istanbul
+Q207W: AEK Larnaka
+Q207L: NK Celje
+Q208W: CFR Cluj
+Q208L: FC Lugano
+Q301W: Fredrikstad FK vs. FC Midtjylland
+Q301L: Fredrikstad FK vs. FC Midtjylland
 Q302W: PAOK Thessaloniki vs. Wolfsberger AC
 Q302L: PAOK Thessaloniki vs. Wolfsberger AC
-Q303W: Q205W vs. CHAL2025Q214L
-Q303L: Q205W vs. CHAL2025Q214L
-Q304W: Q207W vs. Q201W
-Q304L: Q207W vs. Q201W
-Q305W: Q208W vs. Q204W
-Q305L: Q208W vs. Q204W
-Q306W: CHAL2025Q203L vs. CHAL2025Q202L
-Q306L: CHAL2025Q203L vs. CHAL2025Q202L
-Q307W: CHAL2025Q206L vs. Q202W
-Q307L: CHAL2025Q206L vs. Q202W
-Q308W: CHAL2025Q207L vs. CHAL2025Q201L
-Q308L: CHAL2025Q207L vs. CHAL2025Q201L
-Q309W: CHAL2025Q208L vs. CHAL2025Q205L
-Q309L: CHAL2025Q208L vs. CHAL2025Q205L
-Q310W: CHAL2025Q209L vs. CHAL2025Q204L
-Q310L: CHAL2025Q209L vs. CHAL2025Q204L
-Q311W: CHAL2025Q210L vs. CHAL2025Q211L
-Q311L: CHAL2025Q210L vs. CHAL2025Q211L
-Q312W: CHAL2025Q212L vs. CHAL2025Q215L
-Q312L: CHAL2025Q212L vs. CHAL2025Q215L
-Q313W: CHAL2025Q213L vs. Q206W
-Q313L: CHAL2025Q213L vs. Q206W
+Q303W: BK Häcken vs. Brann Bergen
+Q303L: BK Häcken vs. Brann Bergen
+Q304W: AEK Larnaka vs. Legia Warschau
+Q304L: AEK Larnaka vs. Legia Warschau
+Q305W: CFR Cluj vs. Sporting Braga
+Q305L: CFR Cluj vs. Sporting Braga
+Q306W: Lincoln Red Imps FC vs. Noah Erewan
+Q306L: Lincoln Red Imps FC vs. Noah Erewan
+Q307W: Servette Genf vs. FC Utrecht
+Q307L: Servette Genf vs. FC Utrecht
+Q308W: FK Rigas FS vs. Kuopion PS
+Q308L: FK Rigas FS vs. Kuopion PS
+Q309W: Hamrun Spartans vs. Maccabi Tel Aviv
+Q309L: Hamrun Spartans vs. Maccabi Tel Aviv
+Q310W: Steaua Bukarest vs. KF Drita
+Q310L: Steaua Bukarest vs. KF Drita
+Q311W: Zrinjski Mostar vs. Breiðablik Kópavogur
+Q311L: Zrinjski Mostar vs. Breiðablik Kópavogur
+Q312W: HNK Rijeka vs. Shelbourne FC
+Q312L: HNK Rijeka vs. Shelbourne FC
+Q313W: Panathinaikos Athen vs. Schachtar Donezk
+Q313L: Panathinaikos Athen vs. Schachtar Donezk
