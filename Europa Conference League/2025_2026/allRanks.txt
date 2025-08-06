@@ -146,63 +146,63 @@ Q249W: Rapid Wien
 Q249L: Decic Tuzi
 Q250W: Larne FC
 Q250L: FC Prishtina
-Q301W: KF Ballkani vs. Shamrock Rovers
-Q301L: KF Ballkani vs. Shamrock Rovers
-Q302W: Hajduk Split vs. Dinamo City
-Q302L: Hajduk Split vs. Dinamo City
-Q303W: Silkeborg IF vs. Jagiellonia Bialystok
-Q303L: Silkeborg IF vs. Jagiellonia Bialystok
-Q304W: Olimpija Ljubljana vs. KF Egnatia
-Q304L: Olimpija Ljubljana vs. KF Egnatia
-Q305W: FC Differdingen vs. Levadia Tallinn
-Q305L: FC Differdingen vs. Levadia Tallinn
-Q306W: FC Milsami vs. SS Virtus
-Q306L: FC Milsami vs. SS Virtus
-Q307W: AIK Solna vs. Györi ETO
-Q307L: AIK Solna vs. Györi ETO
-Q308W: Rosenborg Trondheim vs. Hammarby IF
-Q308L: Rosenborg Trondheim vs. Hammarby IF
-Q309W: Aris Limassol vs. AEK Athen
-Q309L: Aris Limassol vs. AEK Athen
-Q310W: Araz-Nachitschewan PFK vs. Omonia Nikosia
-Q310L: Araz-Nachitschewan PFK vs. Omonia Nikosia
-Q311W: FK Kauno Zalgiris vs. Arda Kardschali
-Q311L: FK Kauno Zalgiris vs. Arda Kardschali
-Q312W: AZ Alkmaar vs. FC Vaduz
-Q312L: AZ Alkmaar vs. FC Vaduz
-Q313W: Sparta Prag vs. FC Ararat-Armenia
-Q313L: Sparta Prag vs. FC Ararat-Armenia
-Q314W: Viking Stavanger vs. Istanbul Basaksehir
-Q314L: Viking Stavanger vs. Istanbul Basaksehir
-Q315W: Partizan Belgrad vs. Hibernian Edinburgh
-Q315L: Partizan Belgrad vs. Hibernian Edinburgh
+Q301W: KÍ Klaksvík vs. Njoman Hrodna
+Q301L: KÍ Klaksvík vs. Njoman Hrodna
+Q302W: FC Milsami vs. SS Virtus
+Q302L: FC Milsami vs. SS Virtus
+Q303W: Rosenborg Trondheim vs. Hammarby IF
+Q303L: Rosenborg Trondheim vs. Hammarby IF
+Q304W: Aris Limassol vs. AEK Athen
+Q304L: Aris Limassol vs. AEK Athen
+Q305W: Araz-Nachitschewan PFK vs. Omonia Nikosia
+Q305L: Araz-Nachitschewan PFK vs. Omonia Nikosia
+Q306W: FK Kauno Zalgiris vs. Arda Kardschali
+Q306L: FK Kauno Zalgiris vs. Arda Kardschali
+Q307W: Baník Ostrava vs. Austria Wien
+Q307L: Baník Ostrava vs. Austria Wien
+Q308W: Silkeborg IF vs. Jagiellonia Bialystok
+Q308L: Silkeborg IF vs. Jagiellonia Bialystok
+Q309W: AIK Solna vs. Györi ETO
+Q309L: AIK Solna vs. Györi ETO
+Q310W: Viking Stavanger vs. Istanbul Basaksehir
+Q310L: Viking Stavanger vs. Istanbul Basaksehir
+Q311W: Riga FC vs. Beitar Jerusalem
+Q311L: Riga FC vs. Beitar Jerusalem
+Q312W: Olimpija Ljubljana vs. KF Egnatia
+Q312L: Olimpija Ljubljana vs. KF Egnatia
+Q313W: FC Differdingen vs. Levadia Tallinn
+Q313L: FC Differdingen vs. Levadia Tallinn
+Q314W: AZ Alkmaar vs. FC Vaduz
+Q314L: AZ Alkmaar vs. FC Vaduz
+Q315W: Sparta Prag vs. FC Ararat-Armenia
+Q315L: Sparta Prag vs. FC Ararat-Armenia
 Q316W: Polissja Schytomyr vs. Paksi FC
 Q316L: Polissja Schytomyr vs. Paksi FC
-Q317W: Riga FC vs. Beitar Jerusalem
-Q317L: Riga FC vs. Beitar Jerusalem
-Q318W: KÍ Klaksvík vs. Njoman Hrodna
-Q318L: KÍ Klaksvík vs. Njoman Hrodna
-Q319W: Víkingur Reykjavík vs. Brøndby IF
-Q319L: Víkingur Reykjavík vs. Brøndby IF
+Q317W: Víkingur Gøta vs. Linfield FC
+Q317L: Víkingur Gøta vs. Linfield FC
+Q318W: Lewski Sofia vs. Sabah FK
+Q318L: Lewski Sofia vs. Sabah FK
+Q319W: RSC Anderlecht vs. Sheriff Tiraspol
+Q319L: RSC Anderlecht vs. Sheriff Tiraspol
 Q320W: FC Lausanne-Sport vs. FK Astana
 Q320L: FC Lausanne-Sport vs. FK Astana
-Q321W: St. Patrick's Athletic vs. Besiktas Istanbul
-Q321L: St. Patrick's Athletic vs. Besiktas Istanbul
-Q322W: Raków Częstochowa vs. Maccabi Haifa
-Q322L: Raków Częstochowa vs. Maccabi Haifa
-Q323W: CSU Craiova vs. Spartak Trnava
-Q323L: CSU Craiova vs. Spartak Trnava
-Q324W: Rapid Wien vs. Dundee United
-Q324L: Rapid Wien vs. Dundee United
-Q325W: Larne FC vs. CD Santa Clara
-Q325L: Larne FC vs. CD Santa Clara
-Q326W: Víkingur Gøta vs. Linfield FC
-Q326L: Víkingur Gøta vs. Linfield FC
-Q327W: Baník Ostrava vs. Austria Wien
-Q327L: Baník Ostrava vs. Austria Wien
-Q328W: Lewski Sofia vs. Sabah FK
-Q328L: Lewski Sofia vs. Sabah FK
-Q329W: RSC Anderlecht vs. Sheriff Tiraspol
-Q329L: RSC Anderlecht vs. Sheriff Tiraspol
-Q330W: FC Lugano vs. NK Celje
-Q330L: FC Lugano vs. NK Celje
+Q321W: KF Ballkani vs. Shamrock Rovers
+Q321L: KF Ballkani vs. Shamrock Rovers
+Q322W: CSU Craiova vs. Spartak Trnava
+Q322L: CSU Craiova vs. Spartak Trnava
+Q323W: FC Lugano vs. NK Celje
+Q323L: FC Lugano vs. NK Celje
+Q324W: Víkingur Reykjavík vs. Brøndby IF
+Q324L: Víkingur Reykjavík vs. Brøndby IF
+Q325W: St. Patrick's Athletic vs. Besiktas Istanbul
+Q325L: St. Patrick's Athletic vs. Besiktas Istanbul
+Q326W: Hajduk Split vs. Dinamo City
+Q326L: Hajduk Split vs. Dinamo City
+Q327W: Partizan Belgrad vs. Hibernian Edinburgh
+Q327L: Partizan Belgrad vs. Hibernian Edinburgh
+Q328W: Raków Częstochowa vs. Maccabi Haifa
+Q328L: Raków Częstochowa vs. Maccabi Haifa
+Q329W: Rapid Wien vs. Dundee United
+Q329L: Rapid Wien vs. Dundee United
+Q330W: Larne FC vs. CD Santa Clara
+Q330L: Larne FC vs. CD Santa Clara

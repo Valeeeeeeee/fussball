@@ -56,23 +56,23 @@ Q214W: FC Salzburg
 Q214L: Brann Bergen
 Q215W: Qarabag Agdam
 Q215L: Shelbourne FC
-Q301W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
-Q301L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
-Q302W: OGC Nizza vs. Benfica Lissabon
-Q302L: OGC Nizza vs. Benfica Lissabon
-Q303W: Qairat Almaty vs. Slovan Bratislava
-Q303L: Qairat Almaty vs. Slovan Bratislava
-Q304W: Malmö FF vs. FC Kopenhagen
-Q304L: Malmö FF vs. FC Kopenhagen
-Q305W: Dynamo Kiew vs. FC Pafos
-Q305L: Dynamo Kiew vs. FC Pafos
-Q306W: KF Shkëndija vs. Qarabag Agdam
-Q306L: KF Shkëndija vs. Qarabag Agdam
-Q307W: Lech Posen vs. Roter Stern Belgrad
-Q307L: Lech Posen vs. Roter Stern Belgrad
-Q308W: Ludogorez Rasgrad vs. Ferencváros Budapest
-Q308L: Ludogorez Rasgrad vs. Ferencváros Budapest
-Q309W: Glasgow Rangers vs. Viktoria Pilsen
-Q309L: Glasgow Rangers vs. Viktoria Pilsen
-Q310W: FC Salzburg vs. FC Brügge
-Q310L: FC Salzburg vs. FC Brügge
+Q301W: Malmö FF vs. FC Kopenhagen
+Q301L: Malmö FF vs. FC Kopenhagen
+Q302W: Dynamo Kiew vs. FC Pafos
+Q302L: Dynamo Kiew vs. FC Pafos
+Q303W: KF Shkëndija vs. Qarabag Agdam
+Q303L: KF Shkëndija vs. Qarabag Agdam
+Q304W: Glasgow Rangers vs. Viktoria Pilsen
+Q304L: Glasgow Rangers vs. Viktoria Pilsen
+Q305W: Qairat Almaty vs. Slovan Bratislava
+Q305L: Qairat Almaty vs. Slovan Bratislava
+Q306W: FC Salzburg vs. FC Brügge
+Q306L: FC Salzburg vs. FC Brügge
+Q307W: Ludogorez Rasgrad vs. Ferencváros Budapest
+Q307L: Ludogorez Rasgrad vs. Ferencváros Budapest
+Q308W: Lech Posen vs. Roter Stern Belgrad
+Q308L: Lech Posen vs. Roter Stern Belgrad
+Q309W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
+Q309L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
+Q310W: OGC Nizza vs. Benfica Lissabon
+Q310L: OGC Nizza vs. Benfica Lissabon

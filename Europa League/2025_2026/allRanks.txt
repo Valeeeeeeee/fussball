@@ -30,29 +30,29 @@ Q207W: AEK Larnaka
 Q207L: NK Celje
 Q208W: CFR Cluj
 Q208L: FC Lugano
-Q301W: Fredrikstad FK vs. FC Midtjylland
-Q301L: Fredrikstad FK vs. FC Midtjylland
-Q302W: PAOK Thessaloniki vs. Wolfsberger AC
-Q302L: PAOK Thessaloniki vs. Wolfsberger AC
-Q303W: BK Häcken vs. Brann Bergen
-Q303L: BK Häcken vs. Brann Bergen
-Q304W: AEK Larnaka vs. Legia Warschau
-Q304L: AEK Larnaka vs. Legia Warschau
-Q305W: CFR Cluj vs. Sporting Braga
-Q305L: CFR Cluj vs. Sporting Braga
-Q306W: Lincoln Red Imps FC vs. Noah Erewan
-Q306L: Lincoln Red Imps FC vs. Noah Erewan
-Q307W: Servette Genf vs. FC Utrecht
-Q307L: Servette Genf vs. FC Utrecht
-Q308W: FK Rigas FS vs. Kuopion PS
-Q308L: FK Rigas FS vs. Kuopion PS
-Q309W: Hamrun Spartans vs. Maccabi Tel Aviv
-Q309L: Hamrun Spartans vs. Maccabi Tel Aviv
-Q310W: Steaua Bukarest vs. KF Drita
-Q310L: Steaua Bukarest vs. KF Drita
-Q311W: Zrinjski Mostar vs. Breiðablik Kópavogur
-Q311L: Zrinjski Mostar vs. Breiðablik Kópavogur
-Q312W: HNK Rijeka vs. Shelbourne FC
-Q312L: HNK Rijeka vs. Shelbourne FC
-Q313W: Panathinaikos Athen vs. Schachtar Donezk
-Q313L: Panathinaikos Athen vs. Schachtar Donezk
+Q301W: Hamrun Spartans vs. Maccabi Tel Aviv
+Q301L: Hamrun Spartans vs. Maccabi Tel Aviv
+Q302W: FK Rigas FS vs. Kuopion PS
+Q302L: FK Rigas FS vs. Kuopion PS
+Q303W: HNK Rijeka vs. Shelbourne FC
+Q303L: HNK Rijeka vs. Shelbourne FC
+Q304W: Fredrikstad FK vs. FC Midtjylland
+Q304L: Fredrikstad FK vs. FC Midtjylland
+Q305W: Lincoln Red Imps FC vs. Noah Erewan
+Q305L: Lincoln Red Imps FC vs. Noah Erewan
+Q306W: AEK Larnaka vs. Legia Warschau
+Q306L: AEK Larnaka vs. Legia Warschau
+Q307W: CFR Cluj vs. Sporting Braga
+Q307L: CFR Cluj vs. Sporting Braga
+Q308W: BK Häcken vs. Brann Bergen
+Q308L: BK Häcken vs. Brann Bergen
+Q309W: PAOK Thessaloniki vs. Wolfsberger AC
+Q309L: PAOK Thessaloniki vs. Wolfsberger AC
+Q310W: Zrinjski Mostar vs. Breiðablik Kópavogur
+Q310L: Zrinjski Mostar vs. Breiðablik Kópavogur
+Q311W: Panathinaikos Athen vs. Schachtar Donezk
+Q311L: Panathinaikos Athen vs. Schachtar Donezk
+Q312W: Servette Genf vs. FC Utrecht
+Q312L: Servette Genf vs. FC Utrecht
+Q313W: Steaua Bukarest vs. KF Drita
+Q313L: Steaua Bukarest vs. KF Drita
