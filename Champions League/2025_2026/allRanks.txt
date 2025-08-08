@@ -76,3 +76,17 @@ Q309W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
 Q309L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
 Q310W: OGC Nizza vs. Benfica Lissabon
 Q310L: OGC Nizza vs. Benfica Lissabon
+PO01W: Celtic Glasgow vs. Q305W
+PO01L: Celtic Glasgow vs. Q305W
+PO02W: FC Basel vs. Q301W
+PO02L: FC Basel vs. Q301W
+PO03W: FK Bodø/Glimt vs. Sturm Graz
+PO03L: FK Bodø/Glimt vs. Sturm Graz
+PO04W: Q304W vs. Q306W
+PO04L: Q304W vs. Q306W
+PO05W: Q307W vs. Q303W
+PO05L: Q307W vs. Q303W
+PO06W: Q308W vs. Q302W
+PO06L: Q308W vs. Q302W
+PO07W: Q309W vs. Q310W
+PO07L: Q309W vs. Q310W
