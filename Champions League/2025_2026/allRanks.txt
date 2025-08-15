@@ -56,37 +56,37 @@ Q214W: FC Salzburg
 Q214L: Brann Bergen
 Q215W: Qarabag Agdam
 Q215L: Shelbourne FC
-Q301W: Malmö FF vs. FC Kopenhagen
-Q301L: Malmö FF vs. FC Kopenhagen
-Q302W: Dynamo Kiew vs. FC Pafos
-Q302L: Dynamo Kiew vs. FC Pafos
-Q303W: KF Shkëndija vs. Qarabag Agdam
-Q303L: KF Shkëndija vs. Qarabag Agdam
-Q304W: Glasgow Rangers vs. Viktoria Pilsen
-Q304L: Glasgow Rangers vs. Viktoria Pilsen
-Q305W: Qairat Almaty vs. Slovan Bratislava
-Q305L: Qairat Almaty vs. Slovan Bratislava
-Q306W: FC Salzburg vs. FC Brügge
-Q306L: FC Salzburg vs. FC Brügge
-Q307W: Ludogorez Rasgrad vs. Ferencváros Budapest
-Q307L: Ludogorez Rasgrad vs. Ferencváros Budapest
-Q308W: Lech Posen vs. Roter Stern Belgrad
-Q308L: Lech Posen vs. Roter Stern Belgrad
-Q309W: Feyenoord Rotterdam vs. Fenerbahce Istanbul
-Q309L: Feyenoord Rotterdam vs. Fenerbahce Istanbul
-Q310W: OGC Nizza vs. Benfica Lissabon
-Q310L: OGC Nizza vs. Benfica Lissabon
-PO01W: Celtic Glasgow vs. Q305W
-PO01L: Celtic Glasgow vs. Q305W
-PO02W: FC Basel vs. Q301W
-PO02L: FC Basel vs. Q301W
+Q301W: FC Kopenhagen
+Q301L: Malmö FF
+Q302W: FC Pafos
+Q302L: Dynamo Kiew
+Q303W: Qarabag Agdam
+Q303L: KF Shkëndija
+Q304W: Glasgow Rangers
+Q304L: Viktoria Pilsen
+Q305W: Qairat Almaty
+Q305L: Slovan Bratislava
+Q306W: FC Brügge
+Q306L: FC Salzburg
+Q307W: Ferencváros Budapest
+Q307L: Ludogorez Rasgrad
+Q308W: Roter Stern Belgrad
+Q308L: Lech Posen
+Q309W: Fenerbahce Istanbul
+Q309L: Feyenoord Rotterdam
+Q310W: Benfica Lissabon
+Q310L: OGC Nizza
+PO01W: Celtic Glasgow vs. Qairat Almaty
+PO01L: Celtic Glasgow vs. Qairat Almaty
+PO02W: FC Basel vs. FC Kopenhagen
+PO02L: FC Basel vs. FC Kopenhagen
 PO03W: FK Bodø/Glimt vs. Sturm Graz
 PO03L: FK Bodø/Glimt vs. Sturm Graz
-PO04W: Q304W vs. Q306W
-PO04L: Q304W vs. Q306W
-PO05W: Q307W vs. Q303W
-PO05L: Q307W vs. Q303W
-PO06W: Q308W vs. Q302W
-PO06L: Q308W vs. Q302W
-PO07W: Q309W vs. Q310W
-PO07L: Q309W vs. Q310W
+PO04W: Glasgow Rangers vs. FC Brügge
+PO04L: Glasgow Rangers vs. FC Brügge
+PO05W: Ferencváros Budapest vs. Qarabag Agdam
+PO05L: Ferencváros Budapest vs. Qarabag Agdam
+PO06W: Roter Stern Belgrad vs. FC Pafos
+PO06L: Roter Stern Belgrad vs. FC Pafos
+PO07W: Fenerbahce Istanbul vs. Benfica Lissabon
+PO07L: Fenerbahce Istanbul vs. Benfica Lissabon

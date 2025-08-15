@@ -30,53 +30,53 @@ Q207W: AEK Larnaka
 Q207L: NK Celje
 Q208W: CFR Cluj
 Q208L: FC Lugano
-Q301W: Hamrun Spartans vs. Maccabi Tel Aviv
-Q301L: Hamrun Spartans vs. Maccabi Tel Aviv
-Q302W: FK Rigas FS vs. Kuopion PS
-Q302L: FK Rigas FS vs. Kuopion PS
-Q303W: HNK Rijeka vs. Shelbourne FC
-Q303L: HNK Rijeka vs. Shelbourne FC
-Q304W: Fredrikstad FK vs. FC Midtjylland
-Q304L: Fredrikstad FK vs. FC Midtjylland
-Q305W: Lincoln Red Imps FC vs. Noah Erewan
-Q305L: Lincoln Red Imps FC vs. Noah Erewan
-Q306W: AEK Larnaka vs. Legia Warschau
-Q306L: AEK Larnaka vs. Legia Warschau
-Q307W: CFR Cluj vs. Sporting Braga
-Q307L: CFR Cluj vs. Sporting Braga
-Q308W: BK Häcken vs. Brann Bergen
-Q308L: BK Häcken vs. Brann Bergen
-Q309W: PAOK Thessaloniki vs. Wolfsberger AC
-Q309L: PAOK Thessaloniki vs. Wolfsberger AC
-Q310W: Zrinjski Mostar vs. Breiðablik Kópavogur
-Q310L: Zrinjski Mostar vs. Breiðablik Kópavogur
-Q311W: Panathinaikos Athen vs. Schachtar Donezk
-Q311L: Panathinaikos Athen vs. Schachtar Donezk
-Q312W: Servette Genf vs. FC Utrecht
-Q312L: Servette Genf vs. FC Utrecht
-Q313W: Steaua Bukarest vs. KF Drita
-Q313L: Steaua Bukarest vs. KF Drita
-PO01W: FC Aberdeen vs. Q313W
-PO01L: FC Aberdeen vs. Q313W
-PO02W: Q301W vs. CHAL2025Q302L
-PO02L: Q301W vs. CHAL2025Q302L
-PO03W: Q303W vs. Q309W
-PO03L: Q303W vs. Q309W
-PO04W: Q304W vs. Q302W
-PO04L: Q304W vs. Q302W
-PO05W: Q305W vs. Q307W
-PO05L: Q305W vs. Q307W
-PO06W: Q308W vs. Q306W
-PO06L: Q308W vs. Q306W
-PO07W: Q310W vs. Q312W
-PO07L: Q310W vs. Q312W
-PO08W: Q311W vs. Samsunspor
-PO08L: Q311W vs. Samsunspor
-PO09W: CHAL2025Q301L vs. Sigma Olmütz
-PO09L: CHAL2025Q301L vs. Sigma Olmütz
-PO10W: CHAL2025Q303L vs. CHAL2025Q307L
-PO10L: CHAL2025Q303L vs. CHAL2025Q307L
-PO11W: CHAL2025Q305L vs. Young Boys Bern
-PO11L: CHAL2025Q305L vs. Young Boys Bern
-PO12W: CHAL2025Q308L vs. KRC Genk
-PO12L: CHAL2025Q308L vs. KRC Genk
+Q301W: Maccabi Tel Aviv
+Q301L: Hamrun Spartans
+Q302W: Kuopion PS
+Q302L: FK Rigas FS
+Q303W: HNK Rijeka
+Q303L: Shelbourne FC
+Q304W: FC Midtjylland
+Q304L: Fredrikstad FK
+Q305W: Lincoln Red Imps FC
+Q305L: Noah Erewan
+Q306W: AEK Larnaka
+Q306L: Legia Warschau
+Q307W: Sporting Braga
+Q307L: CFR Cluj
+Q308W: Brann Bergen
+Q308L: BK Häcken
+Q309W: PAOK Thessaloniki
+Q309L: Wolfsberger AC
+Q310W: Zrinjski Mostar
+Q310L: Breiðablik Kópavogur
+Q311W: Panathinaikos Athen
+Q311L: Schachtar Donezk
+Q312W: FC Utrecht
+Q312L: Servette Genf
+Q313W: Steaua Bukarest
+Q313L: KF Drita
+PO01W: FC Aberdeen vs. Steaua Bukarest
+PO01L: FC Aberdeen vs. Steaua Bukarest
+PO02W: Maccabi Tel Aviv vs. Dynamo Kiew
+PO02L: Maccabi Tel Aviv vs. Dynamo Kiew
+PO03W: HNK Rijeka vs. PAOK Thessaloniki
+PO03L: HNK Rijeka vs. PAOK Thessaloniki
+PO04W: FC Midtjylland vs. Kuopion PS
+PO04L: FC Midtjylland vs. Kuopion PS
+PO05W: Lincoln Red Imps FC vs. Sporting Braga
+PO05L: Lincoln Red Imps FC vs. Sporting Braga
+PO06W: Brann Bergen vs. AEK Larnaka
+PO06L: Brann Bergen vs. AEK Larnaka
+PO07W: Zrinjski Mostar vs. FC Utrecht
+PO07L: Zrinjski Mostar vs. FC Utrecht
+PO08W: Panathinaikos Athen vs. Samsunspor
+PO08L: Panathinaikos Athen vs. Samsunspor
+PO09W: Malmö FF vs. Sigma Olmütz
+PO09L: Malmö FF vs. Sigma Olmütz
+PO10W: KF Shkëndija vs. Ludogorez Rasgrad
+PO10L: KF Shkëndija vs. Ludogorez Rasgrad
+PO11W: Slovan Bratislava vs. Young Boys Bern
+PO11L: Slovan Bratislava vs. Young Boys Bern
+PO12W: Lech Posen vs. KRC Genk
+PO12L: Lech Posen vs. KRC Genk

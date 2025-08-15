@@ -146,111 +146,111 @@ Q249W: Rapid Wien
 Q249L: Decic Tuzi
 Q250W: Larne FC
 Q250L: FC Prishtina
-Q301W: KÍ Klaksvík vs. Njoman Hrodna
-Q301L: KÍ Klaksvík vs. Njoman Hrodna
-Q302W: FC Milsami vs. SS Virtus
-Q302L: FC Milsami vs. SS Virtus
-Q303W: Rosenborg Trondheim vs. Hammarby IF
-Q303L: Rosenborg Trondheim vs. Hammarby IF
-Q304W: Aris Limassol vs. AEK Athen
-Q304L: Aris Limassol vs. AEK Athen
-Q305W: Araz-Nachitschewan PFK vs. Omonia Nikosia
-Q305L: Araz-Nachitschewan PFK vs. Omonia Nikosia
-Q306W: FK Kauno Zalgiris vs. Arda Kardschali
-Q306L: FK Kauno Zalgiris vs. Arda Kardschali
-Q307W: Baník Ostrava vs. Austria Wien
-Q307L: Baník Ostrava vs. Austria Wien
-Q308W: Silkeborg IF vs. Jagiellonia Bialystok
-Q308L: Silkeborg IF vs. Jagiellonia Bialystok
-Q309W: AIK Solna vs. Györi ETO
-Q309L: AIK Solna vs. Györi ETO
-Q310W: Viking Stavanger vs. Istanbul Basaksehir
-Q310L: Viking Stavanger vs. Istanbul Basaksehir
-Q311W: Riga FC vs. Beitar Jerusalem
-Q311L: Riga FC vs. Beitar Jerusalem
-Q312W: Olimpija Ljubljana vs. KF Egnatia
-Q312L: Olimpija Ljubljana vs. KF Egnatia
-Q313W: FC Differdingen vs. Levadia Tallinn
-Q313L: FC Differdingen vs. Levadia Tallinn
-Q314W: AZ Alkmaar vs. FC Vaduz
-Q314L: AZ Alkmaar vs. FC Vaduz
-Q315W: Sparta Prag vs. FC Ararat-Armenia
-Q315L: Sparta Prag vs. FC Ararat-Armenia
-Q316W: Polissja Schytomyr vs. Paksi FC
-Q316L: Polissja Schytomyr vs. Paksi FC
-Q317W: Víkingur Gøta vs. Linfield FC
-Q317L: Víkingur Gøta vs. Linfield FC
-Q318W: Lewski Sofia vs. Sabah FK
-Q318L: Lewski Sofia vs. Sabah FK
-Q319W: RSC Anderlecht vs. Sheriff Tiraspol
-Q319L: RSC Anderlecht vs. Sheriff Tiraspol
-Q320W: FC Lausanne-Sport vs. FK Astana
-Q320L: FC Lausanne-Sport vs. FK Astana
-Q321W: KF Ballkani vs. Shamrock Rovers
-Q321L: KF Ballkani vs. Shamrock Rovers
-Q322W: CSU Craiova vs. Spartak Trnava
-Q322L: CSU Craiova vs. Spartak Trnava
-Q323W: FC Lugano vs. NK Celje
-Q323L: FC Lugano vs. NK Celje
-Q324W: Víkingur Reykjavík vs. Brøndby IF
-Q324L: Víkingur Reykjavík vs. Brøndby IF
-Q325W: St. Patrick's Athletic vs. Besiktas Istanbul
-Q325L: St. Patrick's Athletic vs. Besiktas Istanbul
-Q326W: Hajduk Split vs. Dinamo City
-Q326L: Hajduk Split vs. Dinamo City
-Q327W: Partizan Belgrad vs. Hibernian Edinburgh
-Q327L: Partizan Belgrad vs. Hibernian Edinburgh
-Q328W: Raków Częstochowa vs. Maccabi Haifa
-Q328L: Raków Częstochowa vs. Maccabi Haifa
-Q329W: Rapid Wien vs. Dundee United
-Q329L: Rapid Wien vs. Dundee United
-Q330W: Larne FC vs. CD Santa Clara
-Q330L: Larne FC vs. CD Santa Clara
-PO01W: Crystal Palace vs. EURL2025Q304L
-PO01L: Crystal Palace vs. EURL2025Q304L
-PO02W: Racing Straßburg vs. Q324W
-PO02L: Racing Straßburg vs. Q324W
-PO03W: Q301W vs. Rayo Vallecano
-PO03L: Q301W vs. Rayo Vallecano
-PO04W: Q303W vs. 1. FSV Mainz 05
-PO04L: Q303W vs. 1. FSV Mainz 05
-PO05W: Q308W vs. Q326W
-PO05L: Q308W vs. Q326W
-PO06W: Q309W vs. Q329W
-PO06L: Q309W vs. Q329W
-PO07W: Q310W vs. Q322W
-PO07L: Q310W vs. Q322W
-PO08W: Q312W vs. EURL2025Q305L
-PO08L: Q312W vs. EURL2025Q305L
-PO09W: Q315W vs. Q311W
-PO09L: Q315W vs. Q311W
-PO10W: Q316W vs. AC Florenz
-PO10L: Q316W vs. AC Florenz
-PO11W: Q318W vs. Q314W
-PO11L: Q318W vs. Q314W
-PO12W: Q319W vs. Q304W
-PO12L: Q319W vs. Q304W
-PO13W: Q320W vs. Q325W
-PO13L: Q320W vs. Q325W
-PO14W: Q323W vs. Q307W
-PO14L: Q323W vs. Q307W
-PO15W: Q327W vs. EURL2025Q306L
-PO15L: Q327W vs. EURL2025Q306L
-PO16W: Q328W vs. Q306W
-PO16L: Q328W vs. Q306W
-PO17W: Q330W vs. Q321W
-PO17L: Q330W vs. Q321W
-PO18W: EURL2025Q301L vs. EURL2025Q302L
-PO18L: EURL2025Q301L vs. EURL2025Q302L
-PO19W: EURL2025Q303L vs. Q317W
-PO19L: EURL2025Q303L vs. Q317W
-PO20W: EURL2025Q308L vs. EURL2025Q307L
-PO20L: EURL2025Q308L vs. EURL2025Q307L
-PO21W: EURL2025Q309L vs. Q305W
-PO21L: EURL2025Q309L vs. Q305W
-PO22W: EURL2025Q310L vs. Q302W
-PO22L: EURL2025Q310L vs. Q302W
-PO23W: EURL2025Q311L vs. EURL2025Q312L
-PO23L: EURL2025Q311L vs. EURL2025Q312L
-PO24W: EURL2025Q313L vs. Q313W
-PO24L: EURL2025Q313L vs. Q313W
+Q301W: Njoman Hrodna
+Q301L: KÍ Klaksvík
+Q302W: SS Virtus
+Q302L: FC Milsami
+Q303W: Rosenborg Trondheim
+Q303L: Hammarby IF
+Q304W: AEK Athen
+Q304L: Aris Limassol
+Q305W: Omonia Nikosia
+Q305L: Araz-Nachitschewan PFK
+Q306W: Arda Kardschali
+Q306L: FK Kauno Zalgiris
+Q307W: Baník Ostrava
+Q307L: Austria Wien
+Q308W: Jagiellonia Bialystok
+Q308L: Silkeborg IF
+Q309W: Györi ETO
+Q309L: AIK Solna
+Q310W: Istanbul Basaksehir
+Q310L: Viking Stavanger
+Q311W: Riga FC
+Q311L: Beitar Jerusalem
+Q312W: Olimpija Ljubljana
+Q312L: KF Egnatia
+Q313W: FC Differdingen
+Q313L: Levadia Tallinn
+Q314W: AZ Alkmaar
+Q314L: FC Vaduz
+Q315W: Sparta Prag
+Q315L: FC Ararat-Armenia
+Q316W: Polissja Schytomyr
+Q316L: Paksi FC
+Q317W: Linfield FC
+Q317L: Víkingur Gøta
+Q318W: Lewski Sofia
+Q318L: Sabah FK
+Q319W: RSC Anderlecht
+Q319L: Sheriff Tiraspol
+Q320W: FC Lausanne-Sport
+Q320L: FK Astana
+Q321W: Shamrock Rovers
+Q321L: KF Ballkani
+Q322W: CSU Craiova
+Q322L: Spartak Trnava
+Q323W: NK Celje
+Q323L: FC Lugano
+Q324W: Brøndby IF
+Q324L: Víkingur Reykjavík
+Q325W: Besiktas Istanbul
+Q325L: St. Patrick's Athletic
+Q326W: Dinamo City
+Q326L: Hajduk Split
+Q327W: Hibernian Edinburgh
+Q327L: Partizan Belgrad
+Q328W: Raków Częstochowa
+Q328L: Maccabi Haifa
+Q329W: Rapid Wien
+Q329L: Dundee United
+Q330W: CD Santa Clara
+Q330L: Larne FC
+PO01W: Crystal Palace vs. Fredrikstad FK
+PO01L: Crystal Palace vs. Fredrikstad FK
+PO02W: Racing Straßburg vs. Brøndby IF
+PO02L: Racing Straßburg vs. Brøndby IF
+PO03W: Njoman Hrodna vs. Rayo Vallecano
+PO03L: Njoman Hrodna vs. Rayo Vallecano
+PO04W: Rosenborg Trondheim vs. 1. FSV Mainz 05
+PO04L: Rosenborg Trondheim vs. 1. FSV Mainz 05
+PO05W: Jagiellonia Bialystok vs. Dinamo City
+PO05L: Jagiellonia Bialystok vs. Dinamo City
+PO06W: Györi ETO vs. Rapid Wien
+PO06L: Györi ETO vs. Rapid Wien
+PO07W: Istanbul Basaksehir vs. CSU Craiova
+PO07L: Istanbul Basaksehir vs. CSU Craiova
+PO08W: Olimpija Ljubljana vs. Noah Erewan
+PO08L: Olimpija Ljubljana vs. Noah Erewan
+PO09W: Sparta Prag vs. Riga FC
+PO09L: Sparta Prag vs. Riga FC
+PO10W: Polissja Schytomyr vs. AC Florenz
+PO10L: Polissja Schytomyr vs. AC Florenz
+PO11W: Lewski Sofia vs. AZ Alkmaar
+PO11L: Lewski Sofia vs. AZ Alkmaar
+PO12W: RSC Anderlecht vs. AEK Athen
+PO12L: RSC Anderlecht vs. AEK Athen
+PO13W: FC Lausanne-Sport vs. Besiktas Istanbul
+PO13L: FC Lausanne-Sport vs. Besiktas Istanbul
+PO14W: NK Celje vs. Baník Ostrava
+PO14L: NK Celje vs. Baník Ostrava
+PO15W: Hibernian Edinburgh vs. Legia Warschau
+PO15L: Hibernian Edinburgh vs. Legia Warschau
+PO16W: Raków Częstochowa vs. Arda Kardschali
+PO16L: Raków Częstochowa vs. Arda Kardschali
+PO17W: CD Santa Clara vs. Shamrock Rovers
+PO17L: CD Santa Clara vs. Shamrock Rovers
+PO18W: Hamrun Spartans vs. FK Rigas FS
+PO18L: Hamrun Spartans vs. FK Rigas FS
+PO19W: Shelbourne FC vs. Linfield FC
+PO19L: Shelbourne FC vs. Linfield FC
+PO20W: BK Häcken vs. CFR Cluj
+PO20L: BK Häcken vs. CFR Cluj
+PO21W: Wolfsberger AC vs. Omonia Nikosia
+PO21L: Wolfsberger AC vs. Omonia Nikosia
+PO22W: Breiðablik Kópavogur vs. SS Virtus
+PO22L: Breiðablik Kópavogur vs. SS Virtus
+PO23W: Schachtar Donezk vs. Servette Genf
+PO23L: Schachtar Donezk vs. Servette Genf
+PO24W: KF Drita vs. FC Differdingen
+PO24L: KF Drita vs. FC Differdingen
