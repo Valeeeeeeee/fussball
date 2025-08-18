@@ -206,51 +206,51 @@ Q329W: Rapid Wien
 Q329L: Dundee United
 Q330W: CD Santa Clara
 Q330L: Larne FC
-PO01W: Crystal Palace vs. Fredrikstad FK
-PO01L: Crystal Palace vs. Fredrikstad FK
-PO02W: Racing Straßburg vs. Brøndby IF
-PO02L: Racing Straßburg vs. Brøndby IF
-PO03W: Njoman Hrodna vs. Rayo Vallecano
-PO03L: Njoman Hrodna vs. Rayo Vallecano
-PO04W: Rosenborg Trondheim vs. 1. FSV Mainz 05
-PO04L: Rosenborg Trondheim vs. 1. FSV Mainz 05
-PO05W: Jagiellonia Bialystok vs. Dinamo City
-PO05L: Jagiellonia Bialystok vs. Dinamo City
-PO06W: Györi ETO vs. Rapid Wien
-PO06L: Györi ETO vs. Rapid Wien
-PO07W: Istanbul Basaksehir vs. CSU Craiova
-PO07L: Istanbul Basaksehir vs. CSU Craiova
-PO08W: Olimpija Ljubljana vs. Noah Erewan
-PO08L: Olimpija Ljubljana vs. Noah Erewan
-PO09W: Sparta Prag vs. Riga FC
-PO09L: Sparta Prag vs. Riga FC
-PO10W: Polissja Schytomyr vs. AC Florenz
-PO10L: Polissja Schytomyr vs. AC Florenz
-PO11W: Lewski Sofia vs. AZ Alkmaar
-PO11L: Lewski Sofia vs. AZ Alkmaar
-PO12W: RSC Anderlecht vs. AEK Athen
-PO12L: RSC Anderlecht vs. AEK Athen
-PO13W: FC Lausanne-Sport vs. Besiktas Istanbul
-PO13L: FC Lausanne-Sport vs. Besiktas Istanbul
+PO01W: Rosenborg Trondheim vs. 1. FSV Mainz 05
+PO01L: Rosenborg Trondheim vs. 1. FSV Mainz 05
+PO02W: Györi ETO vs. Rapid Wien
+PO02L: Györi ETO vs. Rapid Wien
+PO03W: Hamrun Spartans vs. FK Rigas FS
+PO03L: Hamrun Spartans vs. FK Rigas FS
+PO04W: BK Häcken vs. CFR Cluj
+PO04L: BK Häcken vs. CFR Cluj
+PO05W: Wolfsberger AC vs. Omonia Nikosia
+PO05L: Wolfsberger AC vs. Omonia Nikosia
+PO06W: Istanbul Basaksehir vs. CSU Craiova
+PO06L: Istanbul Basaksehir vs. CSU Craiova
+PO07W: Racing Straßburg vs. Brøndby IF
+PO07L: Racing Straßburg vs. Brøndby IF
+PO08W: Njoman Hrodna vs. Rayo Vallecano
+PO08L: Njoman Hrodna vs. Rayo Vallecano
+PO09W: Olimpija Ljubljana vs. Noah Erewan
+PO09L: Olimpija Ljubljana vs. Noah Erewan
+PO10W: Sparta Prag vs. Riga FC
+PO10L: Sparta Prag vs. Riga FC
+PO11W: Polissja Schytomyr vs. AC Florenz
+PO11L: Polissja Schytomyr vs. AC Florenz
+PO12W: Lewski Sofia vs. AZ Alkmaar
+PO12L: Lewski Sofia vs. AZ Alkmaar
+PO13W: RSC Anderlecht vs. AEK Athen
+PO13L: RSC Anderlecht vs. AEK Athen
 PO14W: NK Celje vs. Baník Ostrava
 PO14L: NK Celje vs. Baník Ostrava
-PO15W: Hibernian Edinburgh vs. Legia Warschau
-PO15L: Hibernian Edinburgh vs. Legia Warschau
-PO16W: Raków Częstochowa vs. Arda Kardschali
-PO16L: Raków Częstochowa vs. Arda Kardschali
-PO17W: CD Santa Clara vs. Shamrock Rovers
-PO17L: CD Santa Clara vs. Shamrock Rovers
-PO18W: Hamrun Spartans vs. FK Rigas FS
-PO18L: Hamrun Spartans vs. FK Rigas FS
-PO19W: Shelbourne FC vs. Linfield FC
-PO19L: Shelbourne FC vs. Linfield FC
-PO20W: BK Häcken vs. CFR Cluj
-PO20L: BK Häcken vs. CFR Cluj
-PO21W: Wolfsberger AC vs. Omonia Nikosia
-PO21L: Wolfsberger AC vs. Omonia Nikosia
-PO22W: Breiðablik Kópavogur vs. SS Virtus
-PO22L: Breiðablik Kópavogur vs. SS Virtus
-PO23W: Schachtar Donezk vs. Servette Genf
-PO23L: Schachtar Donezk vs. Servette Genf
-PO24W: KF Drita vs. FC Differdingen
-PO24L: KF Drita vs. FC Differdingen
+PO15W: Breiðablik Kópavogur vs. SS Virtus
+PO15L: Breiðablik Kópavogur vs. SS Virtus
+PO16W: Schachtar Donezk vs. Servette Genf
+PO16L: Schachtar Donezk vs. Servette Genf
+PO17W: KF Drita vs. FC Differdingen
+PO17L: KF Drita vs. FC Differdingen
+PO18W: Jagiellonia Bialystok vs. Dinamo City
+PO18L: Jagiellonia Bialystok vs. Dinamo City
+PO19W: FC Lausanne-Sport vs. Besiktas Istanbul
+PO19L: FC Lausanne-Sport vs. Besiktas Istanbul
+PO20W: Shelbourne FC vs. Linfield FC
+PO20L: Shelbourne FC vs. Linfield FC
+PO21W: Crystal Palace vs. Fredrikstad FK
+PO21L: Crystal Palace vs. Fredrikstad FK
+PO22W: Hibernian Edinburgh vs. Legia Warschau
+PO22L: Hibernian Edinburgh vs. Legia Warschau
+PO23W: Raków Częstochowa vs. Arda Kardschali
+PO23L: Raków Częstochowa vs. Arda Kardschali
+PO24W: CD Santa Clara vs. Shamrock Rovers
+PO24L: CD Santa Clara vs. Shamrock Rovers
