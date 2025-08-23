@@ -2703,6 +2703,7 @@
 30966039;Andriy;Lunin;null;19990211;Ukraine;
 30966171;'Xabi'er;Alonso Olano;null;19811125;Spanien;
 30966250;Giorgi;Mamardashvili;null;20000929;Georgien;
+30970045;Kacper;Koscierski;null;20070623;Deutschland, Polen;
 30970686;Kristijan;Jakic;null;19970514;Kroatien;
 30970857;Keanan;Bennetts;null;19990309;England, Deutschland;
 30971052;Mateo;Retegui;null;19990429;Italien, Argentinien;
