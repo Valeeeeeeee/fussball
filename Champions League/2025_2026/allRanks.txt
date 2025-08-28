@@ -76,17 +76,17 @@ Q309W: Fenerbahce Istanbul
 Q309L: Feyenoord Rotterdam
 Q310W: Benfica Lissabon
 Q310L: OGC Nizza
-PO01W: Glasgow Rangers vs. FC Brügge
-PO01L: Glasgow Rangers vs. FC Brügge
-PO02W: Ferencváros Budapest vs. Qarabag Agdam
-PO02L: Ferencváros Budapest vs. Qarabag Agdam
-PO03W: Roter Stern Belgrad vs. FC Pafos
-PO03L: Roter Stern Belgrad vs. FC Pafos
-PO04W: Celtic Glasgow vs. Qairat Almaty
-PO04L: Celtic Glasgow vs. Qairat Almaty
-PO05W: FC Basel vs. FC Kopenhagen
-PO05L: FC Basel vs. FC Kopenhagen
-PO06W: FK Bodø/Glimt vs. Sturm Graz
-PO06L: FK Bodø/Glimt vs. Sturm Graz
-PO07W: Fenerbahce Istanbul vs. Benfica Lissabon
-PO07L: Fenerbahce Istanbul vs. Benfica Lissabon
+PO01W: FC Brügge
+PO01L: Glasgow Rangers
+PO02W: Qarabag Agdam
+PO02L: Ferencváros Budapest
+PO03W: FC Pafos
+PO03L: Roter Stern Belgrad
+PO04W: Qairat Almaty
+PO04L: Celtic Glasgow
+PO05W: FC Kopenhagen
+PO05L: FC Basel
+PO06W: FK Bodø/Glimt
+PO06L: Sturm Graz
+PO07W: Benfica Lissabon
+PO07L: Fenerbahce Istanbul

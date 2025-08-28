@@ -56,27 +56,27 @@ Q312W: FC Utrecht
 Q312L: Servette Genf
 Q313W: Steaua Bukarest
 Q313L: KF Drita
-PO01W: FC Midtjylland vs. Kuopion PS
-PO01L: FC Midtjylland vs. Kuopion PS
-PO02W: Brann Bergen vs. AEK Larnaka
-PO02L: Brann Bergen vs. AEK Larnaka
-PO03W: Malmö FF vs. Sigma Olmütz
-PO03L: Malmö FF vs. Sigma Olmütz
-PO04W: Maccabi Tel Aviv vs. Dynamo Kiew
-PO04L: Maccabi Tel Aviv vs. Dynamo Kiew
-PO05W: Zrinjski Mostar vs. FC Utrecht
-PO05L: Zrinjski Mostar vs. FC Utrecht
-PO06W: Panathinaikos Athen vs. Samsunspor
-PO06L: Panathinaikos Athen vs. Samsunspor
-PO07W: KF Shkëndija vs. Ludogorez Rasgrad
-PO07L: KF Shkëndija vs. Ludogorez Rasgrad
-PO08W: Slovan Bratislava vs. Young Boys Bern
-PO08L: Slovan Bratislava vs. Young Boys Bern
-PO09W: Lech Posen vs. KRC Genk
-PO09L: Lech Posen vs. KRC Genk
-PO10W: FC Aberdeen vs. Steaua Bukarest
-PO10L: FC Aberdeen vs. Steaua Bukarest
-PO11W: HNK Rijeka vs. PAOK Thessaloniki
-PO11L: HNK Rijeka vs. PAOK Thessaloniki
-PO12W: Lincoln Red Imps FC vs. Sporting Braga
-PO12L: Lincoln Red Imps FC vs. Sporting Braga
+PO01W: FC Midtjylland
+PO01L: Kuopion PS
+PO02W: Brann Bergen
+PO02L: AEK Larnaka
+PO03W: Malmö FF
+PO03L: Sigma Olmütz
+PO04W: Maccabi Tel Aviv
+PO04L: Dynamo Kiew
+PO05W: FC Utrecht
+PO05L: Zrinjski Mostar
+PO06W: Panathinaikos Athen
+PO06L: Samsunspor
+PO07W: Ludogorez Rasgrad
+PO07L: KF Shkëndija
+PO08W: Young Boys Bern
+PO08L: Slovan Bratislava
+PO09W: KRC Genk
+PO09L: Lech Posen
+PO10W: Steaua Bukarest
+PO10L: FC Aberdeen
+PO11W: PAOK Thessaloniki
+PO11L: HNK Rijeka
+PO12W: Sporting Braga
+PO12L: Lincoln Red Imps FC

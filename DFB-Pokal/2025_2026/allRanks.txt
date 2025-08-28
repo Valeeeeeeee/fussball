@@ -58,10 +58,10 @@
 1R29L: 1. FC Schweinfurt 05
 1R30W: Borussia Dortmund
 1R30L: Rot-Weiss Essen
-1R31W: Eintracht Braunschweig vs. VfB Stuttgart
-1R31L: Eintracht Braunschweig vs. VfB Stuttgart
-1R32W: SV Wehen Wiesbaden vs. Bayern München
-1R32L: SV Wehen Wiesbaden vs. Bayern München
+1R31W: VfB Stuttgart
+1R31L: Eintracht Braunschweig
+1R32W: Bayern München
+1R32L: SV Wehen Wiesbaden
 2R01W: DPOK20252R01W
 2R01L: DPOK20252R01L
 2R02W: DPOK20252R02W

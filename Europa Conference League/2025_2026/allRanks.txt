@@ -206,51 +206,51 @@ Q329W: Rapid Wien
 Q329L: Dundee United
 Q330W: CD Santa Clara
 Q330L: Larne FC
-PO01W: Rosenborg Trondheim vs. 1. FSV Mainz 05
-PO01L: Rosenborg Trondheim vs. 1. FSV Mainz 05
-PO02W: Györi ETO vs. Rapid Wien
-PO02L: Györi ETO vs. Rapid Wien
-PO03W: Hamrun Spartans vs. FK Rigas FS
-PO03L: Hamrun Spartans vs. FK Rigas FS
-PO04W: BK Häcken vs. CFR Cluj
-PO04L: BK Häcken vs. CFR Cluj
-PO05W: Wolfsberger AC vs. Omonia Nikosia
-PO05L: Wolfsberger AC vs. Omonia Nikosia
-PO06W: Istanbul Basaksehir vs. CSU Craiova
-PO06L: Istanbul Basaksehir vs. CSU Craiova
-PO07W: Racing Straßburg vs. Brøndby IF
-PO07L: Racing Straßburg vs. Brøndby IF
-PO08W: Njoman Hrodna vs. Rayo Vallecano
-PO08L: Njoman Hrodna vs. Rayo Vallecano
-PO09W: Olimpija Ljubljana vs. Noah Erewan
-PO09L: Olimpija Ljubljana vs. Noah Erewan
-PO10W: Sparta Prag vs. Riga FC
-PO10L: Sparta Prag vs. Riga FC
-PO11W: Polissja Schytomyr vs. AC Florenz
-PO11L: Polissja Schytomyr vs. AC Florenz
-PO12W: Lewski Sofia vs. AZ Alkmaar
-PO12L: Lewski Sofia vs. AZ Alkmaar
-PO13W: RSC Anderlecht vs. AEK Athen
-PO13L: RSC Anderlecht vs. AEK Athen
-PO14W: NK Celje vs. Baník Ostrava
-PO14L: NK Celje vs. Baník Ostrava
-PO15W: Breiðablik Kópavogur vs. SS Virtus
-PO15L: Breiðablik Kópavogur vs. SS Virtus
-PO16W: Schachtar Donezk vs. Servette Genf
-PO16L: Schachtar Donezk vs. Servette Genf
-PO17W: KF Drita vs. FC Differdingen
-PO17L: KF Drita vs. FC Differdingen
-PO18W: Jagiellonia Bialystok vs. Dinamo City
-PO18L: Jagiellonia Bialystok vs. Dinamo City
-PO19W: FC Lausanne-Sport vs. Besiktas Istanbul
-PO19L: FC Lausanne-Sport vs. Besiktas Istanbul
-PO20W: Shelbourne FC vs. Linfield FC
-PO20L: Shelbourne FC vs. Linfield FC
-PO21W: Crystal Palace vs. Fredrikstad FK
-PO21L: Crystal Palace vs. Fredrikstad FK
-PO22W: Hibernian Edinburgh vs. Legia Warschau
-PO22L: Hibernian Edinburgh vs. Legia Warschau
-PO23W: Raków Częstochowa vs. Arda Kardschali
-PO23L: Raków Częstochowa vs. Arda Kardschali
-PO24W: CD Santa Clara vs. Shamrock Rovers
-PO24L: CD Santa Clara vs. Shamrock Rovers
+PO01W: 1. FSV Mainz 05
+PO01L: Rosenborg Trondheim
+PO02W: Rapid Wien
+PO02L: Györi ETO
+PO03W: Hamrun Spartans
+PO03L: FK Rigas FS
+PO04W: BK Häcken
+PO04L: CFR Cluj
+PO05W: Omonia Nikosia
+PO05L: Wolfsberger AC
+PO06W: CSU Craiova
+PO06L: Istanbul Basaksehir
+PO07W: Racing Straßburg
+PO07L: Brøndby IF
+PO08W: Rayo Vallecano
+PO08L: Njoman Hrodna
+PO09W: Noah Erewan
+PO09L: Olimpija Ljubljana
+PO10W: Sparta Prag
+PO10L: Riga FC
+PO11W: AC Florenz
+PO11L: Polissja Schytomyr
+PO12W: AZ Alkmaar
+PO12L: Lewski Sofia
+PO13W: AEK Athen
+PO13L: RSC Anderlecht
+PO14W: NK Celje
+PO14L: Baník Ostrava
+PO15W: Breiðablik Kópavogur
+PO15L: SS Virtus
+PO16W: Schachtar Donezk
+PO16L: Servette Genf
+PO17W: KF Drita
+PO17L: FC Differdingen
+PO18W: Jagiellonia Bialystok
+PO18L: Dinamo City
+PO19W: FC Lausanne-Sport
+PO19L: Besiktas Istanbul
+PO20W: Shelbourne FC
+PO20L: Linfield FC
+PO21W: Crystal Palace
+PO21L: Fredrikstad FK
+PO22W: Legia Warschau
+PO22L: Hibernian Edinburgh
+PO23W: Raków Częstochowa
+PO23L: Arda Kardschali
+PO24W: Shamrock Rovers
+PO24L: CD Santa Clara
