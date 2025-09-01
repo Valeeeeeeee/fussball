@@ -62,38 +62,38 @@
 1R31L: Eintracht Braunschweig
 1R32W: Bayern München
 1R32L: SV Wehen Wiesbaden
-2R01W: DPOK20252R01W
-2R01L: DPOK20252R01L
-2R02W: DPOK20252R02W
-2R02L: DPOK20252R02L
-2R03W: DPOK20252R03W
-2R03L: DPOK20252R03L
-2R04W: DPOK20252R04W
-2R04L: DPOK20252R04L
-2R05W: DPOK20252R05W
-2R05L: DPOK20252R05L
-2R06W: DPOK20252R06W
-2R06L: DPOK20252R06L
-2R07W: DPOK20252R07W
-2R07L: DPOK20252R07L
-2R08W: DPOK20252R08W
-2R08L: DPOK20252R08L
-2R09W: DPOK20252R09W
-2R09L: DPOK20252R09L
-2R10W: DPOK20252R10W
-2R10L: DPOK20252R10L
-2R11W: DPOK20252R11W
-2R11L: DPOK20252R11L
-2R12W: DPOK20252R12W
-2R12L: DPOK20252R12L
-2R13W: DPOK20252R13W
-2R13L: DPOK20252R13L
-2R14W: DPOK20252R14W
-2R14L: DPOK20252R14L
-2R15W: DPOK20252R15W
-2R15L: DPOK20252R15L
-2R16W: DPOK20252R16W
-2R16L: DPOK20252R16L
+2R01W: 1. FC Union Berlin vs. Arminia Bielefeld
+2R01L: 1. FC Union Berlin vs. Arminia Bielefeld
+2R02W: FV Illertissen vs. 1. FC Magdeburg
+2R02L: FV Illertissen vs. 1. FC Magdeburg
+2R03W: VfL Wolfsburg vs. Holstein Kiel
+2R03L: VfL Wolfsburg vs. Holstein Kiel
+2R04W: FC St. Pauli vs. TSG 1899 Hoffenheim
+2R04L: FC St. Pauli vs. TSG 1899 Hoffenheim
+2R05W: 1. FC Heidenheim vs. Hamburger SV
+2R05L: 1. FC Heidenheim vs. Hamburger SV
+2R06W: FC Energie Cottbus vs. RasenBallsport Leipzig
+2R06L: FC Energie Cottbus vs. RasenBallsport Leipzig
+2R07W: SV Darmstadt 98 vs. FC Schalke 04
+2R07L: SV Darmstadt 98 vs. FC Schalke 04
+2R08W: SC Paderborn vs. Bayer 04 Leverkusen
+2R08L: SC Paderborn vs. Bayer 04 Leverkusen
+2R09W: Eintracht Frankfurt vs. Borussia Dortmund
+2R09L: Eintracht Frankfurt vs. Borussia Dortmund
+2R10W: 1. FC Köln vs. Bayern München
+2R10L: 1. FC Köln vs. Bayern München
+2R11W: SpVgg Greuther Fürth vs. 1. FC Kaiserslautern
+2R11L: SpVgg Greuther Fürth vs. 1. FC Kaiserslautern
+2R12W: Borussia Mönchengladbach vs. Karlsruher SC
+2R12L: Borussia Mönchengladbach vs. Karlsruher SC
+2R13W: FC Augsburg vs. VfL Bochum
+2R13L: FC Augsburg vs. VfL Bochum
+2R14W: Hertha BSC vs. SV Elversberg
+2R14L: Hertha BSC vs. SV Elversberg
+2R15W: 1. FSV Mainz 05 vs. VfB Stuttgart
+2R15L: 1. FSV Mainz 05 vs. VfB Stuttgart
+2R16W: Fortuna Düsseldorf vs. SC Freiburg
+2R16L: Fortuna Düsseldorf vs. SC Freiburg
 AF01W: DPOK2025AF01W
 AF01L: DPOK2025AF01L
 AF02W: DPOK2025AF02W
