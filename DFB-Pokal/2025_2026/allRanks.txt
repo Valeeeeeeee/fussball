@@ -62,38 +62,38 @@
 1R31L: Eintracht Braunschweig
 1R32W: Bayern München
 1R32L: SV Wehen Wiesbaden
-2R01W: VfL Wolfsburg vs. Holstein Kiel
-2R01L: VfL Wolfsburg vs. Holstein Kiel
-2R02W: 1. FC Heidenheim vs. Hamburger SV
-2R02L: 1. FC Heidenheim vs. Hamburger SV
-2R03W: Eintracht Frankfurt vs. Borussia Dortmund
-2R03L: Eintracht Frankfurt vs. Borussia Dortmund
-2R04W: Hertha BSC vs. SV Elversberg
-2R04L: Hertha BSC vs. SV Elversberg
-2R05W: FC St. Pauli vs. TSG 1899 Hoffenheim
-2R05L: FC St. Pauli vs. TSG 1899 Hoffenheim
-2R06W: FC Energie Cottbus vs. RasenBallsport Leipzig
-2R06L: FC Energie Cottbus vs. RasenBallsport Leipzig
-2R07W: Borussia Mönchengladbach vs. Karlsruher SC
-2R07L: Borussia Mönchengladbach vs. Karlsruher SC
-2R08W: FC Augsburg vs. VfL Bochum
-2R08L: FC Augsburg vs. VfL Bochum
-2R09W: FV Illertissen vs. 1. FC Magdeburg
-2R09L: FV Illertissen vs. 1. FC Magdeburg
-2R10W: SC Paderborn vs. Bayer 04 Leverkusen
-2R10L: SC Paderborn vs. Bayer 04 Leverkusen
-2R11W: SpVgg Greuther Fürth vs. 1. FC Kaiserslautern
-2R11L: SpVgg Greuther Fürth vs. 1. FC Kaiserslautern
-2R12W: 1. FSV Mainz 05 vs. VfB Stuttgart
-2R12L: 1. FSV Mainz 05 vs. VfB Stuttgart
-2R13W: 1. FC Union Berlin vs. Arminia Bielefeld
-2R13L: 1. FC Union Berlin vs. Arminia Bielefeld
-2R14W: SV Darmstadt 98 vs. FC Schalke 04
-2R14L: SV Darmstadt 98 vs. FC Schalke 04
-2R15W: 1. FC Köln vs. Bayern München
-2R15L: 1. FC Köln vs. Bayern München
-2R16W: Fortuna Düsseldorf vs. SC Freiburg
-2R16L: Fortuna Düsseldorf vs. SC Freiburg
+2R01W: Holstein Kiel
+2R01L: VfL Wolfsburg
+2R02W: Hamburger SV
+2R02L: 1. FC Heidenheim
+2R03W: Borussia Dortmund
+2R03L: Eintracht Frankfurt
+2R04W: Hertha BSC
+2R04L: SV Elversberg
+2R05W: FC St. Pauli
+2R05L: TSG 1899 Hoffenheim
+2R06W: RasenBallsport Leipzig
+2R06L: FC Energie Cottbus
+2R07W: Borussia Mönchengladbach
+2R07L: Karlsruher SC
+2R08W: VfL Bochum
+2R08L: FC Augsburg
+2R09W: 1. FC Magdeburg
+2R09L: FV Illertissen
+2R10W: Bayer 04 Leverkusen
+2R10L: SC Paderborn
+2R11W: 1. FC Kaiserslautern
+2R11L: SpVgg Greuther Fürth
+2R12W: VfB Stuttgart
+2R12L: 1. FSV Mainz 05
+2R13W: 1. FC Union Berlin
+2R13L: Arminia Bielefeld
+2R14W: SV Darmstadt 98
+2R14L: FC Schalke 04
+2R15W: Bayern München
+2R15L: 1. FC Köln
+2R16W: SC Freiburg
+2R16L: Fortuna Düsseldorf
 AF01W: DPOK2025AF01W
 AF01L: DPOK2025AF01L
 AF02W: DPOK2025AF02W
