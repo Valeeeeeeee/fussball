@@ -94,22 +94,22 @@
 2R15L: 1. FC Köln
 2R16W: SC Freiburg
 2R16L: Fortuna Düsseldorf
-AF01W: Hamburger SV vs. Holstein Kiel
-AF01L: Hamburger SV vs. Holstein Kiel
-AF02W: Borussia Dortmund vs. Bayer 04 Leverkusen
-AF02L: Borussia Dortmund vs. Bayer 04 Leverkusen
-AF03W: Hertha BSC vs. 1. FC Kaiserslautern
-AF03L: Hertha BSC vs. 1. FC Kaiserslautern
+AF01W: Hertha BSC vs. 1. FC Kaiserslautern
+AF01L: Hertha BSC vs. 1. FC Kaiserslautern
+AF02W: Borussia Mönchengladbach vs. FC St. Pauli
+AF02L: Borussia Mönchengladbach vs. FC St. Pauli
+AF03W: Borussia Dortmund vs. Bayer 04 Leverkusen
+AF03L: Borussia Dortmund vs. Bayer 04 Leverkusen
 AF04W: RasenBallsport Leipzig vs. 1. FC Magdeburg
 AF04L: RasenBallsport Leipzig vs. 1. FC Magdeburg
-AF05W: Borussia Mönchengladbach vs. FC St. Pauli
-AF05L: Borussia Mönchengladbach vs. FC St. Pauli
-AF06W: VfL Bochum vs. VfB Stuttgart
-AF06L: VfL Bochum vs. VfB Stuttgart
-AF07W: 1. FC Union Berlin vs. Bayern München
-AF07L: 1. FC Union Berlin vs. Bayern München
-AF08W: SC Freiburg vs. SV Darmstadt 98
-AF08L: SC Freiburg vs. SV Darmstadt 98
+AF05W: VfL Bochum vs. VfB Stuttgart
+AF05L: VfL Bochum vs. VfB Stuttgart
+AF06W: SC Freiburg vs. SV Darmstadt 98
+AF06L: SC Freiburg vs. SV Darmstadt 98
+AF07W: Hamburger SV vs. Holstein Kiel
+AF07L: Hamburger SV vs. Holstein Kiel
+AF08W: 1. FC Union Berlin vs. Bayern München
+AF08L: 1. FC Union Berlin vs. Bayern München
 VF01W: DPOK2025VF01W
 VF01L: DPOK2025VF01L
 VF02W: DPOK2025VF02W
