@@ -37,6 +37,7 @@ public class MyDateChooser extends JFrame {
 	
 	private boolean userCanMakeChanges = false;
 
+	private boolean returnImmediately;
 	private Datum defaultDate;
 	private Uhrzeit defaultTime;
 	private Datum date;
@@ -299,11 +300,13 @@ public class MyDateChooser extends JFrame {
 	private void getDefaultDateAndTime() {
 		try {
 			ArrayList<String> dateAndTime = readFile("DefaultDate.txt");
+			returnImmediately = Boolean.parseBoolean(dateAndTime.remove(0));
 			defaultDate = new Datum(dateAndTime.remove(0));
 			defaultTime = new Uhrzeit(dateAndTime.remove(0));
 		} catch (Exception e) {
 			defaultDate = new Datum();
 			defaultTime = MIDNIGHT;
+			returnImmediately = false;
 		}
 	}
 	
@@ -340,9 +343,12 @@ public class MyDateChooser extends JFrame {
 			
 			this.date = defaultDate;
 			this.time = defaultTime;
-			returnTournamentStyle();
-			
-			jCBHour.requestFocus();
+			if (returnImmediately) {
+				returnTournamentStyle();
+				jCBHour.requestFocus();
+			} else {
+				jCBMinute.requestFocus();
+			}
 		}
 	}
 	
