@@ -753,7 +753,7 @@ public class Spieltag extends JPanel {
 				groupID++;
 			}
 			Gruppe group = allGroups[groupID];
-			group.setResult(currentMatchday, matchIndex, result);
+			group.setResultOV(currentMatchday, matchIndex, result);
 		} else {
 			competition.setResult(currentMatchday, index, result);
 		}
@@ -821,11 +821,11 @@ public class Spieltag extends JPanel {
 			int groupID = 0, matchIndex = 0;
 			for (int i = 0; i < numberOfMatches; i++) {
 				Gruppe group = allGroups[groupID];
-				boolean editable = group.isMatchSet(currentMatchday, matchIndex);
+				boolean editable = group.isMatchSetOV(currentMatchday, matchIndex);
 				if (editable) {
-					if (!group.isResultSet(currentMatchday, matchIndex)) {
+					if (!group.isResultSetOV(currentMatchday, matchIndex)) {
 						if (indexOfFocusedMatch == UNDEFINED || newOrder[i] < indexOfFocusedMatch)	indexOfFocusedMatch = newOrder[i];
-					} else if (group.getResult(currentMatchday, matchIndex).isCancelled()) {
+					} else if (group.getResultOV(currentMatchday, matchIndex).isCancelled()) {
 						editable = false;
 					}
 				}
@@ -865,7 +865,7 @@ public class Spieltag extends JPanel {
 		String[] dateandtimeofmatches = new String[numberOfMatches];
 		int groupID = 0, matchIndex = 0;
 		for (int i = 0; i < numberOfMatches; i++) {
-			dateandtimeofmatches[i] = allGroups[groupID].getDateAndTime(currentMatchday, matchIndex);
+			dateandtimeofmatches[i] = allGroups[groupID].getDateAndTimeOV(currentMatchday, matchIndex);
 			jLblsDates[i].setText(dateandtimeofmatches[i]);
 			
 			matchIndex++;
@@ -889,7 +889,7 @@ public class Spieltag extends JPanel {
 			else if (belongsToGroup)	dateandtimeofmatches[i] = group.getDateAndTime(currentMatchday, i);
 			else if (belongsToKORound)	dateandtimeofmatches[i] = koRound.getDateAndTime(currentMatchday, i);
 			else {
-				dateandtimeofmatches[i] = allGroups[groupID].getDateAndTime(currentMatchday, matchIndex);
+				dateandtimeofmatches[i] = allGroups[groupID].getDateAndTimeOV(currentMatchday, matchIndex);
 				
 				matchIndex++;
 				if (matchIndex == numbersOfMatches[groupID]) {
@@ -959,7 +959,7 @@ public class Spieltag extends JPanel {
 					groupID++;
 				}
 				
-				match = allGroups[groupID].getMatch(editedMatchday, matchIndex);
+				match = allGroups[groupID].getMatchOV(editedMatchday, matchIndex);
 			}
 			
 			if (match != null) {
@@ -1025,18 +1025,22 @@ public class Spieltag extends JPanel {
 			if (belongsToKORound)	koRound.setCheckTeamsFromPreviousRound(false);
 			int groupID = 0, matchIndex = 0, offset = 0, home, away;
 			for (int aggrMatchIndex = 0; aggrMatchIndex < array.length; aggrMatchIndex++) {
-				if (isOverview)	competition = allGroups[groupID];
+				int matchdayInCompetition = editedMatchday;
+				if (isOverview)	{
+					competition = allGroups[groupID];
+					matchdayInCompetition -= allGroups[groupID].getSkipFirstXMatchdaysInOverview();
+				}
 				Spiel match = null, other;
 				
-				other = competition.getMatch(editedMatchday, matchIndex);
+				other = competition.getMatch(matchdayInCompetition, matchIndex);
 				
 				if ((home = array[aggrMatchIndex][0]) != -1 && (away = array[aggrMatchIndex][1]) != -1) {
-					match = new Spiel(competition, editedMatchday, competition.getKickOffTime(editedMatchday, matchIndex), home - offset, away - offset);
+					match = new Spiel(competition, matchdayInCompetition, competition.getKickOffTime(matchdayInCompetition, matchIndex), home - offset, away - offset);
 				}
 				
 				if (match != null && match.sameAs(other))	match = other;
 				
-				competition.setMatch(editedMatchday, matchIndex, match);
+				competition.setMatch(matchdayInCompetition, matchIndex, match);
 				
 				matchIndex++;
 				if (isOverview && matchIndex == numbersOfMatches[groupID]) {
@@ -1080,7 +1084,7 @@ public class Spieltag extends JPanel {
 		
 		if (isOverview) {
 			for (Gruppe group : allGroups) {
-				group.resetMatchday(currentMatchday);
+				group.resetMatchdayOV(currentMatchday);
 			}
 		} else {
 //			competition.resetMatchday(currentMatchday);
@@ -1255,7 +1259,7 @@ public class Spieltag extends JPanel {
 				Gruppe group = allGroups[groupID];
 				jLblsGroups[newOrder[aggrMatchIndex]].setText(("" + alphabet[groupID]).toUpperCase());
 				
-				displayMatchInfo(newOrder[aggrMatchIndex], group.getMatch(currentMatchday, matchIndex), aggrMatchIndex);
+				displayMatchInfo(newOrder[aggrMatchIndex], group.getMatchOV(currentMatchday, matchIndex), aggrMatchIndex);
 				
 				matchIndex++;
 				if (matchIndex == numbersOfMatches[groupID]) {
@@ -1376,8 +1380,8 @@ public class Spieltag extends JPanel {
 			MyDateChooser mdc = new MyDateChooser(group, this);
 			mdc.setLocationRelativeTo(null);
 			mdc.setVisible(true);
-			mdc.setKickOffTime(group.getKickOffTime(currentMatchday, matchIndex));
-			mdc.setMatch(group, currentMatchday, matchIndex);
+			mdc.setKickOffTime(group.getKickOffTimeOV(currentMatchday, matchIndex));
+			mdc.setMatch(group, currentMatchday - group.getSkipFirstXMatchdaysInOverview(), matchIndex);
 
 			Fussball.getInstance().toFront();
 			mdc.toFront();
@@ -1405,7 +1409,7 @@ public class Spieltag extends JPanel {
 			}
 			
 			Gruppe group = allGroups[groupID];
-			group.setRelativeKickOffTime(currentMatchday, matchIndex, relativeKickOffTime);
+			group.setRelativeKickOffTimeOV(currentMatchday, matchIndex, relativeKickOffTime);
 		}
 		dateChooserClosed();
 		safelyShowMatchday();
@@ -1440,6 +1444,7 @@ public class Spieltag extends JPanel {
 	private void jBtnsMatchInfosClicked(int index) {
 		int offset = 0;
 		int matchIndex = index;
+		int matchday = currentMatchday;
 		
 		if (isOverview) {
 			for (Gruppe group : allGroups) {
@@ -1447,16 +1452,17 @@ public class Spieltag extends JPanel {
 				if ((offset += nOMatches) > oldOrder[index]) {
 					matchIndex = oldOrder[index] - offset + nOMatches;
 					competition = group;
+					matchday -= group.getSkipFirstXMatchdaysInOverview();
 					break;
 				}
 			}
 		}
 		
-		if (!competition.isMatchSet(currentMatchday, matchIndex)) {
+		if (!competition.isMatchSet(matchday, matchIndex)) {
 			return;
 		}
 		
-		SpielInformationen matchInformation = new SpielInformationen(this, index, competition.getMatch(currentMatchday, matchIndex));
+		SpielInformationen matchInformation = new SpielInformationen(this, index, competition.getMatch(matchday, matchIndex));
 		matchInformation.setLocationRelativeTo(null);
 		matchInformation.setVisible(true);
 		openedMatchInfos.add(matchInformation);

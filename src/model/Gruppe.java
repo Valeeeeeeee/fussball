@@ -18,6 +18,7 @@ public abstract class Gruppe implements Wettbewerb {
 	private int numberOfMatchesPerMatchday;
 	protected int numberOfMatchesAgainstSameOpponent;
 	protected int numberOfMatchdays;
+	private int skipFirstXMatchdaysInOverview;
 	private int currentMatchday;
 	private Datum cMatchdaySetForDate = MIN_DATE;
 	private boolean cMatchdaySetForOverview;
@@ -132,6 +133,14 @@ public abstract class Gruppe implements Wettbewerb {
 		return 0;
 	}
 	
+	public int getSkipFirstXMatchdaysInOverview() {
+		return skipFirstXMatchdaysInOverview;
+	}
+	
+	public void setSkipFirstXMatchdaysInOverview(int skipFirstXMatchdaysInOverview) {
+		this.skipFirstXMatchdaysInOverview = skipFirstXMatchdaysInOverview;
+	}
+	
 	public boolean teamsHaveKader() {
 		return teamsHaveKader;
 	}
@@ -205,6 +214,10 @@ public abstract class Gruppe implements Wettbewerb {
 		return KICK_OFF_TIME_UNDEFINED;
 	}
 	
+	public String getDateAndTimeOV(int matchday, int matchIndex) {
+		return getKickOffTimeOV(matchday, matchIndex).toDisplay();
+	}
+	
 	public String getDateAndTime(int matchday, int matchIndex) {
 		return getKickOffTime(matchday, matchIndex).toDisplay();
 	}
@@ -213,8 +226,16 @@ public abstract class Gruppe implements Wettbewerb {
 		return relativeKickOffTimes[matchday][matchIndex];
 	}
 	
+	public void setRelativeKickOffTimeOV(int matchday, int matchIndex, RelativeAnstossZeit kickOffTime) {
+		setRelativeKickOffTime(matchday - skipFirstXMatchdaysInOverview, matchIndex, kickOffTime);
+	}
+	
 	public void setRelativeKickOffTime(int matchday, int matchIndex, RelativeAnstossZeit kickOffTime) {
 		relativeKickOffTimes[matchday][matchIndex] = kickOffTime;
+	}
+	
+	public AnstossZeit getKickOffTimeOV(int matchday, int matchIndex) {
+		return getKickOffTime(matchday - skipFirstXMatchdaysInOverview, matchIndex);
 	}
 	
 	public AnstossZeit getKickOffTime(int matchday, int matchIndex) {
@@ -359,7 +380,7 @@ public abstract class Gruppe implements Wettbewerb {
 			cMatchdaySetForDate = today;
 			cMatchdaySetForOverview = true;
 		}
-		return currentMatchday;
+		return currentMatchday + skipFirstXMatchdaysInOverview;
 	}
 	
 	public int getNewestStartedMatchday() {
@@ -396,6 +417,10 @@ public abstract class Gruppe implements Wettbewerb {
 			if (isMatchSet(matchday, matchIndex)) 	return false;
 		}
 		return true;
+	}
+	
+	public boolean isMatchSetOV(int matchday, int matchIndex) {
+		return isMatchSet(matchday - skipFirstXMatchdaysInOverview, matchIndex);
 	}
 	
 	public boolean isMatchSet(int matchday, int matchIndex) {
@@ -442,15 +467,27 @@ public abstract class Gruppe implements Wettbewerb {
 		return true;
 	}
 	
+	public boolean isResultSetOV(int matchday, int matchIndex) {
+		return isResultSet(matchday - skipFirstXMatchdaysInOverview, matchIndex);
+	}
+	
 	public boolean isResultSet(int matchday, int matchIndex) {
 		return isMatchSet(matchday, matchIndex) && getMatch(matchday, matchIndex).hasResult();
 	}
 	
 	// Ergebnisplan
 	
+	public Ergebnis getResultOV(int matchday, int matchIndex) {
+		return getResult(matchday - skipFirstXMatchdaysInOverview, matchIndex);
+	}
+	
 	public Ergebnis getResult(int matchday, int matchIndex) {
 		if (isMatchSet(matchday, matchIndex))	return getMatch(matchday, matchIndex).getResult();
 		return null;
+	}
+	
+	public void setResultOV(int matchday, int matchIndex, Ergebnis result) {
+		setResult(matchday - skipFirstXMatchdaysInOverview, matchIndex, result);
 	}
 	
 	public void setResult(int matchday, int matchIndex, Ergebnis result) {
@@ -463,8 +500,16 @@ public abstract class Gruppe implements Wettbewerb {
 	
 	// Spielplan
 	
+	public Spiel getMatchOV(int matchday, int matchIndex) {
+		return getMatch(matchday - skipFirstXMatchdaysInOverview, matchIndex);
+	}
+	
 	public Spiel getMatch(int matchday, int matchIndex) {
 		return matches[matchday][matchIndex];
+	}
+	
+	public void setMatchOV(int matchday, int matchIndex, Spiel match) {
+		setMatch(matchday - skipFirstXMatchdaysInOverview, matchIndex, match);
 	}
 	
 	public void setMatch(int matchday, int matchIndex, Spiel match) {
@@ -488,10 +533,18 @@ public abstract class Gruppe implements Wettbewerb {
 		return "RR" + twoDigit(matchday);
 	}
 	
+	public void resetMatchdayOV(int matchday) {
+		resetMatchday(matchday - skipFirstXMatchdaysInOverview);
+	}
+	
 	public void resetMatchday(int matchday) {
 		for (int match = 0; match < numberOfMatchesPerMatchday; match++) {
 			setMatch(matchday, match, null);
 		}
+	}
+	
+	public void changeOrderToChronologicalOV(int matchday) {
+		changeOrderToChronological(matchday - skipFirstXMatchdaysInOverview);
 	}
 	
 	public void changeOrderToChronological(int matchday) {

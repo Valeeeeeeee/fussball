@@ -263,16 +263,9 @@ public class TurnierSaison {
 	
 	public int[] getChronologicalOrder(boolean isQualification, int matchday) {
 		int numberOfMatches = 0;
-		if (isQualification) {
-			for (int i = 0; i < numberOfQGroups; i++) {
-				qGroups[i].changeOrderToChronological(matchday);
-				numberOfMatches += qGroups[i].getNumberOfMatchesPerMatchday();
-			}
-		} else {
-			for (int i = 0; i < numberOfGroups; i++) {
-				groups[i].changeOrderToChronological(matchday);
-				numberOfMatches += groups[i].getNumberOfMatchesPerMatchday();
-			}
+		
+		for (Gruppe group : isQualification ? qGroups : groups) {
+			numberOfMatches += group.getNumberOfMatchesPerMatchday();
 		}
 		
 		int[] newOrder = new int[numberOfMatches];
@@ -281,8 +274,9 @@ public class TurnierSaison {
 		
 		int counter = 0;
 		for (Gruppe group : isQualification ? qGroups : groups) {
+			group.changeOrderToChronologicalOV(matchday);
 			for (int matchIndex = 0; matchIndex < group.getNumberOfMatchesPerMatchday(); matchIndex++) {
-				kickOffTimes[counter] = group.getKickOffTime(matchday, matchIndex);
+				kickOffTimes[counter] = group.getKickOffTimeOV(matchday, matchIndex);
 				counter++;
 			}
 		}
@@ -619,12 +613,16 @@ public class TurnierSaison {
 		if (numberOfQGroups > 0) {
 			hasQGroupStage = true;
 			
+			int maxNoOfMatchdays = 0;
 			qGroups = new Gruppe[numberOfQGroups];
 			isRoundRobinQGroupStage = Boolean.parseBoolean(qualificationDataFromFile.get(index++));
 			if (isRoundRobinQGroupStage) {
 				numberOfLegsRRQGroupStage = Integer.parseInt(qualificationDataFromFile.get(index++));
 				untilRankBestQGroupXths = Integer.parseInt(qualificationDataFromFile.get(index++));
-				for (int i = 0; i < numberOfQGroups; i++)	qGroups[i] = new RoundRobinGruppe(this, i, true, numberOfLegsRRQGroupStage);
+				for (int i = 0; i < numberOfQGroups; i++) {
+					qGroups[i] = new RoundRobinGruppe(this, i, true, numberOfLegsRRQGroupStage);
+					maxNoOfMatchdays = Math.max(maxNoOfMatchdays, qGroups[i].getNumberOfRegularMatchdays());
+				}
 			} else {
 				numberOfMatchdaysSSQGroupStage = Integer.parseInt(qualificationDataFromFile.get(index++));
 				groups[0] = new SchweizerSystemGruppe(this, 0, true, numberOfMatchdaysSSQGroupStage);
@@ -633,6 +631,10 @@ public class TurnierSaison {
 				qOverview = new Spieltag(this, true);
 				qOverview.setLocation((Fussball.WIDTH - qOverview.getSize().width) / 2, (Fussball.HEIGHT - 28 - qOverview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 				qOverview.setVisible(false);
+				
+				for (Gruppe qGroup : qGroups) {
+					qGroup.setSkipFirstXMatchdaysInOverview(maxNoOfMatchdays - qGroup.getNumberOfRegularMatchdays());
+				}
 			}
 		}
 		
@@ -681,12 +683,16 @@ public class TurnierSaison {
 		groupsDataFromFile = readFile(fileGroupsData);
 		int index = 0;
 		
+		int maxNoOfMatchdays = 0;
 		numberOfGroups = Integer.parseInt(groupsDataFromFile.get(index++));
 		groups = new Gruppe[numberOfGroups];
 		isRoundRobinGroupStage = Boolean.parseBoolean(groupsDataFromFile.get(index++));
 		if (isRoundRobinGroupStage) {
 			numberOfLegsRRGroupStage = Integer.parseInt(groupsDataFromFile.get(index++));
-			for (int i = 0; i < groups.length; i++)	groups[i] = new RoundRobinGruppe(this, i, false, numberOfLegsRRGroupStage);
+			for (int i = 0; i < groups.length; i++) {
+				groups[i] = new RoundRobinGruppe(this, i, false, numberOfLegsRRGroupStage);
+				maxNoOfMatchdays = Math.max(maxNoOfMatchdays, groups[i].getNumberOfRegularMatchdays());
+			}
 		} else {
 			numberOfMatchdaysSSGroupStage = Integer.parseInt(groupsDataFromFile.get(index++));
 			groups[0] = new SchweizerSystemGruppe(this, 0, false, numberOfMatchdaysSSGroupStage);
@@ -695,6 +701,10 @@ public class TurnierSaison {
 			overview = new Spieltag(this, false);
 			overview.setLocation((Fussball.WIDTH - overview.getSize().width) / 2, (Fussball.HEIGHT - 28 - overview.getSize().height) / 2); //-124 kratzt oben, +68 kratzt unten
 			overview.setVisible(false);
+			
+			for (Gruppe group : groups) {
+				group.setSkipFirstXMatchdaysInOverview(maxNoOfMatchdays - group.getNumberOfRegularMatchdays());
+			}
 		}
 	}
 	
