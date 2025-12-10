@@ -110,14 +110,14 @@ AF07W: Holstein Kiel
 AF07L: Hamburger SV
 AF08W: Bayern München
 AF08L: 1. FC Union Berlin
-VF01W: DPOK2025VF01W
-VF01L: DPOK2025VF01L
-VF02W: DPOK2025VF02W
-VF02L: DPOK2025VF02L
-VF03W: DPOK2025VF03W
-VF03L: DPOK2025VF03L
-VF04W: DPOK2025VF04W
-VF04L: DPOK2025VF04L
+VF01W: Hertha BSC vs. SC Freiburg
+VF01L: Hertha BSC vs. SC Freiburg
+VF02W: Bayer 04 Leverkusen vs. FC St. Pauli
+VF02L: Bayer 04 Leverkusen vs. FC St. Pauli
+VF03W: Holstein Kiel vs. VfB Stuttgart
+VF03L: Holstein Kiel vs. VfB Stuttgart
+VF04W: Bayern München vs. RasenBallsport Leipzig
+VF04L: Bayern München vs. RasenBallsport Leipzig
 HF01W: DPOK2025HF01W
 HF01L: DPOK2025HF01L
 HF02W: DPOK2025HF02W
