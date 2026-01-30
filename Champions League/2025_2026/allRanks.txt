@@ -126,22 +126,22 @@ P33: Eintracht Frankfurt
 P34: Slavia Prag
 P35: FC Villarreal
 P36: Qairat Almaty
-PK01W: CHAL2025PK01W
-PK01L: CHAL2025PK01L
-PK02W: CHAL2025PK02W
-PK02L: CHAL2025PK02L
-PK03W: CHAL2025PK03W
-PK03L: CHAL2025PK03L
-PK04W: CHAL2025PK04W
-PK04L: CHAL2025PK04L
-PK05W: CHAL2025PK05W
-PK05L: CHAL2025PK05L
-PK06W: CHAL2025PK06W
-PK06L: CHAL2025PK06L
-PK07W: CHAL2025PK07W
-PK07L: CHAL2025PK07L
-PK08W: CHAL2025PK08W
-PK08L: CHAL2025PK08L
+PK01W: Borussia Dortmund vs. Atalanta Bergamo
+PK01L: Borussia Dortmund vs. Atalanta Bergamo
+PK02W: Olympiakos Piräus vs. Bayer 04 Leverkusen
+PK02L: Olympiakos Piräus vs. Bayer 04 Leverkusen
+PK03W: FC Brügge vs. Atlético Madrid
+PK03L: FC Brügge vs. Atlético Madrid
+PK04W: Galatasaray Istanbul vs. Juventus Turin
+PK04L: Galatasaray Istanbul vs. Juventus Turin
+PK05W: AS Monaco vs. Paris Saint-Germain
+PK05L: AS Monaco vs. Paris Saint-Germain
+PK06W: Qarabag Agdam vs. Newcastle United
+PK06L: Qarabag Agdam vs. Newcastle United
+PK07W: FK Bodø/Glimt vs. Inter Mailand
+PK07L: FK Bodø/Glimt vs. Inter Mailand
+PK08W: Benfica Lissabon vs. Real Madrid
+PK08L: Benfica Lissabon vs. Real Madrid
 AF01W: CHAL2025AF01W
 AF01L: CHAL2025AF01L
 AF02W: CHAL2025AF02W

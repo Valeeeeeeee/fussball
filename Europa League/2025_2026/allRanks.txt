@@ -116,22 +116,22 @@ P33: OGC Nizza
 P34: FC Utrecht
 P35: Malmö FF
 P36: Maccabi Tel Aviv
-PK01W: EURL2025PK01W
-PK01L: EURL2025PK01L
-PK02W: EURL2025PK02W
-PK02L: EURL2025PK02L
-PK03W: EURL2025PK03W
-PK03L: EURL2025PK03L
-PK04W: EURL2025PK04W
-PK04L: EURL2025PK04L
-PK05W: EURL2025PK05W
-PK05L: EURL2025PK05L
-PK06W: EURL2025PK06W
-PK06L: EURL2025PK06L
-PK07W: EURL2025PK07W
-PK07L: EURL2025PK07L
-PK08W: EURL2025PK08W
-PK08L: EURL2025PK08L
+PK01W: PAOK Thessaloniki vs. Celta Vigo
+PK01L: PAOK Thessaloniki vs. Celta Vigo
+PK02W: OSC Lille vs. Roter Stern Belgrad
+PK02L: OSC Lille vs. Roter Stern Belgrad
+PK03W: Fenerbahce Istanbul vs. Nottingham Forest
+PK03L: Fenerbahce Istanbul vs. Nottingham Forest
+PK04W: Panathinaikos Athen vs. Viktoria Pilsen
+PK04L: Panathinaikos Athen vs. Viktoria Pilsen
+PK05W: Celtic Glasgow vs. VfB Stuttgart
+PK05L: Celtic Glasgow vs. VfB Stuttgart
+PK06W: Ludogorez Rasgrad vs. Ferencváros Budapest
+PK06L: Ludogorez Rasgrad vs. Ferencváros Budapest
+PK07W: Dinamo Zagreb vs. KRC Genk
+PK07L: Dinamo Zagreb vs. KRC Genk
+PK08W: Brann Bergen vs. FC Bologna
+PK08L: Brann Bergen vs. FC Bologna
 AF01W: EURL2025AF01W
 AF01L: EURL2025AF01L
 AF02W: EURL2025AF02W
