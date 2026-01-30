@@ -90,42 +90,42 @@ PO06W: FK Bodø/Glimt
 PO06L: Sturm Graz
 PO07W: Benfica Lissabon
 PO07L: Fenerbahce Istanbul
-P01: CHAL2025P01
-P02: CHAL2025P02
-P03: CHAL2025P03
-P04: CHAL2025P04
-P05: CHAL2025P05
-P06: CHAL2025P06
-P07: CHAL2025P07
-P08: CHAL2025P08
-P09: CHAL2025P09
-P10: CHAL2025P10
-P11: CHAL2025P11
-P12: CHAL2025P12
-P13: CHAL2025P13
-P14: CHAL2025P14
-P15: CHAL2025P15
-P16: CHAL2025P16
-P17: CHAL2025P17
-P18: CHAL2025P18
-P19: CHAL2025P19
-P20: CHAL2025P20
-P21: CHAL2025P21
-P22: CHAL2025P22
-P23: CHAL2025P23
-P24: CHAL2025P24
-P25: CHAL2025P25
-P26: CHAL2025P26
-P27: CHAL2025P27
-P28: CHAL2025P28
-P29: CHAL2025P29
-P30: CHAL2025P30
-P31: CHAL2025P31
-P32: CHAL2025P32
-P33: CHAL2025P33
-P34: CHAL2025P34
-P35: CHAL2025P35
-P36: CHAL2025P36
+P01: FC Arsenal
+P02: Bayern München
+P03: FC Liverpool
+P04: Tottenham Hotspurs
+P05: FC Barcelona
+P06: FC Chelsea
+P07: Sporting Lissabon
+P08: Manchester City
+P09: Real Madrid
+P10: Inter Mailand
+P11: Paris Saint-Germain
+P12: Newcastle United
+P13: Juventus Turin
+P14: Atlético Madrid
+P15: Atalanta Bergamo
+P16: Bayer 04 Leverkusen
+P17: Borussia Dortmund
+P18: Olympiakos Piräus
+P19: FC Brügge
+P20: Galatasaray Istanbul
+P21: AS Monaco
+P22: Qarabag Agdam
+P23: FK Bodø/Glimt
+P24: Benfica Lissabon
+P25: Olympique Marseille
+P26: FC Pafos
+P27: Royale Union Saint-Gilloise
+P28: PSV Eindhoven
+P29: Athletic Bilbao
+P30: SSC Neapel
+P31: FC Kopenhagen
+P32: Ajax Amsterdam
+P33: Eintracht Frankfurt
+P34: Slavia Prag
+P35: FC Villarreal
+P36: Qairat Almaty
 PK01W: CHAL2025PK01W
 PK01L: CHAL2025PK01L
 PK02W: CHAL2025PK02W
