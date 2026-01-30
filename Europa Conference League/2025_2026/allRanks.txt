@@ -290,22 +290,22 @@ P33: Hamrun Spartans
 P34: Shelbourne FC
 P35: FC Aberdeen
 P36: Rapid Wien
-PK01W: Jagiellonia Bialystok vs. AC Florenz
-PK01L: Jagiellonia Bialystok vs. AC Florenz
-PK02W: Omonia Nikosia vs. HNK Rijeka
-PK02L: Omonia Nikosia vs. HNK Rijeka
-PK03W: Noah Erewan vs. AZ Alkmaar
-PK03L: Noah Erewan vs. AZ Alkmaar
-PK04W: KF Drita vs. NK Celje
-PK04L: KF Drita vs. NK Celje
-PK05W: Kuopion PS vs. Lech Posen
-PK05L: Kuopion PS vs. Lech Posen
-PK06W: KF Shkëndija vs. Samsunspor
-PK06L: KF Shkëndija vs. Samsunspor
-PK07W: Zrinjski Mostar vs. Crystal Palace
-PK07L: Zrinjski Mostar vs. Crystal Palace
-PK08W: Sigma Olmütz vs. FC Lausanne-Sport
-PK08L: Sigma Olmütz vs. FC Lausanne-Sport
+PK01W: Noah Erewan vs. AZ Alkmaar
+PK01L: Noah Erewan vs. AZ Alkmaar
+PK02W: Kuopion PS vs. Lech Posen
+PK02L: Kuopion PS vs. Lech Posen
+PK03W: Zrinjski Mostar vs. Crystal Palace
+PK03L: Zrinjski Mostar vs. Crystal Palace
+PK04W: Sigma Olmütz vs. FC Lausanne-Sport
+PK04L: Sigma Olmütz vs. FC Lausanne-Sport
+PK05W: Jagiellonia Bialystok vs. AC Florenz
+PK05L: Jagiellonia Bialystok vs. AC Florenz
+PK06W: Omonia Nikosia vs. HNK Rijeka
+PK06L: Omonia Nikosia vs. HNK Rijeka
+PK07W: KF Drita vs. NK Celje
+PK07L: KF Drita vs. NK Celje
+PK08W: KF Shkëndija vs. Samsunspor
+PK08L: KF Shkëndija vs. Samsunspor
 AF01W: CONF2025AF01W
 AF01L: CONF2025AF01L
 AF02W: CONF2025AF02W
