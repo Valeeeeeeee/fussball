@@ -110,10 +110,10 @@ AF07W: Holstein Kiel
 AF07L: Hamburger SV
 AF08W: Bayern München
 AF08L: 1. FC Union Berlin
-VF01W: Bayer 04 Leverkusen vs. FC St. Pauli
-VF01L: Bayer 04 Leverkusen vs. FC St. Pauli
-VF02W: Holstein Kiel vs. VfB Stuttgart
-VF02L: Holstein Kiel vs. VfB Stuttgart
+VF01W: Bayer 04 Leverkusen
+VF01L: FC St. Pauli
+VF02W: VfB Stuttgart
+VF02L: Holstein Kiel
 VF03W: Hertha BSC vs. SC Freiburg
 VF03L: Hertha BSC vs. SC Freiburg
 VF04W: Bayern München vs. RasenBallsport Leipzig
