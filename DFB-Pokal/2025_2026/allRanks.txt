@@ -114,10 +114,10 @@ VF01W: Bayer 04 Leverkusen
 VF01L: FC St. Pauli
 VF02W: VfB Stuttgart
 VF02L: Holstein Kiel
-VF03W: Hertha BSC vs. SC Freiburg
-VF03L: Hertha BSC vs. SC Freiburg
-VF04W: Bayern München vs. RasenBallsport Leipzig
-VF04L: Bayern München vs. RasenBallsport Leipzig
+VF03W: SC Freiburg
+VF03L: Hertha BSC
+VF04W: Bayern München
+VF04L: RasenBallsport Leipzig
 HF01W: DPOK2025HF01W
 HF01L: DPOK2025HF01L
 HF02W: DPOK2025HF02W
