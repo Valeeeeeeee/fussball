@@ -126,22 +126,22 @@ P33: Eintracht Frankfurt
 P34: Slavia Prag
 P35: FC Villarreal
 P36: Qairat Almaty
-PK01W: Galatasaray Istanbul vs. Juventus Turin
-PK01L: Galatasaray Istanbul vs. Juventus Turin
-PK02W: Borussia Dortmund vs. Atalanta Bergamo
-PK02L: Borussia Dortmund vs. Atalanta Bergamo
-PK03W: AS Monaco vs. Paris Saint-Germain
-PK03L: AS Monaco vs. Paris Saint-Germain
-PK04W: Benfica Lissabon vs. Real Madrid
-PK04L: Benfica Lissabon vs. Real Madrid
-PK05W: Qarabag Agdam vs. Newcastle United
-PK05L: Qarabag Agdam vs. Newcastle United
-PK06W: Olympiakos Piräus vs. Bayer 04 Leverkusen
-PK06L: Olympiakos Piräus vs. Bayer 04 Leverkusen
-PK07W: FC Brügge vs. Atlético Madrid
-PK07L: FC Brügge vs. Atlético Madrid
-PK08W: FK Bodø/Glimt vs. Inter Mailand
-PK08L: FK Bodø/Glimt vs. Inter Mailand
+PK01W: Galatasaray Istanbul
+PK01L: Juventus Turin
+PK02W: Atalanta Bergamo
+PK02L: Borussia Dortmund
+PK03W: Paris Saint-Germain
+PK03L: AS Monaco
+PK04W: Real Madrid
+PK04L: Benfica Lissabon
+PK05W: Newcastle United
+PK05L: Qarabag Agdam
+PK06W: Bayer 04 Leverkusen
+PK06L: Olympiakos Piräus
+PK07W: Atlético Madrid
+PK07L: FC Brügge
+PK08W: FK Bodø/Glimt
+PK08L: Inter Mailand
 AF01W: CHAL2025AF01W
 AF01L: CHAL2025AF01L
 AF02W: CHAL2025AF02W

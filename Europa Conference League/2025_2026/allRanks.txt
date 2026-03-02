@@ -290,22 +290,22 @@ P33: Hamrun Spartans
 P34: Shelbourne FC
 P35: FC Aberdeen
 P36: Rapid Wien
-PK01W: Noah Erewan vs. AZ Alkmaar
-PK01L: Noah Erewan vs. AZ Alkmaar
-PK02W: Kuopion PS vs. Lech Posen
-PK02L: Kuopion PS vs. Lech Posen
-PK03W: Zrinjski Mostar vs. Crystal Palace
-PK03L: Zrinjski Mostar vs. Crystal Palace
-PK04W: Sigma Olmütz vs. FC Lausanne-Sport
-PK04L: Sigma Olmütz vs. FC Lausanne-Sport
-PK05W: Jagiellonia Bialystok vs. AC Florenz
-PK05L: Jagiellonia Bialystok vs. AC Florenz
-PK06W: Omonia Nikosia vs. HNK Rijeka
-PK06L: Omonia Nikosia vs. HNK Rijeka
-PK07W: KF Drita vs. NK Celje
-PK07L: KF Drita vs. NK Celje
-PK08W: KF Shkëndija vs. Samsunspor
-PK08L: KF Shkëndija vs. Samsunspor
+PK01W: AZ Alkmaar
+PK01L: Noah Erewan
+PK02W: Lech Posen
+PK02L: Kuopion PS
+PK03W: Crystal Palace
+PK03L: Zrinjski Mostar
+PK04W: Sigma Olmütz
+PK04L: FC Lausanne-Sport
+PK05W: AC Florenz
+PK05L: Jagiellonia Bialystok
+PK06W: HNK Rijeka
+PK06L: Omonia Nikosia
+PK07W: NK Celje
+PK07L: KF Drita
+PK08W: Samsunspor
+PK08L: KF Shkëndija
 AF01W: CONF2025AF01W
 AF01L: CONF2025AF01L
 AF02W: CONF2025AF02W
