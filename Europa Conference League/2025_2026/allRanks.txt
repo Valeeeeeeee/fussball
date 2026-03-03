@@ -306,22 +306,22 @@ PK07W: NK Celje
 PK07L: KF Drita
 PK08W: Samsunspor
 PK08L: KF Shkëndija
-AF01W: CONF2025AF01W
-AF01L: CONF2025AF01L
-AF02W: CONF2025AF02W
-AF02L: CONF2025AF02L
-AF03W: CONF2025AF03W
-AF03L: CONF2025AF03L
-AF04W: CONF2025AF04W
-AF04L: CONF2025AF04L
-AF05W: CONF2025AF05W
-AF05L: CONF2025AF05L
-AF06W: CONF2025AF06W
-AF06L: CONF2025AF06L
-AF07W: CONF2025AF07W
-AF07L: CONF2025AF07L
-AF08W: CONF2025AF08W
-AF08L: CONF2025AF08L
+AF01W: AZ Alkmaar vs. Sparta Prag
+AF01L: AZ Alkmaar vs. Sparta Prag
+AF02W: Lech Posen vs. Schachtar Donezk
+AF02L: Lech Posen vs. Schachtar Donezk
+AF03W: Crystal Palace vs. AEK Larnaka
+AF03L: Crystal Palace vs. AEK Larnaka
+AF04W: Sigma Olmütz vs. 1. FSV Mainz 05
+AF04L: Sigma Olmütz vs. 1. FSV Mainz 05
+AF05W: AC Florenz vs. Raków Częstochowa
+AF05L: AC Florenz vs. Raków Częstochowa
+AF06W: HNK Rijeka vs. Racing Straßburg
+AF06L: HNK Rijeka vs. Racing Straßburg
+AF07W: NK Celje vs. AEK Athen
+AF07L: NK Celje vs. AEK Athen
+AF08W: Samsunspor vs. Rayo Vallecano
+AF08L: Samsunspor vs. Rayo Vallecano
 VF01W: CONF2025VF01W
 VF01L: CONF2025VF01L
 VF02W: CONF2025VF02W
