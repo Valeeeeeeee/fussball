@@ -146,16 +146,16 @@ AF01W: Galatasaray Istanbul vs. FC Liverpool
 AF01L: Galatasaray Istanbul vs. FC Liverpool
 AF02W: Atalanta Bergamo vs. Bayern München
 AF02L: Atalanta Bergamo vs. Bayern München
-AF03W: Paris Saint-Germain vs. FC Chelsea
-AF03L: Paris Saint-Germain vs. FC Chelsea
-AF04W: Real Madrid vs. Manchester City
-AF04L: Real Madrid vs. Manchester City
-AF05W: Newcastle United vs. FC Barcelona
-AF05L: Newcastle United vs. FC Barcelona
-AF06W: Bayer 04 Leverkusen vs. FC Arsenal
-AF06L: Bayer 04 Leverkusen vs. FC Arsenal
-AF07W: Atlético Madrid vs. Tottenham Hotspurs
-AF07L: Atlético Madrid vs. Tottenham Hotspurs
+AF03W: Newcastle United vs. FC Barcelona
+AF03L: Newcastle United vs. FC Barcelona
+AF04W: Atlético Madrid vs. Tottenham Hotspurs
+AF04L: Atlético Madrid vs. Tottenham Hotspurs
+AF05W: Bayer 04 Leverkusen vs. FC Arsenal
+AF05L: Bayer 04 Leverkusen vs. FC Arsenal
+AF06W: Paris Saint-Germain vs. FC Chelsea
+AF06L: Paris Saint-Germain vs. FC Chelsea
+AF07W: Real Madrid vs. Manchester City
+AF07L: Real Madrid vs. Manchester City
 AF08W: FK Bodø/Glimt vs. Sporting Lissabon
 AF08L: FK Bodø/Glimt vs. Sporting Lissabon
 VF01W: CHAL2025VF01W
