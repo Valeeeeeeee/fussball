@@ -185,6 +185,7 @@
 27887631;Sven;Schipplock;null;19881108;Deutschland;
 27892887;John;Fleck;null;19910824;Schottland;
 27897732;Ján;Mucha;null;19821205;Slowakei;
+27897841;Mick;Schmetgens;null;20070909;Deutschland;
 27901037;Arne;Engels;null;20030908;Belgien;
 27906184;Jude;Bellingham;null;20030629;England;
 27908657;Iker;Casillas;null;19810520;Spanien;
@@ -2708,6 +2709,7 @@
 30901510;Christian;Cueva;null;19911123;Peru;
 30902122;Fabian;Kalig;null;19930328;Deutschland;
 30902922;Roman;Evgenyev;null;19990223;Russland;
+30903734;Salim;Musah;null;20060222;Deutschland, Ghana;
 30904992;Ludwig;Augustinsson;null;19940421;Schweden;
 30905323;Tyler;Roberts;null;19990112;Wales;
 30905901;Daniel;Pudil;null;19850927;Tschechien;
