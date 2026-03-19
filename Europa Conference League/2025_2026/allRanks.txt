@@ -306,30 +306,30 @@ PK07W: NK Celje
 PK07L: KF Drita
 PK08W: Samsunspor
 PK08L: KF Shkëndija
-AF01W: AZ Alkmaar vs. Sparta Prag
-AF01L: AZ Alkmaar vs. Sparta Prag
-AF02W: Lech Posen vs. Schachtar Donezk
-AF02L: Lech Posen vs. Schachtar Donezk
-AF03W: HNK Rijeka vs. Racing Straßburg
-AF03L: HNK Rijeka vs. Racing Straßburg
-AF04W: Samsunspor vs. Rayo Vallecano
-AF04L: Samsunspor vs. Rayo Vallecano
-AF05W: Crystal Palace vs. AEK Larnaka
-AF05L: Crystal Palace vs. AEK Larnaka
-AF06W: Sigma Olmütz vs. 1. FSV Mainz 05
-AF06L: Sigma Olmütz vs. 1. FSV Mainz 05
-AF07W: AC Florenz vs. Raków Częstochowa
-AF07L: AC Florenz vs. Raków Częstochowa
-AF08W: NK Celje vs. AEK Athen
-AF08L: NK Celje vs. AEK Athen
-VF01W: AF02W vs. AF01W
-VF01L: AF02W vs. AF01W
-VF02W: AF04W vs. AF08W
-VF02L: AF04W vs. AF08W
-VF03W: AF05W vs. AF07W
-VF03L: AF05W vs. AF07W
-VF04W: AF06W vs. AF03W
-VF04L: AF06W vs. AF03W
+AF01W: AZ Alkmaar
+AF01L: Sparta Prag
+AF02W: Schachtar Donezk
+AF02L: Lech Posen
+AF03W: Racing Straßburg
+AF03L: HNK Rijeka
+AF04W: Rayo Vallecano
+AF04L: Samsunspor
+AF05W: Crystal Palace
+AF05L: AEK Larnaka
+AF06W: 1. FSV Mainz 05
+AF06L: Sigma Olmütz
+AF07W: AC Florenz
+AF07L: Raków Częstochowa
+AF08W: AEK Athen
+AF08L: NK Celje
+VF01W: Schachtar Donezk vs. AZ Alkmaar
+VF01L: Schachtar Donezk vs. AZ Alkmaar
+VF02W: Rayo Vallecano vs. AEK Athen
+VF02L: Rayo Vallecano vs. AEK Athen
+VF03W: Crystal Palace vs. AC Florenz
+VF03L: Crystal Palace vs. AC Florenz
+VF04W: 1. FSV Mainz 05 vs. Racing Straßburg
+VF04L: 1. FSV Mainz 05 vs. Racing Straßburg
 HF01W: CONF2025HF01W
 HF01L: CONF2025HF01L
 HF02W: CONF2025HF02W

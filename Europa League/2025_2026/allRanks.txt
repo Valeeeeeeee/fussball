@@ -132,30 +132,30 @@ PK07W: VfB Stuttgart
 PK07L: Celtic Glasgow
 PK08W: Ferencváros Budapest
 PK08L: Ludogorez Rasgrad
-AF01W: FC Bologna vs. AS Rom
-AF01L: FC Bologna vs. AS Rom
-AF02W: OSC Lille vs. Aston Villa
-AF02L: OSC Lille vs. Aston Villa
-AF03W: Panathinaikos Athen vs. Real Betis Sevilla
-AF03L: Panathinaikos Athen vs. Real Betis Sevilla
-AF04W: VfB Stuttgart vs. FC Porto
-AF04L: VfB Stuttgart vs. FC Porto
-AF05W: Celta Vigo vs. Olympique Lyon
-AF05L: Celta Vigo vs. Olympique Lyon
-AF06W: Nottingham Forest vs. FC Midtjylland
-AF06L: Nottingham Forest vs. FC Midtjylland
-AF07W: KRC Genk vs. SC Freiburg
-AF07L: KRC Genk vs. SC Freiburg
-AF08W: Ferencváros Budapest vs. Sporting Braga
-AF08L: Ferencváros Budapest vs. Sporting Braga
-VF01W: AF01W vs. AF02W
-VF01L: AF01W vs. AF02W
-VF02W: AF04W vs. AF06W
-VF02L: AF04W vs. AF06W
-VF03W: AF07W vs. AF05W
-VF03L: AF07W vs. AF05W
-VF04W: AF08W vs. AF03W
-VF04L: AF08W vs. AF03W
+AF01W: FC Bologna
+AF01L: AS Rom
+AF02W: Aston Villa
+AF02L: OSC Lille
+AF03W: Real Betis Sevilla
+AF03L: Panathinaikos Athen
+AF04W: FC Porto
+AF04L: VfB Stuttgart
+AF05W: Celta Vigo
+AF05L: Olympique Lyon
+AF06W: Nottingham Forest
+AF06L: FC Midtjylland
+AF07W: SC Freiburg
+AF07L: KRC Genk
+AF08W: Sporting Braga
+AF08L: Ferencváros Budapest
+VF01W: FC Bologna vs. Aston Villa
+VF01L: FC Bologna vs. Aston Villa
+VF02W: FC Porto vs. Nottingham Forest
+VF02L: FC Porto vs. Nottingham Forest
+VF03W: SC Freiburg vs. Celta Vigo
+VF03L: SC Freiburg vs. Celta Vigo
+VF04W: Sporting Braga vs. Real Betis Sevilla
+VF04L: Sporting Braga vs. Real Betis Sevilla
 HF01W: EURL2025HF01W
 HF01L: EURL2025HF01L
 HF02W: EURL2025HF02W
