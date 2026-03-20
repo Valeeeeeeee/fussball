@@ -148,14 +148,14 @@ AF07W: SC Freiburg
 AF07L: KRC Genk
 AF08W: Sporting Braga
 AF08L: Ferencváros Budapest
-VF01W: FC Bologna vs. Aston Villa
-VF01L: FC Bologna vs. Aston Villa
-VF02W: FC Porto vs. Nottingham Forest
-VF02L: FC Porto vs. Nottingham Forest
-VF03W: SC Freiburg vs. Celta Vigo
-VF03L: SC Freiburg vs. Celta Vigo
-VF04W: Sporting Braga vs. Real Betis Sevilla
-VF04L: Sporting Braga vs. Real Betis Sevilla
+VF01W: Sporting Braga vs. Real Betis Sevilla
+VF01L: Sporting Braga vs. Real Betis Sevilla
+VF02W: FC Bologna vs. Aston Villa
+VF02L: FC Bologna vs. Aston Villa
+VF03W: FC Porto vs. Nottingham Forest
+VF03L: FC Porto vs. Nottingham Forest
+VF04W: SC Freiburg vs. Celta Vigo
+VF04L: SC Freiburg vs. Celta Vigo
 HF01W: EURL2025HF01W
 HF01L: EURL2025HF01L
 HF02W: EURL2025HF02W

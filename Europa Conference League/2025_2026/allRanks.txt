@@ -322,10 +322,10 @@ AF07W: AC Florenz
 AF07L: Raków Częstochowa
 AF08W: AEK Athen
 AF08L: NK Celje
-VF01W: Schachtar Donezk vs. AZ Alkmaar
-VF01L: Schachtar Donezk vs. AZ Alkmaar
-VF02W: Rayo Vallecano vs. AEK Athen
-VF02L: Rayo Vallecano vs. AEK Athen
+VF01W: Rayo Vallecano vs. AEK Athen
+VF01L: Rayo Vallecano vs. AEK Athen
+VF02W: Schachtar Donezk vs. AZ Alkmaar
+VF02L: Schachtar Donezk vs. AZ Alkmaar
 VF03W: Crystal Palace vs. AC Florenz
 VF03L: Crystal Palace vs. AC Florenz
 VF04W: 1. FSV Mainz 05 vs. Racing Straßburg

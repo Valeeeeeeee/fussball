@@ -158,14 +158,14 @@ AF07W: Real Madrid
 AF07L: Manchester City
 AF08W: Sporting Lissabon
 AF08L: FK Bodø/Glimt
-VF01W: FC Barcelona vs. Atlético Madrid
-VF01L: FC Barcelona vs. Atlético Madrid
-VF02W: Paris Saint-Germain vs. FC Liverpool
-VF02L: Paris Saint-Germain vs. FC Liverpool
-VF03W: Real Madrid vs. Bayern München
-VF03L: Real Madrid vs. Bayern München
-VF04W: Sporting Lissabon vs. FC Arsenal
-VF04L: Sporting Lissabon vs. FC Arsenal
+VF01W: Real Madrid vs. Bayern München
+VF01L: Real Madrid vs. Bayern München
+VF02W: Sporting Lissabon vs. FC Arsenal
+VF02L: Sporting Lissabon vs. FC Arsenal
+VF03W: FC Barcelona vs. Atlético Madrid
+VF03L: FC Barcelona vs. Atlético Madrid
+VF04W: Paris Saint-Germain vs. FC Liverpool
+VF04L: Paris Saint-Germain vs. FC Liverpool
 HF01W: CHAL2025HF01W
 HF01L: CHAL2025HF01L
 HF02W: CHAL2025HF02W
