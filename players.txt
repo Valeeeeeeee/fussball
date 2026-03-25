@@ -2477,6 +2477,7 @@
 30713237;Bogdan;Racovitan;null;20000606;Rumänien, Frankreich;
 30714792;Mario;Götze;null;19920603;Deutschland;
 30714966;Lukas;Mühl;null;19970127;Deutschland;
+30715452;Erblin;Osmani;null;20090519;Deutschland;
 30716637;Jefferson;Farfán;null;19841026;Peru;
 30716702;Mario;Hermoso;null;19950618;Spanien;
 30716757;Alexander;Baumjohann;null;19870123;Deutschland;
