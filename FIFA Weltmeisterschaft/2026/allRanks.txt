@@ -52,30 +52,30 @@ QGL2: Tschechien
 QGL3: Färöer
 QGL4: Montenegro
 QGL5: Gibraltar
-PH01W: Türkei vs. Rumänien
-PH01L: Türkei vs. Rumänien
-PH02W: Slowakei vs. Kosovo
-PH02L: Slowakei vs. Kosovo
-PH03W: Dänemark vs. Nordmazedonien
-PH03L: Dänemark vs. Nordmazedonien
-PH04W: Ukraine vs. Schweden
-PH04L: Ukraine vs. Schweden
-PH05W: Polen vs. Albanien
-PH05L: Polen vs. Albanien
-PH06W: Italien vs. Nordirland
-PH06L: Italien vs. Nordirland
-PH07W: Wales vs. Bosnien-Herzegowina
-PH07L: Wales vs. Bosnien-Herzegowina
-PH08W: Tschechien vs. Irland
-PH08L: Tschechien vs. Irland
-PO01W: PH02W vs. PH01W
-PO01L: PH02W vs. PH01W
-PO02W: PH04W vs. PH05W
-PO02L: PH04W vs. PH05W
-PO03W: PH07W vs. PH06W
-PO03L: PH07W vs. PH06W
-PO04W: PH08W vs. PH03W
-PO04L: PH08W vs. PH03W
+PH01W: Türkei
+PH01L: Rumänien
+PH02W: Kosovo
+PH02L: Slowakei
+PH03W: Dänemark
+PH03L: Nordmazedonien
+PH04W: Schweden
+PH04L: Ukraine
+PH05W: Polen
+PH05L: Albanien
+PH06W: Italien
+PH06L: Nordirland
+PH07W: Bosnien-Herzegowina
+PH07L: Wales
+PH08W: Tschechien
+PH08L: Irland
+PO01W: Kosovo vs. Türkei
+PO01L: Kosovo vs. Türkei
+PO02W: Schweden vs. Polen
+PO02L: Schweden vs. Polen
+PO03W: Bosnien-Herzegowina vs. Italien
+PO03L: Bosnien-Herzegowina vs. Italien
+PO04W: Tschechien vs. Dänemark
+PO04L: Tschechien vs. Dänemark
 GA1: WCUP2026GA1
 GA2: WCUP2026GA2
 GA3: WCUP2026GA3
