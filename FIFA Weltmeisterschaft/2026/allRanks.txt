@@ -68,14 +68,14 @@ PH07W: Bosnien-Herzegowina
 PH07L: Wales
 PH08W: Tschechien
 PH08L: Irland
-PO01W: Kosovo vs. Türkei
-PO01L: Kosovo vs. Türkei
-PO02W: Schweden vs. Polen
-PO02L: Schweden vs. Polen
-PO03W: Bosnien-Herzegowina vs. Italien
-PO03L: Bosnien-Herzegowina vs. Italien
-PO04W: Tschechien vs. Dänemark
-PO04L: Tschechien vs. Dänemark
+PO01W: Türkei
+PO01L: Kosovo
+PO02W: Schweden
+PO02L: Polen
+PO03W: Bosnien-Herzegowina
+PO03L: Italien
+PO04W: Tschechien
+PO04L: Dänemark
 GA1: WCUP2026GA1
 GA2: WCUP2026GA2
 GA3: WCUP2026GA3
