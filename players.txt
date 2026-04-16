@@ -2276,6 +2276,7 @@
 30568058;Jonas;Hector;null;19900527;Deutschland;
 30569595;Kento;Shiogai;null;20050326;Japan;
 30571168;Hanno;Behrens;null;19900326;Deutschland;
+30571181;Linus;Güther;null;20100408;Deutschland;
 30571656;Jonas;Sterner;null;20020513;Deutschland;
 30572402;Oleksandr;Kucher;null;19821022;Ukraine;
 30572804;Kamal;Miller;null;19970516;Kanada, Jamaika;
@@ -3580,6 +3581,7 @@
 31692674;Mohammed;Muntari;null;19931220;Katar, Ghana;
 31695187;Benjamin;Verbic;null;19931127;Slowenien;
 31696272;Christian;Wetklo;null;19800111;Deutschland;
+31696468;Bara Joseph;Sapoko 'Ndiaye';null;20071231;Senegal;
 31696565;Manuel;Torres;null;19910105;Spanien;
 31697510;Christian;Strohdiek;null;19880122;Deutschland;
 31698663;Manuel;Locatelli;null;19980108;Italien;
