@@ -322,14 +322,14 @@ AF07W: AC Florenz
 AF07L: Raków Częstochowa
 AF08W: AEK Athen
 AF08L: NK Celje
-VF01W: Rayo Vallecano vs. AEK Athen
-VF01L: Rayo Vallecano vs. AEK Athen
-VF02W: Schachtar Donezk vs. AZ Alkmaar
-VF02L: Schachtar Donezk vs. AZ Alkmaar
-VF03W: Crystal Palace vs. AC Florenz
-VF03L: Crystal Palace vs. AC Florenz
-VF04W: 1. FSV Mainz 05 vs. Racing Straßburg
-VF04L: 1. FSV Mainz 05 vs. Racing Straßburg
+VF01W: Rayo Vallecano
+VF01L: AEK Athen
+VF02W: Schachtar Donezk
+VF02L: AZ Alkmaar
+VF03W: Crystal Palace
+VF03L: AC Florenz
+VF04W: Racing Straßburg
+VF04L: 1. FSV Mainz 05
 HF01W: CONF2025HF01W
 HF01L: CONF2025HF01L
 HF02W: CONF2025HF02W
