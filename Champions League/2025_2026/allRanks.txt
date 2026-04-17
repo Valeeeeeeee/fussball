@@ -166,9 +166,9 @@ VF03W: Atlético Madrid
 VF03L: FC Barcelona
 VF04W: Paris Saint-Germain
 VF04L: FC Liverpool
-HF01W: CHAL2025HF01W
-HF01L: CHAL2025HF01L
-HF02W: CHAL2025HF02W
-HF02L: CHAL2025HF02L
+HF01W: Atlético Madrid vs. FC Arsenal
+HF01L: Atlético Madrid vs. FC Arsenal
+HF02W: Paris Saint-Germain vs. Bayern München
+HF02L: Paris Saint-Germain vs. Bayern München
 FI01W: CHAL2025FI01W
 FI01L: CHAL2025FI01L
