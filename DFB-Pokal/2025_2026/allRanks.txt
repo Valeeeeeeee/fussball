@@ -118,9 +118,9 @@ VF03W: SC Freiburg
 VF03L: Hertha BSC
 VF04W: Bayern München
 VF04L: RasenBallsport Leipzig
-HF01W: Bayer 04 Leverkusen vs. Bayern München
-HF01L: Bayer 04 Leverkusen vs. Bayern München
-HF02W: VfB Stuttgart vs. SC Freiburg
-HF02L: VfB Stuttgart vs. SC Freiburg
+HF01W: Bayern München
+HF01L: Bayer 04 Leverkusen
+HF02W: VfB Stuttgart
+HF02L: SC Freiburg
 FI01W: DPOK2025FI01W
 FI01L: DPOK2025FI01L
