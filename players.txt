@@ -2453,6 +2453,7 @@
 30693610;Achraf;Dari;null;19990506;Marokko;
 30693685;Steven;Bergwijn;null;19971008;Niederlande, Suriname;
 30694921;Alexander;Milosevic;null;19920130;Schweden;
+30695613;Deniz;Ofli;null;20070329;Türkei, Deutschland;
 30695660;Louis;Samson;null;19950703;Deutschland;
 30696249;Lewis;Morgan;null;19960930;Schottland;
 30696926;Denis;Glushakov;null;19870127;Russland;
