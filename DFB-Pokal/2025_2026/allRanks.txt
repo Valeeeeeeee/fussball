@@ -122,5 +122,5 @@ HF01W: Bayern München
 HF01L: Bayer 04 Leverkusen
 HF02W: VfB Stuttgart
 HF02L: SC Freiburg
-FI01W: DPOK2025FI01W
-FI01L: DPOK2025FI01L
+FI01W: Bayern München vs. VfB Stuttgart
+FI01L: Bayern München vs. VfB Stuttgart
