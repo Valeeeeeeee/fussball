@@ -156,9 +156,9 @@ VF03W: Nottingham Forest
 VF03L: FC Porto
 VF04W: SC Freiburg
 VF04L: Celta Vigo
-HF01W: Sporting Braga vs. SC Freiburg
-HF01L: Sporting Braga vs. SC Freiburg
-HF02W: Nottingham Forest vs. Aston Villa
-HF02L: Nottingham Forest vs. Aston Villa
+HF01W: SC Freiburg
+HF01L: Sporting Braga
+HF02W: Aston Villa
+HF02L: Nottingham Forest
 FI01W: EURL2025FI01W
 FI01L: EURL2025FI01L

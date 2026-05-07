@@ -330,9 +330,9 @@ VF03W: Crystal Palace
 VF03L: AC Florenz
 VF04W: Racing Straßburg
 VF04L: 1. FSV Mainz 05
-HF01W: Rayo Vallecano vs. Racing Straßburg
-HF01L: Rayo Vallecano vs. Racing Straßburg
-HF02W: Schachtar Donezk vs. Crystal Palace
-HF02L: Schachtar Donezk vs. Crystal Palace
+HF01W: Rayo Vallecano
+HF01L: Racing Straßburg
+HF02W: Crystal Palace
+HF02L: Schachtar Donezk
 FI01W: CONF2025FI01W
 FI01L: CONF2025FI01L
