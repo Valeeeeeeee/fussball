@@ -160,5 +160,5 @@ HF01W: SC Freiburg
 HF01L: Sporting Braga
 HF02W: Aston Villa
 HF02L: Nottingham Forest
-FI01W: EURL2025FI01W
-FI01L: EURL2025FI01L
+FI01W: SC Freiburg vs. Aston Villa
+FI01L: SC Freiburg vs. Aston Villa

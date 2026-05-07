@@ -334,5 +334,5 @@ HF01W: Rayo Vallecano
 HF01L: Racing Straßburg
 HF02W: Crystal Palace
 HF02L: Schachtar Donezk
-FI01W: CONF2025FI01W
-FI01L: CONF2025FI01L
+FI01W: Crystal Palace vs. Rayo Vallecano
+FI01L: Crystal Palace vs. Rayo Vallecano

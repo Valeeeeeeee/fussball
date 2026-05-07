@@ -170,5 +170,5 @@ HF01W: Paris Saint-Germain
 HF01L: Bayern München
 HF02W: FC Arsenal
 HF02L: Atlético Madrid
-FI01W: CHAL2025FI01W
-FI01L: CHAL2025FI01L
+FI01W: Paris Saint-Germain vs. FC Arsenal
+FI01L: Paris Saint-Germain vs. FC Arsenal
