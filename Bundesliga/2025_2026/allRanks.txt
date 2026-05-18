@@ -16,5 +16,5 @@ P15: Werder Bremen
 P16: VfL Wolfsburg
 P17: 1. FC Heidenheim
 P18: FC St. Pauli
-REL01W: GER12025REL01W
-REL01L: GER12025REL01L
+REL01W: VfL Wolfsburg vs. SC Paderborn
+REL01L: VfL Wolfsburg vs. SC Paderborn

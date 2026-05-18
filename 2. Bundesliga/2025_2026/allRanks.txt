@@ -16,5 +16,5 @@ P15: Eintracht Braunschweig
 P16: SpVgg Greuther Fürth
 P17: Fortuna Düsseldorf
 P18: Preußen Münster
-REL01W: GER22025REL01W
-REL01L: GER22025REL01L
+REL01W: Rot-Weiss Essen vs. SpVgg Greuther Fürth
+REL01L: Rot-Weiss Essen vs. SpVgg Greuther Fürth
