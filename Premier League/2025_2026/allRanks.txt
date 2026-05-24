@@ -1,20 +1,20 @@
-P01: ENG12025P01
-P02: ENG12025P02
-P03: ENG12025P03
-P04: ENG12025P04
-P05: ENG12025P05
-P06: ENG12025P06
-P07: ENG12025P07
-P08: ENG12025P08
-P09: ENG12025P09
-P10: ENG12025P10
-P11: ENG12025P11
-P12: ENG12025P12
-P13: ENG12025P13
-P14: ENG12025P14
-P15: ENG12025P15
-P16: ENG12025P16
-P17: ENG12025P17
-P18: ENG12025P18
-P19: ENG12025P19
-P20: ENG12025P20
+P01: FC Arsenal
+P02: Manchester City
+P03: Manchester United
+P04: Aston Villa
+P05: FC Liverpool
+P06: AFC Bournemouth
+P07: AFC Sunderland
+P08: Brighton & Hove Albion
+P09: FC Brentford
+P10: FC Chelsea
+P11: FC Fulham
+P12: Newcastle United
+P13: FC Everton
+P14: Leeds United
+P15: Crystal Palace
+P16: Nottingham Forest
+P17: Tottenham Hotspurs
+P18: West Ham United
+P19: FC Burnley
+P20: Wolverhampton Wanderers
