@@ -1,0 +1,64 @@
+PQ:Bayern München
+PQ:Borussia Dortmund
+PQ:RasenBallsport Leipzig
+PQ:VfB Stuttgart
+PQ:TSG 1899 Hoffenheim
+PQ:Bayer 04 Leverkusen
+PQ:SC Freiburg
+PQ:Eintracht Frankfurt
+PQ:FC Augsburg
+PQ:1. FSV Mainz 05
+PQ:1. FC Union Berlin
+PQ:Borussia Mönchengladbach
+PQ:Hamburger SV
+PQ:1. FC Köln
+PQ:Werder Bremen
+PQ:VfL Wolfsburg
+PQ:1. FC Heidenheim
+PQ:FC St. Pauli
+PQ:FC Schalke 04
+PQ:SV Elversberg
+PQ:SC Paderborn
+PQ:Hannover 96
+PQ:SV Darmstadt 98
+PQ:1. FC Kaiserslautern
+PQ:Hertha BSC
+PQ:1. FC Nürnberg
+PQ:VfL Bochum
+PQ:Karlsruher SC
+PQ:Dynamo Dresden
+PQ:Holstein Kiel
+PQ:Arminia Bielefeld
+PQ:1. FC Magdeburg
+PQ:Eintracht Braunschweig
+PQ:SpVgg Greuther Fürth
+PQ:Fortuna Düsseldorf
+PQ:Preußen Münster
+PQ:VfL Osnabrück
+PQ:FC Energie Cottbus
+PQ:Rot-Weiss Essen
+PQ:MSV Duisburg
+PQ:SV Waldhof Mannheim
+PQ:1860 München
+PQ:Würzburger Kickers
+PQ:VSG Altglienicke
+PQ:VfB Krieschow
+PQ:SV Hemelingen
+PQ:Hamburg-Eimsbütteler BC
+PQ:SV Wehen Wiesbaden
+PQ:Hansa Rostock
+PQ:FC Viktoria Köln
+PQ:SC St. Tönis 11/20
+PQ:SSV Jeddeloh II
+PQ:Lüneburger SK Hansa
+PQ:SV Eintracht Trier 05
+PQ:1. FC Saarbrücken
+PQ:Erzgebirge Aue
+PQ:Hallescher FC
+PQ:1. FC Phönix Lübeck
+PQ:Bahlinger SC
+PQ:TSV Schott Mainz
+PQ:FC Carl Zeiss Jena
+PQ:SC Verl
+PQ:Westfalia Rhynern
+PQ:SG Sonnenhof Großaspach

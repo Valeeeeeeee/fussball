@@ -10,3 +10,4 @@
 2023;true;20230811;20240525;false;false;true;false;false;true;
 2024;true;20240816;20250524;false;false;true;false;false;true;
 2025;true;20250815;20260523;false;false;true;false;false;true;
+2026;true;20260821;20270529;false;false;true;false;false;true;
