@@ -10,3 +10,21 @@ Q105W: Vojvodina Novi Sad vs. Ferencváros Budapest
 Q105L: Vojvodina Novi Sad vs. Ferencváros Budapest
 Q106W: ZSKA Sofia vs. Derry City
 Q106L: ZSKA Sofia vs. Derry City
+Q201W: Twente Enschede vs. Q105W
+Q201L: Twente Enschede vs. Q105W
+Q202W: Besiktas Istanbul vs. FC Midtjylland
+Q202L: Besiktas Istanbul vs. FC Midtjylland
+Q203W: Tromsø IL vs. FC Hradec Králové
+Q203L: Tromsø IL vs. FC Hradec Králové
+Q204W: FC St. Gallen vs. Benfica Lissabon
+Q204L: FC St. Gallen vs. Benfica Lissabon
+Q205W: Hammarby IF vs. RSC Anderlecht
+Q205L: Hammarby IF vs. RSC Anderlecht
+Q206W: Q101W vs. Q106W
+Q206L: Q101W vs. Q106W
+Q207W: Q102W vs. PAOK Thessaloniki
+Q207L: Q102W vs. PAOK Thessaloniki
+Q208W: Q103W vs. Maccabi Tel Aviv
+Q208L: Q103W vs. Maccabi Tel Aviv
+Q209W: Q104W vs. FC Pafos
+Q209L: Q104W vs. FC Pafos

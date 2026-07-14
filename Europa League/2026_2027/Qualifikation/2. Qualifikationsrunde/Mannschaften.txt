@@ -1,0 +1,18 @@
+PQ:Twente Enschede
+PQ:Benfica Lissabon
+PQ:RSC Anderlecht
+PQ:FC Hradec Králové
+PQ:Besiktas Istanbul
+PQ:Tromsø IL
+PQ:PAOK Thessaloniki
+PQ:FC Midtjylland
+PQ:FC St. Gallen
+PQ:Maccabi Tel Aviv
+PQ:FC Pafos
+PQ:Hammarby IF
+PK:Q101W
+PK:Q102W
+PK:Q103W
+PK:Q104W
+PK:Q105W
+PK:Q106W

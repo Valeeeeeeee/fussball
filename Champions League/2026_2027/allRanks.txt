@@ -26,3 +26,31 @@ Q113W: Petrocub Hîncesti vs. KF Egnatia
 Q113L: Petrocub Hîncesti vs. KF Egnatia
 Q114W: Maxline Wizebsk vs. CSU Craiova
 Q114L: Maxline Wizebsk vs. CSU Craiova
+Q201W: Aarhus GF vs. Lech Posen
+Q201L: Aarhus GF vs. Lech Posen
+Q202W: FC Thun vs. Dinamo Zagreb
+Q202L: FC Thun vs. Dinamo Zagreb
+Q203W: Omonia Nikosia vs. Q111W
+Q203L: Omonia Nikosia vs. Q111W
+Q204W: Mjällby AIF vs. Q104W
+Q204L: Mjällby AIF vs. Q104W
+Q205W: Fenerbahce Istanbul vs. Górnik Zabrze
+Q205L: Fenerbahce Istanbul vs. Górnik Zabrze
+Q206W: Sturm Graz vs. Heart of Midlothian
+Q206L: Sturm Graz vs. Heart of Midlothian
+Q207W: Q101W vs. Q105W
+Q207L: Q101W vs. Q105W
+Q208W: Q102W vs. Q106W
+Q208L: Q102W vs. Q106W
+Q209W: Q107W vs. Q114W
+Q209L: Q107W vs. Q114W
+Q210W: Q108W vs. Roter Stern Belgrad
+Q210L: Q108W vs. Roter Stern Belgrad
+Q211W: Q109W vs. Q103W
+Q211L: Q109W vs. Q103W
+Q212W: Q110W vs. Hapoel Be'er Scheva
+Q212L: Q110W vs. Hapoel Be'er Scheva
+Q213W: Q112W vs. Slovan Bratislava
+Q213L: Q112W vs. Slovan Bratislava
+Q214W: Q113W vs. NK Celje
+Q214L: Q113W vs. NK Celje
