@@ -13,3 +13,4 @@
 2023;true;18;2;1,1,2,2,2,3,4,4,4;false;true;false;
 2024;true;18;2;1,1,2,2,2,3,4,4,4;false;true;false;
 2025;true;18;2;1,1,2,2,2,3,4,4,4;false;true;false;
+2026;true;18;2;1,1,2,2,2,3,4,4,4;false;true;false;
