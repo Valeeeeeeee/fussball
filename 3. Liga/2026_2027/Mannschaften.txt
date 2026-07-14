@@ -1,0 +1,21 @@
+20
+Fortuna Düsseldorf;01.01.1970
+Preußen Münster;01.01.1970
+Rot-Weiss Essen;01.01.1970
+MSV Duisburg;01.01.1970
+Hansa Rostock;01.01.1970
+SC Verl;01.01.1970
+Alemannia Aachen;01.01.1970
+SV Wehen Wiesbaden;01.01.1970
+Waldhof Mannheim;01.01.1970
+Viktoria Köln;01.01.1970
+FC Ingolstadt 04;01.01.1970
+SSV Jahn Regensburg;01.01.1970
+VfB Stuttgart II;01.01.1970
+1. FC Saarbrücken;01.01.1970
+TSG 1899 Hoffenheim II;01.01.1970
+TSV Havelse;01.01.1970
+Fortuna Köln;01.01.1970
+SG Sonnenhof Großaspach;01.01.1970
+SV Meppen;01.01.1970
+Würzburger Kickers;01.01.1970
