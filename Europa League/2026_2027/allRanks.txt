@@ -1,12 +1,12 @@
-Q101W: EURL2026Q101W
-Q101L: EURL2026Q101L
-Q102W: EURL2026Q102W
-Q102L: EURL2026Q102L
-Q103W: EURL2026Q103W
-Q103L: EURL2026Q103L
-Q104W: EURL2026Q104W
-Q104L: EURL2026Q104L
-Q105W: EURL2026Q105W
-Q105L: EURL2026Q105L
-Q106W: EURL2026Q106W
-Q106L: EURL2026Q106L
+Q101W: Hajduk Split vs. MSK Zilina
+Q101L: Hajduk Split vs. MSK Zilina
+Q102W: Vojvodina Novi Sad vs. Ferencváros Budapest
+Q102L: Vojvodina Novi Sad vs. Ferencváros Budapest
+Q103W: Dynamo Kiew vs. Universitatea Cluj
+Q103L: Dynamo Kiew vs. Universitatea Cluj
+Q104W: ZSKA Sofia vs. Derry City
+Q104L: ZSKA Sofia vs. Derry City
+Q105W: Qarabag Agdam vs. ÍF Vestri
+Q105L: Qarabag Agdam vs. ÍF Vestri
+Q106W: Sheriff Tiraspol vs. NK Aluminij
+Q106L: Sheriff Tiraspol vs. NK Aluminij

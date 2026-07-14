@@ -1,52 +1,52 @@
-Q101W: CONF2026Q101W
-Q101L: CONF2026Q101L
-Q102W: CONF2026Q102W
-Q102L: CONF2026Q102L
-Q103W: CONF2026Q103W
-Q103L: CONF2026Q103L
-Q104W: CONF2026Q104W
-Q104L: CONF2026Q104L
-Q105W: CONF2026Q105W
-Q105L: CONF2026Q105L
-Q106W: CONF2026Q106W
-Q106L: CONF2026Q106L
-Q107W: CONF2026Q107W
-Q107L: CONF2026Q107L
-Q108W: CONF2026Q108W
-Q108L: CONF2026Q108L
-Q109W: CONF2026Q109W
-Q109L: CONF2026Q109L
-Q110W: CONF2026Q110W
-Q110L: CONF2026Q110L
-Q111W: CONF2026Q111W
-Q111L: CONF2026Q111L
-Q112W: CONF2026Q112W
-Q112L: CONF2026Q112L
-Q113W: CONF2026Q113W
-Q113L: CONF2026Q113L
-Q114W: CONF2026Q114W
-Q114L: CONF2026Q114L
-Q115W: CONF2026Q115W
-Q115L: CONF2026Q115L
-Q116W: CONF2026Q116W
-Q116L: CONF2026Q116L
-Q117W: CONF2026Q117W
-Q117L: CONF2026Q117L
-Q118W: CONF2026Q118W
-Q118L: CONF2026Q118L
-Q119W: CONF2026Q119W
-Q119L: CONF2026Q119L
-Q120W: CONF2026Q120W
-Q120L: CONF2026Q120L
-Q121W: CONF2026Q121W
-Q121L: CONF2026Q121L
-Q122W: CONF2026Q122W
-Q122L: CONF2026Q122L
-Q123W: CONF2026Q123W
-Q123L: CONF2026Q123L
-Q124W: CONF2026Q124W
-Q124L: CONF2026Q124L
-Q125W: CONF2026Q125W
-Q125L: CONF2026Q125L
-Q126W: CONF2026Q126W
-Q126L: CONF2026Q126L
+Q101W: FK Zira vs. Torpedo Kutaissi
+Q101L: FK Zira vs. Torpedo Kutaissi
+Q102W: Bohemians Dublin vs. St Joseph's FC
+Q102L: Bohemians Dublin vs. St Joseph's FC
+Q103W: UMF Stjarnan vs. Víkingur Gøta
+Q103L: UMF Stjarnan vs. Víkingur Gøta
+Q104W: FK Sarajevo vs. Inter Turku
+Q104L: FK Sarajevo vs. Inter Turku
+Q105W: Velez Mostar vs. FC Milsami
+Q105L: Velez Mostar vs. FC Milsami
+Q106W: Alashkert Martuni vs. Jelimai Semei
+Q106L: Alashkert Martuni vs. Jelimai Semei
+Q107W: FK Liepaja vs. Decic Tuzi
+Q107L: FK Liepaja vs. Decic Tuzi
+Q108W: NSÍ Runavík vs. Hamrun Spartans
+Q108L: NSÍ Runavík vs. Hamrun Spartans
+Q109W: FC Marsaxlokk vs. Pjunik Erewan
+Q109L: FC Marsaxlokk vs. Pjunik Erewan
+Q110W: Glentoran FC vs. FK Rigas FS
+Q110L: Glentoran FC vs. FK Rigas FS
+Q111W: FC Hegelmann vs. Paide Linnameeskond
+Q111L: FC Hegelmann vs. Paide Linnameeskond
+Q112W: Nomme Kalju vs. Linfield FC
+Q112L: Nomme Kalju vs. Linfield FC
+Q113W: Dinamo City vs. FK Astana
+Q113L: Dinamo City vs. FK Astana
+Q114W: AF Elbasani vs. BATE Baryssau
+Q114L: AF Elbasani vs. BATE Baryssau
+Q115W: Vllaznia Shkodra vs. KF Malisheva
+Q115L: Vllaznia Shkodra vs. KF Malisheva
+Q116W: OFK Petrovac vs. Zalgiris Vilnius
+Q116L: OFK Petrovac vs. Zalgiris Vilnius
+Q117W: FC Differdingen vs. Tampereen Ilves
+Q117L: FC Differdingen vs. Tampereen Ilves
+Q118W: US Mondorf-les-Bains vs. Dinamo Tiflis
+Q118L: US Mondorf-les-Bains vs. Dinamo Tiflis
+Q119W: UNA Strassen vs. SP La Fiorita
+Q119L: UNA Strassen vs. SP La Fiorita
+Q120W: Caernarfon Town vs. Levadia Tallinn
+Q120L: Caernarfon Town vs. Levadia Tallinn
+Q121W: Connah's Quay Nomads vs. KF Ballkani
+Q121L: Connah's Quay Nomads vs. KF Ballkani
+Q122W: Pen-y-Bont FC vs. FC Santa Coloma
+Q122L: Pen-y-Bont FC vs. FC Santa Coloma
+Q123W: Dila Gori vs. SS Virtus
+Q123L: Dila Gori vs. SS Virtus
+Q124W: Dinamo Minsk vs. Sileks Kratovo
+Q124L: Dinamo Minsk vs. Sileks Kratovo
+Q125W: Atlètic Club d'Escaldes vs. Mornar Bar
+Q125L: Atlètic Club d'Escaldes vs. Mornar Bar
+Q126W: Europa FC vs. KF Shkëndija
+Q126L: Europa FC vs. KF Shkëndija
