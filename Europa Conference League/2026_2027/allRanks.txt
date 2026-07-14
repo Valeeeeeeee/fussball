@@ -1,52 +1,52 @@
-Q101W: FK Zira vs. Torpedo Kutaissi
-Q101L: FK Zira vs. Torpedo Kutaissi
-Q102W: Bohemians Dublin vs. St Joseph's FC
-Q102L: Bohemians Dublin vs. St Joseph's FC
-Q103W: UMF Stjarnan vs. Víkingur Gøta
-Q103L: UMF Stjarnan vs. Víkingur Gøta
-Q104W: FK Sarajevo vs. Inter Turku
-Q104L: FK Sarajevo vs. Inter Turku
-Q105W: Velez Mostar vs. FC Milsami
-Q105L: Velez Mostar vs. FC Milsami
-Q106W: Alashkert Martuni vs. Jelimai Semei
-Q106L: Alashkert Martuni vs. Jelimai Semei
-Q107W: FK Liepaja vs. Decic Tuzi
-Q107L: FK Liepaja vs. Decic Tuzi
-Q108W: NSÍ Runavík vs. Hamrun Spartans
-Q108L: NSÍ Runavík vs. Hamrun Spartans
-Q109W: FC Marsaxlokk vs. Pjunik Erewan
-Q109L: FC Marsaxlokk vs. Pjunik Erewan
-Q110W: Glentoran FC vs. FK Rigas FS
-Q110L: Glentoran FC vs. FK Rigas FS
-Q111W: FC Hegelmann vs. Paide Linnameeskond
-Q111L: FC Hegelmann vs. Paide Linnameeskond
-Q112W: Nomme Kalju vs. Linfield FC
-Q112L: Nomme Kalju vs. Linfield FC
-Q113W: Dinamo City vs. FK Astana
-Q113L: Dinamo City vs. FK Astana
-Q114W: AF Elbasani vs. BATE Baryssau
-Q114L: AF Elbasani vs. BATE Baryssau
-Q115W: Vllaznia Shkodra vs. KF Malisheva
-Q115L: Vllaznia Shkodra vs. KF Malisheva
-Q116W: OFK Petrovac vs. Zalgiris Vilnius
-Q116L: OFK Petrovac vs. Zalgiris Vilnius
-Q117W: FC Differdingen vs. Tampereen Ilves
-Q117L: FC Differdingen vs. Tampereen Ilves
-Q118W: US Mondorf-les-Bains vs. Dinamo Tiflis
-Q118L: US Mondorf-les-Bains vs. Dinamo Tiflis
-Q119W: UNA Strassen vs. SP La Fiorita
-Q119L: UNA Strassen vs. SP La Fiorita
-Q120W: Caernarfon Town vs. Levadia Tallinn
-Q120L: Caernarfon Town vs. Levadia Tallinn
-Q121W: Connah's Quay Nomads vs. KF Ballkani
-Q121L: Connah's Quay Nomads vs. KF Ballkani
-Q122W: Pen-y-Bont FC vs. FC Santa Coloma
-Q122L: Pen-y-Bont FC vs. FC Santa Coloma
-Q123W: Dila Gori vs. SS Virtus
-Q123L: Dila Gori vs. SS Virtus
-Q124W: Dinamo Minsk vs. Sileks Kratovo
-Q124L: Dinamo Minsk vs. Sileks Kratovo
-Q125W: Atlètic Club d'Escaldes vs. Mornar Bar
-Q125L: Atlètic Club d'Escaldes vs. Mornar Bar
-Q126W: Europa FC vs. KF Shkëndija
-Q126L: Europa FC vs. KF Shkëndija
+Q101W: UNA Strassen vs. SP La Fiorita
+Q101L: UNA Strassen vs. SP La Fiorita
+Q102W: AF Elbasani vs. BATE Baryssau
+Q102L: AF Elbasani vs. BATE Baryssau
+Q103W: FK Zira vs. Torpedo Kutaissi
+Q103L: FK Zira vs. Torpedo Kutaissi
+Q104W: FC Differdingen vs. Tampereen Ilves
+Q104L: FC Differdingen vs. Tampereen Ilves
+Q105W: Connah's Quay Nomads vs. KF Ballkani
+Q105L: Connah's Quay Nomads vs. KF Ballkani
+Q106W: Atlètic Club d'Escaldes vs. Mornar Bar
+Q106L: Atlètic Club d'Escaldes vs. Mornar Bar
+Q107W: Alashkert Martuni vs. Jelimai Semei
+Q107L: Alashkert Martuni vs. Jelimai Semei
+Q108W: FK Liepaja vs. Decic Tuzi
+Q108L: FK Liepaja vs. Decic Tuzi
+Q109W: FC Hegelmann vs. Paide Linnameeskond
+Q109L: FC Hegelmann vs. Paide Linnameeskond
+Q110W: Nomme Kalju vs. Linfield FC
+Q110L: Nomme Kalju vs. Linfield FC
+Q111W: Dila Gori vs. SS Virtus
+Q111L: Dila Gori vs. SS Virtus
+Q112W: Bohemians Dublin vs. St Joseph's FC
+Q112L: Bohemians Dublin vs. St Joseph's FC
+Q113W: Velez Mostar vs. FC Milsami
+Q113L: Velez Mostar vs. FC Milsami
+Q114W: FC Marsaxlokk vs. Pjunik Erewan
+Q114L: FC Marsaxlokk vs. Pjunik Erewan
+Q115W: Dinamo Minsk vs. Sileks Kratovo
+Q115L: Dinamo Minsk vs. Sileks Kratovo
+Q116W: US Mondorf-les-Bains vs. Dinamo Tiflis
+Q116L: US Mondorf-les-Bains vs. Dinamo Tiflis
+Q117W: Caernarfon Town vs. Levadia Tallinn
+Q117L: Caernarfon Town vs. Levadia Tallinn
+Q118W: Europa FC vs. KF Shkëndija
+Q118L: Europa FC vs. KF Shkëndija
+Q119W: Vllaznia Shkodra vs. KF Malisheva
+Q119L: Vllaznia Shkodra vs. KF Malisheva
+Q120W: Glentoran FC vs. FK Rigas FS
+Q120L: Glentoran FC vs. FK Rigas FS
+Q121W: NSÍ Runavík vs. Hamrun Spartans
+Q121L: NSÍ Runavík vs. Hamrun Spartans
+Q122W: OFK Petrovac vs. Zalgiris Vilnius
+Q122L: OFK Petrovac vs. Zalgiris Vilnius
+Q123W: Pen-y-Bont FC vs. FC Santa Coloma
+Q123L: Pen-y-Bont FC vs. FC Santa Coloma
+Q124W: UMF Stjarnan vs. Víkingur Gøta
+Q124L: UMF Stjarnan vs. Víkingur Gøta
+Q125W: FK Sarajevo vs. Inter Turku
+Q125L: FK Sarajevo vs. Inter Turku
+Q126W: Dinamo City vs. FK Astana
+Q126L: Dinamo City vs. FK Astana

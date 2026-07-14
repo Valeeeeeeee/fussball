@@ -1,12 +1,12 @@
-Q101W: Hajduk Split vs. MSK Zilina
-Q101L: Hajduk Split vs. MSK Zilina
-Q102W: Vojvodina Novi Sad vs. Ferencváros Budapest
-Q102L: Vojvodina Novi Sad vs. Ferencváros Budapest
-Q103W: Dynamo Kiew vs. Universitatea Cluj
-Q103L: Dynamo Kiew vs. Universitatea Cluj
-Q104W: ZSKA Sofia vs. Derry City
-Q104L: ZSKA Sofia vs. Derry City
-Q105W: Qarabag Agdam vs. ÍF Vestri
-Q105L: Qarabag Agdam vs. ÍF Vestri
-Q106W: Sheriff Tiraspol vs. NK Aluminij
-Q106L: Sheriff Tiraspol vs. NK Aluminij
+Q101W: Qarabag Agdam vs. ÍF Vestri
+Q101L: Qarabag Agdam vs. ÍF Vestri
+Q102W: Dynamo Kiew vs. Universitatea Cluj
+Q102L: Dynamo Kiew vs. Universitatea Cluj
+Q103W: Sheriff Tiraspol vs. NK Aluminij
+Q103L: Sheriff Tiraspol vs. NK Aluminij
+Q104W: Hajduk Split vs. MSK Zilina
+Q104L: Hajduk Split vs. MSK Zilina
+Q105W: Vojvodina Novi Sad vs. Ferencváros Budapest
+Q105L: Vojvodina Novi Sad vs. Ferencváros Budapest
+Q106W: ZSKA Sofia vs. Derry City
+Q106L: ZSKA Sofia vs. Derry City

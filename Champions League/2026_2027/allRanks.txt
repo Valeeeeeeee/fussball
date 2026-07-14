@@ -1,28 +1,28 @@
 Q101W: Sabah FK vs. The New Saints FC
 Q101L: Sabah FK vs. The New Saints FC
-Q102W: Petrocub Hîncesti vs. KF Egnatia
-Q102L: Petrocub Hîncesti vs. KF Egnatia
-Q103W: Víkingur Reykjavík vs. Györi ETO
-Q103L: Víkingur Reykjavík vs. Györi ETO
-Q104W: Borac Banja Luka vs. Lewski Sofia
-Q104L: Borac Banja Luka vs. Lewski Sofia
-Q105W: FC Ararat-Armenia vs. Riga FC
-Q105L: FC Ararat-Armenia vs. Riga FC
-Q106W: Qairat Almaty vs. Sutjeska Niksic
-Q106L: Qairat Almaty vs. Sutjeska Niksic
-Q107W: KÍ Klaksvík vs. Atert Bissen
-Q107L: KÍ Klaksvík vs. Atert Bissen
-Q108W: FC Floriana vs. Shamrock Rovers
-Q108L: FC Floriana vs. Shamrock Rovers
-Q109W: FK Kauno Zalgiris vs. KF Drita
-Q109L: FK Kauno Zalgiris vs. KF Drita
-Q110W: Flora Tallinn vs. FC Iberia 1999
-Q110L: Flora Tallinn vs. FC Iberia 1999
-Q111W: Vardar Skopje vs. Kuopion PS
-Q111L: Vardar Skopje vs. Kuopion PS
-Q112W: Maxline Wizebsk vs. CSU Craiova
-Q112L: Maxline Wizebsk vs. CSU Craiova
-Q113W: Lincoln Red Imps FC vs. Inter Club d'Escaldes
-Q113L: Lincoln Red Imps FC vs. Inter Club d'Escaldes
-Q114W: SP Tre Fiori vs. Larne FC
-Q114L: SP Tre Fiori vs. Larne FC
+Q102W: FC Ararat-Armenia vs. Riga FC
+Q102L: FC Ararat-Armenia vs. Riga FC
+Q103W: FK Kauno Zalgiris vs. KF Drita
+Q103L: FK Kauno Zalgiris vs. KF Drita
+Q104W: Lincoln Red Imps FC vs. Inter Club d'Escaldes
+Q104L: Lincoln Red Imps FC vs. Inter Club d'Escaldes
+Q105W: Vardar Skopje vs. Kuopion PS
+Q105L: Vardar Skopje vs. Kuopion PS
+Q106W: FC Floriana vs. Shamrock Rovers
+Q106L: FC Floriana vs. Shamrock Rovers
+Q107W: Borac Banja Luka vs. Lewski Sofia
+Q107L: Borac Banja Luka vs. Lewski Sofia
+Q108W: SP Tre Fiori vs. Larne FC
+Q108L: SP Tre Fiori vs. Larne FC
+Q109W: KÍ Klaksvík vs. Atert Bissen
+Q109L: KÍ Klaksvík vs. Atert Bissen
+Q110W: Víkingur Reykjavík vs. Györi ETO
+Q110L: Víkingur Reykjavík vs. Györi ETO
+Q111W: Qairat Almaty vs. Sutjeska Niksic
+Q111L: Qairat Almaty vs. Sutjeska Niksic
+Q112W: Flora Tallinn vs. FC Iberia 1999
+Q112L: Flora Tallinn vs. FC Iberia 1999
+Q113W: Petrocub Hîncesti vs. KF Egnatia
+Q113L: Petrocub Hîncesti vs. KF Egnatia
+Q114W: Maxline Wizebsk vs. CSU Craiova
+Q114L: Maxline Wizebsk vs. CSU Craiova
