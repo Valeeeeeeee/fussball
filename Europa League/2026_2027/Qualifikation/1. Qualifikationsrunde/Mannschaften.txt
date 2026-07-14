@@ -1,0 +1,12 @@
+PQ:Hajduk Split
+PQ:Vojvodina Novi Sad
+PQ:Dynamo Kiew
+PQ:Ferencváros Budapest
+PQ:Universitatea Cluj
+PQ:MSK Zilina
+PQ:NK Aluminij
+PQ:ZSKA Sofia
+PQ:Qarabag Agdam
+PQ:Derry City
+PQ:Sheriff Tiraspol
+PQ:ÍF Vestri

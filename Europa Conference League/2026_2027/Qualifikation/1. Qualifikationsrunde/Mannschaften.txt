@@ -1,0 +1,52 @@
+PQ:FK Zira
+PQ:Bohemians Dublin
+PQ:FC Milsami
+PQ:UMF Stjarnan
+PQ:FK Sarajevo
+PQ:Velez Mostar
+PQ:Pjunik Erewan
+PQ:Alashkert Martuni
+PQ:FK Rigas FS
+PQ:FK Liepaja
+PQ:KF Malisheva
+PQ:KF Ballkani
+PQ:Inter Turku
+PQ:Tampereen Ilves
+PQ:FK Astana
+PQ:Jelimai Semei
+PQ:NSÍ Runavík
+PQ:Víkingur Gøta
+PQ:FC Marsaxlokk
+PQ:Hamrun Spartans
+PQ:Glentoran FC
+PQ:Linfield FC
+PQ:FC Hegelmann
+PQ:Zalgiris Vilnius
+PQ:Levadia Tallinn
+PQ:Nomme Kalju
+PQ:Paide Linnameeskond
+PQ:Dinamo City
+PQ:AF Elbasani
+PQ:Vllaznia Shkodra
+PQ:Mornar Bar
+PQ:OFK Petrovac
+PQ:Decic Tuzi
+PQ:FC Differdingen
+PQ:US Mondorf-les-Bains
+PQ:UNA Strassen
+PQ:Caernarfon Town
+PQ:Connah's Quay Nomads
+PQ:Pen-y-Bont FC
+PQ:Dila Gori
+PQ:Torpedo Kutaissi
+PQ:Dinamo Tiflis
+PQ:Sileks Kratovo
+PQ:KF Shkëndija
+PQ:BATE Baryssau
+PQ:Dinamo Minsk
+PQ:Atlètic Club d'Escaldes
+PQ:FC Santa Coloma
+PQ:St Joseph's FC
+PQ:Europa FC
+PQ:SP La Fiorita
+PQ:SS Virtus

@@ -1,0 +1,28 @@
+PQ:Györi ETO
+PQ:CSU Craiova
+PQ:Lewski Sofia
+PQ:Sabah FK
+PQ:Shamrock Rovers
+PQ:Petrocub Hîncesti
+PQ:Víkingur Reykjavík
+PQ:Borac Banja Luka
+PQ:FC Ararat-Armenia
+PQ:Riga FC
+PQ:KF Drita
+PQ:Kuopion PS
+PQ:Qairat Almaty
+PQ:KÍ Klaksvík
+PQ:FC Floriana
+PQ:Larne FC
+PQ:FK Kauno Zalgiris
+PQ:Flora Tallinn
+PQ:KF Egnatia
+PQ:Sutjeska Niksic
+PQ:Atert Bissen
+PQ:The New Saints FC
+PQ:FC Iberia 1999
+PQ:Vardar Skopje
+PQ:Maxline Wizebsk
+PQ:Inter Club d'Escaldes
+PQ:Lincoln Red Imps FC
+PQ:SP Tre Fiori

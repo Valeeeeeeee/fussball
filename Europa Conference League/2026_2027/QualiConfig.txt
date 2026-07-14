@@ -1,0 +1,6 @@
+20260707
+20260827
+false
+0
+1
+1. Qualifikationsrunde;Q1;true;
