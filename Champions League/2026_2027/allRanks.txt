@@ -1,56 +1,56 @@
-Q101W: Sabah FK vs. The New Saints FC
-Q101L: Sabah FK vs. The New Saints FC
-Q102W: FC Ararat-Armenia vs. Riga FC
-Q102L: FC Ararat-Armenia vs. Riga FC
-Q103W: FK Kauno Zalgiris vs. KF Drita
-Q103L: FK Kauno Zalgiris vs. KF Drita
-Q104W: Lincoln Red Imps FC vs. Inter Club d'Escaldes
-Q104L: Lincoln Red Imps FC vs. Inter Club d'Escaldes
-Q105W: Vardar Skopje vs. Kuopion PS
-Q105L: Vardar Skopje vs. Kuopion PS
-Q106W: FC Floriana vs. Shamrock Rovers
-Q106L: FC Floriana vs. Shamrock Rovers
-Q107W: Borac Banja Luka vs. Lewski Sofia
-Q107L: Borac Banja Luka vs. Lewski Sofia
-Q108W: SP Tre Fiori vs. Larne FC
-Q108L: SP Tre Fiori vs. Larne FC
-Q109W: KÍ Klaksvík vs. Atert Bissen
-Q109L: KÍ Klaksvík vs. Atert Bissen
-Q110W: Víkingur Reykjavík vs. Györi ETO
-Q110L: Víkingur Reykjavík vs. Györi ETO
-Q111W: Qairat Almaty vs. Sutjeska Niksic
-Q111L: Qairat Almaty vs. Sutjeska Niksic
-Q112W: Flora Tallinn vs. FC Iberia 1999
-Q112L: Flora Tallinn vs. FC Iberia 1999
-Q113W: Petrocub Hîncesti vs. KF Egnatia
-Q113L: Petrocub Hîncesti vs. KF Egnatia
-Q114W: Maxline Wizebsk vs. CSU Craiova
-Q114L: Maxline Wizebsk vs. CSU Craiova
+Q101W: Sabah FK
+Q101L: The New Saints FC
+Q102W: FC Ararat-Armenia
+Q102L: Riga FC
+Q103W: FK Kauno Zalgiris
+Q103L: KF Drita
+Q104W: Lincoln Red Imps FC
+Q104L: Inter Club d'Escaldes
+Q105W: Kuopion PS
+Q105L: Vardar Skopje
+Q106W: Shamrock Rovers
+Q106L: FC Floriana
+Q107W: Lewski Sofia
+Q107L: Borac Banja Luka
+Q108W: Larne FC
+Q108L: SP Tre Fiori
+Q109W: KÍ Klaksvík
+Q109L: Atert Bissen
+Q110W: Víkingur Reykjavík
+Q110L: Györi ETO
+Q111W: Qairat Almaty
+Q111L: Sutjeska Niksic
+Q112W: FC Iberia 1999
+Q112L: Flora Tallinn
+Q113W: KF Egnatia
+Q113L: Petrocub Hîncesti
+Q114W: CSU Craiova
+Q114L: Maxline Wizebsk
 Q201W: Aarhus GF vs. Lech Posen
 Q201L: Aarhus GF vs. Lech Posen
 Q202W: FC Thun vs. Dinamo Zagreb
 Q202L: FC Thun vs. Dinamo Zagreb
-Q203W: Omonia Nikosia vs. Q111W
-Q203L: Omonia Nikosia vs. Q111W
-Q204W: Mjällby AIF vs. Q104W
-Q204L: Mjällby AIF vs. Q104W
+Q203W: Omonia Nikosia vs. Qairat Almaty
+Q203L: Omonia Nikosia vs. Qairat Almaty
+Q204W: Mjällby AIF vs. Lincoln Red Imps FC
+Q204L: Mjällby AIF vs. Lincoln Red Imps FC
 Q205W: Fenerbahce Istanbul vs. Górnik Zabrze
 Q205L: Fenerbahce Istanbul vs. Górnik Zabrze
 Q206W: Sturm Graz vs. Heart of Midlothian
 Q206L: Sturm Graz vs. Heart of Midlothian
-Q207W: Q101W vs. Q105W
-Q207L: Q101W vs. Q105W
-Q208W: Q102W vs. Q106W
-Q208L: Q102W vs. Q106W
-Q209W: Q107W vs. Q114W
-Q209L: Q107W vs. Q114W
-Q210W: Q108W vs. Roter Stern Belgrad
-Q210L: Q108W vs. Roter Stern Belgrad
-Q211W: Q109W vs. Q103W
-Q211L: Q109W vs. Q103W
-Q212W: Q110W vs. Hapoel Be'er Scheva
-Q212L: Q110W vs. Hapoel Be'er Scheva
-Q213W: Q112W vs. Slovan Bratislava
-Q213L: Q112W vs. Slovan Bratislava
-Q214W: Q113W vs. NK Celje
-Q214L: Q113W vs. NK Celje
+Q207W: Sabah FK vs. Kuopion PS
+Q207L: Sabah FK vs. Kuopion PS
+Q208W: FC Ararat-Armenia vs. Shamrock Rovers
+Q208L: FC Ararat-Armenia vs. Shamrock Rovers
+Q209W: Lewski Sofia vs. CSU Craiova
+Q209L: Lewski Sofia vs. CSU Craiova
+Q210W: Larne FC vs. Roter Stern Belgrad
+Q210L: Larne FC vs. Roter Stern Belgrad
+Q211W: KÍ Klaksvík vs. FK Kauno Zalgiris
+Q211L: KÍ Klaksvík vs. FK Kauno Zalgiris
+Q212W: Víkingur Reykjavík vs. Hapoel Be'er Scheva
+Q212L: Víkingur Reykjavík vs. Hapoel Be'er Scheva
+Q213W: FC Iberia 1999 vs. Slovan Bratislava
+Q213L: FC Iberia 1999 vs. Slovan Bratislava
+Q214W: KF Egnatia vs. NK Celje
+Q214L: KF Egnatia vs. NK Celje
