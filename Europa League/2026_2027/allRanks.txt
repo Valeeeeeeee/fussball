@@ -10,21 +10,21 @@ Q105W: Ferencváros Budapest
 Q105L: Vojvodina Novi Sad
 Q106W: ZSKA Sofia
 Q106L: Derry City
-Q201W: Twente Enschede vs. Ferencváros Budapest
-Q201L: Twente Enschede vs. Ferencváros Budapest
-Q202W: Besiktas Istanbul vs. FC Midtjylland
-Q202L: Besiktas Istanbul vs. FC Midtjylland
-Q203W: Tromsø IL vs. FC Hradec Králové
-Q203L: Tromsø IL vs. FC Hradec Králové
-Q204W: FC St. Gallen vs. Benfica Lissabon
-Q204L: FC St. Gallen vs. Benfica Lissabon
-Q205W: Hammarby IF vs. RSC Anderlecht
-Q205L: Hammarby IF vs. RSC Anderlecht
-Q206W: Qarabag Agdam vs. ZSKA Sofia
-Q206L: Qarabag Agdam vs. ZSKA Sofia
-Q207W: Dynamo Kiew vs. PAOK Thessaloniki
-Q207L: Dynamo Kiew vs. PAOK Thessaloniki
-Q208W: Sheriff Tiraspol vs. Maccabi Tel Aviv
-Q208L: Sheriff Tiraspol vs. Maccabi Tel Aviv
+Q201W: Qarabag Agdam vs. ZSKA Sofia
+Q201L: Qarabag Agdam vs. ZSKA Sofia
+Q202W: Tromsø IL vs. FC Hradec Králové
+Q202L: Tromsø IL vs. FC Hradec Králové
+Q203W: Hammarby IF vs. RSC Anderlecht
+Q203L: Hammarby IF vs. RSC Anderlecht
+Q204W: Dynamo Kiew vs. PAOK Thessaloniki
+Q204L: Dynamo Kiew vs. PAOK Thessaloniki
+Q205W: Sheriff Tiraspol vs. Maccabi Tel Aviv
+Q205L: Sheriff Tiraspol vs. Maccabi Tel Aviv
+Q206W: Twente Enschede vs. Ferencváros Budapest
+Q206L: Twente Enschede vs. Ferencváros Budapest
+Q207W: Besiktas Istanbul vs. FC Midtjylland
+Q207L: Besiktas Istanbul vs. FC Midtjylland
+Q208W: FC St. Gallen vs. Benfica Lissabon
+Q208L: FC St. Gallen vs. Benfica Lissabon
 Q209W: Hajduk Split vs. FC Pafos
 Q209L: Hajduk Split vs. FC Pafos
