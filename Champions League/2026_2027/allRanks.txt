@@ -54,3 +54,23 @@ Q213W: Lewski Sofia vs. CSU Craiova
 Q213L: Lewski Sofia vs. CSU Craiova
 Q214W: KF Egnatia vs. NK Celje
 Q214L: KF Egnatia vs. NK Celje
+Q301W: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
+Q301L: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
+Q302W: Sparta Prag vs. Olympique Lyon
+Q302L: Sparta Prag vs. Olympique Lyon
+Q303W: Olympiakos Piräus vs. NEC Nijmegen
+Q303L: Olympiakos Piräus vs. NEC Nijmegen
+Q304W: Q201W vs. Q204W
+Q304L: Q201W vs. Q204W
+Q305W: Q203W vs. Q214W
+Q305L: Q203W vs. Q214W
+Q306W: Q205W vs. Q202W
+Q306L: Q205W vs. Q202W
+Q307W: Q206W vs. Q209W
+Q307L: Q206W vs. Q209W
+Q308W: Q207W vs. Q208W
+Q308L: Q207W vs. Q208W
+Q309W: Q211W vs. Q210W
+Q309L: Q211W vs. Q210W
+Q310W: Q213W vs. Q212W
+Q310L: Q213W vs. Q212W
