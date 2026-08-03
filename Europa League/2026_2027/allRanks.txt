@@ -10,47 +10,47 @@ Q105W: Ferencváros Budapest
 Q105L: Vojvodina Novi Sad
 Q106W: ZSKA Sofia
 Q106L: Derry City
-Q201W: Qarabag Agdam vs. ZSKA Sofia
-Q201L: Qarabag Agdam vs. ZSKA Sofia
-Q202W: Tromsø IL vs. FC Hradec Králové
-Q202L: Tromsø IL vs. FC Hradec Králové
-Q203W: Hammarby IF vs. RSC Anderlecht
-Q203L: Hammarby IF vs. RSC Anderlecht
-Q204W: Dynamo Kiew vs. PAOK Thessaloniki
-Q204L: Dynamo Kiew vs. PAOK Thessaloniki
-Q205W: Sheriff Tiraspol vs. Maccabi Tel Aviv
-Q205L: Sheriff Tiraspol vs. Maccabi Tel Aviv
-Q206W: Twente Enschede vs. Ferencváros Budapest
-Q206L: Twente Enschede vs. Ferencváros Budapest
-Q207W: Besiktas Istanbul vs. FC Midtjylland
-Q207L: Besiktas Istanbul vs. FC Midtjylland
-Q208W: FC St. Gallen vs. Benfica Lissabon
-Q208L: FC St. Gallen vs. Benfica Lissabon
-Q209W: Hajduk Split vs. FC Pafos
-Q209L: Hajduk Split vs. FC Pafos
+Q201W: ZSKA Sofia
+Q201L: Qarabag Agdam
+Q202W: FC Hradec Králové
+Q202L: Tromsø IL
+Q203W: RSC Anderlecht
+Q203L: Hammarby IF
+Q204W: PAOK Thessaloniki
+Q204L: Dynamo Kiew
+Q205W: Maccabi Tel Aviv
+Q205L: Sheriff Tiraspol
+Q206W: Ferencváros Budapest
+Q206L: Twente Enschede
+Q207W: Besiktas Istanbul
+Q207L: FC Midtjylland
+Q208W: Benfica Lissabon
+Q208L: FC St. Gallen
+Q209W: FC Pafos
+Q209L: Hajduk Split
 Q301W: Jagiellonia Bialystok vs. Glasgow Rangers
 Q301L: Jagiellonia Bialystok vs. Glasgow Rangers
-Q302W: Q201W vs. Q202W
-Q302L: Q201W vs. Q202W
-Q303W: Q204W vs. Q208W
-Q303L: Q204W vs. Q208W
-Q304W: Q205W vs. CHAL2026Q208L
-Q304L: Q205W vs. CHAL2026Q208L
-Q305W: Q206W vs. FC Salzburg
-Q305L: Q206W vs. FC Salzburg
-Q306W: Q207W vs. Q203W
-Q306L: Q207W vs. Q203W
-Q307W: Q209W vs. CHAL2026Q207L
-Q307L: Q209W vs. CHAL2026Q207L
-Q308W: CHAL2026Q205L vs. CHAL2026Q201L
-Q308L: CHAL2026Q205L vs. CHAL2026Q201L
-Q309W: CHAL2026Q206L vs. CHAL2026Q214L
-Q309L: CHAL2026Q206L vs. CHAL2026Q214L
-Q310W: CHAL2026Q209L vs. CHAL2026Q202L
-Q310L: CHAL2026Q209L vs. CHAL2026Q202L
-Q311W: CHAL2026Q210L vs. CHAL2026Q203L
-Q311L: CHAL2026Q210L vs. CHAL2026Q203L
-Q312W: CHAL2026Q211L vs. CHAL2026Q213L
-Q312L: CHAL2026Q211L vs. CHAL2026Q213L
-Q313W: CHAL2026Q212L vs. CHAL2026Q204L
-Q313L: CHAL2026Q212L vs. CHAL2026Q204L
+Q302W: ZSKA Sofia vs. FC Hradec Králové
+Q302L: ZSKA Sofia vs. FC Hradec Králové
+Q303W: PAOK Thessaloniki vs. Benfica Lissabon
+Q303L: PAOK Thessaloniki vs. Benfica Lissabon
+Q304W: Maccabi Tel Aviv vs. Heart of Midlothian
+Q304L: Maccabi Tel Aviv vs. Heart of Midlothian
+Q305W: Ferencváros Budapest vs. FC Salzburg
+Q305L: Ferencváros Budapest vs. FC Salzburg
+Q306W: Besiktas Istanbul vs. RSC Anderlecht
+Q306L: Besiktas Istanbul vs. RSC Anderlecht
+Q307W: FC Pafos vs. Górnik Zabrze
+Q307L: FC Pafos vs. Górnik Zabrze
+Q308W: Lech Posen vs. Lincoln Red Imps FC
+Q308L: Lech Posen vs. Lincoln Red Imps FC
+Q309W: FC Thun vs. KF Egnatia
+Q309L: FC Thun vs. KF Egnatia
+Q310W: KÍ Klaksvík vs. Kuopion PS
+Q310L: KÍ Klaksvík vs. Kuopion PS
+Q311W: Larne FC vs. Shamrock Rovers
+Q311L: Larne FC vs. Shamrock Rovers
+Q312W: Víkingur Reykjavík vs. CSU Craiova
+Q312L: Víkingur Reykjavík vs. CSU Craiova
+Q313W: Omonia Nikosia vs. FC Iberia 1999
+Q313L: Omonia Nikosia vs. FC Iberia 1999

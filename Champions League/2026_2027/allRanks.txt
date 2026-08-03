@@ -26,51 +26,51 @@ Q113W: KF Egnatia
 Q113L: Petrocub Hîncesti
 Q114W: CSU Craiova
 Q114L: Maxline Wizebsk
-Q201W: Mjällby AIF vs. Lincoln Red Imps FC
-Q201L: Mjällby AIF vs. Lincoln Red Imps FC
-Q202W: Sabah FK vs. Kuopion PS
-Q202L: Sabah FK vs. Kuopion PS
-Q203W: FC Ararat-Armenia vs. Shamrock Rovers
-Q203L: FC Ararat-Armenia vs. Shamrock Rovers
-Q204W: FC Iberia 1999 vs. Slovan Bratislava
-Q204L: FC Iberia 1999 vs. Slovan Bratislava
-Q205W: Aarhus GF vs. Lech Posen
-Q205L: Aarhus GF vs. Lech Posen
-Q206W: FC Thun vs. Dinamo Zagreb
-Q206L: FC Thun vs. Dinamo Zagreb
-Q207W: Fenerbahce Istanbul vs. Górnik Zabrze
-Q207L: Fenerbahce Istanbul vs. Górnik Zabrze
-Q208W: Sturm Graz vs. Heart of Midlothian
-Q208L: Sturm Graz vs. Heart of Midlothian
-Q209W: KÍ Klaksvík vs. FK Kauno Zalgiris
-Q209L: KÍ Klaksvík vs. FK Kauno Zalgiris
-Q210W: Larne FC vs. Roter Stern Belgrad
-Q210L: Larne FC vs. Roter Stern Belgrad
-Q211W: Víkingur Reykjavík vs. Hapoel Be'er Scheva
-Q211L: Víkingur Reykjavík vs. Hapoel Be'er Scheva
-Q212W: Omonia Nikosia vs. Qairat Almaty
-Q212L: Omonia Nikosia vs. Qairat Almaty
-Q213W: Lewski Sofia vs. CSU Craiova
-Q213L: Lewski Sofia vs. CSU Craiova
-Q214W: KF Egnatia vs. NK Celje
-Q214L: KF Egnatia vs. NK Celje
+Q201W: Mjällby AIF
+Q201L: Lincoln Red Imps FC
+Q202W: Sabah FK
+Q202L: Kuopion PS
+Q203W: FC Ararat-Armenia
+Q203L: Shamrock Rovers
+Q204W: Slovan Bratislava
+Q204L: FC Iberia 1999
+Q205W: Aarhus GF
+Q205L: Lech Posen
+Q206W: Dinamo Zagreb
+Q206L: FC Thun
+Q207W: Fenerbahce Istanbul
+Q207L: Górnik Zabrze
+Q208W: Sturm Graz
+Q208L: Heart of Midlothian
+Q209W: FK Kauno Zalgiris
+Q209L: KÍ Klaksvík
+Q210W: Roter Stern Belgrad
+Q210L: Larne FC
+Q211W: Hapoel Be'er Scheva
+Q211L: Víkingur Reykjavík
+Q212W: Qairat Almaty
+Q212L: Omonia Nikosia
+Q213W: Lewski Sofia
+Q213L: CSU Craiova
+Q214W: NK Celje
+Q214L: KF Egnatia
 Q301W: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
 Q301L: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
 Q302W: Sparta Prag vs. Olympique Lyon
 Q302L: Sparta Prag vs. Olympique Lyon
 Q303W: Olympiakos Piräus vs. NEC Nijmegen
 Q303L: Olympiakos Piräus vs. NEC Nijmegen
-Q304W: Q201W vs. Q204W
-Q304L: Q201W vs. Q204W
-Q305W: Q203W vs. Q214W
-Q305L: Q203W vs. Q214W
-Q306W: Q205W vs. Q202W
-Q306L: Q205W vs. Q202W
-Q307W: Q206W vs. Q209W
-Q307L: Q206W vs. Q209W
-Q308W: Q207W vs. Q208W
-Q308L: Q207W vs. Q208W
-Q309W: Q211W vs. Q210W
-Q309L: Q211W vs. Q210W
-Q310W: Q213W vs. Q212W
-Q310L: Q213W vs. Q212W
+Q304W: Mjällby AIF vs. Slovan Bratislava
+Q304L: Mjällby AIF vs. Slovan Bratislava
+Q305W: FC Ararat-Armenia vs. NK Celje
+Q305L: FC Ararat-Armenia vs. NK Celje
+Q306W: Aarhus GF vs. Sabah FK
+Q306L: Aarhus GF vs. Sabah FK
+Q307W: Dinamo Zagreb vs. FK Kauno Zalgiris
+Q307L: Dinamo Zagreb vs. FK Kauno Zalgiris
+Q308W: Fenerbahce Istanbul vs. Sturm Graz
+Q308L: Fenerbahce Istanbul vs. Sturm Graz
+Q309W: Hapoel Be'er Scheva vs. Roter Stern Belgrad
+Q309L: Hapoel Be'er Scheva vs. Roter Stern Belgrad
+Q310W: Lewski Sofia vs. Qairat Almaty
+Q310L: Lewski Sofia vs. Qairat Almaty
