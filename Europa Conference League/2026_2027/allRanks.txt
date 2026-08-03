@@ -168,38 +168,38 @@ Q309W: HJK Helsinki vs. FC Motherwell
 Q309L: HJK Helsinki vs. FC Motherwell
 Q310W: Paide Linnameeskond vs. Rapid Wien
 Q310L: Paide Linnameeskond vs. Rapid Wien
-Q311W: Flora Tallinn vs. Inter Club d'Escaldes
-Q311L: Flora Tallinn vs. Inter Club d'Escaldes
-Q312W: Raków Częstochowa vs. Hammarby IF
-Q312L: Raków Częstochowa vs. Hammarby IF
-Q313W: Beitar Jerusalem vs. Austria Wien
-Q313L: Beitar Jerusalem vs. Austria Wien
-Q314W: Noah Erewan vs. FC Sion
-Q314L: Noah Erewan vs. FC Sion
-Q315W: Zalgiris Vilnius vs. Hajduk Split
-Q315L: Zalgiris Vilnius vs. Hajduk Split
-Q316W: Brann Bergen vs. Apollon Limassol
-Q316L: Brann Bergen vs. Apollon Limassol
-Q317W: FK Auda vs. Dinamo City
-Q317L: FK Auda vs. Dinamo City
-Q318W: FK Jablonec vs. FK Rigas FS
-Q318L: FK Jablonec vs. FK Rigas FS
-Q319W: Panathinaikos Athen vs. ZSKA 1948 Sofia
-Q319L: Panathinaikos Athen vs. ZSKA 1948 Sofia
-Q320W: Ajax Amsterdam vs. Shelbourne FC
-Q320L: Ajax Amsterdam vs. Shelbourne FC
-Q321W: FC Lugano vs. NSÍ Runavík
-Q321L: FC Lugano vs. NSÍ Runavík
-Q322W: Hapoel Tel Aviv vs. GKS Kattowitz
-Q322L: Hapoel Tel Aviv vs. GKS Kattowitz
-Q323W: Borac Banja Luka vs. Maxline Wizebsk
-Q323L: Borac Banja Luka vs. Maxline Wizebsk
-Q324W: HNK Rijeka vs. Tampereen Ilves
-Q324L: HNK Rijeka vs. Tampereen Ilves
-Q325W: Partizan Belgrad vs. Tobyl Qostanai
-Q325L: Partizan Belgrad vs. Tobyl Qostanai
-Q326W: Valur Reykjavík vs. FC Nordsjælland
-Q326L: Valur Reykjavík vs. FC Nordsjælland
+Q311W: Raków Częstochowa vs. Hammarby IF
+Q311L: Raków Częstochowa vs. Hammarby IF
+Q312W: Beitar Jerusalem vs. Austria Wien
+Q312L: Beitar Jerusalem vs. Austria Wien
+Q313W: Noah Erewan vs. FC Sion
+Q313L: Noah Erewan vs. FC Sion
+Q314W: Zalgiris Vilnius vs. Hajduk Split
+Q314L: Zalgiris Vilnius vs. Hajduk Split
+Q315W: Brann Bergen vs. Apollon Limassol
+Q315L: Brann Bergen vs. Apollon Limassol
+Q316W: FK Auda vs. Dinamo City
+Q316L: FK Auda vs. Dinamo City
+Q317W: FK Jablonec vs. FK Rigas FS
+Q317L: FK Jablonec vs. FK Rigas FS
+Q318W: Panathinaikos Athen vs. ZSKA 1948 Sofia
+Q318L: Panathinaikos Athen vs. ZSKA 1948 Sofia
+Q319W: Ajax Amsterdam vs. Shelbourne FC
+Q319L: Ajax Amsterdam vs. Shelbourne FC
+Q320W: FC Lugano vs. NSÍ Runavík
+Q320L: FC Lugano vs. NSÍ Runavík
+Q321W: Hapoel Tel Aviv vs. GKS Kattowitz
+Q321L: Hapoel Tel Aviv vs. GKS Kattowitz
+Q322W: Borac Banja Luka vs. Maxline Wizebsk
+Q322L: Borac Banja Luka vs. Maxline Wizebsk
+Q323W: HNK Rijeka vs. Tampereen Ilves
+Q323L: HNK Rijeka vs. Tampereen Ilves
+Q324W: Partizan Belgrad vs. Tobyl Qostanai
+Q324L: Partizan Belgrad vs. Tobyl Qostanai
+Q325W: Valur Reykjavík vs. FC Nordsjælland
+Q325L: Valur Reykjavík vs. FC Nordsjælland
+Q326W: Inter Club d'Escaldes vs. Flora Tallinn
+Q326L: Inter Club d'Escaldes vs. Flora Tallinn
 Q327W: SP Tre Fiori vs. KF Drita
 Q327L: SP Tre Fiori vs. KF Drita
 Q328W: Dynamo Kiew vs. Qarabag Agdam
