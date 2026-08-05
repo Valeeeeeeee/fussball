@@ -148,63 +148,63 @@ Q248W: Tampereen Ilves
 Q248L: UMF Stjarnan
 Q249W: Valur Reykjavík
 Q249L: Zrinjski Mostar
-Q301W: IFK Göteborg vs. KAA Gent
-Q301L: IFK Göteborg vs. KAA Gent
-Q302W: Bohemians Dublin vs. FC Midtjylland
-Q302L: Bohemians Dublin vs. FC Midtjylland
-Q303W: Inter Turku vs. FC Vaduz
-Q303L: Inter Turku vs. FC Vaduz
-Q304W: Riga FC vs. Györi ETO
-Q304L: Riga FC vs. Györi ETO
-Q305W: Sporting Braga vs. Dinamo Minsk
-Q305L: Sporting Braga vs. Dinamo Minsk
-Q306W: Hibernian Edinburgh vs. KF Shkëndija
-Q306L: Hibernian Edinburgh vs. KF Shkëndija
-Q307W: CFR Cluj vs. Tromsø IL
-Q307L: CFR Cluj vs. Tromsø IL
-Q308W: VSC Debrecen vs. FC Kopenhagen
-Q308L: VSC Debrecen vs. FC Kopenhagen
-Q309W: HJK Helsinki vs. FC Motherwell
-Q309L: HJK Helsinki vs. FC Motherwell
-Q310W: Paide Linnameeskond vs. Rapid Wien
-Q310L: Paide Linnameeskond vs. Rapid Wien
-Q311W: Raków Częstochowa vs. Hammarby IF
-Q311L: Raków Częstochowa vs. Hammarby IF
-Q312W: Beitar Jerusalem vs. Austria Wien
-Q312L: Beitar Jerusalem vs. Austria Wien
-Q313W: Noah Erewan vs. FC Sion
-Q313L: Noah Erewan vs. FC Sion
+Q301W: FK Auda vs. Dinamo City
+Q301L: FK Auda vs. Dinamo City
+Q302W: Brann Bergen vs. Apollon Limassol
+Q302L: Brann Bergen vs. Apollon Limassol
+Q303W: Panathinaikos Athen vs. ZSKA 1948 Sofia
+Q303L: Panathinaikos Athen vs. ZSKA 1948 Sofia
+Q304W: Inter Turku vs. FC Vaduz
+Q304L: Inter Turku vs. FC Vaduz
+Q305W: HJK Helsinki vs. FC Motherwell
+Q305L: HJK Helsinki vs. FC Motherwell
+Q306W: Paide Linnameeskond vs. Rapid Wien
+Q306L: Paide Linnameeskond vs. Rapid Wien
+Q307W: Noah Erewan vs. FC Sion
+Q307L: Noah Erewan vs. FC Sion
+Q308W: FK Jablonec vs. FK Rigas FS
+Q308L: FK Jablonec vs. FK Rigas FS
+Q309W: CFR Cluj vs. Tromsø IL
+Q309L: CFR Cluj vs. Tromsø IL
+Q310W: IFK Göteborg vs. KAA Gent
+Q310L: IFK Göteborg vs. KAA Gent
+Q311W: Riga FC vs. Györi ETO
+Q311L: Riga FC vs. Györi ETO
+Q312W: VSC Debrecen vs. FC Kopenhagen
+Q312L: VSC Debrecen vs. FC Kopenhagen
+Q313W: Raków Częstochowa vs. Hammarby IF
+Q313L: Raków Częstochowa vs. Hammarby IF
 Q314W: Zalgiris Vilnius vs. Hajduk Split
 Q314L: Zalgiris Vilnius vs. Hajduk Split
-Q315W: Brann Bergen vs. Apollon Limassol
-Q315L: Brann Bergen vs. Apollon Limassol
-Q316W: FK Auda vs. Dinamo City
-Q316L: FK Auda vs. Dinamo City
-Q317W: FK Jablonec vs. FK Rigas FS
-Q317L: FK Jablonec vs. FK Rigas FS
-Q318W: Panathinaikos Athen vs. ZSKA 1948 Sofia
-Q318L: Panathinaikos Athen vs. ZSKA 1948 Sofia
+Q315W: Inter Club d'Escaldes vs. Flora Tallinn
+Q315L: Inter Club d'Escaldes vs. Flora Tallinn
+Q316W: Dynamo Kiew vs. Qarabag Agdam
+Q316L: Dynamo Kiew vs. Qarabag Agdam
+Q317W: Sheriff Tiraspol vs. FC St. Gallen
+Q317L: Sheriff Tiraspol vs. FC St. Gallen
+Q318W: Beitar Jerusalem vs. Austria Wien
+Q318L: Beitar Jerusalem vs. Austria Wien
 Q319W: Ajax Amsterdam vs. Shelbourne FC
 Q319L: Ajax Amsterdam vs. Shelbourne FC
-Q320W: FC Lugano vs. NSÍ Runavík
-Q320L: FC Lugano vs. NSÍ Runavík
-Q321W: Hapoel Tel Aviv vs. GKS Kattowitz
-Q321L: Hapoel Tel Aviv vs. GKS Kattowitz
-Q322W: Borac Banja Luka vs. Maxline Wizebsk
-Q322L: Borac Banja Luka vs. Maxline Wizebsk
-Q323W: HNK Rijeka vs. Tampereen Ilves
-Q323L: HNK Rijeka vs. Tampereen Ilves
-Q324W: Partizan Belgrad vs. Tobyl Qostanai
-Q324L: Partizan Belgrad vs. Tobyl Qostanai
+Q320W: Hapoel Tel Aviv vs. GKS Kattowitz
+Q320L: Hapoel Tel Aviv vs. GKS Kattowitz
+Q321W: Twente Enschede vs. DAC Dunajská Streda
+Q321L: Twente Enschede vs. DAC Dunajská Streda
+Q322W: Sporting Braga vs. Dinamo Minsk
+Q322L: Sporting Braga vs. Dinamo Minsk
+Q323W: FC Lugano vs. NSÍ Runavík
+Q323L: FC Lugano vs. NSÍ Runavík
+Q324W: Borac Banja Luka vs. Maxline Wizebsk
+Q324L: Borac Banja Luka vs. Maxline Wizebsk
 Q325W: Valur Reykjavík vs. FC Nordsjælland
 Q325L: Valur Reykjavík vs. FC Nordsjælland
-Q326W: Inter Club d'Escaldes vs. Flora Tallinn
-Q326L: Inter Club d'Escaldes vs. Flora Tallinn
-Q327W: SP Tre Fiori vs. KF Drita
-Q327L: SP Tre Fiori vs. KF Drita
-Q328W: Dynamo Kiew vs. Qarabag Agdam
-Q328L: Dynamo Kiew vs. Qarabag Agdam
-Q329W: Sheriff Tiraspol vs. FC St. Gallen
-Q329L: Sheriff Tiraspol vs. FC St. Gallen
-Q330W: Twente Enschede vs. DAC Dunajská Streda
-Q330L: Twente Enschede vs. DAC Dunajská Streda
+Q326W: Bohemians Dublin vs. FC Midtjylland
+Q326L: Bohemians Dublin vs. FC Midtjylland
+Q327W: HNK Rijeka vs. Tampereen Ilves
+Q327L: HNK Rijeka vs. Tampereen Ilves
+Q328W: Hibernian Edinburgh vs. KF Shkëndija
+Q328L: Hibernian Edinburgh vs. KF Shkëndija
+Q329W: Partizan Belgrad vs. Tobyl Qostanai
+Q329L: Partizan Belgrad vs. Tobyl Qostanai
+Q330W: SP Tre Fiori vs. KF Drita
+Q330L: SP Tre Fiori vs. KF Drita

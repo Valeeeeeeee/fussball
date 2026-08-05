@@ -28,29 +28,29 @@ Q208W: Benfica Lissabon
 Q208L: FC St. Gallen
 Q209W: FC Pafos
 Q209L: Hajduk Split
-Q301W: FC Salzburg vs. FC Pafos
-Q301L: FC Salzburg vs. FC Pafos
-Q302W: Jagiellonia Bialystok vs. Glasgow Rangers
-Q302L: Jagiellonia Bialystok vs. Glasgow Rangers
-Q303W: FC Hradec Králové vs. Besiktas Istanbul
-Q303L: FC Hradec Králové vs. Besiktas Istanbul
-Q304W: PAOK Thessaloniki vs. RSC Anderlecht
-Q304L: PAOK Thessaloniki vs. RSC Anderlecht
-Q305W: Maccabi Tel Aviv vs. ZSKA Sofia
-Q305L: Maccabi Tel Aviv vs. ZSKA Sofia
-Q306W: Ferencváros Budapest vs. Górnik Zabrze
-Q306L: Ferencváros Budapest vs. Górnik Zabrze
-Q307W: Benfica Lissabon vs. Heart of Midlothian
-Q307L: Benfica Lissabon vs. Heart of Midlothian
-Q308W: Lincoln Red Imps FC vs. Omonia Nikosia
-Q308L: Lincoln Red Imps FC vs. Omonia Nikosia
-Q309W: Kuopion PS vs. CSU Craiova
-Q309L: Kuopion PS vs. CSU Craiova
-Q310W: Shamrock Rovers vs. KF Egnatia
-Q310L: Shamrock Rovers vs. KF Egnatia
-Q311W: Lech Posen vs. KÍ Klaksvík
-Q311L: Lech Posen vs. KÍ Klaksvík
+Q301W: Shamrock Rovers vs. KF Egnatia
+Q301L: Shamrock Rovers vs. KF Egnatia
+Q302W: Larne FC vs. FC Iberia 1999
+Q302L: Larne FC vs. FC Iberia 1999
+Q303W: Ferencváros Budapest vs. Górnik Zabrze
+Q303L: Ferencváros Budapest vs. Górnik Zabrze
+Q304W: Kuopion PS vs. CSU Craiova
+Q304L: Kuopion PS vs. CSU Craiova
+Q305W: Jagiellonia Bialystok vs. Glasgow Rangers
+Q305L: Jagiellonia Bialystok vs. Glasgow Rangers
+Q306W: Maccabi Tel Aviv vs. ZSKA Sofia
+Q306L: Maccabi Tel Aviv vs. ZSKA Sofia
+Q307W: FC Salzburg vs. FC Pafos
+Q307L: FC Salzburg vs. FC Pafos
+Q308W: FC Hradec Králové vs. Besiktas Istanbul
+Q308L: FC Hradec Králové vs. Besiktas Istanbul
+Q309W: Lincoln Red Imps FC vs. Omonia Nikosia
+Q309L: Lincoln Red Imps FC vs. Omonia Nikosia
+Q310W: Lech Posen vs. KÍ Klaksvík
+Q310L: Lech Posen vs. KÍ Klaksvík
+Q311W: PAOK Thessaloniki vs. RSC Anderlecht
+Q311L: PAOK Thessaloniki vs. RSC Anderlecht
 Q312W: FC Thun vs. Víkingur Reykjavík
 Q312L: FC Thun vs. Víkingur Reykjavík
-Q313W: Larne FC vs. FC Iberia 1999
-Q313L: Larne FC vs. FC Iberia 1999
+Q313W: Benfica Lissabon vs. Heart of Midlothian
+Q313L: Benfica Lissabon vs. Heart of Midlothian

@@ -54,23 +54,23 @@ Q213W: Lewski Sofia
 Q213L: CSU Craiova
 Q214W: NK Celje
 Q214L: KF Egnatia
-Q301W: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
-Q301L: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
-Q302W: Sparta Prag vs. Olympique Lyon
-Q302L: Sparta Prag vs. Olympique Lyon
-Q303W: Olympiakos Piräus vs. NEC Nijmegen
-Q303L: Olympiakos Piräus vs. NEC Nijmegen
-Q304W: Mjällby AIF vs. Slovan Bratislava
-Q304L: Mjällby AIF vs. Slovan Bratislava
-Q305W: FC Ararat-Armenia vs. NK Celje
-Q305L: FC Ararat-Armenia vs. NK Celje
-Q306W: Aarhus GF vs. Sabah FK
-Q306L: Aarhus GF vs. Sabah FK
-Q307W: Dinamo Zagreb vs. FK Kauno Zalgiris
-Q307L: Dinamo Zagreb vs. FK Kauno Zalgiris
-Q308W: Fenerbahce Istanbul vs. Sturm Graz
-Q308L: Fenerbahce Istanbul vs. Sturm Graz
-Q309W: Hapoel Be'er Scheva vs. Roter Stern Belgrad
-Q309L: Hapoel Be'er Scheva vs. Roter Stern Belgrad
-Q310W: Lewski Sofia vs. Qairat Almaty
-Q310L: Lewski Sofia vs. Qairat Almaty
+Q301W: Mjällby AIF vs. Slovan Bratislava
+Q301L: Mjällby AIF vs. Slovan Bratislava
+Q302W: FC Ararat-Armenia vs. NK Celje
+Q302L: FC Ararat-Armenia vs. NK Celje
+Q303W: Hapoel Be'er Scheva vs. Roter Stern Belgrad
+Q303L: Hapoel Be'er Scheva vs. Roter Stern Belgrad
+Q304W: Lewski Sofia vs. Qairat Almaty
+Q304L: Lewski Sofia vs. Qairat Almaty
+Q305W: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
+Q305L: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
+Q306W: Sparta Prag vs. Olympique Lyon
+Q306L: Sparta Prag vs. Olympique Lyon
+Q307W: Olympiakos Piräus vs. NEC Nijmegen
+Q307L: Olympiakos Piräus vs. NEC Nijmegen
+Q308W: Dinamo Zagreb vs. FK Kauno Zalgiris
+Q308L: Dinamo Zagreb vs. FK Kauno Zalgiris
+Q309W: Aarhus GF vs. Sabah FK
+Q309L: Aarhus GF vs. Sabah FK
+Q310W: Fenerbahce Istanbul vs. Sturm Graz
+Q310L: Fenerbahce Istanbul vs. Sturm Graz
