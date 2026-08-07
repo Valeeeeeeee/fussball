@@ -74,3 +74,17 @@ Q309W: Aarhus GF vs. Sabah FK
 Q309L: Aarhus GF vs. Sabah FK
 Q310W: Fenerbahce Istanbul vs. Sturm Graz
 Q310L: Fenerbahce Istanbul vs. Sturm Graz
+PO01W: Celtic Glasgow vs. Linzer ASK
+PO01L: Celtic Glasgow vs. Linzer ASK
+PO02W: Q301W vs. Q302W
+PO02L: Q301W vs. Q302W
+PO03W: Q303W vs. Q309W
+PO03L: Q303W vs. Q309W
+PO04W: Q304W vs. AEK Athen
+PO04L: Q304W vs. AEK Athen
+PO05W: Q307W vs. Q305W
+PO05L: Q307W vs. Q305W
+PO06W: Q308W vs. Viking Stavanger
+PO06L: Q308W vs. Viking Stavanger
+PO07W: Q310W vs. Q306W
+PO07L: Q310W vs. Q306W
