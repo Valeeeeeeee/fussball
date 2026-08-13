@@ -54,37 +54,37 @@ Q213W: Lewski Sofia
 Q213L: CSU Craiova
 Q214W: NK Celje
 Q214L: KF Egnatia
-Q301W: Mjällby AIF vs. Slovan Bratislava
-Q301L: Mjällby AIF vs. Slovan Bratislava
-Q302W: FC Ararat-Armenia vs. NK Celje
-Q302L: FC Ararat-Armenia vs. NK Celje
-Q303W: Hapoel Be'er Scheva vs. Roter Stern Belgrad
-Q303L: Hapoel Be'er Scheva vs. Roter Stern Belgrad
-Q304W: Lewski Sofia vs. Qairat Almaty
-Q304L: Lewski Sofia vs. Qairat Almaty
-Q305W: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
-Q305L: Royale Union Saint-Gilloise vs. FK Bodø/Glimt
-Q306W: Sparta Prag vs. Olympique Lyon
-Q306L: Sparta Prag vs. Olympique Lyon
-Q307W: Olympiakos Piräus vs. NEC Nijmegen
-Q307L: Olympiakos Piräus vs. NEC Nijmegen
-Q308W: Dinamo Zagreb vs. FK Kauno Zalgiris
-Q308L: Dinamo Zagreb vs. FK Kauno Zalgiris
-Q309W: Aarhus GF vs. Sabah FK
-Q309L: Aarhus GF vs. Sabah FK
-Q310W: Fenerbahce Istanbul vs. Sturm Graz
-Q310L: Fenerbahce Istanbul vs. Sturm Graz
+Q301W: Slovan Bratislava
+Q301L: Mjällby AIF
+Q302W: NK Celje
+Q302L: FC Ararat-Armenia
+Q303W: Hapoel Be'er Scheva
+Q303L: Roter Stern Belgrad
+Q304W: Lewski Sofia
+Q304L: Qairat Almaty
+Q305W: FK Bodø/Glimt
+Q305L: Royale Union Saint-Gilloise
+Q306W: Olympique Lyon
+Q306L: Sparta Prag
+Q307W: NEC Nijmegen
+Q307L: Olympiakos Piräus
+Q308W: Dinamo Zagreb
+Q308L: FK Kauno Zalgiris
+Q309W: Sabah FK
+Q309L: Aarhus GF
+Q310W: Fenerbahce Istanbul
+Q310L: Sturm Graz
 PO01W: Celtic Glasgow vs. Linzer ASK
 PO01L: Celtic Glasgow vs. Linzer ASK
-PO02W: Q301W vs. Q302W
-PO02L: Q301W vs. Q302W
-PO03W: Q303W vs. Q309W
-PO03L: Q303W vs. Q309W
-PO04W: Q304W vs. AEK Athen
-PO04L: Q304W vs. AEK Athen
-PO05W: Q307W vs. Q305W
-PO05L: Q307W vs. Q305W
-PO06W: Q308W vs. Viking Stavanger
-PO06L: Q308W vs. Viking Stavanger
-PO07W: Q310W vs. Q306W
-PO07L: Q310W vs. Q306W
+PO02W: Slovan Bratislava vs. NK Celje
+PO02L: Slovan Bratislava vs. NK Celje
+PO03W: Hapoel Be'er Scheva vs. Sabah FK
+PO03L: Hapoel Be'er Scheva vs. Sabah FK
+PO04W: Lewski Sofia vs. AEK Athen
+PO04L: Lewski Sofia vs. AEK Athen
+PO05W: NEC Nijmegen vs. FK Bodø/Glimt
+PO05L: NEC Nijmegen vs. FK Bodø/Glimt
+PO06W: Dinamo Zagreb vs. Viking Stavanger
+PO06L: Dinamo Zagreb vs. Viking Stavanger
+PO07W: Fenerbahce Istanbul vs. Olympique Lyon
+PO07L: Fenerbahce Istanbul vs. Olympique Lyon

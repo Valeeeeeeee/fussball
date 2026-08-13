@@ -148,111 +148,111 @@ Q248W: Tampereen Ilves
 Q248L: UMF Stjarnan
 Q249W: Valur Reykjavík
 Q249L: Zrinjski Mostar
-Q301W: FK Auda vs. Dinamo City
-Q301L: FK Auda vs. Dinamo City
-Q302W: Brann Bergen vs. Apollon Limassol
-Q302L: Brann Bergen vs. Apollon Limassol
-Q303W: Panathinaikos Athen vs. ZSKA 1948 Sofia
-Q303L: Panathinaikos Athen vs. ZSKA 1948 Sofia
-Q304W: Inter Turku vs. FC Vaduz
-Q304L: Inter Turku vs. FC Vaduz
-Q305W: HJK Helsinki vs. FC Motherwell
-Q305L: HJK Helsinki vs. FC Motherwell
-Q306W: Paide Linnameeskond vs. Rapid Wien
-Q306L: Paide Linnameeskond vs. Rapid Wien
-Q307W: Noah Erewan vs. FC Sion
-Q307L: Noah Erewan vs. FC Sion
-Q308W: FK Jablonec vs. FK Rigas FS
-Q308L: FK Jablonec vs. FK Rigas FS
-Q309W: CFR Cluj vs. Tromsø IL
-Q309L: CFR Cluj vs. Tromsø IL
-Q310W: IFK Göteborg vs. KAA Gent
-Q310L: IFK Göteborg vs. KAA Gent
-Q311W: Riga FC vs. Györi ETO
-Q311L: Riga FC vs. Györi ETO
-Q312W: VSC Debrecen vs. FC Kopenhagen
-Q312L: VSC Debrecen vs. FC Kopenhagen
-Q313W: Raków Częstochowa vs. Hammarby IF
-Q313L: Raków Częstochowa vs. Hammarby IF
-Q314W: Zalgiris Vilnius vs. Hajduk Split
-Q314L: Zalgiris Vilnius vs. Hajduk Split
-Q315W: Inter Club d'Escaldes vs. Flora Tallinn
-Q315L: Inter Club d'Escaldes vs. Flora Tallinn
-Q316W: Dynamo Kiew vs. Qarabag Agdam
-Q316L: Dynamo Kiew vs. Qarabag Agdam
-Q317W: Sheriff Tiraspol vs. FC St. Gallen
-Q317L: Sheriff Tiraspol vs. FC St. Gallen
-Q318W: Beitar Jerusalem vs. Austria Wien
-Q318L: Beitar Jerusalem vs. Austria Wien
-Q319W: Ajax Amsterdam vs. Shelbourne FC
-Q319L: Ajax Amsterdam vs. Shelbourne FC
-Q320W: Hapoel Tel Aviv vs. GKS Kattowitz
-Q320L: Hapoel Tel Aviv vs. GKS Kattowitz
-Q321W: Twente Enschede vs. DAC Dunajská Streda
-Q321L: Twente Enschede vs. DAC Dunajská Streda
-Q322W: Sporting Braga vs. Dinamo Minsk
-Q322L: Sporting Braga vs. Dinamo Minsk
-Q323W: FC Lugano vs. NSÍ Runavík
-Q323L: FC Lugano vs. NSÍ Runavík
-Q324W: Borac Banja Luka vs. Maxline Wizebsk
-Q324L: Borac Banja Luka vs. Maxline Wizebsk
-Q325W: Valur Reykjavík vs. FC Nordsjælland
-Q325L: Valur Reykjavík vs. FC Nordsjælland
-Q326W: Bohemians Dublin vs. FC Midtjylland
-Q326L: Bohemians Dublin vs. FC Midtjylland
-Q327W: HNK Rijeka vs. Tampereen Ilves
-Q327L: HNK Rijeka vs. Tampereen Ilves
-Q328W: Hibernian Edinburgh vs. KF Shkëndija
-Q328L: Hibernian Edinburgh vs. KF Shkëndija
-Q329W: Partizan Belgrad vs. Tobyl Qostanai
-Q329L: Partizan Belgrad vs. Tobyl Qostanai
-Q330W: SP Tre Fiori vs. KF Drita
-Q330L: SP Tre Fiori vs. KF Drita
-PO01W: Atalanta Bergamo vs. Q320W
-PO01L: Atalanta Bergamo vs. Q320W
-PO02W: FC Getafe vs. Q329W
-PO02L: FC Getafe vs. Q329W
-PO03W: Q301W vs. EURL2026Q307L
-PO03L: Q301W vs. EURL2026Q307L
-PO04W: Q303W vs. EURL2026Q308L
-PO04L: Q303W vs. EURL2026Q308L
-PO05W: Q304W vs. Q312W
-PO05L: Q304W vs. Q312W
-PO06W: Q305W vs. SC Freiburg
-PO06L: Q305W vs. SC Freiburg
-PO07W: Q307W vs. Q319W
-PO07L: Q307W vs. Q319W
-PO08W: Q309W vs. Brighton & Hove Albion
-PO08L: Q309W vs. Brighton & Hove Albion
-PO09W: Q310W vs. Q328W
-PO09L: Q310W vs. Q328W
-PO10W: Q314W vs. Q313W
-PO10L: Q314W vs. Q313W
-PO11W: Q321W vs. Q316W
-PO11L: Q321W vs. Q316W
-PO12W: Q322W vs. Q318W
-PO12L: Q322W vs. Q318W
-PO13W: Q323W vs. EURL2026Q306L
-PO13L: Q323W vs. EURL2026Q306L
-PO14W: Q325W vs. Q317W
-PO14L: Q325W vs. Q317W
-PO15W: Q326W vs. Q327W
-PO15L: Q326W vs. Q327W
-PO16W: Q330W vs. Q315W
-PO16L: Q330W vs. Q315W
-PO17W: EURL2026Q301L vs. EURL2026Q304L
-PO17L: EURL2026Q301L vs. EURL2026Q304L
-PO18W: EURL2026Q303L vs. AS Monaco
-PO18L: EURL2026Q303L vs. AS Monaco
-PO19W: EURL2026Q305L vs. Q308W
-PO19L: EURL2026Q305L vs. Q308W
-PO20W: EURL2026Q309L vs. EURL2026Q302L
-PO20L: EURL2026Q309L vs. EURL2026Q302L
-PO21W: EURL2026Q310L vs. Q311W
-PO21L: EURL2026Q310L vs. Q311W
-PO22W: EURL2026Q311L vs. Q302W
-PO22L: EURL2026Q311L vs. Q302W
-PO23W: EURL2026Q312L vs. Q324W
-PO23L: EURL2026Q312L vs. Q324W
-PO24W: EURL2026Q313L vs. Q306W
-PO24L: EURL2026Q313L vs. Q306W
+Q301W: Dinamo City
+Q301L: FK Auda
+Q302W: Brann Bergen
+Q302L: Apollon Limassol
+Q303W: Panathinaikos Athen
+Q303L: ZSKA 1948 Sofia
+Q304W: Inter Turku
+Q304L: FC Vaduz
+Q305W: FC Motherwell
+Q305L: HJK Helsinki
+Q306W: Rapid Wien
+Q306L: Paide Linnameeskond
+Q307W: FC Sion
+Q307L: Noah Erewan
+Q308W: FK Jablonec
+Q308L: FK Rigas FS
+Q309W: Tromsø IL
+Q309L: CFR Cluj
+Q310W: KAA Gent
+Q310L: IFK Göteborg
+Q311W: Riga FC
+Q311L: Györi ETO
+Q312W: FC Kopenhagen
+Q312L: VSC Debrecen
+Q313W: Raków Częstochowa
+Q313L: Hammarby IF
+Q314W: Hajduk Split
+Q314L: Zalgiris Vilnius
+Q315W: Inter Club d'Escaldes
+Q315L: Flora Tallinn
+Q316W: Qarabag Agdam
+Q316L: Dynamo Kiew
+Q317W: FC St. Gallen
+Q317L: Sheriff Tiraspol
+Q318W: Austria Wien
+Q318L: Beitar Jerusalem
+Q319W: Ajax Amsterdam
+Q319L: Shelbourne FC
+Q320W: Hapoel Tel Aviv
+Q320L: GKS Kattowitz
+Q321W: Twente Enschede
+Q321L: DAC Dunajská Streda
+Q322W: Sporting Braga
+Q322L: Dinamo Minsk
+Q323W: FC Lugano
+Q323L: NSÍ Runavík
+Q324W: Borac Banja Luka
+Q324L: Maxline Wizebsk
+Q325W: FC Nordsjælland
+Q325L: Valur Reykjavík
+Q326W: FC Midtjylland
+Q326L: Bohemians Dublin
+Q327W: HNK Rijeka
+Q327L: Tampereen Ilves
+Q328W: Hibernian Edinburgh
+Q328L: KF Shkëndija
+Q329W: Partizan Belgrad
+Q329L: Tobyl Qostanai
+Q330W: KF Drita
+Q330L: SP Tre Fiori
+PO01W: Atalanta Bergamo vs. Hapoel Tel Aviv
+PO01L: Atalanta Bergamo vs. Hapoel Tel Aviv
+PO02W: FC Getafe vs. Partizan Belgrad
+PO02L: FC Getafe vs. Partizan Belgrad
+PO03W: Dinamo City vs. FC Pafos
+PO03L: Dinamo City vs. FC Pafos
+PO04W: Panathinaikos Athen vs. FC Hradec Králové
+PO04L: Panathinaikos Athen vs. FC Hradec Králové
+PO05W: Inter Turku vs. FC Kopenhagen
+PO05L: Inter Turku vs. FC Kopenhagen
+PO06W: FC Motherwell vs. SC Freiburg
+PO06L: FC Motherwell vs. SC Freiburg
+PO07W: FC Sion vs. Ajax Amsterdam
+PO07L: FC Sion vs. Ajax Amsterdam
+PO08W: Tromsø IL vs. Brighton & Hove Albion
+PO08L: Tromsø IL vs. Brighton & Hove Albion
+PO09W: KAA Gent vs. Hibernian Edinburgh
+PO09L: KAA Gent vs. Hibernian Edinburgh
+PO10W: Hajduk Split vs. Raków Częstochowa
+PO10L: Hajduk Split vs. Raków Częstochowa
+PO11W: Twente Enschede vs. Qarabag Agdam
+PO11L: Twente Enschede vs. Qarabag Agdam
+PO12W: Sporting Braga vs. Austria Wien
+PO12L: Sporting Braga vs. Austria Wien
+PO13W: FC Lugano vs. Maccabi Tel Aviv
+PO13L: FC Lugano vs. Maccabi Tel Aviv
+PO14W: FC Nordsjælland vs. FC St. Gallen
+PO14L: FC Nordsjælland vs. FC St. Gallen
+PO15W: FC Midtjylland vs. HNK Rijeka
+PO15L: FC Midtjylland vs. HNK Rijeka
+PO16W: KF Drita vs. Inter Club d'Escaldes
+PO16L: KF Drita vs. Inter Club d'Escaldes
+PO17W: Shamrock Rovers vs. Kuopion PS
+PO17L: Shamrock Rovers vs. Kuopion PS
+PO18W: Górnik Zabrze vs. AS Monaco
+PO18L: Górnik Zabrze vs. AS Monaco
+PO19W: Glasgow Rangers vs. FK Jablonec
+PO19L: Glasgow Rangers vs. FK Jablonec
+PO20W: Lincoln Red Imps FC vs. Larne FC
+PO20L: Lincoln Red Imps FC vs. Larne FC
+PO21W: EURL2026Q310L vs. Riga FC
+PO21L: EURL2026Q310L vs. Riga FC
+PO22W: PAOK Thessaloniki vs. Brann Bergen
+PO22L: PAOK Thessaloniki vs. Brann Bergen
+PO23W: Víkingur Reykjavík vs. Borac Banja Luka
+PO23L: Víkingur Reykjavík vs. Borac Banja Luka
+PO24W: Heart of Midlothian vs. Rapid Wien
+PO24L: Heart of Midlothian vs. Rapid Wien

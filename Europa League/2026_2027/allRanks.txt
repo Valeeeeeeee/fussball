@@ -28,53 +28,53 @@ Q208W: Benfica Lissabon
 Q208L: FC St. Gallen
 Q209W: FC Pafos
 Q209L: Hajduk Split
-Q301W: Shamrock Rovers vs. KF Egnatia
-Q301L: Shamrock Rovers vs. KF Egnatia
-Q302W: Larne FC vs. FC Iberia 1999
-Q302L: Larne FC vs. FC Iberia 1999
-Q303W: Ferencváros Budapest vs. Górnik Zabrze
-Q303L: Ferencváros Budapest vs. Górnik Zabrze
-Q304W: Kuopion PS vs. CSU Craiova
-Q304L: Kuopion PS vs. CSU Craiova
-Q305W: Jagiellonia Bialystok vs. Glasgow Rangers
-Q305L: Jagiellonia Bialystok vs. Glasgow Rangers
-Q306W: Maccabi Tel Aviv vs. ZSKA Sofia
-Q306L: Maccabi Tel Aviv vs. ZSKA Sofia
-Q307W: FC Salzburg vs. FC Pafos
-Q307L: FC Salzburg vs. FC Pafos
-Q308W: FC Hradec Králové vs. Besiktas Istanbul
-Q308L: FC Hradec Králové vs. Besiktas Istanbul
-Q309W: Lincoln Red Imps FC vs. Omonia Nikosia
-Q309L: Lincoln Red Imps FC vs. Omonia Nikosia
+Q301W: KF Egnatia
+Q301L: Shamrock Rovers
+Q302W: FC Iberia 1999
+Q302L: Larne FC
+Q303W: Ferencváros Budapest
+Q303L: Górnik Zabrze
+Q304W: CSU Craiova
+Q304L: Kuopion PS
+Q305W: Jagiellonia Bialystok
+Q305L: Glasgow Rangers
+Q306W: ZSKA Sofia
+Q306L: Maccabi Tel Aviv
+Q307W: FC Salzburg
+Q307L: FC Pafos
+Q308W: Besiktas Istanbul
+Q308L: FC Hradec Králové
+Q309W: Omonia Nikosia
+Q309L: Lincoln Red Imps FC
 Q310W: Lech Posen vs. KÍ Klaksvík
 Q310L: Lech Posen vs. KÍ Klaksvík
-Q311W: PAOK Thessaloniki vs. RSC Anderlecht
-Q311L: PAOK Thessaloniki vs. RSC Anderlecht
-Q312W: FC Thun vs. Víkingur Reykjavík
-Q312L: FC Thun vs. Víkingur Reykjavík
-Q313W: Benfica Lissabon vs. Heart of Midlothian
-Q313L: Benfica Lissabon vs. Heart of Midlothian
-PO01W: VV St. Truiden vs. Q309W
-PO01L: VV St. Truiden vs. Q309W
-PO02W: Trabzonspor vs. Q303W
-PO02L: Trabzonspor vs. Q303W
-PO03W: OFI Kreta vs. Q306W
-PO03L: OFI Kreta vs. Q306W
-PO04W: Q301W vs. Lillestrøm SK
-PO04L: Q301W vs. Lillestrøm SK
-PO05W: Q304W vs. CHAL2026Q302L
-PO05L: Q304W vs. CHAL2026Q302L
-PO06W: Q305W vs. Q302W
-PO06L: Q305W vs. Q302W
-PO07W: Q308W vs. CHAL2026Q308L
-PO07L: Q308W vs. CHAL2026Q308L
-PO08W: Q310W vs. Q312W
-PO08L: Q310W vs. Q312W
-PO09W: Q313W vs. CHAL2026Q309L
-PO09L: Q313W vs. CHAL2026Q309L
-PO10W: CHAL2026Q301L vs. Q307W
-PO10L: CHAL2026Q301L vs. Q307W
-PO11W: CHAL2026Q303L vs. Viktoria Pilsen
-PO11L: CHAL2026Q303L vs. Viktoria Pilsen
-PO12W: CHAL2026Q304L vs. Q311W
-PO12L: CHAL2026Q304L vs. Q311W
+Q311W: RSC Anderlecht
+Q311L: PAOK Thessaloniki
+Q312W: FC Thun
+Q312L: Víkingur Reykjavík
+Q313W: Benfica Lissabon
+Q313L: Heart of Midlothian
+PO01W: VV St. Truiden vs. Omonia Nikosia
+PO01L: VV St. Truiden vs. Omonia Nikosia
+PO02W: Trabzonspor vs. Ferencváros Budapest
+PO02L: Trabzonspor vs. Ferencváros Budapest
+PO03W: OFI Kreta vs. ZSKA Sofia
+PO03L: OFI Kreta vs. ZSKA Sofia
+PO04W: KF Egnatia vs. Lillestrøm SK
+PO04L: KF Egnatia vs. Lillestrøm SK
+PO05W: CSU Craiova vs. FC Ararat-Armenia
+PO05L: CSU Craiova vs. FC Ararat-Armenia
+PO06W: Jagiellonia Bialystok vs. FC Iberia 1999
+PO06L: Jagiellonia Bialystok vs. FC Iberia 1999
+PO07W: Besiktas Istanbul vs. FK Kauno Zalgiris
+PO07L: Besiktas Istanbul vs. FK Kauno Zalgiris
+PO08W: Q310W vs. FC Thun
+PO08L: Q310W vs. FC Thun
+PO09W: Benfica Lissabon vs. Aarhus GF
+PO09L: Benfica Lissabon vs. Aarhus GF
+PO10W: Mjällby AIF vs. FC Salzburg
+PO10L: Mjällby AIF vs. FC Salzburg
+PO11W: Roter Stern Belgrad vs. Viktoria Pilsen
+PO11L: Roter Stern Belgrad vs. Viktoria Pilsen
+PO12W: Qairat Almaty vs. RSC Anderlecht
+PO12L: Qairat Almaty vs. RSC Anderlecht
