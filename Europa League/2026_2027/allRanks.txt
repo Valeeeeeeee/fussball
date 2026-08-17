@@ -46,8 +46,8 @@ Q308W: Besiktas Istanbul
 Q308L: FC Hradec Králové
 Q309W: Omonia Nikosia
 Q309L: Lincoln Red Imps FC
-Q310W: Lech Posen vs. KÍ Klaksvík
-Q310L: Lech Posen vs. KÍ Klaksvík
+Q310W: Lech Posen
+Q310L: KÍ Klaksvík
 Q311W: RSC Anderlecht
 Q311L: PAOK Thessaloniki
 Q312W: FC Thun
