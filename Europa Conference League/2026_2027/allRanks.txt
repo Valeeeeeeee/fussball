@@ -208,51 +208,51 @@ Q329W: Partizan Belgrad
 Q329L: Tobyl Qostanai
 Q330W: KF Drita
 Q330L: SP Tre Fiori
-PO01W: Atalanta Bergamo vs. Hapoel Tel Aviv
-PO01L: Atalanta Bergamo vs. Hapoel Tel Aviv
-PO02W: FC Getafe vs. Partizan Belgrad
-PO02L: FC Getafe vs. Partizan Belgrad
-PO03W: Dinamo City vs. FC Pafos
-PO03L: Dinamo City vs. FC Pafos
-PO04W: Panathinaikos Athen vs. FC Hradec Králové
-PO04L: Panathinaikos Athen vs. FC Hradec Králové
-PO05W: Inter Turku vs. FC Kopenhagen
-PO05L: Inter Turku vs. FC Kopenhagen
-PO06W: FC Motherwell vs. SC Freiburg
-PO06L: FC Motherwell vs. SC Freiburg
-PO07W: FC Sion vs. Ajax Amsterdam
-PO07L: FC Sion vs. Ajax Amsterdam
-PO08W: Tromsø IL vs. Brighton & Hove Albion
-PO08L: Tromsø IL vs. Brighton & Hove Albion
-PO09W: KAA Gent vs. Hibernian Edinburgh
-PO09L: KAA Gent vs. Hibernian Edinburgh
-PO10W: Hajduk Split vs. Raków Częstochowa
-PO10L: Hajduk Split vs. Raków Częstochowa
-PO11W: Twente Enschede vs. Qarabag Agdam
-PO11L: Twente Enschede vs. Qarabag Agdam
-PO12W: Sporting Braga vs. Austria Wien
-PO12L: Sporting Braga vs. Austria Wien
-PO13W: FC Lugano vs. Maccabi Tel Aviv
-PO13L: FC Lugano vs. Maccabi Tel Aviv
-PO14W: FC Nordsjælland vs. FC St. Gallen
-PO14L: FC Nordsjælland vs. FC St. Gallen
-PO15W: FC Midtjylland vs. HNK Rijeka
-PO15L: FC Midtjylland vs. HNK Rijeka
-PO16W: KF Drita vs. Inter Club d'Escaldes
-PO16L: KF Drita vs. Inter Club d'Escaldes
-PO17W: Shamrock Rovers vs. Kuopion PS
-PO17L: Shamrock Rovers vs. Kuopion PS
-PO18W: Górnik Zabrze vs. AS Monaco
-PO18L: Górnik Zabrze vs. AS Monaco
-PO19W: Glasgow Rangers vs. FK Jablonec
-PO19L: Glasgow Rangers vs. FK Jablonec
-PO20W: Lincoln Red Imps FC vs. Larne FC
-PO20L: Lincoln Red Imps FC vs. Larne FC
-PO21W: KÍ Klaksvík vs. Riga FC
-PO21L: KÍ Klaksvík vs. Riga FC
-PO22W: PAOK Thessaloniki vs. Brann Bergen
-PO22L: PAOK Thessaloniki vs. Brann Bergen
-PO23W: Víkingur Reykjavík vs. Borac Banja Luka
-PO23L: Víkingur Reykjavík vs. Borac Banja Luka
-PO24W: Heart of Midlothian vs. Rapid Wien
-PO24L: Heart of Midlothian vs. Rapid Wien
+PO01W: Inter Turku vs. FC Kopenhagen
+PO01L: Inter Turku vs. FC Kopenhagen
+PO02W: Lincoln Red Imps FC vs. Larne FC
+PO02L: Lincoln Red Imps FC vs. Larne FC
+PO03W: Tromsø IL vs. Brighton & Hove Albion
+PO03L: Tromsø IL vs. Brighton & Hove Albion
+PO04W: FC Nordsjælland vs. FC St. Gallen
+PO04L: FC Nordsjælland vs. FC St. Gallen
+PO05W: FC Midtjylland vs. HNK Rijeka
+PO05L: FC Midtjylland vs. HNK Rijeka
+PO06W: KÍ Klaksvík vs. Riga FC
+PO06L: KÍ Klaksvík vs. Riga FC
+PO07W: PAOK Thessaloniki vs. Brann Bergen
+PO07L: PAOK Thessaloniki vs. Brann Bergen
+PO08W: Twente Enschede vs. Qarabag Agdam
+PO08L: Twente Enschede vs. Qarabag Agdam
+PO09W: KF Drita vs. Inter Club d'Escaldes
+PO09L: KF Drita vs. Inter Club d'Escaldes
+PO10W: Górnik Zabrze vs. AS Monaco
+PO10L: Górnik Zabrze vs. AS Monaco
+PO11W: Víkingur Reykjavík vs. Borac Banja Luka
+PO11L: Víkingur Reykjavík vs. Borac Banja Luka
+PO12W: FC Sion vs. Ajax Amsterdam
+PO12L: FC Sion vs. Ajax Amsterdam
+PO13W: Atalanta Bergamo vs. Hapoel Tel Aviv
+PO13L: Atalanta Bergamo vs. Hapoel Tel Aviv
+PO14W: Panathinaikos Athen vs. FC Hradec Králové
+PO14L: Panathinaikos Athen vs. FC Hradec Králové
+PO15W: FC Motherwell vs. SC Freiburg
+PO15L: FC Motherwell vs. SC Freiburg
+PO16W: KAA Gent vs. Hibernian Edinburgh
+PO16L: KAA Gent vs. Hibernian Edinburgh
+PO17W: FC Lugano vs. Maccabi Tel Aviv
+PO17L: FC Lugano vs. Maccabi Tel Aviv
+PO18W: Glasgow Rangers vs. FK Jablonec
+PO18L: Glasgow Rangers vs. FK Jablonec
+PO19W: Heart of Midlothian vs. Rapid Wien
+PO19L: Heart of Midlothian vs. Rapid Wien
+PO20W: FC Getafe vs. Partizan Belgrad
+PO20L: FC Getafe vs. Partizan Belgrad
+PO21W: Dinamo City vs. FC Pafos
+PO21L: Dinamo City vs. FC Pafos
+PO22W: Hajduk Split vs. Raków Częstochowa
+PO22L: Hajduk Split vs. Raków Częstochowa
+PO23W: Sporting Braga vs. Austria Wien
+PO23L: Sporting Braga vs. Austria Wien
+PO24W: Shamrock Rovers vs. Kuopion PS
+PO24L: Shamrock Rovers vs. Kuopion PS
