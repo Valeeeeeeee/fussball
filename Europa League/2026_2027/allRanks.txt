@@ -68,8 +68,8 @@ PO06W: Jagiellonia Bialystok vs. FC Iberia 1999
 PO06L: Jagiellonia Bialystok vs. FC Iberia 1999
 PO07W: Besiktas Istanbul vs. FK Kauno Zalgiris
 PO07L: Besiktas Istanbul vs. FK Kauno Zalgiris
-PO08W: Q310W vs. FC Thun
-PO08L: Q310W vs. FC Thun
+PO08W: Lech Posen vs. FC Thun
+PO08L: Lech Posen vs. FC Thun
 PO09W: Benfica Lissabon vs. Aarhus GF
 PO09L: Benfica Lissabon vs. Aarhus GF
 PO10W: Mjällby AIF vs. FC Salzburg

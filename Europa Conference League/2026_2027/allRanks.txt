@@ -248,8 +248,8 @@ PO19W: Glasgow Rangers vs. FK Jablonec
 PO19L: Glasgow Rangers vs. FK Jablonec
 PO20W: Lincoln Red Imps FC vs. Larne FC
 PO20L: Lincoln Red Imps FC vs. Larne FC
-PO21W: EURL2026Q310L vs. Riga FC
-PO21L: EURL2026Q310L vs. Riga FC
+PO21W: KÍ Klaksvík vs. Riga FC
+PO21L: KÍ Klaksvík vs. Riga FC
 PO22W: PAOK Thessaloniki vs. Brann Bergen
 PO22L: PAOK Thessaloniki vs. Brann Bergen
 PO23W: Víkingur Reykjavík vs. Borac Banja Luka
