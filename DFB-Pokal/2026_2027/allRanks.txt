@@ -1,63 +1,63 @@
-1R01W: Preußen Münster vs. Karlsruher SC
-1R01L: Preußen Münster vs. Karlsruher SC
-1R02W: SV Waldhof Mannheim vs. 1. FC Kaiserslautern
-1R02L: SV Waldhof Mannheim vs. 1. FC Kaiserslautern
-1R03W: SC St. Tönis 11/20 vs. Eintracht Frankfurt
-1R03L: SC St. Tönis 11/20 vs. Eintracht Frankfurt
-1R04W: Hansa Rostock vs. VfB Stuttgart
-1R04L: Hansa Rostock vs. VfB Stuttgart
-1R05W: FC Energie Cottbus vs. FC Augsburg
-1R05L: FC Energie Cottbus vs. FC Augsburg
-1R06W: SV Wehen Wiesbaden vs. Bayer 04 Leverkusen
-1R06L: SV Wehen Wiesbaden vs. Bayer 04 Leverkusen
-1R07W: MSV Duisburg vs. SV Elversberg
-1R07L: MSV Duisburg vs. SV Elversberg
-1R08W: SV Hemelingen vs. Hannover 96
-1R08L: SV Hemelingen vs. Hannover 96
-1R09W: FC Viktoria Köln vs. 1. FC Nürnberg
-1R09L: FC Viktoria Köln vs. 1. FC Nürnberg
-1R10W: Lüneburger SK Hansa vs. Werder Bremen
-1R10L: Lüneburger SK Hansa vs. Werder Bremen
-1R11W: 1. FC Saarbrücken vs. Hertha BSC
-1R11L: 1. FC Saarbrücken vs. Hertha BSC
-1R12W: Erzgebirge Aue vs. TSG 1899 Hoffenheim
-1R12L: Erzgebirge Aue vs. TSG 1899 Hoffenheim
-1R13W: 1860 München vs. Holstein Kiel
-1R13L: 1860 München vs. Holstein Kiel
-1R14W: SV Eintracht Trier 05 vs. RasenBallsport Leipzig
-1R14L: SV Eintracht Trier 05 vs. RasenBallsport Leipzig
-1R15W: SG Sonnenhof Großaspach vs. Arminia Bielefeld
-1R15L: SG Sonnenhof Großaspach vs. Arminia Bielefeld
-1R16W: SpVgg Greuther Fürth vs. VfL Bochum
-1R16L: SpVgg Greuther Fürth vs. VfL Bochum
-1R17W: SSV Jeddeloh II vs. 1. FC Heidenheim
-1R17L: SSV Jeddeloh II vs. 1. FC Heidenheim
-1R18W: Eintracht Braunschweig vs. 1. FC Union Berlin
-1R18L: Eintracht Braunschweig vs. 1. FC Union Berlin
-1R19W: VfB Krieschow vs. 1. FSV Mainz 05
-1R19L: VfB Krieschow vs. 1. FSV Mainz 05
-1R20W: Bahlinger SC vs. 1. FC Magdeburg
-1R20L: Bahlinger SC vs. 1. FC Magdeburg
-1R21W: TSV Schott Mainz vs. Borussia Mönchengladbach
-1R21L: TSV Schott Mainz vs. Borussia Mönchengladbach
-1R22W: FC Carl Zeiss Jena vs. SV Darmstadt 98
-1R22L: FC Carl Zeiss Jena vs. SV Darmstadt 98
-1R23W: Westfalia Rhynern vs. Dynamo Dresden
-1R23L: Westfalia Rhynern vs. Dynamo Dresden
-1R24W: Fortuna Düsseldorf vs. SC Freiburg
-1R24L: Fortuna Düsseldorf vs. SC Freiburg
-1R25W: Rot-Weiss Essen vs. FC St. Pauli
-1R25L: Rot-Weiss Essen vs. FC St. Pauli
-1R26W: 1. FC Phönix Lübeck vs. SC Paderborn
-1R26L: 1. FC Phönix Lübeck vs. SC Paderborn
-1R27W: Würzburger Kickers vs. 1. FC Köln
-1R27L: Würzburger Kickers vs. 1. FC Köln
-1R28W: VSG Altglienicke vs. VfL Wolfsburg
-1R28L: VSG Altglienicke vs. VfL Wolfsburg
-1R29W: SC Verl vs. Hamburger SV
-1R29L: SC Verl vs. Hamburger SV
-1R30W: Hallescher FC vs. FC Schalke 04
-1R30L: Hallescher FC vs. FC Schalke 04
+1R01W: Karlsruher SC
+1R01L: Preußen Münster
+1R02W: 1. FC Kaiserslautern
+1R02L: SV Waldhof Mannheim
+1R03W: Eintracht Frankfurt
+1R03L: SC St. Tönis 11/20
+1R04W: VfB Stuttgart
+1R04L: Hansa Rostock
+1R05W: FC Augsburg
+1R05L: FC Energie Cottbus
+1R06W: Bayer 04 Leverkusen
+1R06L: SV Wehen Wiesbaden
+1R07W: SV Elversberg
+1R07L: MSV Duisburg
+1R08W: Hannover 96
+1R08L: SV Hemelingen
+1R09W: 1. FC Nürnberg
+1R09L: FC Viktoria Köln
+1R10W: Werder Bremen
+1R10L: Lüneburger SK Hansa
+1R11W: Hertha BSC
+1R11L: 1. FC Saarbrücken
+1R12W: TSG 1899 Hoffenheim
+1R12L: Erzgebirge Aue
+1R13W: Holstein Kiel
+1R13L: 1860 München
+1R14W: RasenBallsport Leipzig
+1R14L: SV Eintracht Trier 05
+1R15W: SG Sonnenhof Großaspach
+1R15L: Arminia Bielefeld
+1R16W: VfL Bochum
+1R16L: SpVgg Greuther Fürth
+1R17W: SSV Jeddeloh II
+1R17L: 1. FC Heidenheim
+1R18W: 1. FC Union Berlin
+1R18L: Eintracht Braunschweig
+1R19W: 1. FSV Mainz 05
+1R19L: VfB Krieschow
+1R20W: 1. FC Magdeburg
+1R20L: Bahlinger SC
+1R21W: Borussia Mönchengladbach
+1R21L: TSV Schott Mainz
+1R22W: SV Darmstadt 98
+1R22L: FC Carl Zeiss Jena
+1R23W: Dynamo Dresden
+1R23L: Westfalia Rhynern
+1R24W: SC Freiburg
+1R24L: Fortuna Düsseldorf
+1R25W: Rot-Weiss Essen
+1R25L: FC St. Pauli
+1R26W: SC Paderborn
+1R26L: 1. FC Phönix Lübeck
+1R27W: 1. FC Köln
+1R27L: Würzburger Kickers
+1R28W: VfL Wolfsburg
+1R28L: VSG Altglienicke
+1R29W: Hamburger SV
+1R29L: SC Verl
+1R30W: FC Schalke 04
+1R30L: Hallescher FC
 1R31W: Hamburg-Eimsbütteler BC vs. Borussia Dortmund
 1R31L: Hamburg-Eimsbütteler BC vs. Borussia Dortmund
 1R32W: VfL Osnabrück vs. Bayern München
