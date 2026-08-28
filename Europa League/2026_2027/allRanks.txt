@@ -54,27 +54,27 @@ Q312W: FC Thun
 Q312L: Víkingur Reykjavík
 Q313W: Benfica Lissabon
 Q313L: Heart of Midlothian
-PO01W: Qairat Almaty vs. RSC Anderlecht
-PO01L: Qairat Almaty vs. RSC Anderlecht
-PO02W: Jagiellonia Bialystok vs. FC Iberia 1999
-PO02L: Jagiellonia Bialystok vs. FC Iberia 1999
-PO03W: Mjällby AIF vs. FC Salzburg
-PO03L: Mjällby AIF vs. FC Salzburg
-PO04W: Trabzonspor vs. Ferencváros Budapest
-PO04L: Trabzonspor vs. Ferencváros Budapest
-PO05W: KF Egnatia vs. Lillestrøm SK
-PO05L: KF Egnatia vs. Lillestrøm SK
-PO06W: CSU Craiova vs. FC Ararat-Armenia
-PO06L: CSU Craiova vs. FC Ararat-Armenia
-PO07W: Besiktas Istanbul vs. FK Kauno Zalgiris
-PO07L: Besiktas Istanbul vs. FK Kauno Zalgiris
-PO08W: Lech Posen vs. FC Thun
-PO08L: Lech Posen vs. FC Thun
-PO09W: VV St. Truiden vs. Omonia Nikosia
-PO09L: VV St. Truiden vs. Omonia Nikosia
-PO10W: OFI Kreta vs. ZSKA Sofia
-PO10L: OFI Kreta vs. ZSKA Sofia
-PO11W: Roter Stern Belgrad vs. Viktoria Pilsen
-PO11L: Roter Stern Belgrad vs. Viktoria Pilsen
-PO12W: Benfica Lissabon vs. Aarhus GF
-PO12L: Benfica Lissabon vs. Aarhus GF
+PO01W: RSC Anderlecht
+PO01L: Qairat Almaty
+PO02W: Jagiellonia Bialystok
+PO02L: FC Iberia 1999
+PO03W: FC Salzburg
+PO03L: Mjällby AIF
+PO04W: Ferencváros Budapest
+PO04L: Trabzonspor
+PO05W: Lillestrøm SK
+PO05L: KF Egnatia
+PO06W: FC Ararat-Armenia
+PO06L: CSU Craiova
+PO07W: Besiktas Istanbul
+PO07L: FK Kauno Zalgiris
+PO08W: Lech Posen
+PO08L: FC Thun
+PO09W: Omonia Nikosia
+PO09L: VV St. Truiden
+PO10W: OFI Kreta
+PO10L: ZSKA Sofia
+PO11W: Viktoria Pilsen
+PO11L: Roter Stern Belgrad
+PO12W: Benfica Lissabon
+PO12L: Aarhus GF

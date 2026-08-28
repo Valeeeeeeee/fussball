@@ -74,17 +74,17 @@ Q309W: Sabah FK
 Q309L: Aarhus GF
 Q310W: Fenerbahce Istanbul
 Q310L: Sturm Graz
-PO01W: Lewski Sofia vs. AEK Athen
-PO01L: Lewski Sofia vs. AEK Athen
-PO02W: Dinamo Zagreb vs. Viking Stavanger
-PO02L: Dinamo Zagreb vs. Viking Stavanger
-PO03W: Fenerbahce Istanbul vs. Olympique Lyon
-PO03L: Fenerbahce Istanbul vs. Olympique Lyon
-PO04W: Celtic Glasgow vs. Linzer ASK
-PO04L: Celtic Glasgow vs. Linzer ASK
-PO05W: Slovan Bratislava vs. NK Celje
-PO05L: Slovan Bratislava vs. NK Celje
-PO06W: Hapoel Be'er Scheva vs. Sabah FK
-PO06L: Hapoel Be'er Scheva vs. Sabah FK
-PO07W: NEC Nijmegen vs. FK Bodø/Glimt
-PO07L: NEC Nijmegen vs. FK Bodø/Glimt
+PO01W: AEK Athen
+PO01L: Lewski Sofia
+PO02W: Viking Stavanger
+PO02L: Dinamo Zagreb
+PO03W: Fenerbahce Istanbul
+PO03L: Olympique Lyon
+PO04W: Linzer ASK
+PO04L: Celtic Glasgow
+PO05W: Slovan Bratislava
+PO05L: NK Celje
+PO06W: Sabah FK
+PO06L: Hapoel Be'er Scheva
+PO07W: FK Bodø/Glimt
+PO07L: NEC Nijmegen
