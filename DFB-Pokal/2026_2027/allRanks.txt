@@ -58,10 +58,10 @@
 1R29L: SC Verl
 1R30W: FC Schalke 04
 1R30L: Hallescher FC
-1R31W: Hamburg-Eimsbütteler BC vs. Borussia Dortmund
-1R31L: Hamburg-Eimsbütteler BC vs. Borussia Dortmund
-1R32W: VfL Osnabrück vs. Bayern München
-1R32L: VfL Osnabrück vs. Bayern München
+1R31W: Borussia Dortmund
+1R31L: Hamburg-Eimsbütteler BC
+1R32W: Bayern München
+1R32L: VfL Osnabrück
 2R01W: DPOK20262R01W
 2R01L: DPOK20262R01L
 2R02W: DPOK20262R02W
