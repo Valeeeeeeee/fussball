@@ -62,38 +62,38 @@
 1R31L: Hamburg-Eimsbütteler BC
 1R32W: Bayern München
 1R32L: VfL Osnabrück
-2R01W: SG Sonnenhof Großaspach vs. FC Augsburg
-2R01L: SG Sonnenhof Großaspach vs. FC Augsburg
-2R02W: VfL Bochum vs. 1. FSV Mainz 05
-2R02L: VfL Bochum vs. 1. FSV Mainz 05
-2R03W: Rot-Weiss Essen vs. RasenBallsport Leipzig
-2R03L: Rot-Weiss Essen vs. RasenBallsport Leipzig
-2R04W: Hamburger SV vs. Eintracht Frankfurt
-2R04L: Hamburger SV vs. Eintracht Frankfurt
-2R05W: SV Elversberg vs. SV Darmstadt 98
-2R05L: SV Elversberg vs. SV Darmstadt 98
-2R06W: Borussia Mönchengladbach vs. Karlsruher SC
-2R06L: Borussia Mönchengladbach vs. Karlsruher SC
-2R07W: 1. FC Köln vs. 1. FC Union Berlin
-2R07L: 1. FC Köln vs. 1. FC Union Berlin
-2R08W: Borussia Dortmund vs. Werder Bremen
-2R08L: Borussia Dortmund vs. Werder Bremen
-2R09W: SSV Jeddeloh II vs. Hertha BSC
-2R09L: SSV Jeddeloh II vs. Hertha BSC
-2R10W: Dynamo Dresden vs. FC Schalke 04
-2R10L: Dynamo Dresden vs. FC Schalke 04
-2R11W: SC Freiburg vs. VfL Wolfsburg
-2R11L: SC Freiburg vs. VfL Wolfsburg
-2R12W: SC Paderborn vs. VfB Stuttgart
-2R12L: SC Paderborn vs. VfB Stuttgart
-2R13W: Bayer 04 Leverkusen vs. 1. FC Nürnberg
-2R13L: Bayer 04 Leverkusen vs. 1. FC Nürnberg
-2R14W: Hannover 96 vs. 1. FC Kaiserslautern
-2R14L: Hannover 96 vs. 1. FC Kaiserslautern
-2R15W: Holstein Kiel vs. TSG 1899 Hoffenheim
-2R15L: Holstein Kiel vs. TSG 1899 Hoffenheim
-2R16W: Bayern München vs. 1. FC Magdeburg
-2R16L: Bayern München vs. 1. FC Magdeburg
+2R01W: FC Augsburg
+2R01L: SG Sonnenhof Großaspach
+2R02W: VfL Bochum
+2R02L: 1. FSV Mainz 05
+2R03W: RasenBallsport Leipzig
+2R03L: Rot-Weiss Essen
+2R04W: Eintracht Frankfurt
+2R04L: Hamburger SV
+2R05W: SV Darmstadt 98
+2R05L: SV Elversberg
+2R06W: Borussia Mönchengladbach
+2R06L: Karlsruher SC
+2R07W: 1. FC Köln
+2R07L: 1. FC Union Berlin
+2R08W: Borussia Dortmund
+2R08L: Werder Bremen
+2R09W: Hertha BSC
+2R09L: SSV Jeddeloh II
+2R10W: Dynamo Dresden
+2R10L: FC Schalke 04
+2R11W: SC Freiburg
+2R11L: VfL Wolfsburg
+2R12W: VfB Stuttgart
+2R12L: SC Paderborn
+2R13W: Bayer 04 Leverkusen
+2R13L: 1. FC Nürnberg
+2R14W: 1. FC Kaiserslautern
+2R14L: Hannover 96
+2R15W: Holstein Kiel
+2R15L: TSG 1899 Hoffenheim
+2R16W: Bayern München
+2R16L: 1. FC Magdeburg
 AF01W: DPOK2026AF01W
 AF01L: DPOK2026AF01L
 AF02W: DPOK2026AF02W
