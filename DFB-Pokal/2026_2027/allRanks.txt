@@ -94,22 +94,22 @@
 2R15L: TSG 1899 Hoffenheim
 2R16W: Bayern München
 2R16L: 1. FC Magdeburg
-AF01W: VfL Bochum vs. FC Augsburg
-AF01L: VfL Bochum vs. FC Augsburg
-AF02W: Eintracht Frankfurt vs. Borussia Dortmund
-AF02L: Eintracht Frankfurt vs. Borussia Dortmund
+AF01W: VfB Stuttgart vs. Dynamo Dresden
+AF01L: VfB Stuttgart vs. Dynamo Dresden
+AF02W: Holstein Kiel vs. 1. FC Köln
+AF02L: Holstein Kiel vs. 1. FC Köln
 AF03W: Borussia Mönchengladbach vs. SV Darmstadt 98
 AF03L: Borussia Mönchengladbach vs. SV Darmstadt 98
-AF04W: VfB Stuttgart vs. Dynamo Dresden
-AF04L: VfB Stuttgart vs. Dynamo Dresden
+AF04W: Bayern München vs. Hertha BSC
+AF04L: Bayern München vs. Hertha BSC
 AF05W: Bayer 04 Leverkusen vs. RasenBallsport Leipzig
 AF05L: Bayer 04 Leverkusen vs. RasenBallsport Leipzig
 AF06W: 1. FC Kaiserslautern vs. SC Freiburg
 AF06L: 1. FC Kaiserslautern vs. SC Freiburg
-AF07W: Holstein Kiel vs. 1. FC Köln
-AF07L: Holstein Kiel vs. 1. FC Köln
-AF08W: Bayern München vs. Hertha BSC
-AF08L: Bayern München vs. Hertha BSC
+AF07W: VfL Bochum vs. FC Augsburg
+AF07L: VfL Bochum vs. FC Augsburg
+AF08W: Eintracht Frankfurt vs. Borussia Dortmund
+AF08L: Eintracht Frankfurt vs. Borussia Dortmund
 VF01W: DPOK2026VF01W
 VF01L: DPOK2026VF01L
 VF02W: DPOK2026VF02W
